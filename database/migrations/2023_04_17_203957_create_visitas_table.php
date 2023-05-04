@@ -18,7 +18,7 @@ class CreateVisitasTable extends Migration
             $table->unsignedBigInteger('id_mascota');
             $table->foreign('id_mascota')->references('id')->on('mascotas')->onDelete('cascade');
             $table->date('fecha_visita');
-            $table->time('hora_visita');
+            $table->time('hora_visita')->nullable();
             $table->string('veterinario');
             $table->text('sintomas')->nullable();
             $table->text('diagnostico')->nullable();

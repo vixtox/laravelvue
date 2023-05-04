@@ -13,24 +13,24 @@
                     <div class="card-body">
                         <div class="row">
                             <!-- Campos de datos personales aquí -->
-                            <div class="col-md-3">
+                            <div class="col-md-3 col-sm-6">
                                 <label for="nombre"><b>Nombre:</b></label>
                                 <input type="text" class="form-control" required name="nombre" v-model="cliente.nombre"
                                     id="nombre" aria-describedby="helpId" placeholder="Nombre">
                             </div>
-                            <div class="col-md-3">
+                            <div class="col-md-3 col-sm-6">
                                 <label for="apellidos"><b>Apellidos:</b></label>
                                 <input type="text" class="form-control" required name="apellidos"
                                     v-model="cliente.apellidos" id="apellidos" aria-describedby="helpId"
                                     placeholder="Apellidos">
                             </div>
-                            <div class="col-md-3">
+                            <div class="col-md-3 col-sm-6">
                                 <label for="documento_identidad"><b>NIF/CIF:</b></label>
                                 <input type="text" class="form-control" name="documento_identidad"
                                     v-model="cliente.documento_identidad" id="documento_identidad" aria-describedby="helpId"
                                     placeholder="Nº Documento">
                             </div>
-                            <div class="col-md-3">
+                            <div class="col-md-3 col-sm-6">
                                 <label for="fecha_nacimiento"><b>Fecha nacimiento:</b></label>
                                 <input type="date" class="form-control" name="fecha_nacimiento"
                                     v-model="cliente.fecha_nacimiento" id="fecha_nacimiento" aria-describedby="helpId">
@@ -46,19 +46,19 @@
                     <div class="card-body">
                         <div class="row">
                             <!-- Campos de dirección aquí -->
-                            <div class="col-md-3">
+                            <div class="col-md-3 col-sm-6">
                                 <label for="domicilio"><b>Domicilio:</b></label>
                                 <input type="text" class="form-control" required name="domicilio"
                                     v-model="cliente.domicilio" id="domicilio" aria-describedby="helpId"
                                     placeholder="Domicilio">
                             </div>
 
-                            <div class="col-md-3">
+                            <div class="col-md-3 col-sm-6">
                                 <label for="codigo_postal"><b>Código postal:</b></label>
                                 <input type="text" class="form-control" name="codigo_postal" v-model="cliente.codigo_postal" id="codigo_postal"
                                     aria-describedby="helpId" placeholder="Código postal">
                             </div>
-                            <div class="col-md-3">
+                            <div class="col-md-3 col-sm-6">
                                 <label for="provincia"><b>Provincia:</b></label>
                                 <select class="form-select" id="provincia" v-model="cliente.provincia"
                                     v-on:change="consultar_municipio()" required>
@@ -69,7 +69,7 @@
                                     </option>
                                 </select>
                             </div>
-                            <div class="col-md-3">
+                            <div class="col-md-3 col-sm-6">
                                 <label for="municipio"><b>Municipio:</b></label>
                                 <select class="form-select" id="municipio" v-model="cliente.municipio" required>
                                     <option disabled value="">Selecciona un municipio</option>
@@ -90,13 +90,13 @@
                     <div class="card-body">
                         <div class="row">
                             <!-- Campos de datos de contacto aquí -->
-                            <div class="col-md-3">
+                            <div class="col-md-3 col-sm-6">
                                 <label for="telefono"><b>Teléfono:</b></label>
                                 <input type="telefono" class="form-control" required name="telefono"
                                     v-model="cliente.telefono" id="telefono" aria-describedby="helpId"
                                     placeholder="Teléfono">
                             </div>
-                            <div class="col-md-3">
+                            <div class="col-md-3 col-sm-6">
                                 <label for="email"><b>Email:</b></label>
                                 <input type="email" class="form-control" required name="email" v-model="cliente.email"
                                     id="email" aria-describedby="helpId" placeholder="Email">
@@ -167,9 +167,10 @@ export default {
             // Cambiamos el valor de cliente.provincia de id a nombre
             this.cliente.provincia_nombre = provincia.provincia;
 
-            const apiUrl = window.location.origin + '/proyecto/public/';
+            // const apiUrl = window.location.origin + '/proyecto/public/';
 
-            fetch(apiUrl + 'clientes', {
+            // fetch(apiUrl + 'clientes', {
+                fetch('clientes', {
                 method: 'POST',
                 headers: {
                     'Content-Type': 'application/json',

@@ -14,8 +14,8 @@ class ClienteController extends Controller
      */
     public function index()
     {
-        //
-        $clientes = Cliente::paginate(5);
+        
+        $clientes = Cliente::where('estado', 'Alta')->paginate(5);
     
         return response()->json([
             'clientes' => $clientes->items(),

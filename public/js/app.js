@@ -5357,8 +5357,11 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
       });
       // Cambiamos el valor de cliente.provincia de id a nombre
       this.cliente.provincia_nombre = provincia.provincia;
-      var apiUrl = window.location.origin + '/proyecto/public/';
-      fetch(apiUrl + 'clientes', {
+
+      // const apiUrl = window.location.origin + '/proyecto/public/';
+
+      // fetch(apiUrl + 'clientes', {
+      fetch('clientes', {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',
@@ -5474,21 +5477,26 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var axios__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! axios */ "./node_modules/axios/index.js");
 /* harmony import */ var axios__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(axios__WEBPACK_IMPORTED_MODULE_0__);
 /* harmony import */ var _Paginacion_vue__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./Paginacion.vue */ "./resources/js/components/Paginacion.vue");
+Object(function webpackMissingModule() { var e = new Error("Cannot find module 'bootstrap-vue'"); e.code = 'MODULE_NOT_FOUND'; throw e; }());
+
 
 
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ({
   components: {
-    Paginacion: _Paginacion_vue__WEBPACK_IMPORTED_MODULE_1__["default"]
+    Paginacion: _Paginacion_vue__WEBPACK_IMPORTED_MODULE_1__["default"],
+    BButton: Object(function webpackMissingModule() { var e = new Error("Cannot find module 'bootstrap-vue'"); e.code = 'MODULE_NOT_FOUND'; throw e; }()),
+    BModal: Object(function webpackMissingModule() { var e = new Error("Cannot find module 'bootstrap-vue'"); e.code = 'MODULE_NOT_FOUND'; throw e; }())
   },
   data: function data() {
     return {
       clientes: [],
       currentPage: 1,
-      totalPages: 2 // aquí debes usar el número total de páginas que correspondan a tu caso específico
+      totalPages: 2,
+      // aquí debes usar el número total de páginas que correspondan a tu caso específico
       // url: process.env.MIX_APP_URL,
+      clienteToDelete: null
     };
   },
-
   methods: {
     pageChanged: function pageChanged(page) {
       this.getClientes(page);
@@ -5496,11 +5504,32 @@ __webpack_require__.r(__webpack_exports__);
     getClientes: function getClientes() {
       var _this = this;
       var page = arguments.length > 0 && arguments[0] !== undefined ? arguments[0] : 1;
-      var apiUrl = window.location.origin + '/proyecto/public/';
-      axios__WEBPACK_IMPORTED_MODULE_0___default().get(apiUrl + 'clientes?page=' + page).then(function (response) {
+      // const apiUrl = window.location.origin + '/proyecto/public/';
+
+      // axios.get(apiUrl + 'clientes?page=' + page)
+      axios__WEBPACK_IMPORTED_MODULE_0___default().get("clientes?page=" + page).then(function (response) {
         _this.clientes = response.data.clientes;
         _this.currentPage = response.data.currentPage;
         _this.totalPages = response.data.lastPage;
+      })["catch"](function (error) {
+        console.error(error);
+      });
+    },
+    showModal: function showModal(cliente) {
+      this.clienteToDelete = cliente;
+      this.$refs.modal.show();
+    },
+    hideModal: function hideModal() {
+      this.clienteToDelete = null;
+      this.$refs.modal.hide();
+    },
+    deleteCliente: function deleteCliente(cliente) {
+      var _this2 = this;
+      axios__WEBPACK_IMPORTED_MODULE_0___default()["delete"]("clientes/".concat(cliente.id)).then(function (response) {
+        // Si la eliminación fue exitosa, actualizamos la lista de clientes
+        _this2.getClientes();
+        // Cerramos el modal
+        _this2.closeModal();
       })["catch"](function (error) {
         console.error(error);
       });
@@ -5591,7 +5620,7 @@ var render = function render() {
   }, [_c("div", {
     staticClass: "row"
   }, [_c("div", {
-    staticClass: "col-md-3"
+    staticClass: "col-md-3 col-sm-6"
   }, [_vm._m(2), _vm._v(" "), _c("input", {
     directives: [{
       name: "model",
@@ -5618,7 +5647,7 @@ var render = function render() {
       }
     }
   })]), _vm._v(" "), _c("div", {
-    staticClass: "col-md-3"
+    staticClass: "col-md-3 col-sm-6"
   }, [_vm._m(3), _vm._v(" "), _c("input", {
     directives: [{
       name: "model",
@@ -5645,7 +5674,7 @@ var render = function render() {
       }
     }
   })]), _vm._v(" "), _c("div", {
-    staticClass: "col-md-3"
+    staticClass: "col-md-3 col-sm-6"
   }, [_vm._m(4), _vm._v(" "), _c("input", {
     directives: [{
       name: "model",
@@ -5671,7 +5700,7 @@ var render = function render() {
       }
     }
   })]), _vm._v(" "), _c("div", {
-    staticClass: "col-md-3"
+    staticClass: "col-md-3 col-sm-6"
   }, [_vm._m(5), _vm._v(" "), _c("input", {
     directives: [{
       name: "model",
@@ -5702,7 +5731,7 @@ var render = function render() {
   }, [_c("div", {
     staticClass: "row"
   }, [_c("div", {
-    staticClass: "col-md-3"
+    staticClass: "col-md-3 col-sm-6"
   }, [_vm._m(7), _vm._v(" "), _c("input", {
     directives: [{
       name: "model",
@@ -5729,7 +5758,7 @@ var render = function render() {
       }
     }
   })]), _vm._v(" "), _c("div", {
-    staticClass: "col-md-3"
+    staticClass: "col-md-3 col-sm-6"
   }, [_vm._m(8), _vm._v(" "), _c("input", {
     directives: [{
       name: "model",
@@ -5755,7 +5784,7 @@ var render = function render() {
       }
     }
   })]), _vm._v(" "), _c("div", {
-    staticClass: "col-md-3"
+    staticClass: "col-md-3 col-sm-6"
   }, [_vm._m(9), _vm._v(" "), _c("select", {
     directives: [{
       name: "model",
@@ -5794,7 +5823,7 @@ var render = function render() {
       }
     }, [_vm._v("\n                                    " + _vm._s(provincia.provincia) + "\n                                ")]);
   })], 2)]), _vm._v(" "), _c("div", {
-    staticClass: "col-md-3"
+    staticClass: "col-md-3 col-sm-6"
   }, [_vm._m(10), _vm._v(" "), _c("select", {
     directives: [{
       name: "model",
@@ -5837,7 +5866,7 @@ var render = function render() {
   }, [_c("div", {
     staticClass: "row"
   }, [_c("div", {
-    staticClass: "col-md-3"
+    staticClass: "col-md-3 col-sm-6"
   }, [_vm._m(12), _vm._v(" "), _c("input", {
     directives: [{
       name: "model",
@@ -5864,7 +5893,7 @@ var render = function render() {
       }
     }
   })]), _vm._v(" "), _c("div", {
-    staticClass: "col-md-3"
+    staticClass: "col-md-3 col-sm-6"
   }, [_vm._m(13), _vm._v(" "), _c("input", {
     directives: [{
       name: "model",
@@ -6101,13 +6130,48 @@ var render = function render() {
     staticClass: "card-body"
   }, [_c("div", {
     staticClass: "row"
+  }, [_c("div", {
+    staticClass: "table-responsive"
   }, [_c("table", {
-    staticClass: "table table-striped"
-  }, [_vm._m(1), _vm._v(" "), _c("tbody", _vm._l(_vm.clientes, function (cliente) {
+    staticClass: "table table-striped table-sm"
+  }, [_vm._m(1), _vm._v(" "), _c("tbody", {
+    staticClass: "flex-column"
+  }, _vm._l(_vm.clientes, function (cliente) {
     return _c("tr", {
       key: cliente.id
-    }, [_c("td", [_vm._v(_vm._s(cliente.nombre_apellidos))]), _vm._v(" "), _c("td", [_vm._v(_vm._s(cliente.documento_identidad))]), _vm._v(" "), _c("td", [_vm._v(_vm._s(cliente.municipio))]), _vm._v(" "), _c("td", [_vm._v(_vm._s(cliente.provincia_nombre))]), _vm._v(" "), _c("td", [_vm._v(_vm._s(cliente.telefono))]), _vm._v(" "), _c("td", [_vm._v(_vm._s(cliente.email))]), _vm._v(" "), _c("td")]);
-  }), 0)])])]), _vm._v(" "), _c("div", [_c("paginacion", {
+    }, [_c("td", [_vm._v(_vm._s(cliente.nombre_apellidos))]), _vm._v(" "), _c("td", [_vm._v(_vm._s(cliente.municipio))]), _vm._v(" "), _c("td", [_vm._v(_vm._s(cliente.provincia_nombre))]), _vm._v(" "), _c("td", [_vm._v(_vm._s(cliente.telefono))]), _vm._v(" "), _c("td", [_c("b-button", {
+      on: {
+        click: function click($event) {
+          return _vm.showModal(cliente);
+        }
+      }
+    }, [_vm._v("Borrar")])], 1)]);
+  }), 0)])])])]), _vm._v(" "), _c("b-modal", {
+    ref: "modal",
+    attrs: {
+      "hide-footer": ""
+    }
+  }, [_c("div", {
+    staticClass: "d-block text-center"
+  }, [_c("p", [_vm._v("¿Está seguro de que desea borrar al cliente?")]), _vm._v(" "), _c("b-button", {
+    attrs: {
+      variant: "primary"
+    },
+    on: {
+      click: function click($event) {
+        return _vm.deleteCliente();
+      }
+    }
+  }, [_vm._v("Sí")]), _vm._v(" "), _c("b-button", {
+    attrs: {
+      variant: "secondary"
+    },
+    on: {
+      click: function click($event) {
+        return _vm.hideModal();
+      }
+    }
+  }, [_vm._v("No")])], 1)]), _vm._v(" "), _c("div", [_c("paginacion", {
     attrs: {
       "current-page": _vm.currentPage,
       "total-pages": _vm.totalPages
@@ -6115,7 +6179,7 @@ var render = function render() {
     on: {
       pageChanged: _vm.pageChanged
     }
-  })], 1)]);
+  })], 1)], 1);
 };
 var staticRenderFns = [function () {
   var _vm = this,
@@ -6136,10 +6200,6 @@ var staticRenderFns = [function () {
     attrs: {
       scope: "col"
     }
-  }, [_vm._v("NIF/CIF")]), _vm._v(" "), _c("th", {
-    attrs: {
-      scope: "col"
-    }
   }, [_vm._v("Municipio")]), _vm._v(" "), _c("th", {
     attrs: {
       scope: "col"
@@ -6149,10 +6209,6 @@ var staticRenderFns = [function () {
       scope: "col"
     }
   }, [_vm._v("Teléfono")]), _vm._v(" "), _c("th", {
-    attrs: {
-      scope: "col"
-    }
-  }, [_vm._v("Email")]), _vm._v(" "), _c("th", {
     attrs: {
       scope: "col"
     }

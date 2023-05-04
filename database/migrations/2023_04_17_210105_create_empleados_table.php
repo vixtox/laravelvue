@@ -23,8 +23,8 @@ class CreateEmpleadosTable extends Migration
             $table->string('provincia', 50);
             $table->string('telefono', 20);
             $table->string('email', 100);
-            $table->date('fecha_contratacion');
-            $table->decimal('salario', 10, 2);
+            $table->date('fecha_contratacion')->nullable();
+            $table->decimal('salario', 10, 2)->nullable();
             $table->string('cargo', 50);
             $table->timestamps();
         });
