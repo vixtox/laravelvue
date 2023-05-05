@@ -26,6 +26,7 @@ class CreateMascotasTable extends Migration
             $table->date('fecha_nacimiento')->nullable();
             $table->date('fecha_baja')->nullable();
             $table->string('causa_baja')->nullable();
+            $table->timestamp('deleted_at')->nullable();
             $table->timestamps();
 
             $table->unsignedBigInteger('cliente_id');

@@ -19,6 +19,7 @@ class CreateRecordatoriosTable extends Migration
             $table->foreign('id_mascota')->references('id')->on('mascotas')->onDelete('cascade');
             $table->string('vacuna');
             $table->date('fecha');
+            $table->timestamp('deleted_at')->nullable();
             $table->timestamps();
         });
     }

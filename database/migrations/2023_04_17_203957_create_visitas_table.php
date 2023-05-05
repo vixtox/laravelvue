@@ -24,6 +24,7 @@ class CreateVisitasTable extends Migration
             $table->text('diagnostico')->nullable();
             $table->text('tratamiento')->nullable();
             $table->decimal('coste', 10, 2)->nullable();
+            $table->timestamp('deleted_at')->nullable();
             $table->timestamps();
         });
     }

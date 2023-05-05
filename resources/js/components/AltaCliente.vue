@@ -139,7 +139,6 @@ export default {
                 provincia_nombre: "",
                 telefono: "",
                 email: "",
-                estado: "Alta",
 
             },
             provincias: [],
@@ -186,8 +185,7 @@ export default {
                     provincia: this.cliente.provincia,
                     provincia_nombre: this.cliente.provincia_nombre,
                     telefono: this.cliente.telefono,
-                    email: this.cliente.email,
-                    estado: this.cliente.estado
+                    email: this.cliente.email
                 })
             })
                 .then(response => {

@@ -26,6 +26,7 @@ class CreateEmpleadosTable extends Migration
             $table->date('fecha_contratacion')->nullable();
             $table->decimal('salario', 10, 2)->nullable();
             $table->string('cargo', 50);
+            $table->timestamp('deleted_at')->nullable();
             $table->timestamps();
         });
     }

@@ -14,9 +14,10 @@ class ClienteController extends Controller
      */
     public function index()
     {
-        
-        $clientes = Cliente::where('estado', 'Alta')->paginate(5);
-    
+
+        $clientes = Cliente::where('deleted_at', NULL)->paginate(5);
+
+
         return response()->json([
             'clientes' => $clientes->items(),
             'currentPage' => $clientes->currentPage(),
@@ -89,5 +90,25 @@ class ClienteController extends Controller
     public function destroy($id)
     {
         //
+        $cliente = Cliente::find($id);
+        if ($cliente) {
+            $cliente->delete();
+            return response()->json(['message' => 'El cliente ha sido eliminado correctamente.']);
+        } else {
+            return response()->json(['message' => 'El cliente no existe.'], 404);
+        }
     }
+
+    public function restore($id)
+    {
+        $cliente = Cliente::withTrashed()->find($id);
+        if ($cliente) {
+            $cliente->restore();
+            return response()->json(['message' => 'El cliente ha sido restaurado correctamente.']);
+        } else {
+            return response()->json(['message' => 'El cliente no existe.'], 404);
+        }
+    }
+
+    
 }

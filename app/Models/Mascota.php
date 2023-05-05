@@ -3,11 +3,12 @@
 namespace App\Models;
 
 use Illuminate\Database\Eloquent\Factories\HasFactory;
+use Illuminate\Database\Eloquent\SoftDeletes;
 use Illuminate\Database\Eloquent\Model;
 
 class Mascota extends Model
 {
-    use HasFactory;
+    use HasFactory, SoftDeletes;
 
     protected $fillable = [
         'nombre',
@@ -22,7 +23,8 @@ class Mascota extends Model
         'fecha_nacimiento',
         'fecha_alta',
         'fecha_baja',
-        'causa_baja'
+        'causa_baja',
+        'deleted_at'
     ];
     
 

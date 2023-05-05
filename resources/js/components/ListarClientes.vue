@@ -23,7 +23,7 @@
                                 <td>{{ cliente.provincia_nombre }}</td>
                                 <td>{{ cliente.telefono }}</td>
                                 <td>
-                                    <b-button @click="showModal(cliente)">Borrar</b-button>
+                                    <button class="btn bg-danger" @click="borrarCliente(cliente.id)" title="Borrar"><i class="fa-solid fa-user-xmark" style="color: #ffffff;"></i></button>
                                 </td>
                             </tr>
                         </tbody>
@@ -31,93 +31,84 @@
                 </div>
             </div>
         </div>
-        <b-modal ref="modal" hide-footer>
-            <div class="d-block text-center">
-                <p>¿Está seguro de que desea borrar al cliente?</p>
-                <b-button variant="primary" @click="deleteCliente()">Sí</b-button>
-                <b-button variant="secondary" @click="hideModal()">No</b-button>
-            </div>
-        </b-modal>
         <div>
             <paginacion :current-page="currentPage" :total-pages="totalPages" @pageChanged="pageChanged"></paginacion>
         </div>
+        <b-modal v-model="showModal" title="Confirmación" hide-footer>
+            <p  v-for="cliente in clientes" :key="cliente.id">¿Estás seguro de que quieres borrar a {{ cliente.nombre_apellidos }}?</p>
+            <div class="d-flex justify-content-end">
+                <b-button variant="secondary" class="mr-2" @click="showModal = false">Cancelar</b-button>
+                <b-button variant="danger" @click="deleteCliente">Borrar</b-button>
+            </div>
+        </b-modal>
     </div>
 </template>
  
 <script>
-import axios from "axios";
-import Paginacion from "./Paginacion.vue";
-import { BButton, BModal } from "bootstrap-vue";
+
+import axios from 'axios';
+import Paginacion from './Paginacion.vue';
+import { BModal, BButton } from 'bootstrap-vue'
 
 export default {
-  components: {
-    Paginacion,
-    BButton,
-    BModal,
-  },
-  data() {
-    return {
-      clientes: [],
-      currentPage: 1,
-      totalPages: 2, // aquí debes usar el número total de páginas que correspondan a tu caso específico
-      // url: process.env.MIX_APP_URL,
-      clienteToDelete: null,
-    };
-  },
-  methods: {
-    pageChanged(page) {
-      this.getClientes(page);
+    components: {
+        Paginacion,
+        BModal,
+        BButton
     },
-
-    getClientes(page = 1) {
-      // const apiUrl = window.location.origin + '/proyecto/public/';
-
-      // axios.get(apiUrl + 'clientes?page=' + page)
-      axios
-        .get("clientes?page=" + page)
-        .then((response) => {
-          this.clientes = response.data.clientes;
-          this.currentPage = response.data.currentPage;
-          this.totalPages = response.data.lastPage;
-        })
-        .catch((error) => {
-          console.error(error);
-        });
+    data() {
+        return {
+            clientes: [],
+            currentPage: 1,
+            totalPages: 2, // aquí debes usar el número total de páginas que correspondan a tu caso específico
+            // url: process.env.MIX_APP_URL,
+            showModal: false,
+            clienteToDelete: null
+        }
     },
+    methods: {
+        borrarCliente(id) {
+            this.showModal = true;
+            this.clienteToDelete = id;
+        },
 
-    showModal(cliente) {
-      this.clienteToDelete = cliente;
-      this.$refs.modal.show();
-    },
+        deleteCliente() {
+            axios.delete('clientes/' + this.clienteToDelete)
+                .then(response => {
+                    this.showModal = false;
+                    this.getClientes();
+                })
+                .catch(error => {
+                    console.error(error);
+                });
+        },
 
-    hideModal() {
-      this.clienteToDelete = null;
-      this.$refs.modal.hide();
-    },
+        pageChanged(page) {
+            this.getClientes(page);
+        },
 
-    deleteCliente(cliente) {
-        axios.delete(`clientes/${cliente.id}`)
-            .then(response => {
-                // Si la eliminación fue exitosa, actualizamos la lista de clientes
-                this.getClientes();
-                // Cerramos el modal
-                this.closeModal();
-            })
-            .catch(error => {
-                console.error(error);
-            });
+        getClientes(page = 1) {
+            axios.get('clientes?page=' + page)
+                .then(response => {
+                    this.clientes = response.data.clientes;
+                    this.currentPage = response.data.currentPage;
+                    this.totalPages = response.data.lastPage;
+                })
+                .catch(error => {
+                    console.error(error);
+                });
+        },
+
     },
-},
 
     created() {
-
         this.getClientes();
         const token = document.querySelector('meta[name="csrf-token"]');
         if (token) {
             this.csrfToken = token.content;
         }
-
     }
+
 }
 
 </script>

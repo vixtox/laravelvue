@@ -25,7 +25,7 @@ class CreateClientesTable extends Migration
             $table->string('provincia_nombre')->nullable();
             $table->string('telefono');
             $table->string('email');
-            $table->string('estado');
+            $table->timestamp('deleted_at')->nullable();
             $table->timestamps();
         });
     }
