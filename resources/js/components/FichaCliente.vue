@@ -3,9 +3,9 @@
 
         <div class="card">
             <div class="card-header bg-dark text-light">
-                <h2 class="card-title">Alta cliente</h2>
+                <h2 class="card-title">Ficha cliente</h2>
             </div>
-            <form v-on:submit.prevent="altaCliente">
+            <form v-on:submit.prevent="editarCliente">
                 <div class="card">
                     <div class="card-header">
                         <h5 class="card-title">Datos personales</h5>
@@ -60,7 +60,7 @@
                             <div class="col-md-3 col-sm-6">
                                 <label for="provincia"><b>Provincia:</b></label>
                                 <select class="form-select" id="provincia" v-model="cliente.provincia"
-                                    v-on:change="consultar_municipio()">
+                                    v-on:change="consultar_municipio(true)">
                                     <option disabled value="">Selecciona una provincia</option>
                                     <option v-for="provincia in provincias" :value="provincia.id"
                                         :key="provincia.provincia">
@@ -72,7 +72,8 @@
                             </div>
                             <div class="col-md-3 col-sm-6">
                                 <label for="municipio"><b>Municipio:</b></label>
-                                <select class="form-select" id="municipio" v-model="cliente.municipio">
+                                <select class="form-select" id="municipio" v-model="cliente.municipio"
+                                    v-on:change="get_nombre_municipio()">
                                     <option disabled value="">Selecciona un municipio</option>
                                     <option v-for="municipio in localidades" :value="municipio.id"
                                         :key="municipio.municipio">
@@ -84,7 +85,6 @@
                         </div>
                     </div>
                 </div>
-
                 <div class="card">
                     <div class="card-header">
                         <h5 class="card-title">Datos de contacto</h5>
@@ -110,7 +110,7 @@
 
                 <div class="btn-group w-100" role="group" aria-label="">
                     <button type="submit" class="btn btn-success">
-                        <i class="bi bi-person-add"></i>
+                        Guardar
                     </button>
 
                     <router-link :to="{ name: 'ExampleComponent' }" class="btn btn-warning">
@@ -142,15 +142,17 @@ export default {
                 provincia_nombre: "",
                 telefono: "",
                 email: "",
-
             },
             provincias: [],
             localidades: [],
             errores: {},
+            id: this.$route.params.id,
         };
     },
 
     created() {
+        console.log(this.id)
+        this.obtenerInformacionID(this.id);
         const token = document.querySelector('meta[name="csrf-token"]');
         if (token) {
             this.csrfToken = token.content;
@@ -158,38 +160,29 @@ export default {
     },
 
     methods: {
-        // Inserta en la base de datos
-        async altaCliente() {
-
-            // Buscamos el objeto provincia correspondiente al id seleccionado
-            if (this.cliente.provincia != '') {
-                const provincia = this.provincias.find(
-                    (p) => p.id === this.cliente.provincia
-                );
-                // Cambiamos el valor de cliente.provincia de id a nombre
-                this.cliente.provincia_nombre = provincia.provincia;
-            }
-
-            // Buscamos el objeto municipio correspondiente al id seleccionado
-            if (this.cliente.municipio != '') {
-                const municipio = this.localidades.find(
-                    (p) => p.id === this.cliente.municipio
-                );
-                // Cambiamos el valor de cliente.provincia de id a nombre
-                this.cliente.municipio_nombre = municipio.municipio;
-            }
-
+        async obtenerInformacionID(id) {
             try {
-                const res = await axios.post('clientes', this.cliente);
-                this.$router.push({ name: 'ListarClientes' });
+                const response = await axios.get('clientes/' + id);
+                console.log(response.data); // Agregar esta línea para depurar
+                this.cliente = response.data;
+                await this.consultar_municipio(false);
             } catch (error) {
-                if (error.response.data) {
-                    this.errores = error.response.data.errors;
-                }
+                console.error(error);
             }
-
         },
 
+        // Edita cliente en la base de datos
+        async editarCliente() {
+            const res = await axios.put('clientes/' + this.id, this.cliente)
+                .then(response => {
+                    console.log(response)
+                    this.errores = {};
+                })
+                .catch(error => {
+                    console.log(error.response);
+                    this.errores = error.response.data.errors;
+                });
+        },
         async consultar_provincia() {
             try {
                 const response = await axios.get('provincias');
@@ -198,14 +191,38 @@ export default {
                 console.error(error);
             }
         },
-        
-        async consultar_municipio() {
+        async consultar_municipio(condicion) {
+            if (condicion) {
+                this.get_nombre_provincia();
+                this.cliente.municipio = '';
+            }
             try {
                 const response = await axios.get('municipios/' + this.cliente.provincia);
+                console.log(this.cliente.provincia)
                 this.localidades = response.data;
                 console.log(this.localidades)
             } catch (error) {
                 console.error(error);
+            }
+        },
+        get_nombre_provincia() {
+            // Buscamos el objeto provincia correspondiente al id seleccionado
+            if (this.cliente && this.cliente.provincia != '') {
+                const provincia = this.provincias.find(
+                    (p) => p.id === this.cliente.provincia
+                );
+                // Cambiamos el valor de cliente.provincia de id a nombre
+                this.cliente.provincia_nombre = provincia.provincia;
+            }
+        },
+        get_nombre_municipio() {
+            // Buscamos el objeto municipio correspondiente al id seleccionado
+            if (this.cliente && this.cliente.municipio != '') {
+                const municipio = this.localidades.find(
+                    (p) => p.id === this.cliente.municipio
+                );
+                // Cambiamos el valor de cliente.provincia de id a nombre
+                this.cliente.municipio_nombre = municipio.municipio;
             }
         },
 
@@ -219,9 +236,5 @@ export default {
 <style>
 h2 {
     text-align: center;
-}
-
-body{
-    background-color:lightgreen;
 }
 </style>

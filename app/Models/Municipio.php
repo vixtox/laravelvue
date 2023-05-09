@@ -9,8 +9,9 @@ class Municipio extends Model
 {
     use HasFactory;
 
-    protected $table = 'municipios';
-    protected $fillable = ['municipio', 'provincia'];
+    protected $fillable = [
+        'municipio',
+    ];
     
     public function provincia()
     {

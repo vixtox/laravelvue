@@ -4,6 +4,8 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Models\Cliente;
+use App\Models\Provincia;
+use App\Http\Requests\ClienteRequest;
 
 class ClienteController extends Controller
 {
@@ -41,9 +43,8 @@ class ClienteController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(Request $request)
+    public function store(ClienteRequest $request)
     {
-        //
         Cliente::create($request->all());
     }
 
@@ -56,6 +57,13 @@ class ClienteController extends Controller
     public function show($id)
     {
         //
+        $cliente = Cliente::find($id);
+
+        if ($cliente) {
+            return response()->json($cliente);
+        } else {
+            return response()->json(['error' => 'Cliente no encontrado'], 404);
+        }
     }
 
     /**
@@ -76,9 +84,10 @@ class ClienteController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, $id)
+    public function update(ClienteRequest $request, $id)
     {
-        //
+        $cliente = Cliente::find($id);
+        $cliente->update($request->all());
     }
 
     /**
@@ -109,6 +118,4 @@ class ClienteController extends Controller
             return response()->json(['message' => 'El cliente no existe.'], 404);
         }
     }
-
-    
 }

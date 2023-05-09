@@ -5313,21 +5313,23 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */ __webpack_require__.d(__webpack_exports__, {
 /* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
 /* harmony export */ });
+/* harmony import */ var axios__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! axios */ "./node_modules/axios/index.js");
+/* harmony import */ var axios__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(axios__WEBPACK_IMPORTED_MODULE_0__);
 function _typeof(obj) { "@babel/helpers - typeof"; return _typeof = "function" == typeof Symbol && "symbol" == typeof Symbol.iterator ? function (obj) { return typeof obj; } : function (obj) { return obj && "function" == typeof Symbol && obj.constructor === Symbol && obj !== Symbol.prototype ? "symbol" : typeof obj; }, _typeof(obj); }
 function _regeneratorRuntime() { "use strict"; /*! regenerator-runtime -- Copyright (c) 2014-present, Facebook, Inc. -- license (MIT): https://github.com/facebook/regenerator/blob/main/LICENSE */ _regeneratorRuntime = function _regeneratorRuntime() { return exports; }; var exports = {}, Op = Object.prototype, hasOwn = Op.hasOwnProperty, defineProperty = Object.defineProperty || function (obj, key, desc) { obj[key] = desc.value; }, $Symbol = "function" == typeof Symbol ? Symbol : {}, iteratorSymbol = $Symbol.iterator || "@@iterator", asyncIteratorSymbol = $Symbol.asyncIterator || "@@asyncIterator", toStringTagSymbol = $Symbol.toStringTag || "@@toStringTag"; function define(obj, key, value) { return Object.defineProperty(obj, key, { value: value, enumerable: !0, configurable: !0, writable: !0 }), obj[key]; } try { define({}, ""); } catch (err) { define = function define(obj, key, value) { return obj[key] = value; }; } function wrap(innerFn, outerFn, self, tryLocsList) { var protoGenerator = outerFn && outerFn.prototype instanceof Generator ? outerFn : Generator, generator = Object.create(protoGenerator.prototype), context = new Context(tryLocsList || []); return defineProperty(generator, "_invoke", { value: makeInvokeMethod(innerFn, self, context) }), generator; } function tryCatch(fn, obj, arg) { try { return { type: "normal", arg: fn.call(obj, arg) }; } catch (err) { return { type: "throw", arg: err }; } } exports.wrap = wrap; var ContinueSentinel = {}; function Generator() {} function GeneratorFunction() {} function GeneratorFunctionPrototype() {} var IteratorPrototype = {}; define(IteratorPrototype, iteratorSymbol, function () { return this; }); var getProto = Object.getPrototypeOf, NativeIteratorPrototype = getProto && getProto(getProto(values([]))); NativeIteratorPrototype && NativeIteratorPrototype !== Op && hasOwn.call(NativeIteratorPrototype, iteratorSymbol) && (IteratorPrototype = NativeIteratorPrototype); var Gp = GeneratorFunctionPrototype.prototype = Generator.prototype = Object.create(IteratorPrototype); function defineIteratorMethods(prototype) { ["next", "throw", "return"].forEach(function (method) { define(prototype, method, function (arg) { return this._invoke(method, arg); }); }); } function AsyncIterator(generator, PromiseImpl) { function invoke(method, arg, resolve, reject) { var record = tryCatch(generator[method], generator, arg); if ("throw" !== record.type) { var result = record.arg, value = result.value; return value && "object" == _typeof(value) && hasOwn.call(value, "__await") ? PromiseImpl.resolve(value.__await).then(function (value) { invoke("next", value, resolve, reject); }, function (err) { invoke("throw", err, resolve, reject); }) : PromiseImpl.resolve(value).then(function (unwrapped) { result.value = unwrapped, resolve(result); }, function (error) { return invoke("throw", error, resolve, reject); }); } reject(record.arg); } var previousPromise; defineProperty(this, "_invoke", { value: function value(method, arg) { function callInvokeWithMethodAndArg() { return new PromiseImpl(function (resolve, reject) { invoke(method, arg, resolve, reject); }); } return previousPromise = previousPromise ? previousPromise.then(callInvokeWithMethodAndArg, callInvokeWithMethodAndArg) : callInvokeWithMethodAndArg(); } }); } function makeInvokeMethod(innerFn, self, context) { var state = "suspendedStart"; return function (method, arg) { if ("executing" === state) throw new Error("Generator is already running"); if ("completed" === state) { if ("throw" === method) throw arg; return doneResult(); } for (context.method = method, context.arg = arg;;) { var delegate = context.delegate; if (delegate) { var delegateResult = maybeInvokeDelegate(delegate, context); if (delegateResult) { if (delegateResult === ContinueSentinel) continue; return delegateResult; } } if ("next" === context.method) context.sent = context._sent = context.arg;else if ("throw" === context.method) { if ("suspendedStart" === state) throw state = "completed", context.arg; context.dispatchException(context.arg); } else "return" === context.method && context.abrupt("return", context.arg); state = "executing"; var record = tryCatch(innerFn, self, context); if ("normal" === record.type) { if (state = context.done ? "completed" : "suspendedYield", record.arg === ContinueSentinel) continue; return { value: record.arg, done: context.done }; } "throw" === record.type && (state = "completed", context.method = "throw", context.arg = record.arg); } }; } function maybeInvokeDelegate(delegate, context) { var methodName = context.method, method = delegate.iterator[methodName]; if (undefined === method) return context.delegate = null, "throw" === methodName && delegate.iterator["return"] && (context.method = "return", context.arg = undefined, maybeInvokeDelegate(delegate, context), "throw" === context.method) || "return" !== methodName && (context.method = "throw", context.arg = new TypeError("The iterator does not provide a '" + methodName + "' method")), ContinueSentinel; var record = tryCatch(method, delegate.iterator, context.arg); if ("throw" === record.type) return context.method = "throw", context.arg = record.arg, context.delegate = null, ContinueSentinel; var info = record.arg; return info ? info.done ? (context[delegate.resultName] = info.value, context.next = delegate.nextLoc, "return" !== context.method && (context.method = "next", context.arg = undefined), context.delegate = null, ContinueSentinel) : info : (context.method = "throw", context.arg = new TypeError("iterator result is not an object"), context.delegate = null, ContinueSentinel); } function pushTryEntry(locs) { var entry = { tryLoc: locs[0] }; 1 in locs && (entry.catchLoc = locs[1]), 2 in locs && (entry.finallyLoc = locs[2], entry.afterLoc = locs[3]), this.tryEntries.push(entry); } function resetTryEntry(entry) { var record = entry.completion || {}; record.type = "normal", delete record.arg, entry.completion = record; } function Context(tryLocsList) { this.tryEntries = [{ tryLoc: "root" }], tryLocsList.forEach(pushTryEntry, this), this.reset(!0); } function values(iterable) { if (iterable) { var iteratorMethod = iterable[iteratorSymbol]; if (iteratorMethod) return iteratorMethod.call(iterable); if ("function" == typeof iterable.next) return iterable; if (!isNaN(iterable.length)) { var i = -1, next = function next() { for (; ++i < iterable.length;) if (hasOwn.call(iterable, i)) return next.value = iterable[i], next.done = !1, next; return next.value = undefined, next.done = !0, next; }; return next.next = next; } } return { next: doneResult }; } function doneResult() { return { value: undefined, done: !0 }; } return GeneratorFunction.prototype = GeneratorFunctionPrototype, defineProperty(Gp, "constructor", { value: GeneratorFunctionPrototype, configurable: !0 }), defineProperty(GeneratorFunctionPrototype, "constructor", { value: GeneratorFunction, configurable: !0 }), GeneratorFunction.displayName = define(GeneratorFunctionPrototype, toStringTagSymbol, "GeneratorFunction"), exports.isGeneratorFunction = function (genFun) { var ctor = "function" == typeof genFun && genFun.constructor; return !!ctor && (ctor === GeneratorFunction || "GeneratorFunction" === (ctor.displayName || ctor.name)); }, exports.mark = function (genFun) { return Object.setPrototypeOf ? Object.setPrototypeOf(genFun, GeneratorFunctionPrototype) : (genFun.__proto__ = GeneratorFunctionPrototype, define(genFun, toStringTagSymbol, "GeneratorFunction")), genFun.prototype = Object.create(Gp), genFun; }, exports.awrap = function (arg) { return { __await: arg }; }, defineIteratorMethods(AsyncIterator.prototype), define(AsyncIterator.prototype, asyncIteratorSymbol, function () { return this; }), exports.AsyncIterator = AsyncIterator, exports.async = function (innerFn, outerFn, self, tryLocsList, PromiseImpl) { void 0 === PromiseImpl && (PromiseImpl = Promise); var iter = new AsyncIterator(wrap(innerFn, outerFn, self, tryLocsList), PromiseImpl); return exports.isGeneratorFunction(outerFn) ? iter : iter.next().then(function (result) { return result.done ? result.value : iter.next(); }); }, defineIteratorMethods(Gp), define(Gp, toStringTagSymbol, "Generator"), define(Gp, iteratorSymbol, function () { return this; }), define(Gp, "toString", function () { return "[object Generator]"; }), exports.keys = function (val) { var object = Object(val), keys = []; for (var key in object) keys.push(key); return keys.reverse(), function next() { for (; keys.length;) { var key = keys.pop(); if (key in object) return next.value = key, next.done = !1, next; } return next.done = !0, next; }; }, exports.values = values, Context.prototype = { constructor: Context, reset: function reset(skipTempReset) { if (this.prev = 0, this.next = 0, this.sent = this._sent = undefined, this.done = !1, this.delegate = null, this.method = "next", this.arg = undefined, this.tryEntries.forEach(resetTryEntry), !skipTempReset) for (var name in this) "t" === name.charAt(0) && hasOwn.call(this, name) && !isNaN(+name.slice(1)) && (this[name] = undefined); }, stop: function stop() { this.done = !0; var rootRecord = this.tryEntries[0].completion; if ("throw" === rootRecord.type) throw rootRecord.arg; return this.rval; }, dispatchException: function dispatchException(exception) { if (this.done) throw exception; var context = this; function handle(loc, caught) { return record.type = "throw", record.arg = exception, context.next = loc, caught && (context.method = "next", context.arg = undefined), !!caught; } for (var i = this.tryEntries.length - 1; i >= 0; --i) { var entry = this.tryEntries[i], record = entry.completion; if ("root" === entry.tryLoc) return handle("end"); if (entry.tryLoc <= this.prev) { var hasCatch = hasOwn.call(entry, "catchLoc"), hasFinally = hasOwn.call(entry, "finallyLoc"); if (hasCatch && hasFinally) { if (this.prev < entry.catchLoc) return handle(entry.catchLoc, !0); if (this.prev < entry.finallyLoc) return handle(entry.finallyLoc); } else if (hasCatch) { if (this.prev < entry.catchLoc) return handle(entry.catchLoc, !0); } else { if (!hasFinally) throw new Error("try statement without catch or finally"); if (this.prev < entry.finallyLoc) return handle(entry.finallyLoc); } } } }, abrupt: function abrupt(type, arg) { for (var i = this.tryEntries.length - 1; i >= 0; --i) { var entry = this.tryEntries[i]; if (entry.tryLoc <= this.prev && hasOwn.call(entry, "finallyLoc") && this.prev < entry.finallyLoc) { var finallyEntry = entry; break; } } finallyEntry && ("break" === type || "continue" === type) && finallyEntry.tryLoc <= arg && arg <= finallyEntry.finallyLoc && (finallyEntry = null); var record = finallyEntry ? finallyEntry.completion : {}; return record.type = type, record.arg = arg, finallyEntry ? (this.method = "next", this.next = finallyEntry.finallyLoc, ContinueSentinel) : this.complete(record); }, complete: function complete(record, afterLoc) { if ("throw" === record.type) throw record.arg; return "break" === record.type || "continue" === record.type ? this.next = record.arg : "return" === record.type ? (this.rval = this.arg = record.arg, this.method = "return", this.next = "end") : "normal" === record.type && afterLoc && (this.next = afterLoc), ContinueSentinel; }, finish: function finish(finallyLoc) { for (var i = this.tryEntries.length - 1; i >= 0; --i) { var entry = this.tryEntries[i]; if (entry.finallyLoc === finallyLoc) return this.complete(entry.completion, entry.afterLoc), resetTryEntry(entry), ContinueSentinel; } }, "catch": function _catch(tryLoc) { for (var i = this.tryEntries.length - 1; i >= 0; --i) { var entry = this.tryEntries[i]; if (entry.tryLoc === tryLoc) { var record = entry.completion; if ("throw" === record.type) { var thrown = record.arg; resetTryEntry(entry); } return thrown; } } throw new Error("illegal catch attempt"); }, delegateYield: function delegateYield(iterable, resultName, nextLoc) { return this.delegate = { iterator: values(iterable), resultName: resultName, nextLoc: nextLoc }, "next" === this.method && (this.arg = undefined), ContinueSentinel; } }, exports; }
 function asyncGeneratorStep(gen, resolve, reject, _next, _throw, key, arg) { try { var info = gen[key](arg); var value = info.value; } catch (error) { reject(error); return; } if (info.done) { resolve(value); } else { Promise.resolve(value).then(_next, _throw); } }
 function _asyncToGenerator(fn) { return function () { var self = this, args = arguments; return new Promise(function (resolve, reject) { var gen = fn.apply(self, args); function _next(value) { asyncGeneratorStep(gen, resolve, reject, _next, _throw, "next", value); } function _throw(err) { asyncGeneratorStep(gen, resolve, reject, _next, _throw, "throw", err); } _next(undefined); }); }; }
+
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ({
   data: function data() {
     return {
       cliente: {
-        nombre: "",
-        apellidos: "",
         nombre_apellidos: "",
         documento_identidad: "",
         fecha_nacimiento: "",
         domicilio: "",
         municipio: "",
+        municipio_nombre: "",
         codigo_postal: "",
         provincia: "",
         provincia_nombre: "",
@@ -5335,7 +5337,8 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
         email: ""
       },
       provincias: [],
-      localidades: []
+      localidades: [],
+      errores: {}
     };
   },
   created: function created() {
@@ -5345,93 +5348,103 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
     }
   },
   methods: {
-    // Inserta en la base de datos una tarea
-    agregarRegistro: function agregarRegistro() {
+    // Inserta en la base de datos
+    altaCliente: function altaCliente() {
       var _this = this;
-      //Unificamos nombre y apellidos en un único campo
-      this.cliente.nombre_apellidos = this.cliente.nombre + " " + this.cliente.apellidos;
-      // Buscamos el objeto provincia correspondiente al id seleccionado
-      var provincia = this.provincias.find(function (p) {
-        return p.id === _this.cliente.provincia;
-      });
-      // Cambiamos el valor de cliente.provincia de id a nombre
-      this.cliente.provincia_nombre = provincia.provincia;
-
-      // const apiUrl = window.location.origin + '/proyecto/public/';
-
-      // fetch(apiUrl + 'clientes', {
-      fetch('clientes', {
-        method: 'POST',
-        headers: {
-          'Content-Type': 'application/json',
-          'X-CSRF-TOKEN': this.csrfToken
-        },
-        body: JSON.stringify({
-          nombre_apellidos: this.cliente.nombre_apellidos,
-          documento_identidad: this.cliente.documento_identidad,
-          fecha_nacimiento: this.cliente.fecha_nacimiento,
-          domicilio: this.cliente.domicilio,
-          codigo_postal: this.cliente.codigo_postal,
-          municipio: this.cliente.municipio,
-          provincia: this.cliente.provincia,
-          provincia_nombre: this.cliente.provincia_nombre,
-          telefono: this.cliente.telefono,
-          email: this.cliente.email
-        })
-      }).then(function (response) {
-        console.log(response);
-      })["catch"](function (error) {
-        console.error(error);
-      });
-      this.$router.push('/listarclientes');
-    },
-    consultar_provincia: function consultar_provincia() {
-      var _this2 = this;
       return _asyncToGenerator( /*#__PURE__*/_regeneratorRuntime().mark(function _callee() {
-        var respuesta, datosRespuesta;
+        var provincia, municipio, res;
         return _regeneratorRuntime().wrap(function _callee$(_context) {
           while (1) switch (_context.prev = _context.next) {
             case 0:
-              _context.next = 2;
-              return fetch("php/index.php?consultar_provincias");
-            case 2:
-              respuesta = _context.sent;
+              // Buscamos el objeto provincia correspondiente al id seleccionado
+              if (_this.cliente.provincia != '') {
+                provincia = _this.provincias.find(function (p) {
+                  return p.id === _this.cliente.provincia;
+                }); // Cambiamos el valor de cliente.provincia de id a nombre
+                _this.cliente.provincia_nombre = provincia.provincia;
+              }
+
+              // Buscamos el objeto municipio correspondiente al id seleccionado
+              if (_this.cliente.municipio != '') {
+                municipio = _this.localidades.find(function (p) {
+                  return p.id === _this.cliente.municipio;
+                }); // Cambiamos el valor de cliente.provincia de id a nombre
+                _this.cliente.municipio_nombre = municipio.municipio;
+              }
+              _context.prev = 2;
               _context.next = 5;
-              return respuesta.json();
+              return axios__WEBPACK_IMPORTED_MODULE_0___default().post('clientes', _this.cliente);
             case 5:
-              datosRespuesta = _context.sent;
-              _this2.provincias = datosRespuesta;
-              console.log(_this2.provincias);
-            case 8:
+              res = _context.sent;
+              _this.$router.push({
+                name: 'ListarClientes'
+              });
+              _context.next = 12;
+              break;
+            case 9:
+              _context.prev = 9;
+              _context.t0 = _context["catch"](2);
+              if (_context.t0.response.data) {
+                _this.errores = _context.t0.response.data.errors;
+              }
+            case 12:
             case "end":
               return _context.stop();
           }
-        }, _callee);
+        }, _callee, null, [[2, 9]]);
+      }))();
+    },
+    consultar_provincia: function consultar_provincia() {
+      var _this2 = this;
+      return _asyncToGenerator( /*#__PURE__*/_regeneratorRuntime().mark(function _callee2() {
+        var response;
+        return _regeneratorRuntime().wrap(function _callee2$(_context2) {
+          while (1) switch (_context2.prev = _context2.next) {
+            case 0:
+              _context2.prev = 0;
+              _context2.next = 3;
+              return axios__WEBPACK_IMPORTED_MODULE_0___default().get('provincias');
+            case 3:
+              response = _context2.sent;
+              _this2.provincias = response.data;
+              _context2.next = 10;
+              break;
+            case 7:
+              _context2.prev = 7;
+              _context2.t0 = _context2["catch"](0);
+              console.error(_context2.t0);
+            case 10:
+            case "end":
+              return _context2.stop();
+          }
+        }, _callee2, null, [[0, 7]]);
       }))();
     },
     consultar_municipio: function consultar_municipio() {
       var _this3 = this;
-      return _asyncToGenerator( /*#__PURE__*/_regeneratorRuntime().mark(function _callee2() {
-        var respuesta, datosRespuesta;
-        return _regeneratorRuntime().wrap(function _callee2$(_context2) {
-          while (1) switch (_context2.prev = _context2.next) {
+      return _asyncToGenerator( /*#__PURE__*/_regeneratorRuntime().mark(function _callee3() {
+        var response;
+        return _regeneratorRuntime().wrap(function _callee3$(_context3) {
+          while (1) switch (_context3.prev = _context3.next) {
             case 0:
-              console.log(_this3.cliente.provincia);
-              _context2.next = 3;
-              return fetch("php/index.php?consultar_municipio=" + _this3.cliente.provincia);
+              _context3.prev = 0;
+              _context3.next = 3;
+              return axios__WEBPACK_IMPORTED_MODULE_0___default().get('municipios/' + _this3.cliente.provincia);
             case 3:
-              respuesta = _context2.sent;
-              _context2.next = 6;
-              return respuesta.json();
-            case 6:
-              datosRespuesta = _context2.sent;
-              _this3.localidades = datosRespuesta;
+              response = _context3.sent;
+              _this3.localidades = response.data;
               console.log(_this3.localidades);
-            case 9:
+              _context3.next = 11;
+              break;
+            case 8:
+              _context3.prev = 8;
+              _context3.t0 = _context3["catch"](0);
+              console.error(_context3.t0);
+            case 11:
             case "end":
-              return _context2.stop();
+              return _context3.stop();
           }
-        }, _callee2);
+        }, _callee3, null, [[0, 8]]);
       }))();
     }
   },
@@ -5456,6 +5469,198 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ({
   mounted: function mounted() {
     console.log('Component mounted.');
+  }
+});
+
+/***/ }),
+
+/***/ "./node_modules/babel-loader/lib/index.js??clonedRuleSet-5.use[0]!./node_modules/vue-loader/lib/index.js??vue-loader-options!./resources/js/components/FichaCliente.vue?vue&type=script&lang=js&":
+/*!*******************************************************************************************************************************************************************************************************!*\
+  !*** ./node_modules/babel-loader/lib/index.js??clonedRuleSet-5.use[0]!./node_modules/vue-loader/lib/index.js??vue-loader-options!./resources/js/components/FichaCliente.vue?vue&type=script&lang=js& ***!
+  \*******************************************************************************************************************************************************************************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
+/* harmony export */ });
+/* harmony import */ var axios__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! axios */ "./node_modules/axios/index.js");
+/* harmony import */ var axios__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(axios__WEBPACK_IMPORTED_MODULE_0__);
+function _typeof(obj) { "@babel/helpers - typeof"; return _typeof = "function" == typeof Symbol && "symbol" == typeof Symbol.iterator ? function (obj) { return typeof obj; } : function (obj) { return obj && "function" == typeof Symbol && obj.constructor === Symbol && obj !== Symbol.prototype ? "symbol" : typeof obj; }, _typeof(obj); }
+function _regeneratorRuntime() { "use strict"; /*! regenerator-runtime -- Copyright (c) 2014-present, Facebook, Inc. -- license (MIT): https://github.com/facebook/regenerator/blob/main/LICENSE */ _regeneratorRuntime = function _regeneratorRuntime() { return exports; }; var exports = {}, Op = Object.prototype, hasOwn = Op.hasOwnProperty, defineProperty = Object.defineProperty || function (obj, key, desc) { obj[key] = desc.value; }, $Symbol = "function" == typeof Symbol ? Symbol : {}, iteratorSymbol = $Symbol.iterator || "@@iterator", asyncIteratorSymbol = $Symbol.asyncIterator || "@@asyncIterator", toStringTagSymbol = $Symbol.toStringTag || "@@toStringTag"; function define(obj, key, value) { return Object.defineProperty(obj, key, { value: value, enumerable: !0, configurable: !0, writable: !0 }), obj[key]; } try { define({}, ""); } catch (err) { define = function define(obj, key, value) { return obj[key] = value; }; } function wrap(innerFn, outerFn, self, tryLocsList) { var protoGenerator = outerFn && outerFn.prototype instanceof Generator ? outerFn : Generator, generator = Object.create(protoGenerator.prototype), context = new Context(tryLocsList || []); return defineProperty(generator, "_invoke", { value: makeInvokeMethod(innerFn, self, context) }), generator; } function tryCatch(fn, obj, arg) { try { return { type: "normal", arg: fn.call(obj, arg) }; } catch (err) { return { type: "throw", arg: err }; } } exports.wrap = wrap; var ContinueSentinel = {}; function Generator() {} function GeneratorFunction() {} function GeneratorFunctionPrototype() {} var IteratorPrototype = {}; define(IteratorPrototype, iteratorSymbol, function () { return this; }); var getProto = Object.getPrototypeOf, NativeIteratorPrototype = getProto && getProto(getProto(values([]))); NativeIteratorPrototype && NativeIteratorPrototype !== Op && hasOwn.call(NativeIteratorPrototype, iteratorSymbol) && (IteratorPrototype = NativeIteratorPrototype); var Gp = GeneratorFunctionPrototype.prototype = Generator.prototype = Object.create(IteratorPrototype); function defineIteratorMethods(prototype) { ["next", "throw", "return"].forEach(function (method) { define(prototype, method, function (arg) { return this._invoke(method, arg); }); }); } function AsyncIterator(generator, PromiseImpl) { function invoke(method, arg, resolve, reject) { var record = tryCatch(generator[method], generator, arg); if ("throw" !== record.type) { var result = record.arg, value = result.value; return value && "object" == _typeof(value) && hasOwn.call(value, "__await") ? PromiseImpl.resolve(value.__await).then(function (value) { invoke("next", value, resolve, reject); }, function (err) { invoke("throw", err, resolve, reject); }) : PromiseImpl.resolve(value).then(function (unwrapped) { result.value = unwrapped, resolve(result); }, function (error) { return invoke("throw", error, resolve, reject); }); } reject(record.arg); } var previousPromise; defineProperty(this, "_invoke", { value: function value(method, arg) { function callInvokeWithMethodAndArg() { return new PromiseImpl(function (resolve, reject) { invoke(method, arg, resolve, reject); }); } return previousPromise = previousPromise ? previousPromise.then(callInvokeWithMethodAndArg, callInvokeWithMethodAndArg) : callInvokeWithMethodAndArg(); } }); } function makeInvokeMethod(innerFn, self, context) { var state = "suspendedStart"; return function (method, arg) { if ("executing" === state) throw new Error("Generator is already running"); if ("completed" === state) { if ("throw" === method) throw arg; return doneResult(); } for (context.method = method, context.arg = arg;;) { var delegate = context.delegate; if (delegate) { var delegateResult = maybeInvokeDelegate(delegate, context); if (delegateResult) { if (delegateResult === ContinueSentinel) continue; return delegateResult; } } if ("next" === context.method) context.sent = context._sent = context.arg;else if ("throw" === context.method) { if ("suspendedStart" === state) throw state = "completed", context.arg; context.dispatchException(context.arg); } else "return" === context.method && context.abrupt("return", context.arg); state = "executing"; var record = tryCatch(innerFn, self, context); if ("normal" === record.type) { if (state = context.done ? "completed" : "suspendedYield", record.arg === ContinueSentinel) continue; return { value: record.arg, done: context.done }; } "throw" === record.type && (state = "completed", context.method = "throw", context.arg = record.arg); } }; } function maybeInvokeDelegate(delegate, context) { var methodName = context.method, method = delegate.iterator[methodName]; if (undefined === method) return context.delegate = null, "throw" === methodName && delegate.iterator["return"] && (context.method = "return", context.arg = undefined, maybeInvokeDelegate(delegate, context), "throw" === context.method) || "return" !== methodName && (context.method = "throw", context.arg = new TypeError("The iterator does not provide a '" + methodName + "' method")), ContinueSentinel; var record = tryCatch(method, delegate.iterator, context.arg); if ("throw" === record.type) return context.method = "throw", context.arg = record.arg, context.delegate = null, ContinueSentinel; var info = record.arg; return info ? info.done ? (context[delegate.resultName] = info.value, context.next = delegate.nextLoc, "return" !== context.method && (context.method = "next", context.arg = undefined), context.delegate = null, ContinueSentinel) : info : (context.method = "throw", context.arg = new TypeError("iterator result is not an object"), context.delegate = null, ContinueSentinel); } function pushTryEntry(locs) { var entry = { tryLoc: locs[0] }; 1 in locs && (entry.catchLoc = locs[1]), 2 in locs && (entry.finallyLoc = locs[2], entry.afterLoc = locs[3]), this.tryEntries.push(entry); } function resetTryEntry(entry) { var record = entry.completion || {}; record.type = "normal", delete record.arg, entry.completion = record; } function Context(tryLocsList) { this.tryEntries = [{ tryLoc: "root" }], tryLocsList.forEach(pushTryEntry, this), this.reset(!0); } function values(iterable) { if (iterable) { var iteratorMethod = iterable[iteratorSymbol]; if (iteratorMethod) return iteratorMethod.call(iterable); if ("function" == typeof iterable.next) return iterable; if (!isNaN(iterable.length)) { var i = -1, next = function next() { for (; ++i < iterable.length;) if (hasOwn.call(iterable, i)) return next.value = iterable[i], next.done = !1, next; return next.value = undefined, next.done = !0, next; }; return next.next = next; } } return { next: doneResult }; } function doneResult() { return { value: undefined, done: !0 }; } return GeneratorFunction.prototype = GeneratorFunctionPrototype, defineProperty(Gp, "constructor", { value: GeneratorFunctionPrototype, configurable: !0 }), defineProperty(GeneratorFunctionPrototype, "constructor", { value: GeneratorFunction, configurable: !0 }), GeneratorFunction.displayName = define(GeneratorFunctionPrototype, toStringTagSymbol, "GeneratorFunction"), exports.isGeneratorFunction = function (genFun) { var ctor = "function" == typeof genFun && genFun.constructor; return !!ctor && (ctor === GeneratorFunction || "GeneratorFunction" === (ctor.displayName || ctor.name)); }, exports.mark = function (genFun) { return Object.setPrototypeOf ? Object.setPrototypeOf(genFun, GeneratorFunctionPrototype) : (genFun.__proto__ = GeneratorFunctionPrototype, define(genFun, toStringTagSymbol, "GeneratorFunction")), genFun.prototype = Object.create(Gp), genFun; }, exports.awrap = function (arg) { return { __await: arg }; }, defineIteratorMethods(AsyncIterator.prototype), define(AsyncIterator.prototype, asyncIteratorSymbol, function () { return this; }), exports.AsyncIterator = AsyncIterator, exports.async = function (innerFn, outerFn, self, tryLocsList, PromiseImpl) { void 0 === PromiseImpl && (PromiseImpl = Promise); var iter = new AsyncIterator(wrap(innerFn, outerFn, self, tryLocsList), PromiseImpl); return exports.isGeneratorFunction(outerFn) ? iter : iter.next().then(function (result) { return result.done ? result.value : iter.next(); }); }, defineIteratorMethods(Gp), define(Gp, toStringTagSymbol, "Generator"), define(Gp, iteratorSymbol, function () { return this; }), define(Gp, "toString", function () { return "[object Generator]"; }), exports.keys = function (val) { var object = Object(val), keys = []; for (var key in object) keys.push(key); return keys.reverse(), function next() { for (; keys.length;) { var key = keys.pop(); if (key in object) return next.value = key, next.done = !1, next; } return next.done = !0, next; }; }, exports.values = values, Context.prototype = { constructor: Context, reset: function reset(skipTempReset) { if (this.prev = 0, this.next = 0, this.sent = this._sent = undefined, this.done = !1, this.delegate = null, this.method = "next", this.arg = undefined, this.tryEntries.forEach(resetTryEntry), !skipTempReset) for (var name in this) "t" === name.charAt(0) && hasOwn.call(this, name) && !isNaN(+name.slice(1)) && (this[name] = undefined); }, stop: function stop() { this.done = !0; var rootRecord = this.tryEntries[0].completion; if ("throw" === rootRecord.type) throw rootRecord.arg; return this.rval; }, dispatchException: function dispatchException(exception) { if (this.done) throw exception; var context = this; function handle(loc, caught) { return record.type = "throw", record.arg = exception, context.next = loc, caught && (context.method = "next", context.arg = undefined), !!caught; } for (var i = this.tryEntries.length - 1; i >= 0; --i) { var entry = this.tryEntries[i], record = entry.completion; if ("root" === entry.tryLoc) return handle("end"); if (entry.tryLoc <= this.prev) { var hasCatch = hasOwn.call(entry, "catchLoc"), hasFinally = hasOwn.call(entry, "finallyLoc"); if (hasCatch && hasFinally) { if (this.prev < entry.catchLoc) return handle(entry.catchLoc, !0); if (this.prev < entry.finallyLoc) return handle(entry.finallyLoc); } else if (hasCatch) { if (this.prev < entry.catchLoc) return handle(entry.catchLoc, !0); } else { if (!hasFinally) throw new Error("try statement without catch or finally"); if (this.prev < entry.finallyLoc) return handle(entry.finallyLoc); } } } }, abrupt: function abrupt(type, arg) { for (var i = this.tryEntries.length - 1; i >= 0; --i) { var entry = this.tryEntries[i]; if (entry.tryLoc <= this.prev && hasOwn.call(entry, "finallyLoc") && this.prev < entry.finallyLoc) { var finallyEntry = entry; break; } } finallyEntry && ("break" === type || "continue" === type) && finallyEntry.tryLoc <= arg && arg <= finallyEntry.finallyLoc && (finallyEntry = null); var record = finallyEntry ? finallyEntry.completion : {}; return record.type = type, record.arg = arg, finallyEntry ? (this.method = "next", this.next = finallyEntry.finallyLoc, ContinueSentinel) : this.complete(record); }, complete: function complete(record, afterLoc) { if ("throw" === record.type) throw record.arg; return "break" === record.type || "continue" === record.type ? this.next = record.arg : "return" === record.type ? (this.rval = this.arg = record.arg, this.method = "return", this.next = "end") : "normal" === record.type && afterLoc && (this.next = afterLoc), ContinueSentinel; }, finish: function finish(finallyLoc) { for (var i = this.tryEntries.length - 1; i >= 0; --i) { var entry = this.tryEntries[i]; if (entry.finallyLoc === finallyLoc) return this.complete(entry.completion, entry.afterLoc), resetTryEntry(entry), ContinueSentinel; } }, "catch": function _catch(tryLoc) { for (var i = this.tryEntries.length - 1; i >= 0; --i) { var entry = this.tryEntries[i]; if (entry.tryLoc === tryLoc) { var record = entry.completion; if ("throw" === record.type) { var thrown = record.arg; resetTryEntry(entry); } return thrown; } } throw new Error("illegal catch attempt"); }, delegateYield: function delegateYield(iterable, resultName, nextLoc) { return this.delegate = { iterator: values(iterable), resultName: resultName, nextLoc: nextLoc }, "next" === this.method && (this.arg = undefined), ContinueSentinel; } }, exports; }
+function asyncGeneratorStep(gen, resolve, reject, _next, _throw, key, arg) { try { var info = gen[key](arg); var value = info.value; } catch (error) { reject(error); return; } if (info.done) { resolve(value); } else { Promise.resolve(value).then(_next, _throw); } }
+function _asyncToGenerator(fn) { return function () { var self = this, args = arguments; return new Promise(function (resolve, reject) { var gen = fn.apply(self, args); function _next(value) { asyncGeneratorStep(gen, resolve, reject, _next, _throw, "next", value); } function _throw(err) { asyncGeneratorStep(gen, resolve, reject, _next, _throw, "throw", err); } _next(undefined); }); }; }
+
+/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ({
+  data: function data() {
+    return {
+      cliente: {
+        nombre_apellidos: "",
+        documento_identidad: "",
+        fecha_nacimiento: "",
+        domicilio: "",
+        municipio: "",
+        municipio_nombre: "",
+        codigo_postal: "",
+        provincia: "",
+        provincia_nombre: "",
+        telefono: "",
+        email: ""
+      },
+      provincias: [],
+      localidades: [],
+      errores: {},
+      id: this.$route.params.id
+    };
+  },
+  created: function created() {
+    console.log(this.id);
+    this.obtenerInformacionID(this.id);
+    var token = document.querySelector('meta[name="csrf-token"]');
+    if (token) {
+      this.csrfToken = token.content;
+    }
+  },
+  methods: {
+    obtenerInformacionID: function obtenerInformacionID(id) {
+      var _this = this;
+      return _asyncToGenerator( /*#__PURE__*/_regeneratorRuntime().mark(function _callee() {
+        var response;
+        return _regeneratorRuntime().wrap(function _callee$(_context) {
+          while (1) switch (_context.prev = _context.next) {
+            case 0:
+              _context.prev = 0;
+              _context.next = 3;
+              return axios__WEBPACK_IMPORTED_MODULE_0___default().get('clientes/' + id);
+            case 3:
+              response = _context.sent;
+              console.log(response.data); // Agregar esta línea para depurar
+              _this.cliente = response.data;
+              _context.next = 8;
+              return _this.consultar_municipio(false);
+            case 8:
+              _context.next = 13;
+              break;
+            case 10:
+              _context.prev = 10;
+              _context.t0 = _context["catch"](0);
+              console.error(_context.t0);
+            case 13:
+            case "end":
+              return _context.stop();
+          }
+        }, _callee, null, [[0, 10]]);
+      }))();
+    },
+    // Edita cliente en la base de datos
+    editarCliente: function editarCliente() {
+      var _this2 = this;
+      return _asyncToGenerator( /*#__PURE__*/_regeneratorRuntime().mark(function _callee2() {
+        var res;
+        return _regeneratorRuntime().wrap(function _callee2$(_context2) {
+          while (1) switch (_context2.prev = _context2.next) {
+            case 0:
+              _context2.next = 2;
+              return axios__WEBPACK_IMPORTED_MODULE_0___default().put('clientes/' + _this2.id, _this2.cliente).then(function (response) {
+                console.log(response);
+                _this2.errores = {};
+              })["catch"](function (error) {
+                console.log(error.response);
+                _this2.errores = error.response.data.errors;
+              });
+            case 2:
+              res = _context2.sent;
+            case 3:
+            case "end":
+              return _context2.stop();
+          }
+        }, _callee2);
+      }))();
+    },
+    consultar_provincia: function consultar_provincia() {
+      var _this3 = this;
+      return _asyncToGenerator( /*#__PURE__*/_regeneratorRuntime().mark(function _callee3() {
+        var response;
+        return _regeneratorRuntime().wrap(function _callee3$(_context3) {
+          while (1) switch (_context3.prev = _context3.next) {
+            case 0:
+              _context3.prev = 0;
+              _context3.next = 3;
+              return axios__WEBPACK_IMPORTED_MODULE_0___default().get('provincias');
+            case 3:
+              response = _context3.sent;
+              _this3.provincias = response.data;
+              _context3.next = 10;
+              break;
+            case 7:
+              _context3.prev = 7;
+              _context3.t0 = _context3["catch"](0);
+              console.error(_context3.t0);
+            case 10:
+            case "end":
+              return _context3.stop();
+          }
+        }, _callee3, null, [[0, 7]]);
+      }))();
+    },
+    consultar_municipio: function consultar_municipio(condicion) {
+      var _this4 = this;
+      return _asyncToGenerator( /*#__PURE__*/_regeneratorRuntime().mark(function _callee4() {
+        var response;
+        return _regeneratorRuntime().wrap(function _callee4$(_context4) {
+          while (1) switch (_context4.prev = _context4.next) {
+            case 0:
+              if (condicion) {
+                _this4.get_nombre_provincia();
+                _this4.cliente.municipio = '';
+              }
+              _context4.prev = 1;
+              _context4.next = 4;
+              return axios__WEBPACK_IMPORTED_MODULE_0___default().get('municipios/' + _this4.cliente.provincia);
+            case 4:
+              response = _context4.sent;
+              console.log(_this4.cliente.provincia);
+              _this4.localidades = response.data;
+              console.log(_this4.localidades);
+              _context4.next = 13;
+              break;
+            case 10:
+              _context4.prev = 10;
+              _context4.t0 = _context4["catch"](1);
+              console.error(_context4.t0);
+            case 13:
+            case "end":
+              return _context4.stop();
+          }
+        }, _callee4, null, [[1, 10]]);
+      }))();
+    },
+    get_nombre_provincia: function get_nombre_provincia() {
+      var _this5 = this;
+      // Buscamos el objeto provincia correspondiente al id seleccionado
+      if (this.cliente && this.cliente.provincia != '') {
+        var provincia = this.provincias.find(function (p) {
+          return p.id === _this5.cliente.provincia;
+        });
+        // Cambiamos el valor de cliente.provincia de id a nombre
+        this.cliente.provincia_nombre = provincia.provincia;
+      }
+    },
+    get_nombre_municipio: function get_nombre_municipio() {
+      var _this6 = this;
+      // Buscamos el objeto municipio correspondiente al id seleccionado
+      if (this.cliente && this.cliente.municipio != '') {
+        var municipio = this.localidades.find(function (p) {
+          return p.id === _this6.cliente.municipio;
+        });
+        // Cambiamos el valor de cliente.provincia de id a nombre
+        this.cliente.municipio_nombre = municipio.municipio;
+      }
+    }
+  },
+  mounted: function mounted() {
+    this.consultar_provincia();
   }
 });
 
@@ -5492,7 +5697,6 @@ __webpack_require__.r(__webpack_exports__);
       currentPage: 1,
       totalPages: 2,
       // aquí debes usar el número total de páginas que correspondan a tu caso específico
-      // url: process.env.MIX_APP_URL,
       showModal: false,
       clienteToDelete: null
     };
@@ -5601,7 +5805,7 @@ var render = function render() {
     on: {
       submit: function submit($event) {
         $event.preventDefault();
-        return _vm.agregarRegistro.apply(null, arguments);
+        return _vm.altaCliente.apply(null, arguments);
       }
     }
   }, [_c("div", {
@@ -5611,62 +5815,36 @@ var render = function render() {
   }, [_c("div", {
     staticClass: "row"
   }, [_c("div", {
-    staticClass: "col-md-3 col-sm-6"
+    staticClass: "col-md-6 col-sm-6"
   }, [_vm._m(2), _vm._v(" "), _c("input", {
     directives: [{
       name: "model",
       rawName: "v-model",
-      value: _vm.cliente.nombre,
-      expression: "cliente.nombre"
+      value: _vm.cliente.nombre_apellidos,
+      expression: "cliente.nombre_apellidos"
     }],
     staticClass: "form-control",
     attrs: {
       type: "text",
-      required: "",
-      name: "nombre",
-      id: "nombre",
+      name: "nombre_apellidos",
+      id: "nombre_apellidos",
       "aria-describedby": "helpId",
-      placeholder: "Nombre"
+      placeholder: "Nombre completo"
     },
     domProps: {
-      value: _vm.cliente.nombre
+      value: _vm.cliente.nombre_apellidos
     },
     on: {
       input: function input($event) {
         if ($event.target.composing) return;
-        _vm.$set(_vm.cliente, "nombre", $event.target.value);
+        _vm.$set(_vm.cliente, "nombre_apellidos", $event.target.value);
       }
     }
-  })]), _vm._v(" "), _c("div", {
+  }), _vm._v(" "), _vm.errores.nombre_apellidos ? _c("div", {
+    staticClass: "alert alert-danger"
+  }, [_vm._v(_vm._s(_vm.errores.nombre_apellidos[0]))]) : _vm._e()]), _vm._v(" "), _c("div", {
     staticClass: "col-md-3 col-sm-6"
   }, [_vm._m(3), _vm._v(" "), _c("input", {
-    directives: [{
-      name: "model",
-      rawName: "v-model",
-      value: _vm.cliente.apellidos,
-      expression: "cliente.apellidos"
-    }],
-    staticClass: "form-control",
-    attrs: {
-      type: "text",
-      required: "",
-      name: "apellidos",
-      id: "apellidos",
-      "aria-describedby": "helpId",
-      placeholder: "Apellidos"
-    },
-    domProps: {
-      value: _vm.cliente.apellidos
-    },
-    on: {
-      input: function input($event) {
-        if ($event.target.composing) return;
-        _vm.$set(_vm.cliente, "apellidos", $event.target.value);
-      }
-    }
-  })]), _vm._v(" "), _c("div", {
-    staticClass: "col-md-3 col-sm-6"
-  }, [_vm._m(4), _vm._v(" "), _c("input", {
     directives: [{
       name: "model",
       rawName: "v-model",
@@ -5690,9 +5868,11 @@ var render = function render() {
         _vm.$set(_vm.cliente, "documento_identidad", $event.target.value);
       }
     }
-  })]), _vm._v(" "), _c("div", {
+  }), _vm._v(" "), _vm.errores.documento_identidad ? _c("div", {
+    staticClass: "alert alert-danger"
+  }, [_vm._v(_vm._s(_vm.errores.documento_identidad[0]))]) : _vm._e()]), _vm._v(" "), _c("div", {
     staticClass: "col-md-3 col-sm-6"
-  }, [_vm._m(5), _vm._v(" "), _c("input", {
+  }, [_vm._m(4), _vm._v(" "), _c("input", {
     directives: [{
       name: "model",
       rawName: "v-model",
@@ -5717,13 +5897,13 @@ var render = function render() {
     }
   })])])])]), _vm._v(" "), _c("div", {
     staticClass: "card"
-  }, [_vm._m(6), _vm._v(" "), _c("div", {
+  }, [_vm._m(5), _vm._v(" "), _c("div", {
     staticClass: "card-body"
   }, [_c("div", {
     staticClass: "row"
   }, [_c("div", {
     staticClass: "col-md-3 col-sm-6"
-  }, [_vm._m(7), _vm._v(" "), _c("input", {
+  }, [_vm._m(6), _vm._v(" "), _c("input", {
     directives: [{
       name: "model",
       rawName: "v-model",
@@ -5733,7 +5913,6 @@ var render = function render() {
     staticClass: "form-control",
     attrs: {
       type: "text",
-      required: "",
       name: "domicilio",
       id: "domicilio",
       "aria-describedby": "helpId",
@@ -5750,7 +5929,7 @@ var render = function render() {
     }
   })]), _vm._v(" "), _c("div", {
     staticClass: "col-md-3 col-sm-6"
-  }, [_vm._m(8), _vm._v(" "), _c("input", {
+  }, [_vm._m(7), _vm._v(" "), _c("input", {
     directives: [{
       name: "model",
       rawName: "v-model",
@@ -5776,7 +5955,7 @@ var render = function render() {
     }
   })]), _vm._v(" "), _c("div", {
     staticClass: "col-md-3 col-sm-6"
-  }, [_vm._m(9), _vm._v(" "), _c("select", {
+  }, [_vm._m(8), _vm._v(" "), _c("select", {
     directives: [{
       name: "model",
       rawName: "v-model",
@@ -5785,8 +5964,7 @@ var render = function render() {
     }],
     staticClass: "form-select",
     attrs: {
-      id: "provincia",
-      required: ""
+      id: "provincia"
     },
     on: {
       change: [function ($event) {
@@ -5813,9 +5991,11 @@ var render = function render() {
         value: provincia.id
       }
     }, [_vm._v("\n                                    " + _vm._s(provincia.provincia) + "\n                                ")]);
-  })], 2)]), _vm._v(" "), _c("div", {
+  })], 2), _vm._v(" "), _vm.errores.provincia ? _c("div", {
+    staticClass: "alert alert-danger"
+  }, [_vm._v(_vm._s(_vm.errores.provincia[0]))]) : _vm._e()]), _vm._v(" "), _c("div", {
     staticClass: "col-md-3 col-sm-6"
-  }, [_vm._m(10), _vm._v(" "), _c("select", {
+  }, [_vm._m(9), _vm._v(" "), _c("select", {
     directives: [{
       name: "model",
       rawName: "v-model",
@@ -5824,8 +6004,7 @@ var render = function render() {
     }],
     staticClass: "form-select",
     attrs: {
-      id: "municipio",
-      required: ""
+      id: "municipio"
     },
     on: {
       change: function change($event) {
@@ -5847,18 +6026,20 @@ var render = function render() {
     return _c("option", {
       key: municipio.municipio,
       domProps: {
-        value: municipio.municipio
+        value: municipio.id
       }
     }, [_vm._v("\n                                    " + _vm._s(municipio.municipio) + "\n                                ")]);
-  })], 2)])])])]), _vm._v(" "), _c("div", {
+  })], 2), _vm._v(" "), _vm.errores.municipio ? _c("div", {
+    staticClass: "alert alert-danger"
+  }, [_vm._v(_vm._s(_vm.errores.municipio[0]))]) : _vm._e()])])])]), _vm._v(" "), _c("div", {
     staticClass: "card"
-  }, [_vm._m(11), _vm._v(" "), _c("div", {
+  }, [_vm._m(10), _vm._v(" "), _c("div", {
     staticClass: "card-body"
   }, [_c("div", {
     staticClass: "row"
   }, [_c("div", {
     staticClass: "col-md-3 col-sm-6"
-  }, [_vm._m(12), _vm._v(" "), _c("input", {
+  }, [_vm._m(11), _vm._v(" "), _c("input", {
     directives: [{
       name: "model",
       rawName: "v-model",
@@ -5868,7 +6049,6 @@ var render = function render() {
     staticClass: "form-control",
     attrs: {
       type: "telefono",
-      required: "",
       name: "telefono",
       id: "telefono",
       "aria-describedby": "helpId",
@@ -5883,9 +6063,11 @@ var render = function render() {
         _vm.$set(_vm.cliente, "telefono", $event.target.value);
       }
     }
-  })]), _vm._v(" "), _c("div", {
+  }), _vm._v(" "), _vm.errores.telefono ? _c("div", {
+    staticClass: "alert alert-danger"
+  }, [_vm._v(_vm._s(_vm.errores.telefono[0]))]) : _vm._e()]), _vm._v(" "), _c("div", {
     staticClass: "col-md-3 col-sm-6"
-  }, [_vm._m(13), _vm._v(" "), _c("input", {
+  }, [_vm._m(12), _vm._v(" "), _c("input", {
     directives: [{
       name: "model",
       rawName: "v-model",
@@ -5895,7 +6077,6 @@ var render = function render() {
     staticClass: "form-control",
     attrs: {
       type: "email",
-      required: "",
       name: "email",
       id: "email",
       "aria-describedby": "helpId",
@@ -5910,13 +6091,15 @@ var render = function render() {
         _vm.$set(_vm.cliente, "email", $event.target.value);
       }
     }
-  })])])])]), _vm._v(" "), _c("div", {
+  }), _vm._v(" "), _vm.errores.email ? _c("div", {
+    staticClass: "alert alert-danger"
+  }, [_vm._v(_vm._s(_vm.errores.email[0]))]) : _vm._e()])])])]), _vm._v(" "), _c("div", {
     staticClass: "btn-group w-100",
     attrs: {
       role: "group",
       "aria-label": ""
     }
-  }, [_vm._m(14), _vm._v(" "), _c("router-link", {
+  }, [_vm._m(13), _vm._v(" "), _c("router-link", {
     staticClass: "btn btn-warning",
     attrs: {
       to: {
@@ -5948,17 +6131,9 @@ var staticRenderFns = [function () {
     _c = _vm._self._c;
   return _c("label", {
     attrs: {
-      "for": "nombre"
+      "for": "nombre_apellidos"
     }
-  }, [_c("b", [_vm._v("Nombre:")])]);
-}, function () {
-  var _vm = this,
-    _c = _vm._self._c;
-  return _c("label", {
-    attrs: {
-      "for": "apellidos"
-    }
-  }, [_c("b", [_vm._v("Apellidos:")])]);
+  }, [_c("b", [_vm._v("Nombre completo:")])]);
 }, function () {
   var _vm = this,
     _c = _vm._self._c;
@@ -6100,6 +6275,451 @@ render._withStripped = true;
 
 /***/ }),
 
+/***/ "./node_modules/babel-loader/lib/index.js??clonedRuleSet-5.use[0]!./node_modules/vue-loader/lib/loaders/templateLoader.js??ruleSet[1].rules[2]!./node_modules/vue-loader/lib/index.js??vue-loader-options!./resources/js/components/FichaCliente.vue?vue&type=template&id=b0e553a8&":
+/*!******************************************************************************************************************************************************************************************************************************************************************************************!*\
+  !*** ./node_modules/babel-loader/lib/index.js??clonedRuleSet-5.use[0]!./node_modules/vue-loader/lib/loaders/templateLoader.js??ruleSet[1].rules[2]!./node_modules/vue-loader/lib/index.js??vue-loader-options!./resources/js/components/FichaCliente.vue?vue&type=template&id=b0e553a8& ***!
+  \******************************************************************************************************************************************************************************************************************************************************************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "render": () => (/* binding */ render),
+/* harmony export */   "staticRenderFns": () => (/* binding */ staticRenderFns)
+/* harmony export */ });
+var render = function render() {
+  var _vm = this,
+    _c = _vm._self._c;
+  return _c("div", {
+    staticClass: "container"
+  }, [_c("div", {
+    staticClass: "card"
+  }, [_vm._m(0), _vm._v(" "), _c("form", {
+    on: {
+      submit: function submit($event) {
+        $event.preventDefault();
+        return _vm.editarCliente.apply(null, arguments);
+      }
+    }
+  }, [_c("div", {
+    staticClass: "card"
+  }, [_vm._m(1), _vm._v(" "), _c("div", {
+    staticClass: "card-body"
+  }, [_c("div", {
+    staticClass: "row"
+  }, [_c("div", {
+    staticClass: "col-md-6 col-sm-6"
+  }, [_vm._m(2), _vm._v(" "), _c("input", {
+    directives: [{
+      name: "model",
+      rawName: "v-model",
+      value: _vm.cliente.nombre_apellidos,
+      expression: "cliente.nombre_apellidos"
+    }],
+    staticClass: "form-control",
+    attrs: {
+      type: "text",
+      name: "nombre_apellidos",
+      id: "nombre_apellidos",
+      "aria-describedby": "helpId",
+      placeholder: "Nombre completo"
+    },
+    domProps: {
+      value: _vm.cliente.nombre_apellidos
+    },
+    on: {
+      input: function input($event) {
+        if ($event.target.composing) return;
+        _vm.$set(_vm.cliente, "nombre_apellidos", $event.target.value);
+      }
+    }
+  }), _vm._v(" "), _vm.errores.nombre_apellidos ? _c("div", {
+    staticClass: "alert alert-danger"
+  }, [_vm._v(_vm._s(_vm.errores.nombre_apellidos[0]))]) : _vm._e()]), _vm._v(" "), _c("div", {
+    staticClass: "col-md-3 col-sm-6"
+  }, [_vm._m(3), _vm._v(" "), _c("input", {
+    directives: [{
+      name: "model",
+      rawName: "v-model",
+      value: _vm.cliente.documento_identidad,
+      expression: "cliente.documento_identidad"
+    }],
+    staticClass: "form-control",
+    attrs: {
+      type: "text",
+      name: "documento_identidad",
+      id: "documento_identidad",
+      "aria-describedby": "helpId",
+      placeholder: "Nº Documento"
+    },
+    domProps: {
+      value: _vm.cliente.documento_identidad
+    },
+    on: {
+      input: function input($event) {
+        if ($event.target.composing) return;
+        _vm.$set(_vm.cliente, "documento_identidad", $event.target.value);
+      }
+    }
+  }), _vm._v(" "), _vm.errores.documento_identidad ? _c("div", {
+    staticClass: "alert alert-danger"
+  }, [_vm._v(_vm._s(_vm.errores.documento_identidad[0]))]) : _vm._e()]), _vm._v(" "), _c("div", {
+    staticClass: "col-md-3 col-sm-6"
+  }, [_vm._m(4), _vm._v(" "), _c("input", {
+    directives: [{
+      name: "model",
+      rawName: "v-model",
+      value: _vm.cliente.fecha_nacimiento,
+      expression: "cliente.fecha_nacimiento"
+    }],
+    staticClass: "form-control",
+    attrs: {
+      type: "date",
+      name: "fecha_nacimiento",
+      id: "fecha_nacimiento",
+      "aria-describedby": "helpId"
+    },
+    domProps: {
+      value: _vm.cliente.fecha_nacimiento
+    },
+    on: {
+      input: function input($event) {
+        if ($event.target.composing) return;
+        _vm.$set(_vm.cliente, "fecha_nacimiento", $event.target.value);
+      }
+    }
+  })])])])]), _vm._v(" "), _c("div", {
+    staticClass: "card"
+  }, [_vm._m(5), _vm._v(" "), _c("div", {
+    staticClass: "card-body"
+  }, [_c("div", {
+    staticClass: "row"
+  }, [_c("div", {
+    staticClass: "col-md-3 col-sm-6"
+  }, [_vm._m(6), _vm._v(" "), _c("input", {
+    directives: [{
+      name: "model",
+      rawName: "v-model",
+      value: _vm.cliente.domicilio,
+      expression: "cliente.domicilio"
+    }],
+    staticClass: "form-control",
+    attrs: {
+      type: "text",
+      name: "domicilio",
+      id: "domicilio",
+      "aria-describedby": "helpId",
+      placeholder: "Domicilio"
+    },
+    domProps: {
+      value: _vm.cliente.domicilio
+    },
+    on: {
+      input: function input($event) {
+        if ($event.target.composing) return;
+        _vm.$set(_vm.cliente, "domicilio", $event.target.value);
+      }
+    }
+  })]), _vm._v(" "), _c("div", {
+    staticClass: "col-md-3 col-sm-6"
+  }, [_vm._m(7), _vm._v(" "), _c("input", {
+    directives: [{
+      name: "model",
+      rawName: "v-model",
+      value: _vm.cliente.codigo_postal,
+      expression: "cliente.codigo_postal"
+    }],
+    staticClass: "form-control",
+    attrs: {
+      type: "text",
+      name: "codigo_postal",
+      id: "codigo_postal",
+      "aria-describedby": "helpId",
+      placeholder: "Código postal"
+    },
+    domProps: {
+      value: _vm.cliente.codigo_postal
+    },
+    on: {
+      input: function input($event) {
+        if ($event.target.composing) return;
+        _vm.$set(_vm.cliente, "codigo_postal", $event.target.value);
+      }
+    }
+  })]), _vm._v(" "), _c("div", {
+    staticClass: "col-md-3 col-sm-6"
+  }, [_vm._m(8), _vm._v(" "), _c("select", {
+    directives: [{
+      name: "model",
+      rawName: "v-model",
+      value: _vm.cliente.provincia,
+      expression: "cliente.provincia"
+    }],
+    staticClass: "form-select",
+    attrs: {
+      id: "provincia"
+    },
+    on: {
+      change: [function ($event) {
+        var $$selectedVal = Array.prototype.filter.call($event.target.options, function (o) {
+          return o.selected;
+        }).map(function (o) {
+          var val = "_value" in o ? o._value : o.value;
+          return val;
+        });
+        _vm.$set(_vm.cliente, "provincia", $event.target.multiple ? $$selectedVal : $$selectedVal[0]);
+      }, function ($event) {
+        return _vm.consultar_municipio(true);
+      }]
+    }
+  }, [_c("option", {
+    attrs: {
+      disabled: "",
+      value: ""
+    }
+  }, [_vm._v("Selecciona una provincia")]), _vm._v(" "), _vm._l(_vm.provincias, function (provincia) {
+    return _c("option", {
+      key: provincia.provincia,
+      domProps: {
+        value: provincia.id
+      }
+    }, [_vm._v("\n                                    " + _vm._s(provincia.provincia) + "\n                                ")]);
+  })], 2), _vm._v(" "), _vm.errores.provincia ? _c("div", {
+    staticClass: "alert alert-danger"
+  }, [_vm._v(_vm._s(_vm.errores.provincia[0]))]) : _vm._e()]), _vm._v(" "), _c("div", {
+    staticClass: "col-md-3 col-sm-6"
+  }, [_vm._m(9), _vm._v(" "), _c("select", {
+    directives: [{
+      name: "model",
+      rawName: "v-model",
+      value: _vm.cliente.municipio,
+      expression: "cliente.municipio"
+    }],
+    staticClass: "form-select",
+    attrs: {
+      id: "municipio"
+    },
+    on: {
+      change: [function ($event) {
+        var $$selectedVal = Array.prototype.filter.call($event.target.options, function (o) {
+          return o.selected;
+        }).map(function (o) {
+          var val = "_value" in o ? o._value : o.value;
+          return val;
+        });
+        _vm.$set(_vm.cliente, "municipio", $event.target.multiple ? $$selectedVal : $$selectedVal[0]);
+      }, function ($event) {
+        return _vm.get_nombre_municipio();
+      }]
+    }
+  }, [_c("option", {
+    attrs: {
+      disabled: "",
+      value: ""
+    }
+  }, [_vm._v("Selecciona un municipio")]), _vm._v(" "), _vm._l(_vm.localidades, function (municipio) {
+    return _c("option", {
+      key: municipio.municipio,
+      domProps: {
+        value: municipio.id
+      }
+    }, [_vm._v("\n                                    " + _vm._s(municipio.municipio) + "\n                                ")]);
+  })], 2), _vm._v(" "), _vm.errores.municipio ? _c("div", {
+    staticClass: "alert alert-danger"
+  }, [_vm._v(_vm._s(_vm.errores.municipio[0]))]) : _vm._e()])])])]), _vm._v(" "), _c("div", {
+    staticClass: "card"
+  }, [_vm._m(10), _vm._v(" "), _c("div", {
+    staticClass: "card-body"
+  }, [_c("div", {
+    staticClass: "row"
+  }, [_c("div", {
+    staticClass: "col-md-3 col-sm-6"
+  }, [_vm._m(11), _vm._v(" "), _c("input", {
+    directives: [{
+      name: "model",
+      rawName: "v-model",
+      value: _vm.cliente.telefono,
+      expression: "cliente.telefono"
+    }],
+    staticClass: "form-control",
+    attrs: {
+      type: "telefono",
+      name: "telefono",
+      id: "telefono",
+      "aria-describedby": "helpId",
+      placeholder: "Teléfono"
+    },
+    domProps: {
+      value: _vm.cliente.telefono
+    },
+    on: {
+      input: function input($event) {
+        if ($event.target.composing) return;
+        _vm.$set(_vm.cliente, "telefono", $event.target.value);
+      }
+    }
+  }), _vm._v(" "), _vm.errores.telefono ? _c("div", {
+    staticClass: "alert alert-danger"
+  }, [_vm._v(_vm._s(_vm.errores.telefono[0]))]) : _vm._e()]), _vm._v(" "), _c("div", {
+    staticClass: "col-md-3 col-sm-6"
+  }, [_vm._m(12), _vm._v(" "), _c("input", {
+    directives: [{
+      name: "model",
+      rawName: "v-model",
+      value: _vm.cliente.email,
+      expression: "cliente.email"
+    }],
+    staticClass: "form-control",
+    attrs: {
+      type: "email",
+      name: "email",
+      id: "email",
+      "aria-describedby": "helpId",
+      placeholder: "Email"
+    },
+    domProps: {
+      value: _vm.cliente.email
+    },
+    on: {
+      input: function input($event) {
+        if ($event.target.composing) return;
+        _vm.$set(_vm.cliente, "email", $event.target.value);
+      }
+    }
+  }), _vm._v(" "), _vm.errores.email ? _c("div", {
+    staticClass: "alert alert-danger"
+  }, [_vm._v(_vm._s(_vm.errores.email[0]))]) : _vm._e()])])])]), _vm._v(" "), _c("div", {
+    staticClass: "btn-group w-100",
+    attrs: {
+      role: "group",
+      "aria-label": ""
+    }
+  }, [_c("button", {
+    staticClass: "btn btn-success",
+    attrs: {
+      type: "submit"
+    }
+  }, [_vm._v("\n                    Guardar\n                ")]), _vm._v(" "), _c("router-link", {
+    staticClass: "btn btn-warning",
+    attrs: {
+      to: {
+        name: "ExampleComponent"
+      }
+    }
+  }, [_c("i", {
+    staticClass: "bi bi-arrow-return-left"
+  })])], 1)])])]);
+};
+var staticRenderFns = [function () {
+  var _vm = this,
+    _c = _vm._self._c;
+  return _c("div", {
+    staticClass: "card-header bg-dark text-light"
+  }, [_c("h2", {
+    staticClass: "card-title"
+  }, [_vm._v("Ficha cliente")])]);
+}, function () {
+  var _vm = this,
+    _c = _vm._self._c;
+  return _c("div", {
+    staticClass: "card-header"
+  }, [_c("h5", {
+    staticClass: "card-title"
+  }, [_vm._v("Datos personales")])]);
+}, function () {
+  var _vm = this,
+    _c = _vm._self._c;
+  return _c("label", {
+    attrs: {
+      "for": "nombre_apellidos"
+    }
+  }, [_c("b", [_vm._v("Nombre completo:")])]);
+}, function () {
+  var _vm = this,
+    _c = _vm._self._c;
+  return _c("label", {
+    attrs: {
+      "for": "documento_identidad"
+    }
+  }, [_c("b", [_vm._v("NIF/CIF:")])]);
+}, function () {
+  var _vm = this,
+    _c = _vm._self._c;
+  return _c("label", {
+    attrs: {
+      "for": "fecha_nacimiento"
+    }
+  }, [_c("b", [_vm._v("Fecha nacimiento:")])]);
+}, function () {
+  var _vm = this,
+    _c = _vm._self._c;
+  return _c("div", {
+    staticClass: "card-header"
+  }, [_c("h5", {
+    staticClass: "card-title"
+  }, [_vm._v("Dirección")])]);
+}, function () {
+  var _vm = this,
+    _c = _vm._self._c;
+  return _c("label", {
+    attrs: {
+      "for": "domicilio"
+    }
+  }, [_c("b", [_vm._v("Domicilio:")])]);
+}, function () {
+  var _vm = this,
+    _c = _vm._self._c;
+  return _c("label", {
+    attrs: {
+      "for": "codigo_postal"
+    }
+  }, [_c("b", [_vm._v("Código postal:")])]);
+}, function () {
+  var _vm = this,
+    _c = _vm._self._c;
+  return _c("label", {
+    attrs: {
+      "for": "provincia"
+    }
+  }, [_c("b", [_vm._v("Provincia:")])]);
+}, function () {
+  var _vm = this,
+    _c = _vm._self._c;
+  return _c("label", {
+    attrs: {
+      "for": "municipio"
+    }
+  }, [_c("b", [_vm._v("Municipio:")])]);
+}, function () {
+  var _vm = this,
+    _c = _vm._self._c;
+  return _c("div", {
+    staticClass: "card-header"
+  }, [_c("h5", {
+    staticClass: "card-title"
+  }, [_vm._v("Datos de contacto")])]);
+}, function () {
+  var _vm = this,
+    _c = _vm._self._c;
+  return _c("label", {
+    attrs: {
+      "for": "telefono"
+    }
+  }, [_c("b", [_vm._v("Teléfono:")])]);
+}, function () {
+  var _vm = this,
+    _c = _vm._self._c;
+  return _c("label", {
+    attrs: {
+      "for": "email"
+    }
+  }, [_c("b", [_vm._v("Email:")])]);
+}];
+render._withStripped = true;
+
+
+/***/ }),
+
 /***/ "./node_modules/babel-loader/lib/index.js??clonedRuleSet-5.use[0]!./node_modules/vue-loader/lib/loaders/templateLoader.js??ruleSet[1].rules[2]!./node_modules/vue-loader/lib/index.js??vue-loader-options!./resources/js/components/ListarClientes.vue?vue&type=template&id=579ff95a&":
 /*!********************************************************************************************************************************************************************************************************************************************************************************************!*\
   !*** ./node_modules/babel-loader/lib/index.js??clonedRuleSet-5.use[0]!./node_modules/vue-loader/lib/loaders/templateLoader.js??ruleSet[1].rules[2]!./node_modules/vue-loader/lib/index.js??vue-loader-options!./resources/js/components/ListarClientes.vue?vue&type=template&id=579ff95a& ***!
@@ -6130,10 +6750,10 @@ var render = function render() {
   }, _vm._l(_vm.clientes, function (cliente) {
     return _c("tr", {
       key: cliente.id
-    }, [_c("td", [_vm._v(_vm._s(cliente.nombre_apellidos))]), _vm._v(" "), _c("td", [_vm._v(_vm._s(cliente.municipio))]), _vm._v(" "), _c("td", [_vm._v(_vm._s(cliente.provincia_nombre))]), _vm._v(" "), _c("td", [_vm._v(_vm._s(cliente.telefono))]), _vm._v(" "), _c("td", [_c("button", {
+    }, [_c("td", [_vm._v(_vm._s(cliente.nombre_apellidos))]), _vm._v(" "), _c("td", [_vm._v(_vm._s(cliente.municipio_nombre))]), _vm._v(" "), _c("td", [_vm._v(_vm._s(cliente.provincia_nombre))]), _vm._v(" "), _c("td", [_vm._v(_vm._s(cliente.telefono))]), _vm._v(" "), _c("td", [_c("button", {
       staticClass: "btn bg-danger",
       attrs: {
-        title: "Borrar"
+        title: "Dar baja"
       },
       on: {
         click: function click($event) {
@@ -6141,11 +6761,21 @@ var render = function render() {
         }
       }
     }, [_c("i", {
-      staticClass: "fa-solid fa-user-xmark",
-      staticStyle: {
-        color: "#ffffff"
+      staticClass: "fa-solid fa-user-xmark"
+    })]), _vm._v(" "), _c("router-link", {
+      staticClass: "btn bg-info",
+      attrs: {
+        to: {
+          name: "FichaCliente",
+          params: {
+            id: cliente.id
+          }
+        },
+        title: "Ver detalles"
       }
-    })])])]);
+    }, [_c("i", {
+      staticClass: "fa-sharp fa-regular fa-eye"
+    })])], 1)]);
   }), 0)])])])]), _vm._v(" "), _c("div", [_c("paginacion", {
     attrs: {
       "current-page": _vm.currentPage,
@@ -6292,17 +6922,19 @@ render._withStripped = true;
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
-/* harmony import */ var vue_router__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! vue-router */ "./node_modules/vue-router/dist/vue-router.esm.js");
+/* harmony import */ var vue_router__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! vue-router */ "./node_modules/vue-router/dist/vue-router.esm.js");
 /* harmony import */ var _components_ExampleComponent_vue__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./components/ExampleComponent.vue */ "./resources/js/components/ExampleComponent.vue");
 /* harmony import */ var _components_AltaCliente_vue__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./components/AltaCliente.vue */ "./resources/js/components/AltaCliente.vue");
 /* harmony import */ var _components_ListarClientes_vue__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./components/ListarClientes.vue */ "./resources/js/components/ListarClientes.vue");
+/* harmony import */ var _components_FichaCliente_vue__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./components/FichaCliente.vue */ "./resources/js/components/FichaCliente.vue");
 __webpack_require__(/*! ./bootstrap */ "./resources/js/bootstrap.js");
 window.Vue = (__webpack_require__(/*! vue */ "./node_modules/vue/dist/vue.esm.js")["default"]);
 
 
 
 
-Vue.use(vue_router__WEBPACK_IMPORTED_MODULE_3__["default"]);
+
+Vue.use(vue_router__WEBPACK_IMPORTED_MODULE_4__["default"]);
 var routes = [{
   path: '/',
   name: 'ExampleComponent',
@@ -6315,8 +6947,12 @@ var routes = [{
   path: '/listarclientes',
   name: 'ListarClientes',
   component: _components_ListarClientes_vue__WEBPACK_IMPORTED_MODULE_2__["default"]
+}, {
+  path: '/fichacliente/:id',
+  name: 'FichaCliente',
+  component: _components_FichaCliente_vue__WEBPACK_IMPORTED_MODULE_3__["default"]
 }];
-var router = new vue_router__WEBPACK_IMPORTED_MODULE_3__["default"]({
+var router = new vue_router__WEBPACK_IMPORTED_MODULE_4__["default"]({
   routes: routes
 });
 var app = new Vue({
@@ -17568,6 +18204,30 @@ defineJQueryPlugin(Toast);
 /*!**************************************************************************************************************************************************************************************************************************************************************************************************************************************************!*\
   !*** ./node_modules/css-loader/dist/cjs.js??clonedRuleSet-9.use[1]!./node_modules/vue-loader/lib/loaders/stylePostLoader.js!./node_modules/postcss-loader/dist/cjs.js??clonedRuleSet-9.use[2]!./node_modules/vue-loader/lib/index.js??vue-loader-options!./resources/js/components/AltaCliente.vue?vue&type=style&index=0&id=d158ee32&lang=css& ***!
   \**************************************************************************************************************************************************************************************************************************************************************************************************************************************************/
+/***/ ((module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
+/* harmony export */ });
+/* harmony import */ var _node_modules_css_loader_dist_runtime_api_js__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../../../node_modules/css-loader/dist/runtime/api.js */ "./node_modules/css-loader/dist/runtime/api.js");
+/* harmony import */ var _node_modules_css_loader_dist_runtime_api_js__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(_node_modules_css_loader_dist_runtime_api_js__WEBPACK_IMPORTED_MODULE_0__);
+// Imports
+
+var ___CSS_LOADER_EXPORT___ = _node_modules_css_loader_dist_runtime_api_js__WEBPACK_IMPORTED_MODULE_0___default()(function(i){return i[1]});
+// Module
+___CSS_LOADER_EXPORT___.push([module.id, "\nh2 {\r\n    text-align: center;\n}\nbody{\r\n    background-color:lightgreen;\n}\r\n", ""]);
+// Exports
+/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (___CSS_LOADER_EXPORT___);
+
+
+/***/ }),
+
+/***/ "./node_modules/css-loader/dist/cjs.js??clonedRuleSet-9.use[1]!./node_modules/vue-loader/lib/loaders/stylePostLoader.js!./node_modules/postcss-loader/dist/cjs.js??clonedRuleSet-9.use[2]!./node_modules/vue-loader/lib/index.js??vue-loader-options!./resources/js/components/FichaCliente.vue?vue&type=style&index=0&id=b0e553a8&lang=css&":
+/*!***************************************************************************************************************************************************************************************************************************************************************************************************************************************************!*\
+  !*** ./node_modules/css-loader/dist/cjs.js??clonedRuleSet-9.use[1]!./node_modules/vue-loader/lib/loaders/stylePostLoader.js!./node_modules/postcss-loader/dist/cjs.js??clonedRuleSet-9.use[2]!./node_modules/vue-loader/lib/index.js??vue-loader-options!./resources/js/components/FichaCliente.vue?vue&type=style&index=0&id=b0e553a8&lang=css& ***!
+  \***************************************************************************************************************************************************************************************************************************************************************************************************************************************************/
 /***/ ((module, __webpack_exports__, __webpack_require__) => {
 
 "use strict";
@@ -35137,6 +35797,36 @@ var update = _node_modules_style_loader_dist_runtime_injectStylesIntoStyleTag_js
 
 /***/ }),
 
+/***/ "./node_modules/style-loader/dist/cjs.js!./node_modules/css-loader/dist/cjs.js??clonedRuleSet-9.use[1]!./node_modules/vue-loader/lib/loaders/stylePostLoader.js!./node_modules/postcss-loader/dist/cjs.js??clonedRuleSet-9.use[2]!./node_modules/vue-loader/lib/index.js??vue-loader-options!./resources/js/components/FichaCliente.vue?vue&type=style&index=0&id=b0e553a8&lang=css&":
+/*!*******************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************!*\
+  !*** ./node_modules/style-loader/dist/cjs.js!./node_modules/css-loader/dist/cjs.js??clonedRuleSet-9.use[1]!./node_modules/vue-loader/lib/loaders/stylePostLoader.js!./node_modules/postcss-loader/dist/cjs.js??clonedRuleSet-9.use[2]!./node_modules/vue-loader/lib/index.js??vue-loader-options!./resources/js/components/FichaCliente.vue?vue&type=style&index=0&id=b0e553a8&lang=css& ***!
+  \*******************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
+/* harmony export */ });
+/* harmony import */ var _node_modules_style_loader_dist_runtime_injectStylesIntoStyleTag_js__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! !../../../node_modules/style-loader/dist/runtime/injectStylesIntoStyleTag.js */ "./node_modules/style-loader/dist/runtime/injectStylesIntoStyleTag.js");
+/* harmony import */ var _node_modules_style_loader_dist_runtime_injectStylesIntoStyleTag_js__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(_node_modules_style_loader_dist_runtime_injectStylesIntoStyleTag_js__WEBPACK_IMPORTED_MODULE_0__);
+/* harmony import */ var _node_modules_css_loader_dist_cjs_js_clonedRuleSet_9_use_1_node_modules_vue_loader_lib_loaders_stylePostLoader_js_node_modules_postcss_loader_dist_cjs_js_clonedRuleSet_9_use_2_node_modules_vue_loader_lib_index_js_vue_loader_options_FichaCliente_vue_vue_type_style_index_0_id_b0e553a8_lang_css___WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! !!../../../node_modules/css-loader/dist/cjs.js??clonedRuleSet-9.use[1]!../../../node_modules/vue-loader/lib/loaders/stylePostLoader.js!../../../node_modules/postcss-loader/dist/cjs.js??clonedRuleSet-9.use[2]!../../../node_modules/vue-loader/lib/index.js??vue-loader-options!./FichaCliente.vue?vue&type=style&index=0&id=b0e553a8&lang=css& */ "./node_modules/css-loader/dist/cjs.js??clonedRuleSet-9.use[1]!./node_modules/vue-loader/lib/loaders/stylePostLoader.js!./node_modules/postcss-loader/dist/cjs.js??clonedRuleSet-9.use[2]!./node_modules/vue-loader/lib/index.js??vue-loader-options!./resources/js/components/FichaCliente.vue?vue&type=style&index=0&id=b0e553a8&lang=css&");
+
+            
+
+var options = {};
+
+options.insert = "head";
+options.singleton = false;
+
+var update = _node_modules_style_loader_dist_runtime_injectStylesIntoStyleTag_js__WEBPACK_IMPORTED_MODULE_0___default()(_node_modules_css_loader_dist_cjs_js_clonedRuleSet_9_use_1_node_modules_vue_loader_lib_loaders_stylePostLoader_js_node_modules_postcss_loader_dist_cjs_js_clonedRuleSet_9_use_2_node_modules_vue_loader_lib_index_js_vue_loader_options_FichaCliente_vue_vue_type_style_index_0_id_b0e553a8_lang_css___WEBPACK_IMPORTED_MODULE_1__["default"], options);
+
+
+
+/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (_node_modules_css_loader_dist_cjs_js_clonedRuleSet_9_use_1_node_modules_vue_loader_lib_loaders_stylePostLoader_js_node_modules_postcss_loader_dist_cjs_js_clonedRuleSet_9_use_2_node_modules_vue_loader_lib_index_js_vue_loader_options_FichaCliente_vue_vue_type_style_index_0_id_b0e553a8_lang_css___WEBPACK_IMPORTED_MODULE_1__["default"].locals || {});
+
+/***/ }),
+
 /***/ "./node_modules/style-loader/dist/cjs.js!./node_modules/css-loader/dist/cjs.js??clonedRuleSet-9.use[1]!./node_modules/vue-loader/lib/loaders/stylePostLoader.js!./node_modules/postcss-loader/dist/cjs.js??clonedRuleSet-9.use[2]!./node_modules/vue-loader/lib/index.js??vue-loader-options!./resources/js/components/Paginacion.vue?vue&type=style&index=0&id=a394e714&lang=css&":
 /*!*****************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************!*\
   !*** ./node_modules/style-loader/dist/cjs.js!./node_modules/css-loader/dist/cjs.js??clonedRuleSet-9.use[1]!./node_modules/vue-loader/lib/loaders/stylePostLoader.js!./node_modules/postcss-loader/dist/cjs.js??clonedRuleSet-9.use[2]!./node_modules/vue-loader/lib/index.js??vue-loader-options!./resources/js/components/Paginacion.vue?vue&type=style&index=0&id=a394e714&lang=css& ***!
@@ -35543,6 +36233,47 @@ component.options.__file = "resources/js/components/ExampleComponent.vue"
 
 /***/ }),
 
+/***/ "./resources/js/components/FichaCliente.vue":
+/*!**************************************************!*\
+  !*** ./resources/js/components/FichaCliente.vue ***!
+  \**************************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
+/* harmony export */ });
+/* harmony import */ var _FichaCliente_vue_vue_type_template_id_b0e553a8___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./FichaCliente.vue?vue&type=template&id=b0e553a8& */ "./resources/js/components/FichaCliente.vue?vue&type=template&id=b0e553a8&");
+/* harmony import */ var _FichaCliente_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./FichaCliente.vue?vue&type=script&lang=js& */ "./resources/js/components/FichaCliente.vue?vue&type=script&lang=js&");
+/* harmony import */ var _FichaCliente_vue_vue_type_style_index_0_id_b0e553a8_lang_css___WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./FichaCliente.vue?vue&type=style&index=0&id=b0e553a8&lang=css& */ "./resources/js/components/FichaCliente.vue?vue&type=style&index=0&id=b0e553a8&lang=css&");
+/* harmony import */ var _node_modules_vue_loader_lib_runtime_componentNormalizer_js__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! !../../../node_modules/vue-loader/lib/runtime/componentNormalizer.js */ "./node_modules/vue-loader/lib/runtime/componentNormalizer.js");
+
+
+
+;
+
+
+/* normalize component */
+
+var component = (0,_node_modules_vue_loader_lib_runtime_componentNormalizer_js__WEBPACK_IMPORTED_MODULE_3__["default"])(
+  _FichaCliente_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_1__["default"],
+  _FichaCliente_vue_vue_type_template_id_b0e553a8___WEBPACK_IMPORTED_MODULE_0__.render,
+  _FichaCliente_vue_vue_type_template_id_b0e553a8___WEBPACK_IMPORTED_MODULE_0__.staticRenderFns,
+  false,
+  null,
+  null,
+  null
+  
+)
+
+/* hot reload */
+if (false) { var api; }
+component.options.__file = "resources/js/components/FichaCliente.vue"
+/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (component.exports);
+
+/***/ }),
+
 /***/ "./resources/js/components/ListarClientes.vue":
 /*!****************************************************!*\
   !*** ./resources/js/components/ListarClientes.vue ***!
@@ -35655,6 +36386,22 @@ __webpack_require__.r(__webpack_exports__);
 
 /***/ }),
 
+/***/ "./resources/js/components/FichaCliente.vue?vue&type=script&lang=js&":
+/*!***************************************************************************!*\
+  !*** ./resources/js/components/FichaCliente.vue?vue&type=script&lang=js& ***!
+  \***************************************************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
+/* harmony export */ });
+/* harmony import */ var _node_modules_babel_loader_lib_index_js_clonedRuleSet_5_use_0_node_modules_vue_loader_lib_index_js_vue_loader_options_FichaCliente_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! -!../../../node_modules/babel-loader/lib/index.js??clonedRuleSet-5.use[0]!../../../node_modules/vue-loader/lib/index.js??vue-loader-options!./FichaCliente.vue?vue&type=script&lang=js& */ "./node_modules/babel-loader/lib/index.js??clonedRuleSet-5.use[0]!./node_modules/vue-loader/lib/index.js??vue-loader-options!./resources/js/components/FichaCliente.vue?vue&type=script&lang=js&");
+ /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (_node_modules_babel_loader_lib_index_js_clonedRuleSet_5_use_0_node_modules_vue_loader_lib_index_js_vue_loader_options_FichaCliente_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_0__["default"]); 
+
+/***/ }),
+
 /***/ "./resources/js/components/ListarClientes.vue?vue&type=script&lang=js&":
 /*!*****************************************************************************!*\
   !*** ./resources/js/components/ListarClientes.vue?vue&type=script&lang=js& ***!
@@ -35721,6 +36468,23 @@ __webpack_require__.r(__webpack_exports__);
 
 /***/ }),
 
+/***/ "./resources/js/components/FichaCliente.vue?vue&type=template&id=b0e553a8&":
+/*!*********************************************************************************!*\
+  !*** ./resources/js/components/FichaCliente.vue?vue&type=template&id=b0e553a8& ***!
+  \*********************************************************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "render": () => (/* reexport safe */ _node_modules_babel_loader_lib_index_js_clonedRuleSet_5_use_0_node_modules_vue_loader_lib_loaders_templateLoader_js_ruleSet_1_rules_2_node_modules_vue_loader_lib_index_js_vue_loader_options_FichaCliente_vue_vue_type_template_id_b0e553a8___WEBPACK_IMPORTED_MODULE_0__.render),
+/* harmony export */   "staticRenderFns": () => (/* reexport safe */ _node_modules_babel_loader_lib_index_js_clonedRuleSet_5_use_0_node_modules_vue_loader_lib_loaders_templateLoader_js_ruleSet_1_rules_2_node_modules_vue_loader_lib_index_js_vue_loader_options_FichaCliente_vue_vue_type_template_id_b0e553a8___WEBPACK_IMPORTED_MODULE_0__.staticRenderFns)
+/* harmony export */ });
+/* harmony import */ var _node_modules_babel_loader_lib_index_js_clonedRuleSet_5_use_0_node_modules_vue_loader_lib_loaders_templateLoader_js_ruleSet_1_rules_2_node_modules_vue_loader_lib_index_js_vue_loader_options_FichaCliente_vue_vue_type_template_id_b0e553a8___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! -!../../../node_modules/babel-loader/lib/index.js??clonedRuleSet-5.use[0]!../../../node_modules/vue-loader/lib/loaders/templateLoader.js??ruleSet[1].rules[2]!../../../node_modules/vue-loader/lib/index.js??vue-loader-options!./FichaCliente.vue?vue&type=template&id=b0e553a8& */ "./node_modules/babel-loader/lib/index.js??clonedRuleSet-5.use[0]!./node_modules/vue-loader/lib/loaders/templateLoader.js??ruleSet[1].rules[2]!./node_modules/vue-loader/lib/index.js??vue-loader-options!./resources/js/components/FichaCliente.vue?vue&type=template&id=b0e553a8&");
+
+
+/***/ }),
+
 /***/ "./resources/js/components/ListarClientes.vue?vue&type=template&id=579ff95a&":
 /*!***********************************************************************************!*\
   !*** ./resources/js/components/ListarClientes.vue?vue&type=template&id=579ff95a& ***!
@@ -35764,6 +36528,19 @@ __webpack_require__.r(__webpack_exports__);
 "use strict";
 __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _node_modules_style_loader_dist_cjs_js_node_modules_css_loader_dist_cjs_js_clonedRuleSet_9_use_1_node_modules_vue_loader_lib_loaders_stylePostLoader_js_node_modules_postcss_loader_dist_cjs_js_clonedRuleSet_9_use_2_node_modules_vue_loader_lib_index_js_vue_loader_options_AltaCliente_vue_vue_type_style_index_0_id_d158ee32_lang_css___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! -!../../../node_modules/style-loader/dist/cjs.js!../../../node_modules/css-loader/dist/cjs.js??clonedRuleSet-9.use[1]!../../../node_modules/vue-loader/lib/loaders/stylePostLoader.js!../../../node_modules/postcss-loader/dist/cjs.js??clonedRuleSet-9.use[2]!../../../node_modules/vue-loader/lib/index.js??vue-loader-options!./AltaCliente.vue?vue&type=style&index=0&id=d158ee32&lang=css& */ "./node_modules/style-loader/dist/cjs.js!./node_modules/css-loader/dist/cjs.js??clonedRuleSet-9.use[1]!./node_modules/vue-loader/lib/loaders/stylePostLoader.js!./node_modules/postcss-loader/dist/cjs.js??clonedRuleSet-9.use[2]!./node_modules/vue-loader/lib/index.js??vue-loader-options!./resources/js/components/AltaCliente.vue?vue&type=style&index=0&id=d158ee32&lang=css&");
+
+
+/***/ }),
+
+/***/ "./resources/js/components/FichaCliente.vue?vue&type=style&index=0&id=b0e553a8&lang=css&":
+/*!***********************************************************************************************!*\
+  !*** ./resources/js/components/FichaCliente.vue?vue&type=style&index=0&id=b0e553a8&lang=css& ***!
+  \***********************************************************************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var _node_modules_style_loader_dist_cjs_js_node_modules_css_loader_dist_cjs_js_clonedRuleSet_9_use_1_node_modules_vue_loader_lib_loaders_stylePostLoader_js_node_modules_postcss_loader_dist_cjs_js_clonedRuleSet_9_use_2_node_modules_vue_loader_lib_index_js_vue_loader_options_FichaCliente_vue_vue_type_style_index_0_id_b0e553a8_lang_css___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! -!../../../node_modules/style-loader/dist/cjs.js!../../../node_modules/css-loader/dist/cjs.js??clonedRuleSet-9.use[1]!../../../node_modules/vue-loader/lib/loaders/stylePostLoader.js!../../../node_modules/postcss-loader/dist/cjs.js??clonedRuleSet-9.use[2]!../../../node_modules/vue-loader/lib/index.js??vue-loader-options!./FichaCliente.vue?vue&type=style&index=0&id=b0e553a8&lang=css& */ "./node_modules/style-loader/dist/cjs.js!./node_modules/css-loader/dist/cjs.js??clonedRuleSet-9.use[1]!./node_modules/vue-loader/lib/loaders/stylePostLoader.js!./node_modules/postcss-loader/dist/cjs.js??clonedRuleSet-9.use[2]!./node_modules/vue-loader/lib/index.js??vue-loader-options!./resources/js/components/FichaCliente.vue?vue&type=style&index=0&id=b0e553a8&lang=css&");
 
 
 /***/ }),

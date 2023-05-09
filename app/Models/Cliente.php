@@ -17,6 +17,7 @@ class Cliente extends Model
         'domicilio',
         'codigo_postal',
         'municipio',
+        'municipio_nombre',
         'provincia',
         'provincia_nombre',
         'telefono',

@@ -9,6 +9,8 @@ class Provincia extends Model
 {
     use HasFactory;
 
-    protected $table = 'provincias';
+    protected $fillable = [
+        'provincia',
+    ];
 
 }

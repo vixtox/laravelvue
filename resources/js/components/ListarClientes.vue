@@ -18,12 +18,14 @@
                         </thead>
                         <tbody class="flex-column">
                             <tr v-for="cliente in clientes" :key="cliente.id">
-                                <td>{{ cliente.nombre_apellidos }}</td>
-                                <td>{{ cliente.municipio }}</td>
+                                <td>{{cliente.nombre_apellidos }}</td>
+                                <td>{{ cliente.municipio_nombre }}</td>
                                 <td>{{ cliente.provincia_nombre }}</td>
                                 <td>{{ cliente.telefono }}</td>
                                 <td>
-                                    <button class="btn bg-danger" @click="borrarCliente(cliente.id)" title="Borrar"><i class="fa-solid fa-user-xmark" style="color: #ffffff;"></i></button>
+                                    <button class="btn bg-danger" @click="borrarCliente(cliente.id)" title="Dar baja">
+                                        <i class="fa-solid fa-user-xmark"></i></button>
+                                    <router-link :to="{ name: 'FichaCliente', params: { id: cliente.id } }" class="btn bg-info" title="Ver detalles"><i class="fa-sharp fa-regular fa-eye"></i></router-link>
                                 </td>
                             </tr>
                         </tbody>
@@ -35,7 +37,8 @@
             <paginacion :current-page="currentPage" :total-pages="totalPages" @pageChanged="pageChanged"></paginacion>
         </div>
         <b-modal v-model="showModal" title="Confirmación" hide-footer>
-            <p  v-for="cliente in clientes" :key="cliente.id">¿Estás seguro de que quieres borrar a {{ cliente.nombre_apellidos }}?</p>
+            <p v-for="cliente in clientes" :key="cliente.id">¿Estás seguro de que quieres borrar a {{
+                cliente.nombre_apellidos }}?</p>
             <div class="d-flex justify-content-end">
                 <b-button variant="secondary" class="mr-2" @click="showModal = false">Cancelar</b-button>
                 <b-button variant="danger" @click="deleteCliente">Borrar</b-button>
@@ -61,7 +64,6 @@ export default {
             clientes: [],
             currentPage: 1,
             totalPages: 2, // aquí debes usar el número total de páginas que correspondan a tu caso específico
-            // url: process.env.MIX_APP_URL,
             showModal: false,
             clienteToDelete: null
         }
