@@ -26,6 +26,8 @@
     "dependencies": {
         "bootstrap-vue": "^2.23.1",
         "laravel-vue-pagination": "^4.0.0",
-        "vue-router": "3.0"
+        "sweetalert2": "^11.7.5",
+        "vue-router": "3.0",
+        "vue-sweetalert2": "^5.0.5"
     }
 }

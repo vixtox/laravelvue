@@ -30,9 +30,8 @@ class ClienteRequest extends FormRequest
             'fecha_nacimiento' => ['nullable'],
             'domicilio' => ['nullable'],
             'codigo_postal' => ['nullable'],
-            'municipio' => ['required'],
-            'provincia' => ['required'],
-            'provincia_nombre' => ['required'],
+            'municipio_id' => ['required'],
+            'provincia_id' => ['required'],
             'telefono' => ['required', 'regex:/^[6-9]\d{8}$/'],
             'email' => ['required', 'email']
         ];
@@ -49,8 +48,8 @@ class ClienteRequest extends FormRequest
             'fecha_nacimiento' => 'nullable',
             'domicilio' => 'nullable',
             'codigo_postal' => 'nullable',
-            'municipio.required' => 'Municipio requerido',
-            'provincia.required' => 'Provincia requerido',
+            'municipio_id.required' => 'Municipio requerido',
+            'provincia_id.required' => 'Provincia requerido',
             'telefono.required' => 'Teléfono requerido',
             'telefono.regex' => 'Teléfono no válido',
             'email.required' => 'Email requerido',

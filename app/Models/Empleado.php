@@ -16,8 +16,8 @@ class Empleado extends Model
         'direccion',
         'pais',
         'codigo_postal',
-        'municipio',
-        'provincia',
+        'id_municipio',
+        'id_provincia',
         'telefono',
         'email',
         'fecha_contratacion',
@@ -25,5 +25,15 @@ class Empleado extends Model
         'cargo',
         'deleted_at'
     ];
+
+    public function provincia()
+    {
+        return $this->belongsTo(Provincia::class, 'provincia_id');
+    }
+
+    public function municipio()
+    {
+        return $this->belongsTo(Municipio::class, 'municipio_id');
+    }
 
 }

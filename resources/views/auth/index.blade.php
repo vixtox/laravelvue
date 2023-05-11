@@ -7,7 +7,7 @@
 
     <nav class="navbar navbar-expand-lg navbar-light azul">
         <router-link to="/" class="navbar-brand"><img id="logo" style="border-radius: 50%" src="{{ asset('img/dvapp.png') }}"
-            alt="Logo" width="10%"><span class="text-white"><strong> Database Veterinary App</strong></span></router-link>
+            alt="Logo" width="15%"><span class="text-white"><strong> Database Veterinary App</strong></span></router-link>
         <div class="d-none d-md-flex flex-nowrap menu flex-shrink-0">
             <ul class="nav">
                 <li class="nav-item dropdown">

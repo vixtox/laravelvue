@@ -46,7 +46,7 @@ class MunicipioController extends Controller
      */
     public function show($id)
     {
-        $municipios = Municipio::where('provincia', $id)->get();
+        $municipios = Municipio::where('provincia_id', $id)->get();
         return response()->json($municipios);
     }
 

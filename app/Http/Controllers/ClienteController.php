@@ -14,19 +14,27 @@ class ClienteController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
+
     public function index()
     {
-
-        $clientes = Cliente::where('deleted_at', NULL)->paginate(5);
-
-
+        $clientes = Cliente::with('provincia')
+        ->where('deleted_at', NULL)
+        ->paginate(5);
+    
+        // Modificar el contenido de $clientes
+        $clientes->getCollection()->transform(function ($cliente) {
+            $cliente->provincia_id = $cliente->provincia ? $cliente->provincia->provincia : null;
+            $cliente->municipio_id = $cliente->municipio ? $cliente->municipio->municipio : null;
+            return $cliente;
+        });
+        
         return response()->json([
             'clientes' => $clientes->items(),
             'currentPage' => $clientes->currentPage(),
             'lastPage' => $clientes->lastPage(),
         ]);
     }
-
+     
     /**
      * Show the form for creating a new resource.
      *

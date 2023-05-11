@@ -20,14 +20,16 @@ class CreateClientesTable extends Migration
             $table->date('fecha_nacimiento')->nullable();
             $table->string('domicilio')->nullable();
             $table->string('codigo_postal')->nullable();
-            $table->string('municipio')->nullable();
-            $table->string('municipio_nombre')->nullable();
-            $table->string('provincia')->nullable();
-            $table->string('provincia_nombre')->nullable();
             $table->string('telefono');
             $table->string('email');
             $table->timestamp('deleted_at')->nullable();
             $table->timestamps();
+
+            $table->unsignedBigInteger('provincia_id');
+            $table->foreign('provincia_id')->references('id')->on('provincias');
+
+            $table->unsignedBigInteger('municipio_id');
+            $table->foreign('municipio_id')->references('id')->on('municipios');
         });
     }
 

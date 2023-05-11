@@ -5315,10 +5315,13 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */ });
 /* harmony import */ var axios__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! axios */ "./node_modules/axios/index.js");
 /* harmony import */ var axios__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(axios__WEBPACK_IMPORTED_MODULE_0__);
+/* harmony import */ var sweetalert2__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! sweetalert2 */ "./node_modules/sweetalert2/dist/sweetalert2.all.js");
+/* harmony import */ var sweetalert2__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(sweetalert2__WEBPACK_IMPORTED_MODULE_1__);
 function _typeof(obj) { "@babel/helpers - typeof"; return _typeof = "function" == typeof Symbol && "symbol" == typeof Symbol.iterator ? function (obj) { return typeof obj; } : function (obj) { return obj && "function" == typeof Symbol && obj.constructor === Symbol && obj !== Symbol.prototype ? "symbol" : typeof obj; }, _typeof(obj); }
 function _regeneratorRuntime() { "use strict"; /*! regenerator-runtime -- Copyright (c) 2014-present, Facebook, Inc. -- license (MIT): https://github.com/facebook/regenerator/blob/main/LICENSE */ _regeneratorRuntime = function _regeneratorRuntime() { return exports; }; var exports = {}, Op = Object.prototype, hasOwn = Op.hasOwnProperty, defineProperty = Object.defineProperty || function (obj, key, desc) { obj[key] = desc.value; }, $Symbol = "function" == typeof Symbol ? Symbol : {}, iteratorSymbol = $Symbol.iterator || "@@iterator", asyncIteratorSymbol = $Symbol.asyncIterator || "@@asyncIterator", toStringTagSymbol = $Symbol.toStringTag || "@@toStringTag"; function define(obj, key, value) { return Object.defineProperty(obj, key, { value: value, enumerable: !0, configurable: !0, writable: !0 }), obj[key]; } try { define({}, ""); } catch (err) { define = function define(obj, key, value) { return obj[key] = value; }; } function wrap(innerFn, outerFn, self, tryLocsList) { var protoGenerator = outerFn && outerFn.prototype instanceof Generator ? outerFn : Generator, generator = Object.create(protoGenerator.prototype), context = new Context(tryLocsList || []); return defineProperty(generator, "_invoke", { value: makeInvokeMethod(innerFn, self, context) }), generator; } function tryCatch(fn, obj, arg) { try { return { type: "normal", arg: fn.call(obj, arg) }; } catch (err) { return { type: "throw", arg: err }; } } exports.wrap = wrap; var ContinueSentinel = {}; function Generator() {} function GeneratorFunction() {} function GeneratorFunctionPrototype() {} var IteratorPrototype = {}; define(IteratorPrototype, iteratorSymbol, function () { return this; }); var getProto = Object.getPrototypeOf, NativeIteratorPrototype = getProto && getProto(getProto(values([]))); NativeIteratorPrototype && NativeIteratorPrototype !== Op && hasOwn.call(NativeIteratorPrototype, iteratorSymbol) && (IteratorPrototype = NativeIteratorPrototype); var Gp = GeneratorFunctionPrototype.prototype = Generator.prototype = Object.create(IteratorPrototype); function defineIteratorMethods(prototype) { ["next", "throw", "return"].forEach(function (method) { define(prototype, method, function (arg) { return this._invoke(method, arg); }); }); } function AsyncIterator(generator, PromiseImpl) { function invoke(method, arg, resolve, reject) { var record = tryCatch(generator[method], generator, arg); if ("throw" !== record.type) { var result = record.arg, value = result.value; return value && "object" == _typeof(value) && hasOwn.call(value, "__await") ? PromiseImpl.resolve(value.__await).then(function (value) { invoke("next", value, resolve, reject); }, function (err) { invoke("throw", err, resolve, reject); }) : PromiseImpl.resolve(value).then(function (unwrapped) { result.value = unwrapped, resolve(result); }, function (error) { return invoke("throw", error, resolve, reject); }); } reject(record.arg); } var previousPromise; defineProperty(this, "_invoke", { value: function value(method, arg) { function callInvokeWithMethodAndArg() { return new PromiseImpl(function (resolve, reject) { invoke(method, arg, resolve, reject); }); } return previousPromise = previousPromise ? previousPromise.then(callInvokeWithMethodAndArg, callInvokeWithMethodAndArg) : callInvokeWithMethodAndArg(); } }); } function makeInvokeMethod(innerFn, self, context) { var state = "suspendedStart"; return function (method, arg) { if ("executing" === state) throw new Error("Generator is already running"); if ("completed" === state) { if ("throw" === method) throw arg; return doneResult(); } for (context.method = method, context.arg = arg;;) { var delegate = context.delegate; if (delegate) { var delegateResult = maybeInvokeDelegate(delegate, context); if (delegateResult) { if (delegateResult === ContinueSentinel) continue; return delegateResult; } } if ("next" === context.method) context.sent = context._sent = context.arg;else if ("throw" === context.method) { if ("suspendedStart" === state) throw state = "completed", context.arg; context.dispatchException(context.arg); } else "return" === context.method && context.abrupt("return", context.arg); state = "executing"; var record = tryCatch(innerFn, self, context); if ("normal" === record.type) { if (state = context.done ? "completed" : "suspendedYield", record.arg === ContinueSentinel) continue; return { value: record.arg, done: context.done }; } "throw" === record.type && (state = "completed", context.method = "throw", context.arg = record.arg); } }; } function maybeInvokeDelegate(delegate, context) { var methodName = context.method, method = delegate.iterator[methodName]; if (undefined === method) return context.delegate = null, "throw" === methodName && delegate.iterator["return"] && (context.method = "return", context.arg = undefined, maybeInvokeDelegate(delegate, context), "throw" === context.method) || "return" !== methodName && (context.method = "throw", context.arg = new TypeError("The iterator does not provide a '" + methodName + "' method")), ContinueSentinel; var record = tryCatch(method, delegate.iterator, context.arg); if ("throw" === record.type) return context.method = "throw", context.arg = record.arg, context.delegate = null, ContinueSentinel; var info = record.arg; return info ? info.done ? (context[delegate.resultName] = info.value, context.next = delegate.nextLoc, "return" !== context.method && (context.method = "next", context.arg = undefined), context.delegate = null, ContinueSentinel) : info : (context.method = "throw", context.arg = new TypeError("iterator result is not an object"), context.delegate = null, ContinueSentinel); } function pushTryEntry(locs) { var entry = { tryLoc: locs[0] }; 1 in locs && (entry.catchLoc = locs[1]), 2 in locs && (entry.finallyLoc = locs[2], entry.afterLoc = locs[3]), this.tryEntries.push(entry); } function resetTryEntry(entry) { var record = entry.completion || {}; record.type = "normal", delete record.arg, entry.completion = record; } function Context(tryLocsList) { this.tryEntries = [{ tryLoc: "root" }], tryLocsList.forEach(pushTryEntry, this), this.reset(!0); } function values(iterable) { if (iterable) { var iteratorMethod = iterable[iteratorSymbol]; if (iteratorMethod) return iteratorMethod.call(iterable); if ("function" == typeof iterable.next) return iterable; if (!isNaN(iterable.length)) { var i = -1, next = function next() { for (; ++i < iterable.length;) if (hasOwn.call(iterable, i)) return next.value = iterable[i], next.done = !1, next; return next.value = undefined, next.done = !0, next; }; return next.next = next; } } return { next: doneResult }; } function doneResult() { return { value: undefined, done: !0 }; } return GeneratorFunction.prototype = GeneratorFunctionPrototype, defineProperty(Gp, "constructor", { value: GeneratorFunctionPrototype, configurable: !0 }), defineProperty(GeneratorFunctionPrototype, "constructor", { value: GeneratorFunction, configurable: !0 }), GeneratorFunction.displayName = define(GeneratorFunctionPrototype, toStringTagSymbol, "GeneratorFunction"), exports.isGeneratorFunction = function (genFun) { var ctor = "function" == typeof genFun && genFun.constructor; return !!ctor && (ctor === GeneratorFunction || "GeneratorFunction" === (ctor.displayName || ctor.name)); }, exports.mark = function (genFun) { return Object.setPrototypeOf ? Object.setPrototypeOf(genFun, GeneratorFunctionPrototype) : (genFun.__proto__ = GeneratorFunctionPrototype, define(genFun, toStringTagSymbol, "GeneratorFunction")), genFun.prototype = Object.create(Gp), genFun; }, exports.awrap = function (arg) { return { __await: arg }; }, defineIteratorMethods(AsyncIterator.prototype), define(AsyncIterator.prototype, asyncIteratorSymbol, function () { return this; }), exports.AsyncIterator = AsyncIterator, exports.async = function (innerFn, outerFn, self, tryLocsList, PromiseImpl) { void 0 === PromiseImpl && (PromiseImpl = Promise); var iter = new AsyncIterator(wrap(innerFn, outerFn, self, tryLocsList), PromiseImpl); return exports.isGeneratorFunction(outerFn) ? iter : iter.next().then(function (result) { return result.done ? result.value : iter.next(); }); }, defineIteratorMethods(Gp), define(Gp, toStringTagSymbol, "Generator"), define(Gp, iteratorSymbol, function () { return this; }), define(Gp, "toString", function () { return "[object Generator]"; }), exports.keys = function (val) { var object = Object(val), keys = []; for (var key in object) keys.push(key); return keys.reverse(), function next() { for (; keys.length;) { var key = keys.pop(); if (key in object) return next.value = key, next.done = !1, next; } return next.done = !0, next; }; }, exports.values = values, Context.prototype = { constructor: Context, reset: function reset(skipTempReset) { if (this.prev = 0, this.next = 0, this.sent = this._sent = undefined, this.done = !1, this.delegate = null, this.method = "next", this.arg = undefined, this.tryEntries.forEach(resetTryEntry), !skipTempReset) for (var name in this) "t" === name.charAt(0) && hasOwn.call(this, name) && !isNaN(+name.slice(1)) && (this[name] = undefined); }, stop: function stop() { this.done = !0; var rootRecord = this.tryEntries[0].completion; if ("throw" === rootRecord.type) throw rootRecord.arg; return this.rval; }, dispatchException: function dispatchException(exception) { if (this.done) throw exception; var context = this; function handle(loc, caught) { return record.type = "throw", record.arg = exception, context.next = loc, caught && (context.method = "next", context.arg = undefined), !!caught; } for (var i = this.tryEntries.length - 1; i >= 0; --i) { var entry = this.tryEntries[i], record = entry.completion; if ("root" === entry.tryLoc) return handle("end"); if (entry.tryLoc <= this.prev) { var hasCatch = hasOwn.call(entry, "catchLoc"), hasFinally = hasOwn.call(entry, "finallyLoc"); if (hasCatch && hasFinally) { if (this.prev < entry.catchLoc) return handle(entry.catchLoc, !0); if (this.prev < entry.finallyLoc) return handle(entry.finallyLoc); } else if (hasCatch) { if (this.prev < entry.catchLoc) return handle(entry.catchLoc, !0); } else { if (!hasFinally) throw new Error("try statement without catch or finally"); if (this.prev < entry.finallyLoc) return handle(entry.finallyLoc); } } } }, abrupt: function abrupt(type, arg) { for (var i = this.tryEntries.length - 1; i >= 0; --i) { var entry = this.tryEntries[i]; if (entry.tryLoc <= this.prev && hasOwn.call(entry, "finallyLoc") && this.prev < entry.finallyLoc) { var finallyEntry = entry; break; } } finallyEntry && ("break" === type || "continue" === type) && finallyEntry.tryLoc <= arg && arg <= finallyEntry.finallyLoc && (finallyEntry = null); var record = finallyEntry ? finallyEntry.completion : {}; return record.type = type, record.arg = arg, finallyEntry ? (this.method = "next", this.next = finallyEntry.finallyLoc, ContinueSentinel) : this.complete(record); }, complete: function complete(record, afterLoc) { if ("throw" === record.type) throw record.arg; return "break" === record.type || "continue" === record.type ? this.next = record.arg : "return" === record.type ? (this.rval = this.arg = record.arg, this.method = "return", this.next = "end") : "normal" === record.type && afterLoc && (this.next = afterLoc), ContinueSentinel; }, finish: function finish(finallyLoc) { for (var i = this.tryEntries.length - 1; i >= 0; --i) { var entry = this.tryEntries[i]; if (entry.finallyLoc === finallyLoc) return this.complete(entry.completion, entry.afterLoc), resetTryEntry(entry), ContinueSentinel; } }, "catch": function _catch(tryLoc) { for (var i = this.tryEntries.length - 1; i >= 0; --i) { var entry = this.tryEntries[i]; if (entry.tryLoc === tryLoc) { var record = entry.completion; if ("throw" === record.type) { var thrown = record.arg; resetTryEntry(entry); } return thrown; } } throw new Error("illegal catch attempt"); }, delegateYield: function delegateYield(iterable, resultName, nextLoc) { return this.delegate = { iterator: values(iterable), resultName: resultName, nextLoc: nextLoc }, "next" === this.method && (this.arg = undefined), ContinueSentinel; } }, exports; }
 function asyncGeneratorStep(gen, resolve, reject, _next, _throw, key, arg) { try { var info = gen[key](arg); var value = info.value; } catch (error) { reject(error); return; } if (info.done) { resolve(value); } else { Promise.resolve(value).then(_next, _throw); } }
 function _asyncToGenerator(fn) { return function () { var self = this, args = arguments; return new Promise(function (resolve, reject) { var gen = fn.apply(self, args); function _next(value) { asyncGeneratorStep(gen, resolve, reject, _next, _throw, "next", value); } function _throw(err) { asyncGeneratorStep(gen, resolve, reject, _next, _throw, "throw", err); } _next(undefined); }); }; }
+
 
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ({
   data: function data() {
@@ -5328,11 +5331,9 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
         documento_identidad: "",
         fecha_nacimiento: "",
         domicilio: "",
-        municipio: "",
-        municipio_nombre: "",
+        municipio_id: "",
         codigo_postal: "",
-        provincia: "",
-        provincia_nombre: "",
+        provincia_id: "",
         telefono: "",
         email: ""
       },
@@ -5352,46 +5353,43 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
     altaCliente: function altaCliente() {
       var _this = this;
       return _asyncToGenerator( /*#__PURE__*/_regeneratorRuntime().mark(function _callee() {
-        var provincia, municipio, res;
+        var res;
         return _regeneratorRuntime().wrap(function _callee$(_context) {
           while (1) switch (_context.prev = _context.next) {
             case 0:
-              // Buscamos el objeto provincia correspondiente al id seleccionado
-              if (_this.cliente.provincia != '') {
-                provincia = _this.provincias.find(function (p) {
-                  return p.id === _this.cliente.provincia;
-                }); // Cambiamos el valor de cliente.provincia de id a nombre
-                _this.cliente.provincia_nombre = provincia.provincia;
-              }
-
-              // Buscamos el objeto municipio correspondiente al id seleccionado
-              if (_this.cliente.municipio != '') {
-                municipio = _this.localidades.find(function (p) {
-                  return p.id === _this.cliente.municipio;
-                }); // Cambiamos el valor de cliente.provincia de id a nombre
-                _this.cliente.municipio_nombre = municipio.municipio;
-              }
-              _context.prev = 2;
-              _context.next = 5;
+              _context.prev = 0;
+              _context.next = 3;
               return axios__WEBPACK_IMPORTED_MODULE_0___default().post('clientes', _this.cliente);
-            case 5:
+            case 3:
               res = _context.sent;
+              sweetalert2__WEBPACK_IMPORTED_MODULE_1___default().fire({
+                position: 'top',
+                icon: 'success',
+                title: 'Cliente registrado correctamente',
+                showConfirmButton: false,
+                timer: 2000
+              });
               _this.$router.push({
                 name: 'ListarClientes'
               });
-              _context.next = 12;
+              _context.next = 11;
               break;
-            case 9:
-              _context.prev = 9;
-              _context.t0 = _context["catch"](2);
+            case 8:
+              _context.prev = 8;
+              _context.t0 = _context["catch"](0);
               if (_context.t0.response.data) {
+                sweetalert2__WEBPACK_IMPORTED_MODULE_1___default().fire({
+                  icon: 'error',
+                  title: 'Error registro cliente',
+                  text: 'Ingresa los campos correctamente'
+                });
                 _this.errores = _context.t0.response.data.errors;
               }
-            case 12:
+            case 11:
             case "end":
               return _context.stop();
           }
-        }, _callee, null, [[2, 9]]);
+        }, _callee, null, [[0, 8]]);
       }))();
     },
     consultar_provincia: function consultar_provincia() {
@@ -5402,22 +5400,23 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
           while (1) switch (_context2.prev = _context2.next) {
             case 0:
               _context2.prev = 0;
-              _context2.next = 3;
+              console.log(_this2.cliente.nombre_apellidos);
+              _context2.next = 4;
               return axios__WEBPACK_IMPORTED_MODULE_0___default().get('provincias');
-            case 3:
+            case 4:
               response = _context2.sent;
               _this2.provincias = response.data;
-              _context2.next = 10;
+              _context2.next = 11;
               break;
-            case 7:
-              _context2.prev = 7;
+            case 8:
+              _context2.prev = 8;
               _context2.t0 = _context2["catch"](0);
               console.error(_context2.t0);
-            case 10:
+            case 11:
             case "end":
               return _context2.stop();
           }
-        }, _callee2, null, [[0, 7]]);
+        }, _callee2, null, [[0, 8]]);
       }))();
     },
     consultar_municipio: function consultar_municipio() {
@@ -5428,23 +5427,24 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
           while (1) switch (_context3.prev = _context3.next) {
             case 0:
               _context3.prev = 0;
-              _context3.next = 3;
-              return axios__WEBPACK_IMPORTED_MODULE_0___default().get('municipios/' + _this3.cliente.provincia);
-            case 3:
+              console.log(_this3.cliente.provincia_id);
+              _context3.next = 4;
+              return axios__WEBPACK_IMPORTED_MODULE_0___default().get('municipios/' + _this3.cliente.provincia_id);
+            case 4:
               response = _context3.sent;
               _this3.localidades = response.data;
               console.log(_this3.localidades);
-              _context3.next = 11;
+              _context3.next = 12;
               break;
-            case 8:
-              _context3.prev = 8;
+            case 9:
+              _context3.prev = 9;
               _context3.t0 = _context3["catch"](0);
               console.error(_context3.t0);
-            case 11:
+            case 12:
             case "end":
               return _context3.stop();
           }
-        }, _callee3, null, [[0, 8]]);
+        }, _callee3, null, [[0, 9]]);
       }))();
     }
   },
@@ -5487,10 +5487,13 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */ });
 /* harmony import */ var axios__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! axios */ "./node_modules/axios/index.js");
 /* harmony import */ var axios__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(axios__WEBPACK_IMPORTED_MODULE_0__);
+/* harmony import */ var sweetalert2__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! sweetalert2 */ "./node_modules/sweetalert2/dist/sweetalert2.all.js");
+/* harmony import */ var sweetalert2__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(sweetalert2__WEBPACK_IMPORTED_MODULE_1__);
 function _typeof(obj) { "@babel/helpers - typeof"; return _typeof = "function" == typeof Symbol && "symbol" == typeof Symbol.iterator ? function (obj) { return typeof obj; } : function (obj) { return obj && "function" == typeof Symbol && obj.constructor === Symbol && obj !== Symbol.prototype ? "symbol" : typeof obj; }, _typeof(obj); }
 function _regeneratorRuntime() { "use strict"; /*! regenerator-runtime -- Copyright (c) 2014-present, Facebook, Inc. -- license (MIT): https://github.com/facebook/regenerator/blob/main/LICENSE */ _regeneratorRuntime = function _regeneratorRuntime() { return exports; }; var exports = {}, Op = Object.prototype, hasOwn = Op.hasOwnProperty, defineProperty = Object.defineProperty || function (obj, key, desc) { obj[key] = desc.value; }, $Symbol = "function" == typeof Symbol ? Symbol : {}, iteratorSymbol = $Symbol.iterator || "@@iterator", asyncIteratorSymbol = $Symbol.asyncIterator || "@@asyncIterator", toStringTagSymbol = $Symbol.toStringTag || "@@toStringTag"; function define(obj, key, value) { return Object.defineProperty(obj, key, { value: value, enumerable: !0, configurable: !0, writable: !0 }), obj[key]; } try { define({}, ""); } catch (err) { define = function define(obj, key, value) { return obj[key] = value; }; } function wrap(innerFn, outerFn, self, tryLocsList) { var protoGenerator = outerFn && outerFn.prototype instanceof Generator ? outerFn : Generator, generator = Object.create(protoGenerator.prototype), context = new Context(tryLocsList || []); return defineProperty(generator, "_invoke", { value: makeInvokeMethod(innerFn, self, context) }), generator; } function tryCatch(fn, obj, arg) { try { return { type: "normal", arg: fn.call(obj, arg) }; } catch (err) { return { type: "throw", arg: err }; } } exports.wrap = wrap; var ContinueSentinel = {}; function Generator() {} function GeneratorFunction() {} function GeneratorFunctionPrototype() {} var IteratorPrototype = {}; define(IteratorPrototype, iteratorSymbol, function () { return this; }); var getProto = Object.getPrototypeOf, NativeIteratorPrototype = getProto && getProto(getProto(values([]))); NativeIteratorPrototype && NativeIteratorPrototype !== Op && hasOwn.call(NativeIteratorPrototype, iteratorSymbol) && (IteratorPrototype = NativeIteratorPrototype); var Gp = GeneratorFunctionPrototype.prototype = Generator.prototype = Object.create(IteratorPrototype); function defineIteratorMethods(prototype) { ["next", "throw", "return"].forEach(function (method) { define(prototype, method, function (arg) { return this._invoke(method, arg); }); }); } function AsyncIterator(generator, PromiseImpl) { function invoke(method, arg, resolve, reject) { var record = tryCatch(generator[method], generator, arg); if ("throw" !== record.type) { var result = record.arg, value = result.value; return value && "object" == _typeof(value) && hasOwn.call(value, "__await") ? PromiseImpl.resolve(value.__await).then(function (value) { invoke("next", value, resolve, reject); }, function (err) { invoke("throw", err, resolve, reject); }) : PromiseImpl.resolve(value).then(function (unwrapped) { result.value = unwrapped, resolve(result); }, function (error) { return invoke("throw", error, resolve, reject); }); } reject(record.arg); } var previousPromise; defineProperty(this, "_invoke", { value: function value(method, arg) { function callInvokeWithMethodAndArg() { return new PromiseImpl(function (resolve, reject) { invoke(method, arg, resolve, reject); }); } return previousPromise = previousPromise ? previousPromise.then(callInvokeWithMethodAndArg, callInvokeWithMethodAndArg) : callInvokeWithMethodAndArg(); } }); } function makeInvokeMethod(innerFn, self, context) { var state = "suspendedStart"; return function (method, arg) { if ("executing" === state) throw new Error("Generator is already running"); if ("completed" === state) { if ("throw" === method) throw arg; return doneResult(); } for (context.method = method, context.arg = arg;;) { var delegate = context.delegate; if (delegate) { var delegateResult = maybeInvokeDelegate(delegate, context); if (delegateResult) { if (delegateResult === ContinueSentinel) continue; return delegateResult; } } if ("next" === context.method) context.sent = context._sent = context.arg;else if ("throw" === context.method) { if ("suspendedStart" === state) throw state = "completed", context.arg; context.dispatchException(context.arg); } else "return" === context.method && context.abrupt("return", context.arg); state = "executing"; var record = tryCatch(innerFn, self, context); if ("normal" === record.type) { if (state = context.done ? "completed" : "suspendedYield", record.arg === ContinueSentinel) continue; return { value: record.arg, done: context.done }; } "throw" === record.type && (state = "completed", context.method = "throw", context.arg = record.arg); } }; } function maybeInvokeDelegate(delegate, context) { var methodName = context.method, method = delegate.iterator[methodName]; if (undefined === method) return context.delegate = null, "throw" === methodName && delegate.iterator["return"] && (context.method = "return", context.arg = undefined, maybeInvokeDelegate(delegate, context), "throw" === context.method) || "return" !== methodName && (context.method = "throw", context.arg = new TypeError("The iterator does not provide a '" + methodName + "' method")), ContinueSentinel; var record = tryCatch(method, delegate.iterator, context.arg); if ("throw" === record.type) return context.method = "throw", context.arg = record.arg, context.delegate = null, ContinueSentinel; var info = record.arg; return info ? info.done ? (context[delegate.resultName] = info.value, context.next = delegate.nextLoc, "return" !== context.method && (context.method = "next", context.arg = undefined), context.delegate = null, ContinueSentinel) : info : (context.method = "throw", context.arg = new TypeError("iterator result is not an object"), context.delegate = null, ContinueSentinel); } function pushTryEntry(locs) { var entry = { tryLoc: locs[0] }; 1 in locs && (entry.catchLoc = locs[1]), 2 in locs && (entry.finallyLoc = locs[2], entry.afterLoc = locs[3]), this.tryEntries.push(entry); } function resetTryEntry(entry) { var record = entry.completion || {}; record.type = "normal", delete record.arg, entry.completion = record; } function Context(tryLocsList) { this.tryEntries = [{ tryLoc: "root" }], tryLocsList.forEach(pushTryEntry, this), this.reset(!0); } function values(iterable) { if (iterable) { var iteratorMethod = iterable[iteratorSymbol]; if (iteratorMethod) return iteratorMethod.call(iterable); if ("function" == typeof iterable.next) return iterable; if (!isNaN(iterable.length)) { var i = -1, next = function next() { for (; ++i < iterable.length;) if (hasOwn.call(iterable, i)) return next.value = iterable[i], next.done = !1, next; return next.value = undefined, next.done = !0, next; }; return next.next = next; } } return { next: doneResult }; } function doneResult() { return { value: undefined, done: !0 }; } return GeneratorFunction.prototype = GeneratorFunctionPrototype, defineProperty(Gp, "constructor", { value: GeneratorFunctionPrototype, configurable: !0 }), defineProperty(GeneratorFunctionPrototype, "constructor", { value: GeneratorFunction, configurable: !0 }), GeneratorFunction.displayName = define(GeneratorFunctionPrototype, toStringTagSymbol, "GeneratorFunction"), exports.isGeneratorFunction = function (genFun) { var ctor = "function" == typeof genFun && genFun.constructor; return !!ctor && (ctor === GeneratorFunction || "GeneratorFunction" === (ctor.displayName || ctor.name)); }, exports.mark = function (genFun) { return Object.setPrototypeOf ? Object.setPrototypeOf(genFun, GeneratorFunctionPrototype) : (genFun.__proto__ = GeneratorFunctionPrototype, define(genFun, toStringTagSymbol, "GeneratorFunction")), genFun.prototype = Object.create(Gp), genFun; }, exports.awrap = function (arg) { return { __await: arg }; }, defineIteratorMethods(AsyncIterator.prototype), define(AsyncIterator.prototype, asyncIteratorSymbol, function () { return this; }), exports.AsyncIterator = AsyncIterator, exports.async = function (innerFn, outerFn, self, tryLocsList, PromiseImpl) { void 0 === PromiseImpl && (PromiseImpl = Promise); var iter = new AsyncIterator(wrap(innerFn, outerFn, self, tryLocsList), PromiseImpl); return exports.isGeneratorFunction(outerFn) ? iter : iter.next().then(function (result) { return result.done ? result.value : iter.next(); }); }, defineIteratorMethods(Gp), define(Gp, toStringTagSymbol, "Generator"), define(Gp, iteratorSymbol, function () { return this; }), define(Gp, "toString", function () { return "[object Generator]"; }), exports.keys = function (val) { var object = Object(val), keys = []; for (var key in object) keys.push(key); return keys.reverse(), function next() { for (; keys.length;) { var key = keys.pop(); if (key in object) return next.value = key, next.done = !1, next; } return next.done = !0, next; }; }, exports.values = values, Context.prototype = { constructor: Context, reset: function reset(skipTempReset) { if (this.prev = 0, this.next = 0, this.sent = this._sent = undefined, this.done = !1, this.delegate = null, this.method = "next", this.arg = undefined, this.tryEntries.forEach(resetTryEntry), !skipTempReset) for (var name in this) "t" === name.charAt(0) && hasOwn.call(this, name) && !isNaN(+name.slice(1)) && (this[name] = undefined); }, stop: function stop() { this.done = !0; var rootRecord = this.tryEntries[0].completion; if ("throw" === rootRecord.type) throw rootRecord.arg; return this.rval; }, dispatchException: function dispatchException(exception) { if (this.done) throw exception; var context = this; function handle(loc, caught) { return record.type = "throw", record.arg = exception, context.next = loc, caught && (context.method = "next", context.arg = undefined), !!caught; } for (var i = this.tryEntries.length - 1; i >= 0; --i) { var entry = this.tryEntries[i], record = entry.completion; if ("root" === entry.tryLoc) return handle("end"); if (entry.tryLoc <= this.prev) { var hasCatch = hasOwn.call(entry, "catchLoc"), hasFinally = hasOwn.call(entry, "finallyLoc"); if (hasCatch && hasFinally) { if (this.prev < entry.catchLoc) return handle(entry.catchLoc, !0); if (this.prev < entry.finallyLoc) return handle(entry.finallyLoc); } else if (hasCatch) { if (this.prev < entry.catchLoc) return handle(entry.catchLoc, !0); } else { if (!hasFinally) throw new Error("try statement without catch or finally"); if (this.prev < entry.finallyLoc) return handle(entry.finallyLoc); } } } }, abrupt: function abrupt(type, arg) { for (var i = this.tryEntries.length - 1; i >= 0; --i) { var entry = this.tryEntries[i]; if (entry.tryLoc <= this.prev && hasOwn.call(entry, "finallyLoc") && this.prev < entry.finallyLoc) { var finallyEntry = entry; break; } } finallyEntry && ("break" === type || "continue" === type) && finallyEntry.tryLoc <= arg && arg <= finallyEntry.finallyLoc && (finallyEntry = null); var record = finallyEntry ? finallyEntry.completion : {}; return record.type = type, record.arg = arg, finallyEntry ? (this.method = "next", this.next = finallyEntry.finallyLoc, ContinueSentinel) : this.complete(record); }, complete: function complete(record, afterLoc) { if ("throw" === record.type) throw record.arg; return "break" === record.type || "continue" === record.type ? this.next = record.arg : "return" === record.type ? (this.rval = this.arg = record.arg, this.method = "return", this.next = "end") : "normal" === record.type && afterLoc && (this.next = afterLoc), ContinueSentinel; }, finish: function finish(finallyLoc) { for (var i = this.tryEntries.length - 1; i >= 0; --i) { var entry = this.tryEntries[i]; if (entry.finallyLoc === finallyLoc) return this.complete(entry.completion, entry.afterLoc), resetTryEntry(entry), ContinueSentinel; } }, "catch": function _catch(tryLoc) { for (var i = this.tryEntries.length - 1; i >= 0; --i) { var entry = this.tryEntries[i]; if (entry.tryLoc === tryLoc) { var record = entry.completion; if ("throw" === record.type) { var thrown = record.arg; resetTryEntry(entry); } return thrown; } } throw new Error("illegal catch attempt"); }, delegateYield: function delegateYield(iterable, resultName, nextLoc) { return this.delegate = { iterator: values(iterable), resultName: resultName, nextLoc: nextLoc }, "next" === this.method && (this.arg = undefined), ContinueSentinel; } }, exports; }
 function asyncGeneratorStep(gen, resolve, reject, _next, _throw, key, arg) { try { var info = gen[key](arg); var value = info.value; } catch (error) { reject(error); return; } if (info.done) { resolve(value); } else { Promise.resolve(value).then(_next, _throw); } }
 function _asyncToGenerator(fn) { return function () { var self = this, args = arguments; return new Promise(function (resolve, reject) { var gen = fn.apply(self, args); function _next(value) { asyncGeneratorStep(gen, resolve, reject, _next, _throw, "next", value); } function _throw(err) { asyncGeneratorStep(gen, resolve, reject, _next, _throw, "throw", err); } _next(undefined); }); }; }
+
 
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ({
   data: function data() {
@@ -5500,11 +5503,9 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
         documento_identidad: "",
         fecha_nacimiento: "",
         domicilio: "",
-        municipio: "",
-        municipio_nombre: "",
+        municipio_id: "",
         codigo_postal: "",
-        provincia: "",
-        provincia_nombre: "",
+        provincia_id: "",
         telefono: "",
         email: ""
       },
@@ -5563,10 +5564,22 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
             case 0:
               _context2.next = 2;
               return axios__WEBPACK_IMPORTED_MODULE_0___default().put('clientes/' + _this2.id, _this2.cliente).then(function (response) {
+                sweetalert2__WEBPACK_IMPORTED_MODULE_1___default().fire({
+                  position: 'top',
+                  icon: 'success',
+                  title: 'Cambios guardados',
+                  showConfirmButton: false,
+                  timer: 2000
+                });
                 console.log(response);
                 _this2.errores = {};
               })["catch"](function (error) {
                 console.log(error.response);
+                sweetalert2__WEBPACK_IMPORTED_MODULE_1___default().fire({
+                  icon: 'error',
+                  title: 'Error actualizar cliente',
+                  text: 'Ingresa los campos correctamente'
+                });
                 _this2.errores = error.response.data.errors;
               });
             case 2:
@@ -5611,52 +5624,26 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
         return _regeneratorRuntime().wrap(function _callee4$(_context4) {
           while (1) switch (_context4.prev = _context4.next) {
             case 0:
-              if (condicion) {
-                _this4.get_nombre_provincia();
-                _this4.cliente.municipio = '';
-              }
-              _context4.prev = 1;
-              _context4.next = 4;
-              return axios__WEBPACK_IMPORTED_MODULE_0___default().get('municipios/' + _this4.cliente.provincia);
-            case 4:
+              _context4.prev = 0;
+              _context4.next = 3;
+              return axios__WEBPACK_IMPORTED_MODULE_0___default().get('municipios/' + _this4.cliente.provincia_id);
+            case 3:
               response = _context4.sent;
               console.log(_this4.cliente.provincia);
               _this4.localidades = response.data;
               console.log(_this4.localidades);
-              _context4.next = 13;
+              _context4.next = 12;
               break;
-            case 10:
-              _context4.prev = 10;
-              _context4.t0 = _context4["catch"](1);
+            case 9:
+              _context4.prev = 9;
+              _context4.t0 = _context4["catch"](0);
               console.error(_context4.t0);
-            case 13:
+            case 12:
             case "end":
               return _context4.stop();
           }
-        }, _callee4, null, [[1, 10]]);
+        }, _callee4, null, [[0, 9]]);
       }))();
-    },
-    get_nombre_provincia: function get_nombre_provincia() {
-      var _this5 = this;
-      // Buscamos el objeto provincia correspondiente al id seleccionado
-      if (this.cliente && this.cliente.provincia != '') {
-        var provincia = this.provincias.find(function (p) {
-          return p.id === _this5.cliente.provincia;
-        });
-        // Cambiamos el valor de cliente.provincia de id a nombre
-        this.cliente.provincia_nombre = provincia.provincia;
-      }
-    },
-    get_nombre_municipio: function get_nombre_municipio() {
-      var _this6 = this;
-      // Buscamos el objeto municipio correspondiente al id seleccionado
-      if (this.cliente && this.cliente.municipio != '') {
-        var municipio = this.localidades.find(function (p) {
-          return p.id === _this6.cliente.municipio;
-        });
-        // Cambiamos el valor de cliente.provincia de id a nombre
-        this.cliente.municipio_nombre = municipio.municipio;
-      }
     }
   },
   mounted: function mounted() {
@@ -5680,16 +5667,14 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var axios__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! axios */ "./node_modules/axios/index.js");
 /* harmony import */ var axios__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(axios__WEBPACK_IMPORTED_MODULE_0__);
 /* harmony import */ var _Paginacion_vue__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./Paginacion.vue */ "./resources/js/components/Paginacion.vue");
-/* harmony import */ var bootstrap_vue__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! bootstrap-vue */ "./node_modules/bootstrap-vue/esm/components/modal/modal.js");
-/* harmony import */ var bootstrap_vue__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! bootstrap-vue */ "./node_modules/bootstrap-vue/esm/components/button/button.js");
+/* harmony import */ var sweetalert2__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! sweetalert2 */ "./node_modules/sweetalert2/dist/sweetalert2.all.js");
+/* harmony import */ var sweetalert2__WEBPACK_IMPORTED_MODULE_2___default = /*#__PURE__*/__webpack_require__.n(sweetalert2__WEBPACK_IMPORTED_MODULE_2__);
 
 
 
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ({
   components: {
-    Paginacion: _Paginacion_vue__WEBPACK_IMPORTED_MODULE_1__["default"],
-    BModal: bootstrap_vue__WEBPACK_IMPORTED_MODULE_2__.BModal,
-    BButton: bootstrap_vue__WEBPACK_IMPORTED_MODULE_3__.BButton
+    Paginacion: _Paginacion_vue__WEBPACK_IMPORTED_MODULE_1__["default"]
   },
   data: function data() {
     return {
@@ -5697,22 +5682,40 @@ __webpack_require__.r(__webpack_exports__);
       currentPage: 1,
       totalPages: 2,
       // aquí debes usar el número total de páginas que correspondan a tu caso específico
-      showModal: false,
       clienteToDelete: null
     };
   },
   methods: {
     borrarCliente: function borrarCliente(id) {
-      this.showModal = true;
-      this.clienteToDelete = id;
-    },
-    deleteCliente: function deleteCliente() {
       var _this = this;
-      axios__WEBPACK_IMPORTED_MODULE_0___default()["delete"]('clientes/' + this.clienteToDelete).then(function (response) {
-        _this.showModal = false;
-        _this.getClientes();
-      })["catch"](function (error) {
-        console.error(error);
+      this.clienteToDelete = id;
+      var swalWithBootstrapButtons = sweetalert2__WEBPACK_IMPORTED_MODULE_2___default().mixin({
+        customClass: {
+          confirmButton: 'btn btn-success',
+          cancelButton: 'btn btn-danger mr-4'
+        },
+        buttonsStyling: false
+      });
+      swalWithBootstrapButtons.fire({
+        title: '¿Está seguro de eliminar el cliente?',
+        text: "El cliente se eliminará permanentemente",
+        icon: 'warning',
+        showCancelButton: true,
+        confirmButtonText: 'OK',
+        cancelButtonText: 'Cancel',
+        reverseButtons: true
+      }).then(function (result) {
+        if (result.isConfirmed) {
+          axios__WEBPACK_IMPORTED_MODULE_0___default()["delete"]('clientes/' + _this.clienteToDelete).then(function (response) {
+            _this.getClientes();
+          })["catch"](function (error) {
+            console.error(error);
+          });
+          swalWithBootstrapButtons.fire('Eliminado!', 'El cliente se ha eliminado correctamente.', 'success');
+        } else if ( /* Read more about handling dismissals below */
+        result.dismiss === (sweetalert2__WEBPACK_IMPORTED_MODULE_2___default().DismissReason.cancel)) {
+          swalWithBootstrapButtons.fire('Cancelado', 'El cliente no se ha eliminado', 'error');
+        }
       });
     },
     pageChanged: function pageChanged(page) {
@@ -5959,12 +5962,12 @@ var render = function render() {
     directives: [{
       name: "model",
       rawName: "v-model",
-      value: _vm.cliente.provincia,
-      expression: "cliente.provincia"
+      value: _vm.cliente.provincia_id,
+      expression: "cliente.provincia_id"
     }],
     staticClass: "form-select",
     attrs: {
-      id: "provincia"
+      id: "provincia_id"
     },
     on: {
       change: [function ($event) {
@@ -5974,7 +5977,7 @@ var render = function render() {
           var val = "_value" in o ? o._value : o.value;
           return val;
         });
-        _vm.$set(_vm.cliente, "provincia", $event.target.multiple ? $$selectedVal : $$selectedVal[0]);
+        _vm.$set(_vm.cliente, "provincia_id", $event.target.multiple ? $$selectedVal : $$selectedVal[0]);
       }, function ($event) {
         return _vm.consultar_municipio();
       }]
@@ -5984,27 +5987,27 @@ var render = function render() {
       disabled: "",
       value: ""
     }
-  }, [_vm._v("Selecciona una provincia")]), _vm._v(" "), _vm._l(_vm.provincias, function (provincia) {
+  }, [_vm._v("Selecciona una provincia")]), _vm._v(" "), _vm._l(_vm.provincias, function (provincia_id) {
     return _c("option", {
-      key: provincia.provincia,
+      key: provincia_id.provincia,
       domProps: {
-        value: provincia.id
+        value: provincia_id.id
       }
-    }, [_vm._v("\n                                    " + _vm._s(provincia.provincia) + "\n                                ")]);
-  })], 2), _vm._v(" "), _vm.errores.provincia ? _c("div", {
+    }, [_vm._v("\n                                    " + _vm._s(provincia_id.provincia) + "\n                                ")]);
+  })], 2), _vm._v(" "), _vm.errores.provincia_id ? _c("div", {
     staticClass: "alert alert-danger"
-  }, [_vm._v(_vm._s(_vm.errores.provincia[0]))]) : _vm._e()]), _vm._v(" "), _c("div", {
+  }, [_vm._v(_vm._s(_vm.errores.provincia_id[0]))]) : _vm._e()]), _vm._v(" "), _c("div", {
     staticClass: "col-md-3 col-sm-6"
   }, [_vm._m(9), _vm._v(" "), _c("select", {
     directives: [{
       name: "model",
       rawName: "v-model",
-      value: _vm.cliente.municipio,
-      expression: "cliente.municipio"
+      value: _vm.cliente.municipio_id,
+      expression: "cliente.municipio_id"
     }],
     staticClass: "form-select",
     attrs: {
-      id: "municipio"
+      id: "municipio_id"
     },
     on: {
       change: function change($event) {
@@ -6014,7 +6017,7 @@ var render = function render() {
           var val = "_value" in o ? o._value : o.value;
           return val;
         });
-        _vm.$set(_vm.cliente, "municipio", $event.target.multiple ? $$selectedVal : $$selectedVal[0]);
+        _vm.$set(_vm.cliente, "municipio_id", $event.target.multiple ? $$selectedVal : $$selectedVal[0]);
       }
     }
   }, [_c("option", {
@@ -6022,16 +6025,16 @@ var render = function render() {
       disabled: "",
       value: ""
     }
-  }, [_vm._v("Selecciona un municipio")]), _vm._v(" "), _vm._l(_vm.localidades, function (municipio) {
+  }, [_vm._v("Selecciona un municipio")]), _vm._v(" "), _vm._l(_vm.localidades, function (municipio_id) {
     return _c("option", {
-      key: municipio.municipio,
+      key: municipio_id.municipio,
       domProps: {
-        value: municipio.id
+        value: municipio_id.id
       }
-    }, [_vm._v("\n                                    " + _vm._s(municipio.municipio) + "\n                                ")]);
-  })], 2), _vm._v(" "), _vm.errores.municipio ? _c("div", {
+    }, [_vm._v("\n                                    " + _vm._s(municipio_id.municipio) + "\n                                ")]);
+  })], 2), _vm._v(" "), _vm.errores.municipio_id ? _c("div", {
     staticClass: "alert alert-danger"
-  }, [_vm._v(_vm._s(_vm.errores.municipio[0]))]) : _vm._e()])])])]), _vm._v(" "), _c("div", {
+  }, [_vm._v(_vm._s(_vm.errores.municipio_id[0]) + "\n                            ")]) : _vm._e()])])])]), _vm._v(" "), _c("div", {
     staticClass: "card"
   }, [_vm._m(10), _vm._v(" "), _c("div", {
     staticClass: "card-body"
@@ -6103,7 +6106,7 @@ var render = function render() {
     staticClass: "btn btn-warning",
     attrs: {
       to: {
-        name: "ExampleComponent"
+        name: "ListarClientes"
       }
     }
   }, [_c("i", {
@@ -6179,7 +6182,7 @@ var staticRenderFns = [function () {
     _c = _vm._self._c;
   return _c("label", {
     attrs: {
-      "for": "provincia"
+      "for": "provincia_id"
     }
   }, [_c("b", [_vm._v("Provincia:")])]);
 }, function () {
@@ -6187,7 +6190,7 @@ var staticRenderFns = [function () {
     _c = _vm._self._c;
   return _c("label", {
     attrs: {
-      "for": "municipio"
+      "for": "municipio_id"
     }
   }, [_c("b", [_vm._v("Municipio:")])]);
 }, function () {
@@ -6452,12 +6455,12 @@ var render = function render() {
     directives: [{
       name: "model",
       rawName: "v-model",
-      value: _vm.cliente.provincia,
-      expression: "cliente.provincia"
+      value: _vm.cliente.provincia_id,
+      expression: "cliente.provincia_id"
     }],
     staticClass: "form-select",
     attrs: {
-      id: "provincia"
+      id: "provincia_id"
     },
     on: {
       change: [function ($event) {
@@ -6467,7 +6470,7 @@ var render = function render() {
           var val = "_value" in o ? o._value : o.value;
           return val;
         });
-        _vm.$set(_vm.cliente, "provincia", $event.target.multiple ? $$selectedVal : $$selectedVal[0]);
+        _vm.$set(_vm.cliente, "provincia_id", $event.target.multiple ? $$selectedVal : $$selectedVal[0]);
       }, function ($event) {
         return _vm.consultar_municipio(true);
       }]
@@ -6477,56 +6480,54 @@ var render = function render() {
       disabled: "",
       value: ""
     }
-  }, [_vm._v("Selecciona una provincia")]), _vm._v(" "), _vm._l(_vm.provincias, function (provincia) {
+  }, [_vm._v("Selecciona una provincia")]), _vm._v(" "), _vm._l(_vm.provincias, function (provincia_id) {
     return _c("option", {
-      key: provincia.provincia,
+      key: provincia_id.provincia,
       domProps: {
-        value: provincia.id
+        value: provincia_id.id
       }
-    }, [_vm._v("\n                                    " + _vm._s(provincia.provincia) + "\n                                ")]);
-  })], 2), _vm._v(" "), _vm.errores.provincia ? _c("div", {
+    }, [_vm._v("\n                                    " + _vm._s(provincia_id.provincia) + "\n                                ")]);
+  })], 2), _vm._v(" "), _vm.errores.provincia_id ? _c("div", {
     staticClass: "alert alert-danger"
-  }, [_vm._v(_vm._s(_vm.errores.provincia[0]))]) : _vm._e()]), _vm._v(" "), _c("div", {
+  }, [_vm._v(_vm._s(_vm.errores.provincia_id[0]))]) : _vm._e()]), _vm._v(" "), _c("div", {
     staticClass: "col-md-3 col-sm-6"
   }, [_vm._m(9), _vm._v(" "), _c("select", {
     directives: [{
       name: "model",
       rawName: "v-model",
-      value: _vm.cliente.municipio,
-      expression: "cliente.municipio"
+      value: _vm.cliente.municipio_id,
+      expression: "cliente.municipio_id"
     }],
     staticClass: "form-select",
     attrs: {
-      id: "municipio"
+      id: "municipio_id"
     },
     on: {
-      change: [function ($event) {
+      change: function change($event) {
         var $$selectedVal = Array.prototype.filter.call($event.target.options, function (o) {
           return o.selected;
         }).map(function (o) {
           var val = "_value" in o ? o._value : o.value;
           return val;
         });
-        _vm.$set(_vm.cliente, "municipio", $event.target.multiple ? $$selectedVal : $$selectedVal[0]);
-      }, function ($event) {
-        return _vm.get_nombre_municipio();
-      }]
+        _vm.$set(_vm.cliente, "municipio_id", $event.target.multiple ? $$selectedVal : $$selectedVal[0]);
+      }
     }
   }, [_c("option", {
     attrs: {
       disabled: "",
       value: ""
     }
-  }, [_vm._v("Selecciona un municipio")]), _vm._v(" "), _vm._l(_vm.localidades, function (municipio) {
+  }, [_vm._v("Selecciona un municipio")]), _vm._v(" "), _vm._l(_vm.localidades, function (municipio_id) {
     return _c("option", {
-      key: municipio.municipio,
+      key: municipio_id.municipio,
       domProps: {
-        value: municipio.id
+        value: municipio_id.id
       }
-    }, [_vm._v("\n                                    " + _vm._s(municipio.municipio) + "\n                                ")]);
-  })], 2), _vm._v(" "), _vm.errores.municipio ? _c("div", {
+    }, [_vm._v("\n                                    " + _vm._s(municipio_id.municipio) + "\n                                ")]);
+  })], 2), _vm._v(" "), _vm.errores.municipio_id ? _c("div", {
     staticClass: "alert alert-danger"
-  }, [_vm._v(_vm._s(_vm.errores.municipio[0]))]) : _vm._e()])])])]), _vm._v(" "), _c("div", {
+  }, [_vm._v(_vm._s(_vm.errores.municipio_id[0]))]) : _vm._e()])])])]), _vm._v(" "), _c("div", {
     staticClass: "card"
   }, [_vm._m(10), _vm._v(" "), _c("div", {
     staticClass: "card-body"
@@ -6603,7 +6604,7 @@ var render = function render() {
     staticClass: "btn btn-warning",
     attrs: {
       to: {
-        name: "ExampleComponent"
+        name: "ListarClientes"
       }
     }
   }, [_c("i", {
@@ -6679,7 +6680,7 @@ var staticRenderFns = [function () {
     _c = _vm._self._c;
   return _c("label", {
     attrs: {
-      "for": "provincia"
+      "for": "provincia_id"
     }
   }, [_c("b", [_vm._v("Provincia:")])]);
 }, function () {
@@ -6687,7 +6688,7 @@ var staticRenderFns = [function () {
     _c = _vm._self._c;
   return _c("label", {
     attrs: {
-      "for": "municipio"
+      "for": "municipio_id"
     }
   }, [_c("b", [_vm._v("Municipio:")])]);
 }, function () {
@@ -6750,7 +6751,7 @@ var render = function render() {
   }, _vm._l(_vm.clientes, function (cliente) {
     return _c("tr", {
       key: cliente.id
-    }, [_c("td", [_vm._v(_vm._s(cliente.nombre_apellidos))]), _vm._v(" "), _c("td", [_vm._v(_vm._s(cliente.municipio_nombre))]), _vm._v(" "), _c("td", [_vm._v(_vm._s(cliente.provincia_nombre))]), _vm._v(" "), _c("td", [_vm._v(_vm._s(cliente.telefono))]), _vm._v(" "), _c("td", [_c("button", {
+    }, [_c("td", [_vm._v(_vm._s(cliente.nombre_apellidos))]), _vm._v(" "), _c("td", [_vm._v(_vm._s(cliente.municipio_id))]), _vm._v(" "), _c("td", [_vm._v(_vm._s(cliente.provincia_id))]), _vm._v(" "), _c("td", [_vm._v(_vm._s(cliente.telefono))]), _vm._v(" "), _c("td", [_c("button", {
       staticClass: "btn bg-danger",
       attrs: {
         title: "Dar baja"
@@ -6784,42 +6785,7 @@ var render = function render() {
     on: {
       pageChanged: _vm.pageChanged
     }
-  })], 1), _vm._v(" "), _c("b-modal", {
-    attrs: {
-      title: "Confirmación",
-      "hide-footer": ""
-    },
-    model: {
-      value: _vm.showModal,
-      callback: function callback($$v) {
-        _vm.showModal = $$v;
-      },
-      expression: "showModal"
-    }
-  }, [_vm._l(_vm.clientes, function (cliente) {
-    return _c("p", {
-      key: cliente.id
-    }, [_vm._v("¿Estás seguro de que quieres borrar a " + _vm._s(cliente.nombre_apellidos) + "?")]);
-  }), _vm._v(" "), _c("div", {
-    staticClass: "d-flex justify-content-end"
-  }, [_c("b-button", {
-    staticClass: "mr-2",
-    attrs: {
-      variant: "secondary"
-    },
-    on: {
-      click: function click($event) {
-        _vm.showModal = false;
-      }
-    }
-  }, [_vm._v("Cancelar")]), _vm._v(" "), _c("b-button", {
-    attrs: {
-      variant: "danger"
-    },
-    on: {
-      click: _vm.deleteCliente
-    }
-  }, [_vm._v("Borrar")])], 1)], 2)], 1);
+  })], 1)]);
 };
 var staticRenderFns = [function () {
   var _vm = this,
@@ -6998,5975 +6964,6 @@ window.axios.defaults.headers.common['X-Requested-With'] = 'XMLHttpRequest';
 //     cluster: process.env.MIX_PUSHER_APP_CLUSTER,
 //     forceTLS: true
 // });
-
-/***/ }),
-
-/***/ "./node_modules/bootstrap-vue/esm/components/button/button-close.js":
-/*!**************************************************************************!*\
-  !*** ./node_modules/bootstrap-vue/esm/components/button/button-close.js ***!
-  \**************************************************************************/
-/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
-
-"use strict";
-__webpack_require__.r(__webpack_exports__);
-/* harmony export */ __webpack_require__.d(__webpack_exports__, {
-/* harmony export */   "BButtonClose": () => (/* binding */ BButtonClose),
-/* harmony export */   "props": () => (/* binding */ props)
-/* harmony export */ });
-/* harmony import */ var _vue__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ../../vue */ "./node_modules/bootstrap-vue/esm/vue.js");
-/* harmony import */ var _vue__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(/*! ../../vue */ "./node_modules/vue-functional-data-merge/dist/lib.esm.js");
-/* harmony import */ var _constants_components__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../../constants/components */ "./node_modules/bootstrap-vue/esm/constants/components.js");
-/* harmony import */ var _constants_props__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../../constants/props */ "./node_modules/bootstrap-vue/esm/constants/props.js");
-/* harmony import */ var _constants_slots__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! ../../constants/slots */ "./node_modules/bootstrap-vue/esm/constants/slots.js");
-/* harmony import */ var _utils_events__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ../../utils/events */ "./node_modules/bootstrap-vue/esm/utils/events.js");
-/* harmony import */ var _utils_inspect__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ../../utils/inspect */ "./node_modules/bootstrap-vue/esm/utils/inspect.js");
-/* harmony import */ var _utils_props__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../../utils/props */ "./node_modules/bootstrap-vue/esm/utils/props.js");
-/* harmony import */ var _utils_normalize_slot__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! ../../utils/normalize-slot */ "./node_modules/bootstrap-vue/esm/utils/normalize-slot.js");
-function _defineProperty(obj, key, value) { if (key in obj) { Object.defineProperty(obj, key, { value: value, enumerable: true, configurable: true, writable: true }); } else { obj[key] = value; } return obj; }
-
-
-
-
-
-
-
-
- // --- Props ---
-
-var props = (0,_utils_props__WEBPACK_IMPORTED_MODULE_0__.makePropsConfigurable)({
-  ariaLabel: (0,_utils_props__WEBPACK_IMPORTED_MODULE_0__.makeProp)(_constants_props__WEBPACK_IMPORTED_MODULE_1__.PROP_TYPE_STRING, 'Close'),
-  content: (0,_utils_props__WEBPACK_IMPORTED_MODULE_0__.makeProp)(_constants_props__WEBPACK_IMPORTED_MODULE_1__.PROP_TYPE_STRING, '&times;'),
-  disabled: (0,_utils_props__WEBPACK_IMPORTED_MODULE_0__.makeProp)(_constants_props__WEBPACK_IMPORTED_MODULE_1__.PROP_TYPE_BOOLEAN, false),
-  textVariant: (0,_utils_props__WEBPACK_IMPORTED_MODULE_0__.makeProp)(_constants_props__WEBPACK_IMPORTED_MODULE_1__.PROP_TYPE_STRING)
-}, _constants_components__WEBPACK_IMPORTED_MODULE_2__.NAME_BUTTON_CLOSE); // --- Main component ---
-// @vue/component
-
-var BButtonClose = /*#__PURE__*/(0,_vue__WEBPACK_IMPORTED_MODULE_3__.extend)({
-  name: _constants_components__WEBPACK_IMPORTED_MODULE_2__.NAME_BUTTON_CLOSE,
-  functional: true,
-  props: props,
-  render: function render(h, _ref) {
-    var props = _ref.props,
-        data = _ref.data,
-        slots = _ref.slots,
-        scopedSlots = _ref.scopedSlots;
-    var $slots = slots();
-    var $scopedSlots = scopedSlots || {};
-    var componentData = {
-      staticClass: 'close',
-      class: _defineProperty({}, "text-".concat(props.textVariant), props.textVariant),
-      attrs: {
-        type: 'button',
-        disabled: props.disabled,
-        'aria-label': props.ariaLabel ? String(props.ariaLabel) : null
-      },
-      on: {
-        click: function click(event) {
-          // Ensure click on button HTML content is also disabled
-
-          /* istanbul ignore if: bug in JSDOM still emits click on inner element */
-          if (props.disabled && (0,_utils_inspect__WEBPACK_IMPORTED_MODULE_4__.isEvent)(event)) {
-            (0,_utils_events__WEBPACK_IMPORTED_MODULE_5__.stopEvent)(event);
-          }
-        }
-      }
-    }; // Careful not to override the default slot with innerHTML
-
-    if (!(0,_utils_normalize_slot__WEBPACK_IMPORTED_MODULE_6__.hasNormalizedSlot)(_constants_slots__WEBPACK_IMPORTED_MODULE_7__.SLOT_NAME_DEFAULT, $scopedSlots, $slots)) {
-      componentData.domProps = {
-        innerHTML: props.content
-      };
-    }
-
-    return h('button', (0,_vue__WEBPACK_IMPORTED_MODULE_8__.mergeData)(data, componentData), (0,_utils_normalize_slot__WEBPACK_IMPORTED_MODULE_6__.normalizeSlot)(_constants_slots__WEBPACK_IMPORTED_MODULE_7__.SLOT_NAME_DEFAULT, {}, $scopedSlots, $slots));
-  }
-});
-
-/***/ }),
-
-/***/ "./node_modules/bootstrap-vue/esm/components/button/button.js":
-/*!********************************************************************!*\
-  !*** ./node_modules/bootstrap-vue/esm/components/button/button.js ***!
-  \********************************************************************/
-/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
-
-"use strict";
-__webpack_require__.r(__webpack_exports__);
-/* harmony export */ __webpack_require__.d(__webpack_exports__, {
-/* harmony export */   "BButton": () => (/* binding */ BButton),
-/* harmony export */   "props": () => (/* binding */ props)
-/* harmony export */ });
-/* harmony import */ var _vue__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(/*! ../../vue */ "./node_modules/bootstrap-vue/esm/vue.js");
-/* harmony import */ var _vue__WEBPACK_IMPORTED_MODULE_12__ = __webpack_require__(/*! ../../vue */ "./node_modules/vue-functional-data-merge/dist/lib.esm.js");
-/* harmony import */ var _constants_components__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ../../constants/components */ "./node_modules/bootstrap-vue/esm/constants/components.js");
-/* harmony import */ var _constants_key_codes__WEBPACK_IMPORTED_MODULE_9__ = __webpack_require__(/*! ../../constants/key-codes */ "./node_modules/bootstrap-vue/esm/constants/key-codes.js");
-/* harmony import */ var _constants_props__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ../../constants/props */ "./node_modules/bootstrap-vue/esm/constants/props.js");
-/* harmony import */ var _utils_array__WEBPACK_IMPORTED_MODULE_11__ = __webpack_require__(/*! ../../utils/array */ "./node_modules/bootstrap-vue/esm/utils/array.js");
-/* harmony import */ var _utils_dom__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ../../utils/dom */ "./node_modules/bootstrap-vue/esm/utils/dom.js");
-/* harmony import */ var _utils_events__WEBPACK_IMPORTED_MODULE_10__ = __webpack_require__(/*! ../../utils/events */ "./node_modules/bootstrap-vue/esm/utils/events.js");
-/* harmony import */ var _utils_inspect__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! ../../utils/inspect */ "./node_modules/bootstrap-vue/esm/utils/inspect.js");
-/* harmony import */ var _utils_object__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../../utils/object */ "./node_modules/bootstrap-vue/esm/utils/object.js");
-/* harmony import */ var _utils_props__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../../utils/props */ "./node_modules/bootstrap-vue/esm/utils/props.js");
-/* harmony import */ var _utils_router__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! ../../utils/router */ "./node_modules/bootstrap-vue/esm/utils/router.js");
-/* harmony import */ var _link_link__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../link/link */ "./node_modules/bootstrap-vue/esm/components/link/link.js");
-function ownKeys(object, enumerableOnly) { var keys = Object.keys(object); if (Object.getOwnPropertySymbols) { var symbols = Object.getOwnPropertySymbols(object); enumerableOnly && (symbols = symbols.filter(function (sym) { return Object.getOwnPropertyDescriptor(object, sym).enumerable; })), keys.push.apply(keys, symbols); } return keys; }
-
-function _objectSpread(target) { for (var i = 1; i < arguments.length; i++) { var source = null != arguments[i] ? arguments[i] : {}; i % 2 ? ownKeys(Object(source), !0).forEach(function (key) { _defineProperty(target, key, source[key]); }) : Object.getOwnPropertyDescriptors ? Object.defineProperties(target, Object.getOwnPropertyDescriptors(source)) : ownKeys(Object(source)).forEach(function (key) { Object.defineProperty(target, key, Object.getOwnPropertyDescriptor(source, key)); }); } return target; }
-
-function _defineProperty(obj, key, value) { if (key in obj) { Object.defineProperty(obj, key, { value: value, enumerable: true, configurable: true, writable: true }); } else { obj[key] = value; } return obj; }
-
-
-
-
-
-
-
-
-
-
-
-
- // --- Props ---
-
-var linkProps = (0,_utils_object__WEBPACK_IMPORTED_MODULE_0__.omit)(_link_link__WEBPACK_IMPORTED_MODULE_1__.props, ['event', 'routerTag']);
-delete linkProps.href.default;
-delete linkProps.to.default;
-var props = (0,_utils_props__WEBPACK_IMPORTED_MODULE_2__.makePropsConfigurable)((0,_utils_object__WEBPACK_IMPORTED_MODULE_0__.sortKeys)(_objectSpread(_objectSpread({}, linkProps), {}, {
-  block: (0,_utils_props__WEBPACK_IMPORTED_MODULE_2__.makeProp)(_constants_props__WEBPACK_IMPORTED_MODULE_3__.PROP_TYPE_BOOLEAN, false),
-  disabled: (0,_utils_props__WEBPACK_IMPORTED_MODULE_2__.makeProp)(_constants_props__WEBPACK_IMPORTED_MODULE_3__.PROP_TYPE_BOOLEAN, false),
-  pill: (0,_utils_props__WEBPACK_IMPORTED_MODULE_2__.makeProp)(_constants_props__WEBPACK_IMPORTED_MODULE_3__.PROP_TYPE_BOOLEAN, false),
-  // Tri-state: `true`, `false` or `null`
-  // => On, off, not a toggle
-  pressed: (0,_utils_props__WEBPACK_IMPORTED_MODULE_2__.makeProp)(_constants_props__WEBPACK_IMPORTED_MODULE_3__.PROP_TYPE_BOOLEAN, null),
-  size: (0,_utils_props__WEBPACK_IMPORTED_MODULE_2__.makeProp)(_constants_props__WEBPACK_IMPORTED_MODULE_3__.PROP_TYPE_STRING),
-  squared: (0,_utils_props__WEBPACK_IMPORTED_MODULE_2__.makeProp)(_constants_props__WEBPACK_IMPORTED_MODULE_3__.PROP_TYPE_BOOLEAN, false),
-  tag: (0,_utils_props__WEBPACK_IMPORTED_MODULE_2__.makeProp)(_constants_props__WEBPACK_IMPORTED_MODULE_3__.PROP_TYPE_STRING, 'button'),
-  type: (0,_utils_props__WEBPACK_IMPORTED_MODULE_2__.makeProp)(_constants_props__WEBPACK_IMPORTED_MODULE_3__.PROP_TYPE_STRING, 'button'),
-  variant: (0,_utils_props__WEBPACK_IMPORTED_MODULE_2__.makeProp)(_constants_props__WEBPACK_IMPORTED_MODULE_3__.PROP_TYPE_STRING, 'secondary')
-})), _constants_components__WEBPACK_IMPORTED_MODULE_4__.NAME_BUTTON); // --- Helper methods ---
-// Focus handler for toggle buttons
-// Needs class of 'focus' when focused
-
-var handleFocus = function handleFocus(event) {
-  if (event.type === 'focusin') {
-    (0,_utils_dom__WEBPACK_IMPORTED_MODULE_5__.addClass)(event.target, 'focus');
-  } else if (event.type === 'focusout') {
-    (0,_utils_dom__WEBPACK_IMPORTED_MODULE_5__.removeClass)(event.target, 'focus');
-  }
-}; // Is the requested button a link?
-// If tag prop is set to `a`, we use a <b-link> to get proper disabled handling
-
-
-var isLink = function isLink(props) {
-  return (0,_utils_router__WEBPACK_IMPORTED_MODULE_6__.isLink)(props) || (0,_utils_dom__WEBPACK_IMPORTED_MODULE_5__.isTag)(props.tag, 'a');
-}; // Is the button to be a toggle button?
-
-
-var isToggle = function isToggle(props) {
-  return (0,_utils_inspect__WEBPACK_IMPORTED_MODULE_7__.isBoolean)(props.pressed);
-}; // Is the button "really" a button?
-
-
-var isButton = function isButton(props) {
-  return !(isLink(props) || props.tag && !(0,_utils_dom__WEBPACK_IMPORTED_MODULE_5__.isTag)(props.tag, 'button'));
-}; // Is the requested tag not a button or link?
-
-
-var isNonStandardTag = function isNonStandardTag(props) {
-  return !isLink(props) && !isButton(props);
-}; // Compute required classes (non static classes)
-
-
-var computeClass = function computeClass(props) {
-  var _ref;
-
-  return ["btn-".concat(props.variant || 'secondary'), (_ref = {}, _defineProperty(_ref, "btn-".concat(props.size), props.size), _defineProperty(_ref, 'btn-block', props.block), _defineProperty(_ref, 'rounded-pill', props.pill), _defineProperty(_ref, 'rounded-0', props.squared && !props.pill), _defineProperty(_ref, "disabled", props.disabled), _defineProperty(_ref, "active", props.pressed), _ref)];
-}; // Compute the link props to pass to b-link (if required)
-
-
-var computeLinkProps = function computeLinkProps(props) {
-  return isLink(props) ? (0,_utils_props__WEBPACK_IMPORTED_MODULE_2__.pluckProps)(linkProps, props) : {};
-}; // Compute the attributes for a button
-
-
-var computeAttrs = function computeAttrs(props, data) {
-  var button = isButton(props);
-  var link = isLink(props);
-  var toggle = isToggle(props);
-  var nonStandardTag = isNonStandardTag(props);
-  var hashLink = link && props.href === '#';
-  var role = data.attrs && data.attrs.role ? data.attrs.role : null;
-  var tabindex = data.attrs ? data.attrs.tabindex : null;
-
-  if (nonStandardTag || hashLink) {
-    tabindex = '0';
-  }
-
-  return {
-    // Type only used for "real" buttons
-    type: button && !link ? props.type : null,
-    // Disabled only set on "real" buttons
-    disabled: button ? props.disabled : null,
-    // We add a role of button when the tag is not a link or button for ARIA
-    // Don't bork any role provided in `data.attrs` when `isLink` or `isButton`
-    // Except when link has `href` of `#`
-    role: nonStandardTag || hashLink ? 'button' : role,
-    // We set the `aria-disabled` state for non-standard tags
-    'aria-disabled': nonStandardTag ? String(props.disabled) : null,
-    // For toggles, we need to set the pressed state for ARIA
-    'aria-pressed': toggle ? String(props.pressed) : null,
-    // `autocomplete="off"` is needed in toggle mode to prevent some browsers
-    // from remembering the previous setting when using the back button
-    autocomplete: toggle ? 'off' : null,
-    // `tabindex` is used when the component is not a button
-    // Links are tabbable, but don't allow disabled, while non buttons or links
-    // are not tabbable, so we mimic that functionality by disabling tabbing
-    // when disabled, and adding a `tabindex="0"` to non buttons or non links
-    tabindex: props.disabled && !button ? '-1' : tabindex
-  };
-}; // --- Main component ---
-// @vue/component
-
-
-var BButton = /*#__PURE__*/(0,_vue__WEBPACK_IMPORTED_MODULE_8__.extend)({
-  name: _constants_components__WEBPACK_IMPORTED_MODULE_4__.NAME_BUTTON,
-  functional: true,
-  props: props,
-  render: function render(h, _ref2) {
-    var props = _ref2.props,
-        data = _ref2.data,
-        listeners = _ref2.listeners,
-        children = _ref2.children;
-    var toggle = isToggle(props);
-    var link = isLink(props);
-    var nonStandardTag = isNonStandardTag(props);
-    var hashLink = link && props.href === '#';
-    var on = {
-      keydown: function keydown(event) {
-        // When the link is a `href="#"` or a non-standard tag (has `role="button"`),
-        // we add a keydown handlers for CODE_SPACE/CODE_ENTER
-
-        /* istanbul ignore next */
-        if (props.disabled || !(nonStandardTag || hashLink)) {
-          return;
-        }
-
-        var keyCode = event.keyCode; // Add CODE_SPACE handler for `href="#"` and CODE_ENTER handler for non-standard tags
-
-        if (keyCode === _constants_key_codes__WEBPACK_IMPORTED_MODULE_9__.CODE_SPACE || keyCode === _constants_key_codes__WEBPACK_IMPORTED_MODULE_9__.CODE_ENTER && nonStandardTag) {
-          var target = event.currentTarget || event.target;
-          (0,_utils_events__WEBPACK_IMPORTED_MODULE_10__.stopEvent)(event, {
-            propagation: false
-          });
-          target.click();
-        }
-      },
-      click: function click(event) {
-        /* istanbul ignore if: blink/button disabled should handle this */
-        if (props.disabled && (0,_utils_inspect__WEBPACK_IMPORTED_MODULE_7__.isEvent)(event)) {
-          (0,_utils_events__WEBPACK_IMPORTED_MODULE_10__.stopEvent)(event);
-        } else if (toggle && listeners && listeners['update:pressed']) {
-          // Send `.sync` updates to any "pressed" prop (if `.sync` listeners)
-          // `concat()` will normalize the value to an array without
-          // double wrapping an array value in an array
-          (0,_utils_array__WEBPACK_IMPORTED_MODULE_11__.concat)(listeners['update:pressed']).forEach(function (fn) {
-            if ((0,_utils_inspect__WEBPACK_IMPORTED_MODULE_7__.isFunction)(fn)) {
-              fn(!props.pressed);
-            }
-          });
-        }
-      }
-    };
-
-    if (toggle) {
-      on.focusin = handleFocus;
-      on.focusout = handleFocus;
-    }
-
-    var componentData = {
-      staticClass: 'btn',
-      class: computeClass(props),
-      props: computeLinkProps(props),
-      attrs: computeAttrs(props, data),
-      on: on
-    };
-    return h(link ? _link_link__WEBPACK_IMPORTED_MODULE_1__.BLink : props.tag, (0,_vue__WEBPACK_IMPORTED_MODULE_12__.mergeData)(_objectSpread(_objectSpread({}, data), {}, {
-      props: undefined
-    }), componentData), children);
-  }
-});
-
-/***/ }),
-
-/***/ "./node_modules/bootstrap-vue/esm/components/link/link.js":
-/*!****************************************************************!*\
-  !*** ./node_modules/bootstrap-vue/esm/components/link/link.js ***!
-  \****************************************************************/
-/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
-
-"use strict";
-__webpack_require__.r(__webpack_exports__);
-/* harmony export */ __webpack_require__.d(__webpack_exports__, {
-/* harmony export */   "BLink": () => (/* binding */ BLink),
-/* harmony export */   "nuxtLinkProps": () => (/* binding */ nuxtLinkProps),
-/* harmony export */   "props": () => (/* binding */ props),
-/* harmony export */   "routerLinkProps": () => (/* binding */ routerLinkProps)
-/* harmony export */ });
-/* harmony import */ var _vue__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ../../vue */ "./node_modules/bootstrap-vue/esm/vue.js");
-/* harmony import */ var _constants_components__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../../constants/components */ "./node_modules/bootstrap-vue/esm/constants/components.js");
-/* harmony import */ var _constants_events__WEBPACK_IMPORTED_MODULE_13__ = __webpack_require__(/*! ../../constants/events */ "./node_modules/bootstrap-vue/esm/constants/events.js");
-/* harmony import */ var _constants_props__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ../../constants/props */ "./node_modules/bootstrap-vue/esm/constants/props.js");
-/* harmony import */ var _utils_array__WEBPACK_IMPORTED_MODULE_14__ = __webpack_require__(/*! ../../utils/array */ "./node_modules/bootstrap-vue/esm/utils/array.js");
-/* harmony import */ var _utils_dom__WEBPACK_IMPORTED_MODULE_12__ = __webpack_require__(/*! ../../utils/dom */ "./node_modules/bootstrap-vue/esm/utils/dom.js");
-/* harmony import */ var _utils_events__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../../utils/events */ "./node_modules/bootstrap-vue/esm/utils/events.js");
-/* harmony import */ var _utils_inspect__WEBPACK_IMPORTED_MODULE_11__ = __webpack_require__(/*! ../../utils/inspect */ "./node_modules/bootstrap-vue/esm/utils/inspect.js");
-/* harmony import */ var _utils_object__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ../../utils/object */ "./node_modules/bootstrap-vue/esm/utils/object.js");
-/* harmony import */ var _utils_props__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../../utils/props */ "./node_modules/bootstrap-vue/esm/utils/props.js");
-/* harmony import */ var _utils_router__WEBPACK_IMPORTED_MODULE_10__ = __webpack_require__(/*! ../../utils/router */ "./node_modules/bootstrap-vue/esm/utils/router.js");
-/* harmony import */ var _mixins_attrs__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! ../../mixins/attrs */ "./node_modules/bootstrap-vue/esm/mixins/attrs.js");
-/* harmony import */ var _mixins_listen_on_root__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(/*! ../../mixins/listen-on-root */ "./node_modules/bootstrap-vue/esm/mixins/listen-on-root.js");
-/* harmony import */ var _mixins_listeners__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! ../../mixins/listeners */ "./node_modules/bootstrap-vue/esm/mixins/listeners.js");
-/* harmony import */ var _mixins_normalize_slot__WEBPACK_IMPORTED_MODULE_9__ = __webpack_require__(/*! ../../mixins/normalize-slot */ "./node_modules/bootstrap-vue/esm/mixins/normalize-slot.js");
-function _toConsumableArray(arr) { return _arrayWithoutHoles(arr) || _iterableToArray(arr) || _unsupportedIterableToArray(arr) || _nonIterableSpread(); }
-
-function _nonIterableSpread() { throw new TypeError("Invalid attempt to spread non-iterable instance.\nIn order to be iterable, non-array objects must have a [Symbol.iterator]() method."); }
-
-function _unsupportedIterableToArray(o, minLen) { if (!o) return; if (typeof o === "string") return _arrayLikeToArray(o, minLen); var n = Object.prototype.toString.call(o).slice(8, -1); if (n === "Object" && o.constructor) n = o.constructor.name; if (n === "Map" || n === "Set") return Array.from(o); if (n === "Arguments" || /^(?:Ui|I)nt(?:8|16|32)(?:Clamped)?Array$/.test(n)) return _arrayLikeToArray(o, minLen); }
-
-function _iterableToArray(iter) { if (typeof Symbol !== "undefined" && iter[Symbol.iterator] != null || iter["@@iterator"] != null) return Array.from(iter); }
-
-function _arrayWithoutHoles(arr) { if (Array.isArray(arr)) return _arrayLikeToArray(arr); }
-
-function _arrayLikeToArray(arr, len) { if (len == null || len > arr.length) len = arr.length; for (var i = 0, arr2 = new Array(len); i < len; i++) { arr2[i] = arr[i]; } return arr2; }
-
-function ownKeys(object, enumerableOnly) { var keys = Object.keys(object); if (Object.getOwnPropertySymbols) { var symbols = Object.getOwnPropertySymbols(object); enumerableOnly && (symbols = symbols.filter(function (sym) { return Object.getOwnPropertyDescriptor(object, sym).enumerable; })), keys.push.apply(keys, symbols); } return keys; }
-
-function _objectSpread(target) { for (var i = 1; i < arguments.length; i++) { var source = null != arguments[i] ? arguments[i] : {}; i % 2 ? ownKeys(Object(source), !0).forEach(function (key) { _defineProperty(target, key, source[key]); }) : Object.getOwnPropertyDescriptors ? Object.defineProperties(target, Object.getOwnPropertyDescriptors(source)) : ownKeys(Object(source)).forEach(function (key) { Object.defineProperty(target, key, Object.getOwnPropertyDescriptor(source, key)); }); } return target; }
-
-function _defineProperty(obj, key, value) { if (key in obj) { Object.defineProperty(obj, key, { value: value, enumerable: true, configurable: true, writable: true }); } else { obj[key] = value; } return obj; }
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
- // --- Constants ---
-
-var ROOT_EVENT_NAME_CLICKED = (0,_utils_events__WEBPACK_IMPORTED_MODULE_0__.getRootEventName)(_constants_components__WEBPACK_IMPORTED_MODULE_1__.NAME_LINK, 'clicked'); // --- Props ---
-// `<router-link>` specific props
-
-var routerLinkProps = {
-  activeClass: (0,_utils_props__WEBPACK_IMPORTED_MODULE_2__.makeProp)(_constants_props__WEBPACK_IMPORTED_MODULE_3__.PROP_TYPE_STRING),
-  append: (0,_utils_props__WEBPACK_IMPORTED_MODULE_2__.makeProp)(_constants_props__WEBPACK_IMPORTED_MODULE_3__.PROP_TYPE_BOOLEAN, false),
-  event: (0,_utils_props__WEBPACK_IMPORTED_MODULE_2__.makeProp)(_constants_props__WEBPACK_IMPORTED_MODULE_3__.PROP_TYPE_ARRAY_STRING),
-  exact: (0,_utils_props__WEBPACK_IMPORTED_MODULE_2__.makeProp)(_constants_props__WEBPACK_IMPORTED_MODULE_3__.PROP_TYPE_BOOLEAN, false),
-  exactActiveClass: (0,_utils_props__WEBPACK_IMPORTED_MODULE_2__.makeProp)(_constants_props__WEBPACK_IMPORTED_MODULE_3__.PROP_TYPE_STRING),
-  exactPath: (0,_utils_props__WEBPACK_IMPORTED_MODULE_2__.makeProp)(_constants_props__WEBPACK_IMPORTED_MODULE_3__.PROP_TYPE_BOOLEAN, false),
-  exactPathActiveClass: (0,_utils_props__WEBPACK_IMPORTED_MODULE_2__.makeProp)(_constants_props__WEBPACK_IMPORTED_MODULE_3__.PROP_TYPE_STRING),
-  replace: (0,_utils_props__WEBPACK_IMPORTED_MODULE_2__.makeProp)(_constants_props__WEBPACK_IMPORTED_MODULE_3__.PROP_TYPE_BOOLEAN, false),
-  routerTag: (0,_utils_props__WEBPACK_IMPORTED_MODULE_2__.makeProp)(_constants_props__WEBPACK_IMPORTED_MODULE_3__.PROP_TYPE_STRING),
-  to: (0,_utils_props__WEBPACK_IMPORTED_MODULE_2__.makeProp)(_constants_props__WEBPACK_IMPORTED_MODULE_3__.PROP_TYPE_OBJECT_STRING)
-}; // `<nuxt-link>` specific props
-
-var nuxtLinkProps = {
-  noPrefetch: (0,_utils_props__WEBPACK_IMPORTED_MODULE_2__.makeProp)(_constants_props__WEBPACK_IMPORTED_MODULE_3__.PROP_TYPE_BOOLEAN, false),
-  // Must be `null` to fall back to the value defined in the
-  // `nuxt.config.js` configuration file for `router.prefetchLinks`
-  // We convert `null` to `undefined`, so that Nuxt.js will use the
-  // compiled default
-  // Vue treats `undefined` as default of `false` for Boolean props,
-  // so we must set it as `null` here to be a true tri-state prop
-  prefetch: (0,_utils_props__WEBPACK_IMPORTED_MODULE_2__.makeProp)(_constants_props__WEBPACK_IMPORTED_MODULE_3__.PROP_TYPE_BOOLEAN, null)
-}; // All `<b-link>` props
-
-var props = (0,_utils_props__WEBPACK_IMPORTED_MODULE_2__.makePropsConfigurable)((0,_utils_object__WEBPACK_IMPORTED_MODULE_4__.sortKeys)(_objectSpread(_objectSpread(_objectSpread({}, nuxtLinkProps), routerLinkProps), {}, {
-  active: (0,_utils_props__WEBPACK_IMPORTED_MODULE_2__.makeProp)(_constants_props__WEBPACK_IMPORTED_MODULE_3__.PROP_TYPE_BOOLEAN, false),
-  disabled: (0,_utils_props__WEBPACK_IMPORTED_MODULE_2__.makeProp)(_constants_props__WEBPACK_IMPORTED_MODULE_3__.PROP_TYPE_BOOLEAN, false),
-  href: (0,_utils_props__WEBPACK_IMPORTED_MODULE_2__.makeProp)(_constants_props__WEBPACK_IMPORTED_MODULE_3__.PROP_TYPE_STRING),
-  // Must be `null` if no value provided
-  rel: (0,_utils_props__WEBPACK_IMPORTED_MODULE_2__.makeProp)(_constants_props__WEBPACK_IMPORTED_MODULE_3__.PROP_TYPE_STRING, null),
-  // To support 3rd party router links based on `<router-link>` (i.e. `g-link` for Gridsome)
-  // Default is to auto choose between `<router-link>` and `<nuxt-link>`
-  // Gridsome doesn't provide a mechanism to auto detect and has caveats
-  // such as not supporting FQDN URLs or hash only URLs
-  routerComponentName: (0,_utils_props__WEBPACK_IMPORTED_MODULE_2__.makeProp)(_constants_props__WEBPACK_IMPORTED_MODULE_3__.PROP_TYPE_STRING),
-  target: (0,_utils_props__WEBPACK_IMPORTED_MODULE_2__.makeProp)(_constants_props__WEBPACK_IMPORTED_MODULE_3__.PROP_TYPE_STRING, '_self')
-})), _constants_components__WEBPACK_IMPORTED_MODULE_1__.NAME_LINK); // --- Main component ---
-// @vue/component
-
-var BLink = /*#__PURE__*/(0,_vue__WEBPACK_IMPORTED_MODULE_5__.extend)({
-  name: _constants_components__WEBPACK_IMPORTED_MODULE_1__.NAME_LINK,
-  // Mixin order is important!
-  mixins: [_mixins_attrs__WEBPACK_IMPORTED_MODULE_6__.attrsMixin, _mixins_listeners__WEBPACK_IMPORTED_MODULE_7__.listenersMixin, _mixins_listen_on_root__WEBPACK_IMPORTED_MODULE_8__.listenOnRootMixin, _mixins_normalize_slot__WEBPACK_IMPORTED_MODULE_9__.normalizeSlotMixin],
-  inheritAttrs: false,
-  props: props,
-  computed: {
-    computedTag: function computedTag() {
-      // We don't pass `this` as the first arg as we need reactivity of the props
-      var to = this.to,
-          disabled = this.disabled,
-          routerComponentName = this.routerComponentName;
-      return (0,_utils_router__WEBPACK_IMPORTED_MODULE_10__.computeTag)({
-        to: to,
-        disabled: disabled,
-        routerComponentName: routerComponentName
-      }, this);
-    },
-    isRouterLink: function isRouterLink() {
-      return (0,_utils_router__WEBPACK_IMPORTED_MODULE_10__.isRouterLink)(this.computedTag);
-    },
-    computedRel: function computedRel() {
-      // We don't pass `this` as the first arg as we need reactivity of the props
-      var target = this.target,
-          rel = this.rel;
-      return (0,_utils_router__WEBPACK_IMPORTED_MODULE_10__.computeRel)({
-        target: target,
-        rel: rel
-      });
-    },
-    computedHref: function computedHref() {
-      // We don't pass `this` as the first arg as we need reactivity of the props
-      var to = this.to,
-          href = this.href;
-      return (0,_utils_router__WEBPACK_IMPORTED_MODULE_10__.computeHref)({
-        to: to,
-        href: href
-      }, this.computedTag);
-    },
-    computedProps: function computedProps() {
-      var event = this.event,
-          prefetch = this.prefetch,
-          routerTag = this.routerTag;
-      return this.isRouterLink ? _objectSpread(_objectSpread(_objectSpread(_objectSpread({}, (0,_utils_props__WEBPACK_IMPORTED_MODULE_2__.pluckProps)((0,_utils_object__WEBPACK_IMPORTED_MODULE_4__.omit)(_objectSpread(_objectSpread({}, routerLinkProps), this.computedTag === 'nuxt-link' ? nuxtLinkProps : {}), ['event', 'prefetch', 'routerTag']), this)), event ? {
-        event: event
-      } : {}), (0,_utils_inspect__WEBPACK_IMPORTED_MODULE_11__.isBoolean)(prefetch) ? {
-        prefetch: prefetch
-      } : {}), routerTag ? {
-        tag: routerTag
-      } : {}) : {};
-    },
-    computedAttrs: function computedAttrs() {
-      var bvAttrs = this.bvAttrs,
-          href = this.computedHref,
-          rel = this.computedRel,
-          disabled = this.disabled,
-          target = this.target,
-          routerTag = this.routerTag,
-          isRouterLink = this.isRouterLink;
-      return _objectSpread(_objectSpread(_objectSpread(_objectSpread({}, bvAttrs), href ? {
-        href: href
-      } : {}), isRouterLink && routerTag && !(0,_utils_dom__WEBPACK_IMPORTED_MODULE_12__.isTag)(routerTag, 'a') ? {} : {
-        rel: rel,
-        target: target
-      }), {}, {
-        tabindex: disabled ? '-1' : (0,_utils_inspect__WEBPACK_IMPORTED_MODULE_11__.isUndefined)(bvAttrs.tabindex) ? null : bvAttrs.tabindex,
-        'aria-disabled': disabled ? 'true' : null
-      });
-    },
-    computedListeners: function computedListeners() {
-      return _objectSpread(_objectSpread({}, this.bvListeners), {}, {
-        // We want to overwrite any click handler since our callback
-        // will invoke the user supplied handler(s) if `!this.disabled`
-        click: this.onClick
-      });
-    }
-  },
-  methods: {
-    onClick: function onClick(event) {
-      var _arguments = arguments;
-      var eventIsEvent = (0,_utils_inspect__WEBPACK_IMPORTED_MODULE_11__.isEvent)(event);
-      var isRouterLink = this.isRouterLink;
-      var suppliedHandler = this.bvListeners.click;
-
-      if (eventIsEvent && this.disabled) {
-        // Stop event from bubbling up
-        // Kill the event loop attached to this specific `EventTarget`
-        // Needed to prevent `vue-router` for doing its thing
-        (0,_utils_events__WEBPACK_IMPORTED_MODULE_0__.stopEvent)(event, {
-          immediatePropagation: true
-        });
-      } else {
-        // Router links do not emit instance `click` events, so we
-        // add in an `$emit('click', event)` on its Vue instance
-        //
-        // seems not to be required for Vue3 compat build
-
-        /* istanbul ignore next: difficult to test, but we know it works */
-        if (isRouterLink) {
-          var _event$currentTarget$;
-
-          (_event$currentTarget$ = event.currentTarget.__vue__) === null || _event$currentTarget$ === void 0 ? void 0 : _event$currentTarget$.$emit(_constants_events__WEBPACK_IMPORTED_MODULE_13__.EVENT_NAME_CLICK, event);
-        } // Call the suppliedHandler(s), if any provided
-
-
-        (0,_utils_array__WEBPACK_IMPORTED_MODULE_14__.concat)(suppliedHandler).filter(function (h) {
-          return (0,_utils_inspect__WEBPACK_IMPORTED_MODULE_11__.isFunction)(h);
-        }).forEach(function (handler) {
-          handler.apply(void 0, _toConsumableArray(_arguments));
-        }); // Emit the global `$root` click event
-
-        this.emitOnRoot(ROOT_EVENT_NAME_CLICKED, event); // TODO: Remove deprecated 'clicked::link' event with next major release
-
-        this.emitOnRoot('clicked::link', event);
-      } // Stop scroll-to-top behavior or navigation on
-      // regular links when href is just '#'
-
-
-      if (eventIsEvent && !isRouterLink && this.computedHref === '#') {
-        (0,_utils_events__WEBPACK_IMPORTED_MODULE_0__.stopEvent)(event, {
-          propagation: false
-        });
-      }
-    },
-    focus: function focus() {
-      (0,_utils_dom__WEBPACK_IMPORTED_MODULE_12__.attemptFocus)(this.$el);
-    },
-    blur: function blur() {
-      (0,_utils_dom__WEBPACK_IMPORTED_MODULE_12__.attemptBlur)(this.$el);
-    }
-  },
-  render: function render(h) {
-    var active = this.active,
-        disabled = this.disabled;
-    return h(this.computedTag, _defineProperty({
-      class: {
-        active: active,
-        disabled: disabled
-      },
-      attrs: this.computedAttrs,
-      props: this.computedProps
-    }, this.isRouterLink ? 'nativeOn' : 'on', this.computedListeners), this.normalizeSlot());
-  }
-});
-
-/***/ }),
-
-/***/ "./node_modules/bootstrap-vue/esm/components/modal/helpers/bv-modal-event.class.js":
-/*!*****************************************************************************************!*\
-  !*** ./node_modules/bootstrap-vue/esm/components/modal/helpers/bv-modal-event.class.js ***!
-  \*****************************************************************************************/
-/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
-
-"use strict";
-__webpack_require__.r(__webpack_exports__);
-/* harmony export */ __webpack_require__.d(__webpack_exports__, {
-/* harmony export */   "BvModalEvent": () => (/* binding */ BvModalEvent)
-/* harmony export */ });
-/* harmony import */ var _utils_bv_event_class__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../../../utils/bv-event.class */ "./node_modules/bootstrap-vue/esm/utils/bv-event.class.js");
-/* harmony import */ var _utils_object__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../../../utils/object */ "./node_modules/bootstrap-vue/esm/utils/object.js");
-function _typeof(obj) { "@babel/helpers - typeof"; return _typeof = "function" == typeof Symbol && "symbol" == typeof Symbol.iterator ? function (obj) { return typeof obj; } : function (obj) { return obj && "function" == typeof Symbol && obj.constructor === Symbol && obj !== Symbol.prototype ? "symbol" : typeof obj; }, _typeof(obj); }
-
-function ownKeys(object, enumerableOnly) { var keys = Object.keys(object); if (Object.getOwnPropertySymbols) { var symbols = Object.getOwnPropertySymbols(object); enumerableOnly && (symbols = symbols.filter(function (sym) { return Object.getOwnPropertyDescriptor(object, sym).enumerable; })), keys.push.apply(keys, symbols); } return keys; }
-
-function _objectSpread(target) { for (var i = 1; i < arguments.length; i++) { var source = null != arguments[i] ? arguments[i] : {}; i % 2 ? ownKeys(Object(source), !0).forEach(function (key) { _defineProperty(target, key, source[key]); }) : Object.getOwnPropertyDescriptors ? Object.defineProperties(target, Object.getOwnPropertyDescriptors(source)) : ownKeys(Object(source)).forEach(function (key) { Object.defineProperty(target, key, Object.getOwnPropertyDescriptor(source, key)); }); } return target; }
-
-function _defineProperty(obj, key, value) { if (key in obj) { Object.defineProperty(obj, key, { value: value, enumerable: true, configurable: true, writable: true }); } else { obj[key] = value; } return obj; }
-
-function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
-
-function _defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } }
-
-function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _defineProperties(Constructor.prototype, protoProps); if (staticProps) _defineProperties(Constructor, staticProps); Object.defineProperty(Constructor, "prototype", { writable: false }); return Constructor; }
-
-function _get() { if (typeof Reflect !== "undefined" && Reflect.get) { _get = Reflect.get; } else { _get = function _get(target, property, receiver) { var base = _superPropBase(target, property); if (!base) return; var desc = Object.getOwnPropertyDescriptor(base, property); if (desc.get) { return desc.get.call(arguments.length < 3 ? target : receiver); } return desc.value; }; } return _get.apply(this, arguments); }
-
-function _superPropBase(object, property) { while (!Object.prototype.hasOwnProperty.call(object, property)) { object = _getPrototypeOf(object); if (object === null) break; } return object; }
-
-function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function"); } Object.defineProperty(subClass, "prototype", { value: Object.create(superClass && superClass.prototype, { constructor: { value: subClass, writable: true, configurable: true } }), writable: false }); if (superClass) _setPrototypeOf(subClass, superClass); }
-
-function _setPrototypeOf(o, p) { _setPrototypeOf = Object.setPrototypeOf || function _setPrototypeOf(o, p) { o.__proto__ = p; return o; }; return _setPrototypeOf(o, p); }
-
-function _createSuper(Derived) { var hasNativeReflectConstruct = _isNativeReflectConstruct(); return function _createSuperInternal() { var Super = _getPrototypeOf(Derived), result; if (hasNativeReflectConstruct) { var NewTarget = _getPrototypeOf(this).constructor; result = Reflect.construct(Super, arguments, NewTarget); } else { result = Super.apply(this, arguments); } return _possibleConstructorReturn(this, result); }; }
-
-function _possibleConstructorReturn(self, call) { if (call && (_typeof(call) === "object" || typeof call === "function")) { return call; } else if (call !== void 0) { throw new TypeError("Derived constructors may only return object or undefined"); } return _assertThisInitialized(self); }
-
-function _assertThisInitialized(self) { if (self === void 0) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return self; }
-
-function _isNativeReflectConstruct() { if (typeof Reflect === "undefined" || !Reflect.construct) return false; if (Reflect.construct.sham) return false; if (typeof Proxy === "function") return true; try { Boolean.prototype.valueOf.call(Reflect.construct(Boolean, [], function () {})); return true; } catch (e) { return false; } }
-
-function _getPrototypeOf(o) { _getPrototypeOf = Object.setPrototypeOf ? Object.getPrototypeOf : function _getPrototypeOf(o) { return o.__proto__ || Object.getPrototypeOf(o); }; return _getPrototypeOf(o); }
-
-
-
-
-var BvModalEvent = /*#__PURE__*/function (_BvEvent) {
-  _inherits(BvModalEvent, _BvEvent);
-
-  var _super = _createSuper(BvModalEvent);
-
-  function BvModalEvent(type) {
-    var _this;
-
-    var eventInit = arguments.length > 1 && arguments[1] !== undefined ? arguments[1] : {};
-
-    _classCallCheck(this, BvModalEvent);
-
-    _this = _super.call(this, type, eventInit); // Freeze our new props as readonly, but leave them enumerable
-
-    (0,_utils_object__WEBPACK_IMPORTED_MODULE_0__.defineProperties)(_assertThisInitialized(_this), {
-      trigger: (0,_utils_object__WEBPACK_IMPORTED_MODULE_0__.readonlyDescriptor)()
-    });
-    return _this;
-  }
-
-  _createClass(BvModalEvent, null, [{
-    key: "Defaults",
-    get: function get() {
-      return _objectSpread(_objectSpread({}, _get(_getPrototypeOf(BvModalEvent), "Defaults", this)), {}, {
-        trigger: null
-      });
-    }
-  }]);
-
-  return BvModalEvent;
-}(_utils_bv_event_class__WEBPACK_IMPORTED_MODULE_1__.BvEvent); // Named exports
-
-
-
-
-/***/ }),
-
-/***/ "./node_modules/bootstrap-vue/esm/components/modal/helpers/modal-manager.js":
-/*!**********************************************************************************!*\
-  !*** ./node_modules/bootstrap-vue/esm/components/modal/helpers/modal-manager.js ***!
-  \**********************************************************************************/
-/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
-
-"use strict";
-__webpack_require__.r(__webpack_exports__);
-/* harmony export */ __webpack_require__.d(__webpack_exports__, {
-/* harmony export */   "modalManager": () => (/* binding */ modalManager)
-/* harmony export */ });
-/* harmony import */ var _vue__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../../../vue */ "./node_modules/bootstrap-vue/esm/vue.js");
-/* harmony import */ var _constants_env__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../../../constants/env */ "./node_modules/bootstrap-vue/esm/constants/env.js");
-/* harmony import */ var _utils_dom__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../../../utils/dom */ "./node_modules/bootstrap-vue/esm/utils/dom.js");
-/* harmony import */ var _utils_inspect__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ../../../utils/inspect */ "./node_modules/bootstrap-vue/esm/utils/inspect.js");
-/* harmony import */ var _utils_number__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ../../../utils/number */ "./node_modules/bootstrap-vue/esm/utils/number.js");
-/**
- * Private ModalManager helper
- * Handles controlling modal stacking zIndexes and body adjustments/classes
- */
-
-
-
-
- // --- Constants ---
-// Default modal backdrop z-index
-
-var DEFAULT_ZINDEX = 1040; // Selectors for padding/margin adjustments
-
-var SELECTOR_FIXED_CONTENT = '.fixed-top, .fixed-bottom, .is-fixed, .sticky-top';
-var SELECTOR_STICKY_CONTENT = '.sticky-top';
-var SELECTOR_NAVBAR_TOGGLER = '.navbar-toggler'; // --- Main component ---
-// @vue/component
-
-var ModalManager = /*#__PURE__*/(0,_vue__WEBPACK_IMPORTED_MODULE_0__.extend)({
-  data: function data() {
-    return {
-      modals: [],
-      baseZIndex: null,
-      scrollbarWidth: null,
-      isBodyOverflowing: false
-    };
-  },
-  computed: {
-    modalCount: function modalCount() {
-      return this.modals.length;
-    },
-    modalsAreOpen: function modalsAreOpen() {
-      return this.modalCount > 0;
-    }
-  },
-  watch: {
-    modalCount: function modalCount(newCount, oldCount) {
-      if (_constants_env__WEBPACK_IMPORTED_MODULE_1__.IS_BROWSER) {
-        this.getScrollbarWidth();
-
-        if (newCount > 0 && oldCount === 0) {
-          // Transitioning to modal(s) open
-          this.checkScrollbar();
-          this.setScrollbar();
-          (0,_utils_dom__WEBPACK_IMPORTED_MODULE_2__.addClass)(document.body, 'modal-open');
-        } else if (newCount === 0 && oldCount > 0) {
-          // Transitioning to modal(s) closed
-          this.resetScrollbar();
-          (0,_utils_dom__WEBPACK_IMPORTED_MODULE_2__.removeClass)(document.body, 'modal-open');
-        }
-
-        (0,_utils_dom__WEBPACK_IMPORTED_MODULE_2__.setAttr)(document.body, 'data-modal-open-count', String(newCount));
-      }
-    },
-    modals: function modals(newValue) {
-      var _this = this;
-
-      this.checkScrollbar();
-      (0,_utils_dom__WEBPACK_IMPORTED_MODULE_2__.requestAF)(function () {
-        _this.updateModals(newValue || []);
-      });
-    }
-  },
-  methods: {
-    // Public methods
-    registerModal: function registerModal(modal) {
-      // Register the modal if not already registered
-      if (modal && this.modals.indexOf(modal) === -1) {
-        this.modals.push(modal);
-      }
-    },
-    unregisterModal: function unregisterModal(modal) {
-      var index = this.modals.indexOf(modal);
-
-      if (index > -1) {
-        // Remove modal from modals array
-        this.modals.splice(index, 1); // Reset the modal's data
-
-        if (!modal._isBeingDestroyed && !modal._isDestroyed) {
-          this.resetModal(modal);
-        }
-      }
-    },
-    getBaseZIndex: function getBaseZIndex() {
-      if (_constants_env__WEBPACK_IMPORTED_MODULE_1__.IS_BROWSER && (0,_utils_inspect__WEBPACK_IMPORTED_MODULE_3__.isNull)(this.baseZIndex)) {
-        // Create a temporary `div.modal-backdrop` to get computed z-index
-        var div = document.createElement('div');
-        (0,_utils_dom__WEBPACK_IMPORTED_MODULE_2__.addClass)(div, 'modal-backdrop');
-        (0,_utils_dom__WEBPACK_IMPORTED_MODULE_2__.addClass)(div, 'd-none');
-        (0,_utils_dom__WEBPACK_IMPORTED_MODULE_2__.setStyle)(div, 'display', 'none');
-        document.body.appendChild(div);
-        this.baseZIndex = (0,_utils_number__WEBPACK_IMPORTED_MODULE_4__.toInteger)((0,_utils_dom__WEBPACK_IMPORTED_MODULE_2__.getCS)(div).zIndex, DEFAULT_ZINDEX);
-        document.body.removeChild(div);
-      }
-
-      return this.baseZIndex || DEFAULT_ZINDEX;
-    },
-    getScrollbarWidth: function getScrollbarWidth() {
-      if (_constants_env__WEBPACK_IMPORTED_MODULE_1__.IS_BROWSER && (0,_utils_inspect__WEBPACK_IMPORTED_MODULE_3__.isNull)(this.scrollbarWidth)) {
-        // Create a temporary `div.measure-scrollbar` to get computed z-index
-        var div = document.createElement('div');
-        (0,_utils_dom__WEBPACK_IMPORTED_MODULE_2__.addClass)(div, 'modal-scrollbar-measure');
-        document.body.appendChild(div);
-        this.scrollbarWidth = (0,_utils_dom__WEBPACK_IMPORTED_MODULE_2__.getBCR)(div).width - div.clientWidth;
-        document.body.removeChild(div);
-      }
-
-      return this.scrollbarWidth || 0;
-    },
-    // Private methods
-    updateModals: function updateModals(modals) {
-      var _this2 = this;
-
-      var baseZIndex = this.getBaseZIndex();
-      var scrollbarWidth = this.getScrollbarWidth();
-      modals.forEach(function (modal, index) {
-        // We update data values on each modal
-        modal.zIndex = baseZIndex + index;
-        modal.scrollbarWidth = scrollbarWidth;
-        modal.isTop = index === _this2.modals.length - 1;
-        modal.isBodyOverflowing = _this2.isBodyOverflowing;
-      });
-    },
-    resetModal: function resetModal(modal) {
-      if (modal) {
-        modal.zIndex = this.getBaseZIndex();
-        modal.isTop = true;
-        modal.isBodyOverflowing = false;
-      }
-    },
-    checkScrollbar: function checkScrollbar() {
-      // Determine if the body element is overflowing
-      var _getBCR = (0,_utils_dom__WEBPACK_IMPORTED_MODULE_2__.getBCR)(document.body),
-          left = _getBCR.left,
-          right = _getBCR.right;
-
-      this.isBodyOverflowing = left + right < window.innerWidth;
-    },
-    setScrollbar: function setScrollbar() {
-      var body = document.body; // Storage place to cache changes to margins and padding
-      // Note: This assumes the following element types are not added to the
-      // document after the modal has opened.
-
-      body._paddingChangedForModal = body._paddingChangedForModal || [];
-      body._marginChangedForModal = body._marginChangedForModal || [];
-
-      if (this.isBodyOverflowing) {
-        var scrollbarWidth = this.scrollbarWidth; // Adjust fixed content padding
-
-        /* istanbul ignore next: difficult to test in JSDOM */
-
-        (0,_utils_dom__WEBPACK_IMPORTED_MODULE_2__.selectAll)(SELECTOR_FIXED_CONTENT).forEach(function (el) {
-          var actualPadding = (0,_utils_dom__WEBPACK_IMPORTED_MODULE_2__.getStyle)(el, 'paddingRight') || '';
-          (0,_utils_dom__WEBPACK_IMPORTED_MODULE_2__.setAttr)(el, 'data-padding-right', actualPadding);
-          (0,_utils_dom__WEBPACK_IMPORTED_MODULE_2__.setStyle)(el, 'paddingRight', "".concat((0,_utils_number__WEBPACK_IMPORTED_MODULE_4__.toFloat)((0,_utils_dom__WEBPACK_IMPORTED_MODULE_2__.getCS)(el).paddingRight, 0) + scrollbarWidth, "px"));
-
-          body._paddingChangedForModal.push(el);
-        }); // Adjust sticky content margin
-
-        /* istanbul ignore next: difficult to test in JSDOM */
-
-        (0,_utils_dom__WEBPACK_IMPORTED_MODULE_2__.selectAll)(SELECTOR_STICKY_CONTENT).forEach(function (el)
-        /* istanbul ignore next */
-        {
-          var actualMargin = (0,_utils_dom__WEBPACK_IMPORTED_MODULE_2__.getStyle)(el, 'marginRight') || '';
-          (0,_utils_dom__WEBPACK_IMPORTED_MODULE_2__.setAttr)(el, 'data-margin-right', actualMargin);
-          (0,_utils_dom__WEBPACK_IMPORTED_MODULE_2__.setStyle)(el, 'marginRight', "".concat((0,_utils_number__WEBPACK_IMPORTED_MODULE_4__.toFloat)((0,_utils_dom__WEBPACK_IMPORTED_MODULE_2__.getCS)(el).marginRight, 0) - scrollbarWidth, "px"));
-
-          body._marginChangedForModal.push(el);
-        }); // Adjust <b-navbar-toggler> margin
-
-        /* istanbul ignore next: difficult to test in JSDOM */
-
-        (0,_utils_dom__WEBPACK_IMPORTED_MODULE_2__.selectAll)(SELECTOR_NAVBAR_TOGGLER).forEach(function (el)
-        /* istanbul ignore next */
-        {
-          var actualMargin = (0,_utils_dom__WEBPACK_IMPORTED_MODULE_2__.getStyle)(el, 'marginRight') || '';
-          (0,_utils_dom__WEBPACK_IMPORTED_MODULE_2__.setAttr)(el, 'data-margin-right', actualMargin);
-          (0,_utils_dom__WEBPACK_IMPORTED_MODULE_2__.setStyle)(el, 'marginRight', "".concat((0,_utils_number__WEBPACK_IMPORTED_MODULE_4__.toFloat)((0,_utils_dom__WEBPACK_IMPORTED_MODULE_2__.getCS)(el).marginRight, 0) + scrollbarWidth, "px"));
-
-          body._marginChangedForModal.push(el);
-        }); // Adjust body padding
-
-        var actualPadding = (0,_utils_dom__WEBPACK_IMPORTED_MODULE_2__.getStyle)(body, 'paddingRight') || '';
-        (0,_utils_dom__WEBPACK_IMPORTED_MODULE_2__.setAttr)(body, 'data-padding-right', actualPadding);
-        (0,_utils_dom__WEBPACK_IMPORTED_MODULE_2__.setStyle)(body, 'paddingRight', "".concat((0,_utils_number__WEBPACK_IMPORTED_MODULE_4__.toFloat)((0,_utils_dom__WEBPACK_IMPORTED_MODULE_2__.getCS)(body).paddingRight, 0) + scrollbarWidth, "px"));
-      }
-    },
-    resetScrollbar: function resetScrollbar() {
-      var body = document.body;
-
-      if (body._paddingChangedForModal) {
-        // Restore fixed content padding
-        body._paddingChangedForModal.forEach(function (el) {
-          /* istanbul ignore next: difficult to test in JSDOM */
-          if ((0,_utils_dom__WEBPACK_IMPORTED_MODULE_2__.hasAttr)(el, 'data-padding-right')) {
-            (0,_utils_dom__WEBPACK_IMPORTED_MODULE_2__.setStyle)(el, 'paddingRight', (0,_utils_dom__WEBPACK_IMPORTED_MODULE_2__.getAttr)(el, 'data-padding-right') || '');
-            (0,_utils_dom__WEBPACK_IMPORTED_MODULE_2__.removeAttr)(el, 'data-padding-right');
-          }
-        });
-      }
-
-      if (body._marginChangedForModal) {
-        // Restore sticky content and navbar-toggler margin
-        body._marginChangedForModal.forEach(function (el) {
-          /* istanbul ignore next: difficult to test in JSDOM */
-          if ((0,_utils_dom__WEBPACK_IMPORTED_MODULE_2__.hasAttr)(el, 'data-margin-right')) {
-            (0,_utils_dom__WEBPACK_IMPORTED_MODULE_2__.setStyle)(el, 'marginRight', (0,_utils_dom__WEBPACK_IMPORTED_MODULE_2__.getAttr)(el, 'data-margin-right') || '');
-            (0,_utils_dom__WEBPACK_IMPORTED_MODULE_2__.removeAttr)(el, 'data-margin-right');
-          }
-        });
-      }
-
-      body._paddingChangedForModal = null;
-      body._marginChangedForModal = null; // Restore body padding
-
-      if ((0,_utils_dom__WEBPACK_IMPORTED_MODULE_2__.hasAttr)(body, 'data-padding-right')) {
-        (0,_utils_dom__WEBPACK_IMPORTED_MODULE_2__.setStyle)(body, 'paddingRight', (0,_utils_dom__WEBPACK_IMPORTED_MODULE_2__.getAttr)(body, 'data-padding-right') || '');
-        (0,_utils_dom__WEBPACK_IMPORTED_MODULE_2__.removeAttr)(body, 'data-padding-right');
-      }
-    }
-  }
-}); // Create and export our modal manager instance
-
-var modalManager = new ModalManager();
-
-/***/ }),
-
-/***/ "./node_modules/bootstrap-vue/esm/components/modal/modal.js":
-/*!******************************************************************!*\
-  !*** ./node_modules/bootstrap-vue/esm/components/modal/modal.js ***!
-  \******************************************************************/
-/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
-
-"use strict";
-__webpack_require__.r(__webpack_exports__);
-/* harmony export */ __webpack_require__.d(__webpack_exports__, {
-/* harmony export */   "BModal": () => (/* binding */ BModal),
-/* harmony export */   "props": () => (/* binding */ props)
-/* harmony export */ });
-/* harmony import */ var _vue__WEBPACK_IMPORTED_MODULE_10__ = __webpack_require__(/*! ../../vue */ "./node_modules/bootstrap-vue/esm/vue.js");
-/* harmony import */ var _constants_components__WEBPACK_IMPORTED_MODULE_9__ = __webpack_require__(/*! ../../constants/components */ "./node_modules/bootstrap-vue/esm/constants/components.js");
-/* harmony import */ var _constants_env__WEBPACK_IMPORTED_MODULE_24__ = __webpack_require__(/*! ../../constants/env */ "./node_modules/bootstrap-vue/esm/constants/env.js");
-/* harmony import */ var _constants_events__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../../constants/events */ "./node_modules/bootstrap-vue/esm/constants/events.js");
-/* harmony import */ var _constants_key_codes__WEBPACK_IMPORTED_MODULE_25__ = __webpack_require__(/*! ../../constants/key-codes */ "./node_modules/bootstrap-vue/esm/constants/key-codes.js");
-/* harmony import */ var _constants_props__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../../constants/props */ "./node_modules/bootstrap-vue/esm/constants/props.js");
-/* harmony import */ var _constants_safe_types__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(/*! ../../constants/safe-types */ "./node_modules/bootstrap-vue/esm/constants/safe-types.js");
-/* harmony import */ var _constants_slots__WEBPACK_IMPORTED_MODULE_19__ = __webpack_require__(/*! ../../constants/slots */ "./node_modules/bootstrap-vue/esm/constants/slots.js");
-/* harmony import */ var _utils_array__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! ../../utils/array */ "./node_modules/bootstrap-vue/esm/utils/array.js");
-/* harmony import */ var _utils_dom__WEBPACK_IMPORTED_MODULE_23__ = __webpack_require__(/*! ../../utils/dom */ "./node_modules/bootstrap-vue/esm/utils/dom.js");
-/* harmony import */ var _utils_events__WEBPACK_IMPORTED_MODULE_20__ = __webpack_require__(/*! ../../utils/events */ "./node_modules/bootstrap-vue/esm/utils/events.js");
-/* harmony import */ var _utils_html__WEBPACK_IMPORTED_MODULE_27__ = __webpack_require__(/*! ../../utils/html */ "./node_modules/bootstrap-vue/esm/utils/html.js");
-/* harmony import */ var _utils_identity__WEBPACK_IMPORTED_MODULE_18__ = __webpack_require__(/*! ../../utils/identity */ "./node_modules/bootstrap-vue/esm/utils/identity.js");
-/* harmony import */ var _utils_inspect__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! ../../utils/inspect */ "./node_modules/bootstrap-vue/esm/utils/inspect.js");
-/* harmony import */ var _utils_model__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../../utils/model */ "./node_modules/bootstrap-vue/esm/utils/model.js");
-/* harmony import */ var _utils_object__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ../../utils/object */ "./node_modules/bootstrap-vue/esm/utils/object.js");
-/* harmony import */ var _utils_observe_dom__WEBPACK_IMPORTED_MODULE_21__ = __webpack_require__(/*! ../../utils/observe-dom */ "./node_modules/bootstrap-vue/esm/utils/observe-dom.js");
-/* harmony import */ var _utils_props__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ../../utils/props */ "./node_modules/bootstrap-vue/esm/utils/props.js");
-/* harmony import */ var _mixins_attrs__WEBPACK_IMPORTED_MODULE_11__ = __webpack_require__(/*! ../../mixins/attrs */ "./node_modules/bootstrap-vue/esm/mixins/attrs.js");
-/* harmony import */ var _mixins_id__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ../../mixins/id */ "./node_modules/bootstrap-vue/esm/mixins/id.js");
-/* harmony import */ var _mixins_listen_on_document__WEBPACK_IMPORTED_MODULE_12__ = __webpack_require__(/*! ../../mixins/listen-on-document */ "./node_modules/bootstrap-vue/esm/mixins/listen-on-document.js");
-/* harmony import */ var _mixins_listen_on_root__WEBPACK_IMPORTED_MODULE_13__ = __webpack_require__(/*! ../../mixins/listen-on-root */ "./node_modules/bootstrap-vue/esm/mixins/listen-on-root.js");
-/* harmony import */ var _mixins_listen_on_window__WEBPACK_IMPORTED_MODULE_14__ = __webpack_require__(/*! ../../mixins/listen-on-window */ "./node_modules/bootstrap-vue/esm/mixins/listen-on-window.js");
-/* harmony import */ var _mixins_normalize_slot__WEBPACK_IMPORTED_MODULE_15__ = __webpack_require__(/*! ../../mixins/normalize-slot */ "./node_modules/bootstrap-vue/esm/mixins/normalize-slot.js");
-/* harmony import */ var _mixins_scoped_style__WEBPACK_IMPORTED_MODULE_16__ = __webpack_require__(/*! ../../mixins/scoped-style */ "./node_modules/bootstrap-vue/esm/mixins/scoped-style.js");
-/* harmony import */ var _button_button__WEBPACK_IMPORTED_MODULE_28__ = __webpack_require__(/*! ../button/button */ "./node_modules/bootstrap-vue/esm/components/button/button.js");
-/* harmony import */ var _button_button_close__WEBPACK_IMPORTED_MODULE_26__ = __webpack_require__(/*! ../button/button-close */ "./node_modules/bootstrap-vue/esm/components/button/button-close.js");
-/* harmony import */ var _transition_bv_transition__WEBPACK_IMPORTED_MODULE_29__ = __webpack_require__(/*! ../transition/bv-transition */ "./node_modules/bootstrap-vue/esm/components/transition/bv-transition.js");
-/* harmony import */ var _transporter_transporter__WEBPACK_IMPORTED_MODULE_30__ = __webpack_require__(/*! ../transporter/transporter */ "./node_modules/bootstrap-vue/esm/components/transporter/transporter.js");
-/* harmony import */ var _helpers_bv_modal_event_class__WEBPACK_IMPORTED_MODULE_22__ = __webpack_require__(/*! ./helpers/bv-modal-event.class */ "./node_modules/bootstrap-vue/esm/components/modal/helpers/bv-modal-event.class.js");
-/* harmony import */ var _helpers_modal_manager__WEBPACK_IMPORTED_MODULE_17__ = __webpack_require__(/*! ./helpers/modal-manager */ "./node_modules/bootstrap-vue/esm/components/modal/helpers/modal-manager.js");
-function ownKeys(object, enumerableOnly) { var keys = Object.keys(object); if (Object.getOwnPropertySymbols) { var symbols = Object.getOwnPropertySymbols(object); enumerableOnly && (symbols = symbols.filter(function (sym) { return Object.getOwnPropertyDescriptor(object, sym).enumerable; })), keys.push.apply(keys, symbols); } return keys; }
-
-function _objectSpread(target) { for (var i = 1; i < arguments.length; i++) { var source = null != arguments[i] ? arguments[i] : {}; i % 2 ? ownKeys(Object(source), !0).forEach(function (key) { _defineProperty(target, key, source[key]); }) : Object.getOwnPropertyDescriptors ? Object.defineProperties(target, Object.getOwnPropertyDescriptors(source)) : ownKeys(Object(source)).forEach(function (key) { Object.defineProperty(target, key, Object.getOwnPropertyDescriptor(source, key)); }); } return target; }
-
-function _defineProperty(obj, key, value) { if (key in obj) { Object.defineProperty(obj, key, { value: value, enumerable: true, configurable: true, writable: true }); } else { obj[key] = value; } return obj; }
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
- // --- Constants ---
-
-var _makeModelMixin = (0,_utils_model__WEBPACK_IMPORTED_MODULE_0__.makeModelMixin)('visible', {
-  type: _constants_props__WEBPACK_IMPORTED_MODULE_1__.PROP_TYPE_BOOLEAN,
-  defaultValue: false,
-  event: _constants_events__WEBPACK_IMPORTED_MODULE_2__.EVENT_NAME_CHANGE
-}),
-    modelMixin = _makeModelMixin.mixin,
-    modelProps = _makeModelMixin.props,
-    MODEL_PROP_NAME = _makeModelMixin.prop,
-    MODEL_EVENT_NAME = _makeModelMixin.event;
-
-var TRIGGER_BACKDROP = 'backdrop';
-var TRIGGER_ESC = 'esc';
-var TRIGGER_FORCE = 'FORCE';
-var TRIGGER_TOGGLE = 'toggle';
-var BUTTON_CANCEL = 'cancel'; // TODO: This should be renamed to 'close'
-
-var BUTTON_CLOSE = 'headerclose';
-var BUTTON_OK = 'ok';
-var BUTTONS = [BUTTON_CANCEL, BUTTON_CLOSE, BUTTON_OK]; // `ObserveDom` config to detect changes in modal content
-// so that we can adjust the modal padding if needed
-
-var OBSERVER_CONFIG = {
-  subtree: true,
-  childList: true,
-  characterData: true,
-  attributes: true,
-  attributeFilter: ['style', 'class']
-}; // --- Props ---
-
-var props = (0,_utils_props__WEBPACK_IMPORTED_MODULE_3__.makePropsConfigurable)((0,_utils_object__WEBPACK_IMPORTED_MODULE_4__.sortKeys)(_objectSpread(_objectSpread(_objectSpread({}, _mixins_id__WEBPACK_IMPORTED_MODULE_5__.props), modelProps), {}, {
-  ariaLabel: (0,_utils_props__WEBPACK_IMPORTED_MODULE_3__.makeProp)(_constants_props__WEBPACK_IMPORTED_MODULE_1__.PROP_TYPE_STRING),
-  autoFocusButton: (0,_utils_props__WEBPACK_IMPORTED_MODULE_3__.makeProp)(_constants_props__WEBPACK_IMPORTED_MODULE_1__.PROP_TYPE_STRING, null,
-  /* istanbul ignore next */
-  function (value) {
-    return (0,_utils_inspect__WEBPACK_IMPORTED_MODULE_6__.isUndefinedOrNull)(value) || (0,_utils_array__WEBPACK_IMPORTED_MODULE_7__.arrayIncludes)(BUTTONS, value);
-  }),
-  bodyBgVariant: (0,_utils_props__WEBPACK_IMPORTED_MODULE_3__.makeProp)(_constants_props__WEBPACK_IMPORTED_MODULE_1__.PROP_TYPE_STRING),
-  bodyClass: (0,_utils_props__WEBPACK_IMPORTED_MODULE_3__.makeProp)(_constants_props__WEBPACK_IMPORTED_MODULE_1__.PROP_TYPE_ARRAY_OBJECT_STRING),
-  bodyTextVariant: (0,_utils_props__WEBPACK_IMPORTED_MODULE_3__.makeProp)(_constants_props__WEBPACK_IMPORTED_MODULE_1__.PROP_TYPE_STRING),
-  busy: (0,_utils_props__WEBPACK_IMPORTED_MODULE_3__.makeProp)(_constants_props__WEBPACK_IMPORTED_MODULE_1__.PROP_TYPE_BOOLEAN, false),
-  buttonSize: (0,_utils_props__WEBPACK_IMPORTED_MODULE_3__.makeProp)(_constants_props__WEBPACK_IMPORTED_MODULE_1__.PROP_TYPE_STRING),
-  cancelDisabled: (0,_utils_props__WEBPACK_IMPORTED_MODULE_3__.makeProp)(_constants_props__WEBPACK_IMPORTED_MODULE_1__.PROP_TYPE_BOOLEAN, false),
-  cancelTitle: (0,_utils_props__WEBPACK_IMPORTED_MODULE_3__.makeProp)(_constants_props__WEBPACK_IMPORTED_MODULE_1__.PROP_TYPE_STRING, 'Cancel'),
-  cancelTitleHtml: (0,_utils_props__WEBPACK_IMPORTED_MODULE_3__.makeProp)(_constants_props__WEBPACK_IMPORTED_MODULE_1__.PROP_TYPE_STRING),
-  cancelVariant: (0,_utils_props__WEBPACK_IMPORTED_MODULE_3__.makeProp)(_constants_props__WEBPACK_IMPORTED_MODULE_1__.PROP_TYPE_STRING, 'secondary'),
-  centered: (0,_utils_props__WEBPACK_IMPORTED_MODULE_3__.makeProp)(_constants_props__WEBPACK_IMPORTED_MODULE_1__.PROP_TYPE_BOOLEAN, false),
-  contentClass: (0,_utils_props__WEBPACK_IMPORTED_MODULE_3__.makeProp)(_constants_props__WEBPACK_IMPORTED_MODULE_1__.PROP_TYPE_ARRAY_OBJECT_STRING),
-  dialogClass: (0,_utils_props__WEBPACK_IMPORTED_MODULE_3__.makeProp)(_constants_props__WEBPACK_IMPORTED_MODULE_1__.PROP_TYPE_ARRAY_OBJECT_STRING),
-  footerBgVariant: (0,_utils_props__WEBPACK_IMPORTED_MODULE_3__.makeProp)(_constants_props__WEBPACK_IMPORTED_MODULE_1__.PROP_TYPE_STRING),
-  footerBorderVariant: (0,_utils_props__WEBPACK_IMPORTED_MODULE_3__.makeProp)(_constants_props__WEBPACK_IMPORTED_MODULE_1__.PROP_TYPE_STRING),
-  footerClass: (0,_utils_props__WEBPACK_IMPORTED_MODULE_3__.makeProp)(_constants_props__WEBPACK_IMPORTED_MODULE_1__.PROP_TYPE_ARRAY_OBJECT_STRING),
-  footerTag: (0,_utils_props__WEBPACK_IMPORTED_MODULE_3__.makeProp)(_constants_props__WEBPACK_IMPORTED_MODULE_1__.PROP_TYPE_STRING, 'footer'),
-  footerTextVariant: (0,_utils_props__WEBPACK_IMPORTED_MODULE_3__.makeProp)(_constants_props__WEBPACK_IMPORTED_MODULE_1__.PROP_TYPE_STRING),
-  headerBgVariant: (0,_utils_props__WEBPACK_IMPORTED_MODULE_3__.makeProp)(_constants_props__WEBPACK_IMPORTED_MODULE_1__.PROP_TYPE_STRING),
-  headerBorderVariant: (0,_utils_props__WEBPACK_IMPORTED_MODULE_3__.makeProp)(_constants_props__WEBPACK_IMPORTED_MODULE_1__.PROP_TYPE_STRING),
-  headerClass: (0,_utils_props__WEBPACK_IMPORTED_MODULE_3__.makeProp)(_constants_props__WEBPACK_IMPORTED_MODULE_1__.PROP_TYPE_ARRAY_OBJECT_STRING),
-  headerCloseContent: (0,_utils_props__WEBPACK_IMPORTED_MODULE_3__.makeProp)(_constants_props__WEBPACK_IMPORTED_MODULE_1__.PROP_TYPE_STRING, '&times;'),
-  headerCloseLabel: (0,_utils_props__WEBPACK_IMPORTED_MODULE_3__.makeProp)(_constants_props__WEBPACK_IMPORTED_MODULE_1__.PROP_TYPE_STRING, 'Close'),
-  headerCloseVariant: (0,_utils_props__WEBPACK_IMPORTED_MODULE_3__.makeProp)(_constants_props__WEBPACK_IMPORTED_MODULE_1__.PROP_TYPE_STRING),
-  headerTag: (0,_utils_props__WEBPACK_IMPORTED_MODULE_3__.makeProp)(_constants_props__WEBPACK_IMPORTED_MODULE_1__.PROP_TYPE_STRING, 'header'),
-  headerTextVariant: (0,_utils_props__WEBPACK_IMPORTED_MODULE_3__.makeProp)(_constants_props__WEBPACK_IMPORTED_MODULE_1__.PROP_TYPE_STRING),
-  // TODO: Rename to `noBackdrop` and deprecate `hideBackdrop`
-  hideBackdrop: (0,_utils_props__WEBPACK_IMPORTED_MODULE_3__.makeProp)(_constants_props__WEBPACK_IMPORTED_MODULE_1__.PROP_TYPE_BOOLEAN, false),
-  // TODO: Rename to `noFooter` and deprecate `hideFooter`
-  hideFooter: (0,_utils_props__WEBPACK_IMPORTED_MODULE_3__.makeProp)(_constants_props__WEBPACK_IMPORTED_MODULE_1__.PROP_TYPE_BOOLEAN, false),
-  // TODO: Rename to `noHeader` and deprecate `hideHeader`
-  hideHeader: (0,_utils_props__WEBPACK_IMPORTED_MODULE_3__.makeProp)(_constants_props__WEBPACK_IMPORTED_MODULE_1__.PROP_TYPE_BOOLEAN, false),
-  // TODO: Rename to `noHeaderClose` and deprecate `hideHeaderClose`
-  hideHeaderClose: (0,_utils_props__WEBPACK_IMPORTED_MODULE_3__.makeProp)(_constants_props__WEBPACK_IMPORTED_MODULE_1__.PROP_TYPE_BOOLEAN, false),
-  ignoreEnforceFocusSelector: (0,_utils_props__WEBPACK_IMPORTED_MODULE_3__.makeProp)(_constants_props__WEBPACK_IMPORTED_MODULE_1__.PROP_TYPE_ARRAY_STRING),
-  lazy: (0,_utils_props__WEBPACK_IMPORTED_MODULE_3__.makeProp)(_constants_props__WEBPACK_IMPORTED_MODULE_1__.PROP_TYPE_BOOLEAN, false),
-  modalClass: (0,_utils_props__WEBPACK_IMPORTED_MODULE_3__.makeProp)(_constants_props__WEBPACK_IMPORTED_MODULE_1__.PROP_TYPE_ARRAY_OBJECT_STRING),
-  noCloseOnBackdrop: (0,_utils_props__WEBPACK_IMPORTED_MODULE_3__.makeProp)(_constants_props__WEBPACK_IMPORTED_MODULE_1__.PROP_TYPE_BOOLEAN, false),
-  noCloseOnEsc: (0,_utils_props__WEBPACK_IMPORTED_MODULE_3__.makeProp)(_constants_props__WEBPACK_IMPORTED_MODULE_1__.PROP_TYPE_BOOLEAN, false),
-  noEnforceFocus: (0,_utils_props__WEBPACK_IMPORTED_MODULE_3__.makeProp)(_constants_props__WEBPACK_IMPORTED_MODULE_1__.PROP_TYPE_BOOLEAN, false),
-  noFade: (0,_utils_props__WEBPACK_IMPORTED_MODULE_3__.makeProp)(_constants_props__WEBPACK_IMPORTED_MODULE_1__.PROP_TYPE_BOOLEAN, false),
-  noStacking: (0,_utils_props__WEBPACK_IMPORTED_MODULE_3__.makeProp)(_constants_props__WEBPACK_IMPORTED_MODULE_1__.PROP_TYPE_BOOLEAN, false),
-  okDisabled: (0,_utils_props__WEBPACK_IMPORTED_MODULE_3__.makeProp)(_constants_props__WEBPACK_IMPORTED_MODULE_1__.PROP_TYPE_BOOLEAN, false),
-  okOnly: (0,_utils_props__WEBPACK_IMPORTED_MODULE_3__.makeProp)(_constants_props__WEBPACK_IMPORTED_MODULE_1__.PROP_TYPE_BOOLEAN, false),
-  okTitle: (0,_utils_props__WEBPACK_IMPORTED_MODULE_3__.makeProp)(_constants_props__WEBPACK_IMPORTED_MODULE_1__.PROP_TYPE_STRING, 'OK'),
-  okTitleHtml: (0,_utils_props__WEBPACK_IMPORTED_MODULE_3__.makeProp)(_constants_props__WEBPACK_IMPORTED_MODULE_1__.PROP_TYPE_STRING),
-  okVariant: (0,_utils_props__WEBPACK_IMPORTED_MODULE_3__.makeProp)(_constants_props__WEBPACK_IMPORTED_MODULE_1__.PROP_TYPE_STRING, 'primary'),
-  // HTML Element, CSS selector string or Vue component instance
-  returnFocus: (0,_utils_props__WEBPACK_IMPORTED_MODULE_3__.makeProp)([_constants_safe_types__WEBPACK_IMPORTED_MODULE_8__.HTMLElement, _constants_props__WEBPACK_IMPORTED_MODULE_1__.PROP_TYPE_OBJECT, _constants_props__WEBPACK_IMPORTED_MODULE_1__.PROP_TYPE_STRING]),
-  scrollable: (0,_utils_props__WEBPACK_IMPORTED_MODULE_3__.makeProp)(_constants_props__WEBPACK_IMPORTED_MODULE_1__.PROP_TYPE_BOOLEAN, false),
-  size: (0,_utils_props__WEBPACK_IMPORTED_MODULE_3__.makeProp)(_constants_props__WEBPACK_IMPORTED_MODULE_1__.PROP_TYPE_STRING, 'md'),
-  static: (0,_utils_props__WEBPACK_IMPORTED_MODULE_3__.makeProp)(_constants_props__WEBPACK_IMPORTED_MODULE_1__.PROP_TYPE_BOOLEAN, false),
-  title: (0,_utils_props__WEBPACK_IMPORTED_MODULE_3__.makeProp)(_constants_props__WEBPACK_IMPORTED_MODULE_1__.PROP_TYPE_STRING),
-  titleClass: (0,_utils_props__WEBPACK_IMPORTED_MODULE_3__.makeProp)(_constants_props__WEBPACK_IMPORTED_MODULE_1__.PROP_TYPE_ARRAY_OBJECT_STRING),
-  titleHtml: (0,_utils_props__WEBPACK_IMPORTED_MODULE_3__.makeProp)(_constants_props__WEBPACK_IMPORTED_MODULE_1__.PROP_TYPE_STRING),
-  titleSrOnly: (0,_utils_props__WEBPACK_IMPORTED_MODULE_3__.makeProp)(_constants_props__WEBPACK_IMPORTED_MODULE_1__.PROP_TYPE_BOOLEAN, false),
-  titleTag: (0,_utils_props__WEBPACK_IMPORTED_MODULE_3__.makeProp)(_constants_props__WEBPACK_IMPORTED_MODULE_1__.PROP_TYPE_STRING, 'h5')
-})), _constants_components__WEBPACK_IMPORTED_MODULE_9__.NAME_MODAL); // --- Main component ---
-// @vue/component
-
-var BModal = /*#__PURE__*/(0,_vue__WEBPACK_IMPORTED_MODULE_10__.extend)({
-  name: _constants_components__WEBPACK_IMPORTED_MODULE_9__.NAME_MODAL,
-  mixins: [_mixins_attrs__WEBPACK_IMPORTED_MODULE_11__.attrsMixin, _mixins_id__WEBPACK_IMPORTED_MODULE_5__.idMixin, modelMixin, _mixins_listen_on_document__WEBPACK_IMPORTED_MODULE_12__.listenOnDocumentMixin, _mixins_listen_on_root__WEBPACK_IMPORTED_MODULE_13__.listenOnRootMixin, _mixins_listen_on_window__WEBPACK_IMPORTED_MODULE_14__.listenOnWindowMixin, _mixins_normalize_slot__WEBPACK_IMPORTED_MODULE_15__.normalizeSlotMixin, _mixins_scoped_style__WEBPACK_IMPORTED_MODULE_16__.scopedStyleMixin],
-  inheritAttrs: false,
-  props: props,
-  data: function data() {
-    return {
-      isHidden: true,
-      // If modal should not be in document
-      isVisible: false,
-      // Controls modal visible state
-      isTransitioning: false,
-      // Used for style control
-      isShow: false,
-      // Used for style control
-      isBlock: false,
-      // Used for style control
-      isOpening: false,
-      // To signal that the modal is in the process of opening
-      isClosing: false,
-      // To signal that the modal is in the process of closing
-      ignoreBackdropClick: false,
-      // Used to signify if click out listener should ignore the click
-      isModalOverflowing: false,
-      // The following items are controlled by the modalManager instance
-      scrollbarWidth: 0,
-      zIndex: _helpers_modal_manager__WEBPACK_IMPORTED_MODULE_17__.modalManager.getBaseZIndex(),
-      isTop: true,
-      isBodyOverflowing: false
-    };
-  },
-  computed: {
-    modalId: function modalId() {
-      return this.safeId();
-    },
-    modalOuterId: function modalOuterId() {
-      return this.safeId('__BV_modal_outer_');
-    },
-    modalHeaderId: function modalHeaderId() {
-      return this.safeId('__BV_modal_header_');
-    },
-    modalBodyId: function modalBodyId() {
-      return this.safeId('__BV_modal_body_');
-    },
-    modalTitleId: function modalTitleId() {
-      return this.safeId('__BV_modal_title_');
-    },
-    modalContentId: function modalContentId() {
-      return this.safeId('__BV_modal_content_');
-    },
-    modalFooterId: function modalFooterId() {
-      return this.safeId('__BV_modal_footer_');
-    },
-    modalBackdropId: function modalBackdropId() {
-      return this.safeId('__BV_modal_backdrop_');
-    },
-    modalClasses: function modalClasses() {
-      return [{
-        fade: !this.noFade,
-        show: this.isShow
-      }, this.modalClass];
-    },
-    modalStyles: function modalStyles() {
-      var sbWidth = "".concat(this.scrollbarWidth, "px");
-      return {
-        paddingLeft: !this.isBodyOverflowing && this.isModalOverflowing ? sbWidth : '',
-        paddingRight: this.isBodyOverflowing && !this.isModalOverflowing ? sbWidth : '',
-        // Needed to fix issue https://github.com/bootstrap-vue/bootstrap-vue/issues/3457
-        // Even though we are using v-show, we must ensure 'none' is restored in the styles
-        display: this.isBlock ? 'block' : 'none'
-      };
-    },
-    dialogClasses: function dialogClasses() {
-      var _ref;
-
-      return [(_ref = {}, _defineProperty(_ref, "modal-".concat(this.size), this.size), _defineProperty(_ref, 'modal-dialog-centered', this.centered), _defineProperty(_ref, 'modal-dialog-scrollable', this.scrollable), _ref), this.dialogClass];
-    },
-    headerClasses: function headerClasses() {
-      var _ref2;
-
-      return [(_ref2 = {}, _defineProperty(_ref2, "bg-".concat(this.headerBgVariant), this.headerBgVariant), _defineProperty(_ref2, "text-".concat(this.headerTextVariant), this.headerTextVariant), _defineProperty(_ref2, "border-".concat(this.headerBorderVariant), this.headerBorderVariant), _ref2), this.headerClass];
-    },
-    titleClasses: function titleClasses() {
-      return [{
-        'sr-only': this.titleSrOnly
-      }, this.titleClass];
-    },
-    bodyClasses: function bodyClasses() {
-      var _ref3;
-
-      return [(_ref3 = {}, _defineProperty(_ref3, "bg-".concat(this.bodyBgVariant), this.bodyBgVariant), _defineProperty(_ref3, "text-".concat(this.bodyTextVariant), this.bodyTextVariant), _ref3), this.bodyClass];
-    },
-    footerClasses: function footerClasses() {
-      var _ref4;
-
-      return [(_ref4 = {}, _defineProperty(_ref4, "bg-".concat(this.footerBgVariant), this.footerBgVariant), _defineProperty(_ref4, "text-".concat(this.footerTextVariant), this.footerTextVariant), _defineProperty(_ref4, "border-".concat(this.footerBorderVariant), this.footerBorderVariant), _ref4), this.footerClass];
-    },
-    modalOuterStyle: function modalOuterStyle() {
-      // Styles needed for proper stacking of modals
-      return {
-        position: 'absolute',
-        zIndex: this.zIndex
-      };
-    },
-    slotScope: function slotScope() {
-      return {
-        cancel: this.onCancel,
-        close: this.onClose,
-        hide: this.hide,
-        ok: this.onOk,
-        visible: this.isVisible
-      };
-    },
-    computeIgnoreEnforceFocusSelector: function computeIgnoreEnforceFocusSelector() {
-      // Normalize to an single selector with selectors separated by `,`
-      return (0,_utils_array__WEBPACK_IMPORTED_MODULE_7__.concat)(this.ignoreEnforceFocusSelector).filter(_utils_identity__WEBPACK_IMPORTED_MODULE_18__.identity).join(',').trim();
-    },
-    computedAttrs: function computedAttrs() {
-      // If the parent has a scoped style attribute, and the modal
-      // is portalled, add the scoped attribute to the modal wrapper
-      var scopedStyleAttrs = !this.static ? this.scopedStyleAttrs : {};
-      return _objectSpread(_objectSpread(_objectSpread({}, scopedStyleAttrs), this.bvAttrs), {}, {
-        id: this.modalOuterId
-      });
-    },
-    computedModalAttrs: function computedModalAttrs() {
-      var isVisible = this.isVisible,
-          ariaLabel = this.ariaLabel;
-      return {
-        id: this.modalId,
-        role: 'dialog',
-        'aria-hidden': isVisible ? null : 'true',
-        'aria-modal': isVisible ? 'true' : null,
-        'aria-label': ariaLabel,
-        'aria-labelledby': this.hideHeader || ariaLabel || // TODO: Rename slot to `title` and deprecate `modal-title`
-        !(this.hasNormalizedSlot(_constants_slots__WEBPACK_IMPORTED_MODULE_19__.SLOT_NAME_MODAL_TITLE) || this.titleHtml || this.title) ? null : this.modalTitleId,
-        'aria-describedby': this.modalBodyId
-      };
-    }
-  },
-  watch: _defineProperty({}, MODEL_PROP_NAME, function (newValue, oldValue) {
-    if (newValue !== oldValue) {
-      this[newValue ? 'show' : 'hide']();
-    }
-  }),
-  created: function created() {
-    // Define non-reactive properties
-    this.$_observer = null;
-    this.$_returnFocus = this.returnFocus || null;
-  },
-  mounted: function mounted() {
-    // Set initial z-index as queried from the DOM
-    this.zIndex = _helpers_modal_manager__WEBPACK_IMPORTED_MODULE_17__.modalManager.getBaseZIndex(); // Listen for events from others to either open or close ourselves
-    // and listen to all modals to enable/disable enforce focus
-
-    this.listenOnRoot((0,_utils_events__WEBPACK_IMPORTED_MODULE_20__.getRootActionEventName)(_constants_components__WEBPACK_IMPORTED_MODULE_9__.NAME_MODAL, _constants_events__WEBPACK_IMPORTED_MODULE_2__.EVENT_NAME_SHOW), this.showHandler);
-    this.listenOnRoot((0,_utils_events__WEBPACK_IMPORTED_MODULE_20__.getRootActionEventName)(_constants_components__WEBPACK_IMPORTED_MODULE_9__.NAME_MODAL, _constants_events__WEBPACK_IMPORTED_MODULE_2__.EVENT_NAME_HIDE), this.hideHandler);
-    this.listenOnRoot((0,_utils_events__WEBPACK_IMPORTED_MODULE_20__.getRootActionEventName)(_constants_components__WEBPACK_IMPORTED_MODULE_9__.NAME_MODAL, _constants_events__WEBPACK_IMPORTED_MODULE_2__.EVENT_NAME_TOGGLE), this.toggleHandler); // Listen for `bv:modal::show events`, and close ourselves if the
-    // opening modal not us
-
-    this.listenOnRoot((0,_utils_events__WEBPACK_IMPORTED_MODULE_20__.getRootEventName)(_constants_components__WEBPACK_IMPORTED_MODULE_9__.NAME_MODAL, _constants_events__WEBPACK_IMPORTED_MODULE_2__.EVENT_NAME_SHOW), this.modalListener); // Initially show modal?
-
-    if (this[MODEL_PROP_NAME] === true) {
-      this.$nextTick(this.show);
-    }
-  },
-  beforeDestroy: function beforeDestroy() {
-    // Ensure everything is back to normal
-    _helpers_modal_manager__WEBPACK_IMPORTED_MODULE_17__.modalManager.unregisterModal(this);
-    this.setObserver(false);
-
-    if (this.isVisible) {
-      this.isVisible = false;
-      this.isShow = false;
-      this.isTransitioning = false;
-    }
-  },
-  methods: {
-    setObserver: function setObserver() {
-      var on = arguments.length > 0 && arguments[0] !== undefined ? arguments[0] : false;
-      this.$_observer && this.$_observer.disconnect();
-      this.$_observer = null;
-
-      if (on) {
-        this.$_observer = (0,_utils_observe_dom__WEBPACK_IMPORTED_MODULE_21__.observeDom)(this.$refs.content, this.checkModalOverflow.bind(this), OBSERVER_CONFIG);
-      }
-    },
-    // Private method to update the v-model
-    updateModel: function updateModel(value) {
-      if (value !== this[MODEL_PROP_NAME]) {
-        this.$emit(MODEL_EVENT_NAME, value);
-      }
-    },
-    // Private method to create a BvModalEvent object
-    buildEvent: function buildEvent(type) {
-      var options = arguments.length > 1 && arguments[1] !== undefined ? arguments[1] : {};
-      return new _helpers_bv_modal_event_class__WEBPACK_IMPORTED_MODULE_22__.BvModalEvent(type, _objectSpread(_objectSpread({
-        // Default options
-        cancelable: false,
-        target: this.$refs.modal || this.$el || null,
-        relatedTarget: null,
-        trigger: null
-      }, options), {}, {
-        // Options that can't be overridden
-        vueTarget: this,
-        componentId: this.modalId
-      }));
-    },
-    // Public method to show modal
-    show: function show() {
-      if (this.isVisible || this.isOpening) {
-        // If already open, or in the process of opening, do nothing
-
-        /* istanbul ignore next */
-        return;
-      }
-      /* istanbul ignore next */
-
-
-      if (this.isClosing) {
-        // If we are in the process of closing, wait until hidden before re-opening
-
-        /* istanbul ignore next */
-        this.$once(_constants_events__WEBPACK_IMPORTED_MODULE_2__.EVENT_NAME_HIDDEN, this.show);
-        /* istanbul ignore next */
-
-        return;
-      }
-
-      this.isOpening = true; // Set the element to return focus to when closed
-
-      this.$_returnFocus = this.$_returnFocus || this.getActiveElement();
-      var showEvent = this.buildEvent(_constants_events__WEBPACK_IMPORTED_MODULE_2__.EVENT_NAME_SHOW, {
-        cancelable: true
-      });
-      this.emitEvent(showEvent); // Don't show if canceled
-
-      if (showEvent.defaultPrevented || this.isVisible) {
-        this.isOpening = false; // Ensure the v-model reflects the current state
-
-        this.updateModel(false);
-        return;
-      } // Show the modal
-
-
-      this.doShow();
-    },
-    // Public method to hide modal
-    hide: function hide() {
-      var trigger = arguments.length > 0 && arguments[0] !== undefined ? arguments[0] : '';
-
-      if (!this.isVisible || this.isClosing) {
-        /* istanbul ignore next */
-        return;
-      }
-
-      this.isClosing = true;
-      var hideEvent = this.buildEvent(_constants_events__WEBPACK_IMPORTED_MODULE_2__.EVENT_NAME_HIDE, {
-        cancelable: trigger !== TRIGGER_FORCE,
-        trigger: trigger || null
-      }); // We emit specific event for one of the three built-in buttons
-
-      if (trigger === BUTTON_OK) {
-        this.$emit(_constants_events__WEBPACK_IMPORTED_MODULE_2__.EVENT_NAME_OK, hideEvent);
-      } else if (trigger === BUTTON_CANCEL) {
-        this.$emit(_constants_events__WEBPACK_IMPORTED_MODULE_2__.EVENT_NAME_CANCEL, hideEvent);
-      } else if (trigger === BUTTON_CLOSE) {
-        this.$emit(_constants_events__WEBPACK_IMPORTED_MODULE_2__.EVENT_NAME_CLOSE, hideEvent);
-      }
-
-      this.emitEvent(hideEvent); // Hide if not canceled
-
-      if (hideEvent.defaultPrevented || !this.isVisible) {
-        this.isClosing = false; // Ensure v-model reflects current state
-
-        this.updateModel(true);
-        return;
-      } // Stop observing for content changes
-
-
-      this.setObserver(false); // Trigger the hide transition
-
-      this.isVisible = false; // Update the v-model
-
-      this.updateModel(false);
-    },
-    // Public method to toggle modal visibility
-    toggle: function toggle(triggerEl) {
-      if (triggerEl) {
-        this.$_returnFocus = triggerEl;
-      }
-
-      if (this.isVisible) {
-        this.hide(TRIGGER_TOGGLE);
-      } else {
-        this.show();
-      }
-    },
-    // Private method to get the current document active element
-    getActiveElement: function getActiveElement() {
-      // Returning focus to `document.body` may cause unwanted scrolls,
-      // so we exclude setting focus on body
-      var activeElement = (0,_utils_dom__WEBPACK_IMPORTED_MODULE_23__.getActiveElement)(_constants_env__WEBPACK_IMPORTED_MODULE_24__.IS_BROWSER ? [document.body] : []); // Preset the fallback return focus value if it is not set
-      // `document.activeElement` should be the trigger element that was clicked or
-      // in the case of using the v-model, which ever element has current focus
-      // Will be overridden by some commands such as toggle, etc.
-      // Note: On IE 11, `document.activeElement` may be `null`
-      // So we test it for truthiness first
-      // https://github.com/bootstrap-vue/bootstrap-vue/issues/3206
-
-
-      return activeElement && activeElement.focus ? activeElement : null;
-    },
-    // Private method to finish showing modal
-    doShow: function doShow() {
-      var _this = this;
-
-      /* istanbul ignore next: commenting out for now until we can test stacking */
-      if (_helpers_modal_manager__WEBPACK_IMPORTED_MODULE_17__.modalManager.modalsAreOpen && this.noStacking) {
-        // If another modal(s) is already open, wait for it(them) to close
-        this.listenOnRootOnce((0,_utils_events__WEBPACK_IMPORTED_MODULE_20__.getRootEventName)(_constants_components__WEBPACK_IMPORTED_MODULE_9__.NAME_MODAL, _constants_events__WEBPACK_IMPORTED_MODULE_2__.EVENT_NAME_HIDDEN), this.doShow);
-        return;
-      }
-
-      _helpers_modal_manager__WEBPACK_IMPORTED_MODULE_17__.modalManager.registerModal(this); // Place modal in DOM
-
-      this.isHidden = false;
-      this.$nextTick(function () {
-        // We do this in `$nextTick()` to ensure the modal is in DOM first
-        // before we show it
-        _this.isVisible = true;
-        _this.isOpening = false; // Update the v-model
-
-        _this.updateModel(true);
-
-        _this.$nextTick(function () {
-          // Observe changes in modal content and adjust if necessary
-          // In a `$nextTick()` in case modal content is lazy
-          _this.setObserver(true);
-        });
-      });
-    },
-    // Transition handlers
-    onBeforeEnter: function onBeforeEnter() {
-      this.isTransitioning = true;
-      this.setResizeEvent(true);
-    },
-    onEnter: function onEnter() {
-      var _this2 = this;
-
-      this.isBlock = true; // We add the `show` class 1 frame later
-      // `requestAF()` runs the callback before the next repaint, so we need
-      // two calls to guarantee the next frame has been rendered
-
-      (0,_utils_dom__WEBPACK_IMPORTED_MODULE_23__.requestAF)(function () {
-        (0,_utils_dom__WEBPACK_IMPORTED_MODULE_23__.requestAF)(function () {
-          _this2.isShow = true;
-        });
-      });
-    },
-    onAfterEnter: function onAfterEnter() {
-      var _this3 = this;
-
-      this.checkModalOverflow();
-      this.isTransitioning = false; // We use `requestAF()` to allow transition hooks to complete
-      // before passing control over to the other handlers
-      // This will allow users to not have to use `$nextTick()` or `requestAF()`
-      // when trying to pre-focus an element
-
-      (0,_utils_dom__WEBPACK_IMPORTED_MODULE_23__.requestAF)(function () {
-        _this3.emitEvent(_this3.buildEvent(_constants_events__WEBPACK_IMPORTED_MODULE_2__.EVENT_NAME_SHOWN));
-
-        _this3.setEnforceFocus(true);
-
-        _this3.$nextTick(function () {
-          // Delayed in a `$nextTick()` to allow users time to pre-focus
-          // an element if the wish
-          _this3.focusFirst();
-        });
-      });
-    },
-    onBeforeLeave: function onBeforeLeave() {
-      this.isTransitioning = true;
-      this.setResizeEvent(false);
-      this.setEnforceFocus(false);
-    },
-    onLeave: function onLeave() {
-      // Remove the 'show' class
-      this.isShow = false;
-    },
-    onAfterLeave: function onAfterLeave() {
-      var _this4 = this;
-
-      this.isBlock = false;
-      this.isTransitioning = false;
-      this.isModalOverflowing = false;
-      this.isHidden = true;
-      this.$nextTick(function () {
-        _this4.isClosing = false;
-        _helpers_modal_manager__WEBPACK_IMPORTED_MODULE_17__.modalManager.unregisterModal(_this4);
-
-        _this4.returnFocusTo(); // TODO: Need to find a way to pass the `trigger` property
-        //       to the `hidden` event, not just only the `hide` event
-
-
-        _this4.emitEvent(_this4.buildEvent(_constants_events__WEBPACK_IMPORTED_MODULE_2__.EVENT_NAME_HIDDEN));
-      });
-    },
-    emitEvent: function emitEvent(bvEvent) {
-      var type = bvEvent.type; // We emit on `$root` first in case a global listener wants to cancel
-      // the event first before the instance emits its event
-
-      this.emitOnRoot((0,_utils_events__WEBPACK_IMPORTED_MODULE_20__.getRootEventName)(_constants_components__WEBPACK_IMPORTED_MODULE_9__.NAME_MODAL, type), bvEvent, bvEvent.componentId);
-      this.$emit(type, bvEvent);
-    },
-    // UI event handlers
-    onDialogMousedown: function onDialogMousedown() {
-      var _this5 = this;
-
-      // Watch to see if the matching mouseup event occurs outside the dialog
-      // And if it does, cancel the clickOut handler
-      var modal = this.$refs.modal;
-
-      var onceModalMouseup = function onceModalMouseup(event) {
-        (0,_utils_events__WEBPACK_IMPORTED_MODULE_20__.eventOff)(modal, 'mouseup', onceModalMouseup, _constants_events__WEBPACK_IMPORTED_MODULE_2__.EVENT_OPTIONS_NO_CAPTURE);
-
-        if (event.target === modal) {
-          _this5.ignoreBackdropClick = true;
-        }
-      };
-
-      (0,_utils_events__WEBPACK_IMPORTED_MODULE_20__.eventOn)(modal, 'mouseup', onceModalMouseup, _constants_events__WEBPACK_IMPORTED_MODULE_2__.EVENT_OPTIONS_NO_CAPTURE);
-    },
-    onClickOut: function onClickOut(event) {
-      if (this.ignoreBackdropClick) {
-        // Click was initiated inside the modal content, but finished outside.
-        // Set by the above onDialogMousedown handler
-        this.ignoreBackdropClick = false;
-        return;
-      } // Do nothing if not visible, backdrop click disabled, or element
-      // that generated click event is no longer in document body
-
-
-      if (!this.isVisible || this.noCloseOnBackdrop || !(0,_utils_dom__WEBPACK_IMPORTED_MODULE_23__.contains)(document.body, event.target)) {
-        return;
-      } // If backdrop clicked, hide modal
-
-
-      if (!(0,_utils_dom__WEBPACK_IMPORTED_MODULE_23__.contains)(this.$refs.content, event.target)) {
-        this.hide(TRIGGER_BACKDROP);
-      }
-    },
-    onOk: function onOk() {
-      this.hide(BUTTON_OK);
-    },
-    onCancel: function onCancel() {
-      this.hide(BUTTON_CANCEL);
-    },
-    onClose: function onClose() {
-      this.hide(BUTTON_CLOSE);
-    },
-    onEsc: function onEsc(event) {
-      // If ESC pressed, hide modal
-      if (event.keyCode === _constants_key_codes__WEBPACK_IMPORTED_MODULE_25__.CODE_ESC && this.isVisible && !this.noCloseOnEsc) {
-        this.hide(TRIGGER_ESC);
-      }
-    },
-    // Document focusin listener
-    focusHandler: function focusHandler(event) {
-      // If focus leaves modal content, bring it back
-      var content = this.$refs.content;
-      var target = event.target;
-
-      if (this.noEnforceFocus || !this.isTop || !this.isVisible || !content || document === target || (0,_utils_dom__WEBPACK_IMPORTED_MODULE_23__.contains)(content, target) || this.computeIgnoreEnforceFocusSelector && (0,_utils_dom__WEBPACK_IMPORTED_MODULE_23__.closest)(this.computeIgnoreEnforceFocusSelector, target, true)) {
-        return;
-      }
-
-      var tabables = (0,_utils_dom__WEBPACK_IMPORTED_MODULE_23__.getTabables)(this.$refs.content);
-      var bottomTrap = this.$refs['bottom-trap'];
-      var topTrap = this.$refs['top-trap'];
-
-      if (bottomTrap && target === bottomTrap) {
-        // If user pressed TAB out of modal into our bottom trab trap element
-        // Find the first tabable element in the modal content and focus it
-        if ((0,_utils_dom__WEBPACK_IMPORTED_MODULE_23__.attemptFocus)(tabables[0])) {
-          // Focus was successful
-          return;
-        }
-      } else if (topTrap && target === topTrap) {
-        // If user pressed CTRL-TAB out of modal and into our top tab trap element
-        // Find the last tabable element in the modal content and focus it
-        if ((0,_utils_dom__WEBPACK_IMPORTED_MODULE_23__.attemptFocus)(tabables[tabables.length - 1])) {
-          // Focus was successful
-          return;
-        }
-      } // Otherwise focus the modal content container
-
-
-      (0,_utils_dom__WEBPACK_IMPORTED_MODULE_23__.attemptFocus)(content, {
-        preventScroll: true
-      });
-    },
-    // Turn on/off focusin listener
-    setEnforceFocus: function setEnforceFocus(on) {
-      this.listenDocument(on, 'focusin', this.focusHandler);
-    },
-    // Resize listener
-    setResizeEvent: function setResizeEvent(on) {
-      this.listenWindow(on, 'resize', this.checkModalOverflow);
-      this.listenWindow(on, 'orientationchange', this.checkModalOverflow);
-    },
-    // Root listener handlers
-    showHandler: function showHandler(id, triggerEl) {
-      if (id === this.modalId) {
-        this.$_returnFocus = triggerEl || this.getActiveElement();
-        this.show();
-      }
-    },
-    hideHandler: function hideHandler(id) {
-      if (id === this.modalId) {
-        this.hide('event');
-      }
-    },
-    toggleHandler: function toggleHandler(id, triggerEl) {
-      if (id === this.modalId) {
-        this.toggle(triggerEl);
-      }
-    },
-    modalListener: function modalListener(bvEvent) {
-      // If another modal opens, close this one if stacking not permitted
-      if (this.noStacking && bvEvent.vueTarget !== this) {
-        this.hide();
-      }
-    },
-    // Focus control handlers
-    focusFirst: function focusFirst() {
-      var _this6 = this;
-
-      // Don't try and focus if we are SSR
-      if (_constants_env__WEBPACK_IMPORTED_MODULE_24__.IS_BROWSER) {
-        (0,_utils_dom__WEBPACK_IMPORTED_MODULE_23__.requestAF)(function () {
-          var modal = _this6.$refs.modal;
-          var content = _this6.$refs.content;
-
-          var activeElement = _this6.getActiveElement(); // If the modal contains the activeElement, we don't do anything
-
-
-          if (modal && content && !(activeElement && (0,_utils_dom__WEBPACK_IMPORTED_MODULE_23__.contains)(content, activeElement))) {
-            var ok = _this6.$refs['ok-button'];
-            var cancel = _this6.$refs['cancel-button'];
-            var close = _this6.$refs['close-button']; // Focus the appropriate button or modal content wrapper
-
-            var autoFocus = _this6.autoFocusButton;
-            /* istanbul ignore next */
-
-            var el = autoFocus === BUTTON_OK && ok ? ok.$el || ok : autoFocus === BUTTON_CANCEL && cancel ? cancel.$el || cancel : autoFocus === BUTTON_CLOSE && close ? close.$el || close : content; // Focus the element
-
-            (0,_utils_dom__WEBPACK_IMPORTED_MODULE_23__.attemptFocus)(el);
-
-            if (el === content) {
-              // Make sure top of modal is showing (if longer than the viewport)
-              _this6.$nextTick(function () {
-                modal.scrollTop = 0;
-              });
-            }
-          }
-        });
-      }
-    },
-    returnFocusTo: function returnFocusTo() {
-      // Prefer `returnFocus` prop over event specified
-      // `return_focus` value
-      var el = this.returnFocus || this.$_returnFocus || null;
-      this.$_returnFocus = null;
-      this.$nextTick(function () {
-        // Is el a string CSS selector?
-        el = (0,_utils_inspect__WEBPACK_IMPORTED_MODULE_6__.isString)(el) ? (0,_utils_dom__WEBPACK_IMPORTED_MODULE_23__.select)(el) : el;
-
-        if (el) {
-          // Possibly could be a component reference
-          el = el.$el || el;
-          (0,_utils_dom__WEBPACK_IMPORTED_MODULE_23__.attemptFocus)(el);
-        }
-      });
-    },
-    checkModalOverflow: function checkModalOverflow() {
-      if (this.isVisible) {
-        var modal = this.$refs.modal;
-        this.isModalOverflowing = modal.scrollHeight > document.documentElement.clientHeight;
-      }
-    },
-    makeModal: function makeModal(h) {
-      // Modal header
-      var $header = h();
-
-      if (!this.hideHeader) {
-        // TODO: Rename slot to `header` and deprecate `modal-header`
-        var $modalHeader = this.normalizeSlot(_constants_slots__WEBPACK_IMPORTED_MODULE_19__.SLOT_NAME_MODAL_HEADER, this.slotScope);
-
-        if (!$modalHeader) {
-          var $closeButton = h();
-
-          if (!this.hideHeaderClose) {
-            $closeButton = h(_button_button_close__WEBPACK_IMPORTED_MODULE_26__.BButtonClose, {
-              props: {
-                content: this.headerCloseContent,
-                disabled: this.isTransitioning,
-                ariaLabel: this.headerCloseLabel,
-                textVariant: this.headerCloseVariant || this.headerTextVariant
-              },
-              on: {
-                click: this.onClose
-              },
-              ref: 'close-button'
-            }, // TODO: Rename slot to `header-close` and deprecate `modal-header-close`
-            [this.normalizeSlot(_constants_slots__WEBPACK_IMPORTED_MODULE_19__.SLOT_NAME_MODAL_HEADER_CLOSE)]);
-          }
-
-          $modalHeader = [h(this.titleTag, {
-            staticClass: 'modal-title',
-            class: this.titleClasses,
-            attrs: {
-              id: this.modalTitleId
-            },
-            // TODO: Rename slot to `title` and deprecate `modal-title`
-            domProps: this.hasNormalizedSlot(_constants_slots__WEBPACK_IMPORTED_MODULE_19__.SLOT_NAME_MODAL_TITLE) ? {} : (0,_utils_html__WEBPACK_IMPORTED_MODULE_27__.htmlOrText)(this.titleHtml, this.title)
-          }, // TODO: Rename slot to `title` and deprecate `modal-title`
-          this.normalizeSlot(_constants_slots__WEBPACK_IMPORTED_MODULE_19__.SLOT_NAME_MODAL_TITLE, this.slotScope)), $closeButton];
-        }
-
-        $header = h(this.headerTag, {
-          staticClass: 'modal-header',
-          class: this.headerClasses,
-          attrs: {
-            id: this.modalHeaderId
-          },
-          ref: 'header'
-        }, [$modalHeader]);
-      } // Modal body
-
-
-      var $body = h('div', {
-        staticClass: 'modal-body',
-        class: this.bodyClasses,
-        attrs: {
-          id: this.modalBodyId
-        },
-        ref: 'body'
-      }, this.normalizeSlot(_constants_slots__WEBPACK_IMPORTED_MODULE_19__.SLOT_NAME_DEFAULT, this.slotScope)); // Modal footer
-
-      var $footer = h();
-
-      if (!this.hideFooter) {
-        // TODO: Rename slot to `footer` and deprecate `modal-footer`
-        var $modalFooter = this.normalizeSlot(_constants_slots__WEBPACK_IMPORTED_MODULE_19__.SLOT_NAME_MODAL_FOOTER, this.slotScope);
-
-        if (!$modalFooter) {
-          var $cancelButton = h();
-
-          if (!this.okOnly) {
-            $cancelButton = h(_button_button__WEBPACK_IMPORTED_MODULE_28__.BButton, {
-              props: {
-                variant: this.cancelVariant,
-                size: this.buttonSize,
-                disabled: this.cancelDisabled || this.busy || this.isTransitioning
-              },
-              // TODO: Rename slot to `cancel-button` and deprecate `modal-cancel`
-              domProps: this.hasNormalizedSlot(_constants_slots__WEBPACK_IMPORTED_MODULE_19__.SLOT_NAME_MODAL_CANCEL) ? {} : (0,_utils_html__WEBPACK_IMPORTED_MODULE_27__.htmlOrText)(this.cancelTitleHtml, this.cancelTitle),
-              on: {
-                click: this.onCancel
-              },
-              ref: 'cancel-button'
-            }, // TODO: Rename slot to `cancel-button` and deprecate `modal-cancel`
-            this.normalizeSlot(_constants_slots__WEBPACK_IMPORTED_MODULE_19__.SLOT_NAME_MODAL_CANCEL));
-          }
-
-          var $okButton = h(_button_button__WEBPACK_IMPORTED_MODULE_28__.BButton, {
-            props: {
-              variant: this.okVariant,
-              size: this.buttonSize,
-              disabled: this.okDisabled || this.busy || this.isTransitioning
-            },
-            // TODO: Rename slot to `ok-button` and deprecate `modal-ok`
-            domProps: this.hasNormalizedSlot(_constants_slots__WEBPACK_IMPORTED_MODULE_19__.SLOT_NAME_MODAL_OK) ? {} : (0,_utils_html__WEBPACK_IMPORTED_MODULE_27__.htmlOrText)(this.okTitleHtml, this.okTitle),
-            on: {
-              click: this.onOk
-            },
-            ref: 'ok-button'
-          }, // TODO: Rename slot to `ok-button` and deprecate `modal-ok`
-          this.normalizeSlot(_constants_slots__WEBPACK_IMPORTED_MODULE_19__.SLOT_NAME_MODAL_OK));
-          $modalFooter = [$cancelButton, $okButton];
-        }
-
-        $footer = h(this.footerTag, {
-          staticClass: 'modal-footer',
-          class: this.footerClasses,
-          attrs: {
-            id: this.modalFooterId
-          },
-          ref: 'footer'
-        }, [$modalFooter]);
-      } // Assemble modal content
-
-
-      var $modalContent = h('div', {
-        staticClass: 'modal-content',
-        class: this.contentClass,
-        attrs: {
-          id: this.modalContentId,
-          tabindex: '-1'
-        },
-        ref: 'content'
-      }, [$header, $body, $footer]); // Tab traps to prevent page from scrolling to next element in
-      // tab index during enforce-focus tab cycle
-
-      var $tabTrapTop = h();
-      var $tabTrapBottom = h();
-
-      if (this.isVisible && !this.noEnforceFocus) {
-        $tabTrapTop = h('span', {
-          attrs: {
-            tabindex: '0'
-          },
-          ref: 'top-trap'
-        });
-        $tabTrapBottom = h('span', {
-          attrs: {
-            tabindex: '0'
-          },
-          ref: 'bottom-trap'
-        });
-      } // Modal dialog wrapper
-
-
-      var $modalDialog = h('div', {
-        staticClass: 'modal-dialog',
-        class: this.dialogClasses,
-        on: {
-          mousedown: this.onDialogMousedown
-        },
-        ref: 'dialog'
-      }, [$tabTrapTop, $modalContent, $tabTrapBottom]); // Modal
-
-      var $modal = h('div', {
-        staticClass: 'modal',
-        class: this.modalClasses,
-        style: this.modalStyles,
-        attrs: this.computedModalAttrs,
-        on: {
-          keydown: this.onEsc,
-          click: this.onClickOut
-        },
-        directives: [{
-          name: 'show',
-          value: this.isVisible
-        }],
-        ref: 'modal'
-      }, [$modalDialog]); // Wrap modal in transition
-      // Sadly, we can't use `BVTransition` here due to the differences in
-      // transition durations for `.modal` and `.modal-dialog`
-      // At least until https://github.com/vuejs/vue/issues/9986 is resolved
-
-      $modal = h('transition', {
-        props: {
-          enterClass: '',
-          enterToClass: '',
-          enterActiveClass: '',
-          leaveClass: '',
-          leaveActiveClass: '',
-          leaveToClass: ''
-        },
-        on: {
-          beforeEnter: this.onBeforeEnter,
-          enter: this.onEnter,
-          afterEnter: this.onAfterEnter,
-          beforeLeave: this.onBeforeLeave,
-          leave: this.onLeave,
-          afterLeave: this.onAfterLeave
-        }
-      }, [$modal]); // Modal backdrop
-
-      var $backdrop = h();
-
-      if (!this.hideBackdrop && this.isVisible) {
-        $backdrop = h('div', {
-          staticClass: 'modal-backdrop',
-          attrs: {
-            id: this.modalBackdropId
-          }
-        }, // TODO: Rename slot to `backdrop` and deprecate `modal-backdrop`
-        this.normalizeSlot(_constants_slots__WEBPACK_IMPORTED_MODULE_19__.SLOT_NAME_MODAL_BACKDROP));
-      }
-
-      $backdrop = h(_transition_bv_transition__WEBPACK_IMPORTED_MODULE_29__.BVTransition, {
-        props: {
-          noFade: this.noFade
-        }
-      }, [$backdrop]); // Assemble modal and backdrop in an outer <div>
-
-      return h('div', {
-        style: this.modalOuterStyle,
-        attrs: this.computedAttrs,
-        key: "modal-outer-".concat(this[_vue__WEBPACK_IMPORTED_MODULE_10__.COMPONENT_UID_KEY])
-      }, [$modal, $backdrop]);
-    }
-  },
-  render: function render(h) {
-    if (this.static) {
-      return this.lazy && this.isHidden ? h() : this.makeModal(h);
-    } else {
-      return this.isHidden ? h() : h(_transporter_transporter__WEBPACK_IMPORTED_MODULE_30__.BVTransporter, [this.makeModal(h)]);
-    }
-  }
-});
-
-/***/ }),
-
-/***/ "./node_modules/bootstrap-vue/esm/components/transition/bv-transition.js":
-/*!*******************************************************************************!*\
-  !*** ./node_modules/bootstrap-vue/esm/components/transition/bv-transition.js ***!
-  \*******************************************************************************/
-/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
-
-"use strict";
-__webpack_require__.r(__webpack_exports__);
-/* harmony export */ __webpack_require__.d(__webpack_exports__, {
-/* harmony export */   "BVTransition": () => (/* binding */ BVTransition),
-/* harmony export */   "props": () => (/* binding */ props)
-/* harmony export */ });
-/* harmony import */ var _vue__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../../vue */ "./node_modules/bootstrap-vue/esm/vue.js");
-/* harmony import */ var _vue__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ../../vue */ "./node_modules/vue-functional-data-merge/dist/lib.esm.js");
-/* harmony import */ var _constants_components__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ../../constants/components */ "./node_modules/bootstrap-vue/esm/constants/components.js");
-/* harmony import */ var _constants_props__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../../constants/props */ "./node_modules/bootstrap-vue/esm/constants/props.js");
-/* harmony import */ var _utils_inspect__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ../../utils/inspect */ "./node_modules/bootstrap-vue/esm/utils/inspect.js");
-/* harmony import */ var _utils_props__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../../utils/props */ "./node_modules/bootstrap-vue/esm/utils/props.js");
-function ownKeys(object, enumerableOnly) { var keys = Object.keys(object); if (Object.getOwnPropertySymbols) { var symbols = Object.getOwnPropertySymbols(object); enumerableOnly && (symbols = symbols.filter(function (sym) { return Object.getOwnPropertyDescriptor(object, sym).enumerable; })), keys.push.apply(keys, symbols); } return keys; }
-
-function _objectSpread(target) { for (var i = 1; i < arguments.length; i++) { var source = null != arguments[i] ? arguments[i] : {}; i % 2 ? ownKeys(Object(source), !0).forEach(function (key) { _defineProperty(target, key, source[key]); }) : Object.getOwnPropertyDescriptors ? Object.defineProperties(target, Object.getOwnPropertyDescriptors(source)) : ownKeys(Object(source)).forEach(function (key) { Object.defineProperty(target, key, Object.getOwnPropertyDescriptor(source, key)); }); } return target; }
-
-function _defineProperty(obj, key, value) { if (key in obj) { Object.defineProperty(obj, key, { value: value, enumerable: true, configurable: true, writable: true }); } else { obj[key] = value; } return obj; }
-
-// Generic Bootstrap v4 fade (no-fade) transition component
-//
-// Assumes that `show` class is not required when
-// the transition has finished the enter transition
-// (show and fade classes are only applied during transition)
-
-
-
-
- // --- Constants ---
-
-var NO_FADE_PROPS = {
-  name: '',
-  enterClass: '',
-  enterActiveClass: '',
-  enterToClass: 'show',
-  leaveClass: 'show',
-  leaveActiveClass: '',
-  leaveToClass: ''
-};
-
-var FADE_PROPS = _objectSpread(_objectSpread({}, NO_FADE_PROPS), {}, {
-  enterActiveClass: 'fade',
-  leaveActiveClass: 'fade'
-}); // --- Props ---
-
-
-var props = {
-  // Has no effect if `trans-props` provided
-  appear: (0,_utils_props__WEBPACK_IMPORTED_MODULE_0__.makeProp)(_constants_props__WEBPACK_IMPORTED_MODULE_1__.PROP_TYPE_BOOLEAN, false),
-  // Can be overridden by user supplied `trans-props`
-  mode: (0,_utils_props__WEBPACK_IMPORTED_MODULE_0__.makeProp)(_constants_props__WEBPACK_IMPORTED_MODULE_1__.PROP_TYPE_STRING),
-  // Only applicable to the built in transition
-  // Has no effect if `trans-props` provided
-  noFade: (0,_utils_props__WEBPACK_IMPORTED_MODULE_0__.makeProp)(_constants_props__WEBPACK_IMPORTED_MODULE_1__.PROP_TYPE_BOOLEAN, false),
-  // For user supplied transitions (if needed)
-  transProps: (0,_utils_props__WEBPACK_IMPORTED_MODULE_0__.makeProp)(_constants_props__WEBPACK_IMPORTED_MODULE_1__.PROP_TYPE_OBJECT)
-}; // --- Main component ---
-// @vue/component
-
-var BVTransition = /*#__PURE__*/(0,_vue__WEBPACK_IMPORTED_MODULE_2__.extend)({
-  name: _constants_components__WEBPACK_IMPORTED_MODULE_3__.NAME_TRANSITION,
-  functional: true,
-  props: props,
-  render: function render(h, _ref) {
-    var children = _ref.children,
-        data = _ref.data,
-        props = _ref.props;
-    var transProps = props.transProps;
-
-    if (!(0,_utils_inspect__WEBPACK_IMPORTED_MODULE_4__.isPlainObject)(transProps)) {
-      transProps = props.noFade ? NO_FADE_PROPS : FADE_PROPS;
-
-      if (props.appear) {
-        // Default the appear classes to equal the enter classes
-        transProps = _objectSpread(_objectSpread({}, transProps), {}, {
-          appear: true,
-          appearClass: transProps.enterClass,
-          appearActiveClass: transProps.enterActiveClass,
-          appearToClass: transProps.enterToClass
-        });
-      }
-    }
-
-    transProps = _objectSpread(_objectSpread({
-      mode: props.mode
-    }, transProps), {}, {
-      // We always need `css` true
-      css: true
-    });
-
-    var dataCopy = _objectSpread({}, data);
-
-    delete dataCopy.props;
-    return h('transition', // Any transition event listeners will get merged here
-    (0,_vue__WEBPACK_IMPORTED_MODULE_5__.mergeData)(dataCopy, {
-      props: transProps
-    }), children);
-  }
-});
-
-/***/ }),
-
-/***/ "./node_modules/bootstrap-vue/esm/components/transporter/transporter.js":
-/*!******************************************************************************!*\
-  !*** ./node_modules/bootstrap-vue/esm/components/transporter/transporter.js ***!
-  \******************************************************************************/
-/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
-
-"use strict";
-__webpack_require__.r(__webpack_exports__);
-/* harmony export */ __webpack_require__.d(__webpack_exports__, {
-/* harmony export */   "BVTransporter": () => (/* binding */ BVTransporter),
-/* harmony export */   "props": () => (/* binding */ props)
-/* harmony export */ });
-/* harmony import */ var _vue__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../../vue */ "./node_modules/bootstrap-vue/esm/vue.js");
-/* harmony import */ var _vue__WEBPACK_IMPORTED_MODULE_12__ = __webpack_require__(/*! ../../vue */ "./node_modules/vue/dist/vue.esm.js");
-/* harmony import */ var _constants_components__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../../constants/components */ "./node_modules/bootstrap-vue/esm/constants/components.js");
-/* harmony import */ var _constants_env__WEBPACK_IMPORTED_MODULE_10__ = __webpack_require__(/*! ../../constants/env */ "./node_modules/bootstrap-vue/esm/constants/env.js");
-/* harmony import */ var _constants_props__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ../../constants/props */ "./node_modules/bootstrap-vue/esm/constants/props.js");
-/* harmony import */ var _constants_safe_types__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(/*! ../../constants/safe-types */ "./node_modules/bootstrap-vue/esm/constants/safe-types.js");
-/* harmony import */ var _utils_array__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! ../../utils/array */ "./node_modules/bootstrap-vue/esm/utils/array.js");
-/* harmony import */ var _utils_dom__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ../../utils/dom */ "./node_modules/bootstrap-vue/esm/utils/dom.js");
-/* harmony import */ var _utils_identity__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! ../../utils/identity */ "./node_modules/bootstrap-vue/esm/utils/identity.js");
-/* harmony import */ var _utils_inspect__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ../../utils/inspect */ "./node_modules/bootstrap-vue/esm/utils/inspect.js");
-/* harmony import */ var _mixins_normalize_slot__WEBPACK_IMPORTED_MODULE_9__ = __webpack_require__(/*! ../../mixins/normalize-slot */ "./node_modules/bootstrap-vue/esm/mixins/normalize-slot.js");
-/* harmony import */ var _utils_props__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../../utils/props */ "./node_modules/bootstrap-vue/esm/utils/props.js");
-/* harmony import */ var _utils_create_new_child_component__WEBPACK_IMPORTED_MODULE_11__ = __webpack_require__(/*! ../../utils/create-new-child-component */ "./node_modules/bootstrap-vue/esm/utils/create-new-child-component.js");
-
-
-
-
-
-
-
-
-
-
-
- // --- Helper components ---
-// BVTransporter/BVTransporterTarget:
-//
-// Single root node portaling of content, which retains parent/child hierarchy
-// Unlike Portal-Vue where portaled content is no longer a descendent of its
-// intended parent components
-//
-// Private components for use by Tooltips, Popovers and Modals
-//
-// Based on vue-simple-portal
-// https://github.com/LinusBorg/vue-simple-portal
-// Transporter target used by BVTransporter
-// Supports only a single root element
-// @vue/component
-
-var BVTransporterTarget = /*#__PURE__*/(0,_vue__WEBPACK_IMPORTED_MODULE_0__.extend)({
-  // As an abstract component, it doesn't appear in the $parent chain of
-  // components, which means the next parent of any component rendered inside
-  // of this one will be the parent from which is was portal'd
-  abstract: true,
-  name: _constants_components__WEBPACK_IMPORTED_MODULE_1__.NAME_TRANSPORTER_TARGET,
-  props: {
-    // Even though we only support a single root element,
-    // VNodes are always passed as an array
-    nodes: (0,_utils_props__WEBPACK_IMPORTED_MODULE_2__.makeProp)(_constants_props__WEBPACK_IMPORTED_MODULE_3__.PROP_TYPE_ARRAY_FUNCTION)
-  },
-  data: function data(vm) {
-    return {
-      updatedNodes: vm.nodes
-    };
-  },
-  destroyed: function destroyed() {
-    (0,_utils_dom__WEBPACK_IMPORTED_MODULE_4__.removeNode)(this.$el);
-  },
-  render: function render(h) {
-    var updatedNodes = this.updatedNodes;
-    var $nodes = (0,_utils_inspect__WEBPACK_IMPORTED_MODULE_5__.isFunction)(updatedNodes) ? updatedNodes({}) : updatedNodes;
-    $nodes = (0,_utils_array__WEBPACK_IMPORTED_MODULE_6__.concat)($nodes).filter(_utils_identity__WEBPACK_IMPORTED_MODULE_7__.identity);
-
-    if ($nodes && $nodes.length > 0 && !$nodes[0].text) {
-      return $nodes[0];
-    }
-    /* istanbul ignore next */
-
-
-    return h();
-  }
-}); // --- Props ---
-
-var props = {
-  // String: CSS selector,
-  // HTMLElement: Element reference
-  // Mainly needed for tooltips/popovers inside modals
-  container: (0,_utils_props__WEBPACK_IMPORTED_MODULE_2__.makeProp)([_constants_safe_types__WEBPACK_IMPORTED_MODULE_8__.HTMLElement, _constants_props__WEBPACK_IMPORTED_MODULE_3__.PROP_TYPE_STRING], 'body'),
-  disabled: (0,_utils_props__WEBPACK_IMPORTED_MODULE_2__.makeProp)(_constants_props__WEBPACK_IMPORTED_MODULE_3__.PROP_TYPE_BOOLEAN, false),
-  // This should be set to match the root element type
-  tag: (0,_utils_props__WEBPACK_IMPORTED_MODULE_2__.makeProp)(_constants_props__WEBPACK_IMPORTED_MODULE_3__.PROP_TYPE_STRING, 'div')
-}; // --- Main component ---
-// @vue/component
-
-var BVTransporterVue2 = /*#__PURE__*/(0,_vue__WEBPACK_IMPORTED_MODULE_0__.extend)({
-  name: _constants_components__WEBPACK_IMPORTED_MODULE_1__.NAME_TRANSPORTER,
-  mixins: [_mixins_normalize_slot__WEBPACK_IMPORTED_MODULE_9__.normalizeSlotMixin],
-  props: props,
-  watch: {
-    disabled: {
-      immediate: true,
-      handler: function handler(disabled) {
-        disabled ? this.unmountTarget() : this.$nextTick(this.mountTarget);
-      }
-    }
-  },
-  created: function created() {
-    // Create private non-reactive props
-    this.$_defaultFn = null;
-    this.$_target = null;
-  },
-  beforeMount: function beforeMount() {
-    this.mountTarget();
-  },
-  updated: function updated() {
-    // We need to make sure that all children have completed updating
-    // before rendering in the target
-    // `vue-simple-portal` has the this in a `$nextTick()`,
-    // while `portal-vue` doesn't
-    // Just trying to see if the `$nextTick()` delay is required or not
-    // Since all slots in Vue 2.6.x are always functions
-    this.updateTarget();
-  },
-  beforeDestroy: function beforeDestroy() {
-    this.unmountTarget();
-    this.$_defaultFn = null;
-  },
-  methods: {
-    // Get the element which the target should be appended to
-    getContainer: function getContainer() {
-      /* istanbul ignore else */
-      if (_constants_env__WEBPACK_IMPORTED_MODULE_10__.IS_BROWSER) {
-        var container = this.container;
-        return (0,_utils_inspect__WEBPACK_IMPORTED_MODULE_5__.isString)(container) ? (0,_utils_dom__WEBPACK_IMPORTED_MODULE_4__.select)(container) : container;
-      } else {
-        return null;
-      }
-    },
-    // Mount the target
-    mountTarget: function mountTarget() {
-      if (!this.$_target) {
-        var $container = this.getContainer();
-
-        if ($container) {
-          var $el = document.createElement('div');
-          $container.appendChild($el);
-          this.$_target = (0,_utils_create_new_child_component__WEBPACK_IMPORTED_MODULE_11__.createNewChildComponent)(this, BVTransporterTarget, {
-            el: $el,
-            propsData: {
-              // Initial nodes to be rendered
-              nodes: (0,_utils_array__WEBPACK_IMPORTED_MODULE_6__.concat)(this.normalizeSlot())
-            }
-          });
-        }
-      }
-    },
-    // Update the content of the target
-    updateTarget: function updateTarget() {
-      if (_constants_env__WEBPACK_IMPORTED_MODULE_10__.IS_BROWSER && this.$_target) {
-        var defaultFn = this.$scopedSlots.default;
-
-        if (!this.disabled) {
-          /* istanbul ignore else: only applicable in Vue 2.5.x */
-          if (defaultFn && this.$_defaultFn !== defaultFn) {
-            // We only update the target component if the scoped slot
-            // function is a fresh one. The new slot syntax (since Vue 2.6)
-            // can cache unchanged slot functions and we want to respect that here
-            this.$_target.updatedNodes = defaultFn;
-          } else if (!defaultFn) {
-            // We also need to be back compatible with non-scoped default slot (i.e. 2.5.x)
-            this.$_target.updatedNodes = this.$slots.default;
-          }
-        } // Update the scoped slot function cache
-
-
-        this.$_defaultFn = defaultFn;
-      }
-    },
-    // Unmount the target
-    unmountTarget: function unmountTarget() {
-      this.$_target && this.$_target.$destroy();
-      this.$_target = null;
-    }
-  },
-  render: function render(h) {
-    // This component has no root element, so only a single VNode is allowed
-    if (this.disabled) {
-      var $nodes = (0,_utils_array__WEBPACK_IMPORTED_MODULE_6__.concat)(this.normalizeSlot()).filter(_utils_identity__WEBPACK_IMPORTED_MODULE_7__.identity);
-
-      if ($nodes.length > 0 && !$nodes[0].text) {
-        return $nodes[0];
-      }
-    }
-
-    return h();
-  }
-});
-var BVTransporterVue3 = /*#__PURE__*/(0,_vue__WEBPACK_IMPORTED_MODULE_0__.extend)({
-  name: _constants_components__WEBPACK_IMPORTED_MODULE_1__.NAME_TRANSPORTER,
-  mixins: [_mixins_normalize_slot__WEBPACK_IMPORTED_MODULE_9__.normalizeSlotMixin],
-  props: props,
-  render: function render(h) {
-    if (this.disabled) {
-      var $nodes = (0,_utils_array__WEBPACK_IMPORTED_MODULE_6__.concat)(this.normalizeSlot()).filter(_utils_identity__WEBPACK_IMPORTED_MODULE_7__.identity);
-
-      if ($nodes.length > 0) {
-        return $nodes[0];
-      }
-    }
-
-    return h(_vue__WEBPACK_IMPORTED_MODULE_12__["default"].Teleport, {
-      to: this.container
-    }, this.normalizeSlot());
-  }
-});
-var BVTransporter = _vue__WEBPACK_IMPORTED_MODULE_0__.isVue3 ? BVTransporterVue3 : BVTransporterVue2;
-
-/***/ }),
-
-/***/ "./node_modules/bootstrap-vue/esm/constants/components.js":
-/*!****************************************************************!*\
-  !*** ./node_modules/bootstrap-vue/esm/constants/components.js ***!
-  \****************************************************************/
-/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
-
-"use strict";
-__webpack_require__.r(__webpack_exports__);
-/* harmony export */ __webpack_require__.d(__webpack_exports__, {
-/* harmony export */   "NAME_ALERT": () => (/* binding */ NAME_ALERT),
-/* harmony export */   "NAME_ASPECT": () => (/* binding */ NAME_ASPECT),
-/* harmony export */   "NAME_AVATAR": () => (/* binding */ NAME_AVATAR),
-/* harmony export */   "NAME_AVATAR_GROUP": () => (/* binding */ NAME_AVATAR_GROUP),
-/* harmony export */   "NAME_BADGE": () => (/* binding */ NAME_BADGE),
-/* harmony export */   "NAME_BREADCRUMB": () => (/* binding */ NAME_BREADCRUMB),
-/* harmony export */   "NAME_BREADCRUMB_ITEM": () => (/* binding */ NAME_BREADCRUMB_ITEM),
-/* harmony export */   "NAME_BREADCRUMB_LINK": () => (/* binding */ NAME_BREADCRUMB_LINK),
-/* harmony export */   "NAME_BUTTON": () => (/* binding */ NAME_BUTTON),
-/* harmony export */   "NAME_BUTTON_CLOSE": () => (/* binding */ NAME_BUTTON_CLOSE),
-/* harmony export */   "NAME_BUTTON_GROUP": () => (/* binding */ NAME_BUTTON_GROUP),
-/* harmony export */   "NAME_BUTTON_TOOLBAR": () => (/* binding */ NAME_BUTTON_TOOLBAR),
-/* harmony export */   "NAME_CALENDAR": () => (/* binding */ NAME_CALENDAR),
-/* harmony export */   "NAME_CARD": () => (/* binding */ NAME_CARD),
-/* harmony export */   "NAME_CARD_BODY": () => (/* binding */ NAME_CARD_BODY),
-/* harmony export */   "NAME_CARD_FOOTER": () => (/* binding */ NAME_CARD_FOOTER),
-/* harmony export */   "NAME_CARD_GROUP": () => (/* binding */ NAME_CARD_GROUP),
-/* harmony export */   "NAME_CARD_HEADER": () => (/* binding */ NAME_CARD_HEADER),
-/* harmony export */   "NAME_CARD_IMG": () => (/* binding */ NAME_CARD_IMG),
-/* harmony export */   "NAME_CARD_IMG_LAZY": () => (/* binding */ NAME_CARD_IMG_LAZY),
-/* harmony export */   "NAME_CARD_SUB_TITLE": () => (/* binding */ NAME_CARD_SUB_TITLE),
-/* harmony export */   "NAME_CARD_TEXT": () => (/* binding */ NAME_CARD_TEXT),
-/* harmony export */   "NAME_CARD_TITLE": () => (/* binding */ NAME_CARD_TITLE),
-/* harmony export */   "NAME_CAROUSEL": () => (/* binding */ NAME_CAROUSEL),
-/* harmony export */   "NAME_CAROUSEL_SLIDE": () => (/* binding */ NAME_CAROUSEL_SLIDE),
-/* harmony export */   "NAME_COL": () => (/* binding */ NAME_COL),
-/* harmony export */   "NAME_COLLAPSE": () => (/* binding */ NAME_COLLAPSE),
-/* harmony export */   "NAME_COLLAPSE_HELPER": () => (/* binding */ NAME_COLLAPSE_HELPER),
-/* harmony export */   "NAME_CONTAINER": () => (/* binding */ NAME_CONTAINER),
-/* harmony export */   "NAME_DROPDOWN": () => (/* binding */ NAME_DROPDOWN),
-/* harmony export */   "NAME_DROPDOWN_DIVIDER": () => (/* binding */ NAME_DROPDOWN_DIVIDER),
-/* harmony export */   "NAME_DROPDOWN_FORM": () => (/* binding */ NAME_DROPDOWN_FORM),
-/* harmony export */   "NAME_DROPDOWN_GROUP": () => (/* binding */ NAME_DROPDOWN_GROUP),
-/* harmony export */   "NAME_DROPDOWN_HEADER": () => (/* binding */ NAME_DROPDOWN_HEADER),
-/* harmony export */   "NAME_DROPDOWN_ITEM": () => (/* binding */ NAME_DROPDOWN_ITEM),
-/* harmony export */   "NAME_DROPDOWN_ITEM_BUTTON": () => (/* binding */ NAME_DROPDOWN_ITEM_BUTTON),
-/* harmony export */   "NAME_DROPDOWN_TEXT": () => (/* binding */ NAME_DROPDOWN_TEXT),
-/* harmony export */   "NAME_EMBED": () => (/* binding */ NAME_EMBED),
-/* harmony export */   "NAME_FORM": () => (/* binding */ NAME_FORM),
-/* harmony export */   "NAME_FORM_BUTTON_LABEL_CONTROL": () => (/* binding */ NAME_FORM_BUTTON_LABEL_CONTROL),
-/* harmony export */   "NAME_FORM_CHECKBOX": () => (/* binding */ NAME_FORM_CHECKBOX),
-/* harmony export */   "NAME_FORM_CHECKBOX_GROUP": () => (/* binding */ NAME_FORM_CHECKBOX_GROUP),
-/* harmony export */   "NAME_FORM_DATALIST": () => (/* binding */ NAME_FORM_DATALIST),
-/* harmony export */   "NAME_FORM_DATEPICKER": () => (/* binding */ NAME_FORM_DATEPICKER),
-/* harmony export */   "NAME_FORM_FILE": () => (/* binding */ NAME_FORM_FILE),
-/* harmony export */   "NAME_FORM_GROUP": () => (/* binding */ NAME_FORM_GROUP),
-/* harmony export */   "NAME_FORM_INPUT": () => (/* binding */ NAME_FORM_INPUT),
-/* harmony export */   "NAME_FORM_INVALID_FEEDBACK": () => (/* binding */ NAME_FORM_INVALID_FEEDBACK),
-/* harmony export */   "NAME_FORM_RADIO": () => (/* binding */ NAME_FORM_RADIO),
-/* harmony export */   "NAME_FORM_RADIO_GROUP": () => (/* binding */ NAME_FORM_RADIO_GROUP),
-/* harmony export */   "NAME_FORM_RATING": () => (/* binding */ NAME_FORM_RATING),
-/* harmony export */   "NAME_FORM_RATING_STAR": () => (/* binding */ NAME_FORM_RATING_STAR),
-/* harmony export */   "NAME_FORM_ROW": () => (/* binding */ NAME_FORM_ROW),
-/* harmony export */   "NAME_FORM_SELECT": () => (/* binding */ NAME_FORM_SELECT),
-/* harmony export */   "NAME_FORM_SELECT_OPTION": () => (/* binding */ NAME_FORM_SELECT_OPTION),
-/* harmony export */   "NAME_FORM_SELECT_OPTION_GROUP": () => (/* binding */ NAME_FORM_SELECT_OPTION_GROUP),
-/* harmony export */   "NAME_FORM_SPINBUTTON": () => (/* binding */ NAME_FORM_SPINBUTTON),
-/* harmony export */   "NAME_FORM_TAG": () => (/* binding */ NAME_FORM_TAG),
-/* harmony export */   "NAME_FORM_TAGS": () => (/* binding */ NAME_FORM_TAGS),
-/* harmony export */   "NAME_FORM_TEXT": () => (/* binding */ NAME_FORM_TEXT),
-/* harmony export */   "NAME_FORM_TEXTAREA": () => (/* binding */ NAME_FORM_TEXTAREA),
-/* harmony export */   "NAME_FORM_TIMEPICKER": () => (/* binding */ NAME_FORM_TIMEPICKER),
-/* harmony export */   "NAME_FORM_VALID_FEEDBACK": () => (/* binding */ NAME_FORM_VALID_FEEDBACK),
-/* harmony export */   "NAME_ICON": () => (/* binding */ NAME_ICON),
-/* harmony export */   "NAME_ICONSTACK": () => (/* binding */ NAME_ICONSTACK),
-/* harmony export */   "NAME_ICON_BASE": () => (/* binding */ NAME_ICON_BASE),
-/* harmony export */   "NAME_IMG": () => (/* binding */ NAME_IMG),
-/* harmony export */   "NAME_IMG_LAZY": () => (/* binding */ NAME_IMG_LAZY),
-/* harmony export */   "NAME_INPUT_GROUP": () => (/* binding */ NAME_INPUT_GROUP),
-/* harmony export */   "NAME_INPUT_GROUP_ADDON": () => (/* binding */ NAME_INPUT_GROUP_ADDON),
-/* harmony export */   "NAME_INPUT_GROUP_APPEND": () => (/* binding */ NAME_INPUT_GROUP_APPEND),
-/* harmony export */   "NAME_INPUT_GROUP_PREPEND": () => (/* binding */ NAME_INPUT_GROUP_PREPEND),
-/* harmony export */   "NAME_INPUT_GROUP_TEXT": () => (/* binding */ NAME_INPUT_GROUP_TEXT),
-/* harmony export */   "NAME_JUMBOTRON": () => (/* binding */ NAME_JUMBOTRON),
-/* harmony export */   "NAME_LINK": () => (/* binding */ NAME_LINK),
-/* harmony export */   "NAME_LIST_GROUP": () => (/* binding */ NAME_LIST_GROUP),
-/* harmony export */   "NAME_LIST_GROUP_ITEM": () => (/* binding */ NAME_LIST_GROUP_ITEM),
-/* harmony export */   "NAME_MEDIA": () => (/* binding */ NAME_MEDIA),
-/* harmony export */   "NAME_MEDIA_ASIDE": () => (/* binding */ NAME_MEDIA_ASIDE),
-/* harmony export */   "NAME_MEDIA_BODY": () => (/* binding */ NAME_MEDIA_BODY),
-/* harmony export */   "NAME_MODAL": () => (/* binding */ NAME_MODAL),
-/* harmony export */   "NAME_MSG_BOX": () => (/* binding */ NAME_MSG_BOX),
-/* harmony export */   "NAME_NAV": () => (/* binding */ NAME_NAV),
-/* harmony export */   "NAME_NAVBAR": () => (/* binding */ NAME_NAVBAR),
-/* harmony export */   "NAME_NAVBAR_BRAND": () => (/* binding */ NAME_NAVBAR_BRAND),
-/* harmony export */   "NAME_NAVBAR_NAV": () => (/* binding */ NAME_NAVBAR_NAV),
-/* harmony export */   "NAME_NAVBAR_TOGGLE": () => (/* binding */ NAME_NAVBAR_TOGGLE),
-/* harmony export */   "NAME_NAV_FORM": () => (/* binding */ NAME_NAV_FORM),
-/* harmony export */   "NAME_NAV_ITEM": () => (/* binding */ NAME_NAV_ITEM),
-/* harmony export */   "NAME_NAV_ITEM_DROPDOWN": () => (/* binding */ NAME_NAV_ITEM_DROPDOWN),
-/* harmony export */   "NAME_NAV_TEXT": () => (/* binding */ NAME_NAV_TEXT),
-/* harmony export */   "NAME_OVERLAY": () => (/* binding */ NAME_OVERLAY),
-/* harmony export */   "NAME_PAGINATION": () => (/* binding */ NAME_PAGINATION),
-/* harmony export */   "NAME_PAGINATION_NAV": () => (/* binding */ NAME_PAGINATION_NAV),
-/* harmony export */   "NAME_POPOVER": () => (/* binding */ NAME_POPOVER),
-/* harmony export */   "NAME_POPOVER_HELPER": () => (/* binding */ NAME_POPOVER_HELPER),
-/* harmony export */   "NAME_POPOVER_TEMPLATE": () => (/* binding */ NAME_POPOVER_TEMPLATE),
-/* harmony export */   "NAME_POPPER": () => (/* binding */ NAME_POPPER),
-/* harmony export */   "NAME_PROGRESS": () => (/* binding */ NAME_PROGRESS),
-/* harmony export */   "NAME_PROGRESS_BAR": () => (/* binding */ NAME_PROGRESS_BAR),
-/* harmony export */   "NAME_ROW": () => (/* binding */ NAME_ROW),
-/* harmony export */   "NAME_SIDEBAR": () => (/* binding */ NAME_SIDEBAR),
-/* harmony export */   "NAME_SKELETON": () => (/* binding */ NAME_SKELETON),
-/* harmony export */   "NAME_SKELETON_ICON": () => (/* binding */ NAME_SKELETON_ICON),
-/* harmony export */   "NAME_SKELETON_IMG": () => (/* binding */ NAME_SKELETON_IMG),
-/* harmony export */   "NAME_SKELETON_TABLE": () => (/* binding */ NAME_SKELETON_TABLE),
-/* harmony export */   "NAME_SKELETON_WRAPPER": () => (/* binding */ NAME_SKELETON_WRAPPER),
-/* harmony export */   "NAME_SPINNER": () => (/* binding */ NAME_SPINNER),
-/* harmony export */   "NAME_TAB": () => (/* binding */ NAME_TAB),
-/* harmony export */   "NAME_TABLE": () => (/* binding */ NAME_TABLE),
-/* harmony export */   "NAME_TABLE_CELL": () => (/* binding */ NAME_TABLE_CELL),
-/* harmony export */   "NAME_TABLE_LITE": () => (/* binding */ NAME_TABLE_LITE),
-/* harmony export */   "NAME_TABLE_SIMPLE": () => (/* binding */ NAME_TABLE_SIMPLE),
-/* harmony export */   "NAME_TABS": () => (/* binding */ NAME_TABS),
-/* harmony export */   "NAME_TAB_BUTTON_HELPER": () => (/* binding */ NAME_TAB_BUTTON_HELPER),
-/* harmony export */   "NAME_TBODY": () => (/* binding */ NAME_TBODY),
-/* harmony export */   "NAME_TFOOT": () => (/* binding */ NAME_TFOOT),
-/* harmony export */   "NAME_TH": () => (/* binding */ NAME_TH),
-/* harmony export */   "NAME_THEAD": () => (/* binding */ NAME_THEAD),
-/* harmony export */   "NAME_TIME": () => (/* binding */ NAME_TIME),
-/* harmony export */   "NAME_TOAST": () => (/* binding */ NAME_TOAST),
-/* harmony export */   "NAME_TOASTER": () => (/* binding */ NAME_TOASTER),
-/* harmony export */   "NAME_TOAST_POP": () => (/* binding */ NAME_TOAST_POP),
-/* harmony export */   "NAME_TOOLTIP": () => (/* binding */ NAME_TOOLTIP),
-/* harmony export */   "NAME_TOOLTIP_HELPER": () => (/* binding */ NAME_TOOLTIP_HELPER),
-/* harmony export */   "NAME_TOOLTIP_TEMPLATE": () => (/* binding */ NAME_TOOLTIP_TEMPLATE),
-/* harmony export */   "NAME_TR": () => (/* binding */ NAME_TR),
-/* harmony export */   "NAME_TRANSITION": () => (/* binding */ NAME_TRANSITION),
-/* harmony export */   "NAME_TRANSPORTER": () => (/* binding */ NAME_TRANSPORTER),
-/* harmony export */   "NAME_TRANSPORTER_TARGET": () => (/* binding */ NAME_TRANSPORTER_TARGET)
-/* harmony export */ });
-// Component names
-var NAME_ALERT = 'BAlert';
-var NAME_ASPECT = 'BAspect';
-var NAME_AVATAR = 'BAvatar';
-var NAME_AVATAR_GROUP = 'BAvatarGroup';
-var NAME_BADGE = 'BBadge';
-var NAME_BREADCRUMB = 'BBreadcrumb';
-var NAME_BREADCRUMB_ITEM = 'BBreadcrumbItem';
-var NAME_BREADCRUMB_LINK = 'BBreadcrumbLink';
-var NAME_BUTTON = 'BButton';
-var NAME_BUTTON_CLOSE = 'BButtonClose';
-var NAME_BUTTON_GROUP = 'BButtonGroup';
-var NAME_BUTTON_TOOLBAR = 'BButtonToolbar';
-var NAME_CALENDAR = 'BCalendar';
-var NAME_CARD = 'BCard';
-var NAME_CARD_BODY = 'BCardBody';
-var NAME_CARD_FOOTER = 'BCardFooter';
-var NAME_CARD_GROUP = 'BCardGroup';
-var NAME_CARD_HEADER = 'BCardHeader';
-var NAME_CARD_IMG = 'BCardImg';
-var NAME_CARD_IMG_LAZY = 'BCardImgLazy';
-var NAME_CARD_SUB_TITLE = 'BCardSubTitle';
-var NAME_CARD_TEXT = 'BCardText';
-var NAME_CARD_TITLE = 'BCardTitle';
-var NAME_CAROUSEL = 'BCarousel';
-var NAME_CAROUSEL_SLIDE = 'BCarouselSlide';
-var NAME_COL = 'BCol';
-var NAME_COLLAPSE = 'BCollapse';
-var NAME_CONTAINER = 'BContainer';
-var NAME_DROPDOWN = 'BDropdown';
-var NAME_DROPDOWN_DIVIDER = 'BDropdownDivider';
-var NAME_DROPDOWN_FORM = 'BDropdownForm';
-var NAME_DROPDOWN_GROUP = 'BDropdownGroup';
-var NAME_DROPDOWN_HEADER = 'BDropdownHeader';
-var NAME_DROPDOWN_ITEM = 'BDropdownItem';
-var NAME_DROPDOWN_ITEM_BUTTON = 'BDropdownItemButton';
-var NAME_DROPDOWN_TEXT = 'BDropdownText';
-var NAME_EMBED = 'BEmbed';
-var NAME_FORM = 'BForm';
-var NAME_FORM_CHECKBOX = 'BFormCheckbox';
-var NAME_FORM_CHECKBOX_GROUP = 'BFormCheckboxGroup';
-var NAME_FORM_DATALIST = 'BFormDatalist';
-var NAME_FORM_DATEPICKER = 'BFormDatepicker';
-var NAME_FORM_FILE = 'BFormFile';
-var NAME_FORM_GROUP = 'BFormGroup';
-var NAME_FORM_INPUT = 'BFormInput';
-var NAME_FORM_INVALID_FEEDBACK = 'BFormInvalidFeedback';
-var NAME_FORM_RADIO = 'BFormRadio';
-var NAME_FORM_RADIO_GROUP = 'BFormRadioGroup';
-var NAME_FORM_RATING = 'BFormRating';
-var NAME_FORM_ROW = 'BFormRow';
-var NAME_FORM_SELECT = 'BFormSelect';
-var NAME_FORM_SELECT_OPTION = 'BFormSelectOption';
-var NAME_FORM_SELECT_OPTION_GROUP = 'BFormSelectOptionGroup';
-var NAME_FORM_SPINBUTTON = 'BFormSpinbutton';
-var NAME_FORM_TAG = 'BFormTag';
-var NAME_FORM_TAGS = 'BFormTags';
-var NAME_FORM_TEXT = 'BFormText';
-var NAME_FORM_TEXTAREA = 'BFormTextarea';
-var NAME_FORM_TIMEPICKER = 'BFormTimepicker';
-var NAME_FORM_VALID_FEEDBACK = 'BFormValidFeedback';
-var NAME_ICON = 'BIcon';
-var NAME_ICONSTACK = 'BIconstack';
-var NAME_ICON_BASE = 'BIconBase';
-var NAME_IMG = 'BImg';
-var NAME_IMG_LAZY = 'BImgLazy';
-var NAME_INPUT_GROUP = 'BInputGroup';
-var NAME_INPUT_GROUP_ADDON = 'BInputGroupAddon';
-var NAME_INPUT_GROUP_APPEND = 'BInputGroupAppend';
-var NAME_INPUT_GROUP_PREPEND = 'BInputGroupPrepend';
-var NAME_INPUT_GROUP_TEXT = 'BInputGroupText';
-var NAME_JUMBOTRON = 'BJumbotron';
-var NAME_LINK = 'BLink';
-var NAME_LIST_GROUP = 'BListGroup';
-var NAME_LIST_GROUP_ITEM = 'BListGroupItem';
-var NAME_MEDIA = 'BMedia';
-var NAME_MEDIA_ASIDE = 'BMediaAside';
-var NAME_MEDIA_BODY = 'BMediaBody';
-var NAME_MODAL = 'BModal';
-var NAME_MSG_BOX = 'BMsgBox';
-var NAME_NAV = 'BNav';
-var NAME_NAVBAR = 'BNavbar';
-var NAME_NAVBAR_BRAND = 'BNavbarBrand';
-var NAME_NAVBAR_NAV = 'BNavbarNav';
-var NAME_NAVBAR_TOGGLE = 'BNavbarToggle';
-var NAME_NAV_FORM = 'BNavForm';
-var NAME_NAV_ITEM = 'BNavItem';
-var NAME_NAV_ITEM_DROPDOWN = 'BNavItemDropdown';
-var NAME_NAV_TEXT = 'BNavText';
-var NAME_OVERLAY = 'BOverlay';
-var NAME_PAGINATION = 'BPagination';
-var NAME_PAGINATION_NAV = 'BPaginationNav';
-var NAME_POPOVER = 'BPopover';
-var NAME_PROGRESS = 'BProgress';
-var NAME_PROGRESS_BAR = 'BProgressBar';
-var NAME_ROW = 'BRow';
-var NAME_SIDEBAR = 'BSidebar';
-var NAME_SKELETON = 'BSkeleton';
-var NAME_SKELETON_ICON = 'BSkeletonIcon';
-var NAME_SKELETON_IMG = 'BSkeletonImg';
-var NAME_SKELETON_TABLE = 'BSkeletonTable';
-var NAME_SKELETON_WRAPPER = 'BSkeletonWrapper';
-var NAME_SPINNER = 'BSpinner';
-var NAME_TAB = 'BTab';
-var NAME_TABLE = 'BTable';
-var NAME_TABLE_CELL = 'BTableCell';
-var NAME_TABLE_LITE = 'BTableLite';
-var NAME_TABLE_SIMPLE = 'BTableSimple';
-var NAME_TABS = 'BTabs';
-var NAME_TBODY = 'BTbody';
-var NAME_TFOOT = 'BTfoot';
-var NAME_TH = 'BTh';
-var NAME_THEAD = 'BThead';
-var NAME_TIME = 'BTime';
-var NAME_TOAST = 'BToast';
-var NAME_TOASTER = 'BToaster';
-var NAME_TOOLTIP = 'BTooltip';
-var NAME_TR = 'BTr'; // Helper component names
-
-var NAME_COLLAPSE_HELPER = 'BVCollapse';
-var NAME_FORM_BUTTON_LABEL_CONTROL = 'BVFormBtnLabelControl';
-var NAME_FORM_RATING_STAR = 'BVFormRatingStar';
-var NAME_POPOVER_HELPER = 'BVPopover';
-var NAME_POPOVER_TEMPLATE = 'BVPopoverTemplate';
-var NAME_POPPER = 'BVPopper';
-var NAME_TAB_BUTTON_HELPER = 'BVTabButton';
-var NAME_TOAST_POP = 'BVToastPop';
-var NAME_TOOLTIP_HELPER = 'BVTooltip';
-var NAME_TOOLTIP_TEMPLATE = 'BVTooltipTemplate';
-var NAME_TRANSITION = 'BVTransition';
-var NAME_TRANSPORTER = 'BVTransporter';
-var NAME_TRANSPORTER_TARGET = 'BVTransporterTarget';
-
-/***/ }),
-
-/***/ "./node_modules/bootstrap-vue/esm/constants/config.js":
-/*!************************************************************!*\
-  !*** ./node_modules/bootstrap-vue/esm/constants/config.js ***!
-  \************************************************************/
-/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
-
-"use strict";
-__webpack_require__.r(__webpack_exports__);
-/* harmony export */ __webpack_require__.d(__webpack_exports__, {
-/* harmony export */   "DEFAULT_BREAKPOINT": () => (/* binding */ DEFAULT_BREAKPOINT),
-/* harmony export */   "NAME": () => (/* binding */ NAME),
-/* harmony export */   "PROP_NAME": () => (/* binding */ PROP_NAME)
-/* harmony export */ });
-var NAME = 'BvConfig';
-var PROP_NAME = '$bvConfig';
-var DEFAULT_BREAKPOINT = ['xs', 'sm', 'md', 'lg', 'xl'];
-
-/***/ }),
-
-/***/ "./node_modules/bootstrap-vue/esm/constants/env.js":
-/*!*********************************************************!*\
-  !*** ./node_modules/bootstrap-vue/esm/constants/env.js ***!
-  \*********************************************************/
-/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
-
-"use strict";
-__webpack_require__.r(__webpack_exports__);
-/* harmony export */ __webpack_require__.d(__webpack_exports__, {
-/* harmony export */   "DOCUMENT": () => (/* binding */ DOCUMENT),
-/* harmony export */   "HAS_DOCUMENT_SUPPORT": () => (/* binding */ HAS_DOCUMENT_SUPPORT),
-/* harmony export */   "HAS_INTERACTION_OBSERVER_SUPPORT": () => (/* binding */ HAS_INTERACTION_OBSERVER_SUPPORT),
-/* harmony export */   "HAS_MUTATION_OBSERVER_SUPPORT": () => (/* binding */ HAS_MUTATION_OBSERVER_SUPPORT),
-/* harmony export */   "HAS_NAVIGATOR_SUPPORT": () => (/* binding */ HAS_NAVIGATOR_SUPPORT),
-/* harmony export */   "HAS_PASSIVE_EVENT_SUPPORT": () => (/* binding */ HAS_PASSIVE_EVENT_SUPPORT),
-/* harmony export */   "HAS_POINTER_EVENT_SUPPORT": () => (/* binding */ HAS_POINTER_EVENT_SUPPORT),
-/* harmony export */   "HAS_PROMISE_SUPPORT": () => (/* binding */ HAS_PROMISE_SUPPORT),
-/* harmony export */   "HAS_TOUCH_SUPPORT": () => (/* binding */ HAS_TOUCH_SUPPORT),
-/* harmony export */   "HAS_WINDOW_SUPPORT": () => (/* binding */ HAS_WINDOW_SUPPORT),
-/* harmony export */   "IS_BROWSER": () => (/* binding */ IS_BROWSER),
-/* harmony export */   "IS_IE": () => (/* binding */ IS_IE),
-/* harmony export */   "IS_JSDOM": () => (/* binding */ IS_JSDOM),
-/* harmony export */   "NAVIGATOR": () => (/* binding */ NAVIGATOR),
-/* harmony export */   "USER_AGENT": () => (/* binding */ USER_AGENT),
-/* harmony export */   "WINDOW": () => (/* binding */ WINDOW)
-/* harmony export */ });
-var HAS_WINDOW_SUPPORT = typeof window !== 'undefined';
-var HAS_DOCUMENT_SUPPORT = typeof document !== 'undefined';
-var HAS_NAVIGATOR_SUPPORT = typeof navigator !== 'undefined';
-var HAS_PROMISE_SUPPORT = typeof Promise !== 'undefined';
-/* istanbul ignore next: JSDOM always returns false */
-
-var HAS_MUTATION_OBSERVER_SUPPORT = typeof MutationObserver !== 'undefined' || typeof WebKitMutationObserver !== 'undefined' || typeof MozMutationObserver !== 'undefined';
-var IS_BROWSER = HAS_WINDOW_SUPPORT && HAS_DOCUMENT_SUPPORT && HAS_NAVIGATOR_SUPPORT;
-var WINDOW = HAS_WINDOW_SUPPORT ? window : {};
-var DOCUMENT = HAS_DOCUMENT_SUPPORT ? document : {};
-var NAVIGATOR = HAS_NAVIGATOR_SUPPORT ? navigator : {};
-var USER_AGENT = (NAVIGATOR.userAgent || '').toLowerCase();
-var IS_JSDOM = USER_AGENT.indexOf('jsdom') > 0;
-var IS_IE = /msie|trident/.test(USER_AGENT); // Determine if the browser supports the option passive for events
-
-var HAS_PASSIVE_EVENT_SUPPORT = function () {
-  var passiveEventSupported = false;
-
-  if (IS_BROWSER) {
-    try {
-      var options = {
-        // This function will be called when the browser
-        // attempts to access the passive property
-        get passive() {
-          /* istanbul ignore next: will never be called in JSDOM */
-          passiveEventSupported = true;
-        }
-
-      };
-      WINDOW.addEventListener('test', options, options);
-      WINDOW.removeEventListener('test', options, options);
-    } catch (_unused) {
-      /* istanbul ignore next: will never be called in JSDOM */
-      passiveEventSupported = false;
-    }
-  }
-
-  return passiveEventSupported;
-}();
-var HAS_TOUCH_SUPPORT = IS_BROWSER && ('ontouchstart' in DOCUMENT.documentElement || NAVIGATOR.maxTouchPoints > 0);
-var HAS_POINTER_EVENT_SUPPORT = IS_BROWSER && Boolean(WINDOW.PointerEvent || WINDOW.MSPointerEvent);
-/* istanbul ignore next: JSDOM only checks for 'IntersectionObserver' */
-
-var HAS_INTERACTION_OBSERVER_SUPPORT = IS_BROWSER && 'IntersectionObserver' in WINDOW && 'IntersectionObserverEntry' in WINDOW && // Edge 15 and UC Browser lack support for `isIntersecting`
-// but we an use `intersectionRatio > 0` instead
-// 'isIntersecting' in window.IntersectionObserverEntry.prototype &&
-'intersectionRatio' in WINDOW.IntersectionObserverEntry.prototype;
-
-/***/ }),
-
-/***/ "./node_modules/bootstrap-vue/esm/constants/events.js":
-/*!************************************************************!*\
-  !*** ./node_modules/bootstrap-vue/esm/constants/events.js ***!
-  \************************************************************/
-/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
-
-"use strict";
-__webpack_require__.r(__webpack_exports__);
-/* harmony export */ __webpack_require__.d(__webpack_exports__, {
-/* harmony export */   "EVENT_NAME_ACTIVATE_TAB": () => (/* binding */ EVENT_NAME_ACTIVATE_TAB),
-/* harmony export */   "EVENT_NAME_BLUR": () => (/* binding */ EVENT_NAME_BLUR),
-/* harmony export */   "EVENT_NAME_CANCEL": () => (/* binding */ EVENT_NAME_CANCEL),
-/* harmony export */   "EVENT_NAME_CHANGE": () => (/* binding */ EVENT_NAME_CHANGE),
-/* harmony export */   "EVENT_NAME_CHANGED": () => (/* binding */ EVENT_NAME_CHANGED),
-/* harmony export */   "EVENT_NAME_CLICK": () => (/* binding */ EVENT_NAME_CLICK),
-/* harmony export */   "EVENT_NAME_CLOSE": () => (/* binding */ EVENT_NAME_CLOSE),
-/* harmony export */   "EVENT_NAME_CONTEXT": () => (/* binding */ EVENT_NAME_CONTEXT),
-/* harmony export */   "EVENT_NAME_CONTEXT_CHANGED": () => (/* binding */ EVENT_NAME_CONTEXT_CHANGED),
-/* harmony export */   "EVENT_NAME_DESTROYED": () => (/* binding */ EVENT_NAME_DESTROYED),
-/* harmony export */   "EVENT_NAME_DISABLE": () => (/* binding */ EVENT_NAME_DISABLE),
-/* harmony export */   "EVENT_NAME_DISABLED": () => (/* binding */ EVENT_NAME_DISABLED),
-/* harmony export */   "EVENT_NAME_DISMISSED": () => (/* binding */ EVENT_NAME_DISMISSED),
-/* harmony export */   "EVENT_NAME_DISMISS_COUNT_DOWN": () => (/* binding */ EVENT_NAME_DISMISS_COUNT_DOWN),
-/* harmony export */   "EVENT_NAME_ENABLE": () => (/* binding */ EVENT_NAME_ENABLE),
-/* harmony export */   "EVENT_NAME_ENABLED": () => (/* binding */ EVENT_NAME_ENABLED),
-/* harmony export */   "EVENT_NAME_FILTERED": () => (/* binding */ EVENT_NAME_FILTERED),
-/* harmony export */   "EVENT_NAME_FIRST": () => (/* binding */ EVENT_NAME_FIRST),
-/* harmony export */   "EVENT_NAME_FOCUS": () => (/* binding */ EVENT_NAME_FOCUS),
-/* harmony export */   "EVENT_NAME_FOCUSIN": () => (/* binding */ EVENT_NAME_FOCUSIN),
-/* harmony export */   "EVENT_NAME_FOCUSOUT": () => (/* binding */ EVENT_NAME_FOCUSOUT),
-/* harmony export */   "EVENT_NAME_HEAD_CLICKED": () => (/* binding */ EVENT_NAME_HEAD_CLICKED),
-/* harmony export */   "EVENT_NAME_HIDDEN": () => (/* binding */ EVENT_NAME_HIDDEN),
-/* harmony export */   "EVENT_NAME_HIDE": () => (/* binding */ EVENT_NAME_HIDE),
-/* harmony export */   "EVENT_NAME_IMG_ERROR": () => (/* binding */ EVENT_NAME_IMG_ERROR),
-/* harmony export */   "EVENT_NAME_INPUT": () => (/* binding */ EVENT_NAME_INPUT),
-/* harmony export */   "EVENT_NAME_LAST": () => (/* binding */ EVENT_NAME_LAST),
-/* harmony export */   "EVENT_NAME_MOUSEENTER": () => (/* binding */ EVENT_NAME_MOUSEENTER),
-/* harmony export */   "EVENT_NAME_MOUSELEAVE": () => (/* binding */ EVENT_NAME_MOUSELEAVE),
-/* harmony export */   "EVENT_NAME_NEXT": () => (/* binding */ EVENT_NAME_NEXT),
-/* harmony export */   "EVENT_NAME_OK": () => (/* binding */ EVENT_NAME_OK),
-/* harmony export */   "EVENT_NAME_OPEN": () => (/* binding */ EVENT_NAME_OPEN),
-/* harmony export */   "EVENT_NAME_PAGE_CLICK": () => (/* binding */ EVENT_NAME_PAGE_CLICK),
-/* harmony export */   "EVENT_NAME_PAUSED": () => (/* binding */ EVENT_NAME_PAUSED),
-/* harmony export */   "EVENT_NAME_PREV": () => (/* binding */ EVENT_NAME_PREV),
-/* harmony export */   "EVENT_NAME_REFRESH": () => (/* binding */ EVENT_NAME_REFRESH),
-/* harmony export */   "EVENT_NAME_REFRESHED": () => (/* binding */ EVENT_NAME_REFRESHED),
-/* harmony export */   "EVENT_NAME_REMOVE": () => (/* binding */ EVENT_NAME_REMOVE),
-/* harmony export */   "EVENT_NAME_ROW_CLICKED": () => (/* binding */ EVENT_NAME_ROW_CLICKED),
-/* harmony export */   "EVENT_NAME_ROW_CONTEXTMENU": () => (/* binding */ EVENT_NAME_ROW_CONTEXTMENU),
-/* harmony export */   "EVENT_NAME_ROW_DBLCLICKED": () => (/* binding */ EVENT_NAME_ROW_DBLCLICKED),
-/* harmony export */   "EVENT_NAME_ROW_HOVERED": () => (/* binding */ EVENT_NAME_ROW_HOVERED),
-/* harmony export */   "EVENT_NAME_ROW_MIDDLE_CLICKED": () => (/* binding */ EVENT_NAME_ROW_MIDDLE_CLICKED),
-/* harmony export */   "EVENT_NAME_ROW_SELECTED": () => (/* binding */ EVENT_NAME_ROW_SELECTED),
-/* harmony export */   "EVENT_NAME_ROW_UNHOVERED": () => (/* binding */ EVENT_NAME_ROW_UNHOVERED),
-/* harmony export */   "EVENT_NAME_SELECTED": () => (/* binding */ EVENT_NAME_SELECTED),
-/* harmony export */   "EVENT_NAME_SHOW": () => (/* binding */ EVENT_NAME_SHOW),
-/* harmony export */   "EVENT_NAME_SHOWN": () => (/* binding */ EVENT_NAME_SHOWN),
-/* harmony export */   "EVENT_NAME_SLIDING_END": () => (/* binding */ EVENT_NAME_SLIDING_END),
-/* harmony export */   "EVENT_NAME_SLIDING_START": () => (/* binding */ EVENT_NAME_SLIDING_START),
-/* harmony export */   "EVENT_NAME_SORT_CHANGED": () => (/* binding */ EVENT_NAME_SORT_CHANGED),
-/* harmony export */   "EVENT_NAME_TAG_STATE": () => (/* binding */ EVENT_NAME_TAG_STATE),
-/* harmony export */   "EVENT_NAME_TOGGLE": () => (/* binding */ EVENT_NAME_TOGGLE),
-/* harmony export */   "EVENT_NAME_UNPAUSED": () => (/* binding */ EVENT_NAME_UNPAUSED),
-/* harmony export */   "EVENT_NAME_UPDATE": () => (/* binding */ EVENT_NAME_UPDATE),
-/* harmony export */   "EVENT_OPTIONS_NO_CAPTURE": () => (/* binding */ EVENT_OPTIONS_NO_CAPTURE),
-/* harmony export */   "EVENT_OPTIONS_PASSIVE": () => (/* binding */ EVENT_OPTIONS_PASSIVE),
-/* harmony export */   "HOOK_EVENT_NAME_BEFORE_DESTROY": () => (/* binding */ HOOK_EVENT_NAME_BEFORE_DESTROY),
-/* harmony export */   "HOOK_EVENT_NAME_DESTROYED": () => (/* binding */ HOOK_EVENT_NAME_DESTROYED),
-/* harmony export */   "MODEL_EVENT_NAME_PREFIX": () => (/* binding */ MODEL_EVENT_NAME_PREFIX),
-/* harmony export */   "ROOT_EVENT_NAME_PREFIX": () => (/* binding */ ROOT_EVENT_NAME_PREFIX),
-/* harmony export */   "ROOT_EVENT_NAME_SEPARATOR": () => (/* binding */ ROOT_EVENT_NAME_SEPARATOR)
-/* harmony export */ });
-/* harmony import */ var _vue__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../vue */ "./node_modules/bootstrap-vue/esm/vue.js");
-
-var EVENT_NAME_ACTIVATE_TAB = 'activate-tab';
-var EVENT_NAME_BLUR = 'blur';
-var EVENT_NAME_CANCEL = 'cancel';
-var EVENT_NAME_CHANGE = 'change';
-var EVENT_NAME_CHANGED = 'changed';
-var EVENT_NAME_CLICK = 'click';
-var EVENT_NAME_CLOSE = 'close';
-var EVENT_NAME_CONTEXT = 'context';
-var EVENT_NAME_CONTEXT_CHANGED = 'context-changed';
-var EVENT_NAME_DESTROYED = 'destroyed';
-var EVENT_NAME_DISABLE = 'disable';
-var EVENT_NAME_DISABLED = 'disabled';
-var EVENT_NAME_DISMISSED = 'dismissed';
-var EVENT_NAME_DISMISS_COUNT_DOWN = 'dismiss-count-down';
-var EVENT_NAME_ENABLE = 'enable';
-var EVENT_NAME_ENABLED = 'enabled';
-var EVENT_NAME_FILTERED = 'filtered';
-var EVENT_NAME_FIRST = 'first';
-var EVENT_NAME_FOCUS = 'focus';
-var EVENT_NAME_FOCUSIN = 'focusin';
-var EVENT_NAME_FOCUSOUT = 'focusout';
-var EVENT_NAME_HEAD_CLICKED = 'head-clicked';
-var EVENT_NAME_HIDDEN = 'hidden';
-var EVENT_NAME_HIDE = 'hide';
-var EVENT_NAME_IMG_ERROR = 'img-error';
-var EVENT_NAME_INPUT = 'input';
-var EVENT_NAME_LAST = 'last';
-var EVENT_NAME_MOUSEENTER = 'mouseenter';
-var EVENT_NAME_MOUSELEAVE = 'mouseleave';
-var EVENT_NAME_NEXT = 'next';
-var EVENT_NAME_OK = 'ok';
-var EVENT_NAME_OPEN = 'open';
-var EVENT_NAME_PAGE_CLICK = 'page-click';
-var EVENT_NAME_PAUSED = 'paused';
-var EVENT_NAME_PREV = 'prev';
-var EVENT_NAME_REFRESH = 'refresh';
-var EVENT_NAME_REFRESHED = 'refreshed';
-var EVENT_NAME_REMOVE = 'remove';
-var EVENT_NAME_ROW_CLICKED = 'row-clicked';
-var EVENT_NAME_ROW_CONTEXTMENU = 'row-contextmenu';
-var EVENT_NAME_ROW_DBLCLICKED = 'row-dblclicked';
-var EVENT_NAME_ROW_HOVERED = 'row-hovered';
-var EVENT_NAME_ROW_MIDDLE_CLICKED = 'row-middle-clicked';
-var EVENT_NAME_ROW_SELECTED = 'row-selected';
-var EVENT_NAME_ROW_UNHOVERED = 'row-unhovered';
-var EVENT_NAME_SELECTED = 'selected';
-var EVENT_NAME_SHOW = 'show';
-var EVENT_NAME_SHOWN = 'shown';
-var EVENT_NAME_SLIDING_END = 'sliding-end';
-var EVENT_NAME_SLIDING_START = 'sliding-start';
-var EVENT_NAME_SORT_CHANGED = 'sort-changed';
-var EVENT_NAME_TAG_STATE = 'tag-state';
-var EVENT_NAME_TOGGLE = 'toggle';
-var EVENT_NAME_UNPAUSED = 'unpaused';
-var EVENT_NAME_UPDATE = 'update';
-var HOOK_EVENT_NAME_BEFORE_DESTROY = _vue__WEBPACK_IMPORTED_MODULE_0__.isVue3 ? 'vnodeBeforeUnmount' : 'hook:beforeDestroy';
-var HOOK_EVENT_NAME_DESTROYED = _vue__WEBPACK_IMPORTED_MODULE_0__.isVue3 ? 'vNodeUnmounted' : 'hook:destroyed';
-var MODEL_EVENT_NAME_PREFIX = 'update:';
-var ROOT_EVENT_NAME_PREFIX = 'bv';
-var ROOT_EVENT_NAME_SEPARATOR = '::';
-var EVENT_OPTIONS_PASSIVE = {
-  passive: true
-};
-var EVENT_OPTIONS_NO_CAPTURE = {
-  passive: true,
-  capture: false
-};
-
-/***/ }),
-
-/***/ "./node_modules/bootstrap-vue/esm/constants/key-codes.js":
-/*!***************************************************************!*\
-  !*** ./node_modules/bootstrap-vue/esm/constants/key-codes.js ***!
-  \***************************************************************/
-/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
-
-"use strict";
-__webpack_require__.r(__webpack_exports__);
-/* harmony export */ __webpack_require__.d(__webpack_exports__, {
-/* harmony export */   "CODE_BACKSPACE": () => (/* binding */ CODE_BACKSPACE),
-/* harmony export */   "CODE_BREAK": () => (/* binding */ CODE_BREAK),
-/* harmony export */   "CODE_DELETE": () => (/* binding */ CODE_DELETE),
-/* harmony export */   "CODE_DOWN": () => (/* binding */ CODE_DOWN),
-/* harmony export */   "CODE_END": () => (/* binding */ CODE_END),
-/* harmony export */   "CODE_ENTER": () => (/* binding */ CODE_ENTER),
-/* harmony export */   "CODE_ESC": () => (/* binding */ CODE_ESC),
-/* harmony export */   "CODE_HOME": () => (/* binding */ CODE_HOME),
-/* harmony export */   "CODE_LEFT": () => (/* binding */ CODE_LEFT),
-/* harmony export */   "CODE_PAGEDOWN": () => (/* binding */ CODE_PAGEDOWN),
-/* harmony export */   "CODE_PAGEUP": () => (/* binding */ CODE_PAGEUP),
-/* harmony export */   "CODE_RIGHT": () => (/* binding */ CODE_RIGHT),
-/* harmony export */   "CODE_SPACE": () => (/* binding */ CODE_SPACE),
-/* harmony export */   "CODE_UP": () => (/* binding */ CODE_UP)
-/* harmony export */ });
-var CODE_BACKSPACE = 8;
-var CODE_BREAK = 19;
-var CODE_DELETE = 46;
-var CODE_DOWN = 40;
-var CODE_END = 35;
-var CODE_ENTER = 13;
-var CODE_ESC = 27;
-var CODE_HOME = 36;
-var CODE_LEFT = 37;
-var CODE_PAGEDOWN = 34;
-var CODE_PAGEUP = 33;
-var CODE_RIGHT = 39;
-var CODE_SPACE = 32;
-var CODE_UP = 38;
-
-/***/ }),
-
-/***/ "./node_modules/bootstrap-vue/esm/constants/props.js":
-/*!***********************************************************!*\
-  !*** ./node_modules/bootstrap-vue/esm/constants/props.js ***!
-  \***********************************************************/
-/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
-
-"use strict";
-__webpack_require__.r(__webpack_exports__);
-/* harmony export */ __webpack_require__.d(__webpack_exports__, {
-/* harmony export */   "PROP_TYPE_ANY": () => (/* binding */ PROP_TYPE_ANY),
-/* harmony export */   "PROP_TYPE_ARRAY": () => (/* binding */ PROP_TYPE_ARRAY),
-/* harmony export */   "PROP_TYPE_ARRAY_FUNCTION": () => (/* binding */ PROP_TYPE_ARRAY_FUNCTION),
-/* harmony export */   "PROP_TYPE_ARRAY_OBJECT": () => (/* binding */ PROP_TYPE_ARRAY_OBJECT),
-/* harmony export */   "PROP_TYPE_ARRAY_OBJECT_STRING": () => (/* binding */ PROP_TYPE_ARRAY_OBJECT_STRING),
-/* harmony export */   "PROP_TYPE_ARRAY_STRING": () => (/* binding */ PROP_TYPE_ARRAY_STRING),
-/* harmony export */   "PROP_TYPE_BOOLEAN": () => (/* binding */ PROP_TYPE_BOOLEAN),
-/* harmony export */   "PROP_TYPE_BOOLEAN_NUMBER": () => (/* binding */ PROP_TYPE_BOOLEAN_NUMBER),
-/* harmony export */   "PROP_TYPE_BOOLEAN_NUMBER_STRING": () => (/* binding */ PROP_TYPE_BOOLEAN_NUMBER_STRING),
-/* harmony export */   "PROP_TYPE_BOOLEAN_STRING": () => (/* binding */ PROP_TYPE_BOOLEAN_STRING),
-/* harmony export */   "PROP_TYPE_DATE": () => (/* binding */ PROP_TYPE_DATE),
-/* harmony export */   "PROP_TYPE_DATE_STRING": () => (/* binding */ PROP_TYPE_DATE_STRING),
-/* harmony export */   "PROP_TYPE_FUNCTION": () => (/* binding */ PROP_TYPE_FUNCTION),
-/* harmony export */   "PROP_TYPE_FUNCTION_STRING": () => (/* binding */ PROP_TYPE_FUNCTION_STRING),
-/* harmony export */   "PROP_TYPE_NUMBER": () => (/* binding */ PROP_TYPE_NUMBER),
-/* harmony export */   "PROP_TYPE_NUMBER_OBJECT_STRING": () => (/* binding */ PROP_TYPE_NUMBER_OBJECT_STRING),
-/* harmony export */   "PROP_TYPE_NUMBER_STRING": () => (/* binding */ PROP_TYPE_NUMBER_STRING),
-/* harmony export */   "PROP_TYPE_OBJECT": () => (/* binding */ PROP_TYPE_OBJECT),
-/* harmony export */   "PROP_TYPE_OBJECT_FUNCTION": () => (/* binding */ PROP_TYPE_OBJECT_FUNCTION),
-/* harmony export */   "PROP_TYPE_OBJECT_STRING": () => (/* binding */ PROP_TYPE_OBJECT_STRING),
-/* harmony export */   "PROP_TYPE_REG_EXP": () => (/* binding */ PROP_TYPE_REG_EXP),
-/* harmony export */   "PROP_TYPE_STRING": () => (/* binding */ PROP_TYPE_STRING)
-/* harmony export */ });
-// General types
-var PROP_TYPE_ANY = undefined;
-var PROP_TYPE_ARRAY = Array;
-var PROP_TYPE_BOOLEAN = Boolean;
-var PROP_TYPE_DATE = Date;
-var PROP_TYPE_FUNCTION = Function;
-var PROP_TYPE_NUMBER = Number;
-var PROP_TYPE_OBJECT = Object;
-var PROP_TYPE_REG_EXP = RegExp;
-var PROP_TYPE_STRING = String; // Multiple types
-
-var PROP_TYPE_ARRAY_FUNCTION = [PROP_TYPE_ARRAY, PROP_TYPE_FUNCTION];
-var PROP_TYPE_ARRAY_OBJECT = [PROP_TYPE_ARRAY, PROP_TYPE_OBJECT];
-var PROP_TYPE_ARRAY_OBJECT_STRING = [PROP_TYPE_ARRAY, PROP_TYPE_OBJECT, PROP_TYPE_STRING];
-var PROP_TYPE_ARRAY_STRING = [PROP_TYPE_ARRAY, PROP_TYPE_STRING];
-var PROP_TYPE_BOOLEAN_NUMBER = [PROP_TYPE_BOOLEAN, PROP_TYPE_NUMBER];
-var PROP_TYPE_BOOLEAN_NUMBER_STRING = [PROP_TYPE_BOOLEAN, PROP_TYPE_NUMBER, PROP_TYPE_STRING];
-var PROP_TYPE_BOOLEAN_STRING = [PROP_TYPE_BOOLEAN, PROP_TYPE_STRING];
-var PROP_TYPE_DATE_STRING = [PROP_TYPE_DATE, PROP_TYPE_STRING];
-var PROP_TYPE_FUNCTION_STRING = [PROP_TYPE_FUNCTION, PROP_TYPE_STRING];
-var PROP_TYPE_NUMBER_STRING = [PROP_TYPE_NUMBER, PROP_TYPE_STRING];
-var PROP_TYPE_NUMBER_OBJECT_STRING = [PROP_TYPE_NUMBER, PROP_TYPE_OBJECT, PROP_TYPE_STRING];
-var PROP_TYPE_OBJECT_FUNCTION = [PROP_TYPE_OBJECT, PROP_TYPE_FUNCTION];
-var PROP_TYPE_OBJECT_STRING = [PROP_TYPE_OBJECT, PROP_TYPE_STRING];
-
-/***/ }),
-
-/***/ "./node_modules/bootstrap-vue/esm/constants/regex.js":
-/*!***********************************************************!*\
-  !*** ./node_modules/bootstrap-vue/esm/constants/regex.js ***!
-  \***********************************************************/
-/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
-
-"use strict";
-__webpack_require__.r(__webpack_exports__);
-/* harmony export */ __webpack_require__.d(__webpack_exports__, {
-/* harmony export */   "RX_ARRAY_NOTATION": () => (/* binding */ RX_ARRAY_NOTATION),
-/* harmony export */   "RX_ASPECT": () => (/* binding */ RX_ASPECT),
-/* harmony export */   "RX_ASPECT_SEPARATOR": () => (/* binding */ RX_ASPECT_SEPARATOR),
-/* harmony export */   "RX_BV_PREFIX": () => (/* binding */ RX_BV_PREFIX),
-/* harmony export */   "RX_COL_CLASS": () => (/* binding */ RX_COL_CLASS),
-/* harmony export */   "RX_DATE": () => (/* binding */ RX_DATE),
-/* harmony export */   "RX_DATE_SPLIT": () => (/* binding */ RX_DATE_SPLIT),
-/* harmony export */   "RX_DIGITS": () => (/* binding */ RX_DIGITS),
-/* harmony export */   "RX_ENCODED_COMMA": () => (/* binding */ RX_ENCODED_COMMA),
-/* harmony export */   "RX_ENCODE_REVERSE": () => (/* binding */ RX_ENCODE_REVERSE),
-/* harmony export */   "RX_EXTENSION": () => (/* binding */ RX_EXTENSION),
-/* harmony export */   "RX_HASH": () => (/* binding */ RX_HASH),
-/* harmony export */   "RX_HASH_ID": () => (/* binding */ RX_HASH_ID),
-/* harmony export */   "RX_HREF": () => (/* binding */ RX_HREF),
-/* harmony export */   "RX_HTML_TAGS": () => (/* binding */ RX_HTML_TAGS),
-/* harmony export */   "RX_HYPHENATE": () => (/* binding */ RX_HYPHENATE),
-/* harmony export */   "RX_ICON_PREFIX": () => (/* binding */ RX_ICON_PREFIX),
-/* harmony export */   "RX_LOWER_UPPER": () => (/* binding */ RX_LOWER_UPPER),
-/* harmony export */   "RX_NUMBER": () => (/* binding */ RX_NUMBER),
-/* harmony export */   "RX_PLUS": () => (/* binding */ RX_PLUS),
-/* harmony export */   "RX_QUERY_START": () => (/* binding */ RX_QUERY_START),
-/* harmony export */   "RX_REGEXP_REPLACE": () => (/* binding */ RX_REGEXP_REPLACE),
-/* harmony export */   "RX_SPACES": () => (/* binding */ RX_SPACES),
-/* harmony export */   "RX_SPACE_SPLIT": () => (/* binding */ RX_SPACE_SPLIT),
-/* harmony export */   "RX_STAR": () => (/* binding */ RX_STAR),
-/* harmony export */   "RX_START_SPACE_WORD": () => (/* binding */ RX_START_SPACE_WORD),
-/* harmony export */   "RX_STRIP_LOCALE_MODS": () => (/* binding */ RX_STRIP_LOCALE_MODS),
-/* harmony export */   "RX_TIME": () => (/* binding */ RX_TIME),
-/* harmony export */   "RX_TRIM_LEFT": () => (/* binding */ RX_TRIM_LEFT),
-/* harmony export */   "RX_TRIM_RIGHT": () => (/* binding */ RX_TRIM_RIGHT),
-/* harmony export */   "RX_UNDERSCORE": () => (/* binding */ RX_UNDERSCORE),
-/* harmony export */   "RX_UN_KEBAB": () => (/* binding */ RX_UN_KEBAB)
-/* harmony export */ });
-// --- General ---
-var RX_ARRAY_NOTATION = /\[(\d+)]/g;
-var RX_BV_PREFIX = /^(BV?)/;
-var RX_DIGITS = /^\d+$/;
-var RX_EXTENSION = /^\..+/;
-var RX_HASH = /^#/;
-var RX_HASH_ID = /^#[A-Za-z]+[\w\-:.]*$/;
-var RX_HTML_TAGS = /(<([^>]+)>)/gi;
-var RX_HYPHENATE = /\B([A-Z])/g;
-var RX_LOWER_UPPER = /([a-z])([A-Z])/g;
-var RX_NUMBER = /^[0-9]*\.?[0-9]+$/;
-var RX_PLUS = /\+/g;
-var RX_REGEXP_REPLACE = /[-/\\^$*+?.()|[\]{}]/g;
-var RX_SPACES = /[\s\uFEFF\xA0]+/g;
-var RX_SPACE_SPLIT = /\s+/;
-var RX_STAR = /\/\*$/;
-var RX_START_SPACE_WORD = /(\s|^)(\w)/g;
-var RX_TRIM_LEFT = /^\s+/;
-var RX_TRIM_RIGHT = /\s+$/;
-var RX_UNDERSCORE = /_/g;
-var RX_UN_KEBAB = /-(\w)/g; // --- Date ---
-// Loose YYYY-MM-DD matching, ignores any appended time inforation
-// Matches '1999-12-20', '1999-1-1', '1999-01-20T22:51:49.118Z', '1999-01-02 13:00:00'
-
-var RX_DATE = /^\d+-\d\d?-\d\d?(?:\s|T|$)/; // Used to split off the date parts of the YYYY-MM-DD string
-
-var RX_DATE_SPLIT = /-|\s|T/; // Time string RegEx (optional seconds)
-
-var RX_TIME = /^([0-1]?[0-9]|2[0-3]):[0-5]?[0-9](:[0-5]?[0-9])?$/; // --- URL ---
-// HREFs must end with a hash followed by at least one non-hash character
-
-var RX_HREF = /^.*(#[^#]+)$/;
-var RX_ENCODED_COMMA = /%2C/g;
-var RX_ENCODE_REVERSE = /[!'()*]/g;
-var RX_QUERY_START = /^(\?|#|&)/; // --- Aspect ---
-
-var RX_ASPECT = /^\d+(\.\d*)?[/:]\d+(\.\d*)?$/;
-var RX_ASPECT_SEPARATOR = /[/:]/; // --- Grid ---
-
-var RX_COL_CLASS = /^col-/; // --- Icon ---
-
-var RX_ICON_PREFIX = /^BIcon/; // --- Locale ---
-
-var RX_STRIP_LOCALE_MODS = /-u-.+/;
-
-/***/ }),
-
-/***/ "./node_modules/bootstrap-vue/esm/constants/safe-types.js":
-/*!****************************************************************!*\
-  !*** ./node_modules/bootstrap-vue/esm/constants/safe-types.js ***!
-  \****************************************************************/
-/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
-
-"use strict";
-__webpack_require__.r(__webpack_exports__);
-/* harmony export */ __webpack_require__.d(__webpack_exports__, {
-/* harmony export */   "Element": () => (/* binding */ Element),
-/* harmony export */   "File": () => (/* binding */ File),
-/* harmony export */   "HTMLElement": () => (/* binding */ HTMLElement),
-/* harmony export */   "SVGElement": () => (/* binding */ SVGElement)
-/* harmony export */ });
-/* harmony import */ var _env__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./env */ "./node_modules/bootstrap-vue/esm/constants/env.js");
-function _typeof(obj) { "@babel/helpers - typeof"; return _typeof = "function" == typeof Symbol && "symbol" == typeof Symbol.iterator ? function (obj) { return typeof obj; } : function (obj) { return obj && "function" == typeof Symbol && obj.constructor === Symbol && obj !== Symbol.prototype ? "symbol" : typeof obj; }, _typeof(obj); }
-
-function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
-
-function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function"); } Object.defineProperty(subClass, "prototype", { value: Object.create(superClass && superClass.prototype, { constructor: { value: subClass, writable: true, configurable: true } }), writable: false }); if (superClass) _setPrototypeOf(subClass, superClass); }
-
-function _createSuper(Derived) { var hasNativeReflectConstruct = _isNativeReflectConstruct(); return function _createSuperInternal() { var Super = _getPrototypeOf(Derived), result; if (hasNativeReflectConstruct) { var NewTarget = _getPrototypeOf(this).constructor; result = Reflect.construct(Super, arguments, NewTarget); } else { result = Super.apply(this, arguments); } return _possibleConstructorReturn(this, result); }; }
-
-function _possibleConstructorReturn(self, call) { if (call && (_typeof(call) === "object" || typeof call === "function")) { return call; } else if (call !== void 0) { throw new TypeError("Derived constructors may only return object or undefined"); } return _assertThisInitialized(self); }
-
-function _assertThisInitialized(self) { if (self === void 0) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return self; }
-
-function _wrapNativeSuper(Class) { var _cache = typeof Map === "function" ? new Map() : undefined; _wrapNativeSuper = function _wrapNativeSuper(Class) { if (Class === null || !_isNativeFunction(Class)) return Class; if (typeof Class !== "function") { throw new TypeError("Super expression must either be null or a function"); } if (typeof _cache !== "undefined") { if (_cache.has(Class)) return _cache.get(Class); _cache.set(Class, Wrapper); } function Wrapper() { return _construct(Class, arguments, _getPrototypeOf(this).constructor); } Wrapper.prototype = Object.create(Class.prototype, { constructor: { value: Wrapper, enumerable: false, writable: true, configurable: true } }); return _setPrototypeOf(Wrapper, Class); }; return _wrapNativeSuper(Class); }
-
-function _construct(Parent, args, Class) { if (_isNativeReflectConstruct()) { _construct = Reflect.construct; } else { _construct = function _construct(Parent, args, Class) { var a = [null]; a.push.apply(a, args); var Constructor = Function.bind.apply(Parent, a); var instance = new Constructor(); if (Class) _setPrototypeOf(instance, Class.prototype); return instance; }; } return _construct.apply(null, arguments); }
-
-function _isNativeReflectConstruct() { if (typeof Reflect === "undefined" || !Reflect.construct) return false; if (Reflect.construct.sham) return false; if (typeof Proxy === "function") return true; try { Boolean.prototype.valueOf.call(Reflect.construct(Boolean, [], function () {})); return true; } catch (e) { return false; } }
-
-function _isNativeFunction(fn) { return Function.toString.call(fn).indexOf("[native code]") !== -1; }
-
-function _setPrototypeOf(o, p) { _setPrototypeOf = Object.setPrototypeOf || function _setPrototypeOf(o, p) { o.__proto__ = p; return o; }; return _setPrototypeOf(o, p); }
-
-function _getPrototypeOf(o) { _getPrototypeOf = Object.setPrototypeOf ? Object.getPrototypeOf : function _getPrototypeOf(o) { return o.__proto__ || Object.getPrototypeOf(o); }; return _getPrototypeOf(o); }
-
-
-/* istanbul ignore next */
-
-var Element = _env__WEBPACK_IMPORTED_MODULE_0__.HAS_WINDOW_SUPPORT ? _env__WEBPACK_IMPORTED_MODULE_0__.WINDOW.Element : /*#__PURE__*/function (_Object) {
-  _inherits(Element, _Object);
-
-  var _super = _createSuper(Element);
-
-  function Element() {
-    _classCallCheck(this, Element);
-
-    return _super.apply(this, arguments);
-  }
-
-  return Element;
-}( /*#__PURE__*/_wrapNativeSuper(Object));
-/* istanbul ignore next */
-
-var HTMLElement = _env__WEBPACK_IMPORTED_MODULE_0__.HAS_WINDOW_SUPPORT ? _env__WEBPACK_IMPORTED_MODULE_0__.WINDOW.HTMLElement : /*#__PURE__*/function (_Element) {
-  _inherits(HTMLElement, _Element);
-
-  var _super2 = _createSuper(HTMLElement);
-
-  function HTMLElement() {
-    _classCallCheck(this, HTMLElement);
-
-    return _super2.apply(this, arguments);
-  }
-
-  return HTMLElement;
-}(Element);
-/* istanbul ignore next */
-
-var SVGElement = _env__WEBPACK_IMPORTED_MODULE_0__.HAS_WINDOW_SUPPORT ? _env__WEBPACK_IMPORTED_MODULE_0__.WINDOW.SVGElement : /*#__PURE__*/function (_Element2) {
-  _inherits(SVGElement, _Element2);
-
-  var _super3 = _createSuper(SVGElement);
-
-  function SVGElement() {
-    _classCallCheck(this, SVGElement);
-
-    return _super3.apply(this, arguments);
-  }
-
-  return SVGElement;
-}(Element);
-/* istanbul ignore next */
-
-var File = _env__WEBPACK_IMPORTED_MODULE_0__.HAS_WINDOW_SUPPORT ? _env__WEBPACK_IMPORTED_MODULE_0__.WINDOW.File : /*#__PURE__*/function (_Object2) {
-  _inherits(File, _Object2);
-
-  var _super4 = _createSuper(File);
-
-  function File() {
-    _classCallCheck(this, File);
-
-    return _super4.apply(this, arguments);
-  }
-
-  return File;
-}( /*#__PURE__*/_wrapNativeSuper(Object));
-
-/***/ }),
-
-/***/ "./node_modules/bootstrap-vue/esm/constants/slots.js":
-/*!***********************************************************!*\
-  !*** ./node_modules/bootstrap-vue/esm/constants/slots.js ***!
-  \***********************************************************/
-/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
-
-"use strict";
-__webpack_require__.r(__webpack_exports__);
-/* harmony export */ __webpack_require__.d(__webpack_exports__, {
-/* harmony export */   "SLOT_NAME_ADD_BUTTON_TEXT": () => (/* binding */ SLOT_NAME_ADD_BUTTON_TEXT),
-/* harmony export */   "SLOT_NAME_APPEND": () => (/* binding */ SLOT_NAME_APPEND),
-/* harmony export */   "SLOT_NAME_ASIDE": () => (/* binding */ SLOT_NAME_ASIDE),
-/* harmony export */   "SLOT_NAME_BADGE": () => (/* binding */ SLOT_NAME_BADGE),
-/* harmony export */   "SLOT_NAME_BOTTOM_ROW": () => (/* binding */ SLOT_NAME_BOTTOM_ROW),
-/* harmony export */   "SLOT_NAME_BUTTON_CONTENT": () => (/* binding */ SLOT_NAME_BUTTON_CONTENT),
-/* harmony export */   "SLOT_NAME_CUSTOM_FOOT": () => (/* binding */ SLOT_NAME_CUSTOM_FOOT),
-/* harmony export */   "SLOT_NAME_DECREMENT": () => (/* binding */ SLOT_NAME_DECREMENT),
-/* harmony export */   "SLOT_NAME_DEFAULT": () => (/* binding */ SLOT_NAME_DEFAULT),
-/* harmony export */   "SLOT_NAME_DESCRIPTION": () => (/* binding */ SLOT_NAME_DESCRIPTION),
-/* harmony export */   "SLOT_NAME_DISMISS": () => (/* binding */ SLOT_NAME_DISMISS),
-/* harmony export */   "SLOT_NAME_DROP_PLACEHOLDER": () => (/* binding */ SLOT_NAME_DROP_PLACEHOLDER),
-/* harmony export */   "SLOT_NAME_ELLIPSIS_TEXT": () => (/* binding */ SLOT_NAME_ELLIPSIS_TEXT),
-/* harmony export */   "SLOT_NAME_EMPTY": () => (/* binding */ SLOT_NAME_EMPTY),
-/* harmony export */   "SLOT_NAME_EMPTYFILTERED": () => (/* binding */ SLOT_NAME_EMPTYFILTERED),
-/* harmony export */   "SLOT_NAME_FILE_NAME": () => (/* binding */ SLOT_NAME_FILE_NAME),
-/* harmony export */   "SLOT_NAME_FIRST": () => (/* binding */ SLOT_NAME_FIRST),
-/* harmony export */   "SLOT_NAME_FIRST_TEXT": () => (/* binding */ SLOT_NAME_FIRST_TEXT),
-/* harmony export */   "SLOT_NAME_FOOTER": () => (/* binding */ SLOT_NAME_FOOTER),
-/* harmony export */   "SLOT_NAME_HEADER": () => (/* binding */ SLOT_NAME_HEADER),
-/* harmony export */   "SLOT_NAME_HEADER_CLOSE": () => (/* binding */ SLOT_NAME_HEADER_CLOSE),
-/* harmony export */   "SLOT_NAME_ICON_CLEAR": () => (/* binding */ SLOT_NAME_ICON_CLEAR),
-/* harmony export */   "SLOT_NAME_ICON_EMPTY": () => (/* binding */ SLOT_NAME_ICON_EMPTY),
-/* harmony export */   "SLOT_NAME_ICON_FULL": () => (/* binding */ SLOT_NAME_ICON_FULL),
-/* harmony export */   "SLOT_NAME_ICON_HALF": () => (/* binding */ SLOT_NAME_ICON_HALF),
-/* harmony export */   "SLOT_NAME_IMG": () => (/* binding */ SLOT_NAME_IMG),
-/* harmony export */   "SLOT_NAME_INCREMENT": () => (/* binding */ SLOT_NAME_INCREMENT),
-/* harmony export */   "SLOT_NAME_INVALID_FEEDBACK": () => (/* binding */ SLOT_NAME_INVALID_FEEDBACK),
-/* harmony export */   "SLOT_NAME_LABEL": () => (/* binding */ SLOT_NAME_LABEL),
-/* harmony export */   "SLOT_NAME_LAST_TEXT": () => (/* binding */ SLOT_NAME_LAST_TEXT),
-/* harmony export */   "SLOT_NAME_LEAD": () => (/* binding */ SLOT_NAME_LEAD),
-/* harmony export */   "SLOT_NAME_LOADING": () => (/* binding */ SLOT_NAME_LOADING),
-/* harmony export */   "SLOT_NAME_MODAL_BACKDROP": () => (/* binding */ SLOT_NAME_MODAL_BACKDROP),
-/* harmony export */   "SLOT_NAME_MODAL_CANCEL": () => (/* binding */ SLOT_NAME_MODAL_CANCEL),
-/* harmony export */   "SLOT_NAME_MODAL_FOOTER": () => (/* binding */ SLOT_NAME_MODAL_FOOTER),
-/* harmony export */   "SLOT_NAME_MODAL_HEADER": () => (/* binding */ SLOT_NAME_MODAL_HEADER),
-/* harmony export */   "SLOT_NAME_MODAL_HEADER_CLOSE": () => (/* binding */ SLOT_NAME_MODAL_HEADER_CLOSE),
-/* harmony export */   "SLOT_NAME_MODAL_OK": () => (/* binding */ SLOT_NAME_MODAL_OK),
-/* harmony export */   "SLOT_NAME_MODAL_TITLE": () => (/* binding */ SLOT_NAME_MODAL_TITLE),
-/* harmony export */   "SLOT_NAME_NAV_NEXT_DECADE": () => (/* binding */ SLOT_NAME_NAV_NEXT_DECADE),
-/* harmony export */   "SLOT_NAME_NAV_NEXT_MONTH": () => (/* binding */ SLOT_NAME_NAV_NEXT_MONTH),
-/* harmony export */   "SLOT_NAME_NAV_NEXT_YEAR": () => (/* binding */ SLOT_NAME_NAV_NEXT_YEAR),
-/* harmony export */   "SLOT_NAME_NAV_PEV_DECADE": () => (/* binding */ SLOT_NAME_NAV_PEV_DECADE),
-/* harmony export */   "SLOT_NAME_NAV_PEV_MONTH": () => (/* binding */ SLOT_NAME_NAV_PEV_MONTH),
-/* harmony export */   "SLOT_NAME_NAV_PEV_YEAR": () => (/* binding */ SLOT_NAME_NAV_PEV_YEAR),
-/* harmony export */   "SLOT_NAME_NAV_THIS_MONTH": () => (/* binding */ SLOT_NAME_NAV_THIS_MONTH),
-/* harmony export */   "SLOT_NAME_NEXT_TEXT": () => (/* binding */ SLOT_NAME_NEXT_TEXT),
-/* harmony export */   "SLOT_NAME_OVERLAY": () => (/* binding */ SLOT_NAME_OVERLAY),
-/* harmony export */   "SLOT_NAME_PAGE": () => (/* binding */ SLOT_NAME_PAGE),
-/* harmony export */   "SLOT_NAME_PLACEHOLDER": () => (/* binding */ SLOT_NAME_PLACEHOLDER),
-/* harmony export */   "SLOT_NAME_PREPEND": () => (/* binding */ SLOT_NAME_PREPEND),
-/* harmony export */   "SLOT_NAME_PREV_TEXT": () => (/* binding */ SLOT_NAME_PREV_TEXT),
-/* harmony export */   "SLOT_NAME_ROW_DETAILS": () => (/* binding */ SLOT_NAME_ROW_DETAILS),
-/* harmony export */   "SLOT_NAME_TABLE_BUSY": () => (/* binding */ SLOT_NAME_TABLE_BUSY),
-/* harmony export */   "SLOT_NAME_TABLE_CAPTION": () => (/* binding */ SLOT_NAME_TABLE_CAPTION),
-/* harmony export */   "SLOT_NAME_TABLE_COLGROUP": () => (/* binding */ SLOT_NAME_TABLE_COLGROUP),
-/* harmony export */   "SLOT_NAME_TABS_END": () => (/* binding */ SLOT_NAME_TABS_END),
-/* harmony export */   "SLOT_NAME_TABS_START": () => (/* binding */ SLOT_NAME_TABS_START),
-/* harmony export */   "SLOT_NAME_TEXT": () => (/* binding */ SLOT_NAME_TEXT),
-/* harmony export */   "SLOT_NAME_THEAD_TOP": () => (/* binding */ SLOT_NAME_THEAD_TOP),
-/* harmony export */   "SLOT_NAME_TITLE": () => (/* binding */ SLOT_NAME_TITLE),
-/* harmony export */   "SLOT_NAME_TOAST_TITLE": () => (/* binding */ SLOT_NAME_TOAST_TITLE),
-/* harmony export */   "SLOT_NAME_TOP_ROW": () => (/* binding */ SLOT_NAME_TOP_ROW),
-/* harmony export */   "SLOT_NAME_VALID_FEEDBACK": () => (/* binding */ SLOT_NAME_VALID_FEEDBACK)
-/* harmony export */ });
-var SLOT_NAME_ADD_BUTTON_TEXT = 'add-button-text';
-var SLOT_NAME_APPEND = 'append';
-var SLOT_NAME_ASIDE = 'aside';
-var SLOT_NAME_BADGE = 'badge';
-var SLOT_NAME_BOTTOM_ROW = 'bottom-row';
-var SLOT_NAME_BUTTON_CONTENT = 'button-content';
-var SLOT_NAME_CUSTOM_FOOT = 'custom-foot';
-var SLOT_NAME_DECREMENT = 'decrement';
-var SLOT_NAME_DEFAULT = 'default';
-var SLOT_NAME_DESCRIPTION = 'description';
-var SLOT_NAME_DISMISS = 'dismiss';
-var SLOT_NAME_DROP_PLACEHOLDER = 'drop-placeholder';
-var SLOT_NAME_ELLIPSIS_TEXT = 'ellipsis-text';
-var SLOT_NAME_EMPTY = 'empty';
-var SLOT_NAME_EMPTYFILTERED = 'emptyfiltered';
-var SLOT_NAME_FILE_NAME = 'file-name';
-var SLOT_NAME_FIRST = 'first';
-var SLOT_NAME_FIRST_TEXT = 'first-text';
-var SLOT_NAME_FOOTER = 'footer';
-var SLOT_NAME_HEADER = 'header';
-var SLOT_NAME_HEADER_CLOSE = 'header-close';
-var SLOT_NAME_ICON_CLEAR = 'icon-clear';
-var SLOT_NAME_ICON_EMPTY = 'icon-empty';
-var SLOT_NAME_ICON_FULL = 'icon-full';
-var SLOT_NAME_ICON_HALF = 'icon-half';
-var SLOT_NAME_IMG = 'img';
-var SLOT_NAME_INCREMENT = 'increment';
-var SLOT_NAME_INVALID_FEEDBACK = 'invalid-feedback';
-var SLOT_NAME_LABEL = 'label';
-var SLOT_NAME_LAST_TEXT = 'last-text';
-var SLOT_NAME_LEAD = 'lead';
-var SLOT_NAME_LOADING = 'loading';
-var SLOT_NAME_MODAL_BACKDROP = 'modal-backdrop';
-var SLOT_NAME_MODAL_CANCEL = 'modal-cancel';
-var SLOT_NAME_MODAL_FOOTER = 'modal-footer';
-var SLOT_NAME_MODAL_HEADER = 'modal-header';
-var SLOT_NAME_MODAL_HEADER_CLOSE = 'modal-header-close';
-var SLOT_NAME_MODAL_OK = 'modal-ok';
-var SLOT_NAME_MODAL_TITLE = 'modal-title';
-var SLOT_NAME_NAV_NEXT_DECADE = 'nav-next-decade';
-var SLOT_NAME_NAV_NEXT_MONTH = 'nav-next-month';
-var SLOT_NAME_NAV_NEXT_YEAR = 'nav-next-year';
-var SLOT_NAME_NAV_PEV_DECADE = 'nav-prev-decade';
-var SLOT_NAME_NAV_PEV_MONTH = 'nav-prev-month';
-var SLOT_NAME_NAV_PEV_YEAR = 'nav-prev-year';
-var SLOT_NAME_NAV_THIS_MONTH = 'nav-this-month';
-var SLOT_NAME_NEXT_TEXT = 'next-text';
-var SLOT_NAME_OVERLAY = 'overlay';
-var SLOT_NAME_PAGE = 'page';
-var SLOT_NAME_PLACEHOLDER = 'placeholder';
-var SLOT_NAME_PREPEND = 'prepend';
-var SLOT_NAME_PREV_TEXT = 'prev-text';
-var SLOT_NAME_ROW_DETAILS = 'row-details';
-var SLOT_NAME_TABLE_BUSY = 'table-busy';
-var SLOT_NAME_TABLE_CAPTION = 'table-caption';
-var SLOT_NAME_TABLE_COLGROUP = 'table-colgroup';
-var SLOT_NAME_TABS_END = 'tabs-end';
-var SLOT_NAME_TABS_START = 'tabs-start';
-var SLOT_NAME_TEXT = 'text';
-var SLOT_NAME_THEAD_TOP = 'thead-top';
-var SLOT_NAME_TITLE = 'title';
-var SLOT_NAME_TOAST_TITLE = 'toast-title';
-var SLOT_NAME_TOP_ROW = 'top-row';
-var SLOT_NAME_VALID_FEEDBACK = 'valid-feedback';
-
-/***/ }),
-
-/***/ "./node_modules/bootstrap-vue/esm/mixins/attrs.js":
-/*!********************************************************!*\
-  !*** ./node_modules/bootstrap-vue/esm/mixins/attrs.js ***!
-  \********************************************************/
-/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
-
-"use strict";
-__webpack_require__.r(__webpack_exports__);
-/* harmony export */ __webpack_require__.d(__webpack_exports__, {
-/* harmony export */   "attrsMixin": () => (/* binding */ attrsMixin)
-/* harmony export */ });
-/* harmony import */ var _utils_cache__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../utils/cache */ "./node_modules/bootstrap-vue/esm/utils/cache.js");
-/* harmony import */ var _vue__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../vue */ "./node_modules/bootstrap-vue/esm/vue.js");
-function ownKeys(object, enumerableOnly) { var keys = Object.keys(object); if (Object.getOwnPropertySymbols) { var symbols = Object.getOwnPropertySymbols(object); enumerableOnly && (symbols = symbols.filter(function (sym) { return Object.getOwnPropertyDescriptor(object, sym).enumerable; })), keys.push.apply(keys, symbols); } return keys; }
-
-function _objectSpread(target) { for (var i = 1; i < arguments.length; i++) { var source = null != arguments[i] ? arguments[i] : {}; i % 2 ? ownKeys(Object(source), !0).forEach(function (key) { _defineProperty(target, key, source[key]); }) : Object.getOwnPropertyDescriptors ? Object.defineProperties(target, Object.getOwnPropertyDescriptors(source)) : ownKeys(Object(source)).forEach(function (key) { Object.defineProperty(target, key, Object.getOwnPropertyDescriptor(source, key)); }); } return target; }
-
-function _defineProperty(obj, key, value) { if (key in obj) { Object.defineProperty(obj, key, { value: value, enumerable: true, configurable: true, writable: true }); } else { obj[key] = value; } return obj; }
-
-
-
-var attrsMixinVue2 = (0,_utils_cache__WEBPACK_IMPORTED_MODULE_0__.makePropCacheMixin)('$attrs', 'bvAttrs');
-var attrsMixinVue3 = (0,_vue__WEBPACK_IMPORTED_MODULE_1__.extend)({
-  computed: {
-    bvAttrs: function bvAttrs() {
-      var bvAttrs = _objectSpread({}, this.$attrs);
-
-      Object.keys(bvAttrs).forEach(function (key) {
-        if (bvAttrs[key] === undefined) {
-          delete bvAttrs[key];
-        }
-      });
-      return bvAttrs;
-    }
-  }
-});
-var attrsMixin = _vue__WEBPACK_IMPORTED_MODULE_1__.isVue3 ? attrsMixinVue3 : attrsMixinVue2;
-
-/***/ }),
-
-/***/ "./node_modules/bootstrap-vue/esm/mixins/id.js":
-/*!*****************************************************!*\
-  !*** ./node_modules/bootstrap-vue/esm/mixins/id.js ***!
-  \*****************************************************/
-/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
-
-"use strict";
-__webpack_require__.r(__webpack_exports__);
-/* harmony export */ __webpack_require__.d(__webpack_exports__, {
-/* harmony export */   "idMixin": () => (/* binding */ idMixin),
-/* harmony export */   "props": () => (/* binding */ props)
-/* harmony export */ });
-/* harmony import */ var _vue__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../vue */ "./node_modules/bootstrap-vue/esm/vue.js");
-/* harmony import */ var _constants_props__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../constants/props */ "./node_modules/bootstrap-vue/esm/constants/props.js");
-/* harmony import */ var _utils_props__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../utils/props */ "./node_modules/bootstrap-vue/esm/utils/props.js");
-// SSR safe client-side ID attribute generation
-// ID's can only be generated client-side, after mount
-// `this._uid` is not synched between server and client
-
-
- // --- Props ---
-
-var props = {
-  id: (0,_utils_props__WEBPACK_IMPORTED_MODULE_0__.makeProp)(_constants_props__WEBPACK_IMPORTED_MODULE_1__.PROP_TYPE_STRING)
-}; // --- Mixin ---
-// @vue/component
-
-var idMixin = (0,_vue__WEBPACK_IMPORTED_MODULE_2__.extend)({
-  props: props,
-  data: function data() {
-    return {
-      localId_: null
-    };
-  },
-  computed: {
-    safeId: function safeId() {
-      // Computed property that returns a dynamic function for creating the ID
-      // Reacts to changes in both `.id` and `.localId_` and regenerates a new function
-      var id = this.id || this.localId_; // We return a function that accepts an optional suffix string
-      // So this computed prop looks and works like a method
-      // but benefits from Vue's computed prop caching
-
-      var fn = function fn(suffix) {
-        if (!id) {
-          return null;
-        }
-
-        suffix = String(suffix || '').replace(/\s+/g, '_');
-        return suffix ? id + '_' + suffix : id;
-      };
-
-      return fn;
-    }
-  },
-  mounted: function mounted() {
-    var _this = this;
-
-    // `mounted()` only occurs client-side
-    this.$nextTick(function () {
-      // Update DOM with auto-generated ID after mount
-      // to prevent SSR hydration errors
-      _this.localId_ = "__BVID__".concat(_this[_vue__WEBPACK_IMPORTED_MODULE_2__.COMPONENT_UID_KEY]);
-    });
-  }
-});
-
-/***/ }),
-
-/***/ "./node_modules/bootstrap-vue/esm/mixins/listen-on-document.js":
-/*!*********************************************************************!*\
-  !*** ./node_modules/bootstrap-vue/esm/mixins/listen-on-document.js ***!
-  \*********************************************************************/
-/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
-
-"use strict";
-__webpack_require__.r(__webpack_exports__);
-/* harmony export */ __webpack_require__.d(__webpack_exports__, {
-/* harmony export */   "listenOnDocumentMixin": () => (/* binding */ listenOnDocumentMixin)
-/* harmony export */ });
-/* harmony import */ var _vue__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../vue */ "./node_modules/bootstrap-vue/esm/vue.js");
-/* harmony import */ var _constants_env__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ../constants/env */ "./node_modules/bootstrap-vue/esm/constants/env.js");
-/* harmony import */ var _constants_events__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ../constants/events */ "./node_modules/bootstrap-vue/esm/constants/events.js");
-/* harmony import */ var _utils_array__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../utils/array */ "./node_modules/bootstrap-vue/esm/utils/array.js");
-/* harmony import */ var _utils_events__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ../utils/events */ "./node_modules/bootstrap-vue/esm/utils/events.js");
-/* harmony import */ var _utils_object__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../utils/object */ "./node_modules/bootstrap-vue/esm/utils/object.js");
-
-
-
-
-
- // --- Constants ---
-
-var PROP = '$_documentListeners'; // --- Mixin ---
-// @vue/component
-
-var listenOnDocumentMixin = (0,_vue__WEBPACK_IMPORTED_MODULE_0__.extend)({
-  created: function created() {
-    // Define non-reactive property
-    // Object of arrays, keyed by event name,
-    // where value is an array of callbacks
-    this[PROP] = {};
-  },
-  beforeDestroy: function beforeDestroy() {
-    var _this = this;
-
-    // Unregister all registered listeners
-    (0,_utils_object__WEBPACK_IMPORTED_MODULE_1__.keys)(this[PROP] || {}).forEach(function (event) {
-      _this[PROP][event].forEach(function (callback) {
-        _this.listenOffDocument(event, callback);
-      });
-    });
-    this[PROP] = null;
-  },
-  methods: {
-    registerDocumentListener: function registerDocumentListener(event, callback) {
-      if (this[PROP]) {
-        this[PROP][event] = this[PROP][event] || [];
-
-        if (!(0,_utils_array__WEBPACK_IMPORTED_MODULE_2__.arrayIncludes)(this[PROP][event], callback)) {
-          this[PROP][event].push(callback);
-        }
-      }
-    },
-    unregisterDocumentListener: function unregisterDocumentListener(event, callback) {
-      if (this[PROP] && this[PROP][event]) {
-        this[PROP][event] = this[PROP][event].filter(function (cb) {
-          return cb !== callback;
-        });
-      }
-    },
-    listenDocument: function listenDocument(on, event, callback) {
-      on ? this.listenOnDocument(event, callback) : this.listenOffDocument(event, callback);
-    },
-    listenOnDocument: function listenOnDocument(event, callback) {
-      if (_constants_env__WEBPACK_IMPORTED_MODULE_3__.IS_BROWSER) {
-        (0,_utils_events__WEBPACK_IMPORTED_MODULE_4__.eventOn)(document, event, callback, _constants_events__WEBPACK_IMPORTED_MODULE_5__.EVENT_OPTIONS_NO_CAPTURE);
-        this.registerDocumentListener(event, callback);
-      }
-    },
-    listenOffDocument: function listenOffDocument(event, callback) {
-      if (_constants_env__WEBPACK_IMPORTED_MODULE_3__.IS_BROWSER) {
-        (0,_utils_events__WEBPACK_IMPORTED_MODULE_4__.eventOff)(document, event, callback, _constants_events__WEBPACK_IMPORTED_MODULE_5__.EVENT_OPTIONS_NO_CAPTURE);
-      }
-
-      this.unregisterDocumentListener(event, callback);
-    }
-  }
-});
-
-/***/ }),
-
-/***/ "./node_modules/bootstrap-vue/esm/mixins/listen-on-root.js":
-/*!*****************************************************************!*\
-  !*** ./node_modules/bootstrap-vue/esm/mixins/listen-on-root.js ***!
-  \*****************************************************************/
-/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
-
-"use strict";
-__webpack_require__.r(__webpack_exports__);
-/* harmony export */ __webpack_require__.d(__webpack_exports__, {
-/* harmony export */   "listenOnRootMixin": () => (/* binding */ listenOnRootMixin)
-/* harmony export */ });
-/* harmony import */ var _vue__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../vue */ "./node_modules/bootstrap-vue/esm/vue.js");
-/* harmony import */ var _utils_array__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ../utils/array */ "./node_modules/bootstrap-vue/esm/utils/array.js");
-/* harmony import */ var _utils_object__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../utils/object */ "./node_modules/bootstrap-vue/esm/utils/object.js");
-/* harmony import */ var _utils_get_event_root__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../utils/get-event-root */ "./node_modules/bootstrap-vue/esm/utils/get-event-root.js");
-
-
-
- // --- Constants ---
-
-var PROP = '$_rootListeners'; // --- Mixin ---
-// @vue/component
-
-var listenOnRootMixin = (0,_vue__WEBPACK_IMPORTED_MODULE_0__.extend)({
-  computed: {
-    bvEventRoot: function bvEventRoot() {
-      return (0,_utils_get_event_root__WEBPACK_IMPORTED_MODULE_1__.getEventRoot)(this);
-    }
-  },
-  created: function created() {
-    // Define non-reactive property
-    // Object of arrays, keyed by event name,
-    // where value is an array of callbacks
-    this[PROP] = {};
-  },
-  beforeDestroy: function beforeDestroy() {
-    var _this = this;
-
-    // Unregister all registered listeners
-    (0,_utils_object__WEBPACK_IMPORTED_MODULE_2__.keys)(this[PROP] || {}).forEach(function (event) {
-      _this[PROP][event].forEach(function (callback) {
-        _this.listenOffRoot(event, callback);
-      });
-    });
-    this[PROP] = null;
-  },
-  methods: {
-    registerRootListener: function registerRootListener(event, callback) {
-      if (this[PROP]) {
-        this[PROP][event] = this[PROP][event] || [];
-
-        if (!(0,_utils_array__WEBPACK_IMPORTED_MODULE_3__.arrayIncludes)(this[PROP][event], callback)) {
-          this[PROP][event].push(callback);
-        }
-      }
-    },
-    unregisterRootListener: function unregisterRootListener(event, callback) {
-      if (this[PROP] && this[PROP][event]) {
-        this[PROP][event] = this[PROP][event].filter(function (cb) {
-          return cb !== callback;
-        });
-      }
-    },
-
-    /**
-     * Safely register event listeners on the root Vue node
-     * While Vue automatically removes listeners for individual components,
-     * when a component registers a listener on `$root` and is destroyed,
-     * this orphans a callback because the node is gone, but the `$root`
-     * does not clear the callback
-     *
-     * When registering a `$root` listener, it also registers the listener
-     * to be removed in the component's `beforeDestroy()` hook
-     *
-     * @param {string} event
-     * @param {function} callback
-     */
-    listenOnRoot: function listenOnRoot(event, callback) {
-      if (this.bvEventRoot) {
-        this.bvEventRoot.$on(event, callback);
-        this.registerRootListener(event, callback);
-      }
-    },
-
-    /**
-     * Safely register a `$once()` event listener on the root Vue node
-     * While Vue automatically removes listeners for individual components,
-     * when a component registers a listener on `$root` and is destroyed,
-     * this orphans a callback because the node is gone, but the `$root`
-     * does not clear the callback
-     *
-     * When registering a `$root` listener, it also registers the listener
-     * to be removed in the component's `beforeDestroy()` hook
-     *
-     * @param {string} event
-     * @param {function} callback
-     */
-    listenOnRootOnce: function listenOnRootOnce(event, callback) {
-      var _this2 = this;
-
-      if (this.bvEventRoot) {
-        var _callback = function _callback() {
-          _this2.unregisterRootListener(_callback); // eslint-disable-next-line node/no-callback-literal
-
-
-          callback.apply(void 0, arguments);
-        };
-
-        this.bvEventRoot.$once(event, _callback);
-        this.registerRootListener(event, _callback);
-      }
-    },
-
-    /**
-     * Safely unregister event listeners from the root Vue node
-     *
-     * @param {string} event
-     * @param {function} callback
-     */
-    listenOffRoot: function listenOffRoot(event, callback) {
-      this.unregisterRootListener(event, callback);
-
-      if (this.bvEventRoot) {
-        this.bvEventRoot.$off(event, callback);
-      }
-    },
-
-    /**
-     * Convenience method for calling `vm.$emit()` on `$root`
-     *
-     * @param {string} event
-     * @param {*} args
-     */
-    emitOnRoot: function emitOnRoot(event) {
-      if (this.bvEventRoot) {
-        var _this$bvEventRoot;
-
-        for (var _len = arguments.length, args = new Array(_len > 1 ? _len - 1 : 0), _key = 1; _key < _len; _key++) {
-          args[_key - 1] = arguments[_key];
-        }
-
-        (_this$bvEventRoot = this.bvEventRoot).$emit.apply(_this$bvEventRoot, [event].concat(args));
-      }
-    }
-  }
-});
-
-/***/ }),
-
-/***/ "./node_modules/bootstrap-vue/esm/mixins/listen-on-window.js":
-/*!*******************************************************************!*\
-  !*** ./node_modules/bootstrap-vue/esm/mixins/listen-on-window.js ***!
-  \*******************************************************************/
-/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
-
-"use strict";
-__webpack_require__.r(__webpack_exports__);
-/* harmony export */ __webpack_require__.d(__webpack_exports__, {
-/* harmony export */   "listenOnWindowMixin": () => (/* binding */ listenOnWindowMixin)
-/* harmony export */ });
-/* harmony import */ var _vue__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../vue */ "./node_modules/bootstrap-vue/esm/vue.js");
-/* harmony import */ var _constants_env__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ../constants/env */ "./node_modules/bootstrap-vue/esm/constants/env.js");
-/* harmony import */ var _constants_events__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ../constants/events */ "./node_modules/bootstrap-vue/esm/constants/events.js");
-/* harmony import */ var _utils_array__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../utils/array */ "./node_modules/bootstrap-vue/esm/utils/array.js");
-/* harmony import */ var _utils_events__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ../utils/events */ "./node_modules/bootstrap-vue/esm/utils/events.js");
-/* harmony import */ var _utils_object__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../utils/object */ "./node_modules/bootstrap-vue/esm/utils/object.js");
-
-
-
-
-
- // --- Constants ---
-
-var PROP = '$_windowListeners'; // --- Mixin ---
-// @vue/component
-
-var listenOnWindowMixin = (0,_vue__WEBPACK_IMPORTED_MODULE_0__.extend)({
-  created: function created() {
-    // Define non-reactive property
-    // Object of arrays, keyed by event name,
-    // where value is an array of callbacks
-    this[PROP] = {};
-  },
-  beforeDestroy: function beforeDestroy() {
-    var _this = this;
-
-    // Unregister all registered listeners
-    (0,_utils_object__WEBPACK_IMPORTED_MODULE_1__.keys)(this[PROP] || {}).forEach(function (event) {
-      _this[PROP][event].forEach(function (callback) {
-        _this.listenOffWindow(event, callback);
-      });
-    });
-    this[PROP] = null;
-  },
-  methods: {
-    registerWindowListener: function registerWindowListener(event, callback) {
-      if (this[PROP]) {
-        this[PROP][event] = this[PROP][event] || [];
-
-        if (!(0,_utils_array__WEBPACK_IMPORTED_MODULE_2__.arrayIncludes)(this[PROP][event], callback)) {
-          this[PROP][event].push(callback);
-        }
-      }
-    },
-    unregisterWindowListener: function unregisterWindowListener(event, callback) {
-      if (this[PROP] && this[PROP][event]) {
-        this[PROP][event] = this[PROP][event].filter(function (cb) {
-          return cb !== callback;
-        });
-      }
-    },
-    listenWindow: function listenWindow(on, event, callback) {
-      on ? this.listenOnWindow(event, callback) : this.listenOffWindow(event, callback);
-    },
-    listenOnWindow: function listenOnWindow(event, callback) {
-      if (_constants_env__WEBPACK_IMPORTED_MODULE_3__.IS_BROWSER) {
-        (0,_utils_events__WEBPACK_IMPORTED_MODULE_4__.eventOn)(window, event, callback, _constants_events__WEBPACK_IMPORTED_MODULE_5__.EVENT_OPTIONS_NO_CAPTURE);
-        this.registerWindowListener(event, callback);
-      }
-    },
-    listenOffWindow: function listenOffWindow(event, callback) {
-      if (_constants_env__WEBPACK_IMPORTED_MODULE_3__.IS_BROWSER) {
-        (0,_utils_events__WEBPACK_IMPORTED_MODULE_4__.eventOff)(window, event, callback, _constants_events__WEBPACK_IMPORTED_MODULE_5__.EVENT_OPTIONS_NO_CAPTURE);
-      }
-
-      this.unregisterWindowListener(event, callback);
-    }
-  }
-});
-
-/***/ }),
-
-/***/ "./node_modules/bootstrap-vue/esm/mixins/listeners.js":
-/*!************************************************************!*\
-  !*** ./node_modules/bootstrap-vue/esm/mixins/listeners.js ***!
-  \************************************************************/
-/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
-
-"use strict";
-__webpack_require__.r(__webpack_exports__);
-/* harmony export */ __webpack_require__.d(__webpack_exports__, {
-/* harmony export */   "listenersMixin": () => (/* binding */ listenersMixin)
-/* harmony export */ });
-/* harmony import */ var _utils_cache__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../utils/cache */ "./node_modules/bootstrap-vue/esm/utils/cache.js");
-/* harmony import */ var _vue__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../vue */ "./node_modules/bootstrap-vue/esm/vue.js");
-function ownKeys(object, enumerableOnly) { var keys = Object.keys(object); if (Object.getOwnPropertySymbols) { var symbols = Object.getOwnPropertySymbols(object); enumerableOnly && (symbols = symbols.filter(function (sym) { return Object.getOwnPropertyDescriptor(object, sym).enumerable; })), keys.push.apply(keys, symbols); } return keys; }
-
-function _objectSpread(target) { for (var i = 1; i < arguments.length; i++) { var source = null != arguments[i] ? arguments[i] : {}; i % 2 ? ownKeys(Object(source), !0).forEach(function (key) { _defineProperty(target, key, source[key]); }) : Object.getOwnPropertyDescriptors ? Object.defineProperties(target, Object.getOwnPropertyDescriptors(source)) : ownKeys(Object(source)).forEach(function (key) { Object.defineProperty(target, key, Object.getOwnPropertyDescriptor(source, key)); }); } return target; }
-
-function _defineProperty(obj, key, value) { if (key in obj) { Object.defineProperty(obj, key, { value: value, enumerable: true, configurable: true, writable: true }); } else { obj[key] = value; } return obj; }
-
-
-
-var listenersMixinVue2 = (0,_utils_cache__WEBPACK_IMPORTED_MODULE_0__.makePropCacheMixin)('$listeners', 'bvListeners');
-var listenersMixinVue3 = (0,_vue__WEBPACK_IMPORTED_MODULE_1__.extend)({
-  data: function data() {
-    return {
-      bvListeners: {}
-    };
-  },
-  created: function created() {
-    this.bvListeners = _objectSpread({}, this.$listeners);
-  },
-  beforeUpdate: function beforeUpdate() {
-    this.bvListeners = _objectSpread({}, this.$listeners);
-  }
-});
-var listenersMixin = _vue__WEBPACK_IMPORTED_MODULE_1__.isVue3 ? listenersMixinVue3 : listenersMixinVue2;
-
-/***/ }),
-
-/***/ "./node_modules/bootstrap-vue/esm/mixins/normalize-slot.js":
-/*!*****************************************************************!*\
-  !*** ./node_modules/bootstrap-vue/esm/mixins/normalize-slot.js ***!
-  \*****************************************************************/
-/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
-
-"use strict";
-__webpack_require__.r(__webpack_exports__);
-/* harmony export */ __webpack_require__.d(__webpack_exports__, {
-/* harmony export */   "normalizeSlotMixin": () => (/* binding */ normalizeSlotMixin)
-/* harmony export */ });
-/* harmony import */ var _vue__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../vue */ "./node_modules/bootstrap-vue/esm/vue.js");
-/* harmony import */ var _constants_slots__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../constants/slots */ "./node_modules/bootstrap-vue/esm/constants/slots.js");
-/* harmony import */ var _utils_normalize_slot__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../utils/normalize-slot */ "./node_modules/bootstrap-vue/esm/utils/normalize-slot.js");
-/* harmony import */ var _utils_array__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ../utils/array */ "./node_modules/bootstrap-vue/esm/utils/array.js");
-
-
-
- // @vue/component
-
-var normalizeSlotMixin = (0,_vue__WEBPACK_IMPORTED_MODULE_0__.extend)({
-  methods: {
-    // Returns `true` if the either a `$scopedSlot` or `$slot` exists with the specified name
-    // `name` can be a string name or an array of names
-    hasNormalizedSlot: function hasNormalizedSlot() {
-      var name = arguments.length > 0 && arguments[0] !== undefined ? arguments[0] : _constants_slots__WEBPACK_IMPORTED_MODULE_1__.SLOT_NAME_DEFAULT;
-      var scopedSlots = arguments.length > 1 && arguments[1] !== undefined ? arguments[1] : this.$scopedSlots;
-      var slots = arguments.length > 2 && arguments[2] !== undefined ? arguments[2] : this.$slots;
-      return (0,_utils_normalize_slot__WEBPACK_IMPORTED_MODULE_2__.hasNormalizedSlot)(name, scopedSlots, slots);
-    },
-    // Returns an array of rendered VNodes if slot found, otherwise `undefined`
-    // `name` can be a string name or an array of names
-    normalizeSlot: function normalizeSlot() {
-      var name = arguments.length > 0 && arguments[0] !== undefined ? arguments[0] : _constants_slots__WEBPACK_IMPORTED_MODULE_1__.SLOT_NAME_DEFAULT;
-      var scope = arguments.length > 1 && arguments[1] !== undefined ? arguments[1] : {};
-      var scopedSlots = arguments.length > 2 && arguments[2] !== undefined ? arguments[2] : this.$scopedSlots;
-      var slots = arguments.length > 3 && arguments[3] !== undefined ? arguments[3] : this.$slots;
-
-      var vNodes = (0,_utils_normalize_slot__WEBPACK_IMPORTED_MODULE_2__.normalizeSlot)(name, scope, scopedSlots, slots);
-
-      return vNodes ? (0,_utils_array__WEBPACK_IMPORTED_MODULE_3__.concat)(vNodes) : vNodes;
-    }
-  }
-});
-
-/***/ }),
-
-/***/ "./node_modules/bootstrap-vue/esm/mixins/scoped-style.js":
-/*!***************************************************************!*\
-  !*** ./node_modules/bootstrap-vue/esm/mixins/scoped-style.js ***!
-  \***************************************************************/
-/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
-
-"use strict";
-__webpack_require__.r(__webpack_exports__);
-/* harmony export */ __webpack_require__.d(__webpack_exports__, {
-/* harmony export */   "scopedStyleMixin": () => (/* binding */ scopedStyleMixin)
-/* harmony export */ });
-/* harmony import */ var _vue__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../vue */ "./node_modules/bootstrap-vue/esm/vue.js");
-/* harmony import */ var _mixins_use_parent__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../mixins/use-parent */ "./node_modules/bootstrap-vue/esm/mixins/use-parent.js");
-/* harmony import */ var _utils_get_scope_id__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../utils/get-scope-id */ "./node_modules/bootstrap-vue/esm/utils/get-scope-id.js");
-function _defineProperty(obj, key, value) { if (key in obj) { Object.defineProperty(obj, key, { value: value, enumerable: true, configurable: true, writable: true }); } else { obj[key] = value; } return obj; }
-
-
-
- // @vue/component
-
-var scopedStyleMixin = (0,_vue__WEBPACK_IMPORTED_MODULE_0__.extend)({
-  mixins: [_mixins_use_parent__WEBPACK_IMPORTED_MODULE_1__.useParentMixin],
-  computed: {
-    scopedStyleAttrs: function scopedStyleAttrs() {
-      var scopeId = (0,_utils_get_scope_id__WEBPACK_IMPORTED_MODULE_2__.getScopeId)(this.bvParent);
-      return scopeId ? _defineProperty({}, scopeId, '') : {};
-    }
-  }
-});
-
-/***/ }),
-
-/***/ "./node_modules/bootstrap-vue/esm/mixins/use-parent.js":
-/*!*************************************************************!*\
-  !*** ./node_modules/bootstrap-vue/esm/mixins/use-parent.js ***!
-  \*************************************************************/
-/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
-
-"use strict";
-__webpack_require__.r(__webpack_exports__);
-/* harmony export */ __webpack_require__.d(__webpack_exports__, {
-/* harmony export */   "useParentMixin": () => (/* binding */ useParentMixin)
-/* harmony export */ });
-/* harmony import */ var _vue__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../vue */ "./node_modules/bootstrap-vue/esm/vue.js");
- // --- Mixin ---
-// @vue/component
-
-var useParentMixin = (0,_vue__WEBPACK_IMPORTED_MODULE_0__.extend)({
-  computed: {
-    bvParent: function bvParent() {
-      return this.$parent || this.$root === this && this.$options.bvParent;
-    }
-  }
-});
-
-/***/ }),
-
-/***/ "./node_modules/bootstrap-vue/esm/utils/array.js":
-/*!*******************************************************!*\
-  !*** ./node_modules/bootstrap-vue/esm/utils/array.js ***!
-  \*******************************************************/
-/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
-
-"use strict";
-__webpack_require__.r(__webpack_exports__);
-/* harmony export */ __webpack_require__.d(__webpack_exports__, {
-/* harmony export */   "arrayIncludes": () => (/* binding */ arrayIncludes),
-/* harmony export */   "concat": () => (/* binding */ concat),
-/* harmony export */   "createArray": () => (/* binding */ createArray),
-/* harmony export */   "flatten": () => (/* binding */ flatten),
-/* harmony export */   "flattenDeep": () => (/* binding */ flattenDeep),
-/* harmony export */   "from": () => (/* binding */ from)
-/* harmony export */ });
-/* harmony import */ var _inspect__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./inspect */ "./node_modules/bootstrap-vue/esm/utils/inspect.js");
- // --- Static ---
-
-var from = function from() {
-  return Array.from.apply(Array, arguments);
-}; // --- Instance ---
-
-var arrayIncludes = function arrayIncludes(array, value) {
-  return array.indexOf(value) !== -1;
-};
-var concat = function concat() {
-  for (var _len = arguments.length, args = new Array(_len), _key = 0; _key < _len; _key++) {
-    args[_key] = arguments[_key];
-  }
-
-  return Array.prototype.concat.apply([], args);
-}; // --- Utilities ---
-
-var createArray = function createArray(length, fillFn) {
-  var mapFn = (0,_inspect__WEBPACK_IMPORTED_MODULE_0__.isFunction)(fillFn) ? fillFn : function () {
-    return fillFn;
-  };
-  return Array.apply(null, {
-    length: length
-  }).map(mapFn);
-};
-var flatten = function flatten(array) {
-  return array.reduce(function (result, item) {
-    return concat(result, item);
-  }, []);
-};
-var flattenDeep = function flattenDeep(array) {
-  return array.reduce(function (result, item) {
-    return concat(result, Array.isArray(item) ? flattenDeep(item) : item);
-  }, []);
-};
-
-/***/ }),
-
-/***/ "./node_modules/bootstrap-vue/esm/utils/bv-event.class.js":
-/*!****************************************************************!*\
-  !*** ./node_modules/bootstrap-vue/esm/utils/bv-event.class.js ***!
-  \****************************************************************/
-/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
-
-"use strict";
-__webpack_require__.r(__webpack_exports__);
-/* harmony export */ __webpack_require__.d(__webpack_exports__, {
-/* harmony export */   "BvEvent": () => (/* binding */ BvEvent)
-/* harmony export */ });
-/* harmony import */ var _object__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./object */ "./node_modules/bootstrap-vue/esm/utils/object.js");
-function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
-
-function _defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } }
-
-function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _defineProperties(Constructor.prototype, protoProps); if (staticProps) _defineProperties(Constructor, staticProps); Object.defineProperty(Constructor, "prototype", { writable: false }); return Constructor; }
-
-
-var BvEvent = /*#__PURE__*/function () {
-  function BvEvent(type) {
-    var eventInit = arguments.length > 1 && arguments[1] !== undefined ? arguments[1] : {};
-
-    _classCallCheck(this, BvEvent);
-
-    // Start by emulating native Event constructor
-    if (!type) {
-      /* istanbul ignore next */
-      throw new TypeError("Failed to construct '".concat(this.constructor.name, "'. 1 argument required, ").concat(arguments.length, " given."));
-    } // Merge defaults first, the eventInit, and the type last
-    // so it can't be overwritten
-
-
-    (0,_object__WEBPACK_IMPORTED_MODULE_0__.assign)(this, BvEvent.Defaults, this.constructor.Defaults, eventInit, {
-      type: type
-    }); // Freeze some props as readonly, but leave them enumerable
-
-    (0,_object__WEBPACK_IMPORTED_MODULE_0__.defineProperties)(this, {
-      type: (0,_object__WEBPACK_IMPORTED_MODULE_0__.readonlyDescriptor)(),
-      cancelable: (0,_object__WEBPACK_IMPORTED_MODULE_0__.readonlyDescriptor)(),
-      nativeEvent: (0,_object__WEBPACK_IMPORTED_MODULE_0__.readonlyDescriptor)(),
-      target: (0,_object__WEBPACK_IMPORTED_MODULE_0__.readonlyDescriptor)(),
-      relatedTarget: (0,_object__WEBPACK_IMPORTED_MODULE_0__.readonlyDescriptor)(),
-      vueTarget: (0,_object__WEBPACK_IMPORTED_MODULE_0__.readonlyDescriptor)(),
-      componentId: (0,_object__WEBPACK_IMPORTED_MODULE_0__.readonlyDescriptor)()
-    }); // Create a private variable using closure scoping
-
-    var defaultPrevented = false; // Recreate preventDefault method. One way setter
-
-    this.preventDefault = function preventDefault() {
-      if (this.cancelable) {
-        defaultPrevented = true;
-      }
-    }; // Create `defaultPrevented` publicly accessible prop that
-    // can only be altered by the preventDefault method
-
-
-    (0,_object__WEBPACK_IMPORTED_MODULE_0__.defineProperty)(this, 'defaultPrevented', {
-      enumerable: true,
-      get: function get() {
-        return defaultPrevented;
-      }
-    });
-  }
-
-  _createClass(BvEvent, null, [{
-    key: "Defaults",
-    get: function get() {
-      return {
-        type: '',
-        cancelable: true,
-        nativeEvent: null,
-        target: null,
-        relatedTarget: null,
-        vueTarget: null,
-        componentId: null
-      };
-    }
-  }]);
-
-  return BvEvent;
-}();
-
-/***/ }),
-
-/***/ "./node_modules/bootstrap-vue/esm/utils/cache.js":
-/*!*******************************************************!*\
-  !*** ./node_modules/bootstrap-vue/esm/utils/cache.js ***!
-  \*******************************************************/
-/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
-
-"use strict";
-__webpack_require__.r(__webpack_exports__);
-/* harmony export */ __webpack_require__.d(__webpack_exports__, {
-/* harmony export */   "makePropCacheMixin": () => (/* binding */ makePropCacheMixin),
-/* harmony export */   "makePropWatcher": () => (/* binding */ makePropWatcher)
-/* harmony export */ });
-/* harmony import */ var _vue__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ../vue */ "./node_modules/bootstrap-vue/esm/vue.js");
-/* harmony import */ var _clone_deep__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./clone-deep */ "./node_modules/bootstrap-vue/esm/utils/clone-deep.js");
-/* harmony import */ var _loose_equal__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./loose-equal */ "./node_modules/bootstrap-vue/esm/utils/loose-equal.js");
-/* harmony import */ var _object__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./object */ "./node_modules/bootstrap-vue/esm/utils/object.js");
-function _defineProperty(obj, key, value) { if (key in obj) { Object.defineProperty(obj, key, { value: value, enumerable: true, configurable: true, writable: true }); } else { obj[key] = value; } return obj; }
-
-
-
-
-
-
-var isEmpty = function isEmpty(value) {
-  return !value || (0,_object__WEBPACK_IMPORTED_MODULE_0__.keys)(value).length === 0;
-};
-
-var makePropWatcher = function makePropWatcher(propName) {
-  return {
-    handler: function handler(newValue, oldValue) {
-      if ((0,_loose_equal__WEBPACK_IMPORTED_MODULE_1__.looseEqual)(newValue, oldValue)) {
-        return;
-      }
-
-      if (isEmpty(newValue) || isEmpty(oldValue)) {
-        this[propName] = (0,_clone_deep__WEBPACK_IMPORTED_MODULE_2__.cloneDeep)(newValue);
-        return;
-      }
-
-      for (var key in oldValue) {
-        if (!(0,_object__WEBPACK_IMPORTED_MODULE_0__.hasOwnProperty)(newValue, key)) {
-          this.$delete(this.$data[propName], key);
-        }
-      }
-
-      for (var _key in newValue) {
-        this.$set(this.$data[propName], _key, newValue[_key]);
-      }
-    }
-  };
-};
-var makePropCacheMixin = function makePropCacheMixin(propName, proxyPropName) {
-  return (0,_vue__WEBPACK_IMPORTED_MODULE_3__.extend)({
-    data: function data() {
-      return _defineProperty({}, proxyPropName, (0,_clone_deep__WEBPACK_IMPORTED_MODULE_2__.cloneDeep)(this[propName]));
-    },
-    watch: _defineProperty({}, propName, makePropWatcher(proxyPropName))
-  });
-};
-
-/***/ }),
-
-/***/ "./node_modules/bootstrap-vue/esm/utils/clone-deep.js":
-/*!************************************************************!*\
-  !*** ./node_modules/bootstrap-vue/esm/utils/clone-deep.js ***!
-  \************************************************************/
-/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
-
-"use strict";
-__webpack_require__.r(__webpack_exports__);
-/* harmony export */ __webpack_require__.d(__webpack_exports__, {
-/* harmony export */   "cloneDeep": () => (/* binding */ cloneDeep)
-/* harmony export */ });
-/* harmony import */ var _inspect__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./inspect */ "./node_modules/bootstrap-vue/esm/utils/inspect.js");
-/* harmony import */ var _object__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./object */ "./node_modules/bootstrap-vue/esm/utils/object.js");
-function ownKeys(object, enumerableOnly) { var keys = Object.keys(object); if (Object.getOwnPropertySymbols) { var symbols = Object.getOwnPropertySymbols(object); enumerableOnly && (symbols = symbols.filter(function (sym) { return Object.getOwnPropertyDescriptor(object, sym).enumerable; })), keys.push.apply(keys, symbols); } return keys; }
-
-function _objectSpread(target) { for (var i = 1; i < arguments.length; i++) { var source = null != arguments[i] ? arguments[i] : {}; i % 2 ? ownKeys(Object(source), !0).forEach(function (key) { _defineProperty(target, key, source[key]); }) : Object.getOwnPropertyDescriptors ? Object.defineProperties(target, Object.getOwnPropertyDescriptors(source)) : ownKeys(Object(source)).forEach(function (key) { Object.defineProperty(target, key, Object.getOwnPropertyDescriptor(source, key)); }); } return target; }
-
-function _defineProperty(obj, key, value) { if (key in obj) { Object.defineProperty(obj, key, { value: value, enumerable: true, configurable: true, writable: true }); } else { obj[key] = value; } return obj; }
-
-function _toConsumableArray(arr) { return _arrayWithoutHoles(arr) || _iterableToArray(arr) || _unsupportedIterableToArray(arr) || _nonIterableSpread(); }
-
-function _nonIterableSpread() { throw new TypeError("Invalid attempt to spread non-iterable instance.\nIn order to be iterable, non-array objects must have a [Symbol.iterator]() method."); }
-
-function _unsupportedIterableToArray(o, minLen) { if (!o) return; if (typeof o === "string") return _arrayLikeToArray(o, minLen); var n = Object.prototype.toString.call(o).slice(8, -1); if (n === "Object" && o.constructor) n = o.constructor.name; if (n === "Map" || n === "Set") return Array.from(o); if (n === "Arguments" || /^(?:Ui|I)nt(?:8|16|32)(?:Clamped)?Array$/.test(n)) return _arrayLikeToArray(o, minLen); }
-
-function _iterableToArray(iter) { if (typeof Symbol !== "undefined" && iter[Symbol.iterator] != null || iter["@@iterator"] != null) return Array.from(iter); }
-
-function _arrayWithoutHoles(arr) { if (Array.isArray(arr)) return _arrayLikeToArray(arr); }
-
-function _arrayLikeToArray(arr, len) { if (len == null || len > arr.length) len = arr.length; for (var i = 0, arr2 = new Array(len); i < len; i++) { arr2[i] = arr[i]; } return arr2; }
-
-
-
-var cloneDeep = function cloneDeep(obj) {
-  var defaultValue = arguments.length > 1 && arguments[1] !== undefined ? arguments[1] : obj;
-
-  if ((0,_inspect__WEBPACK_IMPORTED_MODULE_0__.isArray)(obj)) {
-    return obj.reduce(function (result, val) {
-      return [].concat(_toConsumableArray(result), [cloneDeep(val, val)]);
-    }, []);
-  }
-
-  if ((0,_inspect__WEBPACK_IMPORTED_MODULE_0__.isPlainObject)(obj)) {
-    return (0,_object__WEBPACK_IMPORTED_MODULE_1__.keys)(obj).reduce(function (result, key) {
-      return _objectSpread(_objectSpread({}, result), {}, _defineProperty({}, key, cloneDeep(obj[key], obj[key])));
-    }, {});
-  }
-
-  return defaultValue;
-};
-
-/***/ }),
-
-/***/ "./node_modules/bootstrap-vue/esm/utils/config.js":
-/*!********************************************************!*\
-  !*** ./node_modules/bootstrap-vue/esm/utils/config.js ***!
-  \********************************************************/
-/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
-
-"use strict";
-__webpack_require__.r(__webpack_exports__);
-/* harmony export */ __webpack_require__.d(__webpack_exports__, {
-/* harmony export */   "getBreakpoints": () => (/* binding */ getBreakpoints),
-/* harmony export */   "getBreakpointsCached": () => (/* binding */ getBreakpointsCached),
-/* harmony export */   "getBreakpointsDown": () => (/* binding */ getBreakpointsDown),
-/* harmony export */   "getBreakpointsDownCached": () => (/* binding */ getBreakpointsDownCached),
-/* harmony export */   "getBreakpointsUp": () => (/* binding */ getBreakpointsUp),
-/* harmony export */   "getBreakpointsUpCached": () => (/* binding */ getBreakpointsUpCached),
-/* harmony export */   "getComponentConfig": () => (/* binding */ getComponentConfig),
-/* harmony export */   "getConfig": () => (/* binding */ getConfig),
-/* harmony export */   "getConfigValue": () => (/* binding */ getConfigValue)
-/* harmony export */ });
-/* harmony import */ var _vue__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../vue */ "./node_modules/vue/dist/vue.esm.js");
-/* harmony import */ var _constants_config__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../constants/config */ "./node_modules/bootstrap-vue/esm/constants/config.js");
-/* harmony import */ var _clone_deep__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./clone-deep */ "./node_modules/bootstrap-vue/esm/utils/clone-deep.js");
-/* harmony import */ var _memoize__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./memoize */ "./node_modules/bootstrap-vue/esm/utils/memoize.js");
-
-
-
- // --- Constants ---
-
-var VueProto = _vue__WEBPACK_IMPORTED_MODULE_0__["default"].prototype; // --- Getter methods ---
-// All methods return a deep clone (immutable) copy of the config value,
-// to prevent mutation of the user config object
-// Get the current config
-
-var getConfig = function getConfig() {
-  var bvConfig = VueProto[_constants_config__WEBPACK_IMPORTED_MODULE_1__.PROP_NAME];
-  return bvConfig ? bvConfig.getConfig() : {};
-}; // Method to grab a config value based on a dotted/array notation key
-
-var getConfigValue = function getConfigValue(key) {
-  var defaultValue = arguments.length > 1 && arguments[1] !== undefined ? arguments[1] : undefined;
-  var bvConfig = VueProto[_constants_config__WEBPACK_IMPORTED_MODULE_1__.PROP_NAME];
-  return bvConfig ? bvConfig.getConfigValue(key, defaultValue) : (0,_clone_deep__WEBPACK_IMPORTED_MODULE_2__.cloneDeep)(defaultValue);
-}; // Method to grab a config value for a particular component
-
-var getComponentConfig = function getComponentConfig(key) {
-  var propKey = arguments.length > 1 && arguments[1] !== undefined ? arguments[1] : null;
-  var defaultValue = arguments.length > 2 && arguments[2] !== undefined ? arguments[2] : undefined;
-  // Return the particular config value for key if specified,
-  // otherwise we return the full config (or an empty object if not found)
-  return propKey ? getConfigValue("".concat(key, ".").concat(propKey), defaultValue) : getConfigValue(key, {});
-}; // Get all breakpoint names
-
-var getBreakpoints = function getBreakpoints() {
-  return getConfigValue('breakpoints', _constants_config__WEBPACK_IMPORTED_MODULE_1__.DEFAULT_BREAKPOINT);
-}; // Private method for caching breakpoint names
-
-var _getBreakpointsCached = (0,_memoize__WEBPACK_IMPORTED_MODULE_3__.memoize)(function () {
-  return getBreakpoints();
-}); // Get all breakpoint names (cached)
-
-
-var getBreakpointsCached = function getBreakpointsCached() {
-  return (0,_clone_deep__WEBPACK_IMPORTED_MODULE_2__.cloneDeep)(_getBreakpointsCached());
-}; // Get breakpoints with the smallest breakpoint set as ''
-// Useful for components that create breakpoint specific props
-
-var getBreakpointsUp = function getBreakpointsUp() {
-  var breakpoints = getBreakpoints();
-  breakpoints[0] = '';
-  return breakpoints;
-}; // Get breakpoints with the smallest breakpoint set as '' (cached)
-// Useful for components that create breakpoint specific props
-
-var getBreakpointsUpCached = (0,_memoize__WEBPACK_IMPORTED_MODULE_3__.memoize)(function () {
-  var breakpoints = getBreakpointsCached();
-  breakpoints[0] = '';
-  return breakpoints;
-}); // Get breakpoints with the largest breakpoint set as ''
-
-var getBreakpointsDown = function getBreakpointsDown() {
-  var breakpoints = getBreakpoints();
-  breakpoints[breakpoints.length - 1] = '';
-  return breakpoints;
-}; // Get breakpoints with the largest breakpoint set as '' (cached)
-// Useful for components that create breakpoint specific props
-
-/* istanbul ignore next: we don't use this method anywhere, yet */
-
-var getBreakpointsDownCached = function getBreakpointsDownCached() {
-  var breakpoints = getBreakpointsCached();
-  breakpoints[breakpoints.length - 1] = '';
-  return breakpoints;
-};
-
-/***/ }),
-
-/***/ "./node_modules/bootstrap-vue/esm/utils/create-new-child-component.js":
-/*!****************************************************************************!*\
-  !*** ./node_modules/bootstrap-vue/esm/utils/create-new-child-component.js ***!
-  \****************************************************************************/
-/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
-
-"use strict";
-__webpack_require__.r(__webpack_exports__);
-/* harmony export */ __webpack_require__.d(__webpack_exports__, {
-/* harmony export */   "createNewChildComponent": () => (/* binding */ createNewChildComponent)
-/* harmony export */ });
-function ownKeys(object, enumerableOnly) { var keys = Object.keys(object); if (Object.getOwnPropertySymbols) { var symbols = Object.getOwnPropertySymbols(object); enumerableOnly && (symbols = symbols.filter(function (sym) { return Object.getOwnPropertyDescriptor(object, sym).enumerable; })), keys.push.apply(keys, symbols); } return keys; }
-
-function _objectSpread(target) { for (var i = 1; i < arguments.length; i++) { var source = null != arguments[i] ? arguments[i] : {}; i % 2 ? ownKeys(Object(source), !0).forEach(function (key) { _defineProperty(target, key, source[key]); }) : Object.getOwnPropertyDescriptors ? Object.defineProperties(target, Object.getOwnPropertyDescriptors(source)) : ownKeys(Object(source)).forEach(function (key) { Object.defineProperty(target, key, Object.getOwnPropertyDescriptor(source, key)); }); } return target; }
-
-function _defineProperty(obj, key, value) { if (key in obj) { Object.defineProperty(obj, key, { value: value, enumerable: true, configurable: true, writable: true }); } else { obj[key] = value; } return obj; }
-
-var createNewChildComponent = function createNewChildComponent(parent, Component) {
-  var config = arguments.length > 2 && arguments[2] !== undefined ? arguments[2] : {};
-  var bvEventRoot = parent.$root ? parent.$root.$options.bvEventRoot || parent.$root : null;
-  return new Component(_objectSpread(_objectSpread({}, config), {}, {
-    parent: parent,
-    bvParent: parent,
-    bvEventRoot: bvEventRoot
-  }));
-};
-
-/***/ }),
-
-/***/ "./node_modules/bootstrap-vue/esm/utils/dom.js":
-/*!*****************************************************!*\
-  !*** ./node_modules/bootstrap-vue/esm/utils/dom.js ***!
-  \*****************************************************/
-/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
-
-"use strict";
-__webpack_require__.r(__webpack_exports__);
-/* harmony export */ __webpack_require__.d(__webpack_exports__, {
-/* harmony export */   "MutationObs": () => (/* binding */ MutationObs),
-/* harmony export */   "addClass": () => (/* binding */ addClass),
-/* harmony export */   "attemptBlur": () => (/* binding */ attemptBlur),
-/* harmony export */   "attemptFocus": () => (/* binding */ attemptFocus),
-/* harmony export */   "closest": () => (/* binding */ closest),
-/* harmony export */   "closestEl": () => (/* binding */ closestEl),
-/* harmony export */   "contains": () => (/* binding */ contains),
-/* harmony export */   "getActiveElement": () => (/* binding */ getActiveElement),
-/* harmony export */   "getAttr": () => (/* binding */ getAttr),
-/* harmony export */   "getBCR": () => (/* binding */ getBCR),
-/* harmony export */   "getById": () => (/* binding */ getById),
-/* harmony export */   "getCS": () => (/* binding */ getCS),
-/* harmony export */   "getSel": () => (/* binding */ getSel),
-/* harmony export */   "getStyle": () => (/* binding */ getStyle),
-/* harmony export */   "getTabables": () => (/* binding */ getTabables),
-/* harmony export */   "hasAttr": () => (/* binding */ hasAttr),
-/* harmony export */   "hasClass": () => (/* binding */ hasClass),
-/* harmony export */   "isActiveElement": () => (/* binding */ isActiveElement),
-/* harmony export */   "isDisabled": () => (/* binding */ isDisabled),
-/* harmony export */   "isElement": () => (/* binding */ isElement),
-/* harmony export */   "isTag": () => (/* binding */ isTag),
-/* harmony export */   "isVisible": () => (/* binding */ isVisible),
-/* harmony export */   "matches": () => (/* binding */ matches),
-/* harmony export */   "matchesEl": () => (/* binding */ matchesEl),
-/* harmony export */   "offset": () => (/* binding */ offset),
-/* harmony export */   "position": () => (/* binding */ position),
-/* harmony export */   "reflow": () => (/* binding */ reflow),
-/* harmony export */   "removeAttr": () => (/* binding */ removeAttr),
-/* harmony export */   "removeClass": () => (/* binding */ removeClass),
-/* harmony export */   "removeNode": () => (/* binding */ removeNode),
-/* harmony export */   "removeStyle": () => (/* binding */ removeStyle),
-/* harmony export */   "requestAF": () => (/* binding */ requestAF),
-/* harmony export */   "select": () => (/* binding */ select),
-/* harmony export */   "selectAll": () => (/* binding */ selectAll),
-/* harmony export */   "setAttr": () => (/* binding */ setAttr),
-/* harmony export */   "setStyle": () => (/* binding */ setStyle)
-/* harmony export */ });
-/* harmony import */ var _constants_env__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../constants/env */ "./node_modules/bootstrap-vue/esm/constants/env.js");
-/* harmony import */ var _constants_safe_types__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../constants/safe-types */ "./node_modules/bootstrap-vue/esm/constants/safe-types.js");
-/* harmony import */ var _array__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ./array */ "./node_modules/bootstrap-vue/esm/utils/array.js");
-/* harmony import */ var _inspect__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./inspect */ "./node_modules/bootstrap-vue/esm/utils/inspect.js");
-/* harmony import */ var _number__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ./number */ "./node_modules/bootstrap-vue/esm/utils/number.js");
-/* harmony import */ var _string__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./string */ "./node_modules/bootstrap-vue/esm/utils/string.js");
-
-
-
-
-
- // --- Constants ---
-
-var ELEMENT_PROTO = _constants_safe_types__WEBPACK_IMPORTED_MODULE_0__.Element.prototype;
-var TABABLE_SELECTOR = ['button', '[href]:not(.disabled)', 'input', 'select', 'textarea', '[tabindex]', '[contenteditable]'].map(function (s) {
-  return "".concat(s, ":not(:disabled):not([disabled])");
-}).join(', '); // --- Normalization utils ---
-// See: https://developer.mozilla.org/en-US/docs/Web/API/Element/matches#Polyfill
-
-/* istanbul ignore next */
-
-var matchesEl = ELEMENT_PROTO.matches || ELEMENT_PROTO.msMatchesSelector || ELEMENT_PROTO.webkitMatchesSelector; // See: https://developer.mozilla.org/en-US/docs/Web/API/Element/closest
-
-/* istanbul ignore next */
-
-var closestEl = ELEMENT_PROTO.closest || function (sel) {
-  var el = this;
-
-  do {
-    // Use our "patched" matches function
-    if (matches(el, sel)) {
-      return el;
-    }
-
-    el = el.parentElement || el.parentNode;
-  } while (!(0,_inspect__WEBPACK_IMPORTED_MODULE_1__.isNull)(el) && el.nodeType === Node.ELEMENT_NODE);
-
-  return null;
-}; // `requestAnimationFrame()` convenience method
-
-/* istanbul ignore next: JSDOM always returns the first option */
-
-var requestAF = (_constants_env__WEBPACK_IMPORTED_MODULE_2__.WINDOW.requestAnimationFrame || _constants_env__WEBPACK_IMPORTED_MODULE_2__.WINDOW.webkitRequestAnimationFrame || _constants_env__WEBPACK_IMPORTED_MODULE_2__.WINDOW.mozRequestAnimationFrame || _constants_env__WEBPACK_IMPORTED_MODULE_2__.WINDOW.msRequestAnimationFrame || _constants_env__WEBPACK_IMPORTED_MODULE_2__.WINDOW.oRequestAnimationFrame || // Fallback, but not a true polyfill
-// Only needed for Opera Mini
-
-/* istanbul ignore next */
-function (cb) {
-  return setTimeout(cb, 16);
-}).bind(_constants_env__WEBPACK_IMPORTED_MODULE_2__.WINDOW);
-var MutationObs = _constants_env__WEBPACK_IMPORTED_MODULE_2__.WINDOW.MutationObserver || _constants_env__WEBPACK_IMPORTED_MODULE_2__.WINDOW.WebKitMutationObserver || _constants_env__WEBPACK_IMPORTED_MODULE_2__.WINDOW.MozMutationObserver || null; // --- Utils ---
-// Remove a node from DOM
-
-var removeNode = function removeNode(el) {
-  return el && el.parentNode && el.parentNode.removeChild(el);
-}; // Determine if an element is an HTML element
-
-var isElement = function isElement(el) {
-  return !!(el && el.nodeType === Node.ELEMENT_NODE);
-}; // Get the currently active HTML element
-
-var getActiveElement = function getActiveElement() {
-  var excludes = arguments.length > 0 && arguments[0] !== undefined ? arguments[0] : [];
-  var activeElement = _constants_env__WEBPACK_IMPORTED_MODULE_2__.DOCUMENT.activeElement;
-  return activeElement && !excludes.some(function (el) {
-    return el === activeElement;
-  }) ? activeElement : null;
-}; // Returns `true` if a tag's name equals `name`
-
-var isTag = function isTag(tag, name) {
-  return (0,_string__WEBPACK_IMPORTED_MODULE_3__.toString)(tag).toLowerCase() === (0,_string__WEBPACK_IMPORTED_MODULE_3__.toString)(name).toLowerCase();
-}; // Determine if an HTML element is the currently active element
-
-var isActiveElement = function isActiveElement(el) {
-  return isElement(el) && el === getActiveElement();
-}; // Determine if an HTML element is visible - Faster than CSS check
-
-var isVisible = function isVisible(el) {
-  if (!isElement(el) || !el.parentNode || !contains(_constants_env__WEBPACK_IMPORTED_MODULE_2__.DOCUMENT.body, el)) {
-    // Note this can fail for shadow dom elements since they
-    // are not a direct descendant of document.body
-    return false;
-  }
-
-  if (getStyle(el, 'display') === 'none') {
-    // We do this check to help with vue-test-utils when using v-show
-
-    /* istanbul ignore next */
-    return false;
-  } // All browsers support getBoundingClientRect(), except JSDOM as it returns all 0's for values :(
-  // So any tests that need isVisible will fail in JSDOM
-  // Except when we override the getBCR prototype in some tests
-
-
-  var bcr = getBCR(el);
-  return !!(bcr && bcr.height > 0 && bcr.width > 0);
-}; // Determine if an element is disabled
-
-var isDisabled = function isDisabled(el) {
-  return !isElement(el) || el.disabled || hasAttr(el, 'disabled') || hasClass(el, 'disabled');
-}; // Cause/wait-for an element to reflow its content (adjusting its height/width)
-
-var reflow = function reflow(el) {
-  // Requesting an elements offsetHight will trigger a reflow of the element content
-
-  /* istanbul ignore next: reflow doesn't happen in JSDOM */
-  return isElement(el) && el.offsetHeight;
-}; // Select all elements matching selector. Returns `[]` if none found
-
-var selectAll = function selectAll(selector, root) {
-  return (0,_array__WEBPACK_IMPORTED_MODULE_4__.from)((isElement(root) ? root : _constants_env__WEBPACK_IMPORTED_MODULE_2__.DOCUMENT).querySelectorAll(selector));
-}; // Select a single element, returns `null` if not found
-
-var select = function select(selector, root) {
-  return (isElement(root) ? root : _constants_env__WEBPACK_IMPORTED_MODULE_2__.DOCUMENT).querySelector(selector) || null;
-}; // Determine if an element matches a selector
-
-var matches = function matches(el, selector) {
-  return isElement(el) ? matchesEl.call(el, selector) : false;
-}; // Finds closest element matching selector. Returns `null` if not found
-
-var closest = function closest(selector, root) {
-  var includeRoot = arguments.length > 2 && arguments[2] !== undefined ? arguments[2] : false;
-
-  if (!isElement(root)) {
-    return null;
-  }
-
-  var el = closestEl.call(root, selector); // Native closest behaviour when `includeRoot` is truthy,
-  // else emulate jQuery closest and return `null` if match is
-  // the passed in root element when `includeRoot` is falsey
-
-  return includeRoot ? el : el === root ? null : el;
-}; // Returns true if the parent element contains the child element
-
-var contains = function contains(parent, child) {
-  return parent && (0,_inspect__WEBPACK_IMPORTED_MODULE_1__.isFunction)(parent.contains) ? parent.contains(child) : false;
-}; // Get an element given an ID
-
-var getById = function getById(id) {
-  return _constants_env__WEBPACK_IMPORTED_MODULE_2__.DOCUMENT.getElementById(/^#/.test(id) ? id.slice(1) : id) || null;
-}; // Add a class to an element
-
-var addClass = function addClass(el, className) {
-  // We are checking for `el.classList` existence here since IE 11
-  // returns `undefined` for some elements (e.g. SVG elements)
-  // See https://github.com/bootstrap-vue/bootstrap-vue/issues/2713
-  if (className && isElement(el) && el.classList) {
-    el.classList.add(className);
-  }
-}; // Remove a class from an element
-
-var removeClass = function removeClass(el, className) {
-  // We are checking for `el.classList` existence here since IE 11
-  // returns `undefined` for some elements (e.g. SVG elements)
-  // See https://github.com/bootstrap-vue/bootstrap-vue/issues/2713
-  if (className && isElement(el) && el.classList) {
-    el.classList.remove(className);
-  }
-}; // Test if an element has a class
-
-var hasClass = function hasClass(el, className) {
-  // We are checking for `el.classList` existence here since IE 11
-  // returns `undefined` for some elements (e.g. SVG elements)
-  // See https://github.com/bootstrap-vue/bootstrap-vue/issues/2713
-  if (className && isElement(el) && el.classList) {
-    return el.classList.contains(className);
-  }
-
-  return false;
-}; // Set an attribute on an element
-
-var setAttr = function setAttr(el, attr, value) {
-  if (attr && isElement(el)) {
-    el.setAttribute(attr, value);
-  }
-}; // Remove an attribute from an element
-
-var removeAttr = function removeAttr(el, attr) {
-  if (attr && isElement(el)) {
-    el.removeAttribute(attr);
-  }
-}; // Get an attribute value from an element
-// Returns `null` if not found
-
-var getAttr = function getAttr(el, attr) {
-  return attr && isElement(el) ? el.getAttribute(attr) : null;
-}; // Determine if an attribute exists on an element
-// Returns `true` or `false`, or `null` if element not found
-
-var hasAttr = function hasAttr(el, attr) {
-  return attr && isElement(el) ? el.hasAttribute(attr) : null;
-}; // Set an style property on an element
-
-var setStyle = function setStyle(el, prop, value) {
-  if (prop && isElement(el)) {
-    el.style[prop] = value;
-  }
-}; // Remove an style property from an element
-
-var removeStyle = function removeStyle(el, prop) {
-  if (prop && isElement(el)) {
-    el.style[prop] = '';
-  }
-}; // Get an style property value from an element
-// Returns `null` if not found
-
-var getStyle = function getStyle(el, prop) {
-  return prop && isElement(el) ? el.style[prop] || null : null;
-}; // Return the Bounding Client Rect of an element
-// Returns `null` if not an element
-
-/* istanbul ignore next: getBoundingClientRect() doesn't work in JSDOM */
-
-var getBCR = function getBCR(el) {
-  return isElement(el) ? el.getBoundingClientRect() : null;
-}; // Get computed style object for an element
-
-/* istanbul ignore next: getComputedStyle() doesn't work in JSDOM */
-
-var getCS = function getCS(el) {
-  var getComputedStyle = _constants_env__WEBPACK_IMPORTED_MODULE_2__.WINDOW.getComputedStyle;
-  return getComputedStyle && isElement(el) ? getComputedStyle(el) : {};
-}; // Returns a `Selection` object representing the range of text selected
-// Returns `null` if no window support is given
-
-/* istanbul ignore next: getSelection() doesn't work in JSDOM */
-
-var getSel = function getSel() {
-  var getSelection = _constants_env__WEBPACK_IMPORTED_MODULE_2__.WINDOW.getSelection;
-  return getSelection ? _constants_env__WEBPACK_IMPORTED_MODULE_2__.WINDOW.getSelection() : null;
-}; // Return an element's offset with respect to document element
-// https://j11y.io/jquery/#v=git&fn=jQuery.fn.offset
-
-var offset = function offset(el)
-/* istanbul ignore next: getBoundingClientRect(), getClientRects() doesn't work in JSDOM */
-{
-  var _offset = {
-    top: 0,
-    left: 0
-  };
-
-  if (!isElement(el) || el.getClientRects().length === 0) {
-    return _offset;
-  }
-
-  var bcr = getBCR(el);
-
-  if (bcr) {
-    var win = el.ownerDocument.defaultView;
-    _offset.top = bcr.top + win.pageYOffset;
-    _offset.left = bcr.left + win.pageXOffset;
-  }
-
-  return _offset;
-}; // Return an element's offset with respect to to its offsetParent
-// https://j11y.io/jquery/#v=git&fn=jQuery.fn.position
-
-var position = function position(el)
-/* istanbul ignore next: getBoundingClientRect() doesn't work in JSDOM */
-{
-  var _offset = {
-    top: 0,
-    left: 0
-  };
-
-  if (!isElement(el)) {
-    return _offset;
-  }
-
-  var parentOffset = {
-    top: 0,
-    left: 0
-  };
-  var elStyles = getCS(el);
-
-  if (elStyles.position === 'fixed') {
-    _offset = getBCR(el) || _offset;
-  } else {
-    _offset = offset(el);
-    var doc = el.ownerDocument;
-    var offsetParent = el.offsetParent || doc.documentElement;
-
-    while (offsetParent && (offsetParent === doc.body || offsetParent === doc.documentElement) && getCS(offsetParent).position === 'static') {
-      offsetParent = offsetParent.parentNode;
-    }
-
-    if (offsetParent && offsetParent !== el && offsetParent.nodeType === Node.ELEMENT_NODE) {
-      parentOffset = offset(offsetParent);
-      var offsetParentStyles = getCS(offsetParent);
-      parentOffset.top += (0,_number__WEBPACK_IMPORTED_MODULE_5__.toFloat)(offsetParentStyles.borderTopWidth, 0);
-      parentOffset.left += (0,_number__WEBPACK_IMPORTED_MODULE_5__.toFloat)(offsetParentStyles.borderLeftWidth, 0);
-    }
-  }
-
-  return {
-    top: _offset.top - parentOffset.top - (0,_number__WEBPACK_IMPORTED_MODULE_5__.toFloat)(elStyles.marginTop, 0),
-    left: _offset.left - parentOffset.left - (0,_number__WEBPACK_IMPORTED_MODULE_5__.toFloat)(elStyles.marginLeft, 0)
-  };
-}; // Find all tabable elements in the given element
-// Assumes users have not used `tabindex` > `0` on elements
-
-var getTabables = function getTabables() {
-  var rootEl = arguments.length > 0 && arguments[0] !== undefined ? arguments[0] : document;
-  return selectAll(TABABLE_SELECTOR, rootEl).filter(isVisible).filter(function (el) {
-    return el.tabIndex > -1 && !el.disabled;
-  });
-}; // Attempt to focus an element, and return `true` if successful
-
-var attemptFocus = function attemptFocus(el) {
-  var options = arguments.length > 1 && arguments[1] !== undefined ? arguments[1] : {};
-
-  try {
-    el.focus(options);
-  } catch (_unused) {}
-
-  return isActiveElement(el);
-}; // Attempt to blur an element, and return `true` if successful
-
-var attemptBlur = function attemptBlur(el) {
-  try {
-    el.blur();
-  } catch (_unused2) {}
-
-  return !isActiveElement(el);
-};
-
-/***/ }),
-
-/***/ "./node_modules/bootstrap-vue/esm/utils/env.js":
-/*!*****************************************************!*\
-  !*** ./node_modules/bootstrap-vue/esm/utils/env.js ***!
-  \*****************************************************/
-/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
-
-"use strict";
-__webpack_require__.r(__webpack_exports__);
-/* harmony export */ __webpack_require__.d(__webpack_exports__, {
-/* harmony export */   "getEnv": () => (/* binding */ getEnv),
-/* harmony export */   "getNoWarn": () => (/* binding */ getNoWarn)
-/* harmony export */ });
-/* provided dependency */ var process = __webpack_require__(/*! process/browser.js */ "./node_modules/process/browser.js");
-/**
- * Utilities to get information about the current environment
- */
-var getEnv = function getEnv(key) {
-  var fallback = arguments.length > 1 && arguments[1] !== undefined ? arguments[1] : null;
-  var env = typeof process !== 'undefined' && process ? process.env || {} : {};
-
-  if (!key) {
-    /* istanbul ignore next */
-    return env;
-  }
-
-  return env[key] || fallback;
-};
-var getNoWarn = function getNoWarn() {
-  return getEnv('BOOTSTRAP_VUE_NO_WARN') || getEnv('NODE_ENV') === 'production';
-};
-
-/***/ }),
-
-/***/ "./node_modules/bootstrap-vue/esm/utils/events.js":
-/*!********************************************************!*\
-  !*** ./node_modules/bootstrap-vue/esm/utils/events.js ***!
-  \********************************************************/
-/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
-
-"use strict";
-__webpack_require__.r(__webpack_exports__);
-/* harmony export */ __webpack_require__.d(__webpack_exports__, {
-/* harmony export */   "eventOff": () => (/* binding */ eventOff),
-/* harmony export */   "eventOn": () => (/* binding */ eventOn),
-/* harmony export */   "eventOnOff": () => (/* binding */ eventOnOff),
-/* harmony export */   "getRootActionEventName": () => (/* binding */ getRootActionEventName),
-/* harmony export */   "getRootEventName": () => (/* binding */ getRootEventName),
-/* harmony export */   "parseEventOptions": () => (/* binding */ parseEventOptions),
-/* harmony export */   "stopEvent": () => (/* binding */ stopEvent)
-/* harmony export */ });
-/* harmony import */ var _constants_env__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../constants/env */ "./node_modules/bootstrap-vue/esm/constants/env.js");
-/* harmony import */ var _constants_events__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ../constants/events */ "./node_modules/bootstrap-vue/esm/constants/events.js");
-/* harmony import */ var _constants_regex__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ../constants/regex */ "./node_modules/bootstrap-vue/esm/constants/regex.js");
-/* harmony import */ var _inspect__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./inspect */ "./node_modules/bootstrap-vue/esm/utils/inspect.js");
-/* harmony import */ var _string__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./string */ "./node_modules/bootstrap-vue/esm/utils/string.js");
-
-
-
-
- // --- Utils ---
-// Normalize event options based on support of passive option
-// Exported only for testing purposes
-
-var parseEventOptions = function parseEventOptions(options) {
-  /* istanbul ignore else: can't test in JSDOM, as it supports passive */
-  if (_constants_env__WEBPACK_IMPORTED_MODULE_0__.HAS_PASSIVE_EVENT_SUPPORT) {
-    return (0,_inspect__WEBPACK_IMPORTED_MODULE_1__.isObject)(options) ? options : {
-      capture: !!options || false
-    };
-  } else {
-    // Need to translate to actual Boolean value
-    return !!((0,_inspect__WEBPACK_IMPORTED_MODULE_1__.isObject)(options) ? options.capture : options);
-  }
-}; // Attach an event listener to an element
-
-var eventOn = function eventOn(el, eventName, handler, options) {
-  if (el && el.addEventListener) {
-    el.addEventListener(eventName, handler, parseEventOptions(options));
-  }
-}; // Remove an event listener from an element
-
-var eventOff = function eventOff(el, eventName, handler, options) {
-  if (el && el.removeEventListener) {
-    el.removeEventListener(eventName, handler, parseEventOptions(options));
-  }
-}; // Utility method to add/remove a event listener based on first argument (boolean)
-// It passes all other arguments to the `eventOn()` or `eventOff` method
-
-var eventOnOff = function eventOnOff(on) {
-  var method = on ? eventOn : eventOff;
-
-  for (var _len = arguments.length, args = new Array(_len > 1 ? _len - 1 : 0), _key = 1; _key < _len; _key++) {
-    args[_key - 1] = arguments[_key];
-  }
-
-  method.apply(void 0, args);
-}; // Utility method to prevent the default event handling and propagation
-
-var stopEvent = function stopEvent(event) {
-  var _ref = arguments.length > 1 && arguments[1] !== undefined ? arguments[1] : {},
-      _ref$preventDefault = _ref.preventDefault,
-      preventDefault = _ref$preventDefault === void 0 ? true : _ref$preventDefault,
-      _ref$propagation = _ref.propagation,
-      propagation = _ref$propagation === void 0 ? true : _ref$propagation,
-      _ref$immediatePropaga = _ref.immediatePropagation,
-      immediatePropagation = _ref$immediatePropaga === void 0 ? false : _ref$immediatePropaga;
-
-  if (preventDefault) {
-    event.preventDefault();
-  }
-
-  if (propagation) {
-    event.stopPropagation();
-  }
-
-  if (immediatePropagation) {
-    event.stopImmediatePropagation();
-  }
-}; // Helper method to convert a component/directive name to a base event name
-// `getBaseEventName('BNavigationItem')` => 'navigation-item'
-// `getBaseEventName('BVToggle')` => 'toggle'
-
-var getBaseEventName = function getBaseEventName(value) {
-  return (0,_string__WEBPACK_IMPORTED_MODULE_2__.kebabCase)(value.replace(_constants_regex__WEBPACK_IMPORTED_MODULE_3__.RX_BV_PREFIX, ''));
-}; // Get a root event name by component/directive and event name
-// `getBaseEventName('BModal', 'show')` => 'bv::modal::show'
-
-
-var getRootEventName = function getRootEventName(name, eventName) {
-  return [_constants_events__WEBPACK_IMPORTED_MODULE_4__.ROOT_EVENT_NAME_PREFIX, getBaseEventName(name), eventName].join(_constants_events__WEBPACK_IMPORTED_MODULE_4__.ROOT_EVENT_NAME_SEPARATOR);
-}; // Get a root action event name by component/directive and action name
-// `getRootActionEventName('BModal', 'show')` => 'bv::show::modal'
-
-var getRootActionEventName = function getRootActionEventName(name, actionName) {
-  return [_constants_events__WEBPACK_IMPORTED_MODULE_4__.ROOT_EVENT_NAME_PREFIX, actionName, getBaseEventName(name)].join(_constants_events__WEBPACK_IMPORTED_MODULE_4__.ROOT_EVENT_NAME_SEPARATOR);
-};
-
-/***/ }),
-
-/***/ "./node_modules/bootstrap-vue/esm/utils/get-event-root.js":
-/*!****************************************************************!*\
-  !*** ./node_modules/bootstrap-vue/esm/utils/get-event-root.js ***!
-  \****************************************************************/
-/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
-
-"use strict";
-__webpack_require__.r(__webpack_exports__);
-/* harmony export */ __webpack_require__.d(__webpack_exports__, {
-/* harmony export */   "getEventRoot": () => (/* binding */ getEventRoot)
-/* harmony export */ });
-var getEventRoot = function getEventRoot(vm) {
-  return vm.$root.$options.bvEventRoot || vm.$root;
-};
-
-/***/ }),
-
-/***/ "./node_modules/bootstrap-vue/esm/utils/get-scope-id.js":
-/*!**************************************************************!*\
-  !*** ./node_modules/bootstrap-vue/esm/utils/get-scope-id.js ***!
-  \**************************************************************/
-/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
-
-"use strict";
-__webpack_require__.r(__webpack_exports__);
-/* harmony export */ __webpack_require__.d(__webpack_exports__, {
-/* harmony export */   "getScopeId": () => (/* binding */ getScopeId)
-/* harmony export */ });
-// This method returns a component's scoped style attribute name: `data-v-xxxxxxx`
-// The `_scopeId` options property is added by vue-loader when using scoped styles
-// and will be `undefined` if no scoped styles are in use
-var getScopeId = function getScopeId(vm) {
-  var defaultValue = arguments.length > 1 && arguments[1] !== undefined ? arguments[1] : null;
-  return vm ? vm.$options._scopeId || defaultValue : defaultValue;
-};
-
-/***/ }),
-
-/***/ "./node_modules/bootstrap-vue/esm/utils/html.js":
-/*!******************************************************!*\
-  !*** ./node_modules/bootstrap-vue/esm/utils/html.js ***!
-  \******************************************************/
-/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
-
-"use strict";
-__webpack_require__.r(__webpack_exports__);
-/* harmony export */ __webpack_require__.d(__webpack_exports__, {
-/* harmony export */   "htmlOrText": () => (/* binding */ htmlOrText),
-/* harmony export */   "stripTags": () => (/* binding */ stripTags)
-/* harmony export */ });
-/* harmony import */ var _constants_regex__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../constants/regex */ "./node_modules/bootstrap-vue/esm/constants/regex.js");
- // Removes anything that looks like an HTML tag from the supplied string
-
-var stripTags = function stripTags() {
-  var text = arguments.length > 0 && arguments[0] !== undefined ? arguments[0] : '';
-  return String(text).replace(_constants_regex__WEBPACK_IMPORTED_MODULE_0__.RX_HTML_TAGS, '');
-}; // Generate a `domProps` object for either `innerHTML`, `textContent` or an empty object
-
-var htmlOrText = function htmlOrText(innerHTML, textContent) {
-  return innerHTML ? {
-    innerHTML: innerHTML
-  } : textContent ? {
-    textContent: textContent
-  } : {};
-};
-
-/***/ }),
-
-/***/ "./node_modules/bootstrap-vue/esm/utils/identity.js":
-/*!**********************************************************!*\
-  !*** ./node_modules/bootstrap-vue/esm/utils/identity.js ***!
-  \**********************************************************/
-/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
-
-"use strict";
-__webpack_require__.r(__webpack_exports__);
-/* harmony export */ __webpack_require__.d(__webpack_exports__, {
-/* harmony export */   "identity": () => (/* binding */ identity)
-/* harmony export */ });
-var identity = function identity(x) {
-  return x;
-};
-
-/***/ }),
-
-/***/ "./node_modules/bootstrap-vue/esm/utils/inspect.js":
-/*!*********************************************************!*\
-  !*** ./node_modules/bootstrap-vue/esm/utils/inspect.js ***!
-  \*********************************************************/
-/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
-
-"use strict";
-__webpack_require__.r(__webpack_exports__);
-/* harmony export */ __webpack_require__.d(__webpack_exports__, {
-/* harmony export */   "isArray": () => (/* binding */ isArray),
-/* harmony export */   "isBoolean": () => (/* binding */ isBoolean),
-/* harmony export */   "isDate": () => (/* binding */ isDate),
-/* harmony export */   "isEmptyString": () => (/* binding */ isEmptyString),
-/* harmony export */   "isEvent": () => (/* binding */ isEvent),
-/* harmony export */   "isFile": () => (/* binding */ isFile),
-/* harmony export */   "isFunction": () => (/* binding */ isFunction),
-/* harmony export */   "isNull": () => (/* binding */ isNull),
-/* harmony export */   "isNumber": () => (/* binding */ isNumber),
-/* harmony export */   "isNumeric": () => (/* binding */ isNumeric),
-/* harmony export */   "isObject": () => (/* binding */ isObject),
-/* harmony export */   "isPlainObject": () => (/* binding */ isPlainObject),
-/* harmony export */   "isPrimitive": () => (/* binding */ isPrimitive),
-/* harmony export */   "isPromise": () => (/* binding */ isPromise),
-/* harmony export */   "isRegExp": () => (/* binding */ isRegExp),
-/* harmony export */   "isString": () => (/* binding */ isString),
-/* harmony export */   "isUndefined": () => (/* binding */ isUndefined),
-/* harmony export */   "isUndefinedOrNull": () => (/* binding */ isUndefinedOrNull),
-/* harmony export */   "isUndefinedOrNullOrEmpty": () => (/* binding */ isUndefinedOrNullOrEmpty),
-/* harmony export */   "toRawType": () => (/* binding */ toRawType),
-/* harmony export */   "toRawTypeLC": () => (/* binding */ toRawTypeLC),
-/* harmony export */   "toType": () => (/* binding */ toType)
-/* harmony export */ });
-/* harmony import */ var _constants_regex__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../constants/regex */ "./node_modules/bootstrap-vue/esm/constants/regex.js");
-/* harmony import */ var _constants_safe_types__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../constants/safe-types */ "./node_modules/bootstrap-vue/esm/constants/safe-types.js");
-function _typeof(obj) { "@babel/helpers - typeof"; return _typeof = "function" == typeof Symbol && "symbol" == typeof Symbol.iterator ? function (obj) { return typeof obj; } : function (obj) { return obj && "function" == typeof Symbol && obj.constructor === Symbol && obj !== Symbol.prototype ? "symbol" : typeof obj; }, _typeof(obj); }
-
-
- // --- Convenience inspection utilities ---
-
-var toType = function toType(value) {
-  return _typeof(value);
-};
-var toRawType = function toRawType(value) {
-  return Object.prototype.toString.call(value).slice(8, -1);
-};
-var toRawTypeLC = function toRawTypeLC(value) {
-  return toRawType(value).toLowerCase();
-};
-var isUndefined = function isUndefined(value) {
-  return value === undefined;
-};
-var isNull = function isNull(value) {
-  return value === null;
-};
-var isEmptyString = function isEmptyString(value) {
-  return value === '';
-};
-var isUndefinedOrNull = function isUndefinedOrNull(value) {
-  return isUndefined(value) || isNull(value);
-};
-var isUndefinedOrNullOrEmpty = function isUndefinedOrNullOrEmpty(value) {
-  return isUndefinedOrNull(value) || isEmptyString(value);
-};
-var isFunction = function isFunction(value) {
-  return toType(value) === 'function';
-};
-var isBoolean = function isBoolean(value) {
-  return toType(value) === 'boolean';
-};
-var isString = function isString(value) {
-  return toType(value) === 'string';
-};
-var isNumber = function isNumber(value) {
-  return toType(value) === 'number';
-};
-var isNumeric = function isNumeric(value) {
-  return _constants_regex__WEBPACK_IMPORTED_MODULE_0__.RX_NUMBER.test(String(value));
-};
-var isPrimitive = function isPrimitive(value) {
-  return isBoolean(value) || isString(value) || isNumber(value);
-};
-var isArray = function isArray(value) {
-  return Array.isArray(value);
-}; // Quick object check
-// This is primarily used to tell Objects from primitive values
-// when we know the value is a JSON-compliant type
-// Note object could be a complex type like array, Date, etc.
-
-var isObject = function isObject(obj) {
-  return obj !== null && _typeof(obj) === 'object';
-}; // Strict object type check
-// Only returns true for plain JavaScript objects
-
-var isPlainObject = function isPlainObject(obj) {
-  return Object.prototype.toString.call(obj) === '[object Object]';
-};
-var isDate = function isDate(value) {
-  return value instanceof Date;
-};
-var isEvent = function isEvent(value) {
-  return value instanceof Event;
-};
-var isFile = function isFile(value) {
-  return value instanceof _constants_safe_types__WEBPACK_IMPORTED_MODULE_1__.File;
-};
-var isRegExp = function isRegExp(value) {
-  return toRawType(value) === 'RegExp';
-};
-var isPromise = function isPromise(value) {
-  return !isUndefinedOrNull(value) && isFunction(value.then) && isFunction(value.catch);
-};
-
-/***/ }),
-
-/***/ "./node_modules/bootstrap-vue/esm/utils/loose-equal.js":
-/*!*************************************************************!*\
-  !*** ./node_modules/bootstrap-vue/esm/utils/loose-equal.js ***!
-  \*************************************************************/
-/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
-
-"use strict";
-__webpack_require__.r(__webpack_exports__);
-/* harmony export */ __webpack_require__.d(__webpack_exports__, {
-/* harmony export */   "looseEqual": () => (/* binding */ looseEqual)
-/* harmony export */ });
-/* harmony import */ var _object__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./object */ "./node_modules/bootstrap-vue/esm/utils/object.js");
-/* harmony import */ var _inspect__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./inspect */ "./node_modules/bootstrap-vue/esm/utils/inspect.js");
-
- // Assumes both a and b are arrays!
-// Handles when arrays are "sparse" (array.every(...) doesn't handle sparse)
-
-var compareArrays = function compareArrays(a, b) {
-  if (a.length !== b.length) {
-    return false;
-  }
-
-  var equal = true;
-
-  for (var i = 0; equal && i < a.length; i++) {
-    equal = looseEqual(a[i], b[i]);
-  }
-
-  return equal;
-};
-/**
- * Check if two values are loosely equal - that is,
- * if they are plain objects, do they have the same shape?
- * Returns boolean true or false
- */
-
-
-var looseEqual = function looseEqual(a, b) {
-  if (a === b) {
-    return true;
-  }
-
-  var aValidType = (0,_inspect__WEBPACK_IMPORTED_MODULE_0__.isDate)(a);
-  var bValidType = (0,_inspect__WEBPACK_IMPORTED_MODULE_0__.isDate)(b);
-
-  if (aValidType || bValidType) {
-    return aValidType && bValidType ? a.getTime() === b.getTime() : false;
-  }
-
-  aValidType = (0,_inspect__WEBPACK_IMPORTED_MODULE_0__.isArray)(a);
-  bValidType = (0,_inspect__WEBPACK_IMPORTED_MODULE_0__.isArray)(b);
-
-  if (aValidType || bValidType) {
-    return aValidType && bValidType ? compareArrays(a, b) : false;
-  }
-
-  aValidType = (0,_inspect__WEBPACK_IMPORTED_MODULE_0__.isObject)(a);
-  bValidType = (0,_inspect__WEBPACK_IMPORTED_MODULE_0__.isObject)(b);
-
-  if (aValidType || bValidType) {
-    /* istanbul ignore if: this if will probably never be called */
-    if (!aValidType || !bValidType) {
-      return false;
-    }
-
-    var aKeysCount = (0,_object__WEBPACK_IMPORTED_MODULE_1__.keys)(a).length;
-    var bKeysCount = (0,_object__WEBPACK_IMPORTED_MODULE_1__.keys)(b).length;
-
-    if (aKeysCount !== bKeysCount) {
-      return false;
-    }
-
-    for (var key in a) {
-      var aHasKey = (0,_object__WEBPACK_IMPORTED_MODULE_1__.hasOwnProperty)(a, key);
-      var bHasKey = (0,_object__WEBPACK_IMPORTED_MODULE_1__.hasOwnProperty)(b, key);
-
-      if (aHasKey && !bHasKey || !aHasKey && bHasKey || !looseEqual(a[key], b[key])) {
-        return false;
-      }
-    }
-  }
-
-  return String(a) === String(b);
-};
-
-/***/ }),
-
-/***/ "./node_modules/bootstrap-vue/esm/utils/memoize.js":
-/*!*********************************************************!*\
-  !*** ./node_modules/bootstrap-vue/esm/utils/memoize.js ***!
-  \*********************************************************/
-/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
-
-"use strict";
-__webpack_require__.r(__webpack_exports__);
-/* harmony export */ __webpack_require__.d(__webpack_exports__, {
-/* harmony export */   "memoize": () => (/* binding */ memoize)
-/* harmony export */ });
-/* harmony import */ var _object__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./object */ "./node_modules/bootstrap-vue/esm/utils/object.js");
-
-var memoize = function memoize(fn) {
-  var cache = (0,_object__WEBPACK_IMPORTED_MODULE_0__.create)(null);
-  return function () {
-    for (var _len = arguments.length, args = new Array(_len), _key = 0; _key < _len; _key++) {
-      args[_key] = arguments[_key];
-    }
-
-    var argsKey = JSON.stringify(args);
-    return cache[argsKey] = cache[argsKey] || fn.apply(null, args);
-  };
-};
-
-/***/ }),
-
-/***/ "./node_modules/bootstrap-vue/esm/utils/model.js":
-/*!*******************************************************!*\
-  !*** ./node_modules/bootstrap-vue/esm/utils/model.js ***!
-  \*******************************************************/
-/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
-
-"use strict";
-__webpack_require__.r(__webpack_exports__);
-/* harmony export */ __webpack_require__.d(__webpack_exports__, {
-/* harmony export */   "makeModelMixin": () => (/* binding */ makeModelMixin)
-/* harmony export */ });
-/* harmony import */ var _vue__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ../vue */ "./node_modules/bootstrap-vue/esm/vue.js");
-/* harmony import */ var _constants_events__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../constants/events */ "./node_modules/bootstrap-vue/esm/constants/events.js");
-/* harmony import */ var _constants_props__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../constants/props */ "./node_modules/bootstrap-vue/esm/constants/props.js");
-/* harmony import */ var _props__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./props */ "./node_modules/bootstrap-vue/esm/utils/props.js");
-function _defineProperty(obj, key, value) { if (key in obj) { Object.defineProperty(obj, key, { value: value, enumerable: true, configurable: true, writable: true }); } else { obj[key] = value; } return obj; }
-
-
-
-
-
-var makeModelMixin = function makeModelMixin(prop) {
-  var _ref = arguments.length > 1 && arguments[1] !== undefined ? arguments[1] : {},
-      _ref$type = _ref.type,
-      type = _ref$type === void 0 ? _constants_props__WEBPACK_IMPORTED_MODULE_0__.PROP_TYPE_ANY : _ref$type,
-      _ref$defaultValue = _ref.defaultValue,
-      defaultValue = _ref$defaultValue === void 0 ? undefined : _ref$defaultValue,
-      _ref$validator = _ref.validator,
-      validator = _ref$validator === void 0 ? undefined : _ref$validator,
-      _ref$event = _ref.event,
-      event = _ref$event === void 0 ? _constants_events__WEBPACK_IMPORTED_MODULE_1__.EVENT_NAME_INPUT : _ref$event;
-
-  var props = _defineProperty({}, prop, (0,_props__WEBPACK_IMPORTED_MODULE_2__.makeProp)(type, defaultValue, validator)); // @vue/component
-
-
-  var mixin = (0,_vue__WEBPACK_IMPORTED_MODULE_3__.extend)({
-    model: {
-      prop: prop,
-      event: event
-    },
-    props: props
-  });
-  return {
-    mixin: mixin,
-    props: props,
-    prop: prop,
-    event: event
-  };
-};
-
-/***/ }),
-
-/***/ "./node_modules/bootstrap-vue/esm/utils/normalize-slot.js":
-/*!****************************************************************!*\
-  !*** ./node_modules/bootstrap-vue/esm/utils/normalize-slot.js ***!
-  \****************************************************************/
-/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
-
-"use strict";
-__webpack_require__.r(__webpack_exports__);
-/* harmony export */ __webpack_require__.d(__webpack_exports__, {
-/* harmony export */   "hasNormalizedSlot": () => (/* binding */ hasNormalizedSlot),
-/* harmony export */   "normalizeSlot": () => (/* binding */ normalizeSlot)
-/* harmony export */ });
-/* harmony import */ var _array__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./array */ "./node_modules/bootstrap-vue/esm/utils/array.js");
-/* harmony import */ var _identity__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./identity */ "./node_modules/bootstrap-vue/esm/utils/identity.js");
-/* harmony import */ var _inspect__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./inspect */ "./node_modules/bootstrap-vue/esm/utils/inspect.js");
-
-
- // Note for functional components:
-// In functional components, `slots` is a function so it must be called
-// first before passing to the below methods. `scopedSlots` is always an
-// object and may be undefined (for Vue < 2.6.x)
-
-/**
- * Returns true if either scoped or unscoped named slot exists
- *
- * @param {String, Array} name or name[]
- * @param {Object} scopedSlots
- * @param {Object} slots
- * @returns {Array|undefined} VNodes
- */
-
-var hasNormalizedSlot = function hasNormalizedSlot(names) {
-  var $scopedSlots = arguments.length > 1 && arguments[1] !== undefined ? arguments[1] : {};
-  var $slots = arguments.length > 2 && arguments[2] !== undefined ? arguments[2] : {};
-  // Ensure names is an array
-  names = (0,_array__WEBPACK_IMPORTED_MODULE_0__.concat)(names).filter(_identity__WEBPACK_IMPORTED_MODULE_1__.identity); // Returns true if the either a $scopedSlot or $slot exists with the specified name
-
-  return names.some(function (name) {
-    return $scopedSlots[name] || $slots[name];
-  });
-};
-/**
- * Returns VNodes for named slot either scoped or unscoped
- *
- * @param {String, Array} name or name[]
- * @param {String} scope
- * @param {Object} scopedSlots
- * @param {Object} slots
- * @returns {Array|undefined} VNodes
- */
-
-var normalizeSlot = function normalizeSlot(names) {
-  var scope = arguments.length > 1 && arguments[1] !== undefined ? arguments[1] : {};
-  var $scopedSlots = arguments.length > 2 && arguments[2] !== undefined ? arguments[2] : {};
-  var $slots = arguments.length > 3 && arguments[3] !== undefined ? arguments[3] : {};
-  // Ensure names is an array
-  names = (0,_array__WEBPACK_IMPORTED_MODULE_0__.concat)(names).filter(_identity__WEBPACK_IMPORTED_MODULE_1__.identity);
-  var slot;
-
-  for (var i = 0; i < names.length && !slot; i++) {
-    var name = names[i];
-    slot = $scopedSlots[name] || $slots[name];
-  } // Note: in Vue 2.6.x, all named slots are also scoped slots
-
-
-  return (0,_inspect__WEBPACK_IMPORTED_MODULE_2__.isFunction)(slot) ? slot(scope) : slot;
-};
-
-/***/ }),
-
-/***/ "./node_modules/bootstrap-vue/esm/utils/number.js":
-/*!********************************************************!*\
-  !*** ./node_modules/bootstrap-vue/esm/utils/number.js ***!
-  \********************************************************/
-/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
-
-"use strict";
-__webpack_require__.r(__webpack_exports__);
-/* harmony export */ __webpack_require__.d(__webpack_exports__, {
-/* harmony export */   "toFixed": () => (/* binding */ toFixed),
-/* harmony export */   "toFloat": () => (/* binding */ toFloat),
-/* harmony export */   "toInteger": () => (/* binding */ toInteger)
-/* harmony export */ });
-// Number utilities
-// Converts a value (string, number, etc.) to an integer number
-// Assumes radix base 10
-var toInteger = function toInteger(value) {
-  var defaultValue = arguments.length > 1 && arguments[1] !== undefined ? arguments[1] : NaN;
-  var integer = parseInt(value, 10);
-  return isNaN(integer) ? defaultValue : integer;
-}; // Converts a value (string, number, etc.) to a number
-
-var toFloat = function toFloat(value) {
-  var defaultValue = arguments.length > 1 && arguments[1] !== undefined ? arguments[1] : NaN;
-  var float = parseFloat(value);
-  return isNaN(float) ? defaultValue : float;
-}; // Converts a value (string, number, etc.) to a string
-// representation with `precision` digits after the decimal
-// Returns the string 'NaN' if the value cannot be converted
-
-var toFixed = function toFixed(val, precision) {
-  return toFloat(val).toFixed(toInteger(precision, 0));
-};
-
-/***/ }),
-
-/***/ "./node_modules/bootstrap-vue/esm/utils/object.js":
-/*!********************************************************!*\
-  !*** ./node_modules/bootstrap-vue/esm/utils/object.js ***!
-  \********************************************************/
-/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
-
-"use strict";
-__webpack_require__.r(__webpack_exports__);
-/* harmony export */ __webpack_require__.d(__webpack_exports__, {
-/* harmony export */   "assign": () => (/* binding */ assign),
-/* harmony export */   "clone": () => (/* binding */ clone),
-/* harmony export */   "create": () => (/* binding */ create),
-/* harmony export */   "defineProperties": () => (/* binding */ defineProperties),
-/* harmony export */   "defineProperty": () => (/* binding */ defineProperty),
-/* harmony export */   "freeze": () => (/* binding */ freeze),
-/* harmony export */   "getOwnPropertyDescriptor": () => (/* binding */ getOwnPropertyDescriptor),
-/* harmony export */   "getOwnPropertyNames": () => (/* binding */ getOwnPropertyNames),
-/* harmony export */   "getOwnPropertySymbols": () => (/* binding */ getOwnPropertySymbols),
-/* harmony export */   "getPrototypeOf": () => (/* binding */ getPrototypeOf),
-/* harmony export */   "hasOwnProperty": () => (/* binding */ hasOwnProperty),
-/* harmony export */   "is": () => (/* binding */ is),
-/* harmony export */   "isFrozen": () => (/* binding */ isFrozen),
-/* harmony export */   "keys": () => (/* binding */ keys),
-/* harmony export */   "mergeDeep": () => (/* binding */ mergeDeep),
-/* harmony export */   "omit": () => (/* binding */ omit),
-/* harmony export */   "pick": () => (/* binding */ pick),
-/* harmony export */   "readonlyDescriptor": () => (/* binding */ readonlyDescriptor),
-/* harmony export */   "sortKeys": () => (/* binding */ sortKeys),
-/* harmony export */   "toString": () => (/* binding */ toString)
-/* harmony export */ });
-/* harmony import */ var _inspect__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./inspect */ "./node_modules/bootstrap-vue/esm/utils/inspect.js");
-function ownKeys(object, enumerableOnly) { var keys = Object.keys(object); if (Object.getOwnPropertySymbols) { var symbols = Object.getOwnPropertySymbols(object); enumerableOnly && (symbols = symbols.filter(function (sym) { return Object.getOwnPropertyDescriptor(object, sym).enumerable; })), keys.push.apply(keys, symbols); } return keys; }
-
-function _objectSpread(target) { for (var i = 1; i < arguments.length; i++) { var source = null != arguments[i] ? arguments[i] : {}; i % 2 ? ownKeys(Object(source), !0).forEach(function (key) { _defineProperty(target, key, source[key]); }) : Object.getOwnPropertyDescriptors ? Object.defineProperties(target, Object.getOwnPropertyDescriptors(source)) : ownKeys(Object(source)).forEach(function (key) { Object.defineProperty(target, key, Object.getOwnPropertyDescriptor(source, key)); }); } return target; }
-
-function _defineProperty(obj, key, value) { if (key in obj) { Object.defineProperty(obj, key, { value: value, enumerable: true, configurable: true, writable: true }); } else { obj[key] = value; } return obj; }
-
- // --- Static ---
-
-var assign = function assign() {
-  return Object.assign.apply(Object, arguments);
-};
-var create = function create(proto, optionalProps) {
-  return Object.create(proto, optionalProps);
-};
-var defineProperties = function defineProperties(obj, props) {
-  return Object.defineProperties(obj, props);
-};
-var defineProperty = function defineProperty(obj, prop, descriptor) {
-  return Object.defineProperty(obj, prop, descriptor);
-};
-var freeze = function freeze(obj) {
-  return Object.freeze(obj);
-};
-var getOwnPropertyNames = function getOwnPropertyNames(obj) {
-  return Object.getOwnPropertyNames(obj);
-};
-var getOwnPropertyDescriptor = function getOwnPropertyDescriptor(obj, prop) {
-  return Object.getOwnPropertyDescriptor(obj, prop);
-};
-var getOwnPropertySymbols = function getOwnPropertySymbols(obj) {
-  return Object.getOwnPropertySymbols(obj);
-};
-var getPrototypeOf = function getPrototypeOf(obj) {
-  return Object.getPrototypeOf(obj);
-};
-var is = function is(value1, value2) {
-  return Object.is(value1, value2);
-};
-var isFrozen = function isFrozen(obj) {
-  return Object.isFrozen(obj);
-};
-var keys = function keys(obj) {
-  return Object.keys(obj);
-}; // --- "Instance" ---
-
-var hasOwnProperty = function hasOwnProperty(obj, prop) {
-  return Object.prototype.hasOwnProperty.call(obj, prop);
-};
-var toString = function toString(obj) {
-  return Object.prototype.toString.call(obj);
-}; // --- Utilities ---
-// Shallow copy an object
-
-var clone = function clone(obj) {
-  return _objectSpread({}, obj);
-}; // Return a shallow copy of object with the specified properties only
-// See: https://gist.github.com/bisubus/2da8af7e801ffd813fab7ac221aa7afc
-
-var pick = function pick(obj, props) {
-  return keys(obj).filter(function (key) {
-    return props.indexOf(key) !== -1;
-  }).reduce(function (result, key) {
-    return _objectSpread(_objectSpread({}, result), {}, _defineProperty({}, key, obj[key]));
-  }, {});
-}; // Return a shallow copy of object with the specified properties omitted
-// See: https://gist.github.com/bisubus/2da8af7e801ffd813fab7ac221aa7afc
-
-var omit = function omit(obj, props) {
-  return keys(obj).filter(function (key) {
-    return props.indexOf(key) === -1;
-  }).reduce(function (result, key) {
-    return _objectSpread(_objectSpread({}, result), {}, _defineProperty({}, key, obj[key]));
-  }, {});
-}; // Merges two object deeply together
-// See: https://gist.github.com/Salakar/1d7137de9cb8b704e48a
-
-var mergeDeep = function mergeDeep(target, source) {
-  if ((0,_inspect__WEBPACK_IMPORTED_MODULE_0__.isObject)(target) && (0,_inspect__WEBPACK_IMPORTED_MODULE_0__.isObject)(source)) {
-    keys(source).forEach(function (key) {
-      if ((0,_inspect__WEBPACK_IMPORTED_MODULE_0__.isObject)(source[key])) {
-        if (!target[key] || !(0,_inspect__WEBPACK_IMPORTED_MODULE_0__.isObject)(target[key])) {
-          target[key] = source[key];
-        }
-
-        mergeDeep(target[key], source[key]);
-      } else {
-        assign(target, _defineProperty({}, key, source[key]));
-      }
-    });
-  }
-
-  return target;
-}; // Returns a shallow copy of the object with keys in sorted order
-
-var sortKeys = function sortKeys(obj) {
-  return keys(obj).sort().reduce(function (result, key) {
-    return _objectSpread(_objectSpread({}, result), {}, _defineProperty({}, key, obj[key]));
-  }, {});
-}; // Convenience method to create a read-only descriptor
-
-var readonlyDescriptor = function readonlyDescriptor() {
-  return {
-    enumerable: true,
-    configurable: false,
-    writable: false
-  };
-};
-
-/***/ }),
-
-/***/ "./node_modules/bootstrap-vue/esm/utils/observe-dom.js":
-/*!*************************************************************!*\
-  !*** ./node_modules/bootstrap-vue/esm/utils/observe-dom.js ***!
-  \*************************************************************/
-/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
-
-"use strict";
-__webpack_require__.r(__webpack_exports__);
-/* harmony export */ __webpack_require__.d(__webpack_exports__, {
-/* harmony export */   "observeDom": () => (/* binding */ observeDom)
-/* harmony export */ });
-/* harmony import */ var _dom__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./dom */ "./node_modules/bootstrap-vue/esm/utils/dom.js");
-/* harmony import */ var _warn__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./warn */ "./node_modules/bootstrap-vue/esm/utils/warn.js");
-function ownKeys(object, enumerableOnly) { var keys = Object.keys(object); if (Object.getOwnPropertySymbols) { var symbols = Object.getOwnPropertySymbols(object); enumerableOnly && (symbols = symbols.filter(function (sym) { return Object.getOwnPropertyDescriptor(object, sym).enumerable; })), keys.push.apply(keys, symbols); } return keys; }
-
-function _objectSpread(target) { for (var i = 1; i < arguments.length; i++) { var source = null != arguments[i] ? arguments[i] : {}; i % 2 ? ownKeys(Object(source), !0).forEach(function (key) { _defineProperty(target, key, source[key]); }) : Object.getOwnPropertyDescriptors ? Object.defineProperties(target, Object.getOwnPropertyDescriptors(source)) : ownKeys(Object(source)).forEach(function (key) { Object.defineProperty(target, key, Object.getOwnPropertyDescriptor(source, key)); }); } return target; }
-
-function _defineProperty(obj, key, value) { if (key in obj) { Object.defineProperty(obj, key, { value: value, enumerable: true, configurable: true, writable: true }); } else { obj[key] = value; } return obj; }
-
-
-
-/**
- * Observe a DOM element changes, falls back to eventListener mode
- * @param {Element} el The DOM element to observe
- * @param {Function} callback callback to be called on change
- * @param {object} [options={childList: true, subtree: true}] observe options
- * @see https://stackoverflow.com/questions/3219758
- */
-
-var observeDom = function observeDom(el, callback, options)
-/* istanbul ignore next: difficult to test in JSDOM */
-{
-  // Handle cases where we might be passed a Vue instance
-  el = el ? el.$el || el : null; // Early exit when we have no element
-
-  /* istanbul ignore next: difficult to test in JSDOM */
-
-  if (!(0,_dom__WEBPACK_IMPORTED_MODULE_0__.isElement)(el)) {
-    return null;
-  } // Exit and throw a warning when `MutationObserver` isn't available
-
-
-  if ((0,_warn__WEBPACK_IMPORTED_MODULE_1__.warnNoMutationObserverSupport)('observeDom')) {
-    return null;
-  } // Define a new observer
-
-
-  var obs = new _dom__WEBPACK_IMPORTED_MODULE_0__.MutationObs(function (mutations) {
-    var changed = false; // A mutation can contain several change records, so we loop
-    // through them to see what has changed
-    // We break out of the loop early if any "significant" change
-    // has been detected
-
-    for (var i = 0; i < mutations.length && !changed; i++) {
-      // The mutation record
-      var mutation = mutations[i]; // Mutation type
-
-      var type = mutation.type; // DOM node (could be any DOM node type - HTMLElement, Text, comment, etc.)
-
-      var target = mutation.target; // Detect whether a change happened based on type and target
-
-      if (type === 'characterData' && target.nodeType === Node.TEXT_NODE) {
-        // We ignore nodes that are not TEXT (i.e. comments, etc.)
-        // as they don't change layout
-        changed = true;
-      } else if (type === 'attributes') {
-        changed = true;
-      } else if (type === 'childList' && (mutation.addedNodes.length > 0 || mutation.removedNodes.length > 0)) {
-        // This includes HTMLElement and text nodes being
-        // added/removed/re-arranged
-        changed = true;
-      }
-    } // We only call the callback if a change that could affect
-    // layout/size truly happened
-
-
-    if (changed) {
-      callback();
-    }
-  }); // Have the observer observe foo for changes in children, etc
-
-  obs.observe(el, _objectSpread({
-    childList: true,
-    subtree: true
-  }, options)); // We return a reference to the observer so that `obs.disconnect()`
-  // can be called if necessary
-  // To reduce overhead when the root element is hidden
-
-  return obs;
-};
-
-/***/ }),
-
-/***/ "./node_modules/bootstrap-vue/esm/utils/props.js":
-/*!*******************************************************!*\
-  !*** ./node_modules/bootstrap-vue/esm/utils/props.js ***!
-  \*******************************************************/
-/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
-
-"use strict";
-__webpack_require__.r(__webpack_exports__);
-/* harmony export */ __webpack_require__.d(__webpack_exports__, {
-/* harmony export */   "copyProps": () => (/* binding */ copyProps),
-/* harmony export */   "hasPropFunction": () => (/* binding */ hasPropFunction),
-/* harmony export */   "makeProp": () => (/* binding */ makeProp),
-/* harmony export */   "makePropConfigurable": () => (/* binding */ makePropConfigurable),
-/* harmony export */   "makePropsConfigurable": () => (/* binding */ makePropsConfigurable),
-/* harmony export */   "pluckProps": () => (/* binding */ pluckProps),
-/* harmony export */   "prefixPropName": () => (/* binding */ prefixPropName),
-/* harmony export */   "suffixPropName": () => (/* binding */ suffixPropName),
-/* harmony export */   "unprefixPropName": () => (/* binding */ unprefixPropName)
-/* harmony export */ });
-/* harmony import */ var _constants_props__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../constants/props */ "./node_modules/bootstrap-vue/esm/constants/props.js");
-/* harmony import */ var _clone_deep__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ./clone-deep */ "./node_modules/bootstrap-vue/esm/utils/clone-deep.js");
-/* harmony import */ var _config__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! ./config */ "./node_modules/bootstrap-vue/esm/utils/config.js");
-/* harmony import */ var _identity__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./identity */ "./node_modules/bootstrap-vue/esm/utils/identity.js");
-/* harmony import */ var _inspect__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./inspect */ "./node_modules/bootstrap-vue/esm/utils/inspect.js");
-/* harmony import */ var _object__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ./object */ "./node_modules/bootstrap-vue/esm/utils/object.js");
-/* harmony import */ var _string__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./string */ "./node_modules/bootstrap-vue/esm/utils/string.js");
-function ownKeys(object, enumerableOnly) { var keys = Object.keys(object); if (Object.getOwnPropertySymbols) { var symbols = Object.getOwnPropertySymbols(object); enumerableOnly && (symbols = symbols.filter(function (sym) { return Object.getOwnPropertyDescriptor(object, sym).enumerable; })), keys.push.apply(keys, symbols); } return keys; }
-
-function _objectSpread(target) { for (var i = 1; i < arguments.length; i++) { var source = null != arguments[i] ? arguments[i] : {}; i % 2 ? ownKeys(Object(source), !0).forEach(function (key) { _defineProperty(target, key, source[key]); }) : Object.getOwnPropertyDescriptors ? Object.defineProperties(target, Object.getOwnPropertyDescriptors(source)) : ownKeys(Object(source)).forEach(function (key) { Object.defineProperty(target, key, Object.getOwnPropertyDescriptor(source, key)); }); } return target; }
-
-function _defineProperty(obj, key, value) { if (key in obj) { Object.defineProperty(obj, key, { value: value, enumerable: true, configurable: true, writable: true }); } else { obj[key] = value; } return obj; }
-
-
-
-
-
-
-
- // Prefix a property
-
-var prefixPropName = function prefixPropName(prefix, value) {
-  return prefix + (0,_string__WEBPACK_IMPORTED_MODULE_0__.upperFirst)(value);
-}; // Remove a prefix from a property
-
-var unprefixPropName = function unprefixPropName(prefix, value) {
-  return (0,_string__WEBPACK_IMPORTED_MODULE_0__.lowerFirst)(value.replace(prefix, ''));
-}; // Suffix can be a falsey value so nothing is appended to string
-// (helps when looping over props & some shouldn't change)
-// Use data last parameters to allow for currying
-
-var suffixPropName = function suffixPropName(suffix, value) {
-  return value + (suffix ? (0,_string__WEBPACK_IMPORTED_MODULE_0__.upperFirst)(suffix) : '');
-}; // Generates a prop object
-
-var makeProp = function makeProp() {
-  var type = arguments.length > 0 && arguments[0] !== undefined ? arguments[0] : _constants_props__WEBPACK_IMPORTED_MODULE_1__.PROP_TYPE_ANY;
-  var value = arguments.length > 1 && arguments[1] !== undefined ? arguments[1] : undefined;
-  var requiredOrValidator = arguments.length > 2 && arguments[2] !== undefined ? arguments[2] : undefined;
-  var validator = arguments.length > 3 && arguments[3] !== undefined ? arguments[3] : undefined;
-  var required = requiredOrValidator === true;
-  validator = required ? validator : requiredOrValidator;
-  return _objectSpread(_objectSpread(_objectSpread({}, type ? {
-    type: type
-  } : {}), required ? {
-    required: required
-  } : (0,_inspect__WEBPACK_IMPORTED_MODULE_2__.isUndefined)(value) ? {} : {
-    default: (0,_inspect__WEBPACK_IMPORTED_MODULE_2__.isObject)(value) ? function () {
-      return value;
-    } : value
-  }), (0,_inspect__WEBPACK_IMPORTED_MODULE_2__.isUndefined)(validator) ? {} : {
-    validator: validator
-  });
-}; // Copies props from one array/object to a new array/object
-// Prop values are also cloned as new references to prevent possible
-// mutation of original prop object values
-// Optionally accepts a function to transform the prop name
-
-var copyProps = function copyProps(props) {
-  var transformFn = arguments.length > 1 && arguments[1] !== undefined ? arguments[1] : _identity__WEBPACK_IMPORTED_MODULE_3__.identity;
-
-  if ((0,_inspect__WEBPACK_IMPORTED_MODULE_2__.isArray)(props)) {
-    return props.map(transformFn);
-  }
-
-  var copied = {};
-
-  for (var prop in props) {
-    /* istanbul ignore else */
-    if ((0,_object__WEBPACK_IMPORTED_MODULE_4__.hasOwnProperty)(props, prop)) {
-      // If the prop value is an object, do a shallow clone
-      // to prevent potential mutations to the original object
-      copied[transformFn(prop)] = (0,_inspect__WEBPACK_IMPORTED_MODULE_2__.isObject)(props[prop]) ? (0,_object__WEBPACK_IMPORTED_MODULE_4__.clone)(props[prop]) : props[prop];
-    }
-  }
-
-  return copied;
-}; // Given an array of properties or an object of property keys,
-// plucks all the values off the target object, returning a new object
-// that has props that reference the original prop values
-
-var pluckProps = function pluckProps(keysToPluck, objToPluck) {
-  var transformFn = arguments.length > 2 && arguments[2] !== undefined ? arguments[2] : _identity__WEBPACK_IMPORTED_MODULE_3__.identity;
-  return ((0,_inspect__WEBPACK_IMPORTED_MODULE_2__.isArray)(keysToPluck) ? keysToPluck.slice() : (0,_object__WEBPACK_IMPORTED_MODULE_4__.keys)(keysToPluck)).reduce(function (memo, prop) {
-    memo[transformFn(prop)] = objToPluck[prop];
-    return memo;
-  }, {});
-}; // Make a prop object configurable by global configuration
-// Replaces the current `default` key of each prop with a `getComponentConfig()`
-// call that falls back to the current default value of the prop
-
-var makePropConfigurable = function makePropConfigurable(prop, key, componentKey) {
-  return _objectSpread(_objectSpread({}, (0,_clone_deep__WEBPACK_IMPORTED_MODULE_5__.cloneDeep)(prop)), {}, {
-    default: function bvConfigurablePropDefault() {
-      var value = (0,_config__WEBPACK_IMPORTED_MODULE_6__.getComponentConfig)(componentKey, key, prop.default);
-      return (0,_inspect__WEBPACK_IMPORTED_MODULE_2__.isFunction)(value) ? value() : value;
-    }
-  });
-}; // Make a props object configurable by global configuration
-// Replaces the current `default` key of each prop with a `getComponentConfig()`
-// call that falls back to the current default value of the prop
-
-var makePropsConfigurable = function makePropsConfigurable(props, componentKey) {
-  return (0,_object__WEBPACK_IMPORTED_MODULE_4__.keys)(props).reduce(function (result, key) {
-    return _objectSpread(_objectSpread({}, result), {}, _defineProperty({}, key, makePropConfigurable(props[key], key, componentKey)));
-  }, {});
-}; // Get function name we use in `makePropConfigurable()`
-// for the prop default value override to compare
-// against in `hasPropFunction()`
-
-var configurablePropDefaultFnName = makePropConfigurable({}, '', '').default.name; // Detect wether the given value is currently a function
-// and isn't the props default function
-
-var hasPropFunction = function hasPropFunction(fn) {
-  return (0,_inspect__WEBPACK_IMPORTED_MODULE_2__.isFunction)(fn) && fn.name && fn.name !== configurablePropDefaultFnName;
-};
-
-/***/ }),
-
-/***/ "./node_modules/bootstrap-vue/esm/utils/router.js":
-/*!********************************************************!*\
-  !*** ./node_modules/bootstrap-vue/esm/utils/router.js ***!
-  \********************************************************/
-/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
-
-"use strict";
-__webpack_require__.r(__webpack_exports__);
-/* harmony export */ __webpack_require__.d(__webpack_exports__, {
-/* harmony export */   "computeHref": () => (/* binding */ computeHref),
-/* harmony export */   "computeRel": () => (/* binding */ computeRel),
-/* harmony export */   "computeTag": () => (/* binding */ computeTag),
-/* harmony export */   "isLink": () => (/* binding */ isLink),
-/* harmony export */   "isRouterLink": () => (/* binding */ isRouterLink),
-/* harmony export */   "parseQuery": () => (/* binding */ parseQuery),
-/* harmony export */   "stringifyQueryObj": () => (/* binding */ stringifyQueryObj)
-/* harmony export */ });
-/* harmony import */ var _constants_regex__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../constants/regex */ "./node_modules/bootstrap-vue/esm/constants/regex.js");
-/* harmony import */ var _dom__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ./dom */ "./node_modules/bootstrap-vue/esm/utils/dom.js");
-/* harmony import */ var _inspect__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./inspect */ "./node_modules/bootstrap-vue/esm/utils/inspect.js");
-/* harmony import */ var _object__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./object */ "./node_modules/bootstrap-vue/esm/utils/object.js");
-/* harmony import */ var _safe_vue_instance__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ./safe-vue-instance */ "./node_modules/bootstrap-vue/esm/utils/safe-vue-instance.js");
-/* harmony import */ var _string__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./string */ "./node_modules/bootstrap-vue/esm/utils/string.js");
-
-
-
-
-
-
-var ANCHOR_TAG = 'a'; // Method to replace reserved chars
-
-var encodeReserveReplacer = function encodeReserveReplacer(c) {
-  return '%' + c.charCodeAt(0).toString(16);
-}; // Fixed encodeURIComponent which is more conformant to RFC3986:
-// - escapes [!'()*]
-// - preserve commas
-
-
-var encode = function encode(str) {
-  return encodeURIComponent((0,_string__WEBPACK_IMPORTED_MODULE_0__.toString)(str)).replace(_constants_regex__WEBPACK_IMPORTED_MODULE_1__.RX_ENCODE_REVERSE, encodeReserveReplacer).replace(_constants_regex__WEBPACK_IMPORTED_MODULE_1__.RX_ENCODED_COMMA, ',');
-};
-
-var decode = decodeURIComponent; // Stringifies an object of query parameters
-// See: https://github.com/vuejs/vue-router/blob/dev/src/util/query.js
-
-var stringifyQueryObj = function stringifyQueryObj(obj) {
-  if (!(0,_inspect__WEBPACK_IMPORTED_MODULE_2__.isPlainObject)(obj)) {
-    return '';
-  }
-
-  var query = (0,_object__WEBPACK_IMPORTED_MODULE_3__.keys)(obj).map(function (key) {
-    var value = obj[key];
-
-    if ((0,_inspect__WEBPACK_IMPORTED_MODULE_2__.isUndefined)(value)) {
-      return '';
-    } else if ((0,_inspect__WEBPACK_IMPORTED_MODULE_2__.isNull)(value)) {
-      return encode(key);
-    } else if ((0,_inspect__WEBPACK_IMPORTED_MODULE_2__.isArray)(value)) {
-      return value.reduce(function (results, value2) {
-        if ((0,_inspect__WEBPACK_IMPORTED_MODULE_2__.isNull)(value2)) {
-          results.push(encode(key));
-        } else if (!(0,_inspect__WEBPACK_IMPORTED_MODULE_2__.isUndefined)(value2)) {
-          // Faster than string interpolation
-          results.push(encode(key) + '=' + encode(value2));
-        }
-
-        return results;
-      }, []).join('&');
-    } // Faster than string interpolation
-
-
-    return encode(key) + '=' + encode(value);
-  })
-  /* must check for length, as we only want to filter empty strings, not things that look falsey! */
-  .filter(function (x) {
-    return x.length > 0;
-  }).join('&');
-  return query ? "?".concat(query) : '';
-};
-var parseQuery = function parseQuery(query) {
-  var parsed = {};
-  query = (0,_string__WEBPACK_IMPORTED_MODULE_0__.toString)(query).trim().replace(_constants_regex__WEBPACK_IMPORTED_MODULE_1__.RX_QUERY_START, '');
-
-  if (!query) {
-    return parsed;
-  }
-
-  query.split('&').forEach(function (param) {
-    var parts = param.replace(_constants_regex__WEBPACK_IMPORTED_MODULE_1__.RX_PLUS, ' ').split('=');
-    var key = decode(parts.shift());
-    var value = parts.length > 0 ? decode(parts.join('=')) : null;
-
-    if ((0,_inspect__WEBPACK_IMPORTED_MODULE_2__.isUndefined)(parsed[key])) {
-      parsed[key] = value;
-    } else if ((0,_inspect__WEBPACK_IMPORTED_MODULE_2__.isArray)(parsed[key])) {
-      parsed[key].push(value);
-    } else {
-      parsed[key] = [parsed[key], value];
-    }
-  });
-  return parsed;
-};
-var isLink = function isLink(props) {
-  return !!(props.href || props.to);
-};
-var isRouterLink = function isRouterLink(tag) {
-  return !!(tag && !(0,_dom__WEBPACK_IMPORTED_MODULE_4__.isTag)(tag, 'a'));
-};
-var computeTag = function computeTag(_ref, thisOrParent) {
-  var to = _ref.to,
-      disabled = _ref.disabled,
-      routerComponentName = _ref.routerComponentName;
-  var hasRouter = !!(0,_safe_vue_instance__WEBPACK_IMPORTED_MODULE_5__.safeVueInstance)(thisOrParent).$router;
-  var hasNuxt = !!(0,_safe_vue_instance__WEBPACK_IMPORTED_MODULE_5__.safeVueInstance)(thisOrParent).$nuxt;
-
-  if (!hasRouter || hasRouter && (disabled || !to)) {
-    return ANCHOR_TAG;
-  } // TODO:
-  //   Check registered components for existence of user supplied router link component name
-  //   We would need to check PascalCase, kebab-case, and camelCase versions of name:
-  //   const name = routerComponentName
-  //   const names = [name, PascalCase(name), KebabCase(name), CamelCase(name)]
-  //   exists = names.some(name => !!thisOrParent.$options.components[name])
-  //   And may want to cache the result for performance or we just let the render fail
-  //   if the component is not registered
-
-
-  return routerComponentName || (hasNuxt ? 'nuxt-link' : 'router-link');
-};
-var computeRel = function computeRel() {
-  var _ref2 = arguments.length > 0 && arguments[0] !== undefined ? arguments[0] : {},
-      target = _ref2.target,
-      rel = _ref2.rel;
-
-  return target === '_blank' && (0,_inspect__WEBPACK_IMPORTED_MODULE_2__.isNull)(rel) ? 'noopener' : rel || null;
-};
-var computeHref = function computeHref() {
-  var _ref3 = arguments.length > 0 && arguments[0] !== undefined ? arguments[0] : {},
-      href = _ref3.href,
-      to = _ref3.to;
-
-  var tag = arguments.length > 1 && arguments[1] !== undefined ? arguments[1] : ANCHOR_TAG;
-  var fallback = arguments.length > 2 && arguments[2] !== undefined ? arguments[2] : '#';
-  var toFallback = arguments.length > 3 && arguments[3] !== undefined ? arguments[3] : '/';
-
-  // Return `href` when explicitly provided
-  if (href) {
-    return href;
-  } // We've checked for `$router` in `computeTag()`, so `isRouterLink()` indicates a live router
-  // When deferring to Vue Router's `<router-link>`, don't use the `href` attribute at all
-  // We return `null`, and then remove `href` from the attributes passed to `<router-link>`
-
-
-  if (isRouterLink(tag)) {
-    return null;
-  } // Fallback to `to` prop (if `to` is a string)
-
-
-  if ((0,_inspect__WEBPACK_IMPORTED_MODULE_2__.isString)(to)) {
-    return to || toFallback;
-  } // Fallback to `to.path' + `to.query` + `to.hash` prop (if `to` is an object)
-
-
-  if ((0,_inspect__WEBPACK_IMPORTED_MODULE_2__.isPlainObject)(to) && (to.path || to.query || to.hash)) {
-    var path = (0,_string__WEBPACK_IMPORTED_MODULE_0__.toString)(to.path);
-    var query = stringifyQueryObj(to.query);
-    var hash = (0,_string__WEBPACK_IMPORTED_MODULE_0__.toString)(to.hash);
-    hash = !hash || hash.charAt(0) === '#' ? hash : "#".concat(hash);
-    return "".concat(path).concat(query).concat(hash) || toFallback;
-  } // If nothing is provided return the fallback
-
-
-  return fallback;
-};
-
-/***/ }),
-
-/***/ "./node_modules/bootstrap-vue/esm/utils/safe-vue-instance.js":
-/*!*******************************************************************!*\
-  !*** ./node_modules/bootstrap-vue/esm/utils/safe-vue-instance.js ***!
-  \*******************************************************************/
-/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
-
-"use strict";
-__webpack_require__.r(__webpack_exports__);
-/* harmony export */ __webpack_require__.d(__webpack_exports__, {
-/* harmony export */   "safeVueInstance": () => (/* binding */ safeVueInstance)
-/* harmony export */ });
-/* harmony import */ var _vue__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../vue */ "./node_modules/bootstrap-vue/esm/vue.js");
-
-function safeVueInstance(target) {
-  if (!_vue__WEBPACK_IMPORTED_MODULE_0__.isVue3) {
-    return target;
-  }
-
-  return new Proxy(target, {
-    get: function get(target, prop) {
-      return prop in target ? target[prop] : undefined;
-    }
-  });
-}
-
-/***/ }),
-
-/***/ "./node_modules/bootstrap-vue/esm/utils/string.js":
-/*!********************************************************!*\
-  !*** ./node_modules/bootstrap-vue/esm/utils/string.js ***!
-  \********************************************************/
-/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
-
-"use strict";
-__webpack_require__.r(__webpack_exports__);
-/* harmony export */ __webpack_require__.d(__webpack_exports__, {
-/* harmony export */   "escapeRegExp": () => (/* binding */ escapeRegExp),
-/* harmony export */   "kebabCase": () => (/* binding */ kebabCase),
-/* harmony export */   "lowerCase": () => (/* binding */ lowerCase),
-/* harmony export */   "lowerFirst": () => (/* binding */ lowerFirst),
-/* harmony export */   "pascalCase": () => (/* binding */ pascalCase),
-/* harmony export */   "startCase": () => (/* binding */ startCase),
-/* harmony export */   "toString": () => (/* binding */ toString),
-/* harmony export */   "trim": () => (/* binding */ trim),
-/* harmony export */   "trimLeft": () => (/* binding */ trimLeft),
-/* harmony export */   "trimRight": () => (/* binding */ trimRight),
-/* harmony export */   "upperCase": () => (/* binding */ upperCase),
-/* harmony export */   "upperFirst": () => (/* binding */ upperFirst)
-/* harmony export */ });
-/* harmony import */ var _constants_regex__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../constants/regex */ "./node_modules/bootstrap-vue/esm/constants/regex.js");
-/* harmony import */ var _inspect__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./inspect */ "./node_modules/bootstrap-vue/esm/utils/inspect.js");
-// String utilities
-
- // --- Utilities ---
-// Converts PascalCase or camelCase to kebab-case
-
-var kebabCase = function kebabCase(str) {
-  return str.replace(_constants_regex__WEBPACK_IMPORTED_MODULE_0__.RX_HYPHENATE, '-$1').toLowerCase();
-}; // Converts a kebab-case or camelCase string to PascalCase
-
-var pascalCase = function pascalCase(str) {
-  str = kebabCase(str).replace(_constants_regex__WEBPACK_IMPORTED_MODULE_0__.RX_UN_KEBAB, function (_, c) {
-    return c ? c.toUpperCase() : '';
-  });
-  return str.charAt(0).toUpperCase() + str.slice(1);
-}; // Converts a string, including strings in camelCase or snake_case, into Start Case
-// It keeps original single quote and hyphen in the word
-// https://github.com/UrbanCompass/to-start-case
-
-var startCase = function startCase(str) {
-  return str.replace(_constants_regex__WEBPACK_IMPORTED_MODULE_0__.RX_UNDERSCORE, ' ').replace(_constants_regex__WEBPACK_IMPORTED_MODULE_0__.RX_LOWER_UPPER, function (str, $1, $2) {
-    return $1 + ' ' + $2;
-  }).replace(_constants_regex__WEBPACK_IMPORTED_MODULE_0__.RX_START_SPACE_WORD, function (str, $1, $2) {
-    return $1 + $2.toUpperCase();
-  });
-}; // Lowercases the first letter of a string and returns a new string
-
-var lowerFirst = function lowerFirst(str) {
-  str = (0,_inspect__WEBPACK_IMPORTED_MODULE_1__.isString)(str) ? str.trim() : String(str);
-  return str.charAt(0).toLowerCase() + str.slice(1);
-}; // Uppercases the first letter of a string and returns a new string
-
-var upperFirst = function upperFirst(str) {
-  str = (0,_inspect__WEBPACK_IMPORTED_MODULE_1__.isString)(str) ? str.trim() : String(str);
-  return str.charAt(0).toUpperCase() + str.slice(1);
-}; // Escape characters to be used in building a regular expression
-
-var escapeRegExp = function escapeRegExp(str) {
-  return str.replace(_constants_regex__WEBPACK_IMPORTED_MODULE_0__.RX_REGEXP_REPLACE, '\\$&');
-}; // Convert a value to a string that can be rendered
-// `undefined`/`null` will be converted to `''`
-// Plain objects and arrays will be JSON stringified
-
-var toString = function toString(val) {
-  var spaces = arguments.length > 1 && arguments[1] !== undefined ? arguments[1] : 2;
-  return (0,_inspect__WEBPACK_IMPORTED_MODULE_1__.isUndefinedOrNull)(val) ? '' : (0,_inspect__WEBPACK_IMPORTED_MODULE_1__.isArray)(val) || (0,_inspect__WEBPACK_IMPORTED_MODULE_1__.isPlainObject)(val) && val.toString === Object.prototype.toString ? JSON.stringify(val, null, spaces) : String(val);
-}; // Remove leading white space from a string
-
-var trimLeft = function trimLeft(str) {
-  return toString(str).replace(_constants_regex__WEBPACK_IMPORTED_MODULE_0__.RX_TRIM_LEFT, '');
-}; // Remove Trailing white space from a string
-
-var trimRight = function trimRight(str) {
-  return toString(str).replace(_constants_regex__WEBPACK_IMPORTED_MODULE_0__.RX_TRIM_RIGHT, '');
-}; // Remove leading and trailing white space from a string
-
-var trim = function trim(str) {
-  return toString(str).trim();
-}; // Lower case a string
-
-var lowerCase = function lowerCase(str) {
-  return toString(str).toLowerCase();
-}; // Upper case a string
-
-var upperCase = function upperCase(str) {
-  return toString(str).toUpperCase();
-};
-
-/***/ }),
-
-/***/ "./node_modules/bootstrap-vue/esm/utils/warn.js":
-/*!******************************************************!*\
-  !*** ./node_modules/bootstrap-vue/esm/utils/warn.js ***!
-  \******************************************************/
-/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
-
-"use strict";
-__webpack_require__.r(__webpack_exports__);
-/* harmony export */ __webpack_require__.d(__webpack_exports__, {
-/* harmony export */   "warn": () => (/* binding */ warn),
-/* harmony export */   "warnNoMutationObserverSupport": () => (/* binding */ warnNoMutationObserverSupport),
-/* harmony export */   "warnNoPromiseSupport": () => (/* binding */ warnNoPromiseSupport),
-/* harmony export */   "warnNotClient": () => (/* binding */ warnNotClient)
-/* harmony export */ });
-/* harmony import */ var _constants_env__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../constants/env */ "./node_modules/bootstrap-vue/esm/constants/env.js");
-/* harmony import */ var _env__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./env */ "./node_modules/bootstrap-vue/esm/utils/env.js");
-
-
-/**
- * Log a warning message to the console with BootstrapVue formatting
- * @param {string} message
- */
-
-var warn = function warn(message)
-/* istanbul ignore next */
-{
-  var source = arguments.length > 1 && arguments[1] !== undefined ? arguments[1] : null;
-
-  if (!(0,_env__WEBPACK_IMPORTED_MODULE_0__.getNoWarn)()) {
-    console.warn("[BootstrapVue warn]: ".concat(source ? "".concat(source, " - ") : '').concat(message));
-  }
-};
-/**
- * Warn when no Promise support is given
- * @param {string} source
- * @returns {boolean} warned
- */
-
-var warnNotClient = function warnNotClient(source) {
-  /* istanbul ignore else */
-  if (_constants_env__WEBPACK_IMPORTED_MODULE_1__.IS_BROWSER) {
-    return false;
-  } else {
-    warn("".concat(source, ": Can not be called during SSR."));
-    return true;
-  }
-};
-/**
- * Warn when no Promise support is given
- * @param {string} source
- * @returns {boolean} warned
- */
-
-var warnNoPromiseSupport = function warnNoPromiseSupport(source) {
-  /* istanbul ignore else */
-  if (_constants_env__WEBPACK_IMPORTED_MODULE_1__.HAS_PROMISE_SUPPORT) {
-    return false;
-  } else {
-    warn("".concat(source, ": Requires Promise support."));
-    return true;
-  }
-};
-/**
- * Warn when no MutationObserver support is given
- * @param {string} source
- * @returns {boolean} warned
- */
-
-var warnNoMutationObserverSupport = function warnNoMutationObserverSupport(source) {
-  /* istanbul ignore else */
-  if (_constants_env__WEBPACK_IMPORTED_MODULE_1__.HAS_MUTATION_OBSERVER_SUPPORT) {
-    return false;
-  } else {
-    warn("".concat(source, ": Requires MutationObserver support."));
-    return true;
-  }
-};
-
-/***/ }),
-
-/***/ "./node_modules/bootstrap-vue/esm/vue.js":
-/*!***********************************************!*\
-  !*** ./node_modules/bootstrap-vue/esm/vue.js ***!
-  \***********************************************/
-/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
-
-"use strict";
-__webpack_require__.r(__webpack_exports__);
-/* harmony export */ __webpack_require__.d(__webpack_exports__, {
-/* harmony export */   "COMPONENT_UID_KEY": () => (/* binding */ COMPONENT_UID_KEY),
-/* harmony export */   "REF_FOR_KEY": () => (/* binding */ REF_FOR_KEY),
-/* harmony export */   "Vue": () => (/* reexport safe */ vue__WEBPACK_IMPORTED_MODULE_1__["default"]),
-/* harmony export */   "extend": () => (/* binding */ extend),
-/* harmony export */   "isVue3": () => (/* binding */ isVue3),
-/* harmony export */   "mergeData": () => (/* reexport safe */ vue_functional_data_merge__WEBPACK_IMPORTED_MODULE_0__.mergeData),
-/* harmony export */   "nextTick": () => (/* binding */ nextTick)
-/* harmony export */ });
-/* harmony import */ var vue__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! vue */ "./node_modules/vue/dist/vue.esm.js");
-/* harmony import */ var vue_functional_data_merge__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! vue-functional-data-merge */ "./node_modules/vue-functional-data-merge/dist/lib.esm.js");
-function ownKeys(object, enumerableOnly) { var keys = Object.keys(object); if (Object.getOwnPropertySymbols) { var symbols = Object.getOwnPropertySymbols(object); enumerableOnly && (symbols = symbols.filter(function (sym) { return Object.getOwnPropertyDescriptor(object, sym).enumerable; })), keys.push.apply(keys, symbols); } return keys; }
-
-function _objectSpread(target) { for (var i = 1; i < arguments.length; i++) { var source = null != arguments[i] ? arguments[i] : {}; i % 2 ? ownKeys(Object(source), !0).forEach(function (key) { _defineProperty(target, key, source[key]); }) : Object.getOwnPropertyDescriptors ? Object.defineProperties(target, Object.getOwnPropertyDescriptors(source)) : ownKeys(Object(source)).forEach(function (key) { Object.defineProperty(target, key, Object.getOwnPropertyDescriptor(source, key)); }); } return target; }
-
-function _defineProperty(obj, key, value) { if (key in obj) { Object.defineProperty(obj, key, { value: value, enumerable: true, configurable: true, writable: true }); } else { obj[key] = value; } return obj; }
-
-function _objectWithoutProperties(source, excluded) { if (source == null) return {}; var target = _objectWithoutPropertiesLoose(source, excluded); var key, i; if (Object.getOwnPropertySymbols) { var sourceSymbolKeys = Object.getOwnPropertySymbols(source); for (i = 0; i < sourceSymbolKeys.length; i++) { key = sourceSymbolKeys[i]; if (excluded.indexOf(key) >= 0) continue; if (!Object.prototype.propertyIsEnumerable.call(source, key)) continue; target[key] = source[key]; } } return target; }
-
-function _objectWithoutPropertiesLoose(source, excluded) { if (source == null) return {}; var target = {}; var sourceKeys = Object.keys(source); var key, i; for (i = 0; i < sourceKeys.length; i++) { key = sourceKeys[i]; if (excluded.indexOf(key) >= 0) continue; target[key] = source[key]; } return target; }
-
-function _typeof(obj) { "@babel/helpers - typeof"; return _typeof = "function" == typeof Symbol && "symbol" == typeof Symbol.iterator ? function (obj) { return typeof obj; } : function (obj) { return obj && "function" == typeof Symbol && obj.constructor === Symbol && obj !== Symbol.prototype ? "symbol" : typeof obj; }, _typeof(obj); }
-
-
- // --- Constants ---
-
-var COMPONENT_UID_KEY = '_uid';
-var isVue3 = vue__WEBPACK_IMPORTED_MODULE_1__["default"].version.startsWith('3');
-var REF_FOR_KEY = isVue3 ? 'ref_for' : 'refInFor';
-var ALLOWED_FIELDS_IN_DATA = ['class', 'staticClass', 'style', 'attrs', 'props', 'domProps', 'on', 'nativeOn', 'directives', 'scopedSlots', 'slot', 'key', 'ref', 'refInFor'];
-var extend = vue__WEBPACK_IMPORTED_MODULE_1__["default"].extend.bind(vue__WEBPACK_IMPORTED_MODULE_1__["default"]);
-
-if (isVue3) {
-  var originalExtend = vue__WEBPACK_IMPORTED_MODULE_1__["default"].extend;
-  var KNOWN_COMPONENTS = ['router-link', 'transition', 'transition-group'];
-  var originalVModelDynamicCreated = vue__WEBPACK_IMPORTED_MODULE_1__["default"].vModelDynamic.created;
-  var originalVModelDynamicBeforeUpdate = vue__WEBPACK_IMPORTED_MODULE_1__["default"].vModelDynamic.beforeUpdate; // See https://github.com/vuejs/vue-next/pull/4121 for details
-
-  vue__WEBPACK_IMPORTED_MODULE_1__["default"].vModelDynamic.created = function (el, binding, vnode) {
-    originalVModelDynamicCreated.call(this, el, binding, vnode);
-
-    if (!el._assign) {
-      el._assign = function () {};
-    }
-  };
-
-  vue__WEBPACK_IMPORTED_MODULE_1__["default"].vModelDynamic.beforeUpdate = function (el, binding, vnode) {
-    originalVModelDynamicBeforeUpdate.call(this, el, binding, vnode);
-
-    if (!el._assign) {
-      el._assign = function () {};
-    }
-  };
-
-  extend = function patchedBootstrapVueExtend(definition) {
-    if (_typeof(definition) === 'object' && definition.render && !definition.__alreadyPatched) {
-      var originalRender = definition.render;
-      definition.__alreadyPatched = true;
-
-      definition.render = function (h) {
-        var patchedH = function patchedH(tag, dataObjOrChildren, rawSlots) {
-          var slots = rawSlots === undefined ? [] : [Array.isArray(rawSlots) ? rawSlots.filter(Boolean) : rawSlots];
-          var isTag = typeof tag === 'string' && !KNOWN_COMPONENTS.includes(tag);
-          var isSecondArgumentDataObject = dataObjOrChildren && _typeof(dataObjOrChildren) === 'object' && !Array.isArray(dataObjOrChildren);
-
-          if (!isSecondArgumentDataObject) {
-            return h.apply(void 0, [tag, dataObjOrChildren].concat(slots));
-          }
-
-          var attrs = dataObjOrChildren.attrs,
-              props = dataObjOrChildren.props,
-              restData = _objectWithoutProperties(dataObjOrChildren, ["attrs", "props"]);
-
-          var normalizedData = _objectSpread(_objectSpread({}, restData), {}, {
-            attrs: attrs,
-            props: isTag ? {} : props
-          });
-
-          if (tag === 'router-link' && !normalizedData.slots && !normalizedData.scopedSlots) {
-            // terrible workaround to fix router-link rendering with compat vue-router
-            normalizedData.scopedSlots = {
-              $hasNormal: function $hasNormal() {}
-            };
-          }
-
-          return h.apply(void 0, [tag, normalizedData].concat(slots));
-        };
-
-        if (definition.functional) {
-          var _ctx$children, _ctx$children$default;
-
-          var ctx = arguments[1];
-
-          var patchedCtx = _objectSpread({}, ctx);
-
-          patchedCtx.data = {
-            attrs: _objectSpread({}, ctx.data.attrs || {}),
-            props: _objectSpread({}, ctx.data.props || {})
-          };
-          Object.keys(ctx.data || {}).forEach(function (key) {
-            if (ALLOWED_FIELDS_IN_DATA.includes(key)) {
-              patchedCtx.data[key] = ctx.data[key];
-            } else if (key in ctx.props) {
-              patchedCtx.data.props[key] = ctx.data[key];
-            } else if (!key.startsWith('on')) {
-              patchedCtx.data.attrs[key] = ctx.data[key];
-            }
-          });
-          var IGNORED_CHILDREN_KEYS = ['_ctx'];
-          var children = ((_ctx$children = ctx.children) === null || _ctx$children === void 0 ? void 0 : (_ctx$children$default = _ctx$children.default) === null || _ctx$children$default === void 0 ? void 0 : _ctx$children$default.call(_ctx$children)) || ctx.children;
-
-          if (children && Object.keys(patchedCtx.children).filter(function (k) {
-            return !IGNORED_CHILDREN_KEYS.includes(k);
-          }).length === 0) {
-            delete patchedCtx.children;
-          } else {
-            patchedCtx.children = children;
-          }
-
-          patchedCtx.data.on = ctx.listeners;
-          return originalRender.call(this, patchedH, patchedCtx);
-        }
-
-        return originalRender.call(this, patchedH);
-      };
-    }
-
-    return originalExtend.call(this, definition);
-  }.bind(vue__WEBPACK_IMPORTED_MODULE_1__["default"]);
-}
-
-var nextTick = vue__WEBPACK_IMPORTED_MODULE_1__["default"].nextTick;
-
 
 /***/ }),
 
@@ -18217,7 +12214,7 @@ __webpack_require__.r(__webpack_exports__);
 
 var ___CSS_LOADER_EXPORT___ = _node_modules_css_loader_dist_runtime_api_js__WEBPACK_IMPORTED_MODULE_0___default()(function(i){return i[1]});
 // Module
-___CSS_LOADER_EXPORT___.push([module.id, "\nh2 {\r\n    text-align: center;\n}\nbody{\r\n    background-color:lightgreen;\n}\r\n", ""]);
+___CSS_LOADER_EXPORT___.push([module.id, "\nh2 {\r\n    text-align: center;\n}\r\n", ""]);
 // Exports
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (___CSS_LOADER_EXPORT___);
 
@@ -36136,20 +30133,4054 @@ module.exports = function (list, options) {
 
 /***/ }),
 
-/***/ "./node_modules/vue-functional-data-merge/dist/lib.esm.js":
-/*!****************************************************************!*\
-  !*** ./node_modules/vue-functional-data-merge/dist/lib.esm.js ***!
-  \****************************************************************/
-/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+/***/ "./node_modules/sweetalert2/dist/sweetalert2.all.js":
+/*!**********************************************************!*\
+  !*** ./node_modules/sweetalert2/dist/sweetalert2.all.js ***!
+  \**********************************************************/
+/***/ (function(module) {
 
-"use strict";
-__webpack_require__.r(__webpack_exports__);
-/* harmony export */ __webpack_require__.d(__webpack_exports__, {
-/* harmony export */   "mergeData": () => (/* binding */ a)
-/* harmony export */ });
-var e=function(){return(e=Object.assign||function(e){for(var t,r=1,s=arguments.length;r<s;r++)for(var a in t=arguments[r])Object.prototype.hasOwnProperty.call(t,a)&&(e[a]=t[a]);return e}).apply(this,arguments)},t={kebab:/-(\w)/g,styleProp:/:(.*)/,styleList:/;(?![^(]*\))/g};function r(e,t){return t?t.toUpperCase():""}function s(e){for(var s,a={},c=0,o=e.split(t.styleList);c<o.length;c++){var n=o[c].split(t.styleProp),i=n[0],l=n[1];(i=i.trim())&&("string"==typeof l&&(l=l.trim()),a[(s=i,s.replace(t.kebab,r))]=l)}return a}function a(){for(var t,r,a={},c=arguments.length;c--;)for(var o=0,n=Object.keys(arguments[c]);o<n.length;o++)switch(t=n[o]){case"class":case"style":case"directives":if(Array.isArray(a[t])||(a[t]=[]),"style"===t){var i=void 0;i=Array.isArray(arguments[c].style)?arguments[c].style:[arguments[c].style];for(var l=0;l<i.length;l++){var y=i[l];"string"==typeof y&&(i[l]=s(y))}arguments[c].style=i}a[t]=a[t].concat(arguments[c][t]);break;case"staticClass":if(!arguments[c][t])break;void 0===a[t]&&(a[t]=""),a[t]&&(a[t]+=" "),a[t]+=arguments[c][t].trim();break;case"on":case"nativeOn":a[t]||(a[t]={});for(var p=0,f=Object.keys(arguments[c][t]||{});p<f.length;p++)r=f[p],a[t][r]?a[t][r]=[].concat(a[t][r],arguments[c][t][r]):a[t][r]=arguments[c][t][r];break;case"attrs":case"props":case"domProps":case"scopedSlots":case"staticStyle":case"hook":case"transition":a[t]||(a[t]={}),a[t]=e({},arguments[c][t],a[t]);break;case"slot":case"key":case"ref":case"tag":case"show":case"keepAlive":default:a[t]||(a[t]=arguments[c][t])}return a}
-//# sourceMappingURL=lib.esm.js.map
+/*!
+* sweetalert2 v11.7.5
+* Released under the MIT License.
+*/
+(function (global, factory) {
+   true ? module.exports = factory() :
+  0;
+})(this, (function () { 'use strict';
 
+  /**
+   * This module contains `WeakMap`s for each effectively-"private  property" that a `Swal` has.
+   * For example, to set the private property "foo" of `this` to "bar", you can `privateProps.foo.set(this, 'bar')`
+   * This is the approach that Babel will probably take to implement private methods/fields
+   *   https://github.com/tc39/proposal-private-methods
+   *   https://github.com/babel/babel/pull/7555
+   * Once we have the changes from that PR in Babel, and our core class fits reasonable in *one module*
+   *   then we can use that language feature.
+   */
+
+  var privateProps = {
+    awaitingPromise: new WeakMap(),
+    promise: new WeakMap(),
+    innerParams: new WeakMap(),
+    domCache: new WeakMap()
+  };
+
+  const swalPrefix = 'swal2-';
+
+  /**
+   * @param {string[]} items
+   * @returns {object}
+   */
+  const prefix = items => {
+    const result = {};
+    for (const i in items) {
+      result[items[i]] = swalPrefix + items[i];
+    }
+    return result;
+  };
+  const swalClasses = prefix(['container', 'shown', 'height-auto', 'iosfix', 'popup', 'modal', 'no-backdrop', 'no-transition', 'toast', 'toast-shown', 'show', 'hide', 'close', 'title', 'html-container', 'actions', 'confirm', 'deny', 'cancel', 'default-outline', 'footer', 'icon', 'icon-content', 'image', 'input', 'file', 'range', 'select', 'radio', 'checkbox', 'label', 'textarea', 'inputerror', 'input-label', 'validation-message', 'progress-steps', 'active-progress-step', 'progress-step', 'progress-step-line', 'loader', 'loading', 'styled', 'top', 'top-start', 'top-end', 'top-left', 'top-right', 'center', 'center-start', 'center-end', 'center-left', 'center-right', 'bottom', 'bottom-start', 'bottom-end', 'bottom-left', 'bottom-right', 'grow-row', 'grow-column', 'grow-fullscreen', 'rtl', 'timer-progress-bar', 'timer-progress-bar-container', 'scrollbar-measure', 'icon-success', 'icon-warning', 'icon-info', 'icon-question', 'icon-error']);
+  const iconTypes = prefix(['success', 'warning', 'info', 'question', 'error']);
+
+  const consolePrefix = 'SweetAlert2:';
+
+  /**
+   * Filter the unique values into a new array
+   *
+   * @param {Array} arr
+   * @returns {Array}
+   */
+  const uniqueArray = arr => {
+    const result = [];
+    for (let i = 0; i < arr.length; i++) {
+      if (result.indexOf(arr[i]) === -1) {
+        result.push(arr[i]);
+      }
+    }
+    return result;
+  };
+
+  /**
+   * Capitalize the first letter of a string
+   *
+   * @param {string} str
+   * @returns {string}
+   */
+  const capitalizeFirstLetter = str => str.charAt(0).toUpperCase() + str.slice(1);
+
+  /**
+   * Standardize console warnings
+   *
+   * @param {string | Array} message
+   */
+  const warn = message => {
+    console.warn(`${consolePrefix} ${typeof message === 'object' ? message.join(' ') : message}`);
+  };
+
+  /**
+   * Standardize console errors
+   *
+   * @param {string} message
+   */
+  const error = message => {
+    console.error(`${consolePrefix} ${message}`);
+  };
+
+  /**
+   * Private global state for `warnOnce`
+   *
+   * @type {Array}
+   * @private
+   */
+  const previousWarnOnceMessages = [];
+
+  /**
+   * Show a console warning, but only if it hasn't already been shown
+   *
+   * @param {string} message
+   */
+  const warnOnce = message => {
+    if (!previousWarnOnceMessages.includes(message)) {
+      previousWarnOnceMessages.push(message);
+      warn(message);
+    }
+  };
+
+  /**
+   * Show a one-time console warning about deprecated params/methods
+   *
+   * @param {string} deprecatedParam
+   * @param {string} useInstead
+   */
+  const warnAboutDeprecation = (deprecatedParam, useInstead) => {
+    warnOnce(`"${deprecatedParam}" is deprecated and will be removed in the next major release. Please use "${useInstead}" instead.`);
+  };
+
+  /**
+   * If `arg` is a function, call it (with no arguments or context) and return the result.
+   * Otherwise, just pass the value through
+   *
+   * @param {Function | any} arg
+   * @returns {any}
+   */
+  const callIfFunction = arg => typeof arg === 'function' ? arg() : arg;
+
+  /**
+   * @param {any} arg
+   * @returns {boolean}
+   */
+  const hasToPromiseFn = arg => arg && typeof arg.toPromise === 'function';
+
+  /**
+   * @param {any} arg
+   * @returns {Promise}
+   */
+  const asPromise = arg => hasToPromiseFn(arg) ? arg.toPromise() : Promise.resolve(arg);
+
+  /**
+   * @param {any} arg
+   * @returns {boolean}
+   */
+  const isPromise = arg => arg && Promise.resolve(arg) === arg;
+
+  /**
+   * Gets the popup container which contains the backdrop and the popup itself.
+   *
+   * @returns {HTMLElement | null}
+   */
+  const getContainer = () => document.body.querySelector(`.${swalClasses.container}`);
+
+  /**
+   * @param {string} selectorString
+   * @returns {HTMLElement | null}
+   */
+  const elementBySelector = selectorString => {
+    const container = getContainer();
+    return container ? container.querySelector(selectorString) : null;
+  };
+
+  /**
+   * @param {string} className
+   * @returns {HTMLElement | null}
+   */
+  const elementByClass = className => {
+    return elementBySelector(`.${className}`);
+  };
+
+  /**
+   * @returns {HTMLElement | null}
+   */
+  const getPopup = () => elementByClass(swalClasses.popup);
+
+  /**
+   * @returns {HTMLElement | null}
+   */
+  const getIcon = () => elementByClass(swalClasses.icon);
+
+  /**
+   * @returns {HTMLElement | null}
+   */
+  const getIconContent = () => elementByClass(swalClasses['icon-content']);
+
+  /**
+   * @returns {HTMLElement | null}
+   */
+  const getTitle = () => elementByClass(swalClasses.title);
+
+  /**
+   * @returns {HTMLElement | null}
+   */
+  const getHtmlContainer = () => elementByClass(swalClasses['html-container']);
+
+  /**
+   * @returns {HTMLElement | null}
+   */
+  const getImage = () => elementByClass(swalClasses.image);
+
+  /**
+   * @returns {HTMLElement | null}
+   */
+  const getProgressSteps = () => elementByClass(swalClasses['progress-steps']);
+
+  /**
+   * @returns {HTMLElement | null}
+   */
+  const getValidationMessage = () => elementByClass(swalClasses['validation-message']);
+
+  /**
+   * @returns {HTMLButtonElement | null}
+   */
+  const getConfirmButton = () => /** @type {HTMLButtonElement} */elementBySelector(`.${swalClasses.actions} .${swalClasses.confirm}`);
+
+  /**
+   * @returns {HTMLButtonElement | null}
+   */
+  const getCancelButton = () => /** @type {HTMLButtonElement} */elementBySelector(`.${swalClasses.actions} .${swalClasses.cancel}`);
+
+  /**
+   * @returns {HTMLButtonElement | null}
+   */
+  const getDenyButton = () => /** @type {HTMLButtonElement} */elementBySelector(`.${swalClasses.actions} .${swalClasses.deny}`);
+
+  /**
+   * @returns {HTMLElement | null}
+   */
+  const getInputLabel = () => elementByClass(swalClasses['input-label']);
+
+  /**
+   * @returns {HTMLElement | null}
+   */
+  const getLoader = () => elementBySelector(`.${swalClasses.loader}`);
+
+  /**
+   * @returns {HTMLElement | null}
+   */
+  const getActions = () => elementByClass(swalClasses.actions);
+
+  /**
+   * @returns {HTMLElement | null}
+   */
+  const getFooter = () => elementByClass(swalClasses.footer);
+
+  /**
+   * @returns {HTMLElement | null}
+   */
+  const getTimerProgressBar = () => elementByClass(swalClasses['timer-progress-bar']);
+
+  /**
+   * @returns {HTMLElement | null}
+   */
+  const getCloseButton = () => elementByClass(swalClasses.close);
+
+  // https://github.com/jkup/focusable/blob/master/index.js
+  const focusable = `
+  a[href],
+  area[href],
+  input:not([disabled]),
+  select:not([disabled]),
+  textarea:not([disabled]),
+  button:not([disabled]),
+  iframe,
+  object,
+  embed,
+  [tabindex="0"],
+  [contenteditable],
+  audio[controls],
+  video[controls],
+  summary
+`;
+  /**
+   * @returns {HTMLElement[]}
+   */
+  const getFocusableElements = () => {
+    const focusableElementsWithTabindex = Array.from(getPopup().querySelectorAll('[tabindex]:not([tabindex="-1"]):not([tabindex="0"])'))
+    // sort according to tabindex
+    .sort((a, b) => {
+      const tabindexA = parseInt(a.getAttribute('tabindex'));
+      const tabindexB = parseInt(b.getAttribute('tabindex'));
+      if (tabindexA > tabindexB) {
+        return 1;
+      } else if (tabindexA < tabindexB) {
+        return -1;
+      }
+      return 0;
+    });
+    const otherFocusableElements = Array.from(getPopup().querySelectorAll(focusable)).filter(el => el.getAttribute('tabindex') !== '-1');
+    return uniqueArray(focusableElementsWithTabindex.concat(otherFocusableElements)).filter(el => isVisible$1(el));
+  };
+
+  /**
+   * @returns {boolean}
+   */
+  const isModal = () => {
+    return hasClass(document.body, swalClasses.shown) && !hasClass(document.body, swalClasses['toast-shown']) && !hasClass(document.body, swalClasses['no-backdrop']);
+  };
+
+  /**
+   * @returns {boolean}
+   */
+  const isToast = () => {
+    return getPopup() && hasClass(getPopup(), swalClasses.toast);
+  };
+
+  /**
+   * @returns {boolean}
+   */
+  const isLoading = () => {
+    return getPopup().hasAttribute('data-loading');
+  };
+
+  // Remember state in cases where opening and handling a modal will fiddle with it.
+  const states = {
+    previousBodyPadding: null
+  };
+
+  /**
+   * Securely set innerHTML of an element
+   * https://github.com/sweetalert2/sweetalert2/issues/1926
+   *
+   * @param {HTMLElement} elem
+   * @param {string} html
+   */
+  const setInnerHtml = (elem, html) => {
+    elem.textContent = '';
+    if (html) {
+      const parser = new DOMParser();
+      const parsed = parser.parseFromString(html, `text/html`);
+      Array.from(parsed.querySelector('head').childNodes).forEach(child => {
+        elem.appendChild(child);
+      });
+      Array.from(parsed.querySelector('body').childNodes).forEach(child => {
+        if (child instanceof HTMLVideoElement || child instanceof HTMLAudioElement) {
+          elem.appendChild(child.cloneNode(true)); // https://github.com/sweetalert2/sweetalert2/issues/2507
+        } else {
+          elem.appendChild(child);
+        }
+      });
+    }
+  };
+
+  /**
+   * @param {HTMLElement} elem
+   * @param {string} className
+   * @returns {boolean}
+   */
+  const hasClass = (elem, className) => {
+    if (!className) {
+      return false;
+    }
+    const classList = className.split(/\s+/);
+    for (let i = 0; i < classList.length; i++) {
+      if (!elem.classList.contains(classList[i])) {
+        return false;
+      }
+    }
+    return true;
+  };
+
+  /**
+   * @param {HTMLElement} elem
+   * @param {SweetAlertOptions} params
+   */
+  const removeCustomClasses = (elem, params) => {
+    Array.from(elem.classList).forEach(className => {
+      if (!Object.values(swalClasses).includes(className) && !Object.values(iconTypes).includes(className) && !Object.values(params.showClass).includes(className)) {
+        elem.classList.remove(className);
+      }
+    });
+  };
+
+  /**
+   * @param {HTMLElement} elem
+   * @param {SweetAlertOptions} params
+   * @param {string} className
+   */
+  const applyCustomClass = (elem, params, className) => {
+    removeCustomClasses(elem, params);
+    if (params.customClass && params.customClass[className]) {
+      if (typeof params.customClass[className] !== 'string' && !params.customClass[className].forEach) {
+        warn(`Invalid type of customClass.${className}! Expected string or iterable object, got "${typeof params.customClass[className]}"`);
+        return;
+      }
+      addClass(elem, params.customClass[className]);
+    }
+  };
+
+  /**
+   * @param {HTMLElement} popup
+   * @param {import('./renderers/renderInput').InputClass} inputClass
+   * @returns {HTMLInputElement | null}
+   */
+  const getInput$1 = (popup, inputClass) => {
+    if (!inputClass) {
+      return null;
+    }
+    switch (inputClass) {
+      case 'select':
+      case 'textarea':
+      case 'file':
+        return popup.querySelector(`.${swalClasses.popup} > .${swalClasses[inputClass]}`);
+      case 'checkbox':
+        return popup.querySelector(`.${swalClasses.popup} > .${swalClasses.checkbox} input`);
+      case 'radio':
+        return popup.querySelector(`.${swalClasses.popup} > .${swalClasses.radio} input:checked`) || popup.querySelector(`.${swalClasses.popup} > .${swalClasses.radio} input:first-child`);
+      case 'range':
+        return popup.querySelector(`.${swalClasses.popup} > .${swalClasses.range} input`);
+      default:
+        return popup.querySelector(`.${swalClasses.popup} > .${swalClasses.input}`);
+    }
+  };
+
+  /**
+   * @param {HTMLInputElement | HTMLTextAreaElement | HTMLSelectElement} input
+   */
+  const focusInput = input => {
+    input.focus();
+
+    // place cursor at end of text in text input
+    if (input.type !== 'file') {
+      // http://stackoverflow.com/a/2345915
+      const val = input.value;
+      input.value = '';
+      input.value = val;
+    }
+  };
+
+  /**
+   * @param {HTMLElement | HTMLElement[] | null} target
+   * @param {string | string[] | readonly string[]} classList
+   * @param {boolean} condition
+   */
+  const toggleClass = (target, classList, condition) => {
+    if (!target || !classList) {
+      return;
+    }
+    if (typeof classList === 'string') {
+      classList = classList.split(/\s+/).filter(Boolean);
+    }
+    classList.forEach(className => {
+      if (Array.isArray(target)) {
+        target.forEach(elem => {
+          condition ? elem.classList.add(className) : elem.classList.remove(className);
+        });
+      } else {
+        condition ? target.classList.add(className) : target.classList.remove(className);
+      }
+    });
+  };
+
+  /**
+   * @param {HTMLElement | HTMLElement[] | null} target
+   * @param {string | string[] | readonly string[]} classList
+   */
+  const addClass = (target, classList) => {
+    toggleClass(target, classList, true);
+  };
+
+  /**
+   * @param {HTMLElement | HTMLElement[] | null} target
+   * @param {string | string[] | readonly string[]} classList
+   */
+  const removeClass = (target, classList) => {
+    toggleClass(target, classList, false);
+  };
+
+  /**
+   * Get direct child of an element by class name
+   *
+   * @param {HTMLElement} elem
+   * @param {string} className
+   * @returns {HTMLElement | undefined}
+   */
+  const getDirectChildByClass = (elem, className) => {
+    const children = Array.from(elem.children);
+    for (let i = 0; i < children.length; i++) {
+      const child = children[i];
+      if (child instanceof HTMLElement && hasClass(child, className)) {
+        return child;
+      }
+    }
+  };
+
+  /**
+   * @param {HTMLElement} elem
+   * @param {string} property
+   * @param {*} value
+   */
+  const applyNumericalStyle = (elem, property, value) => {
+    if (value === `${parseInt(value)}`) {
+      value = parseInt(value);
+    }
+    if (value || parseInt(value) === 0) {
+      elem.style[property] = typeof value === 'number' ? `${value}px` : value;
+    } else {
+      elem.style.removeProperty(property);
+    }
+  };
+
+  /**
+   * @param {HTMLElement} elem
+   * @param {string} display
+   */
+  const show = function (elem) {
+    let display = arguments.length > 1 && arguments[1] !== undefined ? arguments[1] : 'flex';
+    elem.style.display = display;
+  };
+
+  /**
+   * @param {HTMLElement} elem
+   */
+  const hide = elem => {
+    elem.style.display = 'none';
+  };
+
+  /**
+   * @param {HTMLElement} parent
+   * @param {string} selector
+   * @param {string} property
+   * @param {string} value
+   */
+  const setStyle = (parent, selector, property, value) => {
+    /** @type {HTMLElement} */
+    const el = parent.querySelector(selector);
+    if (el) {
+      el.style[property] = value;
+    }
+  };
+
+  /**
+   * @param {HTMLElement} elem
+   * @param {any} condition
+   * @param {string} display
+   */
+  const toggle = function (elem, condition) {
+    let display = arguments.length > 2 && arguments[2] !== undefined ? arguments[2] : 'flex';
+    condition ? show(elem, display) : hide(elem);
+  };
+
+  /**
+   * borrowed from jquery $(elem).is(':visible') implementation
+   *
+   * @param {HTMLElement} elem
+   * @returns {boolean}
+   */
+  const isVisible$1 = elem => !!(elem && (elem.offsetWidth || elem.offsetHeight || elem.getClientRects().length));
+
+  /**
+   * @returns {boolean}
+   */
+  const allButtonsAreHidden = () => !isVisible$1(getConfirmButton()) && !isVisible$1(getDenyButton()) && !isVisible$1(getCancelButton());
+
+  /**
+   * @param {HTMLElement} elem
+   * @returns {boolean}
+   */
+  const isScrollable = elem => !!(elem.scrollHeight > elem.clientHeight);
+
+  /**
+   * borrowed from https://stackoverflow.com/a/46352119
+   *
+   * @param {HTMLElement} elem
+   * @returns {boolean}
+   */
+  const hasCssAnimation = elem => {
+    const style = window.getComputedStyle(elem);
+    const animDuration = parseFloat(style.getPropertyValue('animation-duration') || '0');
+    const transDuration = parseFloat(style.getPropertyValue('transition-duration') || '0');
+    return animDuration > 0 || transDuration > 0;
+  };
+
+  /**
+   * @param {number} timer
+   * @param {boolean} reset
+   */
+  const animateTimerProgressBar = function (timer) {
+    let reset = arguments.length > 1 && arguments[1] !== undefined ? arguments[1] : false;
+    const timerProgressBar = getTimerProgressBar();
+    if (isVisible$1(timerProgressBar)) {
+      if (reset) {
+        timerProgressBar.style.transition = 'none';
+        timerProgressBar.style.width = '100%';
+      }
+      setTimeout(() => {
+        timerProgressBar.style.transition = `width ${timer / 1000}s linear`;
+        timerProgressBar.style.width = '0%';
+      }, 10);
+    }
+  };
+  const stopTimerProgressBar = () => {
+    const timerProgressBar = getTimerProgressBar();
+    const timerProgressBarWidth = parseInt(window.getComputedStyle(timerProgressBar).width);
+    timerProgressBar.style.removeProperty('transition');
+    timerProgressBar.style.width = '100%';
+    const timerProgressBarFullWidth = parseInt(window.getComputedStyle(timerProgressBar).width);
+    const timerProgressBarPercent = timerProgressBarWidth / timerProgressBarFullWidth * 100;
+    timerProgressBar.style.width = `${timerProgressBarPercent}%`;
+  };
+
+  const RESTORE_FOCUS_TIMEOUT = 100;
+
+  /** @type {GlobalState} */
+  const globalState = {};
+  const focusPreviousActiveElement = () => {
+    if (globalState.previousActiveElement instanceof HTMLElement) {
+      globalState.previousActiveElement.focus();
+      globalState.previousActiveElement = null;
+    } else if (document.body) {
+      document.body.focus();
+    }
+  };
+
+  /**
+   * Restore previous active (focused) element
+   *
+   * @param {boolean} returnFocus
+   * @returns {Promise}
+   */
+  const restoreActiveElement = returnFocus => {
+    return new Promise(resolve => {
+      if (!returnFocus) {
+        return resolve();
+      }
+      const x = window.scrollX;
+      const y = window.scrollY;
+      globalState.restoreFocusTimeout = setTimeout(() => {
+        focusPreviousActiveElement();
+        resolve();
+      }, RESTORE_FOCUS_TIMEOUT); // issues/900
+
+      window.scrollTo(x, y);
+    });
+  };
+
+  /**
+   * Detect Node env
+   *
+   * @returns {boolean}
+   */
+  const isNodeEnv = () => typeof window === 'undefined' || typeof document === 'undefined';
+
+  const sweetHTML = `
+ <div aria-labelledby="${swalClasses.title}" aria-describedby="${swalClasses['html-container']}" class="${swalClasses.popup}" tabindex="-1">
+   <button type="button" class="${swalClasses.close}"></button>
+   <ul class="${swalClasses['progress-steps']}"></ul>
+   <div class="${swalClasses.icon}"></div>
+   <img class="${swalClasses.image}" />
+   <h2 class="${swalClasses.title}" id="${swalClasses.title}"></h2>
+   <div class="${swalClasses['html-container']}" id="${swalClasses['html-container']}"></div>
+   <input class="${swalClasses.input}" />
+   <input type="file" class="${swalClasses.file}" />
+   <div class="${swalClasses.range}">
+     <input type="range" />
+     <output></output>
+   </div>
+   <select class="${swalClasses.select}"></select>
+   <div class="${swalClasses.radio}"></div>
+   <label for="${swalClasses.checkbox}" class="${swalClasses.checkbox}">
+     <input type="checkbox" />
+     <span class="${swalClasses.label}"></span>
+   </label>
+   <textarea class="${swalClasses.textarea}"></textarea>
+   <div class="${swalClasses['validation-message']}" id="${swalClasses['validation-message']}"></div>
+   <div class="${swalClasses.actions}">
+     <div class="${swalClasses.loader}"></div>
+     <button type="button" class="${swalClasses.confirm}"></button>
+     <button type="button" class="${swalClasses.deny}"></button>
+     <button type="button" class="${swalClasses.cancel}"></button>
+   </div>
+   <div class="${swalClasses.footer}"></div>
+   <div class="${swalClasses['timer-progress-bar-container']}">
+     <div class="${swalClasses['timer-progress-bar']}"></div>
+   </div>
+ </div>
+`.replace(/(^|\n)\s*/g, '');
+
+  /**
+   * @returns {boolean}
+   */
+  const resetOldContainer = () => {
+    const oldContainer = getContainer();
+    if (!oldContainer) {
+      return false;
+    }
+    oldContainer.remove();
+    removeClass([document.documentElement, document.body], [swalClasses['no-backdrop'], swalClasses['toast-shown'], swalClasses['has-column']]);
+    return true;
+  };
+  const resetValidationMessage$1 = () => {
+    globalState.currentInstance.resetValidationMessage();
+  };
+  const addInputChangeListeners = () => {
+    const popup = getPopup();
+    const input = getDirectChildByClass(popup, swalClasses.input);
+    const file = getDirectChildByClass(popup, swalClasses.file);
+    /** @type {HTMLInputElement} */
+    const range = popup.querySelector(`.${swalClasses.range} input`);
+    /** @type {HTMLOutputElement} */
+    const rangeOutput = popup.querySelector(`.${swalClasses.range} output`);
+    const select = getDirectChildByClass(popup, swalClasses.select);
+    /** @type {HTMLInputElement} */
+    const checkbox = popup.querySelector(`.${swalClasses.checkbox} input`);
+    const textarea = getDirectChildByClass(popup, swalClasses.textarea);
+    input.oninput = resetValidationMessage$1;
+    file.onchange = resetValidationMessage$1;
+    select.onchange = resetValidationMessage$1;
+    checkbox.onchange = resetValidationMessage$1;
+    textarea.oninput = resetValidationMessage$1;
+    range.oninput = () => {
+      resetValidationMessage$1();
+      rangeOutput.value = range.value;
+    };
+    range.onchange = () => {
+      resetValidationMessage$1();
+      rangeOutput.value = range.value;
+    };
+  };
+
+  /**
+   * @param {string | HTMLElement} target
+   * @returns {HTMLElement}
+   */
+  const getTarget = target => typeof target === 'string' ? document.querySelector(target) : target;
+
+  /**
+   * @param {SweetAlertOptions} params
+   */
+  const setupAccessibility = params => {
+    const popup = getPopup();
+    popup.setAttribute('role', params.toast ? 'alert' : 'dialog');
+    popup.setAttribute('aria-live', params.toast ? 'polite' : 'assertive');
+    if (!params.toast) {
+      popup.setAttribute('aria-modal', 'true');
+    }
+  };
+
+  /**
+   * @param {HTMLElement} targetElement
+   */
+  const setupRTL = targetElement => {
+    if (window.getComputedStyle(targetElement).direction === 'rtl') {
+      addClass(getContainer(), swalClasses.rtl);
+    }
+  };
+
+  /**
+   * Add modal + backdrop + no-war message for Russians to DOM
+   *
+   * @param {SweetAlertOptions} params
+   */
+  const init = params => {
+    // Clean up the old popup container if it exists
+    const oldContainerExisted = resetOldContainer();
+
+    /* istanbul ignore if */
+    if (isNodeEnv()) {
+      error('SweetAlert2 requires document to initialize');
+      return;
+    }
+    const container = document.createElement('div');
+    container.className = swalClasses.container;
+    if (oldContainerExisted) {
+      addClass(container, swalClasses['no-transition']);
+    }
+    setInnerHtml(container, sweetHTML);
+    const targetElement = getTarget(params.target);
+    targetElement.appendChild(container);
+    setupAccessibility(params);
+    setupRTL(targetElement);
+    addInputChangeListeners();
+  };
+
+  /**
+   * @param {HTMLElement | object | string} param
+   * @param {HTMLElement} target
+   */
+  const parseHtmlToContainer = (param, target) => {
+    // DOM element
+    if (param instanceof HTMLElement) {
+      target.appendChild(param);
+    }
+
+    // Object
+    else if (typeof param === 'object') {
+      handleObject(param, target);
+    }
+
+    // Plain string
+    else if (param) {
+      setInnerHtml(target, param);
+    }
+  };
+
+  /**
+   * @param {object} param
+   * @param {HTMLElement} target
+   */
+  const handleObject = (param, target) => {
+    // JQuery element(s)
+    if (param.jquery) {
+      handleJqueryElem(target, param);
+    }
+
+    // For other objects use their string representation
+    else {
+      setInnerHtml(target, param.toString());
+    }
+  };
+
+  /**
+   * @param {HTMLElement} target
+   * @param {HTMLElement} elem
+   */
+  const handleJqueryElem = (target, elem) => {
+    target.textContent = '';
+    if (0 in elem) {
+      for (let i = 0; (i in elem); i++) {
+        target.appendChild(elem[i].cloneNode(true));
+      }
+    } else {
+      target.appendChild(elem.cloneNode(true));
+    }
+  };
+
+  /**
+   * @returns {'webkitAnimationEnd' | 'animationend' | false}
+   */
+  const animationEndEvent = (() => {
+    // Prevent run in Node env
+    /* istanbul ignore if */
+    if (isNodeEnv()) {
+      return false;
+    }
+    const testEl = document.createElement('div');
+    const transEndEventNames = {
+      WebkitAnimation: 'webkitAnimationEnd',
+      // Chrome, Safari and Opera
+      animation: 'animationend' // Standard syntax
+    };
+
+    for (const i in transEndEventNames) {
+      if (Object.prototype.hasOwnProperty.call(transEndEventNames, i) && typeof testEl.style[i] !== 'undefined') {
+        return transEndEventNames[i];
+      }
+    }
+    return false;
+  })();
+
+  /**
+   * Measure scrollbar width for padding body during modal show/hide
+   * https://github.com/twbs/bootstrap/blob/master/js/src/modal.js
+   *
+   * @returns {number}
+   */
+  const measureScrollbar = () => {
+    const scrollDiv = document.createElement('div');
+    scrollDiv.className = swalClasses['scrollbar-measure'];
+    document.body.appendChild(scrollDiv);
+    const scrollbarWidth = scrollDiv.getBoundingClientRect().width - scrollDiv.clientWidth;
+    document.body.removeChild(scrollDiv);
+    return scrollbarWidth;
+  };
+
+  /**
+   * @param {SweetAlert2} instance
+   * @param {SweetAlertOptions} params
+   */
+  const renderActions = (instance, params) => {
+    const actions = getActions();
+    const loader = getLoader();
+
+    // Actions (buttons) wrapper
+    if (!params.showConfirmButton && !params.showDenyButton && !params.showCancelButton) {
+      hide(actions);
+    } else {
+      show(actions);
+    }
+
+    // Custom class
+    applyCustomClass(actions, params, 'actions');
+
+    // Render all the buttons
+    renderButtons(actions, loader, params);
+
+    // Loader
+    setInnerHtml(loader, params.loaderHtml);
+    applyCustomClass(loader, params, 'loader');
+  };
+
+  /**
+   * @param {HTMLElement} actions
+   * @param {HTMLElement} loader
+   * @param {SweetAlertOptions} params
+   */
+  function renderButtons(actions, loader, params) {
+    const confirmButton = getConfirmButton();
+    const denyButton = getDenyButton();
+    const cancelButton = getCancelButton();
+
+    // Render buttons
+    renderButton(confirmButton, 'confirm', params);
+    renderButton(denyButton, 'deny', params);
+    renderButton(cancelButton, 'cancel', params);
+    handleButtonsStyling(confirmButton, denyButton, cancelButton, params);
+    if (params.reverseButtons) {
+      if (params.toast) {
+        actions.insertBefore(cancelButton, confirmButton);
+        actions.insertBefore(denyButton, confirmButton);
+      } else {
+        actions.insertBefore(cancelButton, loader);
+        actions.insertBefore(denyButton, loader);
+        actions.insertBefore(confirmButton, loader);
+      }
+    }
+  }
+
+  /**
+   * @param {HTMLElement} confirmButton
+   * @param {HTMLElement} denyButton
+   * @param {HTMLElement} cancelButton
+   * @param {SweetAlertOptions} params
+   */
+  function handleButtonsStyling(confirmButton, denyButton, cancelButton, params) {
+    if (!params.buttonsStyling) {
+      removeClass([confirmButton, denyButton, cancelButton], swalClasses.styled);
+      return;
+    }
+    addClass([confirmButton, denyButton, cancelButton], swalClasses.styled);
+
+    // Buttons background colors
+    if (params.confirmButtonColor) {
+      confirmButton.style.backgroundColor = params.confirmButtonColor;
+      addClass(confirmButton, swalClasses['default-outline']);
+    }
+    if (params.denyButtonColor) {
+      denyButton.style.backgroundColor = params.denyButtonColor;
+      addClass(denyButton, swalClasses['default-outline']);
+    }
+    if (params.cancelButtonColor) {
+      cancelButton.style.backgroundColor = params.cancelButtonColor;
+      addClass(cancelButton, swalClasses['default-outline']);
+    }
+  }
+
+  /**
+   * @param {HTMLElement} button
+   * @param {'confirm' | 'deny' | 'cancel'} buttonType
+   * @param {SweetAlertOptions} params
+   */
+  function renderButton(button, buttonType, params) {
+    toggle(button, params[`show${capitalizeFirstLetter(buttonType)}Button`], 'inline-block');
+    setInnerHtml(button, params[`${buttonType}ButtonText`]); // Set caption text
+    button.setAttribute('aria-label', params[`${buttonType}ButtonAriaLabel`]); // ARIA label
+
+    // Add buttons custom classes
+    button.className = swalClasses[buttonType];
+    applyCustomClass(button, params, `${buttonType}Button`);
+    addClass(button, params[`${buttonType}ButtonClass`]);
+  }
+
+  /**
+   * @param {SweetAlert2} instance
+   * @param {SweetAlertOptions} params
+   */
+  const renderCloseButton = (instance, params) => {
+    const closeButton = getCloseButton();
+    setInnerHtml(closeButton, params.closeButtonHtml);
+
+    // Custom class
+    applyCustomClass(closeButton, params, 'closeButton');
+    toggle(closeButton, params.showCloseButton);
+    closeButton.setAttribute('aria-label', params.closeButtonAriaLabel);
+  };
+
+  /**
+   * @param {SweetAlert2} instance
+   * @param {SweetAlertOptions} params
+   */
+  const renderContainer = (instance, params) => {
+    const container = getContainer();
+    if (!container) {
+      return;
+    }
+    handleBackdropParam(container, params.backdrop);
+    handlePositionParam(container, params.position);
+    handleGrowParam(container, params.grow);
+
+    // Custom class
+    applyCustomClass(container, params, 'container');
+  };
+
+  /**
+   * @param {HTMLElement} container
+   * @param {SweetAlertOptions['backdrop']} backdrop
+   */
+  function handleBackdropParam(container, backdrop) {
+    if (typeof backdrop === 'string') {
+      container.style.background = backdrop;
+    } else if (!backdrop) {
+      addClass([document.documentElement, document.body], swalClasses['no-backdrop']);
+    }
+  }
+
+  /**
+   * @param {HTMLElement} container
+   * @param {SweetAlertOptions['position']} position
+   */
+  function handlePositionParam(container, position) {
+    if (position in swalClasses) {
+      addClass(container, swalClasses[position]);
+    } else {
+      warn('The "position" parameter is not valid, defaulting to "center"');
+      addClass(container, swalClasses.center);
+    }
+  }
+
+  /**
+   * @param {HTMLElement} container
+   * @param {SweetAlertOptions['grow']} grow
+   */
+  function handleGrowParam(container, grow) {
+    if (grow && typeof grow === 'string') {
+      const growClass = `grow-${grow}`;
+      if (growClass in swalClasses) {
+        addClass(container, swalClasses[growClass]);
+      }
+    }
+  }
+
+  /// <reference path="../../../../sweetalert2.d.ts"/>
+
+  /** @type {InputClass[]} */
+  const inputClasses = ['input', 'file', 'range', 'select', 'radio', 'checkbox', 'textarea'];
+
+  /**
+   * @param {SweetAlert2} instance
+   * @param {SweetAlertOptions} params
+   */
+  const renderInput = (instance, params) => {
+    const popup = getPopup();
+    const innerParams = privateProps.innerParams.get(instance);
+    const rerender = !innerParams || params.input !== innerParams.input;
+    inputClasses.forEach(inputClass => {
+      const inputContainer = getDirectChildByClass(popup, swalClasses[inputClass]);
+
+      // set attributes
+      setAttributes(inputClass, params.inputAttributes);
+
+      // set class
+      inputContainer.className = swalClasses[inputClass];
+      if (rerender) {
+        hide(inputContainer);
+      }
+    });
+    if (params.input) {
+      if (rerender) {
+        showInput(params);
+      }
+      // set custom class
+      setCustomClass(params);
+    }
+  };
+
+  /**
+   * @param {SweetAlertOptions} params
+   */
+  const showInput = params => {
+    if (!renderInputType[params.input]) {
+      error(`Unexpected type of input! Expected "text", "email", "password", "number", "tel", "select", "radio", "checkbox", "textarea", "file" or "url", got "${params.input}"`);
+      return;
+    }
+    const inputContainer = getInputContainer(params.input);
+    const input = renderInputType[params.input](inputContainer, params);
+    show(inputContainer);
+
+    // input autofocus
+    if (params.inputAutoFocus) {
+      setTimeout(() => {
+        focusInput(input);
+      });
+    }
+  };
+
+  /**
+   * @param {HTMLInputElement} input
+   */
+  const removeAttributes = input => {
+    for (let i = 0; i < input.attributes.length; i++) {
+      const attrName = input.attributes[i].name;
+      if (!['type', 'value', 'style'].includes(attrName)) {
+        input.removeAttribute(attrName);
+      }
+    }
+  };
+
+  /**
+   * @param {InputClass} inputClass
+   * @param {SweetAlertOptions['inputAttributes']} inputAttributes
+   */
+  const setAttributes = (inputClass, inputAttributes) => {
+    const input = getInput$1(getPopup(), inputClass);
+    if (!input) {
+      return;
+    }
+    removeAttributes(input);
+    for (const attr in inputAttributes) {
+      input.setAttribute(attr, inputAttributes[attr]);
+    }
+  };
+
+  /**
+   * @param {SweetAlertOptions} params
+   */
+  const setCustomClass = params => {
+    const inputContainer = getInputContainer(params.input);
+    if (typeof params.customClass === 'object') {
+      addClass(inputContainer, params.customClass.input);
+    }
+  };
+
+  /**
+   * @param {HTMLInputElement | HTMLTextAreaElement} input
+   * @param {SweetAlertOptions} params
+   */
+  const setInputPlaceholder = (input, params) => {
+    if (!input.placeholder || params.inputPlaceholder) {
+      input.placeholder = params.inputPlaceholder;
+    }
+  };
+
+  /**
+   * @param {Input} input
+   * @param {Input} prependTo
+   * @param {SweetAlertOptions} params
+   */
+  const setInputLabel = (input, prependTo, params) => {
+    if (params.inputLabel) {
+      input.id = swalClasses.input;
+      const label = document.createElement('label');
+      const labelClass = swalClasses['input-label'];
+      label.setAttribute('for', input.id);
+      label.className = labelClass;
+      if (typeof params.customClass === 'object') {
+        addClass(label, params.customClass.inputLabel);
+      }
+      label.innerText = params.inputLabel;
+      prependTo.insertAdjacentElement('beforebegin', label);
+    }
+  };
+
+  /**
+   * @param {SweetAlertOptions['input']} inputType
+   * @returns {HTMLElement}
+   */
+  const getInputContainer = inputType => {
+    return getDirectChildByClass(getPopup(), swalClasses[inputType] || swalClasses.input);
+  };
+
+  /**
+   * @param {HTMLInputElement | HTMLOutputElement | HTMLTextAreaElement} input
+   * @param {SweetAlertOptions['inputValue']} inputValue
+   */
+  const checkAndSetInputValue = (input, inputValue) => {
+    if (['string', 'number'].includes(typeof inputValue)) {
+      input.value = `${inputValue}`;
+    } else if (!isPromise(inputValue)) {
+      warn(`Unexpected type of inputValue! Expected "string", "number" or "Promise", got "${typeof inputValue}"`);
+    }
+  };
+
+  /** @type {Record<string, (input: Input | HTMLElement, params: SweetAlertOptions) => Input>} */
+  const renderInputType = {};
+
+  /**
+   * @param {HTMLInputElement} input
+   * @param {SweetAlertOptions} params
+   * @returns {HTMLInputElement}
+   */
+  renderInputType.text = renderInputType.email = renderInputType.password = renderInputType.number = renderInputType.tel = renderInputType.url = (input, params) => {
+    checkAndSetInputValue(input, params.inputValue);
+    setInputLabel(input, input, params);
+    setInputPlaceholder(input, params);
+    input.type = params.input;
+    return input;
+  };
+
+  /**
+   * @param {HTMLInputElement} input
+   * @param {SweetAlertOptions} params
+   * @returns {HTMLInputElement}
+   */
+  renderInputType.file = (input, params) => {
+    setInputLabel(input, input, params);
+    setInputPlaceholder(input, params);
+    return input;
+  };
+
+  /**
+   * @param {HTMLInputElement} range
+   * @param {SweetAlertOptions} params
+   * @returns {HTMLInputElement}
+   */
+  renderInputType.range = (range, params) => {
+    const rangeInput = range.querySelector('input');
+    const rangeOutput = range.querySelector('output');
+    checkAndSetInputValue(rangeInput, params.inputValue);
+    rangeInput.type = params.input;
+    checkAndSetInputValue(rangeOutput, params.inputValue);
+    setInputLabel(rangeInput, range, params);
+    return range;
+  };
+
+  /**
+   * @param {HTMLSelectElement} select
+   * @param {SweetAlertOptions} params
+   * @returns {HTMLSelectElement}
+   */
+  renderInputType.select = (select, params) => {
+    select.textContent = '';
+    if (params.inputPlaceholder) {
+      const placeholder = document.createElement('option');
+      setInnerHtml(placeholder, params.inputPlaceholder);
+      placeholder.value = '';
+      placeholder.disabled = true;
+      placeholder.selected = true;
+      select.appendChild(placeholder);
+    }
+    setInputLabel(select, select, params);
+    return select;
+  };
+
+  /**
+   * @param {HTMLInputElement} radio
+   * @returns {HTMLInputElement}
+   */
+  renderInputType.radio = radio => {
+    radio.textContent = '';
+    return radio;
+  };
+
+  /**
+   * @param {HTMLLabelElement} checkboxContainer
+   * @param {SweetAlertOptions} params
+   * @returns {HTMLInputElement}
+   */
+  renderInputType.checkbox = (checkboxContainer, params) => {
+    const checkbox = getInput$1(getPopup(), 'checkbox');
+    checkbox.value = '1';
+    checkbox.id = swalClasses.checkbox;
+    checkbox.checked = Boolean(params.inputValue);
+    const label = checkboxContainer.querySelector('span');
+    setInnerHtml(label, params.inputPlaceholder);
+    return checkbox;
+  };
+
+  /**
+   * @param {HTMLTextAreaElement} textarea
+   * @param {SweetAlertOptions} params
+   * @returns {HTMLTextAreaElement}
+   */
+  renderInputType.textarea = (textarea, params) => {
+    checkAndSetInputValue(textarea, params.inputValue);
+    setInputPlaceholder(textarea, params);
+    setInputLabel(textarea, textarea, params);
+
+    /**
+     * @param {HTMLElement} el
+     * @returns {number}
+     */
+    const getMargin = el => parseInt(window.getComputedStyle(el).marginLeft) + parseInt(window.getComputedStyle(el).marginRight);
+
+    // https://github.com/sweetalert2/sweetalert2/issues/2291
+    setTimeout(() => {
+      // https://github.com/sweetalert2/sweetalert2/issues/1699
+      if ('MutationObserver' in window) {
+        const initialPopupWidth = parseInt(window.getComputedStyle(getPopup()).width);
+        const textareaResizeHandler = () => {
+          const textareaWidth = textarea.offsetWidth + getMargin(textarea);
+          if (textareaWidth > initialPopupWidth) {
+            getPopup().style.width = `${textareaWidth}px`;
+          } else {
+            getPopup().style.width = null;
+          }
+        };
+        new MutationObserver(textareaResizeHandler).observe(textarea, {
+          attributes: true,
+          attributeFilter: ['style']
+        });
+      }
+    });
+    return textarea;
+  };
+
+  /**
+   * @param {SweetAlert2} instance
+   * @param {SweetAlertOptions} params
+   */
+  const renderContent = (instance, params) => {
+    const htmlContainer = getHtmlContainer();
+    applyCustomClass(htmlContainer, params, 'htmlContainer');
+
+    // Content as HTML
+    if (params.html) {
+      parseHtmlToContainer(params.html, htmlContainer);
+      show(htmlContainer, 'block');
+    }
+
+    // Content as plain text
+    else if (params.text) {
+      htmlContainer.textContent = params.text;
+      show(htmlContainer, 'block');
+    }
+
+    // No content
+    else {
+      hide(htmlContainer);
+    }
+    renderInput(instance, params);
+  };
+
+  /**
+   * @param {SweetAlert2} instance
+   * @param {SweetAlertOptions} params
+   */
+  const renderFooter = (instance, params) => {
+    const footer = getFooter();
+    toggle(footer, params.footer);
+    if (params.footer) {
+      parseHtmlToContainer(params.footer, footer);
+    }
+
+    // Custom class
+    applyCustomClass(footer, params, 'footer');
+  };
+
+  /**
+   * @param {SweetAlert2} instance
+   * @param {SweetAlertOptions} params
+   */
+  const renderIcon = (instance, params) => {
+    const innerParams = privateProps.innerParams.get(instance);
+    const icon = getIcon();
+
+    // if the given icon already rendered, apply the styling without re-rendering the icon
+    if (innerParams && params.icon === innerParams.icon) {
+      // Custom or default content
+      setContent(icon, params);
+      applyStyles(icon, params);
+      return;
+    }
+    if (!params.icon && !params.iconHtml) {
+      hide(icon);
+      return;
+    }
+    if (params.icon && Object.keys(iconTypes).indexOf(params.icon) === -1) {
+      error(`Unknown icon! Expected "success", "error", "warning", "info" or "question", got "${params.icon}"`);
+      hide(icon);
+      return;
+    }
+    show(icon);
+
+    // Custom or default content
+    setContent(icon, params);
+    applyStyles(icon, params);
+
+    // Animate icon
+    addClass(icon, params.showClass.icon);
+  };
+
+  /**
+   * @param {HTMLElement} icon
+   * @param {SweetAlertOptions} params
+   */
+  const applyStyles = (icon, params) => {
+    for (const iconType in iconTypes) {
+      if (params.icon !== iconType) {
+        removeClass(icon, iconTypes[iconType]);
+      }
+    }
+    addClass(icon, iconTypes[params.icon]);
+
+    // Icon color
+    setColor(icon, params);
+
+    // Success icon background color
+    adjustSuccessIconBackgroundColor();
+
+    // Custom class
+    applyCustomClass(icon, params, 'icon');
+  };
+
+  // Adjust success icon background color to match the popup background color
+  const adjustSuccessIconBackgroundColor = () => {
+    const popup = getPopup();
+    const popupBackgroundColor = window.getComputedStyle(popup).getPropertyValue('background-color');
+    /** @type {NodeListOf<HTMLElement>} */
+    const successIconParts = popup.querySelectorAll('[class^=swal2-success-circular-line], .swal2-success-fix');
+    for (let i = 0; i < successIconParts.length; i++) {
+      successIconParts[i].style.backgroundColor = popupBackgroundColor;
+    }
+  };
+  const successIconHtml = `
+  <div class="swal2-success-circular-line-left"></div>
+  <span class="swal2-success-line-tip"></span> <span class="swal2-success-line-long"></span>
+  <div class="swal2-success-ring"></div> <div class="swal2-success-fix"></div>
+  <div class="swal2-success-circular-line-right"></div>
+`;
+  const errorIconHtml = `
+  <span class="swal2-x-mark">
+    <span class="swal2-x-mark-line-left"></span>
+    <span class="swal2-x-mark-line-right"></span>
+  </span>
+`;
+
+  /**
+   * @param {HTMLElement} icon
+   * @param {SweetAlertOptions} params
+   */
+  const setContent = (icon, params) => {
+    let oldContent = icon.innerHTML;
+    let newContent;
+    if (params.iconHtml) {
+      newContent = iconContent(params.iconHtml);
+    } else if (params.icon === 'success') {
+      newContent = successIconHtml;
+      oldContent = oldContent.replace(/ style=".*?"/g, ''); // undo adjustSuccessIconBackgroundColor()
+    } else if (params.icon === 'error') {
+      newContent = errorIconHtml;
+    } else {
+      const defaultIconHtml = {
+        question: '?',
+        warning: '!',
+        info: 'i'
+      };
+      newContent = iconContent(defaultIconHtml[params.icon]);
+    }
+    if (oldContent.trim() !== newContent.trim()) {
+      setInnerHtml(icon, newContent);
+    }
+  };
+
+  /**
+   * @param {HTMLElement} icon
+   * @param {SweetAlertOptions} params
+   */
+  const setColor = (icon, params) => {
+    if (!params.iconColor) {
+      return;
+    }
+    icon.style.color = params.iconColor;
+    icon.style.borderColor = params.iconColor;
+    for (const sel of ['.swal2-success-line-tip', '.swal2-success-line-long', '.swal2-x-mark-line-left', '.swal2-x-mark-line-right']) {
+      setStyle(icon, sel, 'backgroundColor', params.iconColor);
+    }
+    setStyle(icon, '.swal2-success-ring', 'borderColor', params.iconColor);
+  };
+
+  /**
+   * @param {string} content
+   * @returns {string}
+   */
+  const iconContent = content => `<div class="${swalClasses['icon-content']}">${content}</div>`;
+
+  /**
+   * @param {SweetAlert2} instance
+   * @param {SweetAlertOptions} params
+   */
+  const renderImage = (instance, params) => {
+    const image = getImage();
+    if (!params.imageUrl) {
+      hide(image);
+      return;
+    }
+    show(image, '');
+
+    // Src, alt
+    image.setAttribute('src', params.imageUrl);
+    image.setAttribute('alt', params.imageAlt);
+
+    // Width, height
+    applyNumericalStyle(image, 'width', params.imageWidth);
+    applyNumericalStyle(image, 'height', params.imageHeight);
+
+    // Class
+    image.className = swalClasses.image;
+    applyCustomClass(image, params, 'image');
+  };
+
+  /**
+   * @param {SweetAlert2} instance
+   * @param {SweetAlertOptions} params
+   */
+  const renderPopup = (instance, params) => {
+    const container = getContainer();
+    const popup = getPopup();
+
+    // Width
+    // https://github.com/sweetalert2/sweetalert2/issues/2170
+    if (params.toast) {
+      applyNumericalStyle(container, 'width', params.width);
+      popup.style.width = '100%';
+      popup.insertBefore(getLoader(), getIcon());
+    } else {
+      applyNumericalStyle(popup, 'width', params.width);
+    }
+
+    // Padding
+    applyNumericalStyle(popup, 'padding', params.padding);
+
+    // Color
+    if (params.color) {
+      popup.style.color = params.color;
+    }
+
+    // Background
+    if (params.background) {
+      popup.style.background = params.background;
+    }
+    hide(getValidationMessage());
+
+    // Classes
+    addClasses$1(popup, params);
+  };
+
+  /**
+   * @param {HTMLElement} popup
+   * @param {SweetAlertOptions} params
+   */
+  const addClasses$1 = (popup, params) => {
+    // Default Class + showClass when updating Swal.update({})
+    popup.className = `${swalClasses.popup} ${isVisible$1(popup) ? params.showClass.popup : ''}`;
+    if (params.toast) {
+      addClass([document.documentElement, document.body], swalClasses['toast-shown']);
+      addClass(popup, swalClasses.toast);
+    } else {
+      addClass(popup, swalClasses.modal);
+    }
+
+    // Custom class
+    applyCustomClass(popup, params, 'popup');
+    if (typeof params.customClass === 'string') {
+      addClass(popup, params.customClass);
+    }
+
+    // Icon class (#1842)
+    if (params.icon) {
+      addClass(popup, swalClasses[`icon-${params.icon}`]);
+    }
+  };
+
+  /**
+   * @param {SweetAlert2} instance
+   * @param {SweetAlertOptions} params
+   */
+  const renderProgressSteps = (instance, params) => {
+    const progressStepsContainer = getProgressSteps();
+    if (!params.progressSteps || params.progressSteps.length === 0) {
+      hide(progressStepsContainer);
+      return;
+    }
+    show(progressStepsContainer);
+    progressStepsContainer.textContent = '';
+    if (params.currentProgressStep >= params.progressSteps.length) {
+      warn('Invalid currentProgressStep parameter, it should be less than progressSteps.length ' + '(currentProgressStep like JS arrays starts from 0)');
+    }
+    params.progressSteps.forEach((step, index) => {
+      const stepEl = createStepElement(step);
+      progressStepsContainer.appendChild(stepEl);
+      if (index === params.currentProgressStep) {
+        addClass(stepEl, swalClasses['active-progress-step']);
+      }
+      if (index !== params.progressSteps.length - 1) {
+        const lineEl = createLineElement(params);
+        progressStepsContainer.appendChild(lineEl);
+      }
+    });
+  };
+
+  /**
+   * @param {string} step
+   * @returns {HTMLLIElement}
+   */
+  const createStepElement = step => {
+    const stepEl = document.createElement('li');
+    addClass(stepEl, swalClasses['progress-step']);
+    setInnerHtml(stepEl, step);
+    return stepEl;
+  };
+
+  /**
+   * @param {SweetAlertOptions} params
+   * @returns {HTMLLIElement}
+   */
+  const createLineElement = params => {
+    const lineEl = document.createElement('li');
+    addClass(lineEl, swalClasses['progress-step-line']);
+    if (params.progressStepsDistance) {
+      applyNumericalStyle(lineEl, 'width', params.progressStepsDistance);
+    }
+    return lineEl;
+  };
+
+  /**
+   * @param {SweetAlert2} instance
+   * @param {SweetAlertOptions} params
+   */
+  const renderTitle = (instance, params) => {
+    const title = getTitle();
+    toggle(title, params.title || params.titleText, 'block');
+    if (params.title) {
+      parseHtmlToContainer(params.title, title);
+    }
+    if (params.titleText) {
+      title.innerText = params.titleText;
+    }
+
+    // Custom class
+    applyCustomClass(title, params, 'title');
+  };
+
+  /**
+   * @param {SweetAlert2} instance
+   * @param {SweetAlertOptions} params
+   */
+  const render = (instance, params) => {
+    renderPopup(instance, params);
+    renderContainer(instance, params);
+    renderProgressSteps(instance, params);
+    renderIcon(instance, params);
+    renderImage(instance, params);
+    renderTitle(instance, params);
+    renderCloseButton(instance, params);
+    renderContent(instance, params);
+    renderActions(instance, params);
+    renderFooter(instance, params);
+    if (typeof params.didRender === 'function') {
+      params.didRender(getPopup());
+    }
+  };
+
+  /**
+   * Hides loader and shows back the button which was hidden by .showLoading()
+   */
+  function hideLoading() {
+    // do nothing if popup is closed
+    const innerParams = privateProps.innerParams.get(this);
+    if (!innerParams) {
+      return;
+    }
+    const domCache = privateProps.domCache.get(this);
+    hide(domCache.loader);
+    if (isToast()) {
+      if (innerParams.icon) {
+        show(getIcon());
+      }
+    } else {
+      showRelatedButton(domCache);
+    }
+    removeClass([domCache.popup, domCache.actions], swalClasses.loading);
+    domCache.popup.removeAttribute('aria-busy');
+    domCache.popup.removeAttribute('data-loading');
+    domCache.confirmButton.disabled = false;
+    domCache.denyButton.disabled = false;
+    domCache.cancelButton.disabled = false;
+  }
+  const showRelatedButton = domCache => {
+    const buttonToReplace = domCache.popup.getElementsByClassName(domCache.loader.getAttribute('data-button-to-replace'));
+    if (buttonToReplace.length) {
+      show(buttonToReplace[0], 'inline-block');
+    } else if (allButtonsAreHidden()) {
+      hide(domCache.actions);
+    }
+  };
+
+  /**
+   * Gets the input DOM node, this method works with input parameter.
+   *
+   * @param {SweetAlert2} instance
+   * @returns {HTMLElement | null}
+   */
+  function getInput(instance) {
+    const innerParams = privateProps.innerParams.get(instance || this);
+    const domCache = privateProps.domCache.get(instance || this);
+    if (!domCache) {
+      return null;
+    }
+    return getInput$1(domCache.popup, innerParams.input);
+  }
+
+  /*
+   * Global function to determine if SweetAlert2 popup is shown
+   */
+  const isVisible = () => {
+    return isVisible$1(getPopup());
+  };
+
+  /*
+   * Global function to click 'Confirm' button
+   */
+  const clickConfirm = () => getConfirmButton() && getConfirmButton().click();
+
+  /*
+   * Global function to click 'Deny' button
+   */
+  const clickDeny = () => getDenyButton() && getDenyButton().click();
+
+  /*
+   * Global function to click 'Cancel' button
+   */
+  const clickCancel = () => getCancelButton() && getCancelButton().click();
+
+  const DismissReason = Object.freeze({
+    cancel: 'cancel',
+    backdrop: 'backdrop',
+    close: 'close',
+    esc: 'esc',
+    timer: 'timer'
+  });
+
+  /**
+   * @param {GlobalState} globalState
+   */
+  const removeKeydownHandler = globalState => {
+    if (globalState.keydownTarget && globalState.keydownHandlerAdded) {
+      globalState.keydownTarget.removeEventListener('keydown', globalState.keydownHandler, {
+        capture: globalState.keydownListenerCapture
+      });
+      globalState.keydownHandlerAdded = false;
+    }
+  };
+
+  /**
+   * @param {SweetAlert2} instance
+   * @param {GlobalState} globalState
+   * @param {SweetAlertOptions} innerParams
+   * @param {*} dismissWith
+   */
+  const addKeydownHandler = (instance, globalState, innerParams, dismissWith) => {
+    removeKeydownHandler(globalState);
+    if (!innerParams.toast) {
+      globalState.keydownHandler = e => keydownHandler(instance, e, dismissWith);
+      globalState.keydownTarget = innerParams.keydownListenerCapture ? window : getPopup();
+      globalState.keydownListenerCapture = innerParams.keydownListenerCapture;
+      globalState.keydownTarget.addEventListener('keydown', globalState.keydownHandler, {
+        capture: globalState.keydownListenerCapture
+      });
+      globalState.keydownHandlerAdded = true;
+    }
+  };
+
+  /**
+   * @param {number} index
+   * @param {number} increment
+   */
+  const setFocus = (index, increment) => {
+    const focusableElements = getFocusableElements();
+    // search for visible elements and select the next possible match
+    if (focusableElements.length) {
+      index = index + increment;
+
+      // rollover to first item
+      if (index === focusableElements.length) {
+        index = 0;
+
+        // go to last item
+      } else if (index === -1) {
+        index = focusableElements.length - 1;
+      }
+      focusableElements[index].focus();
+      return;
+    }
+    // no visible focusable elements, focus the popup
+    getPopup().focus();
+  };
+  const arrowKeysNextButton = ['ArrowRight', 'ArrowDown'];
+  const arrowKeysPreviousButton = ['ArrowLeft', 'ArrowUp'];
+
+  /**
+   * @param {SweetAlert2} instance
+   * @param {KeyboardEvent} event
+   * @param {Function} dismissWith
+   */
+  const keydownHandler = (instance, event, dismissWith) => {
+    const innerParams = privateProps.innerParams.get(instance);
+    if (!innerParams) {
+      return; // This instance has already been destroyed
+    }
+
+    // Ignore keydown during IME composition
+    // https://developer.mozilla.org/en-US/docs/Web/API/Document/keydown_event#ignoring_keydown_during_ime_composition
+    // https://github.com/sweetalert2/sweetalert2/issues/720
+    // https://github.com/sweetalert2/sweetalert2/issues/2406
+    if (event.isComposing || event.keyCode === 229) {
+      return;
+    }
+    if (innerParams.stopKeydownPropagation) {
+      event.stopPropagation();
+    }
+
+    // ENTER
+    if (event.key === 'Enter') {
+      handleEnter(instance, event, innerParams);
+    }
+
+    // TAB
+    else if (event.key === 'Tab') {
+      handleTab(event);
+    }
+
+    // ARROWS - switch focus between buttons
+    else if ([...arrowKeysNextButton, ...arrowKeysPreviousButton].includes(event.key)) {
+      handleArrows(event.key);
+    }
+
+    // ESC
+    else if (event.key === 'Escape') {
+      handleEsc(event, innerParams, dismissWith);
+    }
+  };
+
+  /**
+   * @param {SweetAlert2} instance
+   * @param {KeyboardEvent} event
+   * @param {SweetAlertOptions} innerParams
+   */
+  const handleEnter = (instance, event, innerParams) => {
+    // https://github.com/sweetalert2/sweetalert2/issues/2386
+    if (!callIfFunction(innerParams.allowEnterKey)) {
+      return;
+    }
+    if (event.target && instance.getInput() && event.target instanceof HTMLElement && event.target.outerHTML === instance.getInput().outerHTML) {
+      if (['textarea', 'file'].includes(innerParams.input)) {
+        return; // do not submit
+      }
+
+      clickConfirm();
+      event.preventDefault();
+    }
+  };
+
+  /**
+   * @param {KeyboardEvent} event
+   */
+  const handleTab = event => {
+    const targetElement = event.target;
+    const focusableElements = getFocusableElements();
+    let btnIndex = -1;
+    for (let i = 0; i < focusableElements.length; i++) {
+      if (targetElement === focusableElements[i]) {
+        btnIndex = i;
+        break;
+      }
+    }
+
+    // Cycle to the next button
+    if (!event.shiftKey) {
+      setFocus(btnIndex, 1);
+    }
+
+    // Cycle to the prev button
+    else {
+      setFocus(btnIndex, -1);
+    }
+    event.stopPropagation();
+    event.preventDefault();
+  };
+
+  /**
+   * @param {string} key
+   */
+  const handleArrows = key => {
+    const confirmButton = getConfirmButton();
+    const denyButton = getDenyButton();
+    const cancelButton = getCancelButton();
+    /** @type HTMLElement[] */
+    const buttons = [confirmButton, denyButton, cancelButton];
+    if (document.activeElement instanceof HTMLElement && !buttons.includes(document.activeElement)) {
+      return;
+    }
+    const sibling = arrowKeysNextButton.includes(key) ? 'nextElementSibling' : 'previousElementSibling';
+    let buttonToFocus = document.activeElement;
+    for (let i = 0; i < getActions().children.length; i++) {
+      buttonToFocus = buttonToFocus[sibling];
+      if (!buttonToFocus) {
+        return;
+      }
+      if (buttonToFocus instanceof HTMLButtonElement && isVisible$1(buttonToFocus)) {
+        break;
+      }
+    }
+    if (buttonToFocus instanceof HTMLButtonElement) {
+      buttonToFocus.focus();
+    }
+  };
+
+  /**
+   * @param {KeyboardEvent} event
+   * @param {SweetAlertOptions} innerParams
+   * @param {Function} dismissWith
+   */
+  const handleEsc = (event, innerParams, dismissWith) => {
+    if (callIfFunction(innerParams.allowEscapeKey)) {
+      event.preventDefault();
+      dismissWith(DismissReason.esc);
+    }
+  };
+
+  /**
+   * This module contains `WeakMap`s for each effectively-"private  property" that a `Swal` has.
+   * For example, to set the private property "foo" of `this` to "bar", you can `privateProps.foo.set(this, 'bar')`
+   * This is the approach that Babel will probably take to implement private methods/fields
+   *   https://github.com/tc39/proposal-private-methods
+   *   https://github.com/babel/babel/pull/7555
+   * Once we have the changes from that PR in Babel, and our core class fits reasonable in *one module*
+   *   then we can use that language feature.
+   */
+
+  var privateMethods = {
+    swalPromiseResolve: new WeakMap(),
+    swalPromiseReject: new WeakMap()
+  };
+
+  // From https://developer.paciellogroup.com/blog/2018/06/the-current-state-of-modal-dialog-accessibility/
+  // Adding aria-hidden="true" to elements outside of the active modal dialog ensures that
+  // elements not within the active modal dialog will not be surfaced if a user opens a screen
+  // reader’s list of elements (headings, form controls, landmarks, etc.) in the document.
+
+  const setAriaHidden = () => {
+    const bodyChildren = Array.from(document.body.children);
+    bodyChildren.forEach(el => {
+      if (el === getContainer() || el.contains(getContainer())) {
+        return;
+      }
+      if (el.hasAttribute('aria-hidden')) {
+        el.setAttribute('data-previous-aria-hidden', el.getAttribute('aria-hidden'));
+      }
+      el.setAttribute('aria-hidden', 'true');
+    });
+  };
+  const unsetAriaHidden = () => {
+    const bodyChildren = Array.from(document.body.children);
+    bodyChildren.forEach(el => {
+      if (el.hasAttribute('data-previous-aria-hidden')) {
+        el.setAttribute('aria-hidden', el.getAttribute('data-previous-aria-hidden'));
+        el.removeAttribute('data-previous-aria-hidden');
+      } else {
+        el.removeAttribute('aria-hidden');
+      }
+    });
+  };
+
+  /* istanbul ignore file */
+
+  // Fix iOS scrolling http://stackoverflow.com/q/39626302
+
+  const iOSfix = () => {
+    const iOS =
+    // @ts-ignore
+    /iPad|iPhone|iPod/.test(navigator.userAgent) && !window.MSStream || navigator.platform === 'MacIntel' && navigator.maxTouchPoints > 1;
+    if (iOS && !hasClass(document.body, swalClasses.iosfix)) {
+      const offset = document.body.scrollTop;
+      document.body.style.top = `${offset * -1}px`;
+      addClass(document.body, swalClasses.iosfix);
+      lockBodyScroll();
+      addBottomPaddingForTallPopups();
+    }
+  };
+
+  /**
+   * https://github.com/sweetalert2/sweetalert2/issues/1948
+   */
+  const addBottomPaddingForTallPopups = () => {
+    const ua = navigator.userAgent;
+    const iOS = !!ua.match(/iPad/i) || !!ua.match(/iPhone/i);
+    const webkit = !!ua.match(/WebKit/i);
+    const iOSSafari = iOS && webkit && !ua.match(/CriOS/i);
+    if (iOSSafari) {
+      const bottomPanelHeight = 44;
+      if (getPopup().scrollHeight > window.innerHeight - bottomPanelHeight) {
+        getContainer().style.paddingBottom = `${bottomPanelHeight}px`;
+      }
+    }
+  };
+
+  /**
+   * https://github.com/sweetalert2/sweetalert2/issues/1246
+   */
+  const lockBodyScroll = () => {
+    const container = getContainer();
+    let preventTouchMove;
+    /**
+     * @param {TouchEvent} event
+     */
+    container.ontouchstart = event => {
+      preventTouchMove = shouldPreventTouchMove(event);
+    };
+    /**
+     * @param {TouchEvent} event
+     */
+    container.ontouchmove = event => {
+      if (preventTouchMove) {
+        event.preventDefault();
+        event.stopPropagation();
+      }
+    };
+  };
+
+  /**
+   * @param {TouchEvent} event
+   * @returns {boolean}
+   */
+  const shouldPreventTouchMove = event => {
+    const target = event.target;
+    const container = getContainer();
+    if (isStylus(event) || isZoom(event)) {
+      return false;
+    }
+    if (target === container) {
+      return true;
+    }
+    if (!isScrollable(container) && target instanceof HTMLElement && target.tagName !== 'INPUT' &&
+    // #1603
+    target.tagName !== 'TEXTAREA' &&
+    // #2266
+    !(isScrollable(getHtmlContainer()) &&
+    // #1944
+    getHtmlContainer().contains(target))) {
+      return true;
+    }
+    return false;
+  };
+
+  /**
+   * https://github.com/sweetalert2/sweetalert2/issues/1786
+   *
+   * @param {*} event
+   * @returns {boolean}
+   */
+  const isStylus = event => {
+    return event.touches && event.touches.length && event.touches[0].touchType === 'stylus';
+  };
+
+  /**
+   * https://github.com/sweetalert2/sweetalert2/issues/1891
+   *
+   * @param {TouchEvent} event
+   * @returns {boolean}
+   */
+  const isZoom = event => {
+    return event.touches && event.touches.length > 1;
+  };
+  const undoIOSfix = () => {
+    if (hasClass(document.body, swalClasses.iosfix)) {
+      const offset = parseInt(document.body.style.top, 10);
+      removeClass(document.body, swalClasses.iosfix);
+      document.body.style.top = '';
+      document.body.scrollTop = offset * -1;
+    }
+  };
+
+  const fixScrollbar = () => {
+    // for queues, do not do this more than once
+    if (states.previousBodyPadding !== null) {
+      return;
+    }
+    // if the body has overflow
+    if (document.body.scrollHeight > window.innerHeight) {
+      // add padding so the content doesn't shift after removal of scrollbar
+      states.previousBodyPadding = parseInt(window.getComputedStyle(document.body).getPropertyValue('padding-right'));
+      document.body.style.paddingRight = `${states.previousBodyPadding + measureScrollbar()}px`;
+    }
+  };
+  const undoScrollbar = () => {
+    if (states.previousBodyPadding !== null) {
+      document.body.style.paddingRight = `${states.previousBodyPadding}px`;
+      states.previousBodyPadding = null;
+    }
+  };
+
+  /**
+   * @param {SweetAlert2} instance
+   * @param {HTMLElement} container
+   * @param {boolean} returnFocus
+   * @param {Function} didClose
+   */
+  function removePopupAndResetState(instance, container, returnFocus, didClose) {
+    if (isToast()) {
+      triggerDidCloseAndDispose(instance, didClose);
+    } else {
+      restoreActiveElement(returnFocus).then(() => triggerDidCloseAndDispose(instance, didClose));
+      removeKeydownHandler(globalState);
+    }
+    const isSafari = /^((?!chrome|android).)*safari/i.test(navigator.userAgent);
+    // workaround for #2088
+    // for some reason removing the container in Safari will scroll the document to bottom
+    if (isSafari) {
+      container.setAttribute('style', 'display:none !important');
+      container.removeAttribute('class');
+      container.innerHTML = '';
+    } else {
+      container.remove();
+    }
+    if (isModal()) {
+      undoScrollbar();
+      undoIOSfix();
+      unsetAriaHidden();
+    }
+    removeBodyClasses();
+  }
+
+  /**
+   * Remove SweetAlert2 classes from body
+   */
+  function removeBodyClasses() {
+    removeClass([document.documentElement, document.body], [swalClasses.shown, swalClasses['height-auto'], swalClasses['no-backdrop'], swalClasses['toast-shown']]);
+  }
+
+  /**
+   * Instance method to close sweetAlert
+   *
+   * @param {any} resolveValue
+   */
+  function close(resolveValue) {
+    resolveValue = prepareResolveValue(resolveValue);
+    const swalPromiseResolve = privateMethods.swalPromiseResolve.get(this);
+    const didClose = triggerClosePopup(this);
+    if (this.isAwaitingPromise()) {
+      // A swal awaiting for a promise (after a click on Confirm or Deny) cannot be dismissed anymore #2335
+      if (!resolveValue.isDismissed) {
+        handleAwaitingPromise(this);
+        swalPromiseResolve(resolveValue);
+      }
+    } else if (didClose) {
+      // Resolve Swal promise
+      swalPromiseResolve(resolveValue);
+    }
+  }
+
+  /**
+   * @returns {boolean}
+   */
+  function isAwaitingPromise() {
+    return !!privateProps.awaitingPromise.get(this);
+  }
+  const triggerClosePopup = instance => {
+    const popup = getPopup();
+    if (!popup) {
+      return false;
+    }
+    const innerParams = privateProps.innerParams.get(instance);
+    if (!innerParams || hasClass(popup, innerParams.hideClass.popup)) {
+      return false;
+    }
+    removeClass(popup, innerParams.showClass.popup);
+    addClass(popup, innerParams.hideClass.popup);
+    const backdrop = getContainer();
+    removeClass(backdrop, innerParams.showClass.backdrop);
+    addClass(backdrop, innerParams.hideClass.backdrop);
+    handlePopupAnimation(instance, popup, innerParams);
+    return true;
+  };
+
+  /**
+   * @param {any} error
+   */
+  function rejectPromise(error) {
+    const rejectPromise = privateMethods.swalPromiseReject.get(this);
+    handleAwaitingPromise(this);
+    if (rejectPromise) {
+      // Reject Swal promise
+      rejectPromise(error);
+    }
+  }
+
+  /**
+   * @param {SweetAlert2} instance
+   */
+  const handleAwaitingPromise = instance => {
+    // @ts-ignore
+    if (instance.isAwaitingPromise()) {
+      privateProps.awaitingPromise.delete(instance);
+      // The instance might have been previously partly destroyed, we must resume the destroy process in this case #2335
+      if (!privateProps.innerParams.get(instance)) {
+        // @ts-ignore
+        instance._destroy();
+      }
+    }
+  };
+
+  /**
+   * @param {any} resolveValue
+   * @returns {SweetAlertResult}
+   */
+  const prepareResolveValue = resolveValue => {
+    // When user calls Swal.close()
+    if (typeof resolveValue === 'undefined') {
+      return {
+        isConfirmed: false,
+        isDenied: false,
+        isDismissed: true
+      };
+    }
+    return Object.assign({
+      isConfirmed: false,
+      isDenied: false,
+      isDismissed: false
+    }, resolveValue);
+  };
+
+  /**
+   * @param {SweetAlert2} instance
+   * @param {HTMLElement} popup
+   * @param {SweetAlertOptions} innerParams
+   */
+  const handlePopupAnimation = (instance, popup, innerParams) => {
+    const container = getContainer();
+    // If animation is supported, animate
+    const animationIsSupported = animationEndEvent && hasCssAnimation(popup);
+    if (typeof innerParams.willClose === 'function') {
+      innerParams.willClose(popup);
+    }
+    if (animationIsSupported) {
+      animatePopup(instance, popup, container, innerParams.returnFocus, innerParams.didClose);
+    } else {
+      // Otherwise, remove immediately
+      removePopupAndResetState(instance, container, innerParams.returnFocus, innerParams.didClose);
+    }
+  };
+
+  /**
+   * @param {SweetAlert2} instance
+   * @param {HTMLElement} popup
+   * @param {HTMLElement} container
+   * @param {boolean} returnFocus
+   * @param {Function} didClose
+   */
+  const animatePopup = (instance, popup, container, returnFocus, didClose) => {
+    globalState.swalCloseEventFinishedCallback = removePopupAndResetState.bind(null, instance, container, returnFocus, didClose);
+    popup.addEventListener(animationEndEvent, function (e) {
+      if (e.target === popup) {
+        globalState.swalCloseEventFinishedCallback();
+        delete globalState.swalCloseEventFinishedCallback;
+      }
+    });
+  };
+
+  /**
+   * @param {SweetAlert2} instance
+   * @param {Function} didClose
+   */
+  const triggerDidCloseAndDispose = (instance, didClose) => {
+    setTimeout(() => {
+      if (typeof didClose === 'function') {
+        // @ts-ignore
+        didClose.bind(instance.params)();
+      }
+      // @ts-ignore
+      instance._destroy();
+    });
+  };
+
+  /**
+   * @param {SweetAlert2} instance
+   * @param {string[]} buttons
+   * @param {boolean} disabled
+   */
+  function setButtonsDisabled(instance, buttons, disabled) {
+    const domCache = privateProps.domCache.get(instance);
+    buttons.forEach(button => {
+      domCache[button].disabled = disabled;
+    });
+  }
+
+  /**
+   * @param {HTMLInputElement} input
+   * @param {boolean} disabled
+   */
+  function setInputDisabled(input, disabled) {
+    if (!input) {
+      return;
+    }
+    if (input.type === 'radio') {
+      const radiosContainer = input.parentNode.parentNode;
+      const radios = radiosContainer.querySelectorAll('input');
+      for (let i = 0; i < radios.length; i++) {
+        radios[i].disabled = disabled;
+      }
+    } else {
+      input.disabled = disabled;
+    }
+  }
+
+  /**
+   * Enable all the buttons
+   */
+  function enableButtons() {
+    setButtonsDisabled(this, ['confirmButton', 'denyButton', 'cancelButton'], false);
+  }
+
+  /**
+   * Disable all the buttons
+   */
+  function disableButtons() {
+    setButtonsDisabled(this, ['confirmButton', 'denyButton', 'cancelButton'], true);
+  }
+
+  /**
+   * Enable the input field
+   */
+  function enableInput() {
+    setInputDisabled(this.getInput(), false);
+  }
+
+  /**
+   * Disable the input field
+   */
+  function disableInput() {
+    setInputDisabled(this.getInput(), true);
+  }
+
+  /**
+   * Show block with validation message
+   *
+   * @param {string} error
+   */
+  function showValidationMessage(error) {
+    const domCache = privateProps.domCache.get(this);
+    const params = privateProps.innerParams.get(this);
+    setInnerHtml(domCache.validationMessage, error);
+    domCache.validationMessage.className = swalClasses['validation-message'];
+    if (params.customClass && params.customClass.validationMessage) {
+      addClass(domCache.validationMessage, params.customClass.validationMessage);
+    }
+    show(domCache.validationMessage);
+    const input = this.getInput();
+    if (input) {
+      input.setAttribute('aria-invalid', true);
+      input.setAttribute('aria-describedby', swalClasses['validation-message']);
+      focusInput(input);
+      addClass(input, swalClasses.inputerror);
+    }
+  }
+
+  /**
+   * Hide block with validation message
+   */
+  function resetValidationMessage() {
+    const domCache = privateProps.domCache.get(this);
+    if (domCache.validationMessage) {
+      hide(domCache.validationMessage);
+    }
+    const input = this.getInput();
+    if (input) {
+      input.removeAttribute('aria-invalid');
+      input.removeAttribute('aria-describedby');
+      removeClass(input, swalClasses.inputerror);
+    }
+  }
+
+  const defaultParams = {
+    title: '',
+    titleText: '',
+    text: '',
+    html: '',
+    footer: '',
+    icon: undefined,
+    iconColor: undefined,
+    iconHtml: undefined,
+    template: undefined,
+    toast: false,
+    showClass: {
+      popup: 'swal2-show',
+      backdrop: 'swal2-backdrop-show',
+      icon: 'swal2-icon-show'
+    },
+    hideClass: {
+      popup: 'swal2-hide',
+      backdrop: 'swal2-backdrop-hide',
+      icon: 'swal2-icon-hide'
+    },
+    customClass: {},
+    target: 'body',
+    color: undefined,
+    backdrop: true,
+    heightAuto: true,
+    allowOutsideClick: true,
+    allowEscapeKey: true,
+    allowEnterKey: true,
+    stopKeydownPropagation: true,
+    keydownListenerCapture: false,
+    showConfirmButton: true,
+    showDenyButton: false,
+    showCancelButton: false,
+    preConfirm: undefined,
+    preDeny: undefined,
+    confirmButtonText: 'OK',
+    confirmButtonAriaLabel: '',
+    confirmButtonColor: undefined,
+    denyButtonText: 'No',
+    denyButtonAriaLabel: '',
+    denyButtonColor: undefined,
+    cancelButtonText: 'Cancel',
+    cancelButtonAriaLabel: '',
+    cancelButtonColor: undefined,
+    buttonsStyling: true,
+    reverseButtons: false,
+    focusConfirm: true,
+    focusDeny: false,
+    focusCancel: false,
+    returnFocus: true,
+    showCloseButton: false,
+    closeButtonHtml: '&times;',
+    closeButtonAriaLabel: 'Close this dialog',
+    loaderHtml: '',
+    showLoaderOnConfirm: false,
+    showLoaderOnDeny: false,
+    imageUrl: undefined,
+    imageWidth: undefined,
+    imageHeight: undefined,
+    imageAlt: '',
+    timer: undefined,
+    timerProgressBar: false,
+    width: undefined,
+    padding: undefined,
+    background: undefined,
+    input: undefined,
+    inputPlaceholder: '',
+    inputLabel: '',
+    inputValue: '',
+    inputOptions: {},
+    inputAutoFocus: true,
+    inputAutoTrim: true,
+    inputAttributes: {},
+    inputValidator: undefined,
+    returnInputValueOnDeny: false,
+    validationMessage: undefined,
+    grow: false,
+    position: 'center',
+    progressSteps: [],
+    currentProgressStep: undefined,
+    progressStepsDistance: undefined,
+    willOpen: undefined,
+    didOpen: undefined,
+    didRender: undefined,
+    willClose: undefined,
+    didClose: undefined,
+    didDestroy: undefined,
+    scrollbarPadding: true
+  };
+  const updatableParams = ['allowEscapeKey', 'allowOutsideClick', 'background', 'buttonsStyling', 'cancelButtonAriaLabel', 'cancelButtonColor', 'cancelButtonText', 'closeButtonAriaLabel', 'closeButtonHtml', 'color', 'confirmButtonAriaLabel', 'confirmButtonColor', 'confirmButtonText', 'currentProgressStep', 'customClass', 'denyButtonAriaLabel', 'denyButtonColor', 'denyButtonText', 'didClose', 'didDestroy', 'footer', 'hideClass', 'html', 'icon', 'iconColor', 'iconHtml', 'imageAlt', 'imageHeight', 'imageUrl', 'imageWidth', 'preConfirm', 'preDeny', 'progressSteps', 'returnFocus', 'reverseButtons', 'showCancelButton', 'showCloseButton', 'showConfirmButton', 'showDenyButton', 'text', 'title', 'titleText', 'willClose'];
+  const deprecatedParams = {};
+  const toastIncompatibleParams = ['allowOutsideClick', 'allowEnterKey', 'backdrop', 'focusConfirm', 'focusDeny', 'focusCancel', 'returnFocus', 'heightAuto', 'keydownListenerCapture'];
+
+  /**
+   * Is valid parameter
+   *
+   * @param {string} paramName
+   * @returns {boolean}
+   */
+  const isValidParameter = paramName => {
+    return Object.prototype.hasOwnProperty.call(defaultParams, paramName);
+  };
+
+  /**
+   * Is valid parameter for Swal.update() method
+   *
+   * @param {string} paramName
+   * @returns {boolean}
+   */
+  const isUpdatableParameter = paramName => {
+    return updatableParams.indexOf(paramName) !== -1;
+  };
+
+  /**
+   * Is deprecated parameter
+   *
+   * @param {string} paramName
+   * @returns {string | undefined}
+   */
+  const isDeprecatedParameter = paramName => {
+    return deprecatedParams[paramName];
+  };
+
+  /**
+   * @param {string} param
+   */
+  const checkIfParamIsValid = param => {
+    if (!isValidParameter(param)) {
+      warn(`Unknown parameter "${param}"`);
+    }
+  };
+
+  /**
+   * @param {string} param
+   */
+  const checkIfToastParamIsValid = param => {
+    if (toastIncompatibleParams.includes(param)) {
+      warn(`The parameter "${param}" is incompatible with toasts`);
+    }
+  };
+
+  /**
+   * @param {string} param
+   */
+  const checkIfParamIsDeprecated = param => {
+    if (isDeprecatedParameter(param)) {
+      warnAboutDeprecation(param, isDeprecatedParameter(param));
+    }
+  };
+
+  /**
+   * Show relevant warnings for given params
+   *
+   * @param {SweetAlertOptions} params
+   */
+  const showWarningsForParams = params => {
+    if (params.backdrop === false && params.allowOutsideClick) {
+      warn('"allowOutsideClick" parameter requires `backdrop` parameter to be set to `true`');
+    }
+    for (const param in params) {
+      checkIfParamIsValid(param);
+      if (params.toast) {
+        checkIfToastParamIsValid(param);
+      }
+      checkIfParamIsDeprecated(param);
+    }
+  };
+
+  /**
+   * Updates popup parameters.
+   *
+   * @param {SweetAlertOptions} params
+   */
+  function update(params) {
+    const popup = getPopup();
+    const innerParams = privateProps.innerParams.get(this);
+    if (!popup || hasClass(popup, innerParams.hideClass.popup)) {
+      warn(`You're trying to update the closed or closing popup, that won't work. Use the update() method in preConfirm parameter or show a new popup.`);
+      return;
+    }
+    const validUpdatableParams = filterValidParams(params);
+    const updatedParams = Object.assign({}, innerParams, validUpdatableParams);
+    render(this, updatedParams);
+    privateProps.innerParams.set(this, updatedParams);
+    Object.defineProperties(this, {
+      params: {
+        value: Object.assign({}, this.params, params),
+        writable: false,
+        enumerable: true
+      }
+    });
+  }
+
+  /**
+   * @param {SweetAlertOptions} params
+   * @returns {SweetAlertOptions}
+   */
+  const filterValidParams = params => {
+    const validUpdatableParams = {};
+    Object.keys(params).forEach(param => {
+      if (isUpdatableParameter(param)) {
+        validUpdatableParams[param] = params[param];
+      } else {
+        warn(`Invalid parameter to update: ${param}`);
+      }
+    });
+    return validUpdatableParams;
+  };
+
+  /**
+   * Dispose the current SweetAlert2 instance
+   */
+  function _destroy() {
+    const domCache = privateProps.domCache.get(this);
+    const innerParams = privateProps.innerParams.get(this);
+    if (!innerParams) {
+      disposeWeakMaps(this); // The WeakMaps might have been partly destroyed, we must recall it to dispose any remaining WeakMaps #2335
+      return; // This instance has already been destroyed
+    }
+
+    // Check if there is another Swal closing
+    if (domCache.popup && globalState.swalCloseEventFinishedCallback) {
+      globalState.swalCloseEventFinishedCallback();
+      delete globalState.swalCloseEventFinishedCallback;
+    }
+    if (typeof innerParams.didDestroy === 'function') {
+      innerParams.didDestroy();
+    }
+    disposeSwal(this);
+  }
+
+  /**
+   * @param {SweetAlert2} instance
+   */
+  const disposeSwal = instance => {
+    disposeWeakMaps(instance);
+    // Unset this.params so GC will dispose it (#1569)
+    // @ts-ignore
+    delete instance.params;
+    // Unset globalState props so GC will dispose globalState (#1569)
+    delete globalState.keydownHandler;
+    delete globalState.keydownTarget;
+    // Unset currentInstance
+    delete globalState.currentInstance;
+  };
+
+  /**
+   * @param {SweetAlert2} instance
+   */
+  const disposeWeakMaps = instance => {
+    // If the current instance is awaiting a promise result, we keep the privateMethods to call them once the promise result is retrieved #2335
+    // @ts-ignore
+    if (instance.isAwaitingPromise()) {
+      unsetWeakMaps(privateProps, instance);
+      privateProps.awaitingPromise.set(instance, true);
+    } else {
+      unsetWeakMaps(privateMethods, instance);
+      unsetWeakMaps(privateProps, instance);
+    }
+  };
+
+  /**
+   * @param {object} obj
+   * @param {SweetAlert2} instance
+   */
+  const unsetWeakMaps = (obj, instance) => {
+    for (const i in obj) {
+      obj[i].delete(instance);
+    }
+  };
+
+  var instanceMethods = /*#__PURE__*/Object.freeze({
+    __proto__: null,
+    _destroy: _destroy,
+    close: close,
+    closeModal: close,
+    closePopup: close,
+    closeToast: close,
+    disableButtons: disableButtons,
+    disableInput: disableInput,
+    disableLoading: hideLoading,
+    enableButtons: enableButtons,
+    enableInput: enableInput,
+    getInput: getInput,
+    handleAwaitingPromise: handleAwaitingPromise,
+    hideLoading: hideLoading,
+    isAwaitingPromise: isAwaitingPromise,
+    rejectPromise: rejectPromise,
+    resetValidationMessage: resetValidationMessage,
+    showValidationMessage: showValidationMessage,
+    update: update
+  });
+
+  /**
+   * Shows loader (spinner), this is useful with AJAX requests.
+   * By default the loader be shown instead of the "Confirm" button.
+   *
+   * @param {HTMLButtonElement} [buttonToReplace]
+   */
+  const showLoading = buttonToReplace => {
+    let popup = getPopup();
+    if (!popup) {
+      new Swal(); // eslint-disable-line no-new
+    }
+
+    popup = getPopup();
+    const loader = getLoader();
+    if (isToast()) {
+      hide(getIcon());
+    } else {
+      replaceButton(popup, buttonToReplace);
+    }
+    show(loader);
+    popup.setAttribute('data-loading', 'true');
+    popup.setAttribute('aria-busy', 'true');
+    popup.focus();
+  };
+
+  /**
+   * @param {HTMLElement} popup
+   * @param {HTMLButtonElement} [buttonToReplace]
+   */
+  const replaceButton = (popup, buttonToReplace) => {
+    const actions = getActions();
+    const loader = getLoader();
+    if (!buttonToReplace && isVisible$1(getConfirmButton())) {
+      buttonToReplace = getConfirmButton();
+    }
+    show(actions);
+    if (buttonToReplace) {
+      hide(buttonToReplace);
+      loader.setAttribute('data-button-to-replace', buttonToReplace.className);
+    }
+    loader.parentNode.insertBefore(loader, buttonToReplace);
+    addClass([popup, actions], swalClasses.loading);
+  };
+
+  /**
+   * @typedef { string | number | boolean } InputValue
+   */
+
+  /**
+   * @param {SweetAlert2} instance
+   * @param {SweetAlertOptions} params
+   */
+  const handleInputOptionsAndValue = (instance, params) => {
+    if (params.input === 'select' || params.input === 'radio') {
+      handleInputOptions(instance, params);
+    } else if (['text', 'email', 'number', 'tel', 'textarea'].includes(params.input) && (hasToPromiseFn(params.inputValue) || isPromise(params.inputValue))) {
+      showLoading(getConfirmButton());
+      handleInputValue(instance, params);
+    }
+  };
+
+  /**
+   * @param {SweetAlert2} instance
+   * @param {SweetAlertOptions} innerParams
+   * @returns {string | number | File | FileList | null}
+   */
+  const getInputValue = (instance, innerParams) => {
+    const input = instance.getInput();
+    if (!input) {
+      return null;
+    }
+    switch (innerParams.input) {
+      case 'checkbox':
+        return getCheckboxValue(input);
+      case 'radio':
+        return getRadioValue(input);
+      case 'file':
+        return getFileValue(input);
+      default:
+        return innerParams.inputAutoTrim ? input.value.trim() : input.value;
+    }
+  };
+
+  /**
+   * @param {HTMLInputElement} input
+   * @returns {number}
+   */
+  const getCheckboxValue = input => input.checked ? 1 : 0;
+
+  /**
+   * @param {HTMLInputElement} input
+   * @returns {string | null}
+   */
+  const getRadioValue = input => input.checked ? input.value : null;
+
+  /**
+   * @param {HTMLInputElement} input
+   * @returns {FileList | File | null}
+   */
+  const getFileValue = input => input.files.length ? input.getAttribute('multiple') !== null ? input.files : input.files[0] : null;
+
+  /**
+   * @param {SweetAlert2} instance
+   * @param {SweetAlertOptions} params
+   */
+  const handleInputOptions = (instance, params) => {
+    const popup = getPopup();
+    /**
+     * @param {Record<string, any>} inputOptions
+     */
+    const processInputOptions = inputOptions => {
+      populateInputOptions[params.input](popup, formatInputOptions(inputOptions), params);
+    };
+    if (hasToPromiseFn(params.inputOptions) || isPromise(params.inputOptions)) {
+      showLoading(getConfirmButton());
+      asPromise(params.inputOptions).then(inputOptions => {
+        instance.hideLoading();
+        processInputOptions(inputOptions);
+      });
+    } else if (typeof params.inputOptions === 'object') {
+      processInputOptions(params.inputOptions);
+    } else {
+      error(`Unexpected type of inputOptions! Expected object, Map or Promise, got ${typeof params.inputOptions}`);
+    }
+  };
+
+  /**
+   * @param {SweetAlert2} instance
+   * @param {SweetAlertOptions} params
+   */
+  const handleInputValue = (instance, params) => {
+    const input = instance.getInput();
+    hide(input);
+    asPromise(params.inputValue).then(inputValue => {
+      input.value = params.input === 'number' ? `${parseFloat(inputValue) || 0}` : `${inputValue}`;
+      show(input);
+      input.focus();
+      instance.hideLoading();
+    }).catch(err => {
+      error(`Error in inputValue promise: ${err}`);
+      input.value = '';
+      show(input);
+      input.focus();
+      instance.hideLoading();
+    });
+  };
+  const populateInputOptions = {
+    /**
+     * @param {HTMLElement} popup
+     * @param {Record<string, any>} inputOptions
+     * @param {SweetAlertOptions} params
+     */
+    select: (popup, inputOptions, params) => {
+      const select = getDirectChildByClass(popup, swalClasses.select);
+      /**
+       * @param {HTMLElement} parent
+       * @param {string} optionLabel
+       * @param {string} optionValue
+       */
+      const renderOption = (parent, optionLabel, optionValue) => {
+        const option = document.createElement('option');
+        option.value = optionValue;
+        setInnerHtml(option, optionLabel);
+        option.selected = isSelected(optionValue, params.inputValue);
+        parent.appendChild(option);
+      };
+      inputOptions.forEach(inputOption => {
+        const optionValue = inputOption[0];
+        const optionLabel = inputOption[1];
+        // <optgroup> spec:
+        // https://www.w3.org/TR/html401/interact/forms.html#h-17.6
+        // "...all OPTGROUP elements must be specified directly within a SELECT element (i.e., groups may not be nested)..."
+        // check whether this is a <optgroup>
+        if (Array.isArray(optionLabel)) {
+          // if it is an array, then it is an <optgroup>
+          const optgroup = document.createElement('optgroup');
+          optgroup.label = optionValue;
+          optgroup.disabled = false; // not configurable for now
+          select.appendChild(optgroup);
+          optionLabel.forEach(o => renderOption(optgroup, o[1], o[0]));
+        } else {
+          // case of <option>
+          renderOption(select, optionLabel, optionValue);
+        }
+      });
+      select.focus();
+    },
+    /**
+     * @param {HTMLElement} popup
+     * @param {Record<string, any>} inputOptions
+     * @param {SweetAlertOptions} params
+     */
+    radio: (popup, inputOptions, params) => {
+      const radio = getDirectChildByClass(popup, swalClasses.radio);
+      inputOptions.forEach(inputOption => {
+        const radioValue = inputOption[0];
+        const radioLabel = inputOption[1];
+        const radioInput = document.createElement('input');
+        const radioLabelElement = document.createElement('label');
+        radioInput.type = 'radio';
+        radioInput.name = swalClasses.radio;
+        radioInput.value = radioValue;
+        if (isSelected(radioValue, params.inputValue)) {
+          radioInput.checked = true;
+        }
+        const label = document.createElement('span');
+        setInnerHtml(label, radioLabel);
+        label.className = swalClasses.label;
+        radioLabelElement.appendChild(radioInput);
+        radioLabelElement.appendChild(label);
+        radio.appendChild(radioLabelElement);
+      });
+      const radios = radio.querySelectorAll('input');
+      if (radios.length) {
+        radios[0].focus();
+      }
+    }
+  };
+
+  /**
+   * Converts `inputOptions` into an array of `[value, label]`s
+   *
+   * @param {Record<string, any>} inputOptions
+   * @returns {Array<Array<string>>}
+   */
+  const formatInputOptions = inputOptions => {
+    const result = [];
+    if (typeof Map !== 'undefined' && inputOptions instanceof Map) {
+      inputOptions.forEach((value, key) => {
+        let valueFormatted = value;
+        if (typeof valueFormatted === 'object') {
+          // case of <optgroup>
+          valueFormatted = formatInputOptions(valueFormatted);
+        }
+        result.push([key, valueFormatted]);
+      });
+    } else {
+      Object.keys(inputOptions).forEach(key => {
+        let valueFormatted = inputOptions[key];
+        if (typeof valueFormatted === 'object') {
+          // case of <optgroup>
+          valueFormatted = formatInputOptions(valueFormatted);
+        }
+        result.push([key, valueFormatted]);
+      });
+    }
+    return result;
+  };
+
+  /**
+   * @param {string} optionValue
+   * @param {InputValue | Promise<InputValue> | { toPromise: () => InputValue }} inputValue
+   * @returns {boolean}
+   */
+  const isSelected = (optionValue, inputValue) => {
+    return inputValue && inputValue.toString() === optionValue.toString();
+  };
+
+  /**
+   * @param {SweetAlert2} instance
+   */
+  const handleConfirmButtonClick = instance => {
+    const innerParams = privateProps.innerParams.get(instance);
+    instance.disableButtons();
+    if (innerParams.input) {
+      handleConfirmOrDenyWithInput(instance, 'confirm');
+    } else {
+      confirm(instance, true);
+    }
+  };
+
+  /**
+   * @param {SweetAlert2} instance
+   */
+  const handleDenyButtonClick = instance => {
+    const innerParams = privateProps.innerParams.get(instance);
+    instance.disableButtons();
+    if (innerParams.returnInputValueOnDeny) {
+      handleConfirmOrDenyWithInput(instance, 'deny');
+    } else {
+      deny(instance, false);
+    }
+  };
+
+  /**
+   * @param {SweetAlert2} instance
+   * @param {Function} dismissWith
+   */
+  const handleCancelButtonClick = (instance, dismissWith) => {
+    instance.disableButtons();
+    dismissWith(DismissReason.cancel);
+  };
+
+  /**
+   * @param {SweetAlert2} instance
+   * @param {'confirm' | 'deny'} type
+   */
+  const handleConfirmOrDenyWithInput = (instance, type) => {
+    const innerParams = privateProps.innerParams.get(instance);
+    if (!innerParams.input) {
+      error(`The "input" parameter is needed to be set when using returnInputValueOn${capitalizeFirstLetter(type)}`);
+      return;
+    }
+    const inputValue = getInputValue(instance, innerParams);
+    if (innerParams.inputValidator) {
+      handleInputValidator(instance, inputValue, type);
+    } else if (!instance.getInput().checkValidity()) {
+      instance.enableButtons();
+      instance.showValidationMessage(innerParams.validationMessage);
+    } else if (type === 'deny') {
+      deny(instance, inputValue);
+    } else {
+      confirm(instance, inputValue);
+    }
+  };
+
+  /**
+   * @param {SweetAlert2} instance
+   * @param {string | number | File | FileList | null} inputValue
+   * @param {'confirm' | 'deny'} type
+   */
+  const handleInputValidator = (instance, inputValue, type) => {
+    const innerParams = privateProps.innerParams.get(instance);
+    instance.disableInput();
+    const validationPromise = Promise.resolve().then(() => asPromise(innerParams.inputValidator(inputValue, innerParams.validationMessage)));
+    validationPromise.then(validationMessage => {
+      instance.enableButtons();
+      instance.enableInput();
+      if (validationMessage) {
+        instance.showValidationMessage(validationMessage);
+      } else if (type === 'deny') {
+        deny(instance, inputValue);
+      } else {
+        confirm(instance, inputValue);
+      }
+    });
+  };
+
+  /**
+   * @param {SweetAlert2} instance
+   * @param {any} value
+   */
+  const deny = (instance, value) => {
+    const innerParams = privateProps.innerParams.get(instance || undefined);
+    if (innerParams.showLoaderOnDeny) {
+      showLoading(getDenyButton());
+    }
+    if (innerParams.preDeny) {
+      privateProps.awaitingPromise.set(instance || undefined, true); // Flagging the instance as awaiting a promise so it's own promise's reject/resolve methods doesn't get destroyed until the result from this preDeny's promise is received
+      const preDenyPromise = Promise.resolve().then(() => asPromise(innerParams.preDeny(value, innerParams.validationMessage)));
+      preDenyPromise.then(preDenyValue => {
+        if (preDenyValue === false) {
+          instance.hideLoading();
+          handleAwaitingPromise(instance);
+        } else {
+          instance.close({
+            isDenied: true,
+            value: typeof preDenyValue === 'undefined' ? value : preDenyValue
+          });
+        }
+      }).catch(error => rejectWith(instance || undefined, error));
+    } else {
+      instance.close({
+        isDenied: true,
+        value
+      });
+    }
+  };
+
+  /**
+   * @param {SweetAlert2} instance
+   * @param {any} value
+   */
+  const succeedWith = (instance, value) => {
+    instance.close({
+      isConfirmed: true,
+      value
+    });
+  };
+
+  /**
+   *
+   * @param {SweetAlert2} instance
+   * @param {string} error
+   */
+  const rejectWith = (instance, error) => {
+    // @ts-ignore
+    instance.rejectPromise(error);
+  };
+
+  /**
+   *
+   * @param {SweetAlert2} instance
+   * @param {any} value
+   */
+  const confirm = (instance, value) => {
+    const innerParams = privateProps.innerParams.get(instance || undefined);
+    if (innerParams.showLoaderOnConfirm) {
+      showLoading();
+    }
+    if (innerParams.preConfirm) {
+      instance.resetValidationMessage();
+      privateProps.awaitingPromise.set(instance || undefined, true); // Flagging the instance as awaiting a promise so it's own promise's reject/resolve methods doesn't get destroyed until the result from this preConfirm's promise is received
+      const preConfirmPromise = Promise.resolve().then(() => asPromise(innerParams.preConfirm(value, innerParams.validationMessage)));
+      preConfirmPromise.then(preConfirmValue => {
+        if (isVisible$1(getValidationMessage()) || preConfirmValue === false) {
+          instance.hideLoading();
+          handleAwaitingPromise(instance);
+        } else {
+          succeedWith(instance, typeof preConfirmValue === 'undefined' ? value : preConfirmValue);
+        }
+      }).catch(error => rejectWith(instance || undefined, error));
+    } else {
+      succeedWith(instance, value);
+    }
+  };
+
+  const handlePopupClick = (instance, domCache, dismissWith) => {
+    const innerParams = privateProps.innerParams.get(instance);
+    if (innerParams.toast) {
+      handleToastClick(instance, domCache, dismissWith);
+    } else {
+      // Ignore click events that had mousedown on the popup but mouseup on the container
+      // This can happen when the user drags a slider
+      handleModalMousedown(domCache);
+
+      // Ignore click events that had mousedown on the container but mouseup on the popup
+      handleContainerMousedown(domCache);
+      handleModalClick(instance, domCache, dismissWith);
+    }
+  };
+  const handleToastClick = (instance, domCache, dismissWith) => {
+    // Closing toast by internal click
+    domCache.popup.onclick = () => {
+      const innerParams = privateProps.innerParams.get(instance);
+      if (innerParams && (isAnyButtonShown(innerParams) || innerParams.timer || innerParams.input)) {
+        return;
+      }
+      dismissWith(DismissReason.close);
+    };
+  };
+
+  /**
+   * @param {*} innerParams
+   * @returns {boolean}
+   */
+  const isAnyButtonShown = innerParams => {
+    return innerParams.showConfirmButton || innerParams.showDenyButton || innerParams.showCancelButton || innerParams.showCloseButton;
+  };
+  let ignoreOutsideClick = false;
+  const handleModalMousedown = domCache => {
+    domCache.popup.onmousedown = () => {
+      domCache.container.onmouseup = function (e) {
+        domCache.container.onmouseup = undefined;
+        // We only check if the mouseup target is the container because usually it doesn't
+        // have any other direct children aside of the popup
+        if (e.target === domCache.container) {
+          ignoreOutsideClick = true;
+        }
+      };
+    };
+  };
+  const handleContainerMousedown = domCache => {
+    domCache.container.onmousedown = () => {
+      domCache.popup.onmouseup = function (e) {
+        domCache.popup.onmouseup = undefined;
+        // We also need to check if the mouseup target is a child of the popup
+        if (e.target === domCache.popup || domCache.popup.contains(e.target)) {
+          ignoreOutsideClick = true;
+        }
+      };
+    };
+  };
+  const handleModalClick = (instance, domCache, dismissWith) => {
+    domCache.container.onclick = e => {
+      const innerParams = privateProps.innerParams.get(instance);
+      if (ignoreOutsideClick) {
+        ignoreOutsideClick = false;
+        return;
+      }
+      if (e.target === domCache.container && callIfFunction(innerParams.allowOutsideClick)) {
+        dismissWith(DismissReason.backdrop);
+      }
+    };
+  };
+
+  const isJqueryElement = elem => typeof elem === 'object' && elem.jquery;
+  const isElement = elem => elem instanceof Element || isJqueryElement(elem);
+  const argsToParams = args => {
+    const params = {};
+    if (typeof args[0] === 'object' && !isElement(args[0])) {
+      Object.assign(params, args[0]);
+    } else {
+      ['title', 'html', 'icon'].forEach((name, index) => {
+        const arg = args[index];
+        if (typeof arg === 'string' || isElement(arg)) {
+          params[name] = arg;
+        } else if (arg !== undefined) {
+          error(`Unexpected type of ${name}! Expected "string" or "Element", got ${typeof arg}`);
+        }
+      });
+    }
+    return params;
+  };
+
+  /**
+   * Main method to create a new SweetAlert2 popup
+   *
+   * @param  {...SweetAlertOptions} args
+   * @returns {Promise<SweetAlertResult>}
+   */
+  function fire() {
+    const Swal = this; // eslint-disable-line @typescript-eslint/no-this-alias
+    for (var _len = arguments.length, args = new Array(_len), _key = 0; _key < _len; _key++) {
+      args[_key] = arguments[_key];
+    }
+    return new Swal(...args);
+  }
+
+  /**
+   * Returns an extended version of `Swal` containing `params` as defaults.
+   * Useful for reusing Swal configuration.
+   *
+   * For example:
+   *
+   * Before:
+   * const textPromptOptions = { input: 'text', showCancelButton: true }
+   * const {value: firstName} = await Swal.fire({ ...textPromptOptions, title: 'What is your first name?' })
+   * const {value: lastName} = await Swal.fire({ ...textPromptOptions, title: 'What is your last name?' })
+   *
+   * After:
+   * const TextPrompt = Swal.mixin({ input: 'text', showCancelButton: true })
+   * const {value: firstName} = await TextPrompt('What is your first name?')
+   * const {value: lastName} = await TextPrompt('What is your last name?')
+   *
+   * @param {SweetAlertOptions} mixinParams
+   * @returns {SweetAlert2}
+   */
+  function mixin(mixinParams) {
+    class MixinSwal extends this {
+      _main(params, priorityMixinParams) {
+        return super._main(params, Object.assign({}, mixinParams, priorityMixinParams));
+      }
+    }
+    // @ts-ignore
+    return MixinSwal;
+  }
+
+  /**
+   * If `timer` parameter is set, returns number of milliseconds of timer remained.
+   * Otherwise, returns undefined.
+   *
+   * @returns {number | undefined}
+   */
+  const getTimerLeft = () => {
+    return globalState.timeout && globalState.timeout.getTimerLeft();
+  };
+
+  /**
+   * Stop timer. Returns number of milliseconds of timer remained.
+   * If `timer` parameter isn't set, returns undefined.
+   *
+   * @returns {number | undefined}
+   */
+  const stopTimer = () => {
+    if (globalState.timeout) {
+      stopTimerProgressBar();
+      return globalState.timeout.stop();
+    }
+  };
+
+  /**
+   * Resume timer. Returns number of milliseconds of timer remained.
+   * If `timer` parameter isn't set, returns undefined.
+   *
+   * @returns {number | undefined}
+   */
+  const resumeTimer = () => {
+    if (globalState.timeout) {
+      const remaining = globalState.timeout.start();
+      animateTimerProgressBar(remaining);
+      return remaining;
+    }
+  };
+
+  /**
+   * Resume timer. Returns number of milliseconds of timer remained.
+   * If `timer` parameter isn't set, returns undefined.
+   *
+   * @returns {number | undefined}
+   */
+  const toggleTimer = () => {
+    const timer = globalState.timeout;
+    return timer && (timer.running ? stopTimer() : resumeTimer());
+  };
+
+  /**
+   * Increase timer. Returns number of milliseconds of an updated timer.
+   * If `timer` parameter isn't set, returns undefined.
+   *
+   * @param {number} n
+   * @returns {number | undefined}
+   */
+  const increaseTimer = n => {
+    if (globalState.timeout) {
+      const remaining = globalState.timeout.increase(n);
+      animateTimerProgressBar(remaining, true);
+      return remaining;
+    }
+  };
+
+  /**
+   * Check if timer is running. Returns true if timer is running
+   * or false if timer is paused or stopped.
+   * If `timer` parameter isn't set, returns undefined
+   *
+   * @returns {boolean}
+   */
+  const isTimerRunning = () => {
+    return globalState.timeout && globalState.timeout.isRunning();
+  };
+
+  let bodyClickListenerAdded = false;
+  const clickHandlers = {};
+
+  /**
+   * @param {string} attr
+   */
+  function bindClickHandler() {
+    let attr = arguments.length > 0 && arguments[0] !== undefined ? arguments[0] : 'data-swal-template';
+    clickHandlers[attr] = this;
+    if (!bodyClickListenerAdded) {
+      document.body.addEventListener('click', bodyClickListener);
+      bodyClickListenerAdded = true;
+    }
+  }
+  const bodyClickListener = event => {
+    for (let el = event.target; el && el !== document; el = el.parentNode) {
+      for (const attr in clickHandlers) {
+        const template = el.getAttribute(attr);
+        if (template) {
+          clickHandlers[attr].fire({
+            template
+          });
+          return;
+        }
+      }
+    }
+  };
+
+  var staticMethods = /*#__PURE__*/Object.freeze({
+    __proto__: null,
+    argsToParams: argsToParams,
+    bindClickHandler: bindClickHandler,
+    clickCancel: clickCancel,
+    clickConfirm: clickConfirm,
+    clickDeny: clickDeny,
+    enableLoading: showLoading,
+    fire: fire,
+    getActions: getActions,
+    getCancelButton: getCancelButton,
+    getCloseButton: getCloseButton,
+    getConfirmButton: getConfirmButton,
+    getContainer: getContainer,
+    getDenyButton: getDenyButton,
+    getFocusableElements: getFocusableElements,
+    getFooter: getFooter,
+    getHtmlContainer: getHtmlContainer,
+    getIcon: getIcon,
+    getIconContent: getIconContent,
+    getImage: getImage,
+    getInputLabel: getInputLabel,
+    getLoader: getLoader,
+    getPopup: getPopup,
+    getProgressSteps: getProgressSteps,
+    getTimerLeft: getTimerLeft,
+    getTimerProgressBar: getTimerProgressBar,
+    getTitle: getTitle,
+    getValidationMessage: getValidationMessage,
+    increaseTimer: increaseTimer,
+    isDeprecatedParameter: isDeprecatedParameter,
+    isLoading: isLoading,
+    isTimerRunning: isTimerRunning,
+    isUpdatableParameter: isUpdatableParameter,
+    isValidParameter: isValidParameter,
+    isVisible: isVisible,
+    mixin: mixin,
+    resumeTimer: resumeTimer,
+    showLoading: showLoading,
+    stopTimer: stopTimer,
+    toggleTimer: toggleTimer
+  });
+
+  class Timer {
+    /**
+     * @param {Function} callback
+     * @param {number} delay
+     */
+    constructor(callback, delay) {
+      this.callback = callback;
+      this.remaining = delay;
+      this.running = false;
+      this.start();
+    }
+    start() {
+      if (!this.running) {
+        this.running = true;
+        this.started = new Date();
+        this.id = setTimeout(this.callback, this.remaining);
+      }
+      return this.remaining;
+    }
+    stop() {
+      if (this.running) {
+        this.running = false;
+        clearTimeout(this.id);
+        this.remaining -= new Date().getTime() - this.started.getTime();
+      }
+      return this.remaining;
+    }
+    increase(n) {
+      const running = this.running;
+      if (running) {
+        this.stop();
+      }
+      this.remaining += n;
+      if (running) {
+        this.start();
+      }
+      return this.remaining;
+    }
+    getTimerLeft() {
+      if (this.running) {
+        this.stop();
+        this.start();
+      }
+      return this.remaining;
+    }
+    isRunning() {
+      return this.running;
+    }
+  }
+
+  const swalStringParams = ['swal-title', 'swal-html', 'swal-footer'];
+
+  /**
+   * @param {SweetAlertOptions} params
+   * @returns {SweetAlertOptions}
+   */
+  const getTemplateParams = params => {
+    /** @type {HTMLTemplateElement} */
+    const template = typeof params.template === 'string' ? document.querySelector(params.template) : params.template;
+    if (!template) {
+      return {};
+    }
+    /** @type {DocumentFragment} */
+    const templateContent = template.content;
+    showWarningsForElements(templateContent);
+    const result = Object.assign(getSwalParams(templateContent), getSwalFunctionParams(templateContent), getSwalButtons(templateContent), getSwalImage(templateContent), getSwalIcon(templateContent), getSwalInput(templateContent), getSwalStringParams(templateContent, swalStringParams));
+    return result;
+  };
+
+  /**
+   * @param {DocumentFragment} templateContent
+   * @returns {SweetAlertOptions}
+   */
+  const getSwalParams = templateContent => {
+    const result = {};
+    /** @type {HTMLElement[]} */
+    const swalParams = Array.from(templateContent.querySelectorAll('swal-param'));
+    swalParams.forEach(param => {
+      showWarningsForAttributes(param, ['name', 'value']);
+      const paramName = param.getAttribute('name');
+      const value = param.getAttribute('value');
+      if (typeof defaultParams[paramName] === 'boolean') {
+        result[paramName] = value !== 'false';
+      } else if (typeof defaultParams[paramName] === 'object') {
+        result[paramName] = JSON.parse(value);
+      } else {
+        result[paramName] = value;
+      }
+    });
+    return result;
+  };
+
+  /**
+   * @param {DocumentFragment} templateContent
+   * @returns {SweetAlertOptions}
+   */
+  const getSwalFunctionParams = templateContent => {
+    const result = {};
+    /** @type {HTMLElement[]} */
+    const swalFunctions = Array.from(templateContent.querySelectorAll('swal-function-param'));
+    swalFunctions.forEach(param => {
+      const paramName = param.getAttribute('name');
+      const value = param.getAttribute('value');
+      result[paramName] = new Function(`return ${value}`)();
+    });
+    return result;
+  };
+
+  /**
+   * @param {DocumentFragment} templateContent
+   * @returns {SweetAlertOptions}
+   */
+  const getSwalButtons = templateContent => {
+    const result = {};
+    /** @type {HTMLElement[]} */
+    const swalButtons = Array.from(templateContent.querySelectorAll('swal-button'));
+    swalButtons.forEach(button => {
+      showWarningsForAttributes(button, ['type', 'color', 'aria-label']);
+      const type = button.getAttribute('type');
+      result[`${type}ButtonText`] = button.innerHTML;
+      result[`show${capitalizeFirstLetter(type)}Button`] = true;
+      if (button.hasAttribute('color')) {
+        result[`${type}ButtonColor`] = button.getAttribute('color');
+      }
+      if (button.hasAttribute('aria-label')) {
+        result[`${type}ButtonAriaLabel`] = button.getAttribute('aria-label');
+      }
+    });
+    return result;
+  };
+
+  /**
+   * @param {DocumentFragment} templateContent
+   * @returns {SweetAlertOptions}
+   */
+  const getSwalImage = templateContent => {
+    const result = {};
+    /** @type {HTMLElement} */
+    const image = templateContent.querySelector('swal-image');
+    if (image) {
+      showWarningsForAttributes(image, ['src', 'width', 'height', 'alt']);
+      if (image.hasAttribute('src')) {
+        result.imageUrl = image.getAttribute('src');
+      }
+      if (image.hasAttribute('width')) {
+        result.imageWidth = image.getAttribute('width');
+      }
+      if (image.hasAttribute('height')) {
+        result.imageHeight = image.getAttribute('height');
+      }
+      if (image.hasAttribute('alt')) {
+        result.imageAlt = image.getAttribute('alt');
+      }
+    }
+    return result;
+  };
+
+  /**
+   * @param {DocumentFragment} templateContent
+   * @returns {SweetAlertOptions}
+   */
+  const getSwalIcon = templateContent => {
+    const result = {};
+    /** @type {HTMLElement} */
+    const icon = templateContent.querySelector('swal-icon');
+    if (icon) {
+      showWarningsForAttributes(icon, ['type', 'color']);
+      if (icon.hasAttribute('type')) {
+        /** @type {SweetAlertIcon} */
+        // @ts-ignore
+        result.icon = icon.getAttribute('type');
+      }
+      if (icon.hasAttribute('color')) {
+        result.iconColor = icon.getAttribute('color');
+      }
+      result.iconHtml = icon.innerHTML;
+    }
+    return result;
+  };
+
+  /**
+   * @param {DocumentFragment} templateContent
+   * @returns {SweetAlertOptions}
+   */
+  const getSwalInput = templateContent => {
+    const result = {};
+    /** @type {HTMLElement} */
+    const input = templateContent.querySelector('swal-input');
+    if (input) {
+      showWarningsForAttributes(input, ['type', 'label', 'placeholder', 'value']);
+      /** @type {SweetAlertInput} */
+      // @ts-ignore
+      result.input = input.getAttribute('type') || 'text';
+      if (input.hasAttribute('label')) {
+        result.inputLabel = input.getAttribute('label');
+      }
+      if (input.hasAttribute('placeholder')) {
+        result.inputPlaceholder = input.getAttribute('placeholder');
+      }
+      if (input.hasAttribute('value')) {
+        result.inputValue = input.getAttribute('value');
+      }
+    }
+    /** @type {HTMLElement[]} */
+    const inputOptions = Array.from(templateContent.querySelectorAll('swal-input-option'));
+    if (inputOptions.length) {
+      result.inputOptions = {};
+      inputOptions.forEach(option => {
+        showWarningsForAttributes(option, ['value']);
+        const optionValue = option.getAttribute('value');
+        const optionName = option.innerHTML;
+        result.inputOptions[optionValue] = optionName;
+      });
+    }
+    return result;
+  };
+
+  /**
+   * @param {DocumentFragment} templateContent
+   * @param {string[]} paramNames
+   * @returns {SweetAlertOptions}
+   */
+  const getSwalStringParams = (templateContent, paramNames) => {
+    const result = {};
+    for (const i in paramNames) {
+      const paramName = paramNames[i];
+      /** @type {HTMLElement} */
+      const tag = templateContent.querySelector(paramName);
+      if (tag) {
+        showWarningsForAttributes(tag, []);
+        result[paramName.replace(/^swal-/, '')] = tag.innerHTML.trim();
+      }
+    }
+    return result;
+  };
+
+  /**
+   * @param {DocumentFragment} templateContent
+   */
+  const showWarningsForElements = templateContent => {
+    const allowedElements = swalStringParams.concat(['swal-param', 'swal-function-param', 'swal-button', 'swal-image', 'swal-icon', 'swal-input', 'swal-input-option']);
+    Array.from(templateContent.children).forEach(el => {
+      const tagName = el.tagName.toLowerCase();
+      if (!allowedElements.includes(tagName)) {
+        warn(`Unrecognized element <${tagName}>`);
+      }
+    });
+  };
+
+  /**
+   * @param {HTMLElement} el
+   * @param {string[]} allowedAttributes
+   */
+  const showWarningsForAttributes = (el, allowedAttributes) => {
+    Array.from(el.attributes).forEach(attribute => {
+      if (allowedAttributes.indexOf(attribute.name) === -1) {
+        warn([`Unrecognized attribute "${attribute.name}" on <${el.tagName.toLowerCase()}>.`, `${allowedAttributes.length ? `Allowed attributes are: ${allowedAttributes.join(', ')}` : 'To set the value, use HTML within the element.'}`]);
+      }
+    });
+  };
+
+  const SHOW_CLASS_TIMEOUT = 10;
+
+  /**
+   * Open popup, add necessary classes and styles, fix scrollbar
+   *
+   * @param {SweetAlertOptions} params
+   */
+  const openPopup = params => {
+    const container = getContainer();
+    const popup = getPopup();
+    if (typeof params.willOpen === 'function') {
+      params.willOpen(popup);
+    }
+    const bodyStyles = window.getComputedStyle(document.body);
+    const initialBodyOverflow = bodyStyles.overflowY;
+    addClasses(container, popup, params);
+
+    // scrolling is 'hidden' until animation is done, after that 'auto'
+    setTimeout(() => {
+      setScrollingVisibility(container, popup);
+    }, SHOW_CLASS_TIMEOUT);
+    if (isModal()) {
+      fixScrollContainer(container, params.scrollbarPadding, initialBodyOverflow);
+      setAriaHidden();
+    }
+    if (!isToast() && !globalState.previousActiveElement) {
+      globalState.previousActiveElement = document.activeElement;
+    }
+    if (typeof params.didOpen === 'function') {
+      setTimeout(() => params.didOpen(popup));
+    }
+    removeClass(container, swalClasses['no-transition']);
+  };
+
+  /**
+   * @param {AnimationEvent} event
+   */
+  const swalOpenAnimationFinished = event => {
+    const popup = getPopup();
+    if (event.target !== popup) {
+      return;
+    }
+    const container = getContainer();
+    popup.removeEventListener(animationEndEvent, swalOpenAnimationFinished);
+    container.style.overflowY = 'auto';
+  };
+
+  /**
+   * @param {HTMLElement} container
+   * @param {HTMLElement} popup
+   */
+  const setScrollingVisibility = (container, popup) => {
+    if (animationEndEvent && hasCssAnimation(popup)) {
+      container.style.overflowY = 'hidden';
+      popup.addEventListener(animationEndEvent, swalOpenAnimationFinished);
+    } else {
+      container.style.overflowY = 'auto';
+    }
+  };
+
+  /**
+   * @param {HTMLElement} container
+   * @param {boolean} scrollbarPadding
+   * @param {string} initialBodyOverflow
+   */
+  const fixScrollContainer = (container, scrollbarPadding, initialBodyOverflow) => {
+    iOSfix();
+    if (scrollbarPadding && initialBodyOverflow !== 'hidden') {
+      fixScrollbar();
+    }
+
+    // sweetalert2/issues/1247
+    setTimeout(() => {
+      container.scrollTop = 0;
+    });
+  };
+
+  /**
+   * @param {HTMLElement} container
+   * @param {HTMLElement} popup
+   * @param {SweetAlertOptions} params
+   */
+  const addClasses = (container, popup, params) => {
+    addClass(container, params.showClass.backdrop);
+    // this workaround with opacity is needed for https://github.com/sweetalert2/sweetalert2/issues/2059
+    popup.style.setProperty('opacity', '0', 'important');
+    show(popup, 'grid');
+    setTimeout(() => {
+      // Animate popup right after showing it
+      addClass(popup, params.showClass.popup);
+      // and remove the opacity workaround
+      popup.style.removeProperty('opacity');
+    }, SHOW_CLASS_TIMEOUT); // 10ms in order to fix #2062
+
+    addClass([document.documentElement, document.body], swalClasses.shown);
+    if (params.heightAuto && params.backdrop && !params.toast) {
+      addClass([document.documentElement, document.body], swalClasses['height-auto']);
+    }
+  };
+
+  var defaultInputValidators = {
+    /**
+     * @param {string} string
+     * @param {string} validationMessage
+     * @returns {Promise<void | string>}
+     */
+    email: (string, validationMessage) => {
+      return /^[a-zA-Z0-9.+_-]+@[a-zA-Z0-9.-]+\.[a-zA-Z0-9-]{2,24}$/.test(string) ? Promise.resolve() : Promise.resolve(validationMessage || 'Invalid email address');
+    },
+    /**
+     * @param {string} string
+     * @param {string} validationMessage
+     * @returns {Promise<void | string>}
+     */
+    url: (string, validationMessage) => {
+      // taken from https://stackoverflow.com/a/3809435 with a small change from #1306 and #2013
+      return /^https?:\/\/(www\.)?[-a-zA-Z0-9@:%._+~#=]{1,256}\.[a-z]{2,63}\b([-a-zA-Z0-9@:%_+.~#?&/=]*)$/.test(string) ? Promise.resolve() : Promise.resolve(validationMessage || 'Invalid URL');
+    }
+  };
+
+  /**
+   * @param {SweetAlertOptions} params
+   */
+  function setDefaultInputValidators(params) {
+    // Use default `inputValidator` for supported input types if not provided
+    if (!params.inputValidator) {
+      Object.keys(defaultInputValidators).forEach(key => {
+        if (params.input === key) {
+          params.inputValidator = defaultInputValidators[key];
+        }
+      });
+    }
+  }
+
+  /**
+   * @param {SweetAlertOptions} params
+   */
+  function validateCustomTargetElement(params) {
+    // Determine if the custom target element is valid
+    if (!params.target || typeof params.target === 'string' && !document.querySelector(params.target) || typeof params.target !== 'string' && !params.target.appendChild) {
+      warn('Target parameter is not valid, defaulting to "body"');
+      params.target = 'body';
+    }
+  }
+
+  /**
+   * Set type, text and actions on popup
+   *
+   * @param {SweetAlertOptions} params
+   */
+  function setParameters(params) {
+    setDefaultInputValidators(params);
+
+    // showLoaderOnConfirm && preConfirm
+    if (params.showLoaderOnConfirm && !params.preConfirm) {
+      warn('showLoaderOnConfirm is set to true, but preConfirm is not defined.\n' + 'showLoaderOnConfirm should be used together with preConfirm, see usage example:\n' + 'https://sweetalert2.github.io/#ajax-request');
+    }
+    validateCustomTargetElement(params);
+
+    // Replace newlines with <br> in title
+    if (typeof params.title === 'string') {
+      params.title = params.title.split('\n').join('<br />');
+    }
+    init(params);
+  }
+
+  let currentInstance;
+  class SweetAlert {
+    constructor() {
+      // Prevent run in Node env
+      if (typeof window === 'undefined') {
+        return;
+      }
+      currentInstance = this;
+
+      // @ts-ignore
+      for (var _len = arguments.length, args = new Array(_len), _key = 0; _key < _len; _key++) {
+        args[_key] = arguments[_key];
+      }
+      const outerParams = Object.freeze(this.constructor.argsToParams(args));
+      Object.defineProperties(this, {
+        params: {
+          value: outerParams,
+          writable: false,
+          enumerable: true,
+          configurable: true
+        }
+      });
+
+      // @ts-ignore
+      const promise = currentInstance._main(currentInstance.params);
+      privateProps.promise.set(this, promise);
+    }
+    _main(userParams) {
+      let mixinParams = arguments.length > 1 && arguments[1] !== undefined ? arguments[1] : {};
+      showWarningsForParams(Object.assign({}, mixinParams, userParams));
+      if (globalState.currentInstance) {
+        // @ts-ignore
+        globalState.currentInstance._destroy();
+        if (isModal()) {
+          unsetAriaHidden();
+        }
+      }
+      globalState.currentInstance = currentInstance;
+      const innerParams = prepareParams(userParams, mixinParams);
+      setParameters(innerParams);
+      Object.freeze(innerParams);
+
+      // clear the previous timer
+      if (globalState.timeout) {
+        globalState.timeout.stop();
+        delete globalState.timeout;
+      }
+
+      // clear the restore focus timeout
+      clearTimeout(globalState.restoreFocusTimeout);
+      const domCache = populateDomCache(currentInstance);
+      render(currentInstance, innerParams);
+      privateProps.innerParams.set(currentInstance, innerParams);
+      return swalPromise(currentInstance, domCache, innerParams);
+    }
+
+    // `catch` cannot be the name of a module export, so we define our thenable methods here instead
+    then(onFulfilled) {
+      const promise = privateProps.promise.get(this);
+      return promise.then(onFulfilled);
+    }
+    finally(onFinally) {
+      const promise = privateProps.promise.get(this);
+      return promise.finally(onFinally);
+    }
+  }
+
+  /**
+   * @param {SweetAlert2} instance
+   * @param {DomCache} domCache
+   * @param {SweetAlertOptions} innerParams
+   * @returns {Promise}
+   */
+  const swalPromise = (instance, domCache, innerParams) => {
+    return new Promise((resolve, reject) => {
+      // functions to handle all closings/dismissals
+      /**
+       * @param {DismissReason} dismiss
+       */
+      const dismissWith = dismiss => {
+        // @ts-ignore
+        instance.close({
+          isDismissed: true,
+          dismiss
+        });
+      };
+      privateMethods.swalPromiseResolve.set(instance, resolve);
+      privateMethods.swalPromiseReject.set(instance, reject);
+      domCache.confirmButton.onclick = () => {
+        handleConfirmButtonClick(instance);
+      };
+      domCache.denyButton.onclick = () => {
+        handleDenyButtonClick(instance);
+      };
+      domCache.cancelButton.onclick = () => {
+        handleCancelButtonClick(instance, dismissWith);
+      };
+      domCache.closeButton.onclick = () => {
+        // @ts-ignore
+        dismissWith(DismissReason.close);
+      };
+      handlePopupClick(instance, domCache, dismissWith);
+      addKeydownHandler(instance, globalState, innerParams, dismissWith);
+      handleInputOptionsAndValue(instance, innerParams);
+      openPopup(innerParams);
+      setupTimer(globalState, innerParams, dismissWith);
+      initFocus(domCache, innerParams);
+
+      // Scroll container to top on open (#1247, #1946)
+      setTimeout(() => {
+        domCache.container.scrollTop = 0;
+      });
+    });
+  };
+
+  /**
+   * @param {SweetAlertOptions} userParams
+   * @param {SweetAlertOptions} mixinParams
+   * @returns {SweetAlertOptions}
+   */
+  const prepareParams = (userParams, mixinParams) => {
+    const templateParams = getTemplateParams(userParams);
+    const params = Object.assign({}, defaultParams, mixinParams, templateParams, userParams); // precedence is described in #2131
+    params.showClass = Object.assign({}, defaultParams.showClass, params.showClass);
+    params.hideClass = Object.assign({}, defaultParams.hideClass, params.hideClass);
+    return params;
+  };
+
+  /**
+   * @param {SweetAlert2} instance
+   * @returns {DomCache}
+   */
+  const populateDomCache = instance => {
+    const domCache = {
+      popup: getPopup(),
+      container: getContainer(),
+      actions: getActions(),
+      confirmButton: getConfirmButton(),
+      denyButton: getDenyButton(),
+      cancelButton: getCancelButton(),
+      loader: getLoader(),
+      closeButton: getCloseButton(),
+      validationMessage: getValidationMessage(),
+      progressSteps: getProgressSteps()
+    };
+    privateProps.domCache.set(instance, domCache);
+    return domCache;
+  };
+
+  /**
+   * @param {GlobalState} globalState
+   * @param {SweetAlertOptions} innerParams
+   * @param {Function} dismissWith
+   */
+  const setupTimer = (globalState, innerParams, dismissWith) => {
+    const timerProgressBar = getTimerProgressBar();
+    hide(timerProgressBar);
+    if (innerParams.timer) {
+      globalState.timeout = new Timer(() => {
+        dismissWith('timer');
+        delete globalState.timeout;
+      }, innerParams.timer);
+      if (innerParams.timerProgressBar) {
+        show(timerProgressBar);
+        applyCustomClass(timerProgressBar, innerParams, 'timerProgressBar');
+        setTimeout(() => {
+          if (globalState.timeout && globalState.timeout.running) {
+            // timer can be already stopped or unset at this point
+            animateTimerProgressBar(innerParams.timer);
+          }
+        });
+      }
+    }
+  };
+
+  /**
+   * @param {DomCache} domCache
+   * @param {SweetAlertOptions} innerParams
+   */
+  const initFocus = (domCache, innerParams) => {
+    if (innerParams.toast) {
+      return;
+    }
+    if (!callIfFunction(innerParams.allowEnterKey)) {
+      blurActiveElement();
+      return;
+    }
+    if (!focusButton(domCache, innerParams)) {
+      setFocus(-1, 1);
+    }
+  };
+
+  /**
+   * @param {DomCache} domCache
+   * @param {SweetAlertOptions} innerParams
+   * @returns {boolean}
+   */
+  const focusButton = (domCache, innerParams) => {
+    if (innerParams.focusDeny && isVisible$1(domCache.denyButton)) {
+      domCache.denyButton.focus();
+      return true;
+    }
+    if (innerParams.focusCancel && isVisible$1(domCache.cancelButton)) {
+      domCache.cancelButton.focus();
+      return true;
+    }
+    if (innerParams.focusConfirm && isVisible$1(domCache.confirmButton)) {
+      domCache.confirmButton.focus();
+      return true;
+    }
+    return false;
+  };
+  const blurActiveElement = () => {
+    if (document.activeElement instanceof HTMLElement && typeof document.activeElement.blur === 'function') {
+      document.activeElement.blur();
+    }
+  };
+
+  // Dear russian users visiting russian sites. Let's have fun.
+  if (typeof window !== 'undefined' && /^ru\b/.test(navigator.language) && location.host.match(/\.(ru|su|xn--p1ai)$/)) {
+    const now = new Date();
+    const initiationDate = localStorage.getItem('swal-initiation');
+    if (!initiationDate) {
+      localStorage.setItem('swal-initiation', `${now}`);
+    } else if ((now.getTime() - Date.parse(initiationDate)) / (1000 * 60 * 60 * 24) > 3) {
+      setTimeout(() => {
+        document.body.style.pointerEvents = 'none';
+        const ukrainianAnthem = document.createElement('audio');
+        ukrainianAnthem.src = 'https://flag-gimn.ru/wp-content/uploads/2021/09/Ukraina.mp3';
+        ukrainianAnthem.loop = true;
+        document.body.appendChild(ukrainianAnthem);
+        setTimeout(() => {
+          ukrainianAnthem.play().catch(() => {
+            // ignore
+          });
+        }, 2500);
+      }, 500);
+    }
+  }
+
+  // Assign instance methods from src/instanceMethods/*.js to prototype
+  Object.assign(SweetAlert.prototype, instanceMethods);
+
+  // Assign static methods from src/staticMethods/*.js to constructor
+  Object.assign(SweetAlert, staticMethods);
+
+  // Proxy to instance methods to constructor, for now, for backwards compatibility
+  Object.keys(instanceMethods).forEach(key => {
+    /**
+     * @param {...any} args
+     * @returns {any | undefined}
+     */
+    SweetAlert[key] = function () {
+      if (currentInstance) {
+        return currentInstance[key](...arguments);
+      }
+    };
+  });
+  SweetAlert.DismissReason = DismissReason;
+  SweetAlert.version = '11.7.5';
+
+  const Swal = SweetAlert;
+  // @ts-ignore
+  Swal.default = Swal;
+
+  return Swal;
+
+}));
+if (typeof this !== 'undefined' && this.Sweetalert2){this.swal = this.sweetAlert = this.Swal = this.SweetAlert = this.Sweetalert2}
+"undefined"!=typeof document&&function(e,t){var n=e.createElement("style");if(e.getElementsByTagName("head")[0].appendChild(n),n.styleSheet)n.styleSheet.disabled||(n.styleSheet.cssText=t);else try{n.innerHTML=t}catch(e){n.innerText=t}}(document,".swal2-popup.swal2-toast{box-sizing:border-box;grid-column:1/4 !important;grid-row:1/4 !important;grid-template-columns:min-content auto min-content;padding:1em;overflow-y:hidden;background:#fff;box-shadow:0 0 1px rgba(0,0,0,.075),0 1px 2px rgba(0,0,0,.075),1px 2px 4px rgba(0,0,0,.075),1px 3px 8px rgba(0,0,0,.075),2px 4px 16px rgba(0,0,0,.075);pointer-events:all}.swal2-popup.swal2-toast>*{grid-column:2}.swal2-popup.swal2-toast .swal2-title{margin:.5em 1em;padding:0;font-size:1em;text-align:initial}.swal2-popup.swal2-toast .swal2-loading{justify-content:center}.swal2-popup.swal2-toast .swal2-input{height:2em;margin:.5em;font-size:1em}.swal2-popup.swal2-toast .swal2-validation-message{font-size:1em}.swal2-popup.swal2-toast .swal2-footer{margin:.5em 0 0;padding:.5em 0 0;font-size:.8em}.swal2-popup.swal2-toast .swal2-close{grid-column:3/3;grid-row:1/99;align-self:center;width:.8em;height:.8em;margin:0;font-size:2em}.swal2-popup.swal2-toast .swal2-html-container{margin:.5em 1em;padding:0;overflow:initial;font-size:1em;text-align:initial}.swal2-popup.swal2-toast .swal2-html-container:empty{padding:0}.swal2-popup.swal2-toast .swal2-loader{grid-column:1;grid-row:1/99;align-self:center;width:2em;height:2em;margin:.25em}.swal2-popup.swal2-toast .swal2-icon{grid-column:1;grid-row:1/99;align-self:center;width:2em;min-width:2em;height:2em;margin:0 .5em 0 0}.swal2-popup.swal2-toast .swal2-icon .swal2-icon-content{display:flex;align-items:center;font-size:1.8em;font-weight:bold}.swal2-popup.swal2-toast .swal2-icon.swal2-success .swal2-success-ring{width:2em;height:2em}.swal2-popup.swal2-toast .swal2-icon.swal2-error [class^=swal2-x-mark-line]{top:.875em;width:1.375em}.swal2-popup.swal2-toast .swal2-icon.swal2-error [class^=swal2-x-mark-line][class$=left]{left:.3125em}.swal2-popup.swal2-toast .swal2-icon.swal2-error [class^=swal2-x-mark-line][class$=right]{right:.3125em}.swal2-popup.swal2-toast .swal2-actions{justify-content:flex-start;height:auto;margin:0;margin-top:.5em;padding:0 .5em}.swal2-popup.swal2-toast .swal2-styled{margin:.25em .5em;padding:.4em .6em;font-size:1em}.swal2-popup.swal2-toast .swal2-success{border-color:#a5dc86}.swal2-popup.swal2-toast .swal2-success [class^=swal2-success-circular-line]{position:absolute;width:1.6em;height:3em;transform:rotate(45deg);border-radius:50%}.swal2-popup.swal2-toast .swal2-success [class^=swal2-success-circular-line][class$=left]{top:-0.8em;left:-0.5em;transform:rotate(-45deg);transform-origin:2em 2em;border-radius:4em 0 0 4em}.swal2-popup.swal2-toast .swal2-success [class^=swal2-success-circular-line][class$=right]{top:-0.25em;left:.9375em;transform-origin:0 1.5em;border-radius:0 4em 4em 0}.swal2-popup.swal2-toast .swal2-success .swal2-success-ring{width:2em;height:2em}.swal2-popup.swal2-toast .swal2-success .swal2-success-fix{top:0;left:.4375em;width:.4375em;height:2.6875em}.swal2-popup.swal2-toast .swal2-success [class^=swal2-success-line]{height:.3125em}.swal2-popup.swal2-toast .swal2-success [class^=swal2-success-line][class$=tip]{top:1.125em;left:.1875em;width:.75em}.swal2-popup.swal2-toast .swal2-success [class^=swal2-success-line][class$=long]{top:.9375em;right:.1875em;width:1.375em}.swal2-popup.swal2-toast .swal2-success.swal2-icon-show .swal2-success-line-tip{animation:swal2-toast-animate-success-line-tip .75s}.swal2-popup.swal2-toast .swal2-success.swal2-icon-show .swal2-success-line-long{animation:swal2-toast-animate-success-line-long .75s}.swal2-popup.swal2-toast.swal2-show{animation:swal2-toast-show .5s}.swal2-popup.swal2-toast.swal2-hide{animation:swal2-toast-hide .1s forwards}.swal2-container{display:grid;position:fixed;z-index:1060;inset:0;box-sizing:border-box;grid-template-areas:\"top-start     top            top-end\" \"center-start  center         center-end\" \"bottom-start  bottom-center  bottom-end\";grid-template-rows:minmax(min-content, auto) minmax(min-content, auto) minmax(min-content, auto);height:100%;padding:.625em;overflow-x:hidden;transition:background-color .1s;-webkit-overflow-scrolling:touch}.swal2-container.swal2-backdrop-show,.swal2-container.swal2-noanimation{background:rgba(0,0,0,.4)}.swal2-container.swal2-backdrop-hide{background:rgba(0,0,0,0) !important}.swal2-container.swal2-top-start,.swal2-container.swal2-center-start,.swal2-container.swal2-bottom-start{grid-template-columns:minmax(0, 1fr) auto auto}.swal2-container.swal2-top,.swal2-container.swal2-center,.swal2-container.swal2-bottom{grid-template-columns:auto minmax(0, 1fr) auto}.swal2-container.swal2-top-end,.swal2-container.swal2-center-end,.swal2-container.swal2-bottom-end{grid-template-columns:auto auto minmax(0, 1fr)}.swal2-container.swal2-top-start>.swal2-popup{align-self:start}.swal2-container.swal2-top>.swal2-popup{grid-column:2;align-self:start;justify-self:center}.swal2-container.swal2-top-end>.swal2-popup,.swal2-container.swal2-top-right>.swal2-popup{grid-column:3;align-self:start;justify-self:end}.swal2-container.swal2-center-start>.swal2-popup,.swal2-container.swal2-center-left>.swal2-popup{grid-row:2;align-self:center}.swal2-container.swal2-center>.swal2-popup{grid-column:2;grid-row:2;align-self:center;justify-self:center}.swal2-container.swal2-center-end>.swal2-popup,.swal2-container.swal2-center-right>.swal2-popup{grid-column:3;grid-row:2;align-self:center;justify-self:end}.swal2-container.swal2-bottom-start>.swal2-popup,.swal2-container.swal2-bottom-left>.swal2-popup{grid-column:1;grid-row:3;align-self:end}.swal2-container.swal2-bottom>.swal2-popup{grid-column:2;grid-row:3;justify-self:center;align-self:end}.swal2-container.swal2-bottom-end>.swal2-popup,.swal2-container.swal2-bottom-right>.swal2-popup{grid-column:3;grid-row:3;align-self:end;justify-self:end}.swal2-container.swal2-grow-row>.swal2-popup,.swal2-container.swal2-grow-fullscreen>.swal2-popup{grid-column:1/4;width:100%}.swal2-container.swal2-grow-column>.swal2-popup,.swal2-container.swal2-grow-fullscreen>.swal2-popup{grid-row:1/4;align-self:stretch}.swal2-container.swal2-no-transition{transition:none !important}.swal2-popup{display:none;position:relative;box-sizing:border-box;grid-template-columns:minmax(0, 100%);width:32em;max-width:100%;padding:0 0 1.25em;border:none;border-radius:5px;background:#fff;color:#545454;font-family:inherit;font-size:1rem}.swal2-popup:focus{outline:none}.swal2-popup.swal2-loading{overflow-y:hidden}.swal2-title{position:relative;max-width:100%;margin:0;padding:.8em 1em 0;color:inherit;font-size:1.875em;font-weight:600;text-align:center;text-transform:none;word-wrap:break-word}.swal2-actions{display:flex;z-index:1;box-sizing:border-box;flex-wrap:wrap;align-items:center;justify-content:center;width:auto;margin:1.25em auto 0;padding:0}.swal2-actions:not(.swal2-loading) .swal2-styled[disabled]{opacity:.4}.swal2-actions:not(.swal2-loading) .swal2-styled:hover{background-image:linear-gradient(rgba(0, 0, 0, 0.1), rgba(0, 0, 0, 0.1))}.swal2-actions:not(.swal2-loading) .swal2-styled:active{background-image:linear-gradient(rgba(0, 0, 0, 0.2), rgba(0, 0, 0, 0.2))}.swal2-loader{display:none;align-items:center;justify-content:center;width:2.2em;height:2.2em;margin:0 1.875em;animation:swal2-rotate-loading 1.5s linear 0s infinite normal;border-width:.25em;border-style:solid;border-radius:100%;border-color:#2778c4 rgba(0,0,0,0) #2778c4 rgba(0,0,0,0)}.swal2-styled{margin:.3125em;padding:.625em 1.1em;transition:box-shadow .1s;box-shadow:0 0 0 3px rgba(0,0,0,0);font-weight:500}.swal2-styled:not([disabled]){cursor:pointer}.swal2-styled.swal2-confirm{border:0;border-radius:.25em;background:initial;background-color:#7066e0;color:#fff;font-size:1em}.swal2-styled.swal2-confirm:focus{box-shadow:0 0 0 3px rgba(112,102,224,.5)}.swal2-styled.swal2-deny{border:0;border-radius:.25em;background:initial;background-color:#dc3741;color:#fff;font-size:1em}.swal2-styled.swal2-deny:focus{box-shadow:0 0 0 3px rgba(220,55,65,.5)}.swal2-styled.swal2-cancel{border:0;border-radius:.25em;background:initial;background-color:#6e7881;color:#fff;font-size:1em}.swal2-styled.swal2-cancel:focus{box-shadow:0 0 0 3px rgba(110,120,129,.5)}.swal2-styled.swal2-default-outline:focus{box-shadow:0 0 0 3px rgba(100,150,200,.5)}.swal2-styled:focus{outline:none}.swal2-styled::-moz-focus-inner{border:0}.swal2-footer{justify-content:center;margin:1em 0 0;padding:1em 1em 0;border-top:1px solid #eee;color:inherit;font-size:1em}.swal2-timer-progress-bar-container{position:absolute;right:0;bottom:0;left:0;grid-column:auto !important;overflow:hidden;border-bottom-right-radius:5px;border-bottom-left-radius:5px}.swal2-timer-progress-bar{width:100%;height:.25em;background:rgba(0,0,0,.2)}.swal2-image{max-width:100%;margin:2em auto 1em}.swal2-close{z-index:2;align-items:center;justify-content:center;width:1.2em;height:1.2em;margin-top:0;margin-right:0;margin-bottom:-1.2em;padding:0;overflow:hidden;transition:color .1s,box-shadow .1s;border:none;border-radius:5px;background:rgba(0,0,0,0);color:#ccc;font-family:monospace;font-size:2.5em;cursor:pointer;justify-self:end}.swal2-close:hover{transform:none;background:rgba(0,0,0,0);color:#f27474}.swal2-close:focus{outline:none;box-shadow:inset 0 0 0 3px rgba(100,150,200,.5)}.swal2-close::-moz-focus-inner{border:0}.swal2-html-container{z-index:1;justify-content:center;margin:1em 1.6em .3em;padding:0;overflow:auto;color:inherit;font-size:1.125em;font-weight:normal;line-height:normal;text-align:center;word-wrap:break-word;word-break:break-word}.swal2-input,.swal2-file,.swal2-textarea,.swal2-select,.swal2-radio,.swal2-checkbox{margin:1em 2em 3px}.swal2-input,.swal2-file,.swal2-textarea{box-sizing:border-box;width:auto;transition:border-color .1s,box-shadow .1s;border:1px solid #d9d9d9;border-radius:.1875em;background:rgba(0,0,0,0);box-shadow:inset 0 1px 1px rgba(0,0,0,.06),0 0 0 3px rgba(0,0,0,0);color:inherit;font-size:1.125em}.swal2-input.swal2-inputerror,.swal2-file.swal2-inputerror,.swal2-textarea.swal2-inputerror{border-color:#f27474 !important;box-shadow:0 0 2px #f27474 !important}.swal2-input:focus,.swal2-file:focus,.swal2-textarea:focus{border:1px solid #b4dbed;outline:none;box-shadow:inset 0 1px 1px rgba(0,0,0,.06),0 0 0 3px rgba(100,150,200,.5)}.swal2-input::placeholder,.swal2-file::placeholder,.swal2-textarea::placeholder{color:#ccc}.swal2-range{margin:1em 2em 3px;background:#fff}.swal2-range input{width:80%}.swal2-range output{width:20%;color:inherit;font-weight:600;text-align:center}.swal2-range input,.swal2-range output{height:2.625em;padding:0;font-size:1.125em;line-height:2.625em}.swal2-input{height:2.625em;padding:0 .75em}.swal2-file{width:75%;margin-right:auto;margin-left:auto;background:rgba(0,0,0,0);font-size:1.125em}.swal2-textarea{height:6.75em;padding:.75em}.swal2-select{min-width:50%;max-width:100%;padding:.375em .625em;background:rgba(0,0,0,0);color:inherit;font-size:1.125em}.swal2-radio,.swal2-checkbox{align-items:center;justify-content:center;background:#fff;color:inherit}.swal2-radio label,.swal2-checkbox label{margin:0 .6em;font-size:1.125em}.swal2-radio input,.swal2-checkbox input{flex-shrink:0;margin:0 .4em}.swal2-input-label{display:flex;justify-content:center;margin:1em auto 0}.swal2-validation-message{align-items:center;justify-content:center;margin:1em 0 0;padding:.625em;overflow:hidden;background:#f0f0f0;color:#666;font-size:1em;font-weight:300}.swal2-validation-message::before{content:\"!\";display:inline-block;width:1.5em;min-width:1.5em;height:1.5em;margin:0 .625em;border-radius:50%;background-color:#f27474;color:#fff;font-weight:600;line-height:1.5em;text-align:center}.swal2-icon{position:relative;box-sizing:content-box;justify-content:center;width:5em;height:5em;margin:2.5em auto .6em;border:0.25em solid rgba(0,0,0,0);border-radius:50%;border-color:#000;font-family:inherit;line-height:5em;cursor:default;user-select:none}.swal2-icon .swal2-icon-content{display:flex;align-items:center;font-size:3.75em}.swal2-icon.swal2-error{border-color:#f27474;color:#f27474}.swal2-icon.swal2-error .swal2-x-mark{position:relative;flex-grow:1}.swal2-icon.swal2-error [class^=swal2-x-mark-line]{display:block;position:absolute;top:2.3125em;width:2.9375em;height:.3125em;border-radius:.125em;background-color:#f27474}.swal2-icon.swal2-error [class^=swal2-x-mark-line][class$=left]{left:1.0625em;transform:rotate(45deg)}.swal2-icon.swal2-error [class^=swal2-x-mark-line][class$=right]{right:1em;transform:rotate(-45deg)}.swal2-icon.swal2-error.swal2-icon-show{animation:swal2-animate-error-icon .5s}.swal2-icon.swal2-error.swal2-icon-show .swal2-x-mark{animation:swal2-animate-error-x-mark .5s}.swal2-icon.swal2-warning{border-color:#facea8;color:#f8bb86}.swal2-icon.swal2-warning.swal2-icon-show{animation:swal2-animate-error-icon .5s}.swal2-icon.swal2-warning.swal2-icon-show .swal2-icon-content{animation:swal2-animate-i-mark .5s}.swal2-icon.swal2-info{border-color:#9de0f6;color:#3fc3ee}.swal2-icon.swal2-info.swal2-icon-show{animation:swal2-animate-error-icon .5s}.swal2-icon.swal2-info.swal2-icon-show .swal2-icon-content{animation:swal2-animate-i-mark .8s}.swal2-icon.swal2-question{border-color:#c9dae1;color:#87adbd}.swal2-icon.swal2-question.swal2-icon-show{animation:swal2-animate-error-icon .5s}.swal2-icon.swal2-question.swal2-icon-show .swal2-icon-content{animation:swal2-animate-question-mark .8s}.swal2-icon.swal2-success{border-color:#a5dc86;color:#a5dc86}.swal2-icon.swal2-success [class^=swal2-success-circular-line]{position:absolute;width:3.75em;height:7.5em;transform:rotate(45deg);border-radius:50%}.swal2-icon.swal2-success [class^=swal2-success-circular-line][class$=left]{top:-0.4375em;left:-2.0635em;transform:rotate(-45deg);transform-origin:3.75em 3.75em;border-radius:7.5em 0 0 7.5em}.swal2-icon.swal2-success [class^=swal2-success-circular-line][class$=right]{top:-0.6875em;left:1.875em;transform:rotate(-45deg);transform-origin:0 3.75em;border-radius:0 7.5em 7.5em 0}.swal2-icon.swal2-success .swal2-success-ring{position:absolute;z-index:2;top:-0.25em;left:-0.25em;box-sizing:content-box;width:100%;height:100%;border:.25em solid rgba(165,220,134,.3);border-radius:50%}.swal2-icon.swal2-success .swal2-success-fix{position:absolute;z-index:1;top:.5em;left:1.625em;width:.4375em;height:5.625em;transform:rotate(-45deg)}.swal2-icon.swal2-success [class^=swal2-success-line]{display:block;position:absolute;z-index:2;height:.3125em;border-radius:.125em;background-color:#a5dc86}.swal2-icon.swal2-success [class^=swal2-success-line][class$=tip]{top:2.875em;left:.8125em;width:1.5625em;transform:rotate(45deg)}.swal2-icon.swal2-success [class^=swal2-success-line][class$=long]{top:2.375em;right:.5em;width:2.9375em;transform:rotate(-45deg)}.swal2-icon.swal2-success.swal2-icon-show .swal2-success-line-tip{animation:swal2-animate-success-line-tip .75s}.swal2-icon.swal2-success.swal2-icon-show .swal2-success-line-long{animation:swal2-animate-success-line-long .75s}.swal2-icon.swal2-success.swal2-icon-show .swal2-success-circular-line-right{animation:swal2-rotate-success-circular-line 4.25s ease-in}.swal2-progress-steps{flex-wrap:wrap;align-items:center;max-width:100%;margin:1.25em auto;padding:0;background:rgba(0,0,0,0);font-weight:600}.swal2-progress-steps li{display:inline-block;position:relative}.swal2-progress-steps .swal2-progress-step{z-index:20;flex-shrink:0;width:2em;height:2em;border-radius:2em;background:#2778c4;color:#fff;line-height:2em;text-align:center}.swal2-progress-steps .swal2-progress-step.swal2-active-progress-step{background:#2778c4}.swal2-progress-steps .swal2-progress-step.swal2-active-progress-step~.swal2-progress-step{background:#add8e6;color:#fff}.swal2-progress-steps .swal2-progress-step.swal2-active-progress-step~.swal2-progress-step-line{background:#add8e6}.swal2-progress-steps .swal2-progress-step-line{z-index:10;flex-shrink:0;width:2.5em;height:.4em;margin:0 -1px;background:#2778c4}[class^=swal2]{-webkit-tap-highlight-color:rgba(0,0,0,0)}.swal2-show{animation:swal2-show .3s}.swal2-hide{animation:swal2-hide .15s forwards}.swal2-noanimation{transition:none}.swal2-scrollbar-measure{position:absolute;top:-9999px;width:50px;height:50px;overflow:scroll}.swal2-rtl .swal2-close{margin-right:initial;margin-left:0}.swal2-rtl .swal2-timer-progress-bar{right:0;left:auto}@keyframes swal2-toast-show{0%{transform:translateY(-0.625em) rotateZ(2deg)}33%{transform:translateY(0) rotateZ(-2deg)}66%{transform:translateY(0.3125em) rotateZ(2deg)}100%{transform:translateY(0) rotateZ(0deg)}}@keyframes swal2-toast-hide{100%{transform:rotateZ(1deg);opacity:0}}@keyframes swal2-toast-animate-success-line-tip{0%{top:.5625em;left:.0625em;width:0}54%{top:.125em;left:.125em;width:0}70%{top:.625em;left:-0.25em;width:1.625em}84%{top:1.0625em;left:.75em;width:.5em}100%{top:1.125em;left:.1875em;width:.75em}}@keyframes swal2-toast-animate-success-line-long{0%{top:1.625em;right:1.375em;width:0}65%{top:1.25em;right:.9375em;width:0}84%{top:.9375em;right:0;width:1.125em}100%{top:.9375em;right:.1875em;width:1.375em}}@keyframes swal2-show{0%{transform:scale(0.7)}45%{transform:scale(1.05)}80%{transform:scale(0.95)}100%{transform:scale(1)}}@keyframes swal2-hide{0%{transform:scale(1);opacity:1}100%{transform:scale(0.5);opacity:0}}@keyframes swal2-animate-success-line-tip{0%{top:1.1875em;left:.0625em;width:0}54%{top:1.0625em;left:.125em;width:0}70%{top:2.1875em;left:-0.375em;width:3.125em}84%{top:3em;left:1.3125em;width:1.0625em}100%{top:2.8125em;left:.8125em;width:1.5625em}}@keyframes swal2-animate-success-line-long{0%{top:3.375em;right:2.875em;width:0}65%{top:3.375em;right:2.875em;width:0}84%{top:2.1875em;right:0;width:3.4375em}100%{top:2.375em;right:.5em;width:2.9375em}}@keyframes swal2-rotate-success-circular-line{0%{transform:rotate(-45deg)}5%{transform:rotate(-45deg)}12%{transform:rotate(-405deg)}100%{transform:rotate(-405deg)}}@keyframes swal2-animate-error-x-mark{0%{margin-top:1.625em;transform:scale(0.4);opacity:0}50%{margin-top:1.625em;transform:scale(0.4);opacity:0}80%{margin-top:-0.375em;transform:scale(1.15)}100%{margin-top:0;transform:scale(1);opacity:1}}@keyframes swal2-animate-error-icon{0%{transform:rotateX(100deg);opacity:0}100%{transform:rotateX(0deg);opacity:1}}@keyframes swal2-rotate-loading{0%{transform:rotate(0deg)}100%{transform:rotate(360deg)}}@keyframes swal2-animate-question-mark{0%{transform:rotateY(-360deg)}100%{transform:rotateY(0)}}@keyframes swal2-animate-i-mark{0%{transform:rotateZ(45deg);opacity:0}25%{transform:rotateZ(-25deg);opacity:.4}50%{transform:rotateZ(15deg);opacity:.8}75%{transform:rotateZ(-5deg);opacity:1}100%{transform:rotateX(0);opacity:1}}body.swal2-shown:not(.swal2-no-backdrop):not(.swal2-toast-shown){overflow:hidden}body.swal2-height-auto{height:auto !important}body.swal2-no-backdrop .swal2-container{background-color:rgba(0,0,0,0) !important;pointer-events:none}body.swal2-no-backdrop .swal2-container .swal2-popup{pointer-events:all}body.swal2-no-backdrop .swal2-container .swal2-modal{box-shadow:0 0 10px rgba(0,0,0,.4)}@media print{body.swal2-shown:not(.swal2-no-backdrop):not(.swal2-toast-shown){overflow-y:scroll !important}body.swal2-shown:not(.swal2-no-backdrop):not(.swal2-toast-shown)>[aria-hidden=true]{display:none}body.swal2-shown:not(.swal2-no-backdrop):not(.swal2-toast-shown) .swal2-container{position:static !important}}body.swal2-toast-shown .swal2-container{box-sizing:border-box;width:360px;max-width:100%;background-color:rgba(0,0,0,0);pointer-events:none}body.swal2-toast-shown .swal2-container.swal2-top{inset:0 auto auto 50%;transform:translateX(-50%)}body.swal2-toast-shown .swal2-container.swal2-top-end,body.swal2-toast-shown .swal2-container.swal2-top-right{inset:0 0 auto auto}body.swal2-toast-shown .swal2-container.swal2-top-start,body.swal2-toast-shown .swal2-container.swal2-top-left{inset:0 auto auto 0}body.swal2-toast-shown .swal2-container.swal2-center-start,body.swal2-toast-shown .swal2-container.swal2-center-left{inset:50% auto auto 0;transform:translateY(-50%)}body.swal2-toast-shown .swal2-container.swal2-center{inset:50% auto auto 50%;transform:translate(-50%, -50%)}body.swal2-toast-shown .swal2-container.swal2-center-end,body.swal2-toast-shown .swal2-container.swal2-center-right{inset:50% 0 auto auto;transform:translateY(-50%)}body.swal2-toast-shown .swal2-container.swal2-bottom-start,body.swal2-toast-shown .swal2-container.swal2-bottom-left{inset:auto auto 0 0}body.swal2-toast-shown .swal2-container.swal2-bottom{inset:auto auto 0 50%;transform:translateX(-50%)}body.swal2-toast-shown .swal2-container.swal2-bottom-end,body.swal2-toast-shown .swal2-container.swal2-bottom-right{inset:auto 0 0 auto}");
 
 /***/ }),
 

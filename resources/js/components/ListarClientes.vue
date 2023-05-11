@@ -1,5 +1,6 @@
 <template>
     <div class="card">
+
         <div class="card-header bg-dark text-light">
             <h2 class="card-title">Lista de clientes</h2>
         </div>
@@ -18,14 +19,16 @@
                         </thead>
                         <tbody class="flex-column">
                             <tr v-for="cliente in clientes" :key="cliente.id">
-                                <td>{{cliente.nombre_apellidos }}</td>
-                                <td>{{ cliente.municipio_nombre }}</td>
-                                <td>{{ cliente.provincia_nombre }}</td>
+                                <td>{{ cliente.nombre_apellidos }}</td>
+                                <td>{{ cliente.municipio_id }}</td>
+                                <td>{{ cliente.provincia_id }}</td>
                                 <td>{{ cliente.telefono }}</td>
                                 <td>
                                     <button class="btn bg-danger" @click="borrarCliente(cliente.id)" title="Dar baja">
                                         <i class="fa-solid fa-user-xmark"></i></button>
-                                    <router-link :to="{ name: 'FichaCliente', params: { id: cliente.id } }" class="btn bg-info" title="Ver detalles"><i class="fa-sharp fa-regular fa-eye"></i></router-link>
+                                    <router-link :to="{ name: 'FichaCliente', params: { id: cliente.id } }"
+                                        class="btn bg-info" title="Ver detalles"><i
+                                            class="fa-sharp fa-regular fa-eye"></i></router-link>
                                 </td>
                             </tr>
                         </tbody>
@@ -36,14 +39,7 @@
         <div>
             <paginacion :current-page="currentPage" :total-pages="totalPages" @pageChanged="pageChanged"></paginacion>
         </div>
-        <b-modal v-model="showModal" title="Confirmación" hide-footer>
-            <p v-for="cliente in clientes" :key="cliente.id">¿Estás seguro de que quieres borrar a {{
-                cliente.nombre_apellidos }}?</p>
-            <div class="d-flex justify-content-end">
-                <b-button variant="secondary" class="mr-2" @click="showModal = false">Cancelar</b-button>
-                <b-button variant="danger" @click="deleteCliente">Borrar</b-button>
-            </div>
-        </b-modal>
+
     </div>
 </template>
  
@@ -51,38 +47,64 @@
 
 import axios from 'axios';
 import Paginacion from './Paginacion.vue';
-import { BModal, BButton } from 'bootstrap-vue'
+import Swal from 'sweetalert2'
 
 export default {
     components: {
         Paginacion,
-        BModal,
-        BButton
     },
     data() {
         return {
             clientes: [],
             currentPage: 1,
             totalPages: 2, // aquí debes usar el número total de páginas que correspondan a tu caso específico
-            showModal: false,
             clienteToDelete: null
         }
     },
     methods: {
         borrarCliente(id) {
-            this.showModal = true;
             this.clienteToDelete = id;
-        },
+            const swalWithBootstrapButtons = Swal.mixin({
+                customClass: {
+                    confirmButton: 'btn btn-success',
+                    cancelButton: 'btn btn-danger mr-4'
+                },
+                buttonsStyling: false
+            })
 
-        deleteCliente() {
-            axios.delete('clientes/' + this.clienteToDelete)
-                .then(response => {
-                    this.showModal = false;
-                    this.getClientes();
-                })
-                .catch(error => {
-                    console.error(error);
-                });
+            swalWithBootstrapButtons.fire({
+                title: '¿Está seguro de eliminar el cliente?',
+                text: "El cliente se eliminará permanentemente",
+                icon: 'warning',
+                showCancelButton: true,
+                confirmButtonText: 'OK',
+                cancelButtonText: 'Cancel',
+                reverseButtons: true
+            }).then((result) => {
+                if (result.isConfirmed) {
+                    axios.delete('clientes/' + this.clienteToDelete)
+                        .then(response => {
+                            this.getClientes();
+                        })
+                        .catch(error => {
+                            console.error(error);
+                        });
+                    swalWithBootstrapButtons.fire(
+                        'Eliminado!',
+                        'El cliente se ha eliminado correctamente.',
+                        'success'
+                    )
+                } else if (
+                    /* Read more about handling dismissals below */
+                    result.dismiss === Swal.DismissReason.cancel
+                ) {
+                    swalWithBootstrapButtons.fire(
+                        'Cancelado',
+                        'El cliente no se ha eliminado',
+                        'error'
+                    )
+                }
+            })
         },
 
         pageChanged(page) {

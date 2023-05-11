@@ -14,13 +14,11 @@ class CreateEmpleadosTable extends Migration
     public function up()
     {
         Schema::create('empleados', function (Blueprint $table) {
-            $table->id('id_empleado');
+            $table->id();
             $table->string('nombre_apellidos', 100);
             $table->string('documento_identidad', 20);
             $table->string('direccion', 100);
             $table->string('codigo_postal', 10);
-            $table->string('municipio', 50);
-            $table->string('provincia', 50);
             $table->string('telefono', 20);
             $table->string('email', 100);
             $table->date('fecha_contratacion')->nullable();
@@ -28,6 +26,12 @@ class CreateEmpleadosTable extends Migration
             $table->string('cargo', 50);
             $table->timestamp('deleted_at')->nullable();
             $table->timestamps();
+
+            $table->unsignedBigInteger('provincia_id');
+            $table->foreign('provincia_id')->references('id')->on('provincias');
+
+            $table->unsignedBigInteger('municipio_id');
+            $table->foreign('municipio_id')->references('id')->on('municipios');
         });
     }
 

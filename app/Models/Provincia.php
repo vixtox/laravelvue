@@ -13,4 +13,9 @@ class Provincia extends Model
         'provincia',
     ];
 
+    public function clientes()
+    {
+        return $this->hasMany(Cliente::class, 'provincia_id');
+    }
+
 }

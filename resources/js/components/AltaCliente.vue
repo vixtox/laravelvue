@@ -18,7 +18,8 @@
                                 <input type="text" class="form-control" name="nombre_apellidos"
                                     v-model="cliente.nombre_apellidos" id="nombre_apellidos" aria-describedby="helpId"
                                     placeholder="Nombre completo">
-                                <div class="alert alert-danger" v-if="errores.nombre_apellidos">{{ errores.nombre_apellidos[0]
+                                <div class="alert alert-danger" v-if="errores.nombre_apellidos">{{
+                                    errores.nombre_apellidos[0]
                                 }}</div>
                             </div>
                             <div class="col-md-3 col-sm-6">
@@ -58,28 +59,29 @@
                                     id="codigo_postal" aria-describedby="helpId" placeholder="Código postal">
                             </div>
                             <div class="col-md-3 col-sm-6">
-                                <label for="provincia"><b>Provincia:</b></label>
-                                <select class="form-select" id="provincia" v-model="cliente.provincia"
+                                <label for="provincia_id"><b>Provincia:</b></label>
+                                <select class="form-select" id="provincia_id" v-model="cliente.provincia_id"
                                     v-on:change="consultar_municipio()">
                                     <option disabled value="">Selecciona una provincia</option>
-                                    <option v-for="provincia in provincias" :value="provincia.id"
-                                        :key="provincia.provincia">
-                                        {{ provincia.provincia }}
+                                    <option v-for="provincia_id in provincias" :value="provincia_id.id"
+                                        :key="provincia_id.provincia">
+                                        {{ provincia_id.provincia }}
                                     </option>
                                 </select>
-                                <div class="alert alert-danger" v-if="errores.provincia">{{ errores.provincia[0]
+                                <div class="alert alert-danger" v-if="errores.provincia_id">{{ errores.provincia_id[0]
                                 }}</div>
                             </div>
                             <div class="col-md-3 col-sm-6">
-                                <label for="municipio"><b>Municipio:</b></label>
-                                <select class="form-select" id="municipio" v-model="cliente.municipio">
+                                <label for="municipio_id"><b>Municipio:</b></label>
+                                <select class="form-select" id="municipio_id" v-model="cliente.municipio_id">
                                     <option disabled value="">Selecciona un municipio</option>
-                                    <option v-for="municipio in localidades" :value="municipio.id"
-                                        :key="municipio.municipio">
-                                        {{ municipio.municipio }}
+                                    <option v-for="municipio_id in localidades" :value="municipio_id.id"
+                                        :key="municipio_id.municipio">
+                                        {{ municipio_id.municipio }}
                                     </option>
                                 </select>
-                                <div class="alert alert-danger" v-if="errores.municipio">{{ errores.municipio[0] }}</div>
+                                <div class="alert alert-danger" v-if="errores.municipio_id">{{ errores.municipio_id[0] }}
+                                </div>
                             </div>
                         </div>
                     </div>
@@ -113,7 +115,7 @@
                         <i class="bi bi-person-add"></i>
                     </button>
 
-                    <router-link :to="{ name: 'ExampleComponent' }" class="btn btn-warning">
+                    <router-link :to="{ name: 'ListarClientes' }" class="btn btn-warning">
                         <i class="bi bi-arrow-return-left"></i>
                     </router-link>
                 </div>
@@ -127,6 +129,7 @@
 
 <script>
 import axios from 'axios';
+import Swal from 'sweetalert2'
 export default {
     data() {
         return {
@@ -135,14 +138,11 @@ export default {
                 documento_identidad: "",
                 fecha_nacimiento: "",
                 domicilio: "",
-                municipio: "",
-                municipio_nombre: "",
+                municipio_id: "",
                 codigo_postal: "",
-                provincia: "",
-                provincia_nombre: "",
+                provincia_id: "",
                 telefono: "",
                 email: "",
-
             },
             provincias: [],
             localidades: [],
@@ -160,30 +160,24 @@ export default {
     methods: {
         // Inserta en la base de datos
         async altaCliente() {
-
-            // Buscamos el objeto provincia correspondiente al id seleccionado
-            if (this.cliente.provincia != '') {
-                const provincia = this.provincias.find(
-                    (p) => p.id === this.cliente.provincia
-                );
-                // Cambiamos el valor de cliente.provincia de id a nombre
-                this.cliente.provincia_nombre = provincia.provincia;
-            }
-
-            // Buscamos el objeto municipio correspondiente al id seleccionado
-            if (this.cliente.municipio != '') {
-                const municipio = this.localidades.find(
-                    (p) => p.id === this.cliente.municipio
-                );
-                // Cambiamos el valor de cliente.provincia de id a nombre
-                this.cliente.municipio_nombre = municipio.municipio;
-            }
-
             try {
                 const res = await axios.post('clientes', this.cliente);
+                Swal.fire({
+                    position: 'top',
+                    icon: 'success',
+                    title: 'Cliente registrado correctamente',
+                    showConfirmButton: false,
+                    timer: 2000
+                })
                 this.$router.push({ name: 'ListarClientes' });
+
             } catch (error) {
                 if (error.response.data) {
+                    Swal.fire({
+                        icon: 'error',
+                        title: 'Error registro cliente',
+                        text: 'Ingresa los campos correctamente',
+                    })
                     this.errores = error.response.data.errors;
                 }
             }
@@ -192,16 +186,18 @@ export default {
 
         async consultar_provincia() {
             try {
+                console.log(this.cliente.nombre_apellidos)
                 const response = await axios.get('provincias');
                 this.provincias = response.data;
             } catch (error) {
                 console.error(error);
             }
         },
-        
+
         async consultar_municipio() {
             try {
-                const response = await axios.get('municipios/' + this.cliente.provincia);
+                console.log(this.cliente.provincia_id)
+                const response = await axios.get('municipios/' + this.cliente.provincia_id);
                 this.localidades = response.data;
                 console.log(this.localidades)
             } catch (error) {
@@ -214,14 +210,11 @@ export default {
         this.consultar_provincia();
     },
 };
+
 </script>
 
 <style>
 h2 {
     text-align: center;
-}
-
-body{
-    background-color:lightgreen;
 }
 </style>
