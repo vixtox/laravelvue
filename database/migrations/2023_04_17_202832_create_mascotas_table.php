@@ -31,6 +31,12 @@ class CreateMascotasTable extends Migration
 
             $table->unsignedBigInteger('cliente_id');
             $table->foreign('cliente_id')->references('id')->on('clientes');
+            
+            $table->unsignedBigInteger('especie_id');
+            $table->foreign('especie_id')->references('id')->on('especies');
+
+            $table->unsignedBigInteger('razas_id');
+            $table->foreign('razas_id')->references('id')->on('razas');
         });
     }
 

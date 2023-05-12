@@ -167,7 +167,7 @@ export default {
                     icon: 'success',
                     title: 'Cliente registrado correctamente',
                     showConfirmButton: false,
-                    timer: 2000
+                    timer: 1500
                 })
                 this.$router.push({ name: 'ListarClientes' });
 

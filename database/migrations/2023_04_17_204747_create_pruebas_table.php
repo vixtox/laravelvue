@@ -15,14 +15,14 @@ class CreatePruebasTable extends Migration
     {
         Schema::create('pruebas', function (Blueprint $table) {
             $table->id();
-            $table->unsignedBigInteger('id_mascota');
             $table->date('fecha');
             $table->string('tipo', 100);
             $table->string('archivo', 255);
             $table->timestamp('deleted_at')->nullable();
             $table->timestamps();
 
-            $table->foreign('id_mascota')->references('id')->on('mascotas')->onDelete('cascade');
+            $table->unsignedBigInteger('mascotas_id');
+            $table->foreign('mascotas_id')->references('id')->on('mascotas');
         });
     }
 

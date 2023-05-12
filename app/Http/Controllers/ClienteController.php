@@ -18,23 +18,23 @@ class ClienteController extends Controller
     public function index()
     {
         $clientes = Cliente::with('provincia')
-        ->where('deleted_at', NULL)
-        ->paginate(5);
-    
+            ->where('deleted_at', NULL)
+            ->paginate(5);
+
         // Modificar el contenido de $clientes
         $clientes->getCollection()->transform(function ($cliente) {
             $cliente->provincia_id = $cliente->provincia ? $cliente->provincia->provincia : null;
             $cliente->municipio_id = $cliente->municipio ? $cliente->municipio->municipio : null;
             return $cliente;
         });
-        
+
         return response()->json([
             'clientes' => $clientes->items(),
             'currentPage' => $clientes->currentPage(),
             'lastPage' => $clientes->lastPage(),
         ]);
     }
-     
+
     /**
      * Show the form for creating a new resource.
      *
@@ -125,5 +125,12 @@ class ClienteController extends Controller
         } else {
             return response()->json(['message' => 'El cliente no existe.'], 404);
         }
+    }
+
+    public function buscarClientes(Request $request)
+    {
+        $term = $request->query('search');
+        $clientes = Cliente::where('nombre_apellidos', 'LIKE', '%' . $term . '%')->get();
+        return response()->json($clientes);
     }
 }

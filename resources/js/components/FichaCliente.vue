@@ -179,7 +179,7 @@ export default {
                         icon: 'success',
                         title: 'Cambios guardados',
                         showConfirmButton: false,
-                        timer: 2000
+                        timer: 1500
                     })
                     console.log(response)
                     this.errores = {};

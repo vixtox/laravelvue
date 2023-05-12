@@ -30,14 +30,10 @@ Route::post('/logout', [SessionsController::class, 'destroy'])->name('logout');
 Route::get('/index', function () {return view('auth.index');})->name('index');
 
 // RUTAS CLIENTE
-// Route::resource('/clientes', ClienteController::class);
-// Route::post('/clientes', ClienteController::class, 'store')->name('clientes.store');
-// Route::get('/clientes/{id}', [ClienteController::class, 'obtenerInformacionID']);
-// Route::put('/clientes/{id}', [ClienteController::class, 'update'])->name('clientes.update');
 Route::resource('/clientes', ClienteController::class)->except([
     'create', 'edit'
 ]);
-
+Route::get('/clientes', 'ClienteController@buscarClientes');
 
 // RUTA PROVINCIA
 Route::get('/provincias', [ProvinciaController::class, 'index']);

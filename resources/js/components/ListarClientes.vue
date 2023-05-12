@@ -6,6 +6,7 @@
         </div>
         <div class="card-body">
             <div class="row">
+                <input type="text" id="searchInput" v-model="searchTerm" placeholder="Buscar cliente" />
                 <div class="table-responsive">
                     <table class="table table-striped table-sm">
                         <thead>
@@ -48,6 +49,9 @@
 import axios from 'axios';
 import Paginacion from './Paginacion.vue';
 import Swal from 'sweetalert2'
+import $ from 'jquery';
+import 'jquery-ui/ui/widgets/autocomplete';
+import 'jquery-ui/themes/base/all.css';
 
 export default {
     components: {
@@ -58,7 +62,9 @@ export default {
             clientes: [],
             currentPage: 1,
             totalPages: 2, // aquí debes usar el número total de páginas que correspondan a tu caso específico
-            clienteToDelete: null
+            clienteToDelete: null,
+            searchTerm: '',
+            selectedClient: null
         }
     },
     methods: {
@@ -131,7 +137,28 @@ export default {
         if (token) {
             this.csrfToken = token.content;
         }
+    },
+
+    mounted() {
+        $("#searchInput").autocomplete({
+            source: (request, response) => {
+                axios.get("/clientes", { params: { search: request.term } })
+                    .then((res) => {
+                        response(res.data);
+                    })
+                    .catch((error) => {
+                        console.error(error);
+                    });
+            },
+            minLength: 2, // número mínimo de caracteres antes de mostrar sugerencias
+            select: (event, ui) => {
+                // Realizar alguna acción cuando se selecciona un cliente de la lista
+                // Por ejemplo, actualizar el cliente seleccionado en tu componente Vue
+                this.selectedClient = ui.item;
+            },
+        });
     }
+
 
 }
 

@@ -15,8 +15,6 @@ class CreateVisitasTable extends Migration
     {
         Schema::create('visitas', function (Blueprint $table) {
             $table->id();
-            $table->unsignedBigInteger('id_mascota');
-            $table->foreign('id_mascota')->references('id')->on('mascotas')->onDelete('cascade');
             $table->date('fecha_visita');
             $table->time('hora_visita')->nullable();
             $table->string('veterinario');
@@ -26,6 +24,9 @@ class CreateVisitasTable extends Migration
             $table->decimal('coste', 10, 2)->nullable();
             $table->timestamp('deleted_at')->nullable();
             $table->timestamps();
+
+            $table->unsignedBigInteger('mascotas_id');
+            $table->foreign('mascotas_id')->references('id')->on('mascotas');
         });
     }
 

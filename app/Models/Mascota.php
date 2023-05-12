@@ -27,5 +27,14 @@ class Mascota extends Model
         'deleted_at'
     ];
     
+    public function especie()
+    {
+        return $this->belongsTo(Especie::class, 'especie_id');
+    }
+    
+    public function raza__perro()
+    {
+        return $this->belongsTo(Municipio::class, 'raza_perro_id');
+    }
 
 }
