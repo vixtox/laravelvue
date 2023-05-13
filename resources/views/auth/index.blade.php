@@ -6,8 +6,9 @@
 
 
     <nav class="navbar navbar-expand-lg navbar-light azul">
-        <router-link to="/" class="navbar-brand"><img id="logo" style="border-radius: 50%" src="{{ asset('img/dvapp.png') }}"
-            alt="Logo" width="15%"><span class="text-white"><strong> Database Veterinary App</strong></span></router-link>
+        <router-link to="/" class="navbar-brand"><img id="logo" style="border-radius: 50%"
+                src="{{ asset('img/dvapp.png') }}" alt="Logo" width="15%"><span class="text-white"><strong> Database
+                    Veterinary App</strong></span></router-link>
         <div class="d-none d-md-flex flex-nowrap menu flex-shrink-0">
             <ul class="nav">
                 <li class="nav-item dropdown">
@@ -102,25 +103,29 @@
                                 class="list-group-item list-group-item-action bg-secondary text-light">Listar pruebas
                             </router-link>
                         </div>
-                        <a href="#opcion4-submenu" class="list-group-item list-group-item-action bg-dark text-light"
-                            data-toggle="collapse"><i class="fas fa-users-cog"></i> Empleados</a>
-                        <div id="opcion4-submenu" class="collapse">
-                            <router-link to="/registrarcliente"
-                                class="list-group-item list-group-item-action bg-secondary text-light">Registrar empleado
-                            </router-link>
-                            <router-link to="/listarclientes"
-                                class="list-group-item list-group-item-action bg-secondary text-light">Listar empleados
-                            </router-link>
-                        </div>
+                        @if (Auth::check() && Auth::user()->tipo === 'Admin')
+                            <a href="#opcion4-submenu" class="list-group-item list-group-item-action bg-dark text-light"
+                                data-toggle="collapse"><i class="fas fa-users-cog"></i> Empleados</a>
+                            <div id="opcion4-submenu" class="collapse">
+                                <router-link to="/registrarcliente"
+                                    class="list-group-item list-group-item-action bg-secondary text-light">Registrar
+                                    empleado
+                                </router-link>
+                                <router-link to="/listarclientes"
+                                    class="list-group-item list-group-item-action bg-secondary text-light">Listar empleados
+                                </router-link>
+                            </div>
+                        @endif
+
                         <a href="#opcion5-submenu" class="list-group-item list-group-item-action bg-dark text-light"
                             data-toggle="collapse"><i class="fas fa-hospital"></i> Hospitalización</a>
-                            <a href="#opcion6-submenu" class="list-group-item list-group-item-action bg-dark text-light"
+                        <a href="#opcion6-submenu" class="list-group-item list-group-item-action bg-dark text-light"
                             data-toggle="collapse"><i class="fas fa-procedures"></i> Cirujías</a>
-                            <a href="#opcion7-submenu" class="list-group-item list-group-item-action bg-dark text-light"
+                        <a href="#opcion7-submenu" class="list-group-item list-group-item-action bg-dark text-light"
                             data-toggle="collapse"><i class="fas fa-shopping-cart"></i> Productos</a>
-                     </div>
+                    </div>
                 </div>
-        
+
             </div>
         </div>
 
@@ -130,7 +135,7 @@
                     <router-view></router-view>
                 </div>
             </div>
-         </div>
+        </div>
     </div>
 
 @endsection

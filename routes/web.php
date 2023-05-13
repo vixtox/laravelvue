@@ -8,16 +8,28 @@ use App\Http\Controllers\ProvinciaController;
 use App\Http\Controllers\MunicipioController;
 
 // RUTAS PAGINA OFICIAL DVAPP
-Route::get('/', function () {return view('home');})->name('home');
-Route::get('/sobrenosotros', function () {return view('sobrenosotros');})->name('sobrenosotros');
-Route::get('/servicios', function () {return view('servicios');})->name('servicios');
-Route::get('/contacto', function () {return view('contacto');})->name('contacto');
-Route::get('/precios', function () {return view('precios');})->name('precios');
-Route::get('/testimonios', function () {return view('testimonios');})->name('testimonios');
+Route::get('/', function () {
+    return view('home');
+})->name('home');
+Route::get('/sobrenosotros', function () {
+    return view('sobrenosotros');
+})->name('sobrenosotros');
+Route::get('/servicios', function () {
+    return view('servicios');
+})->name('servicios');
+Route::get('/contacto', function () {
+    return view('contacto');
+})->name('contacto');
+Route::get('/precios', function () {
+    return view('precios');
+})->name('precios');
+Route::get('/testimonios', function () {
+    return view('testimonios');
+})->name('testimonios');
 
 // RUTAS REGISTRAR USUARIOS DVAPP
-Route::get('/register', [RegisterController::class, 'create'])->name('register.index');
-Route::post('/register', [RegisterController::class, 'store'])->name('register.store');
+// Route::get('/register', [RegisterController::class, 'create'])->name('register.index');
+// Route::post('/register', [RegisterController::class, 'store'])->name('register.store');
 
 // RUTAS LOGIN Y LOGOUT
 Route::get('/login', [SessionsController::class, 'create'])
@@ -27,7 +39,9 @@ Route::post('/login', [SessionsController::class, 'store'])
 Route::post('/logout', [SessionsController::class, 'destroy'])->name('logout');
 
 // RUTA CONTROLADOR FRONTAL
-Route::get('/index', function () {return view('auth.index');})->name('index');
+Route::get('/index', function () {
+    return view('auth.index');
+})->name('index');
 
 // RUTAS CLIENTE
 Route::get('/clientes/buscar', [ClienteController::class, 'buscarClientes']);
@@ -40,4 +54,15 @@ Route::resource('/clientes', ClienteController::class)->except([
 Route::get('/provincias', [ProvinciaController::class, 'index']);
 // RUTA MUNICIPIO
 Route::get('/municipios/{id}', [MunicipioController::class, 'show']);
+
+
+
+// EJEMPLOS MIDDLEWARE
+// Route::middleware(['admin'])->group(function () {
+//     // Rutas que requieren el middleware "Administrador"...
+// });
+Route::middleware(['admin'])->group(function () {
+    Route::get('/register', [RegisterController::class, 'create'])->name('register.index');
+    Route::post('/register', [RegisterController::class, 'store'])->name('register.store');
+});
 

@@ -6779,13 +6779,16 @@ var render = function render() {
     _c = _vm._self._c;
   return _c("div", {
     staticClass: "card"
+  }, [_vm._m(0), _vm._v(" "), _c("div", {
+    staticClass: "card-body"
   }, [_c("div", {
-    staticClass: "ui-widget"
-  }, [_c("label", {
-    attrs: {
-      "for": "searchInput"
-    }
-  }, [_vm._v("Clientes: ")]), _vm._v(" "), _c("input", {
+    staticClass: "row"
+  }, [_c("div", {
+    staticClass: "table-responsive"
+  }, [_c("div", {
+    staticClass: "col-6"
+  }, [_c("input", {
+    staticClass: "form-control",
     attrs: {
       type: "text",
       id: "searchInput",
@@ -6799,13 +6802,7 @@ var render = function render() {
         _vm.searchTerm = $event.target.value;
       }
     }
-  })]), _vm._v(" "), _vm._m(0), _vm._v(" "), _c("div", {
-    staticClass: "card-body"
-  }, [_c("div", {
-    staticClass: "row"
-  }, [_c("div", {
-    staticClass: "table-responsive"
-  }, [_c("table", {
+  })]), _vm._v(" "), _c("table", {
     staticClass: "table table-striped table-sm"
   }, [_vm._m(1), _vm._v(" "), _c("tbody", {
     staticClass: "flex-column"
@@ -6859,7 +6856,9 @@ var staticRenderFns = [function () {
 }, function () {
   var _vm = this,
     _c = _vm._self._c;
-  return _c("thead", [_c("tr", [_c("th", {
+  return _c("thead", {
+    staticClass: "bg-dark text-light"
+  }, [_c("tr", [_c("th", {
     attrs: {
       scope: "col"
     }

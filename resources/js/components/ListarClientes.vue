@@ -1,20 +1,17 @@
 <template>
     <div class="card">
-
-        <div class="ui-widget">
-            <label for="searchInput">Clientes: </label>
-            <input type="text" id="searchInput" :value="searchTerm" @input="searchTerm = $event.target.value"
-                placeholder="Buscar cliente">
-        </div>
-
         <div class="card-header bg-dark text-light">
             <h2 class="card-title">Lista de clientes</h2>
         </div>
         <div class="card-body">
             <div class="row">
                 <div class="table-responsive">
+                    <div class="col-6">
+                        <input type="text" id="searchInput" :value="searchTerm" @input="searchTerm = $event.target.value"
+                            placeholder="Buscar cliente" class="form-control">
+                    </div>
                     <table class="table table-striped table-sm">
-                        <thead>
+                        <thead class="bg-dark text-light">
                             <tr>
                                 <th scope="col">Nombre</th>
                                 <th scope="col">Municipio</th>
