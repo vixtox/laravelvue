@@ -17,7 +17,8 @@ class CreateEmpleadosTable extends Migration
             $table->id();
             $table->string('nombre_apellidos', 100);
             $table->string('documento_identidad', 20);
-            $table->string('direccion', 100);
+            $table->date('fecha_nacimiento')->nullable();
+            $table->string('domicilio', 100);
             $table->string('codigo_postal', 10);
             $table->string('telefono', 20);
             $table->string('email', 100);

@@ -9,6 +9,7 @@ import ExampleComponent from './components/ExampleComponent.vue';
 import AltaCliente from './components/AltaCliente.vue';
 import ListarClientes from './components/ListarClientes.vue';
 import FichaCliente from './components/FichaCliente.vue';
+import AltaEmpleado from './components/AltaEmpleado.vue';
 
 Vue.use(VueRouter);
 
@@ -32,6 +33,11 @@ const routes = [
         path: '/fichacliente/:id',
         name: 'FichaCliente',
         component: FichaCliente
+    },
+    {
+        path: '/registrarempleado',
+        name: 'AltaEmpleado',
+        component: AltaEmpleado
     },
 
 ];

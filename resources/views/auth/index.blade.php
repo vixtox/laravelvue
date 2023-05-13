@@ -4,7 +4,6 @@
 
 @section('contenido')
 
-
     <nav class="navbar navbar-expand-lg navbar-light azul">
         <router-link to="/" class="navbar-brand"><img id="logo" style="border-radius: 50%"
                 src="{{ asset('img/dvapp.png') }}" alt="Logo" width="15%"><span class="text-white"><strong> Database
@@ -47,11 +46,13 @@
                         <i class="fas fa-shopping-cart"></i>
                     </a>
                 </li>
-                <li class="nav-item">
-                    <a href="#" class="nav-link text-white">
-                        <i class="fas fa-users-cog"></i>
-                    </a>
-                </li>
+                @if (Auth::check() && Auth::user()->tipo === 'Admin')
+                    <li class="nav-item">
+                        <a href="#" class="nav-link text-white">
+                            <i class="fas fa-users-cog"></i>
+                        </a>
+                    </li>
+                @endif
             </ul>
 
             @if (Auth::check())

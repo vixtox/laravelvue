@@ -56,13 +56,13 @@ Route::get('/provincias', [ProvinciaController::class, 'index']);
 Route::get('/municipios/{id}', [MunicipioController::class, 'show']);
 
 
-
-// EJEMPLOS MIDDLEWARE
-// Route::middleware(['admin'])->group(function () {
-//     // Rutas que requieren el middleware "Administrador"...
-// });
+// RUTAS RESERVADAS ROL ADMIN
 Route::middleware(['admin'])->group(function () {
+    // RUTAS REGISTRO USER
     Route::get('/register', [RegisterController::class, 'create'])->name('register.index');
     Route::post('/register', [RegisterController::class, 'store'])->name('register.store');
+    // RUTAS EMPLEADO
+    Route::resource('/clientes', ClienteController::class)->except([
+        'create', 'edit'
+    ]);
 });
-

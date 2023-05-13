@@ -6,9 +6,11 @@
         <div class="card-body">
             <div class="row">
                 <div class="table-responsive">
-                    <div class="col-6">
+                    <div class="btn-group w-100" role="group" aria-label="">
                         <input type="text" id="searchInput" :value="searchTerm" @input="searchTerm = $event.target.value"
-                            placeholder="Buscar cliente" class="form-control">
+                            placeholder="Buscar cliente" class="form-control w-50">
+                        <router-link :to="{ name: 'AltaCliente' }" class="btn btn-success w-50" title="Alta cliente"> <i
+                                class="fa-solid fa-user-plus" style="color: #ffffff;"></i></router-link>
                     </div>
                     <table class="table table-striped table-sm">
                         <thead class="bg-dark text-light">
@@ -27,11 +29,11 @@
                                 <td>{{ cliente.provincia_id }}</td>
                                 <td>{{ cliente.telefono }}</td>
                                 <td>
-                                    <button class="btn bg-danger" @click="borrarCliente(cliente.id)" title="Dar baja">
+                                    <button class="btn btn-danger" @click="borrarCliente(cliente.id)" title="Dar baja">
                                         <i class="fa-solid fa-user-xmark"></i></button>
                                     <router-link :to="{ name: 'FichaCliente', params: { id: cliente.id } }"
-                                        class="btn bg-info" title="Ver detalles"><i
-                                            class="fa-sharp fa-regular fa-eye"></i></router-link>
+                                        class="btn btn-info" title="Ver detalles"><i class="fa-solid fa-eye"
+                                            style="color: #ffffff;"></i></router-link>
                                 </td>
                             </tr>
                         </tbody>

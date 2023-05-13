@@ -96,7 +96,7 @@
                             <!-- Campos de datos de contacto aquí -->
                             <div class="col-md-3 col-sm-6">
                                 <label for="telefono"><b>Teléfono:</b></label>
-                                <input type="telefono" class="form-control" name="telefono" v-model="cliente.telefono"
+                                <input type="text" class="form-control" name="telefono" v-model="cliente.telefono"
                                     id="telefono" aria-describedby="helpId" placeholder="Teléfono">
                                 <div class="alert alert-danger" v-if="errores.telefono">{{ errores.telefono[0] }}</div>
                             </div>
@@ -112,11 +112,11 @@
 
                 <div class="btn-group w-100" role="group" aria-label="">
                     <button type="submit" class="btn btn-success">
-                        <i class="bi bi-person-add"></i>
+                        <i class="fa-solid fa-user-plus" style="color: #ffffff;"></i>
                     </button>
 
                     <router-link :to="{ name: 'ListarClientes' }" class="btn btn-warning">
-                        <i class="bi bi-arrow-return-left"></i>
+                        <i class="bi bi-arrow-return-left fw-bold"></i>
                     </router-link>
                 </div>
 
@@ -163,7 +163,7 @@ export default {
             try {
                 const res = await axios.post('clientes', this.cliente);
                 Swal.fire({
-                    position: 'top',
+                    position: 'center',
                     icon: 'success',
                     title: 'Cliente registrado correctamente',
                     showConfirmButton: false,

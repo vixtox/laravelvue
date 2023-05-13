@@ -13,7 +13,8 @@ class Empleado extends Model
     protected $fillable = [
         'nombre_apellidos',
         'documento_identidad',
-        'direccion',
+        'fecha_nacimiento',
+        'domicilio',
         'pais',
         'codigo_postal',
         'id_municipio',
@@ -30,7 +31,7 @@ class Empleado extends Model
     {
         return $this->belongsTo(Provincia::class, 'provincia_id');
     }
-
+    
     public function municipio()
     {
         return $this->belongsTo(Municipio::class, 'municipio_id');
