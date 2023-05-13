@@ -25,6 +25,8 @@
     },
     "dependencies": {
         "bootstrap-vue": "^2.23.1",
+        "jquery": "^3.7.0",
+        "jquery-ui-dist": "^1.13.2",
         "laravel-vue-pagination": "^4.0.0",
         "sweetalert2": "^11.7.5",
         "vue-router": "3.0",

@@ -1,12 +1,17 @@
 <template>
     <div class="card">
 
+        <div class="ui-widget">
+            <label for="searchInput">Clientes: </label>
+            <input type="text" id="searchInput" :value="searchTerm" @input="searchTerm = $event.target.value"
+                placeholder="Buscar cliente">
+        </div>
+
         <div class="card-header bg-dark text-light">
             <h2 class="card-title">Lista de clientes</h2>
         </div>
         <div class="card-body">
             <div class="row">
-                <input type="text" id="searchInput" v-model="searchTerm" placeholder="Buscar cliente" />
                 <div class="table-responsive">
                     <table class="table table-striped table-sm">
                         <thead>
@@ -49,9 +54,9 @@
 import axios from 'axios';
 import Paginacion from './Paginacion.vue';
 import Swal from 'sweetalert2'
-import $ from 'jquery';
-import 'jquery-ui/ui/widgets/autocomplete';
-import 'jquery-ui/themes/base/all.css';
+// import $ from 'jquery';
+// import 'jquery-ui/ui/widgets/autocomplete';
+// import 'jquery-ui/themes/base/all.css';
 
 export default {
     components: {
@@ -140,24 +145,35 @@ export default {
     },
 
     mounted() {
-        $("#searchInput").autocomplete({
-            source: (request, response) => {
-                axios.get("/clientes", { params: { search: request.term } })
-                    .then((res) => {
-                        response(res.data);
-                    })
-                    .catch((error) => {
-                        console.error(error);
-                    });
-            },
-            minLength: 2, // número mínimo de caracteres antes de mostrar sugerencias
-            select: (event, ui) => {
-                // Realizar alguna acción cuando se selecciona un cliente de la lista
-                // Por ejemplo, actualizar el cliente seleccionado en tu componente Vue
-                this.selectedClient = ui.item;
-            },
-        });
+        const vm = this;
+
+        axios.get("clientes/buscar", { params: { search: '' } })
+            .then((res) => {
+                // Inicializar Autocomplete dentro de la promesa
+                $("#searchInput").autocomplete({
+                    source: res.data.map((cliente) => cliente.nombre_apellidos),
+                    select: (event, ui) => {
+                        vm.searchTerm = ui.item.value;
+
+                        // Obtener el objeto completo del cliente seleccionado
+                        vm.selectedClient = res.data.find((cliente) => cliente.nombre_apellidos === ui.item.value);
+
+                        if (vm.selectedClient) {
+                            // Redirigir al usuario a la ruta FichaCliente con el parámetro id
+                            vm.$router.push({ name: 'FichaCliente', params: { id: vm.selectedClient.id } });
+                        }
+
+                        return false;
+                    },
+
+                });
+            })
+            .catch((error) => {
+                console.error(error);
+            });
     }
+
+
 
 
 }

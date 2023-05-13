@@ -14,7 +14,11 @@ class ClienteController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-
+    public function __invoke()
+    {
+        // Código de la lógica del controlador aquí
+    }
+    
     public function index()
     {
         $clientes = Cliente::with('provincia')
@@ -64,7 +68,6 @@ class ClienteController extends Controller
      */
     public function show($id)
     {
-        //
         $cliente = Cliente::find($id);
 
         if ($cliente) {
@@ -72,6 +75,7 @@ class ClienteController extends Controller
         } else {
             return response()->json(['error' => 'Cliente no encontrado'], 404);
         }
+
     }
 
     /**
@@ -133,4 +137,5 @@ class ClienteController extends Controller
         $clientes = Cliente::where('nombre_apellidos', 'LIKE', '%' . $term . '%')->get();
         return response()->json($clientes);
     }
+
 }
