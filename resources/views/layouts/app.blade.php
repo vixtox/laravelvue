@@ -42,18 +42,28 @@
     <style>
         .azul {
             background-color: #77a9ca;
+   
+            padding-top: 1%;
+            padding-bottom: 1%;
         }
 
-
-        .navbar-brand {
-            margin-left: 2%;
+        .logo {
+            padding-left: 2%;
         }
 
-        #menu a, .menu {
+        .iconos{
+            padding: 0%;
+        }
+
+        .menu {
             padding-left: 10%;
         }
 
-        .complemento{
+        .logout {
+            margin-left: 10%;
+        }
+
+        .complemento {
             margin-top: 2%;
             margin-bottom: 2%;
         }

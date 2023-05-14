@@ -25,15 +25,15 @@
                             <div class="col-md-3 col-sm-6">
                                 <label for="documento_identidad"><b>NIF/CIF:</b></label>
                                 <input type="text" class="form-control" name="documento_identidad"
-                                    v-model="empleado.documento_identidad" id="documento_identidad" aria-describedby="helpId"
-                                    placeholder="Nº Documento">
+                                    v-model="empleado.documento_identidad" id="documento_identidad"
+                                    aria-describedby="helpId" placeholder="Nº Documento">
                                 <div class="alert alert-danger" v-if="errores.documento_identidad">{{
                                     errores.documento_identidad[0]
                                 }}</div>
                             </div>
                             <div class="col-md-3 col-sm-6">
                                 <label for="fecha_nacimiento"><b>Fecha nacimiento:</b></label>
-                                <input type="date" class="form-control" name="fecha_nacimiento"
+                                <input type="date" class="form-control" name="fecha_nacimiento" :max="maxDate"
                                     v-model="empleado.fecha_nacimiento" id="fecha_nacimiento" aria-describedby="helpId">
                             </div>
                         </div>
@@ -55,8 +55,9 @@
 
                             <div class="col-md-3 col-sm-6">
                                 <label for="codigo_postal"><b>Código postal:</b></label>
-                                <input type="text" class="form-control" name="codigo_postal" v-model="empleado.codigo_postal"
-                                    id="codigo_postal" aria-describedby="helpId" placeholder="Código postal">
+                                <input type="text" class="form-control" name="codigo_postal"
+                                    v-model="empleado.codigo_postal" id="codigo_postal" aria-describedby="helpId"
+                                    placeholder="Código postal">
                             </div>
                             <div class="col-md-3 col-sm-6">
                                 <label for="provincia_id"><b>Provincia:</b></label>
@@ -119,8 +120,11 @@
                             <!-- Campos de datos laborales aquí -->
                             <div class="col-md-3 col-sm-6">
                                 <label for="fecha_contratacion"><b>Fecha contratación:</b></label>
-                                <input type="date" class="form-control" name="fecha_contratacion"
+                                <input type="date" class="form-control" name="fecha_contratacion" :max="maxDate"
                                     v-model="empleado.fecha_contratacion" id="fecha_contratacion" aria-describedby="helpId">
+                                <div class="alert alert-danger" v-if="errores.fecha_contratacion">{{
+                                    errores.fecha_contratacion[0]
+                                }}</div>
                             </div>
                             <div class="col-md-3 col-sm-6">
                                 <label for="salario"><b>Salario:</b></label>
@@ -130,9 +134,15 @@
                             </div>
                             <div class="col-md-3 col-sm-6">
                                 <label for="cargo"><b>Cargo:</b></label>
-                                <input type="text" class="form-control" name="cargo" v-model="empleado.cargo"
-                                    id="cargo" aria-describedby="helpId" placeholder="Cargo">
-                                <div class="alert alert-danger" v-if="errores.cargo">{{ errores.cargo[0] }}</div>
+                                <select class="form-select" id="cargo" v-model="empleado.cargo">
+                                    <option disabled value="">Selecciona un cargo</option>
+                                    <option value="Veterinario">Veterinario</option>
+                                    <option value="Auxiliar">Auxiliar</option>
+                                    <option value="Peluquero">Peluquero</option>
+                                    <option value="Limpiadora">Limpiadora</option>
+                                </select>
+                                <div class="alert alert-danger" v-if="errores.cargo">{{ errores.cargo[0]
+                                }}</div>
                             </div>
                         </div>
                     </div>
@@ -143,7 +153,7 @@
                         <i class="fa-solid fa-user-plus" style="color: #ffffff;"></i>
                     </button>
 
-                    <router-link :to="{ name: 'Listarempleados' }" class="btn btn-warning">
+                    <router-link :to="{ name: 'ListarEmpleados' }" class="btn btn-warning">
                         <i class="bi bi-arrow-return-left fw-bold"></i>
                     </router-link>
                 </div>
@@ -161,6 +171,7 @@ import Swal from 'sweetalert2'
 export default {
     data() {
         return {
+            maxDate: this.getCurrentDate(),
             empleado: {
                 nombre_apellidos: "",
                 documento_identidad: "",
@@ -191,6 +202,7 @@ export default {
     methods: {
         // Inserta en la base de datos
         async altaEmpleado() {
+            console.log(this.empleado)
             try {
                 const res = await axios.post('empleados', this.empleado);
                 Swal.fire({
@@ -200,7 +212,7 @@ export default {
                     showConfirmButton: false,
                     timer: 1500
                 })
-                this.$router.push({ name: 'Listarempleados' });
+                this.$router.push({ name: 'ListarEmpleados' });
 
             } catch (error) {
                 if (error.response.data) {
@@ -234,6 +246,19 @@ export default {
             } catch (error) {
                 console.error(error);
             }
+        },
+
+        getCurrentDate() {
+            const today = new Date();
+            const year = today.getFullYear();
+            let month = today.getMonth() + 1;
+            let day = today.getDate();
+
+            // Agrega un cero inicial para el mes y el día si es necesario
+            month = month < 10 ? '0' + month : month;
+            day = day < 10 ? '0' + day : day;
+
+            return `${year}-${month}-${day}`;
         },
 
     },

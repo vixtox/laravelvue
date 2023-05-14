@@ -3,6 +3,9 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use App\Models\Empleado;
+use App\Models\Provincia;
+use App\Http\Requests\EmpleadoRequest;
 
 class EmpleadoController extends Controller
 {
@@ -13,7 +16,22 @@ class EmpleadoController extends Controller
      */
     public function index()
     {
-        //
+        $empleados = Empleado::with('provincia')
+            ->where('deleted_at', NULL)
+            ->paginate(5);
+
+        // Modificar el contenido de $empleado
+        $empleados->getCollection()->transform(function ($empleado) {
+            $empleado->provincia_id = $empleado->provincia ? $empleado->provincia->provincia : null;
+            $empleado->municipio_id = $empleado->municipio ? $empleado->municipio->municipio : null;
+            return $empleado;
+        });
+
+        return response()->json([
+            'empleados' => $empleados->items(),
+            'currentPage' => $empleados->currentPage(),
+            'lastPage' => $empleados->lastPage(),
+        ]);
     }
 
     /**
@@ -32,9 +50,9 @@ class EmpleadoController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(Request $request)
+    public function store(EmpleadoRequest $request)
     {
-        //
+        Empleado::create($request->all());
     }
 
     /**
@@ -45,7 +63,13 @@ class EmpleadoController extends Controller
      */
     public function show($id)
     {
-        //
+        $empleado = Empleado::find($id);
+
+        if ($empleado) {
+            return response()->json($empleado);
+        } else {
+            return response()->json(['error' => 'Empleado no encontrado'], 404);
+        }
     }
 
     /**
@@ -66,9 +90,10 @@ class EmpleadoController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, $id)
+    public function update(EmpleadoRequest $request, $id)
     {
-        //
+        $empleado = Empleado::find($id);
+        $empleado->update($request->all());
     }
 
     /**
@@ -79,6 +104,20 @@ class EmpleadoController extends Controller
      */
     public function destroy($id)
     {
-        //
+        $empleado = Empleado::find($id);
+        if ($empleado) {
+            $empleado->delete();
+            return response()->json(['message' => 'El empleado ha sido eliminado correctamente.']);
+        } else {
+            return response()->json(['message' => 'El empleado no existe.'], 404);
+        }
     }
+
+    public function buscarempleados(Request $request)
+    {
+        $term = $request->query('search');
+        $empleados = Empleado::where('nombre_apellidos', 'LIKE', '%' . $term . '%')->get();
+        return response()->json($empleados);
+    }
+
 }

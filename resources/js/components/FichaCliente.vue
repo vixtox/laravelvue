@@ -33,7 +33,7 @@
                             </div>
                             <div class="col-md-3 col-sm-6">
                                 <label for="fecha_nacimiento"><b>Fecha nacimiento:</b></label>
-                                <input type="date" class="form-control" name="fecha_nacimiento"
+                                <input type="date" class="form-control" name="fecha_nacimiento" :max="maxDate"
                                     v-model="cliente.fecha_nacimiento" id="fecha_nacimiento" aria-describedby="helpId">
                             </div>
                         </div>
@@ -80,7 +80,8 @@
                                         {{ municipio_id.municipio }}
                                     </option>
                                 </select>
-                                <div class="alert alert-danger" v-if="errores.municipio_id">{{ errores.municipio_id[0] }}</div>
+                                <div class="alert alert-danger" v-if="errores.municipio_id">{{ errores.municipio_id[0] }}
+                                </div>
                             </div>
                         </div>
                     </div>
@@ -131,6 +132,7 @@ import Swal from 'sweetalert2'
 export default {
     data() {
         return {
+            maxDate: this.getCurrentDate(),
             cliente: {
                 nombre_apellidos: "",
                 documento_identidad: "",
@@ -211,6 +213,19 @@ export default {
             } catch (error) {
                 console.error(error);
             }
+        },
+
+        getCurrentDate() {
+            const today = new Date();
+            const year = today.getFullYear();
+            let month = today.getMonth() + 1;
+            let day = today.getDate();
+
+            // Agrega un cero inicial para el mes y el día si es necesario
+            month = month < 10 ? '0' + month : month;
+            day = day < 10 ? '0' + day : day;
+
+            return `${year}-${month}-${day}`;
         },
 
     },

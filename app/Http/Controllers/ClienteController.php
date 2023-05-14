@@ -4,7 +4,6 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Models\Cliente;
-use App\Models\Provincia;
 use App\Http\Requests\ClienteRequest;
 
 class ClienteController extends Controller
@@ -13,12 +12,7 @@ class ClienteController extends Controller
      * Display a listing of the resource.
      *
      * @return \Illuminate\Http\Response
-     */
-    public function __invoke()
-    {
-        // Código de la lógica del controlador aquí
-    }
-    
+     */  
     public function index()
     {
         $clientes = Cliente::with('provincia')
@@ -75,7 +69,6 @@ class ClienteController extends Controller
         } else {
             return response()->json(['error' => 'Cliente no encontrado'], 404);
         }
-
     }
 
     /**
@@ -110,7 +103,6 @@ class ClienteController extends Controller
      */
     public function destroy($id)
     {
-        //
         $cliente = Cliente::find($id);
         if ($cliente) {
             $cliente->delete();

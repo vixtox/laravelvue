@@ -1,15 +1,16 @@
 <template>
     <div class="card">
+
         <div class="card-header bg-dark text-light">
-            <h2 class="card-title">Lista de clientes</h2>
+            <h2 class="card-title">Lista de empleados</h2>
         </div>
         <div class="card-body">
             <div class="row">
                 <div class="table-responsive">
                     <div class="btn-group w-100" role="group" aria-label="">
                         <input type="text" id="searchInput" :value="searchTerm" @input="searchTerm = $event.target.value"
-                            placeholder="Buscar cliente" class="form-control w-50">
-                        <router-link :to="{ name: 'AltaCliente' }" class="btn btn-success w-50" title="Alta cliente"> <i
+                            placeholder="Buscar empleado" class="form-control w-50">
+                        <router-link :to="{ name: 'AltaEmpleado' }" class="btn btn-success w-50" title="Alta empleado"> <i
                                 class="fa-solid fa-user-plus" style="color: #ffffff;"></i></router-link>
                     </div>
                     <table class="table table-striped table-sm">
@@ -23,15 +24,15 @@
                             </tr>
                         </thead>
                         <tbody class="flex-column">
-                            <tr v-for="cliente in clientes" :key="cliente.id">
-                                <td>{{ cliente.nombre_apellidos }}</td>
-                                <td>{{ cliente.municipio_id }}</td>
-                                <td>{{ cliente.provincia_id }}</td>
-                                <td>{{ cliente.telefono }}</td>
+                            <tr v-for="empleado in empleados" :key="empleado.id">
+                                <td>{{ empleado.nombre_apellidos }}</td>
+                                <td>{{ empleado.municipio_id }}</td>
+                                <td>{{ empleado.provincia_id }}</td>
+                                <td>{{ empleado.telefono }}</td>
                                 <td>
-                                    <button class="btn btn-danger" @click="borrarCliente(cliente.id)" title="Dar baja">
+                                    <button class="btn btn-danger" @click="borrarempleado(empleado.id)" title="Dar baja">
                                         <i class="fa-solid fa-user-xmark"></i></button>
-                                    <router-link :to="{ name: 'FichaCliente', params: { id: cliente.id } }"
+                                    <router-link :to="{ name: 'FichaEmpleado', params: { id: empleado.id } }"
                                         class="btn btn-info" title="Ver detalles"><i class="fa-solid fa-eye"
                                             style="color: #ffffff;"></i></router-link>
                                 </td>
@@ -60,17 +61,17 @@ export default {
     },
     data() {
         return {
-            clientes: [],
+            empleados: [],
             currentPage: 1,
             totalPages: 2, // aquí debes usar el número total de páginas que correspondan a tu caso específico
-            clienteToDelete: null,
+            empleadoToDelete: null,
             searchTerm: '',
             selectedClient: null
         }
     },
     methods: {
-        borrarCliente(id) {
-            this.clienteToDelete = id;
+        borrarempleado(id) {
+            this.empleadoToDelete = id;
             const swalWithBootstrapButtons = Swal.mixin({
                 customClass: {
                     confirmButton: 'btn btn-success',
@@ -80,8 +81,8 @@ export default {
             })
 
             swalWithBootstrapButtons.fire({
-                title: '¿Está seguro de eliminar el cliente?',
-                text: "El cliente se eliminará permanentemente",
+                title: '¿Está seguro de eliminar el empleado?',
+                text: "El empleado se eliminará permanentemente",
                 icon: 'warning',
                 showCancelButton: true,
                 confirmButtonText: 'OK',
@@ -89,16 +90,16 @@ export default {
                 reverseButtons: true
             }).then((result) => {
                 if (result.isConfirmed) {
-                    axios.delete('clientes/' + this.clienteToDelete)
+                    axios.delete('empleados/' + this.empleadoToDelete)
                         .then(response => {
-                            this.getClientes();
+                            this.getEmpleados();
                         })
                         .catch(error => {
                             console.error(error);
                         });
                     swalWithBootstrapButtons.fire(
                         'Eliminado!',
-                        'El cliente se ha eliminado correctamente.',
+                        'El empleado se ha eliminado correctamente.',
                         'success'
                     )
                 } else if (
@@ -107,7 +108,7 @@ export default {
                 ) {
                     swalWithBootstrapButtons.fire(
                         'Cancelado',
-                        'El cliente no se ha eliminado',
+                        'El empleado no se ha eliminado',
                         'error'
                     )
                 }
@@ -115,13 +116,13 @@ export default {
         },
 
         pageChanged(page) {
-            this.getClientes(page);
+            this.getEmpleados(page);
         },
 
-        getClientes(page = 1) {
-            axios.get('clientes?page=' + page)
+        getEmpleados(page = 1) {
+            axios.get('empleados?page=' + page)
                 .then(response => {
-                    this.clientes = response.data.clientes;
+                    this.empleados = response.data.empleados;
                     this.currentPage = response.data.currentPage;
                     this.totalPages = response.data.lastPage;
                 })
@@ -133,7 +134,7 @@ export default {
     },
 
     created() {
-        this.getClientes();
+        this.getEmpleados();
         const token = document.querySelector('meta[name="csrf-token"]');
         if (token) {
             this.csrfToken = token.content;
@@ -143,20 +144,20 @@ export default {
     mounted() {
         const vm = this;
 
-        axios.get("clientes/buscar", { params: { search: '' } })
+        axios.get("empleados/buscar", { params: { search: '' } })
             .then((res) => {
                 // Inicializar Autocomplete dentro de la promesa
                 $("#searchInput").autocomplete({
-                    source: res.data.map((cliente) => cliente.nombre_apellidos),
+                    source: res.data.map((empleado) => empleado.nombre_apellidos),
                     select: (event, ui) => {
                         vm.searchTerm = ui.item.value;
 
-                        // Obtener el objeto completo del cliente seleccionado
-                        vm.selectedClient = res.data.find((cliente) => cliente.nombre_apellidos === ui.item.value);
+                        // Obtener el objeto completo del empleado seleccionado
+                        vm.selectedClient = res.data.find((empleado) => empleado.nombre_apellidos === ui.item.value);
 
                         if (vm.selectedClient) {
-                            // Redirigir al usuario a la ruta FichaCliente con el parámetro id
-                            vm.$router.push({ name: 'FichaCliente', params: { id: vm.selectedClient.id } });
+                            // Redirigir al usuario a la ruta Fichaempleado con el parámetro id
+                            vm.$router.push({ name: 'FichaEmpleado', params: { id: vm.selectedClient.id } });
                         }
 
                         return false;
@@ -168,9 +169,6 @@ export default {
                 console.error(error);
             });
     }
-
-
-
 
 }
 
