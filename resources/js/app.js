@@ -19,7 +19,10 @@ const routes = [
     {
         path: '/',
         name: 'ExampleComponent',
-        component: ExampleComponent
+        component: ExampleComponent,
+        meta: {
+            requiresAuth: true
+        }
     },
     {
         path: '/registrarcliente',
@@ -50,7 +53,8 @@ const routes = [
         name: 'AltaEmpleado',
         component: AltaEmpleado,
         meta: {
-            requiresAuth: true
+            requiresAuth: true,
+            requiresAdmin: true
         }
     },
     {
@@ -58,7 +62,8 @@ const routes = [
         name: 'ListarEmpleados',
         component: ListarEmpleados,
         meta: {
-            requiresAuth: true
+            requiresAuth: true,
+            requiresAdmin: true
         }
     },
     {
@@ -66,13 +71,14 @@ const routes = [
         name: 'FichaEmpleado',
         component: FichaEmpleado,
         meta: {
-            requiresAuth: true
+            requiresAuth: true,
+            requiresAdmin: true
         }
     },
 
 ];
 
-const router = new VueRouter({routes});
+const router = new VueRouter({ routes });
 
 const app = new Vue({
     el: '#app',
@@ -80,21 +86,17 @@ const app = new Vue({
 });
 
 router.beforeEach((to, from, next) => {
-    if (to.meta.requiresAuth && !isLoggedIn()) {
-        // Redireccionar a la página de inicio de sesión o mostrar un mensaje de acceso denegado
-        next('/login');
+    const requiresAuth = to.matched.some(record => record.meta.requiresAuth);
+    const requiresAdmin = to.matched.some(record => record.meta.requiresAdmin);
+    const userRole = window.userRole;
+
+    if (requiresAuth && !userRole) {
+        // El usuario no está autenticado, redirige al inicio de sesión
+        next('/');
+    } else if (requiresAdmin && userRole !== 'Admin') {
+        // El usuario no tiene el rol de administrador, redirige a una página de acceso denegado
+        next('/');
     } else {
         next();
     }
 });
-
-function isLoggedIn() {
-    // Aquí puedes implementar la lógica para verificar si el usuario está autenticado en Laravel
-    // Puedes utilizar Vuex para almacenar el estado de autenticación o realizar una petición al backend
-    // y devolver true si el usuario está autenticado y false en caso contrario.
-    // Ejemplo:
-    // return store.getters.isLoggedIn;
-
-    // En este caso, se asume que la función siempre devuelve true para ejemplificar la protección de rutas
-    return true;
-}

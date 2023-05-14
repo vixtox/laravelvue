@@ -36,7 +36,7 @@ Route::post('/login', [SessionsController::class, 'store'])
 Route::post('/logout', [SessionsController::class, 'destroy'])->name('logout');
 
 // RUTAS USUARIOS LOGUEADOS
-Route::middleware(['admin'])->group(function () {
+Route::middleware(['user'])->group(function () {
     // RUTA PANTALLA INICIO
     Route::get('/index', function () {
         return view('auth.index');

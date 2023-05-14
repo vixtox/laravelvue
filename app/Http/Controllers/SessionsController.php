@@ -8,26 +8,31 @@ use Illuminate\Support\Facades\Auth;
 
 class SessionsController extends Controller
 {
-    public function create(){
+    public function create()
+    {
         return view('auth.login');
     }
 
-    public function store(){
+    public function store()
+    {
+        $credentials = request(['email', 'password']);
 
-        if(auth()->attempt(request(['email', 'password'])) == false){
+        if (auth()->attempt($credentials) == false) {
             return back()->withErrors([
-                'message' => 'Credenciales incorrectos',
+                'message' => 'Email o contraseña incorrecta',
             ]);
         }
+
         return redirect()->to('/index');
     }
 
-    public function destroy(){
+
+    public function destroy()
+    {
 
         auth()->logout();
         // Auth::logout();
 
-        return redirect()->to('/');
+        return redirect()->route('login.index');
     }
-
 }

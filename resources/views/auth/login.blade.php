@@ -41,23 +41,31 @@
 
                                         <h3 class="fw-normal mb-3 pb-3" style="letter-spacing: 1px;">Login</h3>
 
-                                        <div class="form-outline mb-4">
+                                        <div class="form-outline mb-2">
                                             <input type="email" name="email" placeholder="Email"
                                                 class="form-control form-control-lg" />
                                             <label class="form-label" for="email">Email</label>
                                         </div>
+                                        @if ($errors->any())
+                                            <div class="alert alert-danger">
+                                                @error('message')
+                                                    {{ $message }}
+                                                @enderror
+                                            </div>
+                                        @endif
 
-                                        <div class="form-outline mb-4">
+                                        <div class="form-outline mb-2">
                                             <input type="password" name="password" placeholder="Contraseña"
                                                 class="form-control form-control-lg" />
                                             <label class="form-label" for="password">Contraseña</label>
                                         </div>
-
-                                        <div class="form-outline mb-4">
-                                            @error('message')
-                                                <p style="color: red">{{ $message }}</p>
-                                            @enderror
-                                        </div>
+                                        @if ($errors->any())
+                                            <div class="alert alert-danger">
+                                                @error('message')
+                                                    {{ $message }}
+                                                @enderror
+                                            </div>
+                                        @endif
 
                                         <div class="pt-1 mb-4">
                                             <button class="btn btn-dark btn-lg btn-block" type="submit">Login</button>

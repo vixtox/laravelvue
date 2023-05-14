@@ -3,8 +3,6 @@
 namespace App\Http\Middleware;
 
 use Closure;
-use Illuminate\Http\Request;
-
 use Illuminate\Support\Facades\Auth;
 
 class User
@@ -18,10 +16,11 @@ class User
      */
     public function handle($request, Closure $next)
     {
-        if (Auth::check() && Auth::user()->tipo != 'User') {
-            return redirect()->back();
+        if (Auth::check() && Auth::user() && (Auth::user()->tipo === 'User' || Auth::user()->tipo === 'Admin')) {
+            return $next($request);
         }
 
-        return $next($request);
+        // return redirect()->back();
+        return redirect()->route('login.index');
     }
 }
