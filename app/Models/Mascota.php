@@ -36,4 +36,9 @@ class Mascota extends Model
         return $this->belongsTo(Raza::class, 'razas_id');
     }
 
+    public function cliente()
+    {
+        return $this->belongsTo(Cliente::class, 'cliente_id');
+    }
+
 }

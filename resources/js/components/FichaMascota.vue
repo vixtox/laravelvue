@@ -3,9 +3,9 @@
 
         <div class="card">
             <div class="card-header bg-dark text-light">
-                <h2 class="card-title">Alta mascota</h2>
+                <h2 class="card-title">Ficha mascota</h2>
             </div>
-            <form v-on:submit.prevent="altaMascota">
+            <form v-on:submit.prevent="editarMascota">
                 <div class="card">
                     <div class="card-header">
                         <h5 class="card-title">Datos identificación</h5>
@@ -28,13 +28,8 @@
                             </div>
 
                             <div class="col-md-3 col-sm-6">
-                                <label for="searchInput"><b>Propietario:</b></label>
-                                <input type="text" id="searchInput" :value="searchTerm"
-                                    @input="searchTerm = $event.target.value" placeholder="Buscar cliente"
-                                    class="form-control">
-                                    <div class="alert alert-danger" v-if="errores.cliente_id">{{
-                                    errores.cliente_id[0]
-                                }}</div>
+                                <label for="cliente_id"><b>Propietario:</b></label>
+                                <span class="form-control">{{ this.mascota.cliente_id }}</span>
                             </div>
                         </div>
                     </div>
@@ -60,7 +55,6 @@
                                 <div class="alert alert-danger" v-if="errores.especie_id">{{ errores.especie_id[0]
                                 }}</div>
                             </div>
-
                             <div class="col-md-3 col-sm-6">
                                 <label for="razas_id"><b>Raza:</b></label>
                                 <select class="form-select" id="razas_id" v-model="mascota.razas_id">
@@ -184,81 +178,60 @@ export default {
             },
             razas: [],
             errores: {},
-            searchTerm: '',
-            selectedClient: null
+            id: this.$route.params.id,
         };
     },
 
     created() {
+        console.log(this.id)
+        this.obtenerInformacionID(this.id);
         const token = document.querySelector('meta[name="csrf-token"]');
         if (token) {
             this.csrfToken = token.content;
         }
     },
 
-    mounted() {
-        const vm = this;
-
-        axios.get("clientes/buscar", { params: { search: '' } })
-            .then((res) => {
-                // Inicializar Autocomplete dentro de la promesa
-                $("#searchInput").autocomplete({
-                    source: res.data.map((cliente) => cliente.nombre_apellidos),
-                    select: (event, ui) => {
-                        vm.searchTerm = ui.item.value;
-
-                        // Obtener el objeto completo del cliente seleccionado
-                        vm.selectedClient = res.data.find((cliente) => cliente.nombre_apellidos === ui.item.value);
-
-                        if (vm.selectedClient) {
-                            // Redirigir al usuario a la ruta FichaCliente con el parámetro id
-                            this.mascota.cliente_id = vm.selectedClient.id;
-                            console.log(this.mascota.cliente_id)
-                        }
-
-                        return false;
-                    },
-
-                });
-            })
-            .catch((error) => {
-                console.error(error);
-            });
-    },
-
     methods: {
-        // Inserta en la base de datos
-        async altaMascota() {
+        async obtenerInformacionID(id) {
             try {
-                this.mascota.especie_id = parseInt(this.mascota.especie_id);
-                console.log(this.mascota)
-                const res = await axios.post('mascotas', this.mascota);
-                Swal.fire({
-                    position: 'center',
-                    icon: 'success',
-                    title: 'Mascota registrada correctamente',
-                    showConfirmButton: false,
-                    timer: 1500
-                })
-                this.$router.push({ name: 'ListarMascotas' });
-
+                const response = await axios.get('mascotas/' + id);
+                console.log(response.data); // Agregar esta línea para depurar
+                this.mascota = response.data;
+                await this.consultar_razas();
             } catch (error) {
-                if (error.response.data) {
+                console.error(error);
+            }
+        },
+
+        // Edita mascota en la base de datos
+        async editarMascota() {
+            const res = await axios.put('mascotas/' + this.id, this.mascota)
+                .then(response => {
+                    Swal.fire({
+                        position: 'center',
+                        icon: 'success',
+                        title: 'Cambios guardados',
+                        showConfirmButton: false,
+                        timer: 1500
+                    })
+                    console.log(response)
+                    this.errores = {};
+                })
+                .catch(error => {
+                    console.log(error.response);
                     Swal.fire({
                         icon: 'error',
-                        title: 'Error registro mascota',
+                        title: 'Error actualizar mascota',
                         text: 'Ingresa los campos correctamente',
                     })
                     this.errores = error.response.data.errors;
-                }
-            }
-
+                });
         },
 
         async consultar_razas() {
             try {
-                console.log(this.mascota.especie_id)
                 const response = await axios.get('razas/' + this.mascota.especie_id);
+                console.log(this.mascota.especie)
                 this.razas = response.data;
                 console.log(this.razas)
             } catch (error) {
@@ -282,7 +255,6 @@ export default {
     },
 
 };
-
 </script>
 
 <style>

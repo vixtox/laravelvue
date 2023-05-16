@@ -15,7 +15,22 @@ class MascotaController extends Controller
      */
     public function index()
     {
-        //
+        $mascotas = Mascota::with('especie')
+            ->where('deleted_at', NULL)
+            ->paginate(5);
+
+        // Modificar el contenido de $mascotas
+        $mascotas->getCollection()->transform(function ($mascota) {
+            $mascota->especie_id = $mascota->especie ? $mascota->especie->especie : null;
+            $mascota->razas_id = $mascota->raza ? $mascota->raza->raza : null;
+            return $mascota;
+        });
+
+        return response()->json([
+            'mascotas' => $mascotas->items(),
+            'currentPage' => $mascotas->currentPage(),
+            'lastPage' => $mascotas->lastPage(),
+        ]);
     }
 
     /**
@@ -47,7 +62,15 @@ class MascotaController extends Controller
      */
     public function show($id)
     {
-        //
+        $mascota = Mascota::with('cliente')->find($id);
+
+        if ($mascota) {
+            $nombre_apellidos = $mascota->cliente->nombre_apellidos ?? null;
+            $mascota->cliente_id = $nombre_apellidos;
+            return response()->json($mascota);
+        } else {
+            return response()->json(['error' => 'Mascota no encontrada'], 404);
+        }
     }
 
     /**
@@ -68,9 +91,10 @@ class MascotaController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, $id)
+    public function update(MascotaRequest $request, $id)
     {
-        //
+        $mascota = Mascota::find($id);
+        $mascota->update($request->all());
     }
 
     /**
@@ -81,6 +105,30 @@ class MascotaController extends Controller
      */
     public function destroy($id)
     {
-        //
+        $mascota = Mascota::find($id);
+        if ($mascota) {
+            $mascota->delete();
+            return response()->json(['message' => 'La mascota ha sido eliminado correctamente.']);
+        } else {
+            return response()->json(['message' => 'La mascota no existe.'], 404);
+        }
+    }
+
+    public function restore($id)
+    {
+        $mascota = Mascota::withTrashed()->find($id);
+        if ($mascota) {
+            $mascota->restore();
+            return response()->json(['message' => 'La mascota ha sido restaurado correctamente.']);
+        } else {
+            return response()->json(['message' => 'La mascota no existe.'], 404);
+        }
+    }
+
+    public function buscarMascotas(Request $request)
+    {
+        $term = $request->query('search');
+        $mascotas = Mascota::where('nombre', 'LIKE', '%' . $term . '%')->get();
+        return response()->json($mascotas);
     }
 }

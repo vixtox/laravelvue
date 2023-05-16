@@ -10,12 +10,6 @@ use App\Http\Controllers\MunicipioController;
 use App\Http\Controllers\RazaController;
 use App\Http\Controllers\MascotaController;
 
-    // RUTAS CLIENTE
-
-    Route::resource('/mascotas', MascotaController::class)->except([
-        'create', 'edit'
-    ]);
-
 // RUTAS PAGINA OFICIAL DVAPP
 Route::get('/', function () {
     return view('home');
@@ -54,7 +48,11 @@ Route::middleware(['user'])->group(function () {
     Route::resource('/clientes', ClienteController::class)->except([
         'create', 'edit'
     ]);
-   
+    // RUTAS MASCOTA
+    Route::get('/mascotas/buscar', [MascotaController::class, 'buscarMascotas']);
+    Route::resource('/mascotas', MascotaController::class)->except([
+        'create', 'edit'
+    ]);
     // RUTA PROVINCIA
     Route::get('/provincias', [ProvinciaController::class, 'index']);
     // RUTA MUNICIPIO

@@ -31,7 +31,7 @@
                         </a>
                         <div class="dropdown-menu">
                             <router-link to="/registrarmascota" class="nav-link">Reg. mascota</router-link>
-                            <router-link to="/listarclientes" class="nav-link">Listar mascotas</router-link>
+                            <router-link to="/listarmascotas" class="nav-link">Listar mascotas</router-link>
                         </div>
                     </li>
                     <li class="nav-item">
@@ -108,7 +108,7 @@
                             <router-link to="/registrarmascota"
                                 class="list-group-item list-group-item-action bg-secondary text-light">Registrar mascota
                             </router-link>
-                            <router-link to="/listarclientes"
+                            <router-link to="/listarmascotas"
                                 class="list-group-item list-group-item-action bg-secondary text-light">Listar mascotas
                             </router-link>
                         </div>
