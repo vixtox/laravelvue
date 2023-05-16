@@ -12,7 +12,7 @@ class Cliente extends Model
 {
     use HasFactory, SoftDeletes;
 
-    protected $table = 'clientes'; // Reemplaza 'nombre_de_la_tabla' con el nombre real de tu tabla en la base de datos
+    protected $table = 'clientes';
     
     protected $fillable = [
         'nombre_apellidos',

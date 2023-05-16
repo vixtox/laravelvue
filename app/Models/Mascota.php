@@ -13,18 +13,17 @@ class Mascota extends Model
     protected $fillable = [
         'nombre',
         'chip',
-        'especie',
-        'raza',
         'capa',
         'caracter',
         'sexo',
         'estado',
-        'peso',
         'fecha_nacimiento',
-        'fecha_alta',
         'fecha_baja',
         'causa_baja',
-        'deleted_at'
+        'deleted_at',
+        'cliente_id',
+        'especie_id',
+        'razas_id',
     ];
     
     public function especie()
@@ -32,9 +31,9 @@ class Mascota extends Model
         return $this->belongsTo(Especie::class, 'especie_id');
     }
     
-    public function raza__perro()
+    public function raza()
     {
-        return $this->belongsTo(Municipio::class, 'raza_perro_id');
+        return $this->belongsTo(Raza::class, 'razas_id');
     }
 
 }

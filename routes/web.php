@@ -7,6 +7,14 @@ use App\Http\Controllers\ClienteController;
 use App\Http\Controllers\EmpleadoController;
 use App\Http\Controllers\ProvinciaController;
 use App\Http\Controllers\MunicipioController;
+use App\Http\Controllers\RazaController;
+use App\Http\Controllers\MascotaController;
+
+    // RUTAS CLIENTE
+
+    Route::resource('/mascotas', MascotaController::class)->except([
+        'create', 'edit'
+    ]);
 
 // RUTAS PAGINA OFICIAL DVAPP
 Route::get('/', function () {
@@ -46,20 +54,25 @@ Route::middleware(['user'])->group(function () {
     Route::resource('/clientes', ClienteController::class)->except([
         'create', 'edit'
     ]);
+   
     // RUTA PROVINCIA
     Route::get('/provincias', [ProvinciaController::class, 'index']);
     // RUTA MUNICIPIO
     Route::get('/municipios/{id}', [MunicipioController::class, 'show']);
+    // RUTA RAZAS
+    Route::get('/razas/{id}', [RazaController::class, 'show']);
 });
 
 // RUTAS RESERVADAS ROL ADMIN
 Route::middleware(['admin'])->group(function () {
-    // RUTAS REGISTRO USER
-    Route::get('/register', [RegisterController::class, 'create'])->name('register.index');
-    Route::post('/register', [RegisterController::class, 'store'])->name('register.store');
+
     // RUTAS EMPLEADO
     Route::get('/empleados/buscar', [EmpleadoController::class, 'buscarEmpleados']);
     Route::resource('/empleados', EmpleadoController::class)->except([
         'create', 'edit'
     ]);
 });
+
+    // RUTAS REGISTRO USER
+    Route::get('/register', [RegisterController::class, 'create'])->name('register.index');
+    Route::post('/register', [RegisterController::class, 'store'])->name('register.store');

@@ -17,8 +17,6 @@ class CreateMascotasTable extends Migration
             $table->id();
             $table->string('nombre');
             $table->string('chip')->nullable();
-            $table->string('especie')->nullable();
-            $table->string('raza')->nullable();
             $table->string('capa')->nullable();
             $table->string('caracter')->nullable();
             $table->string('sexo')->nullable();

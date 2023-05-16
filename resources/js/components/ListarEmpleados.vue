@@ -18,7 +18,8 @@
                             <tr>
                                 <th scope="col">Nombre</th>
                                 <th scope="col">Municipio</th>
-                                <th scope="col">Provincia</th>
+                                <!-- <th scope="col">Provincia</th> -->
+                                <th scope="col">Cargo</th>
                                 <th scope="col">Teléfono</th>
                                 <th scope="col">Acciones</th>
                             </tr>
@@ -27,7 +28,8 @@
                             <tr v-for="empleado in empleados" :key="empleado.id">
                                 <td>{{ empleado.nombre_apellidos }}</td>
                                 <td>{{ empleado.municipio_id }}</td>
-                                <td>{{ empleado.provincia_id }}</td>
+                                <!-- <td>{{ empleado.provincia_id }}</td> -->
+                                <td>{{ empleado.cargo }}</td>
                                 <td>{{ empleado.telefono }}</td>
                                 <td>
                                     <button class="btn btn-danger" @click="borrarempleado(empleado.id)" title="Dar baja">

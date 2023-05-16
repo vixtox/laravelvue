@@ -12,6 +12,7 @@ import FichaCliente from './components/FichaCliente.vue';
 import AltaEmpleado from './components/AltaEmpleado.vue';
 import ListarEmpleados from './components/ListarEmpleados.vue';
 import FichaEmpleado from './components/FichaEmpleado.vue';
+import AltaMascota from './components/AltaMascota.vue';
 
 Vue.use(VueRouter);
 
@@ -75,6 +76,14 @@ const routes = [
             requiresAdmin: true
         }
     },
+    {
+        path: '/registrarmascota',
+        name: 'AltaMascota',
+        component: AltaMascota,
+        meta: {
+            requiresAuth: true
+        }
+    },
 
 ];
 
@@ -92,7 +101,7 @@ router.beforeEach((to, from, next) => {
 
     if (requiresAuth && !userRole) {
         // El usuario no está autenticado, redirige al inicio de sesión
-        next('/');
+        window.location.href = '/login.index';
     } else if (requiresAdmin && userRole !== 'Admin') {
         // El usuario no tiene el rol de administrador, redirige a una página de acceso denegado
         next('/');

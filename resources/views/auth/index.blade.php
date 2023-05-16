@@ -29,6 +29,10 @@
                         <a href="#" class="nav-link text-white">
                             <i class="fas fa-paw"></i>
                         </a>
+                        <div class="dropdown-menu">
+                            <router-link to="/registrarmascota" class="nav-link">Reg. mascota</router-link>
+                            <router-link to="/listarclientes" class="nav-link">Listar mascotas</router-link>
+                        </div>
                     </li>
                     <li class="nav-item">
                         <a href="#" class="nav-link text-white">
@@ -101,7 +105,7 @@
                         <a href="#opcion2-submenu" class="list-group-item list-group-item-action bg-dark text-light"
                             data-toggle="collapse"><i class="fas fa-paw"></i> Mascotas</a>
                         <div id="opcion2-submenu" class="collapse">
-                            <router-link to="/registrarcliente"
+                            <router-link to="/registrarmascota"
                                 class="list-group-item list-group-item-action bg-secondary text-light">Registrar mascota
                             </router-link>
                             <router-link to="/listarclientes"
