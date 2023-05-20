@@ -59,9 +59,9 @@
             padding-left: 10%;
         }
 
-        .logout {
+        /* .logout {
             margin-left: 10%;
-        }
+        } */
 
         .complemento {
             margin-top: 2%;

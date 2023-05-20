@@ -16,6 +16,7 @@ class MascotaController extends Controller
     public function index()
     {
         $mascotas = Mascota::with('especie')
+            ->with('cliente')
             ->where('deleted_at', NULL)
             ->paginate(5);
 
@@ -23,6 +24,9 @@ class MascotaController extends Controller
         $mascotas->getCollection()->transform(function ($mascota) {
             $mascota->especie_id = $mascota->especie ? $mascota->especie->especie : null;
             $mascota->razas_id = $mascota->raza ? $mascota->raza->raza : null;
+            $nombre_apellidos = $mascota->cliente->nombre_apellidos ?? null;
+            $mascota->nombre_cliente = $nombre_apellidos; // Renombramos el atributo para evitar confusiones
+            $mascota->cliente_id = $mascota->cliente->id; // Agregamos el ID del cliente al objeto mascota
             return $mascota;
         });
 
@@ -60,13 +64,14 @@ class MascotaController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
+
     public function show($id)
     {
         $mascota = Mascota::with('cliente')->find($id);
-
         if ($mascota) {
             $nombre_apellidos = $mascota->cliente->nombre_apellidos ?? null;
-            $mascota->cliente_id = $nombre_apellidos;
+            $mascota->nombre_cliente = $nombre_apellidos; // Renombramos el atributo para evitar confusiones
+            $mascota->cliente_id = $mascota->cliente->id; // Agregamos el ID del cliente al objeto mascota
             return response()->json($mascota);
         } else {
             return response()->json(['error' => 'Mascota no encontrada'], 404);

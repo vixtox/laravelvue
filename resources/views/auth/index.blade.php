@@ -7,9 +7,9 @@
     {{-- HEADER --}}
     <div class="container-fluid">
         <div class="row azul">
-            <div class="col-md-4 col-sm-12 col-12 logo">
+            <div class="col-md-3 col-sm-12 col-12 logo">
                 <router-link to="/" class="navbar-brand"><img id="logo" style="border-radius: 50%"
-                        src="{{ asset('img/dvapp.png') }}" alt="Logo" width="15%">
+                        src="{{ asset('img/dvapp.png') }}" alt="Logo" width="30%">
                     <span class="text-light fw-bold">Database Veterinary App</span>
                 </router-link>
             </div>
@@ -25,8 +25,8 @@
                         </div>
                     </li>
                     <li>
-                    <li class="nav-item">
-                        <a href="#" class="nav-link text-white">
+                    <li class="nav-item dropdown">
+                        <a href="#" class="nav-link dropdown-toggle text-white" data-toggle="dropdown">
                             <i class="fas fa-paw"></i>
                         </a>
                         <div class="dropdown-menu">
@@ -67,15 +67,24 @@
                     @endif
                 </ul>
             </div>
-            <div class="col-md-4 col-sm-12 col-12">
+            <div class="col-md-3 col-sm-12 col-12">
                 @if (Auth::check())
-                    <span class="text-light"><span class="t fw-bold">Usuario:</span>
+                    <span class="text-light"><span class="fw-bold">Usuario:</span>
                         {{ Auth::user()->name }} &nbsp;<span class="fw-bold">Rol:</span>
                         {{ Auth::user()->tipo }}
                     </span>
+                    <br>
+                    <span class="text-light fw-bold">Acceso: </span>
+                    <span class="text-light">{{ Auth::user()->created_at->format('H:i:s') }}</span>&nbsp;&nbsp;&nbsp;
+                    <span class="text-light fw-bold">Fecha: </span>
+                    <span class="text-light">{{ Auth::user()->created_at->format('d/m/Y') }}</span>
+                @endif
+            </div>
+            <div class="col-md-2 col-sm-12 col-12">
+                @if (Auth::check())
                     <a class="btn btn-danger logout" title="Cerrar sesión" href="{{ route('logout') }}"
                         onclick="event.preventDefault(); document.getElementById('logout-form').submit();">
-                        Log out <i class="bi bi-box-arrow-left"></i>
+                        Cerrar sesión <i class="bi bi-box-arrow-left"></i>
                     </a>
                     <form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">
                         @csrf
@@ -122,7 +131,7 @@
                                 class="list-group-item list-group-item-action bg-secondary text-light">Listar pruebas
                             </router-link>
                         </div>
-                        
+
                         <a href="#opcion5-submenu" class="list-group-item list-group-item-action bg-dark text-light"
                             data-toggle="collapse"><i class="fas fa-hospital"></i> Hospitalización</a>
                         <a href="#opcion6-submenu" class="list-group-item list-group-item-action bg-dark text-light"

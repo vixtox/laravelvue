@@ -120,4 +120,10 @@ class EmpleadoController extends Controller
         return response()->json($empleados);
     }
 
+    public function listar_veterinarios(Request $request)
+    {
+        $empleados = Empleado::where('cargo', 'Veterinario')->get();
+        return $empleados;
+    }
+
 }

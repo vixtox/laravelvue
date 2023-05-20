@@ -18,7 +18,7 @@
                                 <th scope="col">Nombre</th>
                                 <th scope="col">Especie</th>
                                 <th scope="col">Raza</th>
-                                <th scope="col">Sexo</th>
+                                <th scope="col">Propietario</th>
                                 <th scope="col">Acciones</th>
                             </tr>
                         </thead>
@@ -27,7 +27,7 @@
                                 <td>{{ mascota.nombre }}</td>
                                 <td>{{ mascota.especie_id }}</td>
                                 <td>{{ mascota.razas_id }}</td>
-                                <td>{{ mascota.sexo }}</td>
+                                <td>{{ mascota.nombre_cliente }}</td>
                                 <td>
                                     <button class="btn btn-danger" @click="borrarMascota(mascota.id)" title="Dar baja">
                                         <i class="fa-solid fa-user-xmark"></i></button>

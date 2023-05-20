@@ -15,6 +15,7 @@ import FichaEmpleado from './components/FichaEmpleado.vue';
 import AltaMascota from './components/AltaMascota.vue';
 import ListarMascotas from './components/ListarMascotas.vue';
 import FichaMascota from './components/FichaMascota.vue';
+import VisitaMascota from './components/VisitaMascota.vue';
 
 Vue.use(VueRouter);
 
@@ -98,6 +99,14 @@ const routes = [
         path: '/fichamascota/:id',
         name: 'FichaMascota',
         component: FichaMascota,
+        meta: {
+            requiresAuth: true
+        }
+    },
+    {
+        path: '/visitamascota/:id',
+        name: 'VisitaMascota',
+        component: VisitaMascota,
         meta: {
             requiresAuth: true
         }

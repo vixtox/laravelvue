@@ -7,6 +7,10 @@
             </div>
             <form v-on:submit.prevent="editarMascota">
                 <div class="card">
+                    <div>
+                        <router-link :to="{ name: 'VisitaMascota' }" class="btn btn-success w-100" title="Visita mascota">
+                            <i class="fa fa-clinic-medical"></i></router-link>
+                    </div>
                     <div class="card-header">
                         <h5 class="card-title">Datos identificación</h5>
                     </div>
@@ -26,10 +30,26 @@
                                 <input type="text" class="form-control" name="chip" v-model="mascota.chip" id="chip"
                                     aria-describedby="helpId" placeholder="Nº Chip">
                             </div>
-
-                            <div class="col-md-3 col-sm-6">
+                            <div v-if="mostrar_span" class="col-md-3 col-sm-6">
+                                <label><b>Propietario:</b></label>
+                                <span class="form-control">{{ mascota.nombre_cliente }}</span>
+                            </div>
+                            <div v-if="false" class="col-md-3 col-sm-6">
+                                <label for="cliente_id"><b>Propietario id:</b></label>
+                                <input type="text" class="form-control" name="cliente_id" v-model="mascota.cliente_id"
+                                    id="cliente_id" aria-describedby="helpId" placeholder="cliente_id">
+                            </div>
+                            <div v-if="mostrar_span" class="col-md-3 col-sm-6">
+                                <br>
+                                <button class="btn btn-danger w-100" title="Cambiar propietario" @click="visibilidad()"> <i
+                                        class="fa fa-user fa-fw"></i>
+                                    <i class="fa fa-exchange-alt fa-fw"></i>
+                                    <i class="fa fa-user fa-fw"></i></button>
+                            </div>
+                            <div v-if="mostrar_input" class="col-md-3 col-sm-6">
                                 <label for="cliente_id"><b>Propietario:</b></label>
-                                <span class="form-control">{{ this.mascota.cliente_id }}</span>
+                                <input type="text" id="searchInput" @input="searchTerm = $event.target.value"
+                                    placeholder="Buscar cliente" class="form-control">
                             </div>
                         </div>
                     </div>
@@ -139,11 +159,11 @@
                 </div>
 
                 <div class="btn-group w-100" role="group" aria-label="">
-                    <button type="submit" class="btn btn-success">
-                        <i class="fas fa-paw"></i>
+                    <button type="submit" class="btn btn-success" title="Guardar">
+                        <i class="fa fa-save"></i>
                     </button>
 
-                    <router-link :to="{ name: 'ListarMascotas' }" class="btn btn-warning">
+                    <router-link :to="{ name: 'ListarMascotas' }" class="btn btn-warning" title="Volver">
                         <i class="bi bi-arrow-return-left fw-bold"></i>
                     </router-link>
                 </div>
@@ -163,6 +183,7 @@ export default {
         return {
             maxDate: this.getCurrentDate(),
             mascota: {
+                nombre_cliente: "",
                 nombre: "",
                 chip: "",
                 capa: "",
@@ -179,11 +200,15 @@ export default {
             razas: [],
             errores: {},
             id: this.$route.params.id,
+            clienteToDelete: null,
+            searchTerm: '',
+            selectedClient: null,
+            mostrar_span: true,
+            mostrar_input: false
         };
     },
 
     created() {
-        console.log(this.id)
         this.obtenerInformacionID(this.id);
         const token = document.querySelector('meta[name="csrf-token"]');
         if (token) {
@@ -205,6 +230,7 @@ export default {
 
         // Edita mascota en la base de datos
         async editarMascota() {
+            console.log(this.mascota)
             const res = await axios.put('mascotas/' + this.id, this.mascota)
                 .then(response => {
                     Swal.fire({
@@ -226,12 +252,15 @@ export default {
                     })
                     this.errores = error.response.data.errors;
                 });
+            this.mostrar_input = false;
+            this.mostrar_span = true;
         },
 
         async consultar_razas() {
+
             try {
                 const response = await axios.get('razas/' + this.mascota.especie_id);
-                console.log(this.mascota.especie)
+                console.log(this.mascota.especie_id);
                 this.razas = response.data;
                 console.log(this.razas)
             } catch (error) {
@@ -252,7 +281,48 @@ export default {
             return `${year}-${month}-${day}`;
         },
 
+        visibilidad() {
+            this.mostrar_input = true;
+            this.mostrar_span = false;
+            this.cambiar_propietario();
+        },
+
+        cambiar_propietario() {
+            const vm = this;
+
+            axios.get("clientes/buscar", { params: { search: '' } })
+                .then((res) => {
+                    // Inicializar Autocomplete dentro de la promesa
+                    $("#searchInput").autocomplete({
+                        source: res.data.map((cliente) => cliente.nombre_apellidos),
+                        select: (event, ui) => {
+                            vm.searchTerm = ui.item.value;
+
+                            // Obtener el objeto completo del cliente seleccionado
+                            vm.selectedClient = res.data.find((cliente) => cliente.nombre_apellidos === ui.item.value);
+
+                            if (vm.selectedClient) {
+                                // Redirigir al usuario a la ruta FichaCliente con el parámetro id
+                                // vm.$router.push({ name: 'FichaCliente', params: { id: vm.selectedClient.id } });
+                                this.mascota.cliente_id = vm.selectedClient.id;
+                                this.mascota.nombre_cliente = vm.selectedClient.nombre_apellidos;
+                                this.mostrar_input = false;
+                                this.mostrar_span = true;
+                            }
+
+                            return false;
+                        },
+
+                    });
+                })
+                .catch((error) => {
+                    console.error(error);
+                });
+        }
+
     },
+
+
 
 };
 </script>

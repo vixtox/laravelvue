@@ -53,6 +53,8 @@ Route::middleware(['user'])->group(function () {
     Route::resource('/mascotas', MascotaController::class)->except([
         'create', 'edit'
     ]);
+    // RUTAS VETERINARIO
+    Route::get('/empleados/listar_veterinarios', [EmpleadoController::class, 'listar_veterinarios']);
     // RUTA PROVINCIA
     Route::get('/provincias', [ProvinciaController::class, 'index']);
     // RUTA MUNICIPIO

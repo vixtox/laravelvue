@@ -24,6 +24,7 @@ class Mascota extends Model
         'cliente_id',
         'especie_id',
         'razas_id',
+        'updated_at',
     ];
     
     public function especie()
