@@ -14,7 +14,7 @@
                         <div class="row">
                             <!-- Campos de datos personales aquí -->
                             <div class="col-md-6 col-sm-6">
-                                <label for="nombre_apellidos"><b>Nombre completo:</b></label>
+                                <label for="nombre_apellidos"><b><span class="text-danger">* </span>Nombre completo:</b></label>
                                 <input type="text" class="form-control" name="nombre_apellidos"
                                     v-model="empleado.nombre_apellidos" id="nombre_apellidos" aria-describedby="helpId"
                                     placeholder="Nombre completo">
@@ -23,7 +23,7 @@
                                 }}</div>
                             </div>
                             <div class="col-md-3 col-sm-6">
-                                <label for="documento_identidad"><b>NIF/CIF:</b></label>
+                                <label for="documento_identidad"><b><span class="text-danger">* </span>NIF:</b></label>
                                 <input type="text" class="form-control" name="documento_identidad"
                                     v-model="empleado.documento_identidad" id="documento_identidad"
                                     aria-describedby="helpId" placeholder="Nº Documento">
@@ -60,7 +60,7 @@
                                     placeholder="Código postal">
                             </div>
                             <div class="col-md-3 col-sm-6">
-                                <label for="provincia_id"><b>Provincia:</b></label>
+                                <label for="provincia_id"><b><span class="text-danger">* </span>Provincia:</b></label>
                                 <select class="form-select" id="provincia_id" v-model="empleado.provincia_id"
                                     v-on:change="consultar_municipio()">
                                     <option disabled value="">Selecciona una provincia</option>
@@ -73,7 +73,7 @@
                                 }}</div>
                             </div>
                             <div class="col-md-3 col-sm-6">
-                                <label for="municipio_id"><b>Municipio:</b></label>
+                                <label for="municipio_id"><b><span class="text-danger">* </span>Municipio:</b></label>
                                 <select class="form-select" id="municipio_id" v-model="empleado.municipio_id">
                                     <option disabled value="">Selecciona un municipio</option>
                                     <option v-for="municipio_id in localidades" :value="municipio_id.id"
@@ -96,13 +96,13 @@
                         <div class="row">
                             <!-- Campos de datos de contacto aquí -->
                             <div class="col-md-3 col-sm-6">
-                                <label for="telefono"><b>Teléfono:</b></label>
+                                <label for="telefono"><b><span class="text-danger">* </span>Teléfono:</b></label>
                                 <input type="text" class="form-control" name="telefono" v-model="empleado.telefono"
                                     id="telefono" aria-describedby="helpId" placeholder="Teléfono">
                                 <div class="alert alert-danger" v-if="errores.telefono">{{ errores.telefono[0] }}</div>
                             </div>
                             <div class="col-md-3 col-sm-6">
-                                <label for="email"><b>Email:</b></label>
+                                <label for="email"><b><span class="text-danger">* </span>Email:</b></label>
                                 <input type="email" class="form-control" name="email" v-model="empleado.email" id="email"
                                     aria-describedby="helpId" placeholder="Email">
                                 <div class="alert alert-danger" v-if="errores.email">{{ errores.email[0] }}</div>
@@ -119,7 +119,7 @@
                         <div class="row">
                             <!-- Campos de datos laborales aquí -->
                             <div class="col-md-3 col-sm-6">
-                                <label for="fecha_contratacion"><b>Fecha contratación:</b></label>
+                                <label for="fecha_contratacion"><b><span class="text-danger">* </span>Fecha contratación:</b></label>
                                 <input type="date" class="form-control" name="fecha_contratacion" :max="maxDate"
                                     v-model="empleado.fecha_contratacion" id="fecha_contratacion" aria-describedby="helpId">
                                 <div class="alert alert-danger" v-if="errores.fecha_contratacion">{{
@@ -127,13 +127,13 @@
                                 }}</div>
                             </div>
                             <div class="col-md-3 col-sm-6">
-                                <label for="salario"><b>Salario:</b></label>
+                                <label for="salario"><b><span class="text-danger">* </span>Salario:</b></label>
                                 <input type="text" class="form-control" name="salario" v-model="empleado.salario"
                                     id="salario" aria-describedby="helpId" placeholder="Salario">
                                 <div class="alert alert-danger" v-if="errores.salario">{{ errores.salario[0] }}</div>
                             </div>
                             <div class="col-md-3 col-sm-6">
-                                <label for="cargo"><b>Cargo:</b></label>
+                                <label for="cargo"><b><span class="text-danger">* </span>Cargo:</b></label>
                                 <select class="form-select" id="cargo" v-model="empleado.cargo">
                                     <option disabled value="">Selecciona un cargo</option>
                                     <option value="Veterinario">Veterinario</option>
@@ -149,11 +149,11 @@
                 </div>
 
                 <div class="btn-group w-100" role="group" aria-label="">
-                    <button type="submit" class="btn btn-success">
+                    <button type="submit" class="btn btn-success" title="Alta empleado">
                         <i class="fa-solid fa-user-plus" style="color: #ffffff;"></i>
                     </button>
 
-                    <router-link :to="{ name: 'ListarEmpleados' }" class="btn btn-warning">
+                    <router-link :to="{ name: 'ListarEmpleados' }" class="btn btn-warning" title="Volver">
                         <i class="bi bi-arrow-return-left fw-bold"></i>
                     </router-link>
                 </div>

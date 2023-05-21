@@ -11,7 +11,7 @@ class Visita extends Model
     use HasFactory, SoftDeletes;
 
     protected $fillable = [
-        'id_mascota',
+        'mascotas_id',
         'fecha_visita',
         'hora_visita',
         'veterinario',

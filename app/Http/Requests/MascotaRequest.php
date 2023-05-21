@@ -30,7 +30,7 @@ class MascotaRequest extends FormRequest
             'caracter' => ['nullable'],
             'sexo' => ['required'],
             'estado' => ['required'],
-            'fecha_nacimiento' => ['required'],
+            'fecha_nacimiento' => ['nullable'],
             'fecha_baja' => ['nullable'],
             'causa_baja' => ['nullable'],
             'cliente_id' => ['required'],

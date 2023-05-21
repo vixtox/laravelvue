@@ -147,11 +147,11 @@
                 </div>
 
                 <div class="btn-group w-100" role="group" aria-label="">
-                    <button type="submit" class="btn btn-success">
-                        Guardar
+                    <button type="submit" class="btn btn-success" title="Guardar">
+                        <i class="fa fa-save"></i>
                     </button>
 
-                    <router-link :to="{ name: 'ListarEmpleados' }" class="btn btn-warning">
+                    <router-link :to="{ name: 'ListarEmpleados' }" class="btn btn-warning" title="Volver">
                         <i class="bi bi-arrow-return-left"></i>
                     </router-link>
                 </div>

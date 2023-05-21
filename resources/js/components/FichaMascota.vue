@@ -7,9 +7,12 @@
             </div>
             <form v-on:submit.prevent="editarMascota">
                 <div class="card">
-                    <div>
-                        <router-link :to="{ name: 'VisitaMascota' }" class="btn btn-success w-100" title="Visita mascota">
+                    <div class="btn-group w-100" role="group" aria-label="">
+                        <router-link :to="{ name: 'NuevaVisita' }" class="btn btn-success w-50" title="Nueva Visita">
                             <i class="fa fa-clinic-medical"></i></router-link>
+                        <router-link :to="{ name: 'ListarVisitas' }" class="btn btn-info w-50" title="Listar visitas">
+                            <i class="fa-solid fa-eye" style="color: #ffffff;"></i> <i
+                                class="fa fa-clinic-medical" style="color: #ffffff;"></i></router-link>
                     </div>
                     <div class="card-header">
                         <h5 class="card-title">Datos identificación</h5>

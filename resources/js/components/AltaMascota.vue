@@ -14,7 +14,7 @@
                         <div class="row">
                             <!-- Campos de datos personales aquí -->
                             <div class="col-md-3 col-sm-6">
-                                <label for="nombre"><b>Nombre:</b></label>
+                                <label for="nombre"><b><span class="text-danger">* </span>Nombre:</b></label>
                                 <input type="text" class="form-control" name="nombre" v-model="mascota.nombre" id="nombre"
                                     aria-describedby="helpId" placeholder="Nombre">
                                 <div class="alert alert-danger" v-if="errores.nombre">{{
@@ -28,7 +28,7 @@
                             </div>
 
                             <div class="col-md-3 col-sm-6">
-                                <label for="searchInput"><b>Propietario:</b></label>
+                                <label for="searchInput"><b><span class="text-danger">* </span>Propietario:</b></label>
                                 <input type="text" id="searchInput" :value="searchTerm"
                                     @input="searchTerm = $event.target.value" placeholder="Buscar cliente"
                                     class="form-control">
@@ -48,7 +48,7 @@
                         <div class="row">
                             <!-- Campos de características aquí -->
                             <div class="col-md-3 col-sm-6">
-                                <label for="especie_id"><b>Especie:</b></label>
+                                <label for="especie_id"><b><span class="text-danger">* </span>Especie:</b></label>
                                 <select class="form-select" id="especie_id" v-model="mascota.especie_id"
                                     v-on:change="consultar_razas()">
                                     <option disabled value="">Selecciona una especie</option>
@@ -62,7 +62,7 @@
                             </div>
 
                             <div class="col-md-3 col-sm-6">
-                                <label for="razas_id"><b>Raza:</b></label>
+                                <label for="razas_id"><b><span class="text-danger">* </span>Raza:</b></label>
                                 <select class="form-select" id="razas_id" v-model="mascota.razas_id">
                                     <option disabled value="">Selecciona una raza</option>
                                     <option v-for="razas_id in razas" :value="razas_id.id" :key="razas_id.raza">
@@ -78,7 +78,7 @@
                                     aria-describedby="helpId" placeholder="capa">
                             </div>
                             <div class="col-md-3 col-sm-6">
-                                <label for="caracter"><b>Carácter:</b></label>
+                                <label for="caracter"><b><span class="text-danger">* </span>Carácter:</b></label>
                                 <select class="form-select" id="caracter" v-model="mascota.caracter">
                                     <option disabled value="">Selecciona un carácter</option>
                                     <option value="Sociable">Sociable</option>
@@ -95,7 +95,7 @@
                                     v-model="mascota.fecha_nacimiento" id="fecha_nacimiento" aria-describedby="helpId">
                             </div>
                             <div class="col-md-3 col-sm-6">
-                                <label for="sexo"><b>Sexo:</b></label>
+                                <label for="sexo"><b><span class="text-danger">* </span>Sexo:</b></label>
                                 <select class="form-select" id="sexo" v-model="mascota.sexo">
                                     <option disabled value="">Selecciona un sexo</option>
                                     <option value="Macho">Macho</option>
@@ -105,7 +105,7 @@
                                 }}</div>
                             </div>
                             <div class="col-md-3 col-sm-6">
-                                <label for="estado"><b>Estado:</b></label>
+                                <label for="estado"><b><span class="text-danger">* </span>Estado:</b></label>
                                 <select class="form-select" id="estado" v-model="mascota.estado">
                                     <option disabled value="">Selecciona un estado</option>
                                     <option value="Fértil">Fértil</option>
@@ -145,11 +145,11 @@
                 </div>
 
                 <div class="btn-group w-100" role="group" aria-label="">
-                    <button type="submit" class="btn btn-success">
+                    <button type="submit" class="btn btn-success" title="Alta mascota">
                         <i class="fas fa-paw"></i>
                     </button>
 
-                    <router-link :to="{ name: 'ListarMascotas' }" class="btn btn-warning">
+                    <router-link :to="{ name: 'ListarMascotas' }" class="btn btn-warning" title="Volver">
                         <i class="bi bi-arrow-return-left fw-bold"></i>
                     </router-link>
                 </div>

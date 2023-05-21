@@ -11,7 +11,7 @@ class Recordatorio extends Model
     use HasFactory, SoftDeletes;
 
     protected $fillable = [
-        'id_mascota', 
+        'mascotas_id', 
         'vacuna', 
         'fecha',
         'deleted_at'

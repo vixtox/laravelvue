@@ -59,14 +59,15 @@
             padding-left: 10%;
         }
 
-        /* .logout {
-            margin-left: 10%;
-        } */
-
         .complemento {
             margin-top: 2%;
             margin-bottom: 2%;
         }
+
+        .logout {
+            margin-right: 10%;
+        }
+
     </style>
 
     <title>@yield('title')</title>

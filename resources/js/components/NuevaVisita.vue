@@ -18,9 +18,11 @@
                                 <span class="form-control">{{ visita.mascotas_id }}</span>
                             </div>
                             <div class="col-md-3 col-sm-6">
-                                <label for="fecha_visita"><b>Fecha visita:</b></label>
+                                <label for="fecha_visita"><b><span class="text-danger">* </span>Fecha visita:</b></label>
                                 <input type="date" class="form-control" name="fecha_visita" :max="maxDate"
                                     v-model="visita.fecha_visita" id="fecha_visita" aria-describedby="helpId">
+                                <div class="alert alert-danger" v-if="errores.fecha_visita">{{ errores.fecha_visita[0]
+                                }}</div>
                             </div>
                             <div class="col-md-3 col-sm-6">
                                 <label for="hora_visita"><b>Hora visita:</b></label>
@@ -28,10 +30,10 @@
                                     id="hora_visita" aria-describedby="helpId">
                             </div>
                             <div class="col-md-3 col-sm-6">
-                                <label for="veterinario"><b>Veterinario:</b></label>
+                                <label for="veterinario"><b><span class="text-danger">* </span>Veterinario:</b></label>
                                 <select class="form-select" id="veterinario" v-model="visita.veterinario">
                                     <option disabled value="">Selecciona un veterinario</option>
-                                    <option v-for="veterinario in veterinarios" :value="veterinario.id"
+                                    <option v-for="veterinario in veterinarios" :value="veterinario.nombre_apellidos"
                                         :key="veterinario.nombre_apellidos">
                                         {{ veterinario.nombre_apellidos }}
                                     </option>
@@ -51,21 +53,32 @@
                         <div class="row">
                             <!-- Campos de detalles visita aquí -->
                             <div class="col-md-12 col-sm-6">
-                                <label for="sintomas"><b>Síntomas:</b></label>
-                                <textarea class="form-control" id="sintomas"></textarea>
+                                <label for="sintomas"><b><span class="text-danger">* </span>Síntomas:</b></label>
+                                <textarea rows="4" class="form-control" id="sintomas" v-model="visita.sintomas"></textarea>
+                                <div class="alert alert-danger" v-if="errores.sintomas">{{
+                                    errores.sintomas[0]
+                                }}</div>
                             </div>
                             <div class="col-md-6 col-sm-6">
-                                <label for="diagnostico"><b>Diagnóstico:</b></label>
-                                <textarea class="form-control" id="diagnostico"></textarea>
+                                <label for="diagnostico"><b><span class="text-danger">* </span>Diagnóstico:</b></label>
+                                <textarea rows="4" class="form-control" id="diagnostico"
+                                    v-model="visita.diagnostico"></textarea>
+                                <div class="alert alert-danger" v-if="errores.diagnostico">{{
+                                    errores.diagnostico[0]
+                                }}</div>
                             </div>
                             <div class="col-md-6 col-sm-6">
-                                <label for="tratamiento"><b>Tratamiento:</b></label>
-                                <textarea class="form-control" id="tratamiento"></textarea>
+                                <label for="tratamiento"><b><span class="text-danger">* </span>Tratamiento:</b></label>
+                                <textarea rows="4" class="form-control" id="tratamiento"
+                                    v-model="visita.tratamiento"></textarea>
+                                <div class="alert alert-danger" v-if="errores.tratamiento">{{
+                                    errores.tratamiento[0]
+                                }}</div>
                             </div>
                             <div class="col-md-3 col-sm-6">
-                                <label for="coste"><b>Coste:</b></label>
-                                <input type="number"  step="0.01" class="form-control" name="coste" v-model="visita.coste" id="coste"
-                                    aria-describedby="helpId" placeholder="Coste">
+                                <label for="coste"><b><span class="text-danger">* </span>Coste:</b></label>
+                                <input type="number" step="0.01" class="form-control" name="coste" v-model="visita.coste"
+                                    id="coste" aria-describedby="helpId" placeholder="Coste">
                                 <div class="alert alert-danger" v-if="errores.coste">{{
                                     errores.coste[0]
                                 }}</div>
@@ -75,11 +88,11 @@
                 </div>
 
                 <div class="btn-group w-100" role="group" aria-label="">
-                    <button type="submit" class="btn btn-success">
-                        <i class="fas fa-paw"></i>
+                    <button type="submit" class="btn btn-success" title="Nueva visita">
+                        <i class="fa fa-clinic-medical"></i>
                     </button>
 
-                    <router-link :to="{ name: 'ListarMascotas' }" class="btn btn-warning">
+                    <router-link :to="{ name: 'ListarMascotas' }" class="btn btn-warning" title="Volver">
                         <i class="bi bi-arrow-return-left fw-bold"></i>
                     </router-link>
                 </div>
@@ -106,7 +119,7 @@ export default {
                 sintomas: "",
                 diagnostico: "",
                 tratamiento: "",
-                coste: 0,
+                coste: "",
             },
             errores: {},
             veterinarios: [],
@@ -124,6 +137,8 @@ export default {
         // Inserta en la base de datos
         async altaVisita() {
             try {
+                this.visita.coste = parseFloat(this.visita.coste);
+                this.visita.mascotas_id = parseFloat(this.visita.mascotas_id);
                 console.log(this.visita)
                 const res = await axios.post('visitas', this.visita);
                 Swal.fire({
@@ -143,6 +158,7 @@ export default {
                         text: 'Ingresa los campos correctamente',
                     })
                     this.errores = error.response.data.errors;
+                    console.log(this.errores)
                 }
             }
 
