@@ -14,8 +14,12 @@
                         <div class="row">
                             <!-- Campos de datos generales aquí -->
                             <div class="col-md-3 col-sm-6">
-                                <label for="mascotas_id"><b>Código mascota:</b></label>
-                                <span class="form-control">{{ visita.mascotas_id }}</span>
+                                <label><b>Mascota:</b></label>
+                                <span class="form-control bg-secondary">{{ mascota.nombre }}</span>
+                            </div>
+                            <div class="col-md-3 col-sm-6">
+                                <label><b>Propietario:</b></label>
+                                <span class="form-control bg-secondary">{{ cliente.nombre_apellidos }}</span>
                             </div>
                             <div class="col-md-3 col-sm-6">
                                 <label for="fecha_visita"><b><span class="text-danger">* </span>Fecha visita:</b></label>
@@ -29,18 +33,6 @@
                                 <input type="time" class="form-control" name="hora_visita" v-model="visita.hora_visita"
                                     id="hora_visita" aria-describedby="helpId">
                             </div>
-                            <div class="col-md-3 col-sm-6">
-                                <label for="veterinario"><b><span class="text-danger">* </span>Veterinario:</b></label>
-                                <select class="form-select" id="veterinario" v-model="visita.veterinario">
-                                    <option disabled value="">Selecciona un veterinario</option>
-                                    <option v-for="veterinario in veterinarios" :value="veterinario.nombre_apellidos"
-                                        :key="veterinario.nombre_apellidos">
-                                        {{ veterinario.nombre_apellidos }}
-                                    </option>
-                                </select>
-                                <div class="alert alert-danger" v-if="errores.veterinario">{{ errores.veterinario[0]
-                                }}</div>
-                            </div>
                         </div>
                     </div>
                 </div>
@@ -52,19 +44,11 @@
                     <div class="card-body">
                         <div class="row">
                             <!-- Campos de detalles visita aquí -->
-                            <div class="col-md-12 col-sm-6">
+                            <div class="col-md-6 col-sm-6">
                                 <label for="sintomas"><b><span class="text-danger">* </span>Síntomas:</b></label>
                                 <textarea rows="4" class="form-control" id="sintomas" v-model="visita.sintomas"></textarea>
                                 <div class="alert alert-danger" v-if="errores.sintomas">{{
                                     errores.sintomas[0]
-                                }}</div>
-                            </div>
-                            <div class="col-md-6 col-sm-6">
-                                <label for="diagnostico"><b><span class="text-danger">* </span>Diagnóstico:</b></label>
-                                <textarea rows="4" class="form-control" id="diagnostico"
-                                    v-model="visita.diagnostico"></textarea>
-                                <div class="alert alert-danger" v-if="errores.diagnostico">{{
-                                    errores.diagnostico[0]
                                 }}</div>
                             </div>
                             <div class="col-md-6 col-sm-6">
@@ -73,6 +57,26 @@
                                     v-model="visita.tratamiento"></textarea>
                                 <div class="alert alert-danger" v-if="errores.tratamiento">{{
                                     errores.tratamiento[0]
+                                }}</div>
+                            </div>
+                            <div class="col-md-3 col-sm-6">
+                                <label for="diagnostico"><b><span class="text-danger">* </span>Diagnóstico:</b></label>
+                                <input class="form-control" id="diagnostico" aria-describedby="helpId"
+                                    placeholder="Diagnóstico" name="diagnostico" v-model="visita.diagnostico">
+                                <div class="alert alert-danger" v-if="errores.diagnostico">{{
+                                    errores.diagnostico[0]
+                                }}</div>
+                            </div>
+                            <div class="col-md-3 col-sm-6">
+                                <label for="veterinario"><b><span class="text-danger">* </span>Veterinario:</b></label>
+                                <select class="form-select" id="veterinario" v-model="visita.veterinario">
+                                    <option disabled value="">Selecciona un veterinario</option>
+                                    <option v-for="veterinario in veterinarios" :value="veterinario.nombre_apellidos"
+                                        :key="veterinario.nombre_apellidos">
+                                        {{ veterinario.nombre_apellidos }}
+                                    </option>
+                                </select>
+                                <div class="alert alert-danger" v-if="errores.veterinario">{{ errores.veterinario[0]
                                 }}</div>
                             </div>
                             <div class="col-md-3 col-sm-6">
@@ -123,10 +127,13 @@ export default {
             },
             errores: {},
             veterinarios: [],
+            mascota: {},
+            cliente: {},
         };
     },
 
     created() {
+        this.obtenerInformacionID();
         const token = document.querySelector('meta[name="csrf-token"]');
         if (token) {
             this.csrfToken = token.content;
@@ -134,6 +141,28 @@ export default {
     },
 
     methods: {
+
+        async obtenerInformacionID() {
+            try {
+                const response = await axios.get('mascotas/' + this.$route.params.id);
+                console.log(response.data); // Agregar esta línea para depurar
+                this.mascota = response.data;
+                await this.obtenerPropietario();
+            } catch (error) {
+                console.error(error);
+            }
+        },
+
+        async obtenerPropietario() {
+            try {
+                const response = await axios.get('clientes/' + this.mascota.cliente_id);
+                console.log(response.data); // Agregar esta línea para depurar
+                this.cliente = response.data;
+            } catch (error) {
+                console.error(error);
+            }
+        },
+
         // Inserta en la base de datos
         async altaVisita() {
             try {

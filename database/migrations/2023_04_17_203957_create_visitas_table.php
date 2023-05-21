@@ -19,7 +19,7 @@ class CreateVisitasTable extends Migration
             $table->time('hora_visita')->nullable();
             $table->string('veterinario');
             $table->text('sintomas')->nullable();
-            $table->text('diagnostico')->nullable();
+            $table->string('diagnostico')->nullable();
             $table->text('tratamiento')->nullable();
             $table->decimal('coste', 10, 2)->nullable();
             $table->timestamp('deleted_at')->nullable();

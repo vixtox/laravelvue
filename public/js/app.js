@@ -6835,19 +6835,17 @@ __webpack_require__.r(__webpack_exports__);
   },
   data: function data() {
     return {
-      mascotas: [],
+      visitas: [],
       currentPage: 1,
       totalPages: 2,
       // aquí debes usar el número total de páginas que correspondan a tu caso específico
-      mascotaToDelete: null,
-      searchTerm: '',
-      selectedClient: null
+      visitaToDelete: null
     };
   },
   methods: {
-    borrarMascota: function borrarMascota(id) {
+    borrarVisitas: function borrarVisitas(id) {
       var _this = this;
-      this.mascotaToDelete = id;
+      this.visitaToDelete = id;
       var swalWithBootstrapButtons = sweetalert2__WEBPACK_IMPORTED_MODULE_2___default().mixin({
         customClass: {
           confirmButton: 'btn btn-success',
@@ -6856,8 +6854,8 @@ __webpack_require__.r(__webpack_exports__);
         buttonsStyling: false
       });
       swalWithBootstrapButtons.fire({
-        title: '¿Está seguro de eliminar la mascota?',
-        text: "La mascota se eliminará permanentemente",
+        title: '¿Está seguro de eliminar la visita?',
+        text: "La visita se eliminará permanentemente",
         icon: 'warning',
         showCancelButton: true,
         confirmButtonText: 'OK',
@@ -6865,8 +6863,8 @@ __webpack_require__.r(__webpack_exports__);
         reverseButtons: true
       }).then(function (result) {
         if (result.isConfirmed) {
-          axios__WEBPACK_IMPORTED_MODULE_0___default()["delete"]('mascotas/' + _this.mascotaToDelete).then(function (response) {
-            _this.getMascotas();
+          axios__WEBPACK_IMPORTED_MODULE_0___default()["delete"]('visitas/' + _this.visitaToDelete).then(function (response) {
+            _this.getVisitas();
           })["catch"](function (error) {
             console.error(error);
           });
@@ -6878,62 +6876,26 @@ __webpack_require__.r(__webpack_exports__);
       });
     },
     pageChanged: function pageChanged(page) {
-      this.getMascotas(page);
+      this.getVisitas(page);
     },
-    getMascotas: function getMascotas() {
+    getVisitas: function getVisitas() {
       var _this2 = this;
       var page = arguments.length > 0 && arguments[0] !== undefined ? arguments[0] : 1;
-      axios__WEBPACK_IMPORTED_MODULE_0___default().get('mascotas?page=' + page).then(function (response) {
-        _this2.mascotas = response.data.mascotas;
-        _this2.currentPage = response.data.currentPage;
-        _this2.totalPages = response.data.lastPage;
-        console.log(_this2.mascotas);
+      console.log(this.$route.params.id);
+      axios__WEBPACK_IMPORTED_MODULE_0___default().get('visitas/listavisitas/' + this.$route.params.id).then(function (response) {
+        _this2.visitas = response.data.visitas;
+        console.log(_this2.visitas);
       })["catch"](function (error) {
         console.error(error);
       });
     }
   },
   created: function created() {
-    this.getMascotas();
+    this.getVisitas();
     var token = document.querySelector('meta[name="csrf-token"]');
     if (token) {
       this.csrfToken = token.content;
     }
-  },
-  mounted: function mounted() {
-    var vm = this;
-    axios__WEBPACK_IMPORTED_MODULE_0___default().get("mascotas/buscar", {
-      params: {
-        search: ''
-      }
-    }).then(function (res) {
-      // Inicializar Autocomplete dentro de la promesa
-      $("#searchInput").autocomplete({
-        source: res.data.map(function (mascota) {
-          return mascota.nombre;
-        }),
-        select: function select(event, ui) {
-          vm.searchTerm = ui.item.value;
-
-          // Obtener el objeto completo del cliente seleccionado
-          vm.selectedClient = res.data.find(function (mascota) {
-            return mascota.nombre === ui.item.value;
-          });
-          if (vm.selectedClient) {
-            // Redirigir al usuario a la ruta FichaMascota con el parámetro id
-            vm.$router.push({
-              name: 'FichaMascota',
-              params: {
-                id: vm.selectedClient.id
-              }
-            });
-          }
-          return false;
-        }
-      });
-    })["catch"](function (error) {
-      console.error(error);
-    });
   }
 });
 
@@ -6975,64 +6937,50 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
         coste: ""
       },
       errores: {},
-      veterinarios: []
+      veterinarios: [],
+      mascota: {},
+      cliente: {}
     };
   },
   created: function created() {
+    this.obtenerInformacionID();
     var token = document.querySelector('meta[name="csrf-token"]');
     if (token) {
       this.csrfToken = token.content;
     }
   },
   methods: {
-    // Inserta en la base de datos
-    altaVisita: function altaVisita() {
+    obtenerInformacionID: function obtenerInformacionID() {
       var _this = this;
       return _asyncToGenerator( /*#__PURE__*/_regeneratorRuntime().mark(function _callee() {
-        var res;
+        var response;
         return _regeneratorRuntime().wrap(function _callee$(_context) {
           while (1) switch (_context.prev = _context.next) {
             case 0:
               _context.prev = 0;
-              _this.visita.coste = parseFloat(_this.visita.coste);
-              _this.visita.mascotas_id = parseFloat(_this.visita.mascotas_id);
-              console.log(_this.visita);
-              _context.next = 6;
-              return axios__WEBPACK_IMPORTED_MODULE_0___default().post('visitas', _this.visita);
-            case 6:
-              res = _context.sent;
-              sweetalert2__WEBPACK_IMPORTED_MODULE_1___default().fire({
-                position: 'center',
-                icon: 'success',
-                title: 'Visita registrada correctamente',
-                showConfirmButton: false,
-                timer: 1500
-              });
-              _this.$router.push({
-                name: 'ListarMascotas'
-              });
-              _context.next = 14;
+              _context.next = 3;
+              return axios__WEBPACK_IMPORTED_MODULE_0___default().get('mascotas/' + _this.$route.params.id);
+            case 3:
+              response = _context.sent;
+              console.log(response.data); // Agregar esta línea para depurar
+              _this.mascota = response.data;
+              _context.next = 8;
+              return _this.obtenerPropietario();
+            case 8:
+              _context.next = 13;
               break;
-            case 11:
-              _context.prev = 11;
+            case 10:
+              _context.prev = 10;
               _context.t0 = _context["catch"](0);
-              if (_context.t0.response.data) {
-                sweetalert2__WEBPACK_IMPORTED_MODULE_1___default().fire({
-                  icon: 'error',
-                  title: 'Error registro visita',
-                  text: 'Ingresa los campos correctamente'
-                });
-                _this.errores = _context.t0.response.data.errors;
-                console.log(_this.errores);
-              }
-            case 14:
+              console.error(_context.t0);
+            case 13:
             case "end":
               return _context.stop();
           }
-        }, _callee, null, [[0, 11]]);
+        }, _callee, null, [[0, 10]]);
       }))();
     },
-    consultar_veterinarios: function consultar_veterinarios() {
+    obtenerPropietario: function obtenerPropietario() {
       var _this2 = this;
       return _asyncToGenerator( /*#__PURE__*/_regeneratorRuntime().mark(function _callee2() {
         var response;
@@ -7041,21 +6989,95 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
             case 0:
               _context2.prev = 0;
               _context2.next = 3;
-              return axios__WEBPACK_IMPORTED_MODULE_0___default().get('empleados/listar_veterinarios');
+              return axios__WEBPACK_IMPORTED_MODULE_0___default().get('clientes/' + _this2.mascota.cliente_id);
             case 3:
               response = _context2.sent;
-              _this2.veterinarios = response.data;
-              _context2.next = 10;
+              console.log(response.data); // Agregar esta línea para depurar
+              _this2.cliente = response.data;
+              _context2.next = 11;
               break;
-            case 7:
-              _context2.prev = 7;
+            case 8:
+              _context2.prev = 8;
               _context2.t0 = _context2["catch"](0);
               console.error(_context2.t0);
-            case 10:
+            case 11:
             case "end":
               return _context2.stop();
           }
-        }, _callee2, null, [[0, 7]]);
+        }, _callee2, null, [[0, 8]]);
+      }))();
+    },
+    // Inserta en la base de datos
+    altaVisita: function altaVisita() {
+      var _this3 = this;
+      return _asyncToGenerator( /*#__PURE__*/_regeneratorRuntime().mark(function _callee3() {
+        var res;
+        return _regeneratorRuntime().wrap(function _callee3$(_context3) {
+          while (1) switch (_context3.prev = _context3.next) {
+            case 0:
+              _context3.prev = 0;
+              _this3.visita.coste = parseFloat(_this3.visita.coste);
+              _this3.visita.mascotas_id = parseFloat(_this3.visita.mascotas_id);
+              console.log(_this3.visita);
+              _context3.next = 6;
+              return axios__WEBPACK_IMPORTED_MODULE_0___default().post('visitas', _this3.visita);
+            case 6:
+              res = _context3.sent;
+              sweetalert2__WEBPACK_IMPORTED_MODULE_1___default().fire({
+                position: 'center',
+                icon: 'success',
+                title: 'Visita registrada correctamente',
+                showConfirmButton: false,
+                timer: 1500
+              });
+              _this3.$router.push({
+                name: 'ListarMascotas'
+              });
+              _context3.next = 14;
+              break;
+            case 11:
+              _context3.prev = 11;
+              _context3.t0 = _context3["catch"](0);
+              if (_context3.t0.response.data) {
+                sweetalert2__WEBPACK_IMPORTED_MODULE_1___default().fire({
+                  icon: 'error',
+                  title: 'Error registro visita',
+                  text: 'Ingresa los campos correctamente'
+                });
+                _this3.errores = _context3.t0.response.data.errors;
+                console.log(_this3.errores);
+              }
+            case 14:
+            case "end":
+              return _context3.stop();
+          }
+        }, _callee3, null, [[0, 11]]);
+      }))();
+    },
+    consultar_veterinarios: function consultar_veterinarios() {
+      var _this4 = this;
+      return _asyncToGenerator( /*#__PURE__*/_regeneratorRuntime().mark(function _callee4() {
+        var response;
+        return _regeneratorRuntime().wrap(function _callee4$(_context4) {
+          while (1) switch (_context4.prev = _context4.next) {
+            case 0:
+              _context4.prev = 0;
+              _context4.next = 3;
+              return axios__WEBPACK_IMPORTED_MODULE_0___default().get('empleados/listar_veterinarios');
+            case 3:
+              response = _context4.sent;
+              _this4.veterinarios = response.data;
+              _context4.next = 10;
+              break;
+            case 7:
+              _context4.prev = 7;
+              _context4.t0 = _context4["catch"](0);
+              console.error(_context4.t0);
+            case 10:
+            case "end":
+              return _context4.stop();
+          }
+        }, _callee4, null, [[0, 7]]);
       }))();
     },
     getCurrentDate: function getCurrentDate() {
@@ -9967,26 +9989,18 @@ var render = function render() {
       title: "Nueva Visita"
     }
   }, [_c("i", {
-    staticClass: "fa fa-clinic-medical"
-  })]), _vm._v(" "), _c("router-link", {
-    staticClass: "btn btn-info w-50",
+    staticClass: "fas fa-calendar-plus"
+  }), _vm._v(" Nueva visita")]), _vm._v(" "), _c("router-link", {
+    staticClass: "btn btn-info w-50 text-capitalize text-light",
     attrs: {
       to: {
         name: "ListarVisitas"
       },
-      title: "Listar visitas"
+      title: "Ver visitas"
     }
   }, [_c("i", {
-    staticClass: "fa-solid fa-eye",
-    staticStyle: {
-      color: "#ffffff"
-    }
-  }), _vm._v(" "), _c("i", {
-    staticClass: "fa fa-clinic-medical",
-    staticStyle: {
-      color: "#ffffff"
-    }
-  })])], 1), _vm._v(" "), _vm._m(1), _vm._v(" "), _c("div", {
+    staticClass: "fas fa-calendar"
+  }), _vm._v(" Ver visitas")])], 1), _vm._v(" "), _vm._m(1), _vm._v(" "), _c("div", {
     staticClass: "card-body"
   }, [_c("div", {
     staticClass: "row"
@@ -10592,7 +10606,7 @@ var staticRenderFns = [function () {
     }
   }, [_c("i", {
     staticClass: "fa fa-save"
-  })]);
+  }), _vm._v(" Guardar\n                ")]);
 }];
 render._withStripped = true;
 
@@ -11048,82 +11062,27 @@ var render = function render() {
     staticClass: "row"
   }, [_c("div", {
     staticClass: "table-responsive"
-  }, [_c("div", {
-    staticClass: "btn-group w-100",
-    attrs: {
-      role: "group",
-      "aria-label": ""
-    }
-  }, [_c("input", {
-    staticClass: "form-control w-50",
-    attrs: {
-      type: "text",
-      id: "searchInput",
-      placeholder: "Buscar mascota"
-    },
-    domProps: {
-      value: _vm.searchTerm
-    },
-    on: {
-      input: function input($event) {
-        _vm.searchTerm = $event.target.value;
-      }
-    }
-  }), _vm._v(" "), _c("router-link", {
-    staticClass: "btn btn-success w-50",
-    attrs: {
-      to: {
-        name: "AltaMascota"
-      },
-      title: "Alta mascota"
-    }
-  }, [_c("i", {
-    staticClass: "fas fa-paw"
-  })])], 1), _vm._v(" "), _c("table", {
+  }, [_c("table", {
     staticClass: "table table-striped table-sm"
   }, [_vm._m(1), _vm._v(" "), _c("tbody", {
     staticClass: "flex-column"
-  }, _vm._l(_vm.mascotas, function (mascota) {
+  }, _vm._l(_vm.visitas, function (visita) {
     return _c("tr", {
-      key: mascota.id
-    }, [_c("td", [_vm._v(_vm._s(mascota.nombre))]), _vm._v(" "), _c("td", [_vm._v(_vm._s(mascota.especie_id))]), _vm._v(" "), _c("td", [_vm._v(_vm._s(mascota.razas_id))]), _vm._v(" "), _c("td", [_vm._v(_vm._s(mascota.nombre_cliente))]), _vm._v(" "), _c("td", [_c("button", {
+      key: visita.id
+    }, [_c("td", [_vm._v(_vm._s(visita.mascotas_id))]), _vm._v(" "), _c("td", [_vm._v(_vm._s(visita.fecha_visita))]), _vm._v(" "), _c("td", [_vm._v(_vm._s(visita.diagnostico))]), _vm._v(" "), _c("td", [_vm._v(_vm._s(visita.veterinario))]), _vm._v(" "), _c("td", [_c("button", {
       staticClass: "btn btn-danger",
       attrs: {
-        title: "Dar baja"
+        title: "Eliminar visita"
       },
       on: {
         click: function click($event) {
-          return _vm.borrarMascota(mascota.id);
+          return _vm.borrarVisita(visita.id);
         }
       }
     }, [_c("i", {
       staticClass: "fa-solid fa-user-xmark"
-    })]), _vm._v(" "), _c("router-link", {
-      staticClass: "btn btn-info",
-      attrs: {
-        to: {
-          name: "FichaMascota",
-          params: {
-            id: mascota.id
-          }
-        },
-        title: "Ver detalles"
-      }
-    }, [_c("i", {
-      staticClass: "fa-solid fa-eye",
-      staticStyle: {
-        color: "#ffffff"
-      }
-    })])], 1)]);
-  }), 0)])])])]), _vm._v(" "), _c("div", [_c("paginacion", {
-    attrs: {
-      "current-page": _vm.currentPage,
-      "total-pages": _vm.totalPages
-    },
-    on: {
-      pageChanged: _vm.pageChanged
-    }
-  })], 1)]);
+    })])])]);
+  }), 0)])])])])]);
 };
 var staticRenderFns = [function () {
   var _vm = this,
@@ -11132,7 +11091,7 @@ var staticRenderFns = [function () {
     staticClass: "card-header bg-dark text-light"
   }, [_c("h2", {
     staticClass: "card-title"
-  }, [_vm._v("Lista de mascotas")])]);
+  }, [_vm._v("Lista de visitas")])]);
 }, function () {
   var _vm = this,
     _c = _vm._self._c;
@@ -11146,15 +11105,15 @@ var staticRenderFns = [function () {
     attrs: {
       scope: "col"
     }
-  }, [_vm._v("Especie")]), _vm._v(" "), _c("th", {
+  }, [_vm._v("Fecha visita")]), _vm._v(" "), _c("th", {
     attrs: {
       scope: "col"
     }
-  }, [_vm._v("Raza")]), _vm._v(" "), _c("th", {
+  }, [_vm._v("Diagnóstico")]), _vm._v(" "), _c("th", {
     attrs: {
       scope: "col"
     }
-  }, [_vm._v("Propietario")]), _vm._v(" "), _c("th", {
+  }, [_vm._v("Veterinario")]), _vm._v(" "), _c("th", {
     attrs: {
       scope: "col"
     }
@@ -11200,10 +11159,14 @@ var render = function render() {
   }, [_c("div", {
     staticClass: "col-md-3 col-sm-6"
   }, [_vm._m(2), _vm._v(" "), _c("span", {
-    staticClass: "form-control"
-  }, [_vm._v(_vm._s(_vm.visita.mascotas_id))])]), _vm._v(" "), _c("div", {
+    staticClass: "form-control bg-secondary"
+  }, [_vm._v(_vm._s(_vm.mascota.nombre))])]), _vm._v(" "), _c("div", {
     staticClass: "col-md-3 col-sm-6"
-  }, [_vm._m(3), _vm._v(" "), _c("input", {
+  }, [_vm._m(3), _vm._v(" "), _c("span", {
+    staticClass: "form-control bg-secondary"
+  }, [_vm._v(_vm._s(_vm.cliente.nombre_apellidos))])]), _vm._v(" "), _c("div", {
+    staticClass: "col-md-3 col-sm-6"
+  }, [_vm._m(4), _vm._v(" "), _c("input", {
     directives: [{
       name: "model",
       rawName: "v-model",
@@ -11231,7 +11194,7 @@ var render = function render() {
     staticClass: "alert alert-danger"
   }, [_vm._v(_vm._s(_vm.errores.fecha_visita[0]))]) : _vm._e()]), _vm._v(" "), _c("div", {
     staticClass: "col-md-3 col-sm-6"
-  }, [_vm._m(4), _vm._v(" "), _c("input", {
+  }, [_vm._m(5), _vm._v(" "), _c("input", {
     directives: [{
       name: "model",
       rawName: "v-model",
@@ -11254,9 +11217,92 @@ var render = function render() {
         _vm.$set(_vm.visita, "hora_visita", $event.target.value);
       }
     }
-  })]), _vm._v(" "), _c("div", {
+  })])])])]), _vm._v(" "), _c("div", {
+    staticClass: "card"
+  }, [_vm._m(6), _vm._v(" "), _c("div", {
+    staticClass: "card-body"
+  }, [_c("div", {
+    staticClass: "row"
+  }, [_c("div", {
+    staticClass: "col-md-6 col-sm-6"
+  }, [_vm._m(7), _vm._v(" "), _c("textarea", {
+    directives: [{
+      name: "model",
+      rawName: "v-model",
+      value: _vm.visita.sintomas,
+      expression: "visita.sintomas"
+    }],
+    staticClass: "form-control",
+    attrs: {
+      rows: "4",
+      id: "sintomas"
+    },
+    domProps: {
+      value: _vm.visita.sintomas
+    },
+    on: {
+      input: function input($event) {
+        if ($event.target.composing) return;
+        _vm.$set(_vm.visita, "sintomas", $event.target.value);
+      }
+    }
+  }), _vm._v(" "), _vm.errores.sintomas ? _c("div", {
+    staticClass: "alert alert-danger"
+  }, [_vm._v(_vm._s(_vm.errores.sintomas[0]))]) : _vm._e()]), _vm._v(" "), _c("div", {
+    staticClass: "col-md-6 col-sm-6"
+  }, [_vm._m(8), _vm._v(" "), _c("textarea", {
+    directives: [{
+      name: "model",
+      rawName: "v-model",
+      value: _vm.visita.tratamiento,
+      expression: "visita.tratamiento"
+    }],
+    staticClass: "form-control",
+    attrs: {
+      rows: "4",
+      id: "tratamiento"
+    },
+    domProps: {
+      value: _vm.visita.tratamiento
+    },
+    on: {
+      input: function input($event) {
+        if ($event.target.composing) return;
+        _vm.$set(_vm.visita, "tratamiento", $event.target.value);
+      }
+    }
+  }), _vm._v(" "), _vm.errores.tratamiento ? _c("div", {
+    staticClass: "alert alert-danger"
+  }, [_vm._v(_vm._s(_vm.errores.tratamiento[0]))]) : _vm._e()]), _vm._v(" "), _c("div", {
     staticClass: "col-md-3 col-sm-6"
-  }, [_vm._m(5), _vm._v(" "), _c("select", {
+  }, [_vm._m(9), _vm._v(" "), _c("input", {
+    directives: [{
+      name: "model",
+      rawName: "v-model",
+      value: _vm.visita.diagnostico,
+      expression: "visita.diagnostico"
+    }],
+    staticClass: "form-control",
+    attrs: {
+      id: "diagnostico",
+      "aria-describedby": "helpId",
+      placeholder: "Diagnóstico",
+      name: "diagnostico"
+    },
+    domProps: {
+      value: _vm.visita.diagnostico
+    },
+    on: {
+      input: function input($event) {
+        if ($event.target.composing) return;
+        _vm.$set(_vm.visita, "diagnostico", $event.target.value);
+      }
+    }
+  }), _vm._v(" "), _vm.errores.diagnostico ? _c("div", {
+    staticClass: "alert alert-danger"
+  }, [_vm._v(_vm._s(_vm.errores.diagnostico[0]))]) : _vm._e()]), _vm._v(" "), _c("div", {
+    staticClass: "col-md-3 col-sm-6"
+  }, [_vm._m(10), _vm._v(" "), _c("select", {
     directives: [{
       name: "model",
       rawName: "v-model",
@@ -11292,90 +11338,9 @@ var render = function render() {
     }, [_vm._v("\n                                    " + _vm._s(veterinario.nombre_apellidos) + "\n                                ")]);
   })], 2), _vm._v(" "), _vm.errores.veterinario ? _c("div", {
     staticClass: "alert alert-danger"
-  }, [_vm._v(_vm._s(_vm.errores.veterinario[0]))]) : _vm._e()])])])]), _vm._v(" "), _c("div", {
-    staticClass: "card"
-  }, [_vm._m(6), _vm._v(" "), _c("div", {
-    staticClass: "card-body"
-  }, [_c("div", {
-    staticClass: "row"
-  }, [_c("div", {
-    staticClass: "col-md-12 col-sm-6"
-  }, [_vm._m(7), _vm._v(" "), _c("textarea", {
-    directives: [{
-      name: "model",
-      rawName: "v-model",
-      value: _vm.visita.sintomas,
-      expression: "visita.sintomas"
-    }],
-    staticClass: "form-control",
-    attrs: {
-      rows: "4",
-      id: "sintomas"
-    },
-    domProps: {
-      value: _vm.visita.sintomas
-    },
-    on: {
-      input: function input($event) {
-        if ($event.target.composing) return;
-        _vm.$set(_vm.visita, "sintomas", $event.target.value);
-      }
-    }
-  }), _vm._v(" "), _vm.errores.sintomas ? _c("div", {
-    staticClass: "alert alert-danger"
-  }, [_vm._v(_vm._s(_vm.errores.sintomas[0]))]) : _vm._e()]), _vm._v(" "), _c("div", {
-    staticClass: "col-md-6 col-sm-6"
-  }, [_vm._m(8), _vm._v(" "), _c("textarea", {
-    directives: [{
-      name: "model",
-      rawName: "v-model",
-      value: _vm.visita.diagnostico,
-      expression: "visita.diagnostico"
-    }],
-    staticClass: "form-control",
-    attrs: {
-      rows: "4",
-      id: "diagnostico"
-    },
-    domProps: {
-      value: _vm.visita.diagnostico
-    },
-    on: {
-      input: function input($event) {
-        if ($event.target.composing) return;
-        _vm.$set(_vm.visita, "diagnostico", $event.target.value);
-      }
-    }
-  }), _vm._v(" "), _vm.errores.diagnostico ? _c("div", {
-    staticClass: "alert alert-danger"
-  }, [_vm._v(_vm._s(_vm.errores.diagnostico[0]))]) : _vm._e()]), _vm._v(" "), _c("div", {
-    staticClass: "col-md-6 col-sm-6"
-  }, [_vm._m(9), _vm._v(" "), _c("textarea", {
-    directives: [{
-      name: "model",
-      rawName: "v-model",
-      value: _vm.visita.tratamiento,
-      expression: "visita.tratamiento"
-    }],
-    staticClass: "form-control",
-    attrs: {
-      rows: "4",
-      id: "tratamiento"
-    },
-    domProps: {
-      value: _vm.visita.tratamiento
-    },
-    on: {
-      input: function input($event) {
-        if ($event.target.composing) return;
-        _vm.$set(_vm.visita, "tratamiento", $event.target.value);
-      }
-    }
-  }), _vm._v(" "), _vm.errores.tratamiento ? _c("div", {
-    staticClass: "alert alert-danger"
-  }, [_vm._v(_vm._s(_vm.errores.tratamiento[0]))]) : _vm._e()]), _vm._v(" "), _c("div", {
+  }, [_vm._v(_vm._s(_vm.errores.veterinario[0]))]) : _vm._e()]), _vm._v(" "), _c("div", {
     staticClass: "col-md-3 col-sm-6"
-  }, [_vm._m(10), _vm._v(" "), _c("input", {
+  }, [_vm._m(11), _vm._v(" "), _c("input", {
     directives: [{
       name: "model",
       rawName: "v-model",
@@ -11408,7 +11373,7 @@ var render = function render() {
       role: "group",
       "aria-label": ""
     }
-  }, [_vm._m(11), _vm._v(" "), _c("router-link", {
+  }, [_vm._m(12), _vm._v(" "), _c("router-link", {
     staticClass: "btn btn-warning",
     attrs: {
       to: {
@@ -11439,11 +11404,11 @@ var staticRenderFns = [function () {
 }, function () {
   var _vm = this,
     _c = _vm._self._c;
-  return _c("label", {
-    attrs: {
-      "for": "mascotas_id"
-    }
-  }, [_c("b", [_vm._v("Código mascota:")])]);
+  return _c("label", [_c("b", [_vm._v("Mascota:")])]);
+}, function () {
+  var _vm = this,
+    _c = _vm._self._c;
+  return _c("label", [_c("b", [_vm._v("Propietario:")])]);
 }, function () {
   var _vm = this,
     _c = _vm._self._c;
@@ -11462,16 +11427,6 @@ var staticRenderFns = [function () {
       "for": "hora_visita"
     }
   }, [_c("b", [_vm._v("Hora visita:")])]);
-}, function () {
-  var _vm = this,
-    _c = _vm._self._c;
-  return _c("label", {
-    attrs: {
-      "for": "veterinario"
-    }
-  }, [_c("b", [_c("span", {
-    staticClass: "text-danger"
-  }, [_vm._v("* ")]), _vm._v("Veterinario:")])]);
 }, function () {
   var _vm = this,
     _c = _vm._self._c;
@@ -11495,6 +11450,16 @@ var staticRenderFns = [function () {
     _c = _vm._self._c;
   return _c("label", {
     attrs: {
+      "for": "tratamiento"
+    }
+  }, [_c("b", [_c("span", {
+    staticClass: "text-danger"
+  }, [_vm._v("* ")]), _vm._v("Tratamiento:")])]);
+}, function () {
+  var _vm = this,
+    _c = _vm._self._c;
+  return _c("label", {
+    attrs: {
       "for": "diagnostico"
     }
   }, [_c("b", [_c("span", {
@@ -11505,11 +11470,11 @@ var staticRenderFns = [function () {
     _c = _vm._self._c;
   return _c("label", {
     attrs: {
-      "for": "tratamiento"
+      "for": "veterinario"
     }
   }, [_c("b", [_c("span", {
     staticClass: "text-danger"
-  }, [_vm._v("* ")]), _vm._v("Tratamiento:")])]);
+  }, [_vm._v("* ")]), _vm._v("Veterinario:")])]);
 }, function () {
   var _vm = this,
     _c = _vm._self._c;

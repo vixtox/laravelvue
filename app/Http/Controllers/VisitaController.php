@@ -47,7 +47,7 @@ class VisitaController extends Controller
      */
     public function show($id)
     {
-        //
+
     }
 
     /**
@@ -83,4 +83,17 @@ class VisitaController extends Controller
     {
         //
     }
+
+    public function mostrarVisitasMascota($mascotas_id)
+    {
+      $visitas = Visita::where('mascotas_id', $mascotas_id)
+        ->whereNull('deleted_at')
+        ->get();
+    
+      return response()->json([
+        'visitas' => $visitas,
+      ]);
+    }
+    
+    
 }

@@ -1,39 +1,33 @@
 <template>
     <div class="card">
         <div class="card-header bg-dark text-light">
-            <h2 class="card-title">Lista de mascotas</h2>
+            <h2 class="card-title">Lista de visitas</h2>
         </div>
         <div class="card-body">
             <div class="row">
                 <div class="table-responsive">
-                    <div class="btn-group w-100" role="group" aria-label="">
-                        <input type="text" id="searchInput" :value="searchTerm" @input="searchTerm = $event.target.value"
-                            placeholder="Buscar mascota" class="form-control w-50">
-                        <router-link :to="{ name: 'AltaMascota' }" class="btn btn-success w-50" title="Alta mascota"> <i
-                                class="fas fa-paw"></i></router-link>
-                    </div>
                     <table class="table table-striped table-sm">
                         <thead class="bg-dark text-light">
                             <tr>
                                 <th scope="col">Nombre</th>
-                                <th scope="col">Especie</th>
-                                <th scope="col">Raza</th>
-                                <th scope="col">Propietario</th>
+                                <th scope="col">Fecha visita</th>
+                                <th scope="col">Diagnóstico</th>
+                                <th scope="col">Veterinario</th>
                                 <th scope="col">Acciones</th>
                             </tr>
                         </thead>
                         <tbody class="flex-column">
-                            <tr v-for="mascota in mascotas" :key="mascota.id">
-                                <td>{{ mascota.nombre }}</td>
-                                <td>{{ mascota.especie_id }}</td>
-                                <td>{{ mascota.razas_id }}</td>
-                                <td>{{ mascota.nombre_cliente }}</td>
+                            <tr v-for="visita in visitas" :key="visita.id">
+                                <td>{{ visita.mascotas_id }}</td>
+                                <td>{{ visita.fecha_visita }}</td>
+                                <td>{{ visita.diagnostico }}</td>
+                                <td>{{ visita.veterinario }}</td>
                                 <td>
-                                    <button class="btn btn-danger" @click="borrarMascota(mascota.id)" title="Dar baja">
+                                    <button class="btn btn-danger" @click="borrarVisita(visita.id)" title="Eliminar visita">
                                         <i class="fa-solid fa-user-xmark"></i></button>
-                                    <router-link :to="{ name: 'FichaMascota', params: { id: mascota.id } }"
+                                    <!-- <router-link :to="{ name: 'FichaMascota', params: { id: mascota.id } }"
                                         class="btn btn-info" title="Ver detalles"><i class="fa-solid fa-eye"
-                                            style="color: #ffffff;"></i></router-link>
+                                            style="color: #ffffff;"></i></router-link> -->
                                 </td>
                             </tr>
                         </tbody>
@@ -41,9 +35,9 @@
                 </div>
             </div>
         </div>
-        <div>
+        <!-- <div>
             <paginacion :current-page="currentPage" :total-pages="totalPages" @pageChanged="pageChanged"></paginacion>
-        </div>
+        </div> -->
 
     </div>
 </template>
@@ -60,17 +54,15 @@ export default {
     },
     data() {
         return {
-            mascotas: [],
+            visitas: [],
             currentPage: 1,
             totalPages: 2, // aquí debes usar el número total de páginas que correspondan a tu caso específico
-            mascotaToDelete: null,
-            searchTerm: '',
-            selectedClient: null
+            visitaToDelete: null,
         }
     },
     methods: {
-        borrarMascota(id) {
-            this.mascotaToDelete = id;
+        borrarVisitas(id) {
+            this.visitaToDelete = id;
             const swalWithBootstrapButtons = Swal.mixin({
                 customClass: {
                     confirmButton: 'btn btn-success',
@@ -80,8 +72,8 @@ export default {
             })
 
             swalWithBootstrapButtons.fire({
-                title: '¿Está seguro de eliminar la mascota?',
-                text: "La mascota se eliminará permanentemente",
+                title: '¿Está seguro de eliminar la visita?',
+                text: "La visita se eliminará permanentemente",
                 icon: 'warning',
                 showCancelButton: true,
                 confirmButtonText: 'OK',
@@ -89,9 +81,9 @@ export default {
                 reverseButtons: true
             }).then((result) => {
                 if (result.isConfirmed) {
-                    axios.delete('mascotas/' + this.mascotaToDelete)
+                    axios.delete('visitas/' + this.visitaToDelete)
                         .then(response => {
-                            this.getMascotas();
+                            this.getVisitas();
                         })
                         .catch(error => {
                             console.error(error);
@@ -115,16 +107,15 @@ export default {
         },
 
         pageChanged(page) {
-            this.getMascotas(page);
+            this.getVisitas(page);
         },
 
-        getMascotas(page = 1) {
-            axios.get('mascotas?page=' + page)
+        getVisitas(page = 1) {
+            console.log(this.$route.params.id);
+            axios.get('visitas/listavisitas/' + this.$route.params.id)
                 .then(response => {
-                    this.mascotas = response.data.mascotas;
-                    this.currentPage = response.data.currentPage;
-                    this.totalPages = response.data.lastPage;
-                    console.log(this.mascotas)
+                    this.visitas = response.data.visitas;
+                    console.log(this.visitas);
                 })
                 .catch(error => {
                     console.error(error);
@@ -134,41 +125,12 @@ export default {
     },
 
     created() {
-        this.getMascotas();
+        this.getVisitas();
         const token = document.querySelector('meta[name="csrf-token"]');
         if (token) {
             this.csrfToken = token.content;
         }
     },
-
-    mounted() {
-        const vm = this;
-
-        axios.get("mascotas/buscar", { params: { search: '' } })
-            .then((res) => {
-                // Inicializar Autocomplete dentro de la promesa
-                $("#searchInput").autocomplete({
-                    source: res.data.map((mascota) => mascota.nombre),
-                    select: (event, ui) => {
-                        vm.searchTerm = ui.item.value;
-
-                        // Obtener el objeto completo del cliente seleccionado
-                        vm.selectedClient = res.data.find((mascota) => mascota.nombre === ui.item.value);
-
-                        if (vm.selectedClient) {
-                            // Redirigir al usuario a la ruta FichaMascota con el parámetro id
-                            vm.$router.push({ name: 'FichaMascota', params: { id: vm.selectedClient.id } });
-                        }
-
-                        return false;
-                    },
-
-                });
-            })
-            .catch((error) => {
-                console.error(error);
-            });
-    }
 
 }
 

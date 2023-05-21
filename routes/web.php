@@ -55,6 +55,7 @@ Route::middleware(['user'])->group(function () {
         'create', 'edit'
     ]);
     //RUTAS VISITA
+    Route::get('/visitas/listavisitas/{mascotas_id}', [VisitaController::class, 'mostrarVisitasMascota']);
     Route::resource('/visitas', VisitaController::class)->except([
         'create', 'edit'
     ]);
