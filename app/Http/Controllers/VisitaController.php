@@ -47,7 +47,13 @@ class VisitaController extends Controller
      */
     public function show($id)
     {
+        $visita = Visita::find($id);
 
+        if ($visita) {
+            return response()->json($visita);
+        } else {
+            return response()->json(['error' => 'Visita no encontrada'], 404);
+        }
     }
 
     /**
@@ -68,9 +74,10 @@ class VisitaController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, $id)
+    public function update(VisitaRequest $request, $id)
     {
-        //
+        $visita = Visita::find($id);
+        $visita->update($request->all());
     }
 
     /**

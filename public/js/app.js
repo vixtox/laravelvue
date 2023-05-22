@@ -6463,12 +6463,12 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
       errores: {},
       veterinarios: [],
       mascota: {},
-      cliente: {},
+      // cliente: {},
       id: this.$route.params.id
     };
   },
   created: function created() {
-    this.obtenerInformacionID(this.id);
+    this.obtenerMascota();
     var token = document.querySelector('meta[name="csrf-token"]');
     if (token) {
       this.csrfToken = token.content;
@@ -6489,23 +6489,20 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
               response = _context.sent;
               console.log(response.data); // Agregar esta línea para depurar
               _this.visita = response.data;
-              _context.next = 8;
-              return _this.obtenerPropietario();
-            case 8:
-              _context.next = 13;
+              _context.next = 11;
               break;
-            case 10:
-              _context.prev = 10;
+            case 8:
+              _context.prev = 8;
               _context.t0 = _context["catch"](0);
               console.error(_context.t0);
-            case 13:
+            case 11:
             case "end":
               return _context.stop();
           }
-        }, _callee, null, [[0, 10]]);
+        }, _callee, null, [[0, 8]]);
       }))();
     },
-    obtenerPropietario: function obtenerPropietario() {
+    obtenerMascota: function obtenerMascota() {
       var _this2 = this;
       return _asyncToGenerator( /*#__PURE__*/_regeneratorRuntime().mark(function _callee2() {
         var response;
@@ -6514,24 +6511,37 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
             case 0:
               _context2.prev = 0;
               _context2.next = 3;
-              return axios__WEBPACK_IMPORTED_MODULE_0___default().get('clientes/' + _this2.mascota.cliente_id);
+              return axios__WEBPACK_IMPORTED_MODULE_0___default().get('mascotas/' + _this2.$route.params.id);
             case 3:
               response = _context2.sent;
               console.log(response.data); // Agregar esta línea para depurar
-              _this2.cliente = response.data;
-              _context2.next = 11;
-              break;
+              _this2.mascota = response.data;
+              // await this.obtenerPropietario();
+              _context2.next = 8;
+              return _this2.obtenerInformacionID(_this2.id);
             case 8:
-              _context2.prev = 8;
+              _context2.next = 13;
+              break;
+            case 10:
+              _context2.prev = 10;
               _context2.t0 = _context2["catch"](0);
               console.error(_context2.t0);
-            case 11:
+            case 13:
             case "end":
               return _context2.stop();
           }
-        }, _callee2, null, [[0, 8]]);
+        }, _callee2, null, [[0, 10]]);
       }))();
     },
+    // async obtenerPropietario() {
+    //     try {
+    //         const response = await axios.get('clientes/' + this.mascota.cliente_id);
+    //         console.log(response.data); // Agregar esta línea para depurar
+    //         this.cliente = response.data;
+    //     } catch (error) {
+    //         console.error(error);
+    //     }
+    // },
     // Edita mascota en la base de datos
     editarVisita: function editarVisita() {
       var _this3 = this;
@@ -7135,8 +7145,8 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
       },
       errores: {},
       veterinarios: [],
-      mascota: {},
-      cliente: {}
+      mascota: {}
+      // cliente: {},
     };
   },
   created: function created() {
@@ -7161,65 +7171,45 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
               response = _context.sent;
               console.log(response.data); // Agregar esta línea para depurar
               _this.mascota = response.data;
-              _context.next = 8;
-              return _this.obtenerPropietario();
-            case 8:
-              _context.next = 13;
+              // await this.obtenerPropietario();
+              _context.next = 11;
               break;
-            case 10:
-              _context.prev = 10;
+            case 8:
+              _context.prev = 8;
               _context.t0 = _context["catch"](0);
               console.error(_context.t0);
-            case 13:
+            case 11:
             case "end":
               return _context.stop();
           }
-        }, _callee, null, [[0, 10]]);
+        }, _callee, null, [[0, 8]]);
       }))();
     },
-    obtenerPropietario: function obtenerPropietario() {
+    // async obtenerPropietario() {
+    //     try {
+    //         const response = await axios.get('clientes/' + this.mascota.cliente_id);
+    //         console.log(response.data); // Agregar esta línea para depurar
+    //         this.cliente = response.data;
+    //     } catch (error) {
+    //         console.error(error);
+    //     }
+    // },
+    // Inserta en la base de datos
+    altaVisita: function altaVisita() {
       var _this2 = this;
       return _asyncToGenerator( /*#__PURE__*/_regeneratorRuntime().mark(function _callee2() {
-        var response;
+        var res;
         return _regeneratorRuntime().wrap(function _callee2$(_context2) {
           while (1) switch (_context2.prev = _context2.next) {
             case 0:
               _context2.prev = 0;
-              _context2.next = 3;
-              return axios__WEBPACK_IMPORTED_MODULE_0___default().get('clientes/' + _this2.mascota.cliente_id);
-            case 3:
-              response = _context2.sent;
-              console.log(response.data); // Agregar esta línea para depurar
-              _this2.cliente = response.data;
-              _context2.next = 11;
-              break;
-            case 8:
-              _context2.prev = 8;
-              _context2.t0 = _context2["catch"](0);
-              console.error(_context2.t0);
-            case 11:
-            case "end":
-              return _context2.stop();
-          }
-        }, _callee2, null, [[0, 8]]);
-      }))();
-    },
-    // Inserta en la base de datos
-    altaVisita: function altaVisita() {
-      var _this3 = this;
-      return _asyncToGenerator( /*#__PURE__*/_regeneratorRuntime().mark(function _callee3() {
-        var res;
-        return _regeneratorRuntime().wrap(function _callee3$(_context3) {
-          while (1) switch (_context3.prev = _context3.next) {
-            case 0:
-              _context3.prev = 0;
-              _this3.visita.coste = parseFloat(_this3.visita.coste);
-              _this3.visita.mascotas_id = parseFloat(_this3.visita.mascotas_id);
-              console.log(_this3.visita);
-              _context3.next = 6;
-              return axios__WEBPACK_IMPORTED_MODULE_0___default().post('visitas', _this3.visita);
+              _this2.visita.coste = parseFloat(_this2.visita.coste);
+              _this2.visita.mascotas_id = parseFloat(_this2.visita.mascotas_id);
+              console.log(_this2.visita);
+              _context2.next = 6;
+              return axios__WEBPACK_IMPORTED_MODULE_0___default().post('visitas', _this2.visita);
             case 6:
-              res = _context3.sent;
+              res = _context2.sent;
               sweetalert2__WEBPACK_IMPORTED_MODULE_1___default().fire({
                 position: 'center',
                 icon: 'success',
@@ -7227,54 +7217,54 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
                 showConfirmButton: false,
                 timer: 1500
               });
-              _this3.$router.push({
-                name: 'ListarMascotas'
+              _this2.$router.push({
+                name: 'ListarVisitas'
               });
-              _context3.next = 14;
+              _context2.next = 14;
               break;
             case 11:
-              _context3.prev = 11;
-              _context3.t0 = _context3["catch"](0);
-              if (_context3.t0.response.data) {
+              _context2.prev = 11;
+              _context2.t0 = _context2["catch"](0);
+              if (_context2.t0.response.data) {
                 sweetalert2__WEBPACK_IMPORTED_MODULE_1___default().fire({
                   icon: 'error',
                   title: 'Error registro visita',
                   text: 'Ingresa los campos correctamente'
                 });
-                _this3.errores = _context3.t0.response.data.errors;
-                console.log(_this3.errores);
+                _this2.errores = _context2.t0.response.data.errors;
+                console.log(_this2.errores);
               }
             case 14:
             case "end":
-              return _context3.stop();
+              return _context2.stop();
           }
-        }, _callee3, null, [[0, 11]]);
+        }, _callee2, null, [[0, 11]]);
       }))();
     },
     consultar_veterinarios: function consultar_veterinarios() {
-      var _this4 = this;
-      return _asyncToGenerator( /*#__PURE__*/_regeneratorRuntime().mark(function _callee4() {
+      var _this3 = this;
+      return _asyncToGenerator( /*#__PURE__*/_regeneratorRuntime().mark(function _callee3() {
         var response;
-        return _regeneratorRuntime().wrap(function _callee4$(_context4) {
-          while (1) switch (_context4.prev = _context4.next) {
+        return _regeneratorRuntime().wrap(function _callee3$(_context3) {
+          while (1) switch (_context3.prev = _context3.next) {
             case 0:
-              _context4.prev = 0;
-              _context4.next = 3;
+              _context3.prev = 0;
+              _context3.next = 3;
               return axios__WEBPACK_IMPORTED_MODULE_0___default().get('empleados/listar_veterinarios');
             case 3:
-              response = _context4.sent;
-              _this4.veterinarios = response.data;
-              _context4.next = 10;
+              response = _context3.sent;
+              _this3.veterinarios = response.data;
+              _context3.next = 10;
               break;
             case 7:
-              _context4.prev = 7;
-              _context4.t0 = _context4["catch"](0);
-              console.error(_context4.t0);
+              _context3.prev = 7;
+              _context3.t0 = _context3["catch"](0);
+              console.error(_context3.t0);
             case 10:
             case "end":
-              return _context4.stop();
+              return _context3.stop();
           }
-        }, _callee4, null, [[0, 7]]);
+        }, _callee3, null, [[0, 7]]);
       }))();
     },
     getCurrentDate: function getCurrentDate() {
@@ -10838,21 +10828,33 @@ var render = function render() {
     }
   }, [_c("div", {
     staticClass: "card"
-  }, [_vm._m(1), _vm._v(" "), _c("div", {
+  }, [_c("div", {
+    staticClass: "btn-group w-100",
+    attrs: {
+      role: "group",
+      "aria-label": ""
+    }
+  }, [_c("router-link", {
+    staticClass: "btn btn-success w-100",
+    attrs: {
+      to: {
+        name: "NuevaVisita"
+      },
+      title: "Nueva Visita"
+    }
+  }, [_c("i", {
+    staticClass: "fas fa-calendar-plus"
+  }), _vm._v(" Nueva visita")])], 1), _vm._v(" "), _vm._m(1), _vm._v(" "), _c("div", {
     staticClass: "card-body"
   }, [_c("div", {
     staticClass: "row"
   }, [_c("div", {
-    staticClass: "col-md-3 col-sm-6"
+    staticClass: "col-md-4 col-sm-6"
   }, [_vm._m(2), _vm._v(" "), _c("span", {
     staticClass: "form-control bg-secondary"
   }, [_vm._v(_vm._s(_vm.mascota.nombre))])]), _vm._v(" "), _c("div", {
-    staticClass: "col-md-3 col-sm-6"
-  }, [_vm._m(3), _vm._v(" "), _c("span", {
-    staticClass: "form-control bg-secondary"
-  }, [_vm._v(_vm._s(_vm.cliente.nombre_apellidos))])]), _vm._v(" "), _c("div", {
-    staticClass: "col-md-3 col-sm-6"
-  }, [_vm._m(4), _vm._v(" "), _c("input", {
+    staticClass: "col-md-4 col-sm-6"
+  }, [_vm._m(3), _vm._v(" "), _c("input", {
     directives: [{
       name: "model",
       rawName: "v-model",
@@ -10879,8 +10881,8 @@ var render = function render() {
   }), _vm._v(" "), _vm.errores.fecha_visita ? _c("div", {
     staticClass: "alert alert-danger"
   }, [_vm._v(_vm._s(_vm.errores.fecha_visita[0]))]) : _vm._e()]), _vm._v(" "), _c("div", {
-    staticClass: "col-md-3 col-sm-6"
-  }, [_vm._m(5), _vm._v(" "), _c("input", {
+    staticClass: "col-md-4 col-sm-6"
+  }, [_vm._m(4), _vm._v(" "), _c("input", {
     directives: [{
       name: "model",
       rawName: "v-model",
@@ -10905,13 +10907,13 @@ var render = function render() {
     }
   })])])])]), _vm._v(" "), _c("div", {
     staticClass: "card"
-  }, [_vm._m(6), _vm._v(" "), _c("div", {
+  }, [_vm._m(5), _vm._v(" "), _c("div", {
     staticClass: "card-body"
   }, [_c("div", {
     staticClass: "row"
   }, [_c("div", {
     staticClass: "col-md-6 col-sm-6"
-  }, [_vm._m(7), _vm._v(" "), _c("textarea", {
+  }, [_vm._m(6), _vm._v(" "), _c("textarea", {
     directives: [{
       name: "model",
       rawName: "v-model",
@@ -10936,7 +10938,7 @@ var render = function render() {
     staticClass: "alert alert-danger"
   }, [_vm._v(_vm._s(_vm.errores.sintomas[0]))]) : _vm._e()]), _vm._v(" "), _c("div", {
     staticClass: "col-md-6 col-sm-6"
-  }, [_vm._m(8), _vm._v(" "), _c("textarea", {
+  }, [_vm._m(7), _vm._v(" "), _c("textarea", {
     directives: [{
       name: "model",
       rawName: "v-model",
@@ -10960,7 +10962,11 @@ var render = function render() {
   }), _vm._v(" "), _vm.errores.tratamiento ? _c("div", {
     staticClass: "alert alert-danger"
   }, [_vm._v(_vm._s(_vm.errores.tratamiento[0]))]) : _vm._e()]), _vm._v(" "), _c("div", {
-    staticClass: "col-md-3 col-sm-6"
+    staticClass: "col-md-4 col-sm-6"
+  }, [_vm._m(8), _vm._v(" "), _c("span", {
+    staticClass: "form-control bg-secondary"
+  }, [_vm._v(_vm._s(_vm.visita.veterinario))])]), _vm._v(" "), _c("div", {
+    staticClass: "col-md-4 col-sm-6"
   }, [_vm._m(9), _vm._v(" "), _c("input", {
     directives: [{
       name: "model",
@@ -10987,46 +10993,8 @@ var render = function render() {
   }), _vm._v(" "), _vm.errores.diagnostico ? _c("div", {
     staticClass: "alert alert-danger"
   }, [_vm._v(_vm._s(_vm.errores.diagnostico[0]))]) : _vm._e()]), _vm._v(" "), _c("div", {
-    staticClass: "col-md-3 col-sm-6"
-  }, [_vm._m(10), _vm._v(" "), _c("select", {
-    directives: [{
-      name: "model",
-      rawName: "v-model",
-      value: _vm.visita.veterinario,
-      expression: "visita.veterinario"
-    }],
-    staticClass: "form-select",
-    attrs: {
-      id: "veterinario"
-    },
-    on: {
-      change: function change($event) {
-        var $$selectedVal = Array.prototype.filter.call($event.target.options, function (o) {
-          return o.selected;
-        }).map(function (o) {
-          var val = "_value" in o ? o._value : o.value;
-          return val;
-        });
-        _vm.$set(_vm.visita, "veterinario", $event.target.multiple ? $$selectedVal : $$selectedVal[0]);
-      }
-    }
-  }, [_c("option", {
-    attrs: {
-      disabled: "",
-      value: ""
-    }
-  }, [_vm._v("Selecciona un veterinario")]), _vm._v(" "), _vm._l(_vm.veterinarios, function (veterinario) {
-    return _c("option", {
-      key: veterinario.nombre_apellidos,
-      domProps: {
-        value: veterinario.nombre_apellidos
-      }
-    }, [_vm._v("\n                                    " + _vm._s(veterinario.nombre_apellidos) + "\n                                ")]);
-  })], 2), _vm._v(" "), _vm.errores.veterinario ? _c("div", {
-    staticClass: "alert alert-danger"
-  }, [_vm._v(_vm._s(_vm.errores.veterinario[0]))]) : _vm._e()]), _vm._v(" "), _c("div", {
-    staticClass: "col-md-3 col-sm-6"
-  }, [_vm._m(11), _vm._v(" "), _c("input", {
+    staticClass: "col-md-4 col-sm-6"
+  }, [_vm._m(10), _vm._v(" "), _c("input", {
     directives: [{
       name: "model",
       rawName: "v-model",
@@ -11059,7 +11027,7 @@ var render = function render() {
       role: "group",
       "aria-label": ""
     }
-  }, [_vm._m(12), _vm._v(" "), _c("router-link", {
+  }, [_vm._m(11), _vm._v(" "), _c("router-link", {
     staticClass: "btn btn-warning",
     attrs: {
       to: {
@@ -11091,10 +11059,6 @@ var staticRenderFns = [function () {
   var _vm = this,
     _c = _vm._self._c;
   return _c("label", [_c("b", [_vm._v("Mascota:")])]);
-}, function () {
-  var _vm = this,
-    _c = _vm._self._c;
-  return _c("label", [_c("b", [_vm._v("Propietario:")])]);
 }, function () {
   var _vm = this,
     _c = _vm._self._c;
@@ -11138,19 +11102,15 @@ var staticRenderFns = [function () {
 }, function () {
   var _vm = this,
     _c = _vm._self._c;
-  return _c("label", {
-    attrs: {
-      "for": "diagnostico"
-    }
-  }, [_c("b", [_vm._v("Diagnóstico:")])]);
+  return _c("label", [_c("b", [_vm._v("Veterinario:")])]);
 }, function () {
   var _vm = this,
     _c = _vm._self._c;
   return _c("label", {
     attrs: {
-      "for": "veterinario"
+      "for": "diagnostico"
     }
-  }, [_c("b", [_vm._v("Veterinario:")])]);
+  }, [_c("b", [_vm._v("Diagnóstico:")])]);
 }, function () {
   var _vm = this,
     _c = _vm._self._c;
@@ -11626,7 +11586,23 @@ var render = function render() {
     staticClass: "row"
   }, [_c("div", {
     staticClass: "table-responsive"
-  }, [_c("table", {
+  }, [_c("div", {
+    staticClass: "btn-group w-100",
+    attrs: {
+      role: "group",
+      "aria-label": ""
+    }
+  }, [_c("router-link", {
+    staticClass: "btn btn-success w-100",
+    attrs: {
+      to: {
+        name: "NuevaVisita"
+      },
+      title: "Nueva Visita"
+    }
+  }, [_c("i", {
+    staticClass: "fas fa-calendar-plus"
+  }), _vm._v(" Nueva visita")])], 1), _vm._v(" "), _c("table", {
     staticClass: "table table-striped table-sm"
   }, [_vm._m(1), _vm._v(" "), _c("tbody", {
     staticClass: "flex-column"
@@ -11749,16 +11725,12 @@ var render = function render() {
   }, [_c("div", {
     staticClass: "row"
   }, [_c("div", {
-    staticClass: "col-md-3 col-sm-6"
+    staticClass: "col-md-4 col-sm-6"
   }, [_vm._m(2), _vm._v(" "), _c("span", {
     staticClass: "form-control bg-secondary"
   }, [_vm._v(_vm._s(_vm.mascota.nombre))])]), _vm._v(" "), _c("div", {
-    staticClass: "col-md-3 col-sm-6"
-  }, [_vm._m(3), _vm._v(" "), _c("span", {
-    staticClass: "form-control bg-secondary"
-  }, [_vm._v(_vm._s(_vm.cliente.nombre_apellidos))])]), _vm._v(" "), _c("div", {
-    staticClass: "col-md-3 col-sm-6"
-  }, [_vm._m(4), _vm._v(" "), _c("input", {
+    staticClass: "col-md-4 col-sm-6"
+  }, [_vm._m(3), _vm._v(" "), _c("input", {
     directives: [{
       name: "model",
       rawName: "v-model",
@@ -11785,8 +11757,8 @@ var render = function render() {
   }), _vm._v(" "), _vm.errores.fecha_visita ? _c("div", {
     staticClass: "alert alert-danger"
   }, [_vm._v(_vm._s(_vm.errores.fecha_visita[0]))]) : _vm._e()]), _vm._v(" "), _c("div", {
-    staticClass: "col-md-3 col-sm-6"
-  }, [_vm._m(5), _vm._v(" "), _c("input", {
+    staticClass: "col-md-4 col-sm-6"
+  }, [_vm._m(4), _vm._v(" "), _c("input", {
     directives: [{
       name: "model",
       rawName: "v-model",
@@ -11811,13 +11783,13 @@ var render = function render() {
     }
   })])])])]), _vm._v(" "), _c("div", {
     staticClass: "card"
-  }, [_vm._m(6), _vm._v(" "), _c("div", {
+  }, [_vm._m(5), _vm._v(" "), _c("div", {
     staticClass: "card-body"
   }, [_c("div", {
     staticClass: "row"
   }, [_c("div", {
     staticClass: "col-md-6 col-sm-6"
-  }, [_vm._m(7), _vm._v(" "), _c("textarea", {
+  }, [_vm._m(6), _vm._v(" "), _c("textarea", {
     directives: [{
       name: "model",
       rawName: "v-model",
@@ -11842,7 +11814,7 @@ var render = function render() {
     staticClass: "alert alert-danger"
   }, [_vm._v(_vm._s(_vm.errores.sintomas[0]))]) : _vm._e()]), _vm._v(" "), _c("div", {
     staticClass: "col-md-6 col-sm-6"
-  }, [_vm._m(8), _vm._v(" "), _c("textarea", {
+  }, [_vm._m(7), _vm._v(" "), _c("textarea", {
     directives: [{
       name: "model",
       rawName: "v-model",
@@ -11866,8 +11838,8 @@ var render = function render() {
   }), _vm._v(" "), _vm.errores.tratamiento ? _c("div", {
     staticClass: "alert alert-danger"
   }, [_vm._v(_vm._s(_vm.errores.tratamiento[0]))]) : _vm._e()]), _vm._v(" "), _c("div", {
-    staticClass: "col-md-3 col-sm-6"
-  }, [_vm._m(9), _vm._v(" "), _c("input", {
+    staticClass: "col-md-4 col-sm-6"
+  }, [_vm._m(8), _vm._v(" "), _c("input", {
     directives: [{
       name: "model",
       rawName: "v-model",
@@ -11893,8 +11865,8 @@ var render = function render() {
   }), _vm._v(" "), _vm.errores.diagnostico ? _c("div", {
     staticClass: "alert alert-danger"
   }, [_vm._v(_vm._s(_vm.errores.diagnostico[0]))]) : _vm._e()]), _vm._v(" "), _c("div", {
-    staticClass: "col-md-3 col-sm-6"
-  }, [_vm._m(10), _vm._v(" "), _c("select", {
+    staticClass: "col-md-4 col-sm-6"
+  }, [_vm._m(9), _vm._v(" "), _c("select", {
     directives: [{
       name: "model",
       rawName: "v-model",
@@ -11931,8 +11903,8 @@ var render = function render() {
   })], 2), _vm._v(" "), _vm.errores.veterinario ? _c("div", {
     staticClass: "alert alert-danger"
   }, [_vm._v(_vm._s(_vm.errores.veterinario[0]))]) : _vm._e()]), _vm._v(" "), _c("div", {
-    staticClass: "col-md-3 col-sm-6"
-  }, [_vm._m(11), _vm._v(" "), _c("input", {
+    staticClass: "col-md-4 col-sm-6"
+  }, [_vm._m(10), _vm._v(" "), _c("input", {
     directives: [{
       name: "model",
       rawName: "v-model",
@@ -11965,11 +11937,11 @@ var render = function render() {
       role: "group",
       "aria-label": ""
     }
-  }, [_vm._m(12), _vm._v(" "), _c("router-link", {
+  }, [_vm._m(11), _vm._v(" "), _c("router-link", {
     staticClass: "btn btn-warning",
     attrs: {
       to: {
-        name: "ListarMascotas"
+        name: "ListarVisitas"
       },
       title: "Volver"
     }
@@ -11997,10 +11969,6 @@ var staticRenderFns = [function () {
   var _vm = this,
     _c = _vm._self._c;
   return _c("label", [_c("b", [_vm._v("Mascota:")])]);
-}, function () {
-  var _vm = this,
-    _c = _vm._self._c;
-  return _c("label", [_c("b", [_vm._v("Propietario:")])]);
 }, function () {
   var _vm = this,
     _c = _vm._self._c;

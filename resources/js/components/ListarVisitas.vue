@@ -6,6 +6,10 @@
         <div class="card-body">
             <div class="row">
                 <div class="table-responsive">
+                    <div class="btn-group w-100" role="group" aria-label="">
+                        <router-link :to="{ name: 'NuevaVisita' }" class="btn btn-success w-100" title="Nueva Visita">
+                            <i class="fas fa-calendar-plus"></i> Nueva visita</router-link>
+                    </div>
                     <table class="table table-striped table-sm">
                         <thead class="bg-dark text-light">
                             <tr>
@@ -129,7 +133,7 @@ export default {
         getVisitas(page = 1) {
             console.log(this.$route.params.id);
             axios.get('visitas/listavisitas/' + this.$route.params.id)
-            .then(response => {
+                .then(response => {
                     this.visitas = response.data.visitas;
                     this.currentPage = response.data.currentPage;
                     this.totalPages = response.data.lastPage;

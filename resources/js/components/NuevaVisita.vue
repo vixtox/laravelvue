@@ -13,22 +13,22 @@
                     <div class="card-body">
                         <div class="row">
                             <!-- Campos de datos generales aquí -->
-                            <div class="col-md-3 col-sm-6">
+                            <div class="col-md-4 col-sm-6">
                                 <label><b>Mascota:</b></label>
                                 <span class="form-control bg-secondary">{{ mascota.nombre }}</span>
                             </div>
-                            <div class="col-md-3 col-sm-6">
+                            <!-- <div class="col-md-3 col-sm-6">
                                 <label><b>Propietario:</b></label>
                                 <span class="form-control bg-secondary">{{ cliente.nombre_apellidos }}</span>
-                            </div>
-                            <div class="col-md-3 col-sm-6">
+                            </div> -->
+                            <div class="col-md-4 col-sm-6">
                                 <label for="fecha_visita"><b><span class="text-danger">* </span>Fecha visita:</b></label>
                                 <input type="date" class="form-control" name="fecha_visita" :max="maxDate"
                                     v-model="visita.fecha_visita" id="fecha_visita" aria-describedby="helpId">
                                 <div class="alert alert-danger" v-if="errores.fecha_visita">{{ errores.fecha_visita[0]
                                 }}</div>
                             </div>
-                            <div class="col-md-3 col-sm-6">
+                            <div class="col-md-4 col-sm-6">
                                 <label for="hora_visita"><b>Hora visita:</b></label>
                                 <input type="time" class="form-control" name="hora_visita" v-model="visita.hora_visita"
                                     id="hora_visita" aria-describedby="helpId">
@@ -59,7 +59,7 @@
                                     errores.tratamiento[0]
                                 }}</div>
                             </div>
-                            <div class="col-md-3 col-sm-6">
+                            <div class="col-md-4 col-sm-6">
                                 <label for="diagnostico"><b><span class="text-danger">* </span>Diagnóstico:</b></label>
                                 <input class="form-control" id="diagnostico" aria-describedby="helpId"
                                     placeholder="Diagnóstico" name="diagnostico" v-model="visita.diagnostico">
@@ -67,7 +67,7 @@
                                     errores.diagnostico[0]
                                 }}</div>
                             </div>
-                            <div class="col-md-3 col-sm-6">
+                            <div class="col-md-4 col-sm-6">
                                 <label for="veterinario"><b><span class="text-danger">* </span>Veterinario:</b></label>
                                 <select class="form-select" id="veterinario" v-model="visita.veterinario">
                                     <option disabled value="">Selecciona un veterinario</option>
@@ -79,7 +79,7 @@
                                 <div class="alert alert-danger" v-if="errores.veterinario">{{ errores.veterinario[0]
                                 }}</div>
                             </div>
-                            <div class="col-md-3 col-sm-6">
+                            <div class="col-md-4 col-sm-6">
                                 <label for="coste"><b><span class="text-danger">* </span>Coste:</b></label>
                                 <input type="number" step="0.01" class="form-control" name="coste" v-model="visita.coste"
                                     id="coste" aria-describedby="helpId" placeholder="Coste">
@@ -96,7 +96,7 @@
                         <i class="fa fa-clinic-medical"></i> Nueva visita
                     </button>
 
-                    <router-link :to="{ name: 'ListarMascotas' }" class="btn btn-warning" title="Volver">
+                    <router-link :to="{ name: 'ListarVisitas' }" class="btn btn-warning" title="Volver">
                         <i class="bi bi-arrow-return-left fw-bold"></i>
                     </router-link>
                 </div>
@@ -128,7 +128,7 @@ export default {
             errores: {},
             veterinarios: [],
             mascota: {},
-            cliente: {},
+            // cliente: {},
         };
     },
 
@@ -147,21 +147,21 @@ export default {
                 const response = await axios.get('mascotas/' + this.$route.params.id);
                 console.log(response.data); // Agregar esta línea para depurar
                 this.mascota = response.data;
-                await this.obtenerPropietario();
+                // await this.obtenerPropietario();
             } catch (error) {
                 console.error(error);
             }
         },
 
-        async obtenerPropietario() {
-            try {
-                const response = await axios.get('clientes/' + this.mascota.cliente_id);
-                console.log(response.data); // Agregar esta línea para depurar
-                this.cliente = response.data;
-            } catch (error) {
-                console.error(error);
-            }
-        },
+        // async obtenerPropietario() {
+        //     try {
+        //         const response = await axios.get('clientes/' + this.mascota.cliente_id);
+        //         console.log(response.data); // Agregar esta línea para depurar
+        //         this.cliente = response.data;
+        //     } catch (error) {
+        //         console.error(error);
+        //     }
+        // },
 
         // Inserta en la base de datos
         async altaVisita() {
@@ -177,7 +177,7 @@ export default {
                     showConfirmButton: false,
                     timer: 1500
                 })
-                this.$router.push({ name: 'ListarMascotas' });
+                this.$router.push({ name: 'ListarVisitas' });
 
             } catch (error) {
                 if (error.response.data) {
