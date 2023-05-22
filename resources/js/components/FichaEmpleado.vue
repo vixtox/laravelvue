@@ -148,7 +148,7 @@
 
                 <div class="btn-group w-100" role="group" aria-label="">
                     <button type="submit" class="btn btn-success" title="Guardar">
-                        <i class="fa fa-save"></i>
+                        <i class="fa fa-save"></i> Guardar
                     </button>
 
                     <router-link :to="{ name: 'ListarEmpleados' }" class="btn btn-warning" title="Volver">

@@ -14,6 +14,7 @@
                 </router-link>
             </div>
             <div class="col-md-4 col-sm-12 col-12 iconos">
+                <br>
                 <ul class="nav">
                     <li class="nav-item dropdown">
                         <a href="#" class="nav-link dropdown-toggle text-white" data-toggle="dropdown">

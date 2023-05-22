@@ -146,7 +146,7 @@
 
                 <div class="btn-group w-100" role="group" aria-label="">
                     <button type="submit" class="btn btn-success" title="Alta mascota">
-                        <i class="fas fa-paw"></i>
+                        <i class="fas fa-paw"></i> Alta mascota
                     </button>
 
                     <router-link :to="{ name: 'ListarMascotas' }" class="btn btn-warning" title="Volver">

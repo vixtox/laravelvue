@@ -17,6 +17,7 @@ import ListarMascotas from './components/ListarMascotas.vue';
 import FichaMascota from './components/FichaMascota.vue';
 import NuevaVisita from './components/NuevaVisita.vue';
 import ListarVisitas from './components/ListarVisitas.vue';
+import FichaVisita from './components/FichaVisita.vue';
 
 Vue.use(VueRouter);
 
@@ -116,6 +117,14 @@ const routes = [
         path: '/listarvisitas/:id',
         name: 'ListarVisitas',
         component: ListarVisitas,
+        meta: {
+            requiresAuth: true
+        }
+    },
+    {
+        path: '/fichavisita/:id',
+        name: 'FichaVisita',
+        component: FichaVisita,
         meta: {
             requiresAuth: true
         }

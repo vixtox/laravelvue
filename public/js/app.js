@@ -6425,6 +6425,167 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
 
 /***/ }),
 
+/***/ "./node_modules/babel-loader/lib/index.js??clonedRuleSet-5.use[0]!./node_modules/vue-loader/lib/index.js??vue-loader-options!./resources/js/components/FichaVisita.vue?vue&type=script&lang=js&":
+/*!******************************************************************************************************************************************************************************************************!*\
+  !*** ./node_modules/babel-loader/lib/index.js??clonedRuleSet-5.use[0]!./node_modules/vue-loader/lib/index.js??vue-loader-options!./resources/js/components/FichaVisita.vue?vue&type=script&lang=js& ***!
+  \******************************************************************************************************************************************************************************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
+/* harmony export */ });
+/* harmony import */ var axios__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! axios */ "./node_modules/axios/index.js");
+/* harmony import */ var axios__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(axios__WEBPACK_IMPORTED_MODULE_0__);
+/* harmony import */ var sweetalert2__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! sweetalert2 */ "./node_modules/sweetalert2/dist/sweetalert2.all.js");
+/* harmony import */ var sweetalert2__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(sweetalert2__WEBPACK_IMPORTED_MODULE_1__);
+function _typeof(obj) { "@babel/helpers - typeof"; return _typeof = "function" == typeof Symbol && "symbol" == typeof Symbol.iterator ? function (obj) { return typeof obj; } : function (obj) { return obj && "function" == typeof Symbol && obj.constructor === Symbol && obj !== Symbol.prototype ? "symbol" : typeof obj; }, _typeof(obj); }
+function _regeneratorRuntime() { "use strict"; /*! regenerator-runtime -- Copyright (c) 2014-present, Facebook, Inc. -- license (MIT): https://github.com/facebook/regenerator/blob/main/LICENSE */ _regeneratorRuntime = function _regeneratorRuntime() { return exports; }; var exports = {}, Op = Object.prototype, hasOwn = Op.hasOwnProperty, defineProperty = Object.defineProperty || function (obj, key, desc) { obj[key] = desc.value; }, $Symbol = "function" == typeof Symbol ? Symbol : {}, iteratorSymbol = $Symbol.iterator || "@@iterator", asyncIteratorSymbol = $Symbol.asyncIterator || "@@asyncIterator", toStringTagSymbol = $Symbol.toStringTag || "@@toStringTag"; function define(obj, key, value) { return Object.defineProperty(obj, key, { value: value, enumerable: !0, configurable: !0, writable: !0 }), obj[key]; } try { define({}, ""); } catch (err) { define = function define(obj, key, value) { return obj[key] = value; }; } function wrap(innerFn, outerFn, self, tryLocsList) { var protoGenerator = outerFn && outerFn.prototype instanceof Generator ? outerFn : Generator, generator = Object.create(protoGenerator.prototype), context = new Context(tryLocsList || []); return defineProperty(generator, "_invoke", { value: makeInvokeMethod(innerFn, self, context) }), generator; } function tryCatch(fn, obj, arg) { try { return { type: "normal", arg: fn.call(obj, arg) }; } catch (err) { return { type: "throw", arg: err }; } } exports.wrap = wrap; var ContinueSentinel = {}; function Generator() {} function GeneratorFunction() {} function GeneratorFunctionPrototype() {} var IteratorPrototype = {}; define(IteratorPrototype, iteratorSymbol, function () { return this; }); var getProto = Object.getPrototypeOf, NativeIteratorPrototype = getProto && getProto(getProto(values([]))); NativeIteratorPrototype && NativeIteratorPrototype !== Op && hasOwn.call(NativeIteratorPrototype, iteratorSymbol) && (IteratorPrototype = NativeIteratorPrototype); var Gp = GeneratorFunctionPrototype.prototype = Generator.prototype = Object.create(IteratorPrototype); function defineIteratorMethods(prototype) { ["next", "throw", "return"].forEach(function (method) { define(prototype, method, function (arg) { return this._invoke(method, arg); }); }); } function AsyncIterator(generator, PromiseImpl) { function invoke(method, arg, resolve, reject) { var record = tryCatch(generator[method], generator, arg); if ("throw" !== record.type) { var result = record.arg, value = result.value; return value && "object" == _typeof(value) && hasOwn.call(value, "__await") ? PromiseImpl.resolve(value.__await).then(function (value) { invoke("next", value, resolve, reject); }, function (err) { invoke("throw", err, resolve, reject); }) : PromiseImpl.resolve(value).then(function (unwrapped) { result.value = unwrapped, resolve(result); }, function (error) { return invoke("throw", error, resolve, reject); }); } reject(record.arg); } var previousPromise; defineProperty(this, "_invoke", { value: function value(method, arg) { function callInvokeWithMethodAndArg() { return new PromiseImpl(function (resolve, reject) { invoke(method, arg, resolve, reject); }); } return previousPromise = previousPromise ? previousPromise.then(callInvokeWithMethodAndArg, callInvokeWithMethodAndArg) : callInvokeWithMethodAndArg(); } }); } function makeInvokeMethod(innerFn, self, context) { var state = "suspendedStart"; return function (method, arg) { if ("executing" === state) throw new Error("Generator is already running"); if ("completed" === state) { if ("throw" === method) throw arg; return doneResult(); } for (context.method = method, context.arg = arg;;) { var delegate = context.delegate; if (delegate) { var delegateResult = maybeInvokeDelegate(delegate, context); if (delegateResult) { if (delegateResult === ContinueSentinel) continue; return delegateResult; } } if ("next" === context.method) context.sent = context._sent = context.arg;else if ("throw" === context.method) { if ("suspendedStart" === state) throw state = "completed", context.arg; context.dispatchException(context.arg); } else "return" === context.method && context.abrupt("return", context.arg); state = "executing"; var record = tryCatch(innerFn, self, context); if ("normal" === record.type) { if (state = context.done ? "completed" : "suspendedYield", record.arg === ContinueSentinel) continue; return { value: record.arg, done: context.done }; } "throw" === record.type && (state = "completed", context.method = "throw", context.arg = record.arg); } }; } function maybeInvokeDelegate(delegate, context) { var methodName = context.method, method = delegate.iterator[methodName]; if (undefined === method) return context.delegate = null, "throw" === methodName && delegate.iterator["return"] && (context.method = "return", context.arg = undefined, maybeInvokeDelegate(delegate, context), "throw" === context.method) || "return" !== methodName && (context.method = "throw", context.arg = new TypeError("The iterator does not provide a '" + methodName + "' method")), ContinueSentinel; var record = tryCatch(method, delegate.iterator, context.arg); if ("throw" === record.type) return context.method = "throw", context.arg = record.arg, context.delegate = null, ContinueSentinel; var info = record.arg; return info ? info.done ? (context[delegate.resultName] = info.value, context.next = delegate.nextLoc, "return" !== context.method && (context.method = "next", context.arg = undefined), context.delegate = null, ContinueSentinel) : info : (context.method = "throw", context.arg = new TypeError("iterator result is not an object"), context.delegate = null, ContinueSentinel); } function pushTryEntry(locs) { var entry = { tryLoc: locs[0] }; 1 in locs && (entry.catchLoc = locs[1]), 2 in locs && (entry.finallyLoc = locs[2], entry.afterLoc = locs[3]), this.tryEntries.push(entry); } function resetTryEntry(entry) { var record = entry.completion || {}; record.type = "normal", delete record.arg, entry.completion = record; } function Context(tryLocsList) { this.tryEntries = [{ tryLoc: "root" }], tryLocsList.forEach(pushTryEntry, this), this.reset(!0); } function values(iterable) { if (iterable) { var iteratorMethod = iterable[iteratorSymbol]; if (iteratorMethod) return iteratorMethod.call(iterable); if ("function" == typeof iterable.next) return iterable; if (!isNaN(iterable.length)) { var i = -1, next = function next() { for (; ++i < iterable.length;) if (hasOwn.call(iterable, i)) return next.value = iterable[i], next.done = !1, next; return next.value = undefined, next.done = !0, next; }; return next.next = next; } } return { next: doneResult }; } function doneResult() { return { value: undefined, done: !0 }; } return GeneratorFunction.prototype = GeneratorFunctionPrototype, defineProperty(Gp, "constructor", { value: GeneratorFunctionPrototype, configurable: !0 }), defineProperty(GeneratorFunctionPrototype, "constructor", { value: GeneratorFunction, configurable: !0 }), GeneratorFunction.displayName = define(GeneratorFunctionPrototype, toStringTagSymbol, "GeneratorFunction"), exports.isGeneratorFunction = function (genFun) { var ctor = "function" == typeof genFun && genFun.constructor; return !!ctor && (ctor === GeneratorFunction || "GeneratorFunction" === (ctor.displayName || ctor.name)); }, exports.mark = function (genFun) { return Object.setPrototypeOf ? Object.setPrototypeOf(genFun, GeneratorFunctionPrototype) : (genFun.__proto__ = GeneratorFunctionPrototype, define(genFun, toStringTagSymbol, "GeneratorFunction")), genFun.prototype = Object.create(Gp), genFun; }, exports.awrap = function (arg) { return { __await: arg }; }, defineIteratorMethods(AsyncIterator.prototype), define(AsyncIterator.prototype, asyncIteratorSymbol, function () { return this; }), exports.AsyncIterator = AsyncIterator, exports.async = function (innerFn, outerFn, self, tryLocsList, PromiseImpl) { void 0 === PromiseImpl && (PromiseImpl = Promise); var iter = new AsyncIterator(wrap(innerFn, outerFn, self, tryLocsList), PromiseImpl); return exports.isGeneratorFunction(outerFn) ? iter : iter.next().then(function (result) { return result.done ? result.value : iter.next(); }); }, defineIteratorMethods(Gp), define(Gp, toStringTagSymbol, "Generator"), define(Gp, iteratorSymbol, function () { return this; }), define(Gp, "toString", function () { return "[object Generator]"; }), exports.keys = function (val) { var object = Object(val), keys = []; for (var key in object) keys.push(key); return keys.reverse(), function next() { for (; keys.length;) { var key = keys.pop(); if (key in object) return next.value = key, next.done = !1, next; } return next.done = !0, next; }; }, exports.values = values, Context.prototype = { constructor: Context, reset: function reset(skipTempReset) { if (this.prev = 0, this.next = 0, this.sent = this._sent = undefined, this.done = !1, this.delegate = null, this.method = "next", this.arg = undefined, this.tryEntries.forEach(resetTryEntry), !skipTempReset) for (var name in this) "t" === name.charAt(0) && hasOwn.call(this, name) && !isNaN(+name.slice(1)) && (this[name] = undefined); }, stop: function stop() { this.done = !0; var rootRecord = this.tryEntries[0].completion; if ("throw" === rootRecord.type) throw rootRecord.arg; return this.rval; }, dispatchException: function dispatchException(exception) { if (this.done) throw exception; var context = this; function handle(loc, caught) { return record.type = "throw", record.arg = exception, context.next = loc, caught && (context.method = "next", context.arg = undefined), !!caught; } for (var i = this.tryEntries.length - 1; i >= 0; --i) { var entry = this.tryEntries[i], record = entry.completion; if ("root" === entry.tryLoc) return handle("end"); if (entry.tryLoc <= this.prev) { var hasCatch = hasOwn.call(entry, "catchLoc"), hasFinally = hasOwn.call(entry, "finallyLoc"); if (hasCatch && hasFinally) { if (this.prev < entry.catchLoc) return handle(entry.catchLoc, !0); if (this.prev < entry.finallyLoc) return handle(entry.finallyLoc); } else if (hasCatch) { if (this.prev < entry.catchLoc) return handle(entry.catchLoc, !0); } else { if (!hasFinally) throw new Error("try statement without catch or finally"); if (this.prev < entry.finallyLoc) return handle(entry.finallyLoc); } } } }, abrupt: function abrupt(type, arg) { for (var i = this.tryEntries.length - 1; i >= 0; --i) { var entry = this.tryEntries[i]; if (entry.tryLoc <= this.prev && hasOwn.call(entry, "finallyLoc") && this.prev < entry.finallyLoc) { var finallyEntry = entry; break; } } finallyEntry && ("break" === type || "continue" === type) && finallyEntry.tryLoc <= arg && arg <= finallyEntry.finallyLoc && (finallyEntry = null); var record = finallyEntry ? finallyEntry.completion : {}; return record.type = type, record.arg = arg, finallyEntry ? (this.method = "next", this.next = finallyEntry.finallyLoc, ContinueSentinel) : this.complete(record); }, complete: function complete(record, afterLoc) { if ("throw" === record.type) throw record.arg; return "break" === record.type || "continue" === record.type ? this.next = record.arg : "return" === record.type ? (this.rval = this.arg = record.arg, this.method = "return", this.next = "end") : "normal" === record.type && afterLoc && (this.next = afterLoc), ContinueSentinel; }, finish: function finish(finallyLoc) { for (var i = this.tryEntries.length - 1; i >= 0; --i) { var entry = this.tryEntries[i]; if (entry.finallyLoc === finallyLoc) return this.complete(entry.completion, entry.afterLoc), resetTryEntry(entry), ContinueSentinel; } }, "catch": function _catch(tryLoc) { for (var i = this.tryEntries.length - 1; i >= 0; --i) { var entry = this.tryEntries[i]; if (entry.tryLoc === tryLoc) { var record = entry.completion; if ("throw" === record.type) { var thrown = record.arg; resetTryEntry(entry); } return thrown; } } throw new Error("illegal catch attempt"); }, delegateYield: function delegateYield(iterable, resultName, nextLoc) { return this.delegate = { iterator: values(iterable), resultName: resultName, nextLoc: nextLoc }, "next" === this.method && (this.arg = undefined), ContinueSentinel; } }, exports; }
+function asyncGeneratorStep(gen, resolve, reject, _next, _throw, key, arg) { try { var info = gen[key](arg); var value = info.value; } catch (error) { reject(error); return; } if (info.done) { resolve(value); } else { Promise.resolve(value).then(_next, _throw); } }
+function _asyncToGenerator(fn) { return function () { var self = this, args = arguments; return new Promise(function (resolve, reject) { var gen = fn.apply(self, args); function _next(value) { asyncGeneratorStep(gen, resolve, reject, _next, _throw, "next", value); } function _throw(err) { asyncGeneratorStep(gen, resolve, reject, _next, _throw, "throw", err); } _next(undefined); }); }; }
+
+
+/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ({
+  data: function data() {
+    return {
+      maxDate: this.getCurrentDate(),
+      visita: {
+        mascotas_id: this.$route.params.id,
+        fecha_visita: "",
+        hora_visita: "",
+        veterinario: "",
+        sintomas: "",
+        diagnostico: "",
+        tratamiento: "",
+        coste: ""
+      },
+      errores: {},
+      veterinarios: [],
+      mascota: {},
+      cliente: {},
+      id: this.$route.params.id
+    };
+  },
+  created: function created() {
+    this.obtenerInformacionID(this.id);
+    var token = document.querySelector('meta[name="csrf-token"]');
+    if (token) {
+      this.csrfToken = token.content;
+    }
+  },
+  methods: {
+    obtenerInformacionID: function obtenerInformacionID(id) {
+      var _this = this;
+      return _asyncToGenerator( /*#__PURE__*/_regeneratorRuntime().mark(function _callee() {
+        var response;
+        return _regeneratorRuntime().wrap(function _callee$(_context) {
+          while (1) switch (_context.prev = _context.next) {
+            case 0:
+              _context.prev = 0;
+              _context.next = 3;
+              return axios__WEBPACK_IMPORTED_MODULE_0___default().get('visitas/' + id);
+            case 3:
+              response = _context.sent;
+              console.log(response.data); // Agregar esta línea para depurar
+              _this.visita = response.data;
+              _context.next = 8;
+              return _this.obtenerPropietario();
+            case 8:
+              _context.next = 13;
+              break;
+            case 10:
+              _context.prev = 10;
+              _context.t0 = _context["catch"](0);
+              console.error(_context.t0);
+            case 13:
+            case "end":
+              return _context.stop();
+          }
+        }, _callee, null, [[0, 10]]);
+      }))();
+    },
+    obtenerPropietario: function obtenerPropietario() {
+      var _this2 = this;
+      return _asyncToGenerator( /*#__PURE__*/_regeneratorRuntime().mark(function _callee2() {
+        var response;
+        return _regeneratorRuntime().wrap(function _callee2$(_context2) {
+          while (1) switch (_context2.prev = _context2.next) {
+            case 0:
+              _context2.prev = 0;
+              _context2.next = 3;
+              return axios__WEBPACK_IMPORTED_MODULE_0___default().get('clientes/' + _this2.mascota.cliente_id);
+            case 3:
+              response = _context2.sent;
+              console.log(response.data); // Agregar esta línea para depurar
+              _this2.cliente = response.data;
+              _context2.next = 11;
+              break;
+            case 8:
+              _context2.prev = 8;
+              _context2.t0 = _context2["catch"](0);
+              console.error(_context2.t0);
+            case 11:
+            case "end":
+              return _context2.stop();
+          }
+        }, _callee2, null, [[0, 8]]);
+      }))();
+    },
+    // Edita mascota en la base de datos
+    editarVisita: function editarVisita() {
+      var _this3 = this;
+      return _asyncToGenerator( /*#__PURE__*/_regeneratorRuntime().mark(function _callee3() {
+        var res;
+        return _regeneratorRuntime().wrap(function _callee3$(_context3) {
+          while (1) switch (_context3.prev = _context3.next) {
+            case 0:
+              console.log(_this3.visita);
+              _context3.next = 3;
+              return axios__WEBPACK_IMPORTED_MODULE_0___default().put('visitas/' + _this3.id, _this3.visita).then(function (response) {
+                sweetalert2__WEBPACK_IMPORTED_MODULE_1___default().fire({
+                  position: 'center',
+                  icon: 'success',
+                  title: 'Cambios guardados',
+                  showConfirmButton: false,
+                  timer: 1500
+                });
+                console.log(response);
+                _this3.errores = {};
+              })["catch"](function (error) {
+                console.log(error.response);
+                sweetalert2__WEBPACK_IMPORTED_MODULE_1___default().fire({
+                  icon: 'error',
+                  title: 'Error actualizar mascota',
+                  text: 'Ingresa los campos correctamente'
+                });
+                _this3.errores = error.response.data.errors;
+              });
+            case 3:
+              res = _context3.sent;
+            case 4:
+            case "end":
+              return _context3.stop();
+          }
+        }, _callee3);
+      }))();
+    },
+    getCurrentDate: function getCurrentDate() {
+      var today = new Date();
+      var year = today.getFullYear();
+      var month = today.getMonth() + 1;
+      var day = today.getDate();
+
+      // Agrega un cero inicial para el mes y el día si es necesario
+      month = month < 10 ? '0' + month : month;
+      day = day < 10 ? '0' + day : day;
+      return "".concat(year, "-").concat(month, "-").concat(day);
+    }
+  }
+});
+
+/***/ }),
+
 /***/ "./node_modules/babel-loader/lib/index.js??clonedRuleSet-5.use[0]!./node_modules/vue-loader/lib/index.js??vue-loader-options!./resources/js/components/ListarClientes.vue?vue&type=script&lang=js&":
 /*!*********************************************************************************************************************************************************************************************************!*\
   !*** ./node_modules/babel-loader/lib/index.js??clonedRuleSet-5.use[0]!./node_modules/vue-loader/lib/index.js??vue-loader-options!./resources/js/components/ListarClientes.vue?vue&type=script&lang=js& ***!
@@ -6826,6 +6987,10 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _Paginacion_vue__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./Paginacion.vue */ "./resources/js/components/Paginacion.vue");
 /* harmony import */ var sweetalert2__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! sweetalert2 */ "./node_modules/sweetalert2/dist/sweetalert2.all.js");
 /* harmony import */ var sweetalert2__WEBPACK_IMPORTED_MODULE_2___default = /*#__PURE__*/__webpack_require__.n(sweetalert2__WEBPACK_IMPORTED_MODULE_2__);
+function _typeof(obj) { "@babel/helpers - typeof"; return _typeof = "function" == typeof Symbol && "symbol" == typeof Symbol.iterator ? function (obj) { return typeof obj; } : function (obj) { return obj && "function" == typeof Symbol && obj.constructor === Symbol && obj !== Symbol.prototype ? "symbol" : typeof obj; }, _typeof(obj); }
+function _regeneratorRuntime() { "use strict"; /*! regenerator-runtime -- Copyright (c) 2014-present, Facebook, Inc. -- license (MIT): https://github.com/facebook/regenerator/blob/main/LICENSE */ _regeneratorRuntime = function _regeneratorRuntime() { return exports; }; var exports = {}, Op = Object.prototype, hasOwn = Op.hasOwnProperty, defineProperty = Object.defineProperty || function (obj, key, desc) { obj[key] = desc.value; }, $Symbol = "function" == typeof Symbol ? Symbol : {}, iteratorSymbol = $Symbol.iterator || "@@iterator", asyncIteratorSymbol = $Symbol.asyncIterator || "@@asyncIterator", toStringTagSymbol = $Symbol.toStringTag || "@@toStringTag"; function define(obj, key, value) { return Object.defineProperty(obj, key, { value: value, enumerable: !0, configurable: !0, writable: !0 }), obj[key]; } try { define({}, ""); } catch (err) { define = function define(obj, key, value) { return obj[key] = value; }; } function wrap(innerFn, outerFn, self, tryLocsList) { var protoGenerator = outerFn && outerFn.prototype instanceof Generator ? outerFn : Generator, generator = Object.create(protoGenerator.prototype), context = new Context(tryLocsList || []); return defineProperty(generator, "_invoke", { value: makeInvokeMethod(innerFn, self, context) }), generator; } function tryCatch(fn, obj, arg) { try { return { type: "normal", arg: fn.call(obj, arg) }; } catch (err) { return { type: "throw", arg: err }; } } exports.wrap = wrap; var ContinueSentinel = {}; function Generator() {} function GeneratorFunction() {} function GeneratorFunctionPrototype() {} var IteratorPrototype = {}; define(IteratorPrototype, iteratorSymbol, function () { return this; }); var getProto = Object.getPrototypeOf, NativeIteratorPrototype = getProto && getProto(getProto(values([]))); NativeIteratorPrototype && NativeIteratorPrototype !== Op && hasOwn.call(NativeIteratorPrototype, iteratorSymbol) && (IteratorPrototype = NativeIteratorPrototype); var Gp = GeneratorFunctionPrototype.prototype = Generator.prototype = Object.create(IteratorPrototype); function defineIteratorMethods(prototype) { ["next", "throw", "return"].forEach(function (method) { define(prototype, method, function (arg) { return this._invoke(method, arg); }); }); } function AsyncIterator(generator, PromiseImpl) { function invoke(method, arg, resolve, reject) { var record = tryCatch(generator[method], generator, arg); if ("throw" !== record.type) { var result = record.arg, value = result.value; return value && "object" == _typeof(value) && hasOwn.call(value, "__await") ? PromiseImpl.resolve(value.__await).then(function (value) { invoke("next", value, resolve, reject); }, function (err) { invoke("throw", err, resolve, reject); }) : PromiseImpl.resolve(value).then(function (unwrapped) { result.value = unwrapped, resolve(result); }, function (error) { return invoke("throw", error, resolve, reject); }); } reject(record.arg); } var previousPromise; defineProperty(this, "_invoke", { value: function value(method, arg) { function callInvokeWithMethodAndArg() { return new PromiseImpl(function (resolve, reject) { invoke(method, arg, resolve, reject); }); } return previousPromise = previousPromise ? previousPromise.then(callInvokeWithMethodAndArg, callInvokeWithMethodAndArg) : callInvokeWithMethodAndArg(); } }); } function makeInvokeMethod(innerFn, self, context) { var state = "suspendedStart"; return function (method, arg) { if ("executing" === state) throw new Error("Generator is already running"); if ("completed" === state) { if ("throw" === method) throw arg; return doneResult(); } for (context.method = method, context.arg = arg;;) { var delegate = context.delegate; if (delegate) { var delegateResult = maybeInvokeDelegate(delegate, context); if (delegateResult) { if (delegateResult === ContinueSentinel) continue; return delegateResult; } } if ("next" === context.method) context.sent = context._sent = context.arg;else if ("throw" === context.method) { if ("suspendedStart" === state) throw state = "completed", context.arg; context.dispatchException(context.arg); } else "return" === context.method && context.abrupt("return", context.arg); state = "executing"; var record = tryCatch(innerFn, self, context); if ("normal" === record.type) { if (state = context.done ? "completed" : "suspendedYield", record.arg === ContinueSentinel) continue; return { value: record.arg, done: context.done }; } "throw" === record.type && (state = "completed", context.method = "throw", context.arg = record.arg); } }; } function maybeInvokeDelegate(delegate, context) { var methodName = context.method, method = delegate.iterator[methodName]; if (undefined === method) return context.delegate = null, "throw" === methodName && delegate.iterator["return"] && (context.method = "return", context.arg = undefined, maybeInvokeDelegate(delegate, context), "throw" === context.method) || "return" !== methodName && (context.method = "throw", context.arg = new TypeError("The iterator does not provide a '" + methodName + "' method")), ContinueSentinel; var record = tryCatch(method, delegate.iterator, context.arg); if ("throw" === record.type) return context.method = "throw", context.arg = record.arg, context.delegate = null, ContinueSentinel; var info = record.arg; return info ? info.done ? (context[delegate.resultName] = info.value, context.next = delegate.nextLoc, "return" !== context.method && (context.method = "next", context.arg = undefined), context.delegate = null, ContinueSentinel) : info : (context.method = "throw", context.arg = new TypeError("iterator result is not an object"), context.delegate = null, ContinueSentinel); } function pushTryEntry(locs) { var entry = { tryLoc: locs[0] }; 1 in locs && (entry.catchLoc = locs[1]), 2 in locs && (entry.finallyLoc = locs[2], entry.afterLoc = locs[3]), this.tryEntries.push(entry); } function resetTryEntry(entry) { var record = entry.completion || {}; record.type = "normal", delete record.arg, entry.completion = record; } function Context(tryLocsList) { this.tryEntries = [{ tryLoc: "root" }], tryLocsList.forEach(pushTryEntry, this), this.reset(!0); } function values(iterable) { if (iterable) { var iteratorMethod = iterable[iteratorSymbol]; if (iteratorMethod) return iteratorMethod.call(iterable); if ("function" == typeof iterable.next) return iterable; if (!isNaN(iterable.length)) { var i = -1, next = function next() { for (; ++i < iterable.length;) if (hasOwn.call(iterable, i)) return next.value = iterable[i], next.done = !1, next; return next.value = undefined, next.done = !0, next; }; return next.next = next; } } return { next: doneResult }; } function doneResult() { return { value: undefined, done: !0 }; } return GeneratorFunction.prototype = GeneratorFunctionPrototype, defineProperty(Gp, "constructor", { value: GeneratorFunctionPrototype, configurable: !0 }), defineProperty(GeneratorFunctionPrototype, "constructor", { value: GeneratorFunction, configurable: !0 }), GeneratorFunction.displayName = define(GeneratorFunctionPrototype, toStringTagSymbol, "GeneratorFunction"), exports.isGeneratorFunction = function (genFun) { var ctor = "function" == typeof genFun && genFun.constructor; return !!ctor && (ctor === GeneratorFunction || "GeneratorFunction" === (ctor.displayName || ctor.name)); }, exports.mark = function (genFun) { return Object.setPrototypeOf ? Object.setPrototypeOf(genFun, GeneratorFunctionPrototype) : (genFun.__proto__ = GeneratorFunctionPrototype, define(genFun, toStringTagSymbol, "GeneratorFunction")), genFun.prototype = Object.create(Gp), genFun; }, exports.awrap = function (arg) { return { __await: arg }; }, defineIteratorMethods(AsyncIterator.prototype), define(AsyncIterator.prototype, asyncIteratorSymbol, function () { return this; }), exports.AsyncIterator = AsyncIterator, exports.async = function (innerFn, outerFn, self, tryLocsList, PromiseImpl) { void 0 === PromiseImpl && (PromiseImpl = Promise); var iter = new AsyncIterator(wrap(innerFn, outerFn, self, tryLocsList), PromiseImpl); return exports.isGeneratorFunction(outerFn) ? iter : iter.next().then(function (result) { return result.done ? result.value : iter.next(); }); }, defineIteratorMethods(Gp), define(Gp, toStringTagSymbol, "Generator"), define(Gp, iteratorSymbol, function () { return this; }), define(Gp, "toString", function () { return "[object Generator]"; }), exports.keys = function (val) { var object = Object(val), keys = []; for (var key in object) keys.push(key); return keys.reverse(), function next() { for (; keys.length;) { var key = keys.pop(); if (key in object) return next.value = key, next.done = !1, next; } return next.done = !0, next; }; }, exports.values = values, Context.prototype = { constructor: Context, reset: function reset(skipTempReset) { if (this.prev = 0, this.next = 0, this.sent = this._sent = undefined, this.done = !1, this.delegate = null, this.method = "next", this.arg = undefined, this.tryEntries.forEach(resetTryEntry), !skipTempReset) for (var name in this) "t" === name.charAt(0) && hasOwn.call(this, name) && !isNaN(+name.slice(1)) && (this[name] = undefined); }, stop: function stop() { this.done = !0; var rootRecord = this.tryEntries[0].completion; if ("throw" === rootRecord.type) throw rootRecord.arg; return this.rval; }, dispatchException: function dispatchException(exception) { if (this.done) throw exception; var context = this; function handle(loc, caught) { return record.type = "throw", record.arg = exception, context.next = loc, caught && (context.method = "next", context.arg = undefined), !!caught; } for (var i = this.tryEntries.length - 1; i >= 0; --i) { var entry = this.tryEntries[i], record = entry.completion; if ("root" === entry.tryLoc) return handle("end"); if (entry.tryLoc <= this.prev) { var hasCatch = hasOwn.call(entry, "catchLoc"), hasFinally = hasOwn.call(entry, "finallyLoc"); if (hasCatch && hasFinally) { if (this.prev < entry.catchLoc) return handle(entry.catchLoc, !0); if (this.prev < entry.finallyLoc) return handle(entry.finallyLoc); } else if (hasCatch) { if (this.prev < entry.catchLoc) return handle(entry.catchLoc, !0); } else { if (!hasFinally) throw new Error("try statement without catch or finally"); if (this.prev < entry.finallyLoc) return handle(entry.finallyLoc); } } } }, abrupt: function abrupt(type, arg) { for (var i = this.tryEntries.length - 1; i >= 0; --i) { var entry = this.tryEntries[i]; if (entry.tryLoc <= this.prev && hasOwn.call(entry, "finallyLoc") && this.prev < entry.finallyLoc) { var finallyEntry = entry; break; } } finallyEntry && ("break" === type || "continue" === type) && finallyEntry.tryLoc <= arg && arg <= finallyEntry.finallyLoc && (finallyEntry = null); var record = finallyEntry ? finallyEntry.completion : {}; return record.type = type, record.arg = arg, finallyEntry ? (this.method = "next", this.next = finallyEntry.finallyLoc, ContinueSentinel) : this.complete(record); }, complete: function complete(record, afterLoc) { if ("throw" === record.type) throw record.arg; return "break" === record.type || "continue" === record.type ? this.next = record.arg : "return" === record.type ? (this.rval = this.arg = record.arg, this.method = "return", this.next = "end") : "normal" === record.type && afterLoc && (this.next = afterLoc), ContinueSentinel; }, finish: function finish(finallyLoc) { for (var i = this.tryEntries.length - 1; i >= 0; --i) { var entry = this.tryEntries[i]; if (entry.finallyLoc === finallyLoc) return this.complete(entry.completion, entry.afterLoc), resetTryEntry(entry), ContinueSentinel; } }, "catch": function _catch(tryLoc) { for (var i = this.tryEntries.length - 1; i >= 0; --i) { var entry = this.tryEntries[i]; if (entry.tryLoc === tryLoc) { var record = entry.completion; if ("throw" === record.type) { var thrown = record.arg; resetTryEntry(entry); } return thrown; } } throw new Error("illegal catch attempt"); }, delegateYield: function delegateYield(iterable, resultName, nextLoc) { return this.delegate = { iterator: values(iterable), resultName: resultName, nextLoc: nextLoc }, "next" === this.method && (this.arg = undefined), ContinueSentinel; } }, exports; }
+function asyncGeneratorStep(gen, resolve, reject, _next, _throw, key, arg) { try { var info = gen[key](arg); var value = info.value; } catch (error) { reject(error); return; } if (info.done) { resolve(value); } else { Promise.resolve(value).then(_next, _throw); } }
+function _asyncToGenerator(fn) { return function () { var self = this, args = arguments; return new Promise(function (resolve, reject) { var gen = fn.apply(self, args); function _next(value) { asyncGeneratorStep(gen, resolve, reject, _next, _throw, "next", value); } function _throw(err) { asyncGeneratorStep(gen, resolve, reject, _next, _throw, "throw", err); } _next(undefined); }); }; }
 
 
 
@@ -6839,12 +7004,40 @@ __webpack_require__.r(__webpack_exports__);
       currentPage: 1,
       totalPages: 2,
       // aquí debes usar el número total de páginas que correspondan a tu caso específico
-      visitaToDelete: null
+      visitaToDelete: null,
+      mascota: {}
     };
   },
   methods: {
-    borrarVisitas: function borrarVisitas(id) {
+    obtenerInformacionID: function obtenerInformacionID() {
       var _this = this;
+      return _asyncToGenerator( /*#__PURE__*/_regeneratorRuntime().mark(function _callee() {
+        var response;
+        return _regeneratorRuntime().wrap(function _callee$(_context) {
+          while (1) switch (_context.prev = _context.next) {
+            case 0:
+              _context.prev = 0;
+              _context.next = 3;
+              return axios__WEBPACK_IMPORTED_MODULE_0___default().get('mascotas/' + _this.$route.params.id);
+            case 3:
+              response = _context.sent;
+              console.log(response.data); // Agregar esta línea para depurar
+              _this.mascota = response.data;
+              _context.next = 11;
+              break;
+            case 8:
+              _context.prev = 8;
+              _context.t0 = _context["catch"](0);
+              console.error(_context.t0);
+            case 11:
+            case "end":
+              return _context.stop();
+          }
+        }, _callee, null, [[0, 8]]);
+      }))();
+    },
+    borrarVisita: function borrarVisita(id) {
+      var _this2 = this;
       this.visitaToDelete = id;
       var swalWithBootstrapButtons = sweetalert2__WEBPACK_IMPORTED_MODULE_2___default().mixin({
         customClass: {
@@ -6863,8 +7056,9 @@ __webpack_require__.r(__webpack_exports__);
         reverseButtons: true
       }).then(function (result) {
         if (result.isConfirmed) {
-          axios__WEBPACK_IMPORTED_MODULE_0___default()["delete"]('visitas/' + _this.visitaToDelete).then(function (response) {
-            _this.getVisitas();
+          console.log(_this2.visitaToDelete);
+          axios__WEBPACK_IMPORTED_MODULE_0___default()["delete"]('visitas/' + _this2.visitaToDelete).then(function (response) {
+            _this2.getVisitas();
           })["catch"](function (error) {
             console.error(error);
           });
@@ -6879,18 +7073,21 @@ __webpack_require__.r(__webpack_exports__);
       this.getVisitas(page);
     },
     getVisitas: function getVisitas() {
-      var _this2 = this;
+      var _this3 = this;
       var page = arguments.length > 0 && arguments[0] !== undefined ? arguments[0] : 1;
       console.log(this.$route.params.id);
       axios__WEBPACK_IMPORTED_MODULE_0___default().get('visitas/listavisitas/' + this.$route.params.id).then(function (response) {
-        _this2.visitas = response.data.visitas;
-        console.log(_this2.visitas);
+        _this3.visitas = response.data.visitas;
+        _this3.currentPage = response.data.currentPage;
+        _this3.totalPages = response.data.lastPage;
+        console.log(_this3.visitas);
       })["catch"](function (error) {
         console.error(error);
       });
     }
   },
   created: function created() {
+    this.obtenerInformacionID();
     this.getVisitas();
     var token = document.querySelector('meta[name="csrf-token"]');
     if (token) {
@@ -7600,7 +7797,7 @@ var staticRenderFns = [function () {
     staticStyle: {
       color: "#ffffff"
     }
-  })]);
+  }), _vm._v(" Alta cliente\n                ")]);
 }];
 render._withStripped = true;
 
@@ -8214,7 +8411,7 @@ var staticRenderFns = [function () {
     staticStyle: {
       color: "#ffffff"
     }
-  })]);
+  }), _vm._v(" Alta empleado\n                ")]);
 }];
 render._withStripped = true;
 
@@ -8840,7 +9037,7 @@ var staticRenderFns = [function () {
     }
   }, [_c("i", {
     staticClass: "fas fa-paw"
-  })]);
+  }), _vm._v(" Alta mascota\n                ")]);
 }];
 render._withStripped = true;
 
@@ -9939,7 +10136,7 @@ var staticRenderFns = [function () {
     }
   }, [_c("i", {
     staticClass: "fa fa-save"
-  })]);
+  }), _vm._v(" Guardar\n                ")]);
 }];
 render._withStripped = true;
 
@@ -10613,6 +10810,373 @@ render._withStripped = true;
 
 /***/ }),
 
+/***/ "./node_modules/babel-loader/lib/index.js??clonedRuleSet-5.use[0]!./node_modules/vue-loader/lib/loaders/templateLoader.js??ruleSet[1].rules[2]!./node_modules/vue-loader/lib/index.js??vue-loader-options!./resources/js/components/FichaVisita.vue?vue&type=template&id=2c417e34&":
+/*!*****************************************************************************************************************************************************************************************************************************************************************************************!*\
+  !*** ./node_modules/babel-loader/lib/index.js??clonedRuleSet-5.use[0]!./node_modules/vue-loader/lib/loaders/templateLoader.js??ruleSet[1].rules[2]!./node_modules/vue-loader/lib/index.js??vue-loader-options!./resources/js/components/FichaVisita.vue?vue&type=template&id=2c417e34& ***!
+  \*****************************************************************************************************************************************************************************************************************************************************************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "render": () => (/* binding */ render),
+/* harmony export */   "staticRenderFns": () => (/* binding */ staticRenderFns)
+/* harmony export */ });
+var render = function render() {
+  var _vm = this,
+    _c = _vm._self._c;
+  return _c("div", {
+    staticClass: "container"
+  }, [_c("div", {
+    staticClass: "card"
+  }, [_vm._m(0), _vm._v(" "), _c("form", {
+    on: {
+      submit: function submit($event) {
+        $event.preventDefault();
+        return _vm.editarVisita.apply(null, arguments);
+      }
+    }
+  }, [_c("div", {
+    staticClass: "card"
+  }, [_vm._m(1), _vm._v(" "), _c("div", {
+    staticClass: "card-body"
+  }, [_c("div", {
+    staticClass: "row"
+  }, [_c("div", {
+    staticClass: "col-md-3 col-sm-6"
+  }, [_vm._m(2), _vm._v(" "), _c("span", {
+    staticClass: "form-control bg-secondary"
+  }, [_vm._v(_vm._s(_vm.mascota.nombre))])]), _vm._v(" "), _c("div", {
+    staticClass: "col-md-3 col-sm-6"
+  }, [_vm._m(3), _vm._v(" "), _c("span", {
+    staticClass: "form-control bg-secondary"
+  }, [_vm._v(_vm._s(_vm.cliente.nombre_apellidos))])]), _vm._v(" "), _c("div", {
+    staticClass: "col-md-3 col-sm-6"
+  }, [_vm._m(4), _vm._v(" "), _c("input", {
+    directives: [{
+      name: "model",
+      rawName: "v-model",
+      value: _vm.visita.fecha_visita,
+      expression: "visita.fecha_visita"
+    }],
+    staticClass: "form-control",
+    attrs: {
+      type: "date",
+      name: "fecha_visita",
+      max: _vm.maxDate,
+      id: "fecha_visita",
+      "aria-describedby": "helpId"
+    },
+    domProps: {
+      value: _vm.visita.fecha_visita
+    },
+    on: {
+      input: function input($event) {
+        if ($event.target.composing) return;
+        _vm.$set(_vm.visita, "fecha_visita", $event.target.value);
+      }
+    }
+  }), _vm._v(" "), _vm.errores.fecha_visita ? _c("div", {
+    staticClass: "alert alert-danger"
+  }, [_vm._v(_vm._s(_vm.errores.fecha_visita[0]))]) : _vm._e()]), _vm._v(" "), _c("div", {
+    staticClass: "col-md-3 col-sm-6"
+  }, [_vm._m(5), _vm._v(" "), _c("input", {
+    directives: [{
+      name: "model",
+      rawName: "v-model",
+      value: _vm.visita.hora_visita,
+      expression: "visita.hora_visita"
+    }],
+    staticClass: "form-control",
+    attrs: {
+      type: "time",
+      name: "hora_visita",
+      id: "hora_visita",
+      "aria-describedby": "helpId"
+    },
+    domProps: {
+      value: _vm.visita.hora_visita
+    },
+    on: {
+      input: function input($event) {
+        if ($event.target.composing) return;
+        _vm.$set(_vm.visita, "hora_visita", $event.target.value);
+      }
+    }
+  })])])])]), _vm._v(" "), _c("div", {
+    staticClass: "card"
+  }, [_vm._m(6), _vm._v(" "), _c("div", {
+    staticClass: "card-body"
+  }, [_c("div", {
+    staticClass: "row"
+  }, [_c("div", {
+    staticClass: "col-md-6 col-sm-6"
+  }, [_vm._m(7), _vm._v(" "), _c("textarea", {
+    directives: [{
+      name: "model",
+      rawName: "v-model",
+      value: _vm.visita.sintomas,
+      expression: "visita.sintomas"
+    }],
+    staticClass: "form-control",
+    attrs: {
+      rows: "4",
+      id: "sintomas"
+    },
+    domProps: {
+      value: _vm.visita.sintomas
+    },
+    on: {
+      input: function input($event) {
+        if ($event.target.composing) return;
+        _vm.$set(_vm.visita, "sintomas", $event.target.value);
+      }
+    }
+  }), _vm._v(" "), _vm.errores.sintomas ? _c("div", {
+    staticClass: "alert alert-danger"
+  }, [_vm._v(_vm._s(_vm.errores.sintomas[0]))]) : _vm._e()]), _vm._v(" "), _c("div", {
+    staticClass: "col-md-6 col-sm-6"
+  }, [_vm._m(8), _vm._v(" "), _c("textarea", {
+    directives: [{
+      name: "model",
+      rawName: "v-model",
+      value: _vm.visita.tratamiento,
+      expression: "visita.tratamiento"
+    }],
+    staticClass: "form-control",
+    attrs: {
+      rows: "4",
+      id: "tratamiento"
+    },
+    domProps: {
+      value: _vm.visita.tratamiento
+    },
+    on: {
+      input: function input($event) {
+        if ($event.target.composing) return;
+        _vm.$set(_vm.visita, "tratamiento", $event.target.value);
+      }
+    }
+  }), _vm._v(" "), _vm.errores.tratamiento ? _c("div", {
+    staticClass: "alert alert-danger"
+  }, [_vm._v(_vm._s(_vm.errores.tratamiento[0]))]) : _vm._e()]), _vm._v(" "), _c("div", {
+    staticClass: "col-md-3 col-sm-6"
+  }, [_vm._m(9), _vm._v(" "), _c("input", {
+    directives: [{
+      name: "model",
+      rawName: "v-model",
+      value: _vm.visita.diagnostico,
+      expression: "visita.diagnostico"
+    }],
+    staticClass: "form-control",
+    attrs: {
+      id: "diagnostico",
+      "aria-describedby": "helpId",
+      placeholder: "Diagnóstico",
+      name: "diagnostico"
+    },
+    domProps: {
+      value: _vm.visita.diagnostico
+    },
+    on: {
+      input: function input($event) {
+        if ($event.target.composing) return;
+        _vm.$set(_vm.visita, "diagnostico", $event.target.value);
+      }
+    }
+  }), _vm._v(" "), _vm.errores.diagnostico ? _c("div", {
+    staticClass: "alert alert-danger"
+  }, [_vm._v(_vm._s(_vm.errores.diagnostico[0]))]) : _vm._e()]), _vm._v(" "), _c("div", {
+    staticClass: "col-md-3 col-sm-6"
+  }, [_vm._m(10), _vm._v(" "), _c("select", {
+    directives: [{
+      name: "model",
+      rawName: "v-model",
+      value: _vm.visita.veterinario,
+      expression: "visita.veterinario"
+    }],
+    staticClass: "form-select",
+    attrs: {
+      id: "veterinario"
+    },
+    on: {
+      change: function change($event) {
+        var $$selectedVal = Array.prototype.filter.call($event.target.options, function (o) {
+          return o.selected;
+        }).map(function (o) {
+          var val = "_value" in o ? o._value : o.value;
+          return val;
+        });
+        _vm.$set(_vm.visita, "veterinario", $event.target.multiple ? $$selectedVal : $$selectedVal[0]);
+      }
+    }
+  }, [_c("option", {
+    attrs: {
+      disabled: "",
+      value: ""
+    }
+  }, [_vm._v("Selecciona un veterinario")]), _vm._v(" "), _vm._l(_vm.veterinarios, function (veterinario) {
+    return _c("option", {
+      key: veterinario.nombre_apellidos,
+      domProps: {
+        value: veterinario.nombre_apellidos
+      }
+    }, [_vm._v("\n                                    " + _vm._s(veterinario.nombre_apellidos) + "\n                                ")]);
+  })], 2), _vm._v(" "), _vm.errores.veterinario ? _c("div", {
+    staticClass: "alert alert-danger"
+  }, [_vm._v(_vm._s(_vm.errores.veterinario[0]))]) : _vm._e()]), _vm._v(" "), _c("div", {
+    staticClass: "col-md-3 col-sm-6"
+  }, [_vm._m(11), _vm._v(" "), _c("input", {
+    directives: [{
+      name: "model",
+      rawName: "v-model",
+      value: _vm.visita.coste,
+      expression: "visita.coste"
+    }],
+    staticClass: "form-control",
+    attrs: {
+      type: "number",
+      step: "0.01",
+      name: "coste",
+      id: "coste",
+      "aria-describedby": "helpId",
+      placeholder: "Coste"
+    },
+    domProps: {
+      value: _vm.visita.coste
+    },
+    on: {
+      input: function input($event) {
+        if ($event.target.composing) return;
+        _vm.$set(_vm.visita, "coste", $event.target.value);
+      }
+    }
+  }), _vm._v(" "), _vm.errores.coste ? _c("div", {
+    staticClass: "alert alert-danger"
+  }, [_vm._v(_vm._s(_vm.errores.coste[0]))]) : _vm._e()])])])]), _vm._v(" "), _c("div", {
+    staticClass: "btn-group w-100",
+    attrs: {
+      role: "group",
+      "aria-label": ""
+    }
+  }, [_vm._m(12), _vm._v(" "), _c("router-link", {
+    staticClass: "btn btn-warning",
+    attrs: {
+      to: {
+        name: "ListarVisitas"
+      },
+      title: "Volver"
+    }
+  }, [_c("i", {
+    staticClass: "bi bi-arrow-return-left fw-bold"
+  })])], 1)])])]);
+};
+var staticRenderFns = [function () {
+  var _vm = this,
+    _c = _vm._self._c;
+  return _c("div", {
+    staticClass: "card-header bg-dark text-light"
+  }, [_c("h2", {
+    staticClass: "card-title"
+  }, [_vm._v("Ficha visita")])]);
+}, function () {
+  var _vm = this,
+    _c = _vm._self._c;
+  return _c("div", {
+    staticClass: "card-header"
+  }, [_c("h5", {
+    staticClass: "card-title"
+  }, [_vm._v("Datos generales")])]);
+}, function () {
+  var _vm = this,
+    _c = _vm._self._c;
+  return _c("label", [_c("b", [_vm._v("Mascota:")])]);
+}, function () {
+  var _vm = this,
+    _c = _vm._self._c;
+  return _c("label", [_c("b", [_vm._v("Propietario:")])]);
+}, function () {
+  var _vm = this,
+    _c = _vm._self._c;
+  return _c("label", {
+    attrs: {
+      "for": "fecha_visita"
+    }
+  }, [_c("b", [_vm._v("Fecha visita:")])]);
+}, function () {
+  var _vm = this,
+    _c = _vm._self._c;
+  return _c("label", {
+    attrs: {
+      "for": "hora_visita"
+    }
+  }, [_c("b", [_vm._v("Hora visita:")])]);
+}, function () {
+  var _vm = this,
+    _c = _vm._self._c;
+  return _c("div", {
+    staticClass: "card-header"
+  }, [_c("h5", {
+    staticClass: "card-title"
+  }, [_vm._v("Detalles visita")])]);
+}, function () {
+  var _vm = this,
+    _c = _vm._self._c;
+  return _c("label", {
+    attrs: {
+      "for": "sintomas"
+    }
+  }, [_c("b", [_vm._v("Síntomas:")])]);
+}, function () {
+  var _vm = this,
+    _c = _vm._self._c;
+  return _c("label", {
+    attrs: {
+      "for": "tratamiento"
+    }
+  }, [_c("b", [_vm._v("Tratamiento:")])]);
+}, function () {
+  var _vm = this,
+    _c = _vm._self._c;
+  return _c("label", {
+    attrs: {
+      "for": "diagnostico"
+    }
+  }, [_c("b", [_vm._v("Diagnóstico:")])]);
+}, function () {
+  var _vm = this,
+    _c = _vm._self._c;
+  return _c("label", {
+    attrs: {
+      "for": "veterinario"
+    }
+  }, [_c("b", [_vm._v("Veterinario:")])]);
+}, function () {
+  var _vm = this,
+    _c = _vm._self._c;
+  return _c("label", {
+    attrs: {
+      "for": "coste"
+    }
+  }, [_c("b", [_vm._v("Coste:")])]);
+}, function () {
+  var _vm = this,
+    _c = _vm._self._c;
+  return _c("button", {
+    staticClass: "btn btn-success",
+    attrs: {
+      type: "submit",
+      title: "Guardar"
+    }
+  }, [_c("i", {
+    staticClass: "fa fa-save"
+  }), _vm._v(" Guardar\n                ")]);
+}];
+render._withStripped = true;
+
+
+/***/ }),
+
 /***/ "./node_modules/babel-loader/lib/index.js??clonedRuleSet-5.use[0]!./node_modules/vue-loader/lib/loaders/templateLoader.js??ruleSet[1].rules[2]!./node_modules/vue-loader/lib/index.js??vue-loader-options!./resources/js/components/ListarClientes.vue?vue&type=template&id=579ff95a&":
 /*!********************************************************************************************************************************************************************************************************************************************************************************************!*\
   !*** ./node_modules/babel-loader/lib/index.js??clonedRuleSet-5.use[0]!./node_modules/vue-loader/lib/loaders/templateLoader.js??ruleSet[1].rules[2]!./node_modules/vue-loader/lib/index.js??vue-loader-options!./resources/js/components/ListarClientes.vue?vue&type=template&id=579ff95a& ***!
@@ -10670,7 +11234,7 @@ var render = function render() {
     staticStyle: {
       color: "#ffffff"
     }
-  })])], 1), _vm._v(" "), _c("table", {
+  }), _vm._v(" Alta cliente")])], 1), _vm._v(" "), _c("table", {
     staticClass: "table table-striped table-sm"
   }, [_vm._m(1), _vm._v(" "), _c("tbody", {
     staticClass: "flex-column"
@@ -10813,7 +11377,7 @@ var render = function render() {
     staticStyle: {
       color: "#ffffff"
     }
-  })])], 1), _vm._v(" "), _c("table", {
+  }), _vm._v(" Alta empleado")])], 1), _vm._v(" "), _c("table", {
     staticClass: "table table-striped table-sm"
   }, [_vm._m(1), _vm._v(" "), _c("tbody", {
     staticClass: "flex-column"
@@ -10953,7 +11517,7 @@ var render = function render() {
     }
   }, [_c("i", {
     staticClass: "fas fa-paw"
-  })])], 1), _vm._v(" "), _c("table", {
+  }), _vm._v(" Alta mascota")])], 1), _vm._v(" "), _c("table", {
     staticClass: "table table-striped table-sm"
   }, [_vm._m(1), _vm._v(" "), _c("tbody", {
     staticClass: "flex-column"
@@ -11069,7 +11633,11 @@ var render = function render() {
   }, _vm._l(_vm.visitas, function (visita) {
     return _c("tr", {
       key: visita.id
-    }, [_c("td", [_vm._v(_vm._s(visita.mascotas_id))]), _vm._v(" "), _c("td", [_vm._v(_vm._s(visita.fecha_visita))]), _vm._v(" "), _c("td", [_vm._v(_vm._s(visita.diagnostico))]), _vm._v(" "), _c("td", [_vm._v(_vm._s(visita.veterinario))]), _vm._v(" "), _c("td", [_c("button", {
+    }, [_c("td", [_vm._v(_vm._s(_vm.mascota.nombre))]), _vm._v(" "), _c("td", [_vm._v(_vm._s(new Date(visita.fecha_visita).toLocaleDateString("es-ES", {
+      day: "2-digit",
+      month: "2-digit",
+      year: "numeric"
+    })))]), _vm._v(" "), _c("td", [_vm._v(_vm._s(visita.diagnostico))]), _vm._v(" "), _c("td", [_vm._v(_vm._s(visita.veterinario))]), _vm._v(" "), _c("td", [_c("button", {
       staticClass: "btn btn-danger",
       attrs: {
         title: "Eliminar visita"
@@ -11081,8 +11649,32 @@ var render = function render() {
       }
     }, [_c("i", {
       staticClass: "fa-solid fa-user-xmark"
-    })])])]);
-  }), 0)])])])])]);
+    })]), _vm._v(" "), _c("router-link", {
+      staticClass: "btn btn-info",
+      attrs: {
+        to: {
+          name: "FichaVisita",
+          params: {
+            id: visita.id
+          }
+        },
+        title: "Ver detalles"
+      }
+    }, [_c("i", {
+      staticClass: "fa-solid fa-eye",
+      staticStyle: {
+        color: "#ffffff"
+      }
+    })])], 1)]);
+  }), 0)])])])]), _vm._v(" "), _c("div", [_c("paginacion", {
+    attrs: {
+      "current-page": _vm.currentPage,
+      "total-pages": _vm.totalPages
+    },
+    on: {
+      pageChanged: _vm.pageChanged
+    }
+  })], 1)]);
 };
 var staticRenderFns = [function () {
   var _vm = this,
@@ -11496,7 +12088,7 @@ var staticRenderFns = [function () {
     }
   }, [_c("i", {
     staticClass: "fa fa-clinic-medical"
-  })]);
+  }), _vm._v(" Nueva visita\n                ")]);
 }];
 render._withStripped = true;
 
@@ -11566,7 +12158,7 @@ render._withStripped = true;
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
-/* harmony import */ var vue_router__WEBPACK_IMPORTED_MODULE_12__ = __webpack_require__(/*! vue-router */ "./node_modules/vue-router/dist/vue-router.esm.js");
+/* harmony import */ var vue_router__WEBPACK_IMPORTED_MODULE_13__ = __webpack_require__(/*! vue-router */ "./node_modules/vue-router/dist/vue-router.esm.js");
 /* harmony import */ var _components_ExampleComponent_vue__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./components/ExampleComponent.vue */ "./resources/js/components/ExampleComponent.vue");
 /* harmony import */ var _components_AltaCliente_vue__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./components/AltaCliente.vue */ "./resources/js/components/AltaCliente.vue");
 /* harmony import */ var _components_ListarClientes_vue__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./components/ListarClientes.vue */ "./resources/js/components/ListarClientes.vue");
@@ -11579,6 +12171,7 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _components_FichaMascota_vue__WEBPACK_IMPORTED_MODULE_9__ = __webpack_require__(/*! ./components/FichaMascota.vue */ "./resources/js/components/FichaMascota.vue");
 /* harmony import */ var _components_NuevaVisita_vue__WEBPACK_IMPORTED_MODULE_10__ = __webpack_require__(/*! ./components/NuevaVisita.vue */ "./resources/js/components/NuevaVisita.vue");
 /* harmony import */ var _components_ListarVisitas_vue__WEBPACK_IMPORTED_MODULE_11__ = __webpack_require__(/*! ./components/ListarVisitas.vue */ "./resources/js/components/ListarVisitas.vue");
+/* harmony import */ var _components_FichaVisita_vue__WEBPACK_IMPORTED_MODULE_12__ = __webpack_require__(/*! ./components/FichaVisita.vue */ "./resources/js/components/FichaVisita.vue");
 __webpack_require__(/*! ./bootstrap */ "./resources/js/bootstrap.js");
 window.Vue = (__webpack_require__(/*! vue */ "./node_modules/vue/dist/vue.esm.js")["default"]);
 
@@ -11594,7 +12187,8 @@ window.Vue = (__webpack_require__(/*! vue */ "./node_modules/vue/dist/vue.esm.js
 
 
 
-Vue.use(vue_router__WEBPACK_IMPORTED_MODULE_12__["default"]);
+
+Vue.use(vue_router__WEBPACK_IMPORTED_MODULE_13__["default"]);
 var routes = [{
   path: '/',
   name: 'ExampleComponent',
@@ -11682,8 +12276,15 @@ var routes = [{
   meta: {
     requiresAuth: true
   }
+}, {
+  path: '/fichavisita/:id',
+  name: 'FichaVisita',
+  component: _components_FichaVisita_vue__WEBPACK_IMPORTED_MODULE_12__["default"],
+  meta: {
+    requiresAuth: true
+  }
 }];
-var router = new vue_router__WEBPACK_IMPORTED_MODULE_12__["default"]({
+var router = new vue_router__WEBPACK_IMPORTED_MODULE_13__["default"]({
   routes: routes
 });
 var app = new Vue({
@@ -17104,6 +17705,30 @@ ___CSS_LOADER_EXPORT___.push([module.id, "\nh2 {\r\n    text-align: center;\n}\r
 /*!***************************************************************************************************************************************************************************************************************************************************************************************************************************************************!*\
   !*** ./node_modules/css-loader/dist/cjs.js??clonedRuleSet-9.use[1]!./node_modules/vue-loader/lib/loaders/stylePostLoader.js!./node_modules/postcss-loader/dist/cjs.js??clonedRuleSet-9.use[2]!./node_modules/vue-loader/lib/index.js??vue-loader-options!./resources/js/components/FichaMascota.vue?vue&type=style&index=0&id=28ec4eea&lang=css& ***!
   \***************************************************************************************************************************************************************************************************************************************************************************************************************************************************/
+/***/ ((module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
+/* harmony export */ });
+/* harmony import */ var _node_modules_css_loader_dist_runtime_api_js__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../../../node_modules/css-loader/dist/runtime/api.js */ "./node_modules/css-loader/dist/runtime/api.js");
+/* harmony import */ var _node_modules_css_loader_dist_runtime_api_js__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(_node_modules_css_loader_dist_runtime_api_js__WEBPACK_IMPORTED_MODULE_0__);
+// Imports
+
+var ___CSS_LOADER_EXPORT___ = _node_modules_css_loader_dist_runtime_api_js__WEBPACK_IMPORTED_MODULE_0___default()(function(i){return i[1]});
+// Module
+___CSS_LOADER_EXPORT___.push([module.id, "\nh2 {\r\n    text-align: center;\n}\r\n", ""]);
+// Exports
+/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (___CSS_LOADER_EXPORT___);
+
+
+/***/ }),
+
+/***/ "./node_modules/css-loader/dist/cjs.js??clonedRuleSet-9.use[1]!./node_modules/vue-loader/lib/loaders/stylePostLoader.js!./node_modules/postcss-loader/dist/cjs.js??clonedRuleSet-9.use[2]!./node_modules/vue-loader/lib/index.js??vue-loader-options!./resources/js/components/FichaVisita.vue?vue&type=style&index=0&id=2c417e34&lang=css&":
+/*!**************************************************************************************************************************************************************************************************************************************************************************************************************************************************!*\
+  !*** ./node_modules/css-loader/dist/cjs.js??clonedRuleSet-9.use[1]!./node_modules/vue-loader/lib/loaders/stylePostLoader.js!./node_modules/postcss-loader/dist/cjs.js??clonedRuleSet-9.use[2]!./node_modules/vue-loader/lib/index.js??vue-loader-options!./resources/js/components/FichaVisita.vue?vue&type=style&index=0&id=2c417e34&lang=css& ***!
+  \**************************************************************************************************************************************************************************************************************************************************************************************************************************************************/
 /***/ ((module, __webpack_exports__, __webpack_require__) => {
 
 "use strict";
@@ -34847,6 +35472,36 @@ var update = _node_modules_style_loader_dist_runtime_injectStylesIntoStyleTag_js
 
 /***/ }),
 
+/***/ "./node_modules/style-loader/dist/cjs.js!./node_modules/css-loader/dist/cjs.js??clonedRuleSet-9.use[1]!./node_modules/vue-loader/lib/loaders/stylePostLoader.js!./node_modules/postcss-loader/dist/cjs.js??clonedRuleSet-9.use[2]!./node_modules/vue-loader/lib/index.js??vue-loader-options!./resources/js/components/FichaVisita.vue?vue&type=style&index=0&id=2c417e34&lang=css&":
+/*!******************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************!*\
+  !*** ./node_modules/style-loader/dist/cjs.js!./node_modules/css-loader/dist/cjs.js??clonedRuleSet-9.use[1]!./node_modules/vue-loader/lib/loaders/stylePostLoader.js!./node_modules/postcss-loader/dist/cjs.js??clonedRuleSet-9.use[2]!./node_modules/vue-loader/lib/index.js??vue-loader-options!./resources/js/components/FichaVisita.vue?vue&type=style&index=0&id=2c417e34&lang=css& ***!
+  \******************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
+/* harmony export */ });
+/* harmony import */ var _node_modules_style_loader_dist_runtime_injectStylesIntoStyleTag_js__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! !../../../node_modules/style-loader/dist/runtime/injectStylesIntoStyleTag.js */ "./node_modules/style-loader/dist/runtime/injectStylesIntoStyleTag.js");
+/* harmony import */ var _node_modules_style_loader_dist_runtime_injectStylesIntoStyleTag_js__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(_node_modules_style_loader_dist_runtime_injectStylesIntoStyleTag_js__WEBPACK_IMPORTED_MODULE_0__);
+/* harmony import */ var _node_modules_css_loader_dist_cjs_js_clonedRuleSet_9_use_1_node_modules_vue_loader_lib_loaders_stylePostLoader_js_node_modules_postcss_loader_dist_cjs_js_clonedRuleSet_9_use_2_node_modules_vue_loader_lib_index_js_vue_loader_options_FichaVisita_vue_vue_type_style_index_0_id_2c417e34_lang_css___WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! !!../../../node_modules/css-loader/dist/cjs.js??clonedRuleSet-9.use[1]!../../../node_modules/vue-loader/lib/loaders/stylePostLoader.js!../../../node_modules/postcss-loader/dist/cjs.js??clonedRuleSet-9.use[2]!../../../node_modules/vue-loader/lib/index.js??vue-loader-options!./FichaVisita.vue?vue&type=style&index=0&id=2c417e34&lang=css& */ "./node_modules/css-loader/dist/cjs.js??clonedRuleSet-9.use[1]!./node_modules/vue-loader/lib/loaders/stylePostLoader.js!./node_modules/postcss-loader/dist/cjs.js??clonedRuleSet-9.use[2]!./node_modules/vue-loader/lib/index.js??vue-loader-options!./resources/js/components/FichaVisita.vue?vue&type=style&index=0&id=2c417e34&lang=css&");
+
+            
+
+var options = {};
+
+options.insert = "head";
+options.singleton = false;
+
+var update = _node_modules_style_loader_dist_runtime_injectStylesIntoStyleTag_js__WEBPACK_IMPORTED_MODULE_0___default()(_node_modules_css_loader_dist_cjs_js_clonedRuleSet_9_use_1_node_modules_vue_loader_lib_loaders_stylePostLoader_js_node_modules_postcss_loader_dist_cjs_js_clonedRuleSet_9_use_2_node_modules_vue_loader_lib_index_js_vue_loader_options_FichaVisita_vue_vue_type_style_index_0_id_2c417e34_lang_css___WEBPACK_IMPORTED_MODULE_1__["default"], options);
+
+
+
+/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (_node_modules_css_loader_dist_cjs_js_clonedRuleSet_9_use_1_node_modules_vue_loader_lib_loaders_stylePostLoader_js_node_modules_postcss_loader_dist_cjs_js_clonedRuleSet_9_use_2_node_modules_vue_loader_lib_index_js_vue_loader_options_FichaVisita_vue_vue_type_style_index_0_id_2c417e34_lang_css___WEBPACK_IMPORTED_MODULE_1__["default"].locals || {});
+
+/***/ }),
+
 /***/ "./node_modules/style-loader/dist/cjs.js!./node_modules/css-loader/dist/cjs.js??clonedRuleSet-9.use[1]!./node_modules/vue-loader/lib/loaders/stylePostLoader.js!./node_modules/postcss-loader/dist/cjs.js??clonedRuleSet-9.use[2]!./node_modules/vue-loader/lib/index.js??vue-loader-options!./resources/js/components/NuevaVisita.vue?vue&type=style&index=0&id=4b814838&lang=css&":
 /*!******************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************!*\
   !*** ./node_modules/style-loader/dist/cjs.js!./node_modules/css-loader/dist/cjs.js??clonedRuleSet-9.use[1]!./node_modules/vue-loader/lib/loaders/stylePostLoader.js!./node_modules/postcss-loader/dist/cjs.js??clonedRuleSet-9.use[2]!./node_modules/vue-loader/lib/index.js??vue-loader-options!./resources/js/components/NuevaVisita.vue?vue&type=style&index=0&id=4b814838&lang=css& ***!
@@ -39522,6 +40177,47 @@ component.options.__file = "resources/js/components/FichaMascota.vue"
 
 /***/ }),
 
+/***/ "./resources/js/components/FichaVisita.vue":
+/*!*************************************************!*\
+  !*** ./resources/js/components/FichaVisita.vue ***!
+  \*************************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
+/* harmony export */ });
+/* harmony import */ var _FichaVisita_vue_vue_type_template_id_2c417e34___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./FichaVisita.vue?vue&type=template&id=2c417e34& */ "./resources/js/components/FichaVisita.vue?vue&type=template&id=2c417e34&");
+/* harmony import */ var _FichaVisita_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./FichaVisita.vue?vue&type=script&lang=js& */ "./resources/js/components/FichaVisita.vue?vue&type=script&lang=js&");
+/* harmony import */ var _FichaVisita_vue_vue_type_style_index_0_id_2c417e34_lang_css___WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./FichaVisita.vue?vue&type=style&index=0&id=2c417e34&lang=css& */ "./resources/js/components/FichaVisita.vue?vue&type=style&index=0&id=2c417e34&lang=css&");
+/* harmony import */ var _node_modules_vue_loader_lib_runtime_componentNormalizer_js__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! !../../../node_modules/vue-loader/lib/runtime/componentNormalizer.js */ "./node_modules/vue-loader/lib/runtime/componentNormalizer.js");
+
+
+
+;
+
+
+/* normalize component */
+
+var component = (0,_node_modules_vue_loader_lib_runtime_componentNormalizer_js__WEBPACK_IMPORTED_MODULE_3__["default"])(
+  _FichaVisita_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_1__["default"],
+  _FichaVisita_vue_vue_type_template_id_2c417e34___WEBPACK_IMPORTED_MODULE_0__.render,
+  _FichaVisita_vue_vue_type_template_id_2c417e34___WEBPACK_IMPORTED_MODULE_0__.staticRenderFns,
+  false,
+  null,
+  null,
+  null
+  
+)
+
+/* hot reload */
+if (false) { var api; }
+component.options.__file = "resources/js/components/FichaVisita.vue"
+/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (component.exports);
+
+/***/ }),
+
 /***/ "./resources/js/components/ListarClientes.vue":
 /*!****************************************************!*\
   !*** ./resources/js/components/ListarClientes.vue ***!
@@ -39872,6 +40568,22 @@ __webpack_require__.r(__webpack_exports__);
 
 /***/ }),
 
+/***/ "./resources/js/components/FichaVisita.vue?vue&type=script&lang=js&":
+/*!**************************************************************************!*\
+  !*** ./resources/js/components/FichaVisita.vue?vue&type=script&lang=js& ***!
+  \**************************************************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
+/* harmony export */ });
+/* harmony import */ var _node_modules_babel_loader_lib_index_js_clonedRuleSet_5_use_0_node_modules_vue_loader_lib_index_js_vue_loader_options_FichaVisita_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! -!../../../node_modules/babel-loader/lib/index.js??clonedRuleSet-5.use[0]!../../../node_modules/vue-loader/lib/index.js??vue-loader-options!./FichaVisita.vue?vue&type=script&lang=js& */ "./node_modules/babel-loader/lib/index.js??clonedRuleSet-5.use[0]!./node_modules/vue-loader/lib/index.js??vue-loader-options!./resources/js/components/FichaVisita.vue?vue&type=script&lang=js&");
+ /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (_node_modules_babel_loader_lib_index_js_clonedRuleSet_5_use_0_node_modules_vue_loader_lib_index_js_vue_loader_options_FichaVisita_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_0__["default"]); 
+
+/***/ }),
+
 /***/ "./resources/js/components/ListarClientes.vue?vue&type=script&lang=js&":
 /*!*****************************************************************************!*\
   !*** ./resources/js/components/ListarClientes.vue?vue&type=script&lang=js& ***!
@@ -40087,6 +40799,23 @@ __webpack_require__.r(__webpack_exports__);
 
 /***/ }),
 
+/***/ "./resources/js/components/FichaVisita.vue?vue&type=template&id=2c417e34&":
+/*!********************************************************************************!*\
+  !*** ./resources/js/components/FichaVisita.vue?vue&type=template&id=2c417e34& ***!
+  \********************************************************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "render": () => (/* reexport safe */ _node_modules_babel_loader_lib_index_js_clonedRuleSet_5_use_0_node_modules_vue_loader_lib_loaders_templateLoader_js_ruleSet_1_rules_2_node_modules_vue_loader_lib_index_js_vue_loader_options_FichaVisita_vue_vue_type_template_id_2c417e34___WEBPACK_IMPORTED_MODULE_0__.render),
+/* harmony export */   "staticRenderFns": () => (/* reexport safe */ _node_modules_babel_loader_lib_index_js_clonedRuleSet_5_use_0_node_modules_vue_loader_lib_loaders_templateLoader_js_ruleSet_1_rules_2_node_modules_vue_loader_lib_index_js_vue_loader_options_FichaVisita_vue_vue_type_template_id_2c417e34___WEBPACK_IMPORTED_MODULE_0__.staticRenderFns)
+/* harmony export */ });
+/* harmony import */ var _node_modules_babel_loader_lib_index_js_clonedRuleSet_5_use_0_node_modules_vue_loader_lib_loaders_templateLoader_js_ruleSet_1_rules_2_node_modules_vue_loader_lib_index_js_vue_loader_options_FichaVisita_vue_vue_type_template_id_2c417e34___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! -!../../../node_modules/babel-loader/lib/index.js??clonedRuleSet-5.use[0]!../../../node_modules/vue-loader/lib/loaders/templateLoader.js??ruleSet[1].rules[2]!../../../node_modules/vue-loader/lib/index.js??vue-loader-options!./FichaVisita.vue?vue&type=template&id=2c417e34& */ "./node_modules/babel-loader/lib/index.js??clonedRuleSet-5.use[0]!./node_modules/vue-loader/lib/loaders/templateLoader.js??ruleSet[1].rules[2]!./node_modules/vue-loader/lib/index.js??vue-loader-options!./resources/js/components/FichaVisita.vue?vue&type=template&id=2c417e34&");
+
+
+/***/ }),
+
 /***/ "./resources/js/components/ListarClientes.vue?vue&type=template&id=579ff95a&":
 /*!***********************************************************************************!*\
   !*** ./resources/js/components/ListarClientes.vue?vue&type=template&id=579ff95a& ***!
@@ -40263,6 +40992,19 @@ __webpack_require__.r(__webpack_exports__);
 "use strict";
 __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _node_modules_style_loader_dist_cjs_js_node_modules_css_loader_dist_cjs_js_clonedRuleSet_9_use_1_node_modules_vue_loader_lib_loaders_stylePostLoader_js_node_modules_postcss_loader_dist_cjs_js_clonedRuleSet_9_use_2_node_modules_vue_loader_lib_index_js_vue_loader_options_FichaMascota_vue_vue_type_style_index_0_id_28ec4eea_lang_css___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! -!../../../node_modules/style-loader/dist/cjs.js!../../../node_modules/css-loader/dist/cjs.js??clonedRuleSet-9.use[1]!../../../node_modules/vue-loader/lib/loaders/stylePostLoader.js!../../../node_modules/postcss-loader/dist/cjs.js??clonedRuleSet-9.use[2]!../../../node_modules/vue-loader/lib/index.js??vue-loader-options!./FichaMascota.vue?vue&type=style&index=0&id=28ec4eea&lang=css& */ "./node_modules/style-loader/dist/cjs.js!./node_modules/css-loader/dist/cjs.js??clonedRuleSet-9.use[1]!./node_modules/vue-loader/lib/loaders/stylePostLoader.js!./node_modules/postcss-loader/dist/cjs.js??clonedRuleSet-9.use[2]!./node_modules/vue-loader/lib/index.js??vue-loader-options!./resources/js/components/FichaMascota.vue?vue&type=style&index=0&id=28ec4eea&lang=css&");
+
+
+/***/ }),
+
+/***/ "./resources/js/components/FichaVisita.vue?vue&type=style&index=0&id=2c417e34&lang=css&":
+/*!**********************************************************************************************!*\
+  !*** ./resources/js/components/FichaVisita.vue?vue&type=style&index=0&id=2c417e34&lang=css& ***!
+  \**********************************************************************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var _node_modules_style_loader_dist_cjs_js_node_modules_css_loader_dist_cjs_js_clonedRuleSet_9_use_1_node_modules_vue_loader_lib_loaders_stylePostLoader_js_node_modules_postcss_loader_dist_cjs_js_clonedRuleSet_9_use_2_node_modules_vue_loader_lib_index_js_vue_loader_options_FichaVisita_vue_vue_type_style_index_0_id_2c417e34_lang_css___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! -!../../../node_modules/style-loader/dist/cjs.js!../../../node_modules/css-loader/dist/cjs.js??clonedRuleSet-9.use[1]!../../../node_modules/vue-loader/lib/loaders/stylePostLoader.js!../../../node_modules/postcss-loader/dist/cjs.js??clonedRuleSet-9.use[2]!../../../node_modules/vue-loader/lib/index.js??vue-loader-options!./FichaVisita.vue?vue&type=style&index=0&id=2c417e34&lang=css& */ "./node_modules/style-loader/dist/cjs.js!./node_modules/css-loader/dist/cjs.js??clonedRuleSet-9.use[1]!./node_modules/vue-loader/lib/loaders/stylePostLoader.js!./node_modules/postcss-loader/dist/cjs.js??clonedRuleSet-9.use[2]!./node_modules/vue-loader/lib/index.js??vue-loader-options!./resources/js/components/FichaVisita.vue?vue&type=style&index=0&id=2c417e34&lang=css&");
 
 
 /***/ }),

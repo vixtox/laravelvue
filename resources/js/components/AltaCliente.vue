@@ -112,7 +112,7 @@
 
                 <div class="btn-group w-100" role="group" aria-label="">
                     <button type="submit" class="btn btn-success" title="Alta cliente">
-                        <i class="fa-solid fa-user-plus" style="color: #ffffff;"></i>
+                        <i class="fa-solid fa-user-plus" style="color: #ffffff;"></i> Alta cliente
                     </button>
 
                     <router-link :to="{ name: 'ListarClientes' }" class="btn btn-warning" title="Volver">

@@ -81,18 +81,38 @@ class VisitaController extends Controller
      */
     public function destroy($id)
     {
-        //
+        $visita = Visita::find($id);
+        if ($visita) {
+            $visita->delete();
+            return response()->json(['message' => 'La visita ha sido eliminada correctamente.']);
+        } else {
+            return response()->json(['message' => 'La visita no existe.'], 404);
+        }
+    }
+
+    public function restore($id)
+    {
+        $visita = Visita::withTrashed()->find($id);
+        if ($visita) {
+            $visita->restore();
+            return response()->json(['message' => 'La visita ha sido restaurada correctamente.']);
+        } else {
+            return response()->json(['message' => 'La visita no existe.'], 404);
+        }
     }
 
     public function mostrarVisitasMascota($mascotas_id)
     {
       $visitas = Visita::where('mascotas_id', $mascotas_id)
         ->whereNull('deleted_at')
-        ->get();
+        ->paginate(5);
     
-      return response()->json([
-        'visitas' => $visitas,
-      ]);
+        return response()->json([
+            'visitas' => $visitas->items(),
+            'currentPage' => $visitas->currentPage(),
+            'lastPage' => $visitas->lastPage(),
+        ]);
+
     }
     
     

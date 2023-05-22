@@ -11,7 +11,7 @@
                         <input type="text" id="searchInput" :value="searchTerm" @input="searchTerm = $event.target.value"
                             placeholder="Buscar empleado" class="form-control w-50">
                         <router-link :to="{ name: 'AltaEmpleado' }" class="btn btn-success w-50" title="Alta empleado"> <i
-                                class="fa-solid fa-user-plus" style="color: #ffffff;"></i></router-link>
+                                class="fa-solid fa-user-plus" style="color: #ffffff;"></i> Alta empleado</router-link>
                     </div>
                     <table class="table table-striped table-sm">
                         <thead class="bg-dark text-light">

@@ -18,16 +18,19 @@
                         </thead>
                         <tbody class="flex-column">
                             <tr v-for="visita in visitas" :key="visita.id">
-                                <td>{{ visita.mascotas_id }}</td>
-                                <td>{{ visita.fecha_visita }}</td>
+                                <td>{{ mascota.nombre }}</td>
+                                <td>{{ new Date(visita.fecha_visita).toLocaleDateString('es-ES', {
+                                    day: '2-digit', month:
+                                        '2-digit', year: 'numeric'
+                                }) }}</td>
                                 <td>{{ visita.diagnostico }}</td>
                                 <td>{{ visita.veterinario }}</td>
                                 <td>
                                     <button class="btn btn-danger" @click="borrarVisita(visita.id)" title="Eliminar visita">
                                         <i class="fa-solid fa-user-xmark"></i></button>
-                                    <!-- <router-link :to="{ name: 'FichaMascota', params: { id: mascota.id } }"
+                                    <router-link :to="{ name: 'FichaVisita', params: { id: visita.id } }"
                                         class="btn btn-info" title="Ver detalles"><i class="fa-solid fa-eye"
-                                            style="color: #ffffff;"></i></router-link> -->
+                                            style="color: #ffffff;"></i></router-link>
                                 </td>
                             </tr>
                         </tbody>
@@ -35,9 +38,9 @@
                 </div>
             </div>
         </div>
-        <!-- <div>
+        <div>
             <paginacion :current-page="currentPage" :total-pages="totalPages" @pageChanged="pageChanged"></paginacion>
-        </div> -->
+        </div>
 
     </div>
 </template>
@@ -58,10 +61,22 @@ export default {
             currentPage: 1,
             totalPages: 2, // aquí debes usar el número total de páginas que correspondan a tu caso específico
             visitaToDelete: null,
+            mascota: {},
         }
     },
     methods: {
-        borrarVisitas(id) {
+
+        async obtenerInformacionID() {
+            try {
+                const response = await axios.get('mascotas/' + this.$route.params.id);
+                console.log(response.data); // Agregar esta línea para depurar
+                this.mascota = response.data;
+            } catch (error) {
+                console.error(error);
+            }
+        },
+
+        borrarVisita(id) {
             this.visitaToDelete = id;
             const swalWithBootstrapButtons = Swal.mixin({
                 customClass: {
@@ -81,6 +96,7 @@ export default {
                 reverseButtons: true
             }).then((result) => {
                 if (result.isConfirmed) {
+                    console.log(this.visitaToDelete)
                     axios.delete('visitas/' + this.visitaToDelete)
                         .then(response => {
                             this.getVisitas();
@@ -113,9 +129,11 @@ export default {
         getVisitas(page = 1) {
             console.log(this.$route.params.id);
             axios.get('visitas/listavisitas/' + this.$route.params.id)
-                .then(response => {
+            .then(response => {
                     this.visitas = response.data.visitas;
-                    console.log(this.visitas);
+                    this.currentPage = response.data.currentPage;
+                    this.totalPages = response.data.lastPage;
+                    console.log(this.visitas)
                 })
                 .catch(error => {
                     console.error(error);
@@ -125,6 +143,7 @@ export default {
     },
 
     created() {
+        this.obtenerInformacionID();
         this.getVisitas();
         const token = document.querySelector('meta[name="csrf-token"]');
         if (token) {

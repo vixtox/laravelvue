@@ -10,7 +10,7 @@
                         <input type="text" id="searchInput" :value="searchTerm" @input="searchTerm = $event.target.value"
                             placeholder="Buscar mascota" class="form-control w-50">
                         <router-link :to="{ name: 'AltaMascota' }" class="btn btn-success w-50" title="Alta mascota"> <i
-                                class="fas fa-paw"></i></router-link>
+                                class="fas fa-paw"></i> Alta mascota</router-link>
                     </div>
                     <table class="table table-striped table-sm">
                         <thead class="bg-dark text-light">
