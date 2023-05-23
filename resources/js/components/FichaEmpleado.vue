@@ -274,9 +274,3 @@ export default {
     },
 };
 </script>
-
-<style>
-h2 {
-    text-align: center;
-}
-</style>

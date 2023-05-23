@@ -19,12 +19,8 @@
                             <!-- Campos de datos generales aquí -->
                             <div class="col-md-4 col-sm-6">
                                 <label><b>Mascota:</b></label>
-                                <span class="form-control bg-secondary">{{ mascota.nombre }}</span>
+                                <span class="form-control gris">{{ mascota.nombre }}</span>
                             </div>
-                            <!-- <div class="col-md-3 col-sm-6">
-                                <label><b>Propietario:</b></label>
-                                <span class="form-control bg-secondary">{{ cliente.nombre_apellidos }}</span>
-                            </div> -->
                             <div class="col-md-4 col-sm-6">
                                 <label for="fecha_visita"><b>Fecha visita:</b></label>
                                 <input type="date" class="form-control" name="fecha_visita" :max="maxDate"
@@ -65,7 +61,7 @@
                             </div>
                             <div class="col-md-4 col-sm-6">
                                 <label><b>Veterinario:</b></label>
-                                <span class="form-control bg-secondary">{{ visita.veterinario }}</span>
+                                <span class="form-control gris">{{ visita.veterinario }}</span>
                             </div>
                             <div class="col-md-4 col-sm-6">
                                 <label for="diagnostico"><b>Diagnóstico:</b></label>
@@ -91,8 +87,7 @@
                     <button type="submit" class="btn btn-success" title="Guardar">
                         <i class="fa fa-save"></i> Guardar
                     </button>
-
-                    <router-link :to="{ name: 'ListarVisitas' }" class="btn btn-warning" title="Volver">
+                    <router-link :to="{ name: 'ListarVisitas', params: { id: visita.mascotas_id} }" class="btn btn-warning" title="Volver">
                         <i class="bi bi-arrow-return-left fw-bold"></i>
                     </router-link>
                 </div>
@@ -112,7 +107,7 @@ export default {
         return {
             maxDate: this.getCurrentDate(),
             visita: {
-                mascotas_id: this.$route.params.id,
+                mascotas_id: "",
                 fecha_visita: "",
                 hora_visita: "",
                 veterinario: "",
@@ -124,14 +119,13 @@ export default {
             errores: {},
             veterinarios: [],
             mascota: {},
-            // cliente: {},
             id: this.$route.params.id,
         };
     },
 
     created() {
-        this.obtenerMascota();
-
+        // this.obtenerMascota();
+        this.obtenerInformacionID(this.id);
         const token = document.querySelector('meta[name="csrf-token"]');
         if (token) {
             this.csrfToken = token.content;
@@ -144,6 +138,7 @@ export default {
                 const response = await axios.get('visitas/' + id);
                 console.log(response.data); // Agregar esta línea para depurar
                 this.visita = response.data;
+                await this.obtenerMascota();
             } catch (error) {
                 console.error(error);
             }
@@ -151,25 +146,13 @@ export default {
 
         async obtenerMascota() {
             try {
-                const response = await axios.get('mascotas/' + this.$route.params.id);
+                const response = await axios.get('mascotas/' + this.visita.mascotas_id);
                 console.log(response.data); // Agregar esta línea para depurar
                 this.mascota = response.data;
-                // await this.obtenerPropietario();
-                await this.obtenerInformacionID(this.id);
             } catch (error) {
                 console.error(error);
             }
         },
-
-        // async obtenerPropietario() {
-        //     try {
-        //         const response = await axios.get('clientes/' + this.mascota.cliente_id);
-        //         console.log(response.data); // Agregar esta línea para depurar
-        //         this.cliente = response.data;
-        //     } catch (error) {
-        //         console.error(error);
-        //     }
-        // },
 
         // Edita mascota en la base de datos
         async editarVisita() {
@@ -215,9 +198,3 @@ export default {
 
 };
 </script>
-
-<style>
-h2 {
-    text-align: center;
-}
-</style>

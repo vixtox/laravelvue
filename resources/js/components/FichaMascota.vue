@@ -35,12 +35,7 @@
                             </div>
                             <div v-if="mostrar_span" class="col-md-3 col-sm-6">
                                 <label><b>Propietario:</b></label>
-                                <span class="form-control">{{ mascota.nombre_cliente }}</span>
-                            </div>
-                            <div v-if="false" class="col-md-3 col-sm-6">
-                                <label for="cliente_id"><b>Propietario id:</b></label>
-                                <input type="text" class="form-control" name="cliente_id" v-model="mascota.cliente_id"
-                                    id="cliente_id" aria-describedby="helpId" placeholder="cliente_id">
+                                <span class="form-control gris">{{ mascota.nombre_cliente }}</span>
                             </div>
                             <div v-if="mostrar_span" class="col-md-3 col-sm-6">
                                 <br>
@@ -329,9 +324,3 @@ export default {
 
 };
 </script>
-
-<style>
-h2 {
-    text-align: center;
-}
-</style>

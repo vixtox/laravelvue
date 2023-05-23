@@ -9,7 +9,7 @@
                 <div class="card">
                     <div>
                         <router-link :to="{ name: 'AltaMascota' }" class="btn btn-success w-100" title="Alta mascota"> <i
-                                class="fas fa-paw"></i></router-link>
+                                class="fas fa-paw"></i> Alta mascota</router-link>
                     </div>
                     <div class="card-header">
                         <h5 class="card-title">Datos personales</h5>
@@ -115,7 +115,7 @@
 
                 <div class="btn-group w-100" role="group" aria-label="">
                     <button type="submit" class="btn btn-success" title="Guardar">
-                        <i class="fa fa-save"></i>
+                        <i class="fa fa-save"></i> Guardar
                     </button>
 
                     <router-link :to="{ name: 'ListarClientes' }" class="btn btn-warning" title="Volver">
@@ -240,7 +240,3 @@ export default {
 </script>
 
 <style>
-h2 {
-    text-align: center;
-}
-</style>

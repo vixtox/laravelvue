@@ -68,6 +68,14 @@
             margin-right: 10%;
         }
 
+        .gris {
+            background-color: #f2f2f2;
+            /* Color de fondo gris claro */
+        }
+
+        h2 {
+            text-align: center;
+        }
     </style>
 
     <title>@yield('title')</title>
