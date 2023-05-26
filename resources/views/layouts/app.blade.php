@@ -83,6 +83,10 @@
 
 <body>
 
+    <div>
+        @yield('mensaje')
+    </div>
+
     <div id="app">
         @yield('contenido')
     </div>

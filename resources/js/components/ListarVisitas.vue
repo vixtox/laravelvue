@@ -35,6 +35,12 @@
                                     <router-link :to="{ name: 'FichaVisita', params: { id: visita.id } }"
                                         class="btn btn-info" title="Ver detalles"><i class="fa-solid fa-eye"
                                             style="color: #ffffff;"></i></router-link>
+                                    <button class="btn btn-warning" @click="generarPDF(visita.id)" title="Generar PDF">
+                                        <i class="fa-solid fa-file-pdf"></i>
+                                    </button>
+                                    <button class="btn btn-success" @click="enviarCorreo(visita.id)" title="Enviar correo">
+                                        <i class="fa-solid fa-envelope"></i>
+                                    </button>
                                 </td>
                             </tr>
                         </tbody>
@@ -143,6 +149,31 @@ export default {
                     console.error(error);
                 });
         },
+
+        generarPDF(id) {
+            axios.get('visitas/generate-pdf/' + id, { responseType: 'blob' })
+                .then(response => {
+                    const url = window.URL.createObjectURL(new Blob([response.data], { type: 'application/pdf' }));
+                    window.open(url);
+                })
+                .catch(error => {
+                    console.error(error);
+                });
+        },
+
+        enviarCorreo(id) {
+            // Llamada a la API para enviar el correo
+            axios.post('enviarcorreo/' + id)
+                .then(response => {
+                    // El correo se envió correctamente
+                    alert('El correo se envió correctamente');
+                })
+                .catch(error => {
+                    // Ocurrió un error al enviar el correo
+                    console.error(error);
+                    alert('Ocurrió un error al enviar el correo');
+                });
+        }
 
     },
 

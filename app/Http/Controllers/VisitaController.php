@@ -2,9 +2,13 @@
 
 namespace App\Http\Controllers;
 
-use Illuminate\Http\Request;
 use App\Models\Visita;
+use App\Models\Mascota;
+use App\Models\Cliente;
 use App\Http\Requests\VisitaRequest;
+use Barryvdh\DomPDF\Facade as PDF;
+use Illuminate\Support\Facades\Mail;
+use Illuminate\Mail\Message;
 
 class VisitaController extends Controller
 {
@@ -110,17 +114,58 @@ class VisitaController extends Controller
 
     public function mostrarVisitasMascota($mascotas_id)
     {
-      $visitas = Visita::where('mascotas_id', $mascotas_id)
-        ->whereNull('deleted_at')
-        ->paginate(5);
-    
+        $visitas = Visita::where('mascotas_id', $mascotas_id)
+            ->whereNull('deleted_at')
+            ->paginate(5);
+
         return response()->json([
             'visitas' => $visitas->items(),
             'currentPage' => $visitas->currentPage(),
             'lastPage' => $visitas->lastPage(),
         ]);
-
     }
-    
-    
+
+    public function generatePDF($id)
+    {
+        // Obtener la visita según el ID proporcionado
+        $visita = Visita::findOrFail($id);
+
+        // Obtener la mascota asociada a la visita
+        $mascota = Mascota::findOrFail($visita->mascotas_id);
+
+        // Obtener el cliente asociado a la mascota
+        $cliente = Cliente::findOrFail($mascota->cliente_id);
+
+        // Generar el contenido del PDF utilizando el paquete DomPDF
+        $pdf = PDF::loadView('auth.visitaspdf', compact('visita', 'mascota', 'cliente'));
+
+        // Devolver el PDF como una respuesta descargable
+        return $pdf->stream('nombre_del_archivo.pdf');
+    }
+
+    public function enviarCorreo($id)
+    {
+        // Obtener la visita según el ID proporcionado
+        $visita = Visita::findOrFail($id);
+
+        // Obtener la mascota asociada a la visita
+        $mascota = Mascota::findOrFail($visita->mascotas_id);
+
+        // Obtener el cliente asociado a la mascota
+        $cliente = Cliente::findOrFail($mascota->cliente_id);
+
+        $pdf = PDF::loadView('auth.visitaspdf', compact('visita', 'mascota', 'cliente'));
+        $pdf_content = $pdf->output();
+        $subject = "Visita $mascota->nombre $visita->fecha_visita";
+        $subject = 'Mensaje prueba';
+        $to = 'victormartinezdominguez84@gmail.com';
+        $body = 'Gracias por visitar nuestra clínica, le adjuntamos documento de la visita';
+
+        Mail::raw($body, function (Message $message) use ($to, $subject, $pdf_content) {
+            $message->to($to)
+                ->subject($subject)
+                ->attachData($pdf_content, 'visita.pdf');
+        });
+        session()->flash('message', 'El mensaje ha sido enviado correctamente.');
+    }
 }

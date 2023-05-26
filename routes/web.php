@@ -55,10 +55,10 @@ Route::middleware(['user'])->group(function () {
         'create', 'edit'
     ]);
     //RUTAS VISITA
+    Route::get('/visitas/generate-pdf/{id}', [VisitaController::class, 'generatePDF']);
     Route::get('/visitas/listavisitas/{mascotas_id}', [VisitaController::class, 'mostrarVisitasMascota']);
-    Route::resource('/visitas', VisitaController::class)->except([
-        'create', 'edit'
-    ]);
+    Route::resource('/visitas', VisitaController::class)->except(['create', 'edit']);
+    Route::post('/enviarcorreo/{id}', [VisitaController::class, 'enviarCorreo'])->name('enviarCorreo');
 
     // RUTAS VETERINARIO
     Route::get('/empleados/listar_veterinarios', [EmpleadoController::class, 'listar_veterinarios']);
