@@ -39,11 +39,11 @@
                             <i class="fas fa-hospital"></i>
                         </a>
                     </li>
-                    <li class="nav-item">
+                    {{-- <li class="nav-item">
                         <a href="#" class="nav-link text-white">
                             <i class="fas fa-vial"></i>
                         </a>
-                    </li>
+                    </li> --}}
                     <li class="nav-item">
                         <a href="#" class="nav-link text-white">
                             <i class="fas fa-procedures"></i>
@@ -95,17 +95,6 @@
     </div>
 
 
-@section('mensaje')
-    <div>
-        @if (session()->has('message'))
-            <div class="alert alert-success">
-                {{ session()->get('message') }}
-            </div>
-        @endif
-    </div>
-@endsection
-
-
 {{-- MENU LATERAL --}}
 <div class="row w-100">
     <div class="col-md-2" id="menu">
@@ -133,16 +122,16 @@
                             class="list-group-item list-group-item-action bg-secondary text-light">Listar mascotas
                         </router-link>
                     </div>
-                    <a href="#opcion3-submenu" class="list-group-item list-group-item-action bg-dark text-light"
+                    {{-- <a href="#opcion3-submenu" class="list-group-item list-group-item-action bg-dark text-light"
                         data-toggle="collapse"><i class="fas fa-vial"></i> Pruebas</a>
                     <div id="opcion3-submenu" class="collapse">
-                        <router-link to="/registrarcliente"
+                        <router-link to="/nuevohemograma"
                             class="list-group-item list-group-item-action bg-secondary text-light">Registrar prueba
                         </router-link>
                         <router-link to="/listarclientes"
                             class="list-group-item list-group-item-action bg-secondary text-light">Listar pruebas
                         </router-link>
-                    </div>
+                    </div> --}}
 
                     <a href="#opcion5-submenu" class="list-group-item list-group-item-action bg-dark text-light"
                         data-toggle="collapse"><i class="fas fa-hospital"></i> Hospitalización</a>

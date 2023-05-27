@@ -11,16 +11,16 @@ class Prueba extends Model
     use HasFactory, SoftDeletes;
 
     protected $fillable = [
-        'id_mascota',
         'fecha',
         'tipo',
         'archivo',
+        'mascotas_id',
         'deleted_at'
     ];
 
     public function mascota()
     {
-        return $this->belongsTo(Mascota::class, 'id_mascota', 'id');
+        return $this->belongsTo(Mascota::class, 'mascotas_id', 'id');
     }
 
 }

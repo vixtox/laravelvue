@@ -18,14 +18,17 @@ import FichaMascota from './components/FichaMascota.vue';
 import NuevaVisita from './components/NuevaVisita.vue';
 import ListarVisitas from './components/ListarVisitas.vue';
 import FichaVisita from './components/FichaVisita.vue';
+import NuevoHemograma from './components/NuevoHemograma.vue';
+import NuevaBioquimica from './components/NuevaBioquimica.vue';
+import ListarPruebas from './components/ListarPruebas.vue';
 
 Vue.use(VueRouter);
 
 const routes = [
     {
         path: '/',
-        name: 'ExampleComponent',
-        component: ExampleComponent,
+        name: 'ListarMascotas',
+        component: ListarMascotas,
         meta: {
             requiresAuth: true
         }
@@ -125,6 +128,30 @@ const routes = [
         path: '/fichavisita/:id',
         name: 'FichaVisita',
         component: FichaVisita,
+        meta: {
+            requiresAuth: true
+        }
+    },
+    {
+        path: '/nuevohemograma/:id',
+        name: 'NuevoHemograma',
+        component: NuevoHemograma,
+        meta: {
+            requiresAuth: true
+        }
+    },
+    {
+        path: '/nuevabioquimica/:id',
+        name: 'NuevaBioquimica',
+        component: NuevaBioquimica,
+        meta: {
+            requiresAuth: true
+        }
+    },
+    {
+        path: '/listarpruebas/:id',
+        name: 'ListarPruebas',
+        component: ListarPruebas,
         meta: {
             requiresAuth: true
         }

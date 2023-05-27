@@ -150,7 +150,7 @@
 
                 <div class="btn-group w-100" role="group" aria-label="">
                     <button type="submit" class="btn btn-success" title="Alta empleado">
-                        <i class="fa-solid fa-user-plus" style="color: #ffffff;"></i> Alta empleado
+                        <i class="fa-solid fa-user-plus"></i> Alta empleado
                     </button>
 
                     <router-link :to="{ name: 'ListarEmpleados' }" class="btn btn-warning" title="Volver">
@@ -258,7 +258,7 @@ export default {
             month = month < 10 ? '0' + month : month;
             day = day < 10 ? '0' + day : day;
 
-            return `${year}-${month}-${day}`;
+            return year + '-' + month + '-' + day;
         },
 
     },

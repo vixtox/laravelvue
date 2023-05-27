@@ -17,10 +17,6 @@
                                 <label><b>Mascota:</b></label>
                                 <span class="form-control bg-secondary">{{ mascota.nombre }}</span>
                             </div>
-                            <!-- <div class="col-md-3 col-sm-6">
-                                <label><b>Propietario:</b></label>
-                                <span class="form-control bg-secondary">{{ cliente.nombre_apellidos }}</span>
-                            </div> -->
                             <div class="col-md-4 col-sm-6">
                                 <label for="fecha_visita"><b><span class="text-danger">* </span>Fecha visita:</b></label>
                                 <input type="date" class="form-control" name="fecha_visita" :max="maxDate"
@@ -93,7 +89,7 @@
 
                 <div class="btn-group w-100" role="group" aria-label="">
                     <button type="submit" class="btn btn-success" title="Nueva visita">
-                        <i class="fa fa-clinic-medical"></i> Nueva visita
+                        <i class="fas fa-calendar-plus"></i> Nueva visita
                     </button>
 
                     <router-link :to="{ name: 'ListarVisitas' }" class="btn btn-warning" title="Volver">
@@ -212,7 +208,7 @@ export default {
             month = month < 10 ? '0' + month : month;
             day = day < 10 ? '0' + day : day;
 
-            return `${year}-${month}-${day}`;
+            return year + '-' + month + '-' + day;
         },
 
     },

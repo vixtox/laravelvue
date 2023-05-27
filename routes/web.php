@@ -10,6 +10,7 @@ use App\Http\Controllers\MunicipioController;
 use App\Http\Controllers\RazaController;
 use App\Http\Controllers\MascotaController;
 use App\Http\Controllers\VisitaController;
+use App\Http\Controllers\HemogramaController;
 
 // RUTAS PAGINA OFICIAL DVAPP
 Route::get('/', function () {
@@ -59,6 +60,8 @@ Route::middleware(['user'])->group(function () {
     Route::get('/visitas/listavisitas/{mascotas_id}', [VisitaController::class, 'mostrarVisitasMascota']);
     Route::resource('/visitas', VisitaController::class)->except(['create', 'edit']);
     Route::post('/enviarcorreo/{id}', [VisitaController::class, 'enviarCorreo'])->name('enviarCorreo');
+    //RUTAS HEMOGRAMA
+    Route::resource('/hemogramas', HemogramaController::class)->except(['create', 'edit']);
 
     // RUTAS VETERINARIO
     Route::get('/empleados/listar_veterinarios', [EmpleadoController::class, 'listar_veterinarios']);

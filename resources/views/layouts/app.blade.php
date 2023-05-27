@@ -48,11 +48,11 @@
         }
 
         .logo {
-            padding-left: 2%;
+            padding-left: 1%;
         }
 
         .iconos {
-            padding: 0%;
+            padding-left: 1%;
         }
 
         .menu {
@@ -70,22 +70,23 @@
 
         .gris {
             background-color: #f2f2f2;
-            /* Color de fondo gris claro */
         }
 
         h2 {
             text-align: center;
         }
+
+        @media (max-width: 700px) {
+        .iconos {
+            display: none;
+        }
+    }
     </style>
 
     <title>@yield('title')</title>
 </head>
 
 <body>
-
-    <div>
-        @yield('mensaje')
-    </div>
 
     <div id="app">
         @yield('contenido')

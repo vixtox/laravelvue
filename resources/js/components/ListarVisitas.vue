@@ -31,7 +31,8 @@
                                 <td>{{ visita.veterinario }}</td>
                                 <td>
                                     <button class="btn btn-danger" @click="borrarVisita(visita.id)" title="Eliminar visita">
-                                        <i class="fa-solid fa-user-xmark"></i></button>
+                                        <i class="fas fa-calendar-minus"></i>
+                                    </button>
                                     <router-link :to="{ name: 'FichaVisita', params: { id: visita.id } }"
                                         class="btn btn-info" title="Ver detalles"><i class="fa-solid fa-eye"
                                             style="color: #ffffff;"></i></router-link>
@@ -116,7 +117,7 @@ export default {
                         });
                     swalWithBootstrapButtons.fire(
                         'Eliminado!',
-                        'La mascota se ha eliminado correctamente.',
+                        'La visita se ha eliminado correctamente.',
                         'success'
                     )
                 } else if (
@@ -125,7 +126,7 @@ export default {
                 ) {
                     swalWithBootstrapButtons.fire(
                         'Cancelado',
-                        'La mascota no se ha eliminado',
+                        'La visita no se ha eliminado',
                         'error'
                     )
                 }
@@ -165,13 +166,20 @@ export default {
             // Llamada a la API para enviar el correo
             axios.post('enviarcorreo/' + id)
                 .then(response => {
-                    // El correo se envió correctamente
-                    alert('El correo se envió correctamente');
+                    Swal.fire({
+                        position: 'center',
+                        icon: 'success',
+                        title: 'El correo se envio correctamente',
+                        showConfirmButton: false,
+                        timer: 1500
+                    })
                 })
                 .catch(error => {
-                    // Ocurrió un error al enviar el correo
-                    console.error(error);
-                    alert('Ocurrió un error al enviar el correo');
+                    Swal.fire({
+                        icon: 'error',
+                        title: 'Oops...',
+                        text: 'El correo no se ha enviado'
+                    })
                 });
         }
 

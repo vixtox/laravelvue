@@ -8,7 +8,7 @@
             <form v-on:submit.prevent="editarVisita">
                 <div class="card">
                     <div class="btn-group w-100" role="group" aria-label="">
-                        <router-link :to="{ name: 'NuevaVisita' }" class="btn btn-success w-100" title="Nueva Visita">
+                        <router-link :to="{ name: 'NuevaVisita' }" class="btn btn-success w-100" title="Nueva visita">
                             <i class="fas fa-calendar-plus"></i> Nueva visita</router-link>
                     </div>
                     <div class="card-header">
@@ -83,11 +83,39 @@
                     </div>
                 </div>
 
+                <div class="card">
+                    <div class="card-header">
+                        <h5 class="card-title">Consultar/adjuntar pruebas</h5>
+                    </div>
+                    <div class="card-body">
+                        <div class="row">
+                            <div class="col-md-4">
+                                <router-link :to="{ name: 'NuevoHemograma', params: { id: visita.mascotas_id } }"
+                                    class="btn btn-success w-100" title="Añadir hemograma">
+                                    <i class="fas fa-syringe"></i> Añadir hemograma</router-link>
+                            </div>
+                            <div class="col-md-4">
+                                <router-link :to="{ name: 'ListarPruebas', params: { id: visita.mascotas_id } }"
+                                    class="btn btn-info w-100" title="Listar pruebas">
+                                    <i class="fas fa-eye"></i> Listar pruebas</router-link>
+                            </div>
+                            <div class="col-md-4">
+                                <router-link :to="{ name: 'NuevaBioquimica', params: { id: visita.mascotas_id } }"
+                                    class="btn btn-success w-100" title="Añadir bioquímica">
+                                    <i class="fas fa-vial"></i> Añadir bioquímica</router-link>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <br>
+
+
                 <div class="btn-group w-100" role="group" aria-label="">
                     <button type="submit" class="btn btn-success" title="Guardar">
                         <i class="fa fa-save"></i> Guardar
                     </button>
-                    <router-link :to="{ name: 'ListarVisitas', params: { id: visita.mascotas_id} }" class="btn btn-warning" title="Volver">
+                    <router-link :to="{ name: 'ListarVisitas', params: { id: visita.mascotas_id } }" class="btn btn-warning"
+                        title="Volver">
                         <i class="bi bi-arrow-return-left fw-bold"></i>
                     </router-link>
                 </div>
@@ -190,7 +218,7 @@ export default {
             month = month < 10 ? '0' + month : month;
             day = day < 10 ? '0' + day : day;
 
-            return `${year}-${month}-${day}`;
+            return year + '-' + month + '-' + day;
         },
 
 

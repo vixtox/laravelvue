@@ -265,7 +265,7 @@ export default {
             month = month < 10 ? '0' + month : month;
             day = day < 10 ? '0' + day : day;
 
-            return `${year}-${month}-${day}`;
+            return year + '-' + month + '-' + day;
         },
 
     },

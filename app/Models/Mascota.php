@@ -26,12 +26,12 @@ class Mascota extends Model
         'razas_id',
         'updated_at',
     ];
-    
+
     public function especie()
     {
         return $this->belongsTo(Especie::class, 'especie_id');
     }
-    
+
     public function raza()
     {
         return $this->belongsTo(Raza::class, 'razas_id');
@@ -42,4 +42,8 @@ class Mascota extends Model
         return $this->belongsTo(Cliente::class, 'cliente_id');
     }
 
+    public function hemogramas()
+    {
+        return $this->hasMany(Hemograma::class, 'mascotas_id');
+    }
 }

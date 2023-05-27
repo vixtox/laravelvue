@@ -6,9 +6,9 @@ use App\Models\Visita;
 use App\Models\Mascota;
 use App\Models\Cliente;
 use App\Http\Requests\VisitaRequest;
-use Barryvdh\DomPDF\Facade as PDF;
 use Illuminate\Support\Facades\Mail;
 use Illuminate\Mail\Message;
+use PDF;
 
 class VisitaController extends Controller
 {
@@ -157,8 +157,8 @@ class VisitaController extends Controller
         $pdf = PDF::loadView('auth.visitaspdf', compact('visita', 'mascota', 'cliente'));
         $pdf_content = $pdf->output();
         $subject = "Visita $mascota->nombre $visita->fecha_visita";
-        $subject = 'Mensaje prueba';
-        $to = 'victormartinezdominguez84@gmail.com';
+        $subject = 'Don Can: visita de ' . $mascota->nombre;;
+        $to = $cliente->email;
         $body = 'Gracias por visitar nuestra clínica, le adjuntamos documento de la visita';
 
         Mail::raw($body, function (Message $message) use ($to, $subject, $pdf_content) {
@@ -166,6 +166,5 @@ class VisitaController extends Controller
                 ->subject($subject)
                 ->attachData($pdf_content, 'visita.pdf');
         });
-        session()->flash('message', 'El mensaje ha sido enviado correctamente.');
     }
 }
