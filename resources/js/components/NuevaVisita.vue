@@ -124,7 +124,6 @@ export default {
             errores: {},
             veterinarios: [],
             mascota: {},
-            // cliente: {},
         };
     },
 
@@ -143,21 +142,10 @@ export default {
                 const response = await axios.get('mascotas/' + this.$route.params.id);
                 console.log(response.data); // Agregar esta línea para depurar
                 this.mascota = response.data;
-                // await this.obtenerPropietario();
             } catch (error) {
                 console.error(error);
             }
         },
-
-        // async obtenerPropietario() {
-        //     try {
-        //         const response = await axios.get('clientes/' + this.mascota.cliente_id);
-        //         console.log(response.data); // Agregar esta línea para depurar
-        //         this.cliente = response.data;
-        //     } catch (error) {
-        //         console.error(error);
-        //     }
-        // },
 
         // Inserta en la base de datos
         async altaVisita() {

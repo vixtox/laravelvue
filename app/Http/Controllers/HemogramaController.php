@@ -2,7 +2,8 @@
 
 namespace App\Http\Controllers;
 
-use Illuminate\Http\Request;
+use App\Models\Hemograma;
+use App\Http\Requests\HemogramaRequest;
 
 class HemogramaController extends Controller
 {
@@ -32,9 +33,9 @@ class HemogramaController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(Request $request)
+    public function store(HemogramaRequest $request)
     {
-        //
+        Hemograma::create($request->all());
     }
 
     /**
@@ -66,7 +67,7 @@ class HemogramaController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, $id)
+    public function update(HemogramaRequest $request, $id)
     {
         //
     }

@@ -92,14 +92,14 @@ const routes = [
             requiresAuth: true
         }
     },
-    {
-        path: '/listarmascotas',
-        name: 'ListarMascotas',
-        component: ListarMascotas,
-        meta: {
-            requiresAuth: true
-        }
-    },
+    // {
+    //     path: '/listarmascotas',
+    //     name: 'ListarMascotas',
+    //     component: ListarMascotas,
+    //     meta: {
+    //         requiresAuth: true
+    //     }
+    // },
     {
         path: '/fichamascota/:id',
         name: 'FichaMascota',

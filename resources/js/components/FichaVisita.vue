@@ -152,7 +152,6 @@ export default {
     },
 
     created() {
-        // this.obtenerMascota();
         this.obtenerInformacionID(this.id);
         const token = document.querySelector('meta[name="csrf-token"]');
         if (token) {
