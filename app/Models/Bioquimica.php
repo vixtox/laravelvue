@@ -6,23 +6,31 @@ use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\SoftDeletes;
 use Illuminate\Database\Eloquent\Model;
 
-class Hemograma extends Model
+class Bioquimica extends Model
 {
     use HasFactory, SoftDeletes;
 
     protected $fillable = [
-        'hematocrito',
-        'hemoglobina',
-        'g_rojo',
-        'vcm',
-        'hcm',
-        'chcm',
-        'reticulocitos',
-        'eosinofilos',
-        'linfocitos',
-        'monocitos',
-        'leucocitos',
-        'plaquetas',
+        'urea',
+        'creatinina',
+        'glucosa',
+        'proteinas',
+        'albumina',
+        'bilirrubina',
+        'alp',
+        'gpt',
+        'fosforo',
+        'calcio',
+        'colesterol',
+        'trigliceridos',
+        'lipidos',
+        'cpk',
+        'amilasa',
+        'lipasa',
+        'sodio',
+        'potasio',
+        'cloro',
+        't4',
         'fecha',
         'animal',
         'mascotas_id',
@@ -38,4 +46,5 @@ class Hemograma extends Model
     {
         return $this->belongsTo(Visita::class, 'visita_id');
     }
+
 }

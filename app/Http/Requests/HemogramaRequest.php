@@ -39,6 +39,7 @@ class HemogramaRequest extends FormRequest
             'fecha' => ['required'],
             'animal' => ['required'],
             'mascotas_id' => ['required'],
+            'visita_id' => ['required'],
         ];
     }
 
@@ -60,6 +61,7 @@ class HemogramaRequest extends FormRequest
             'fecha.required' => 'Fecha requerida',
             'animal.required' => 'Animal requerido',
             'mascotas_id.required' => 'Mascotas_id requerida',
+            'visita_id.required' => 'Visita_id requerida',
         ];
     }
 }

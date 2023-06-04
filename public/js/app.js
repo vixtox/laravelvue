@@ -5809,25 +5809,6 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
 
 /***/ }),
 
-/***/ "./node_modules/babel-loader/lib/index.js??clonedRuleSet-5.use[0]!./node_modules/vue-loader/lib/index.js??vue-loader-options!./resources/js/components/ExampleComponent.vue?vue&type=script&lang=js&":
-/*!***********************************************************************************************************************************************************************************************************!*\
-  !*** ./node_modules/babel-loader/lib/index.js??clonedRuleSet-5.use[0]!./node_modules/vue-loader/lib/index.js??vue-loader-options!./resources/js/components/ExampleComponent.vue?vue&type=script&lang=js& ***!
-  \***********************************************************************************************************************************************************************************************************/
-/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
-
-"use strict";
-__webpack_require__.r(__webpack_exports__);
-/* harmony export */ __webpack_require__.d(__webpack_exports__, {
-/* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
-/* harmony export */ });
-/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ({
-  mounted: function mounted() {
-    console.log('Component mounted.');
-  }
-});
-
-/***/ }),
-
 /***/ "./node_modules/babel-loader/lib/index.js??clonedRuleSet-5.use[0]!./node_modules/vue-loader/lib/index.js??vue-loader-options!./resources/js/components/FichaCliente.vue?vue&type=script&lang=js&":
 /*!*******************************************************************************************************************************************************************************************************!*\
   !*** ./node_modules/babel-loader/lib/index.js??clonedRuleSet-5.use[0]!./node_modules/vue-loader/lib/index.js??vue-loader-options!./resources/js/components/FichaCliente.vue?vue&type=script&lang=js& ***!
@@ -6213,6 +6194,95 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
 
 /***/ }),
 
+/***/ "./node_modules/babel-loader/lib/index.js??clonedRuleSet-5.use[0]!./node_modules/vue-loader/lib/index.js??vue-loader-options!./resources/js/components/FichaHemograma.vue?vue&type=script&lang=js&":
+/*!*********************************************************************************************************************************************************************************************************!*\
+  !*** ./node_modules/babel-loader/lib/index.js??clonedRuleSet-5.use[0]!./node_modules/vue-loader/lib/index.js??vue-loader-options!./resources/js/components/FichaHemograma.vue?vue&type=script&lang=js& ***!
+  \*********************************************************************************************************************************************************************************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
+/* harmony export */ });
+/* harmony import */ var axios__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! axios */ "./node_modules/axios/index.js");
+/* harmony import */ var axios__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(axios__WEBPACK_IMPORTED_MODULE_0__);
+/* harmony import */ var sweetalert2__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! sweetalert2 */ "./node_modules/sweetalert2/dist/sweetalert2.all.js");
+/* harmony import */ var sweetalert2__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(sweetalert2__WEBPACK_IMPORTED_MODULE_1__);
+function _typeof(obj) { "@babel/helpers - typeof"; return _typeof = "function" == typeof Symbol && "symbol" == typeof Symbol.iterator ? function (obj) { return typeof obj; } : function (obj) { return obj && "function" == typeof Symbol && obj.constructor === Symbol && obj !== Symbol.prototype ? "symbol" : typeof obj; }, _typeof(obj); }
+function _regeneratorRuntime() { "use strict"; /*! regenerator-runtime -- Copyright (c) 2014-present, Facebook, Inc. -- license (MIT): https://github.com/facebook/regenerator/blob/main/LICENSE */ _regeneratorRuntime = function _regeneratorRuntime() { return exports; }; var exports = {}, Op = Object.prototype, hasOwn = Op.hasOwnProperty, defineProperty = Object.defineProperty || function (obj, key, desc) { obj[key] = desc.value; }, $Symbol = "function" == typeof Symbol ? Symbol : {}, iteratorSymbol = $Symbol.iterator || "@@iterator", asyncIteratorSymbol = $Symbol.asyncIterator || "@@asyncIterator", toStringTagSymbol = $Symbol.toStringTag || "@@toStringTag"; function define(obj, key, value) { return Object.defineProperty(obj, key, { value: value, enumerable: !0, configurable: !0, writable: !0 }), obj[key]; } try { define({}, ""); } catch (err) { define = function define(obj, key, value) { return obj[key] = value; }; } function wrap(innerFn, outerFn, self, tryLocsList) { var protoGenerator = outerFn && outerFn.prototype instanceof Generator ? outerFn : Generator, generator = Object.create(protoGenerator.prototype), context = new Context(tryLocsList || []); return defineProperty(generator, "_invoke", { value: makeInvokeMethod(innerFn, self, context) }), generator; } function tryCatch(fn, obj, arg) { try { return { type: "normal", arg: fn.call(obj, arg) }; } catch (err) { return { type: "throw", arg: err }; } } exports.wrap = wrap; var ContinueSentinel = {}; function Generator() {} function GeneratorFunction() {} function GeneratorFunctionPrototype() {} var IteratorPrototype = {}; define(IteratorPrototype, iteratorSymbol, function () { return this; }); var getProto = Object.getPrototypeOf, NativeIteratorPrototype = getProto && getProto(getProto(values([]))); NativeIteratorPrototype && NativeIteratorPrototype !== Op && hasOwn.call(NativeIteratorPrototype, iteratorSymbol) && (IteratorPrototype = NativeIteratorPrototype); var Gp = GeneratorFunctionPrototype.prototype = Generator.prototype = Object.create(IteratorPrototype); function defineIteratorMethods(prototype) { ["next", "throw", "return"].forEach(function (method) { define(prototype, method, function (arg) { return this._invoke(method, arg); }); }); } function AsyncIterator(generator, PromiseImpl) { function invoke(method, arg, resolve, reject) { var record = tryCatch(generator[method], generator, arg); if ("throw" !== record.type) { var result = record.arg, value = result.value; return value && "object" == _typeof(value) && hasOwn.call(value, "__await") ? PromiseImpl.resolve(value.__await).then(function (value) { invoke("next", value, resolve, reject); }, function (err) { invoke("throw", err, resolve, reject); }) : PromiseImpl.resolve(value).then(function (unwrapped) { result.value = unwrapped, resolve(result); }, function (error) { return invoke("throw", error, resolve, reject); }); } reject(record.arg); } var previousPromise; defineProperty(this, "_invoke", { value: function value(method, arg) { function callInvokeWithMethodAndArg() { return new PromiseImpl(function (resolve, reject) { invoke(method, arg, resolve, reject); }); } return previousPromise = previousPromise ? previousPromise.then(callInvokeWithMethodAndArg, callInvokeWithMethodAndArg) : callInvokeWithMethodAndArg(); } }); } function makeInvokeMethod(innerFn, self, context) { var state = "suspendedStart"; return function (method, arg) { if ("executing" === state) throw new Error("Generator is already running"); if ("completed" === state) { if ("throw" === method) throw arg; return doneResult(); } for (context.method = method, context.arg = arg;;) { var delegate = context.delegate; if (delegate) { var delegateResult = maybeInvokeDelegate(delegate, context); if (delegateResult) { if (delegateResult === ContinueSentinel) continue; return delegateResult; } } if ("next" === context.method) context.sent = context._sent = context.arg;else if ("throw" === context.method) { if ("suspendedStart" === state) throw state = "completed", context.arg; context.dispatchException(context.arg); } else "return" === context.method && context.abrupt("return", context.arg); state = "executing"; var record = tryCatch(innerFn, self, context); if ("normal" === record.type) { if (state = context.done ? "completed" : "suspendedYield", record.arg === ContinueSentinel) continue; return { value: record.arg, done: context.done }; } "throw" === record.type && (state = "completed", context.method = "throw", context.arg = record.arg); } }; } function maybeInvokeDelegate(delegate, context) { var methodName = context.method, method = delegate.iterator[methodName]; if (undefined === method) return context.delegate = null, "throw" === methodName && delegate.iterator["return"] && (context.method = "return", context.arg = undefined, maybeInvokeDelegate(delegate, context), "throw" === context.method) || "return" !== methodName && (context.method = "throw", context.arg = new TypeError("The iterator does not provide a '" + methodName + "' method")), ContinueSentinel; var record = tryCatch(method, delegate.iterator, context.arg); if ("throw" === record.type) return context.method = "throw", context.arg = record.arg, context.delegate = null, ContinueSentinel; var info = record.arg; return info ? info.done ? (context[delegate.resultName] = info.value, context.next = delegate.nextLoc, "return" !== context.method && (context.method = "next", context.arg = undefined), context.delegate = null, ContinueSentinel) : info : (context.method = "throw", context.arg = new TypeError("iterator result is not an object"), context.delegate = null, ContinueSentinel); } function pushTryEntry(locs) { var entry = { tryLoc: locs[0] }; 1 in locs && (entry.catchLoc = locs[1]), 2 in locs && (entry.finallyLoc = locs[2], entry.afterLoc = locs[3]), this.tryEntries.push(entry); } function resetTryEntry(entry) { var record = entry.completion || {}; record.type = "normal", delete record.arg, entry.completion = record; } function Context(tryLocsList) { this.tryEntries = [{ tryLoc: "root" }], tryLocsList.forEach(pushTryEntry, this), this.reset(!0); } function values(iterable) { if (iterable) { var iteratorMethod = iterable[iteratorSymbol]; if (iteratorMethod) return iteratorMethod.call(iterable); if ("function" == typeof iterable.next) return iterable; if (!isNaN(iterable.length)) { var i = -1, next = function next() { for (; ++i < iterable.length;) if (hasOwn.call(iterable, i)) return next.value = iterable[i], next.done = !1, next; return next.value = undefined, next.done = !0, next; }; return next.next = next; } } return { next: doneResult }; } function doneResult() { return { value: undefined, done: !0 }; } return GeneratorFunction.prototype = GeneratorFunctionPrototype, defineProperty(Gp, "constructor", { value: GeneratorFunctionPrototype, configurable: !0 }), defineProperty(GeneratorFunctionPrototype, "constructor", { value: GeneratorFunction, configurable: !0 }), GeneratorFunction.displayName = define(GeneratorFunctionPrototype, toStringTagSymbol, "GeneratorFunction"), exports.isGeneratorFunction = function (genFun) { var ctor = "function" == typeof genFun && genFun.constructor; return !!ctor && (ctor === GeneratorFunction || "GeneratorFunction" === (ctor.displayName || ctor.name)); }, exports.mark = function (genFun) { return Object.setPrototypeOf ? Object.setPrototypeOf(genFun, GeneratorFunctionPrototype) : (genFun.__proto__ = GeneratorFunctionPrototype, define(genFun, toStringTagSymbol, "GeneratorFunction")), genFun.prototype = Object.create(Gp), genFun; }, exports.awrap = function (arg) { return { __await: arg }; }, defineIteratorMethods(AsyncIterator.prototype), define(AsyncIterator.prototype, asyncIteratorSymbol, function () { return this; }), exports.AsyncIterator = AsyncIterator, exports.async = function (innerFn, outerFn, self, tryLocsList, PromiseImpl) { void 0 === PromiseImpl && (PromiseImpl = Promise); var iter = new AsyncIterator(wrap(innerFn, outerFn, self, tryLocsList), PromiseImpl); return exports.isGeneratorFunction(outerFn) ? iter : iter.next().then(function (result) { return result.done ? result.value : iter.next(); }); }, defineIteratorMethods(Gp), define(Gp, toStringTagSymbol, "Generator"), define(Gp, iteratorSymbol, function () { return this; }), define(Gp, "toString", function () { return "[object Generator]"; }), exports.keys = function (val) { var object = Object(val), keys = []; for (var key in object) keys.push(key); return keys.reverse(), function next() { for (; keys.length;) { var key = keys.pop(); if (key in object) return next.value = key, next.done = !1, next; } return next.done = !0, next; }; }, exports.values = values, Context.prototype = { constructor: Context, reset: function reset(skipTempReset) { if (this.prev = 0, this.next = 0, this.sent = this._sent = undefined, this.done = !1, this.delegate = null, this.method = "next", this.arg = undefined, this.tryEntries.forEach(resetTryEntry), !skipTempReset) for (var name in this) "t" === name.charAt(0) && hasOwn.call(this, name) && !isNaN(+name.slice(1)) && (this[name] = undefined); }, stop: function stop() { this.done = !0; var rootRecord = this.tryEntries[0].completion; if ("throw" === rootRecord.type) throw rootRecord.arg; return this.rval; }, dispatchException: function dispatchException(exception) { if (this.done) throw exception; var context = this; function handle(loc, caught) { return record.type = "throw", record.arg = exception, context.next = loc, caught && (context.method = "next", context.arg = undefined), !!caught; } for (var i = this.tryEntries.length - 1; i >= 0; --i) { var entry = this.tryEntries[i], record = entry.completion; if ("root" === entry.tryLoc) return handle("end"); if (entry.tryLoc <= this.prev) { var hasCatch = hasOwn.call(entry, "catchLoc"), hasFinally = hasOwn.call(entry, "finallyLoc"); if (hasCatch && hasFinally) { if (this.prev < entry.catchLoc) return handle(entry.catchLoc, !0); if (this.prev < entry.finallyLoc) return handle(entry.finallyLoc); } else if (hasCatch) { if (this.prev < entry.catchLoc) return handle(entry.catchLoc, !0); } else { if (!hasFinally) throw new Error("try statement without catch or finally"); if (this.prev < entry.finallyLoc) return handle(entry.finallyLoc); } } } }, abrupt: function abrupt(type, arg) { for (var i = this.tryEntries.length - 1; i >= 0; --i) { var entry = this.tryEntries[i]; if (entry.tryLoc <= this.prev && hasOwn.call(entry, "finallyLoc") && this.prev < entry.finallyLoc) { var finallyEntry = entry; break; } } finallyEntry && ("break" === type || "continue" === type) && finallyEntry.tryLoc <= arg && arg <= finallyEntry.finallyLoc && (finallyEntry = null); var record = finallyEntry ? finallyEntry.completion : {}; return record.type = type, record.arg = arg, finallyEntry ? (this.method = "next", this.next = finallyEntry.finallyLoc, ContinueSentinel) : this.complete(record); }, complete: function complete(record, afterLoc) { if ("throw" === record.type) throw record.arg; return "break" === record.type || "continue" === record.type ? this.next = record.arg : "return" === record.type ? (this.rval = this.arg = record.arg, this.method = "return", this.next = "end") : "normal" === record.type && afterLoc && (this.next = afterLoc), ContinueSentinel; }, finish: function finish(finallyLoc) { for (var i = this.tryEntries.length - 1; i >= 0; --i) { var entry = this.tryEntries[i]; if (entry.finallyLoc === finallyLoc) return this.complete(entry.completion, entry.afterLoc), resetTryEntry(entry), ContinueSentinel; } }, "catch": function _catch(tryLoc) { for (var i = this.tryEntries.length - 1; i >= 0; --i) { var entry = this.tryEntries[i]; if (entry.tryLoc === tryLoc) { var record = entry.completion; if ("throw" === record.type) { var thrown = record.arg; resetTryEntry(entry); } return thrown; } } throw new Error("illegal catch attempt"); }, delegateYield: function delegateYield(iterable, resultName, nextLoc) { return this.delegate = { iterator: values(iterable), resultName: resultName, nextLoc: nextLoc }, "next" === this.method && (this.arg = undefined), ContinueSentinel; } }, exports; }
+function asyncGeneratorStep(gen, resolve, reject, _next, _throw, key, arg) { try { var info = gen[key](arg); var value = info.value; } catch (error) { reject(error); return; } if (info.done) { resolve(value); } else { Promise.resolve(value).then(_next, _throw); } }
+function _asyncToGenerator(fn) { return function () { var self = this, args = arguments; return new Promise(function (resolve, reject) { var gen = fn.apply(self, args); function _next(value) { asyncGeneratorStep(gen, resolve, reject, _next, _throw, "next", value); } function _throw(err) { asyncGeneratorStep(gen, resolve, reject, _next, _throw, "throw", err); } _next(undefined); }); }; }
+
+
+/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ({
+  data: function data() {
+    return {
+      hemograma: {
+        hematocrito: null,
+        hemoglobina: null,
+        g_rojo: null,
+        vcm: null,
+        hcm: null,
+        chcm: null,
+        reticulocitos: null,
+        eosinofilos: null,
+        linfocitos: null,
+        monocitos: null,
+        leucocitos: null,
+        plaquetas: null,
+        fecha: "",
+        animal: "perro",
+        mascotas_id: null,
+        visita_id: null
+      },
+      id: 1
+    };
+  },
+  created: function created() {
+    console.log(this.id);
+    this.obtenerInformacionID(this.id);
+    var token = document.querySelector('meta[name="csrf-token"]');
+    if (token) {
+      this.csrfToken = token.content;
+    }
+  },
+  methods: {
+    obtenerInformacionID: function obtenerInformacionID(id) {
+      var _this = this;
+      return _asyncToGenerator( /*#__PURE__*/_regeneratorRuntime().mark(function _callee() {
+        var response;
+        return _regeneratorRuntime().wrap(function _callee$(_context) {
+          while (1) switch (_context.prev = _context.next) {
+            case 0:
+              _context.prev = 0;
+              _context.next = 3;
+              return axios__WEBPACK_IMPORTED_MODULE_0___default().get('hemogramas/' + id);
+            case 3:
+              response = _context.sent;
+              console.log(response.data); // Agregar esta línea para depurar
+              _this.hemograma = response.data;
+              _context.next = 8;
+              return _this.consultar_municipio(false);
+            case 8:
+              _context.next = 13;
+              break;
+            case 10:
+              _context.prev = 10;
+              _context.t0 = _context["catch"](0);
+              console.error(_context.t0);
+            case 13:
+            case "end":
+              return _context.stop();
+          }
+        }, _callee, null, [[0, 10]]);
+      }))();
+    }
+  }
+});
+
+/***/ }),
+
 /***/ "./node_modules/babel-loader/lib/index.js??clonedRuleSet-5.use[0]!./node_modules/vue-loader/lib/index.js??vue-loader-options!./resources/js/components/FichaMascota.vue?vue&type=script&lang=js&":
 /*!*******************************************************************************************************************************************************************************************************!*\
   !*** ./node_modules/babel-loader/lib/index.js??clonedRuleSet-5.use[0]!./node_modules/vue-loader/lib/index.js??vue-loader-options!./resources/js/components/FichaMascota.vue?vue&type=script&lang=js& ***!
@@ -6460,9 +6530,10 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
         tratamiento: "",
         coste: ""
       },
-      errores: {},
-      veterinarios: [],
-      mascota: {},
+      errores: [],
+      mascota: [],
+      hemograma: [],
+      bioquimica: [],
       id: this.$route.params.id
     };
   },
@@ -6487,61 +6558,34 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
             case 3:
               response = _context.sent;
               console.log(response.data); // Agregar esta línea para depurar
-              _this.visita = response.data;
-              _context.next = 8;
-              return _this.obtenerMascota();
-            case 8:
-              _context.next = 13;
+              _this.visita = response.data.visita;
+              _this.mascota = response.data.mascota;
+              _this.hemograma = response.data.hemograma;
+              _this.bioquimica = response.data.bioquimica;
+              _context.next = 14;
               break;
-            case 10:
-              _context.prev = 10;
+            case 11:
+              _context.prev = 11;
               _context.t0 = _context["catch"](0);
               console.error(_context.t0);
-            case 13:
+            case 14:
             case "end":
               return _context.stop();
           }
-        }, _callee, null, [[0, 10]]);
-      }))();
-    },
-    obtenerMascota: function obtenerMascota() {
-      var _this2 = this;
-      return _asyncToGenerator( /*#__PURE__*/_regeneratorRuntime().mark(function _callee2() {
-        var response;
-        return _regeneratorRuntime().wrap(function _callee2$(_context2) {
-          while (1) switch (_context2.prev = _context2.next) {
-            case 0:
-              _context2.prev = 0;
-              _context2.next = 3;
-              return axios__WEBPACK_IMPORTED_MODULE_0___default().get('mascotas/' + _this2.visita.mascotas_id);
-            case 3:
-              response = _context2.sent;
-              console.log(response.data); // Agregar esta línea para depurar
-              _this2.mascota = response.data;
-              _context2.next = 11;
-              break;
-            case 8:
-              _context2.prev = 8;
-              _context2.t0 = _context2["catch"](0);
-              console.error(_context2.t0);
-            case 11:
-            case "end":
-              return _context2.stop();
-          }
-        }, _callee2, null, [[0, 8]]);
+        }, _callee, null, [[0, 11]]);
       }))();
     },
     // Edita mascota en la base de datos
     editarVisita: function editarVisita() {
-      var _this3 = this;
-      return _asyncToGenerator( /*#__PURE__*/_regeneratorRuntime().mark(function _callee3() {
+      var _this2 = this;
+      return _asyncToGenerator( /*#__PURE__*/_regeneratorRuntime().mark(function _callee2() {
         var res;
-        return _regeneratorRuntime().wrap(function _callee3$(_context3) {
-          while (1) switch (_context3.prev = _context3.next) {
+        return _regeneratorRuntime().wrap(function _callee2$(_context2) {
+          while (1) switch (_context2.prev = _context2.next) {
             case 0:
-              console.log(_this3.visita);
-              _context3.next = 3;
-              return axios__WEBPACK_IMPORTED_MODULE_0___default().put('visitas/' + _this3.id, _this3.visita).then(function (response) {
+              console.log(_this2.visita);
+              _context2.next = 3;
+              return axios__WEBPACK_IMPORTED_MODULE_0___default().put('visitas/' + _this2.id, _this2.visita).then(function (response) {
                 sweetalert2__WEBPACK_IMPORTED_MODULE_1___default().fire({
                   position: 'center',
                   icon: 'success',
@@ -6550,7 +6594,7 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
                   timer: 1500
                 });
                 console.log(response);
-                _this3.errores = {};
+                _this2.errores = {};
               })["catch"](function (error) {
                 console.log(error.response);
                 sweetalert2__WEBPACK_IMPORTED_MODULE_1___default().fire({
@@ -6558,15 +6602,15 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
                   title: 'Error actualizar mascota',
                   text: 'Ingresa los campos correctamente'
                 });
-                _this3.errores = error.response.data.errors;
+                _this2.errores = error.response.data.errors;
               });
             case 3:
-              res = _context3.sent;
+              res = _context2.sent;
             case 4:
             case "end":
-              return _context3.stop();
+              return _context2.stop();
           }
-        }, _callee3);
+        }, _callee2);
       }))();
     },
     getCurrentDate: function getCurrentDate() {
@@ -7127,6 +7171,223 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
 
 /***/ }),
 
+/***/ "./node_modules/babel-loader/lib/index.js??clonedRuleSet-5.use[0]!./node_modules/vue-loader/lib/index.js??vue-loader-options!./resources/js/components/NuevaBioquimica.vue?vue&type=script&lang=js&":
+/*!**********************************************************************************************************************************************************************************************************!*\
+  !*** ./node_modules/babel-loader/lib/index.js??clonedRuleSet-5.use[0]!./node_modules/vue-loader/lib/index.js??vue-loader-options!./resources/js/components/NuevaBioquimica.vue?vue&type=script&lang=js& ***!
+  \**********************************************************************************************************************************************************************************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
+/* harmony export */ });
+/* harmony import */ var axios__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! axios */ "./node_modules/axios/index.js");
+/* harmony import */ var axios__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(axios__WEBPACK_IMPORTED_MODULE_0__);
+/* harmony import */ var sweetalert2__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! sweetalert2 */ "./node_modules/sweetalert2/dist/sweetalert2.all.js");
+/* harmony import */ var sweetalert2__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(sweetalert2__WEBPACK_IMPORTED_MODULE_1__);
+function _typeof(obj) { "@babel/helpers - typeof"; return _typeof = "function" == typeof Symbol && "symbol" == typeof Symbol.iterator ? function (obj) { return typeof obj; } : function (obj) { return obj && "function" == typeof Symbol && obj.constructor === Symbol && obj !== Symbol.prototype ? "symbol" : typeof obj; }, _typeof(obj); }
+function _regeneratorRuntime() { "use strict"; /*! regenerator-runtime -- Copyright (c) 2014-present, Facebook, Inc. -- license (MIT): https://github.com/facebook/regenerator/blob/main/LICENSE */ _regeneratorRuntime = function _regeneratorRuntime() { return exports; }; var exports = {}, Op = Object.prototype, hasOwn = Op.hasOwnProperty, defineProperty = Object.defineProperty || function (obj, key, desc) { obj[key] = desc.value; }, $Symbol = "function" == typeof Symbol ? Symbol : {}, iteratorSymbol = $Symbol.iterator || "@@iterator", asyncIteratorSymbol = $Symbol.asyncIterator || "@@asyncIterator", toStringTagSymbol = $Symbol.toStringTag || "@@toStringTag"; function define(obj, key, value) { return Object.defineProperty(obj, key, { value: value, enumerable: !0, configurable: !0, writable: !0 }), obj[key]; } try { define({}, ""); } catch (err) { define = function define(obj, key, value) { return obj[key] = value; }; } function wrap(innerFn, outerFn, self, tryLocsList) { var protoGenerator = outerFn && outerFn.prototype instanceof Generator ? outerFn : Generator, generator = Object.create(protoGenerator.prototype), context = new Context(tryLocsList || []); return defineProperty(generator, "_invoke", { value: makeInvokeMethod(innerFn, self, context) }), generator; } function tryCatch(fn, obj, arg) { try { return { type: "normal", arg: fn.call(obj, arg) }; } catch (err) { return { type: "throw", arg: err }; } } exports.wrap = wrap; var ContinueSentinel = {}; function Generator() {} function GeneratorFunction() {} function GeneratorFunctionPrototype() {} var IteratorPrototype = {}; define(IteratorPrototype, iteratorSymbol, function () { return this; }); var getProto = Object.getPrototypeOf, NativeIteratorPrototype = getProto && getProto(getProto(values([]))); NativeIteratorPrototype && NativeIteratorPrototype !== Op && hasOwn.call(NativeIteratorPrototype, iteratorSymbol) && (IteratorPrototype = NativeIteratorPrototype); var Gp = GeneratorFunctionPrototype.prototype = Generator.prototype = Object.create(IteratorPrototype); function defineIteratorMethods(prototype) { ["next", "throw", "return"].forEach(function (method) { define(prototype, method, function (arg) { return this._invoke(method, arg); }); }); } function AsyncIterator(generator, PromiseImpl) { function invoke(method, arg, resolve, reject) { var record = tryCatch(generator[method], generator, arg); if ("throw" !== record.type) { var result = record.arg, value = result.value; return value && "object" == _typeof(value) && hasOwn.call(value, "__await") ? PromiseImpl.resolve(value.__await).then(function (value) { invoke("next", value, resolve, reject); }, function (err) { invoke("throw", err, resolve, reject); }) : PromiseImpl.resolve(value).then(function (unwrapped) { result.value = unwrapped, resolve(result); }, function (error) { return invoke("throw", error, resolve, reject); }); } reject(record.arg); } var previousPromise; defineProperty(this, "_invoke", { value: function value(method, arg) { function callInvokeWithMethodAndArg() { return new PromiseImpl(function (resolve, reject) { invoke(method, arg, resolve, reject); }); } return previousPromise = previousPromise ? previousPromise.then(callInvokeWithMethodAndArg, callInvokeWithMethodAndArg) : callInvokeWithMethodAndArg(); } }); } function makeInvokeMethod(innerFn, self, context) { var state = "suspendedStart"; return function (method, arg) { if ("executing" === state) throw new Error("Generator is already running"); if ("completed" === state) { if ("throw" === method) throw arg; return doneResult(); } for (context.method = method, context.arg = arg;;) { var delegate = context.delegate; if (delegate) { var delegateResult = maybeInvokeDelegate(delegate, context); if (delegateResult) { if (delegateResult === ContinueSentinel) continue; return delegateResult; } } if ("next" === context.method) context.sent = context._sent = context.arg;else if ("throw" === context.method) { if ("suspendedStart" === state) throw state = "completed", context.arg; context.dispatchException(context.arg); } else "return" === context.method && context.abrupt("return", context.arg); state = "executing"; var record = tryCatch(innerFn, self, context); if ("normal" === record.type) { if (state = context.done ? "completed" : "suspendedYield", record.arg === ContinueSentinel) continue; return { value: record.arg, done: context.done }; } "throw" === record.type && (state = "completed", context.method = "throw", context.arg = record.arg); } }; } function maybeInvokeDelegate(delegate, context) { var methodName = context.method, method = delegate.iterator[methodName]; if (undefined === method) return context.delegate = null, "throw" === methodName && delegate.iterator["return"] && (context.method = "return", context.arg = undefined, maybeInvokeDelegate(delegate, context), "throw" === context.method) || "return" !== methodName && (context.method = "throw", context.arg = new TypeError("The iterator does not provide a '" + methodName + "' method")), ContinueSentinel; var record = tryCatch(method, delegate.iterator, context.arg); if ("throw" === record.type) return context.method = "throw", context.arg = record.arg, context.delegate = null, ContinueSentinel; var info = record.arg; return info ? info.done ? (context[delegate.resultName] = info.value, context.next = delegate.nextLoc, "return" !== context.method && (context.method = "next", context.arg = undefined), context.delegate = null, ContinueSentinel) : info : (context.method = "throw", context.arg = new TypeError("iterator result is not an object"), context.delegate = null, ContinueSentinel); } function pushTryEntry(locs) { var entry = { tryLoc: locs[0] }; 1 in locs && (entry.catchLoc = locs[1]), 2 in locs && (entry.finallyLoc = locs[2], entry.afterLoc = locs[3]), this.tryEntries.push(entry); } function resetTryEntry(entry) { var record = entry.completion || {}; record.type = "normal", delete record.arg, entry.completion = record; } function Context(tryLocsList) { this.tryEntries = [{ tryLoc: "root" }], tryLocsList.forEach(pushTryEntry, this), this.reset(!0); } function values(iterable) { if (iterable) { var iteratorMethod = iterable[iteratorSymbol]; if (iteratorMethod) return iteratorMethod.call(iterable); if ("function" == typeof iterable.next) return iterable; if (!isNaN(iterable.length)) { var i = -1, next = function next() { for (; ++i < iterable.length;) if (hasOwn.call(iterable, i)) return next.value = iterable[i], next.done = !1, next; return next.value = undefined, next.done = !0, next; }; return next.next = next; } } return { next: doneResult }; } function doneResult() { return { value: undefined, done: !0 }; } return GeneratorFunction.prototype = GeneratorFunctionPrototype, defineProperty(Gp, "constructor", { value: GeneratorFunctionPrototype, configurable: !0 }), defineProperty(GeneratorFunctionPrototype, "constructor", { value: GeneratorFunction, configurable: !0 }), GeneratorFunction.displayName = define(GeneratorFunctionPrototype, toStringTagSymbol, "GeneratorFunction"), exports.isGeneratorFunction = function (genFun) { var ctor = "function" == typeof genFun && genFun.constructor; return !!ctor && (ctor === GeneratorFunction || "GeneratorFunction" === (ctor.displayName || ctor.name)); }, exports.mark = function (genFun) { return Object.setPrototypeOf ? Object.setPrototypeOf(genFun, GeneratorFunctionPrototype) : (genFun.__proto__ = GeneratorFunctionPrototype, define(genFun, toStringTagSymbol, "GeneratorFunction")), genFun.prototype = Object.create(Gp), genFun; }, exports.awrap = function (arg) { return { __await: arg }; }, defineIteratorMethods(AsyncIterator.prototype), define(AsyncIterator.prototype, asyncIteratorSymbol, function () { return this; }), exports.AsyncIterator = AsyncIterator, exports.async = function (innerFn, outerFn, self, tryLocsList, PromiseImpl) { void 0 === PromiseImpl && (PromiseImpl = Promise); var iter = new AsyncIterator(wrap(innerFn, outerFn, self, tryLocsList), PromiseImpl); return exports.isGeneratorFunction(outerFn) ? iter : iter.next().then(function (result) { return result.done ? result.value : iter.next(); }); }, defineIteratorMethods(Gp), define(Gp, toStringTagSymbol, "Generator"), define(Gp, iteratorSymbol, function () { return this; }), define(Gp, "toString", function () { return "[object Generator]"; }), exports.keys = function (val) { var object = Object(val), keys = []; for (var key in object) keys.push(key); return keys.reverse(), function next() { for (; keys.length;) { var key = keys.pop(); if (key in object) return next.value = key, next.done = !1, next; } return next.done = !0, next; }; }, exports.values = values, Context.prototype = { constructor: Context, reset: function reset(skipTempReset) { if (this.prev = 0, this.next = 0, this.sent = this._sent = undefined, this.done = !1, this.delegate = null, this.method = "next", this.arg = undefined, this.tryEntries.forEach(resetTryEntry), !skipTempReset) for (var name in this) "t" === name.charAt(0) && hasOwn.call(this, name) && !isNaN(+name.slice(1)) && (this[name] = undefined); }, stop: function stop() { this.done = !0; var rootRecord = this.tryEntries[0].completion; if ("throw" === rootRecord.type) throw rootRecord.arg; return this.rval; }, dispatchException: function dispatchException(exception) { if (this.done) throw exception; var context = this; function handle(loc, caught) { return record.type = "throw", record.arg = exception, context.next = loc, caught && (context.method = "next", context.arg = undefined), !!caught; } for (var i = this.tryEntries.length - 1; i >= 0; --i) { var entry = this.tryEntries[i], record = entry.completion; if ("root" === entry.tryLoc) return handle("end"); if (entry.tryLoc <= this.prev) { var hasCatch = hasOwn.call(entry, "catchLoc"), hasFinally = hasOwn.call(entry, "finallyLoc"); if (hasCatch && hasFinally) { if (this.prev < entry.catchLoc) return handle(entry.catchLoc, !0); if (this.prev < entry.finallyLoc) return handle(entry.finallyLoc); } else if (hasCatch) { if (this.prev < entry.catchLoc) return handle(entry.catchLoc, !0); } else { if (!hasFinally) throw new Error("try statement without catch or finally"); if (this.prev < entry.finallyLoc) return handle(entry.finallyLoc); } } } }, abrupt: function abrupt(type, arg) { for (var i = this.tryEntries.length - 1; i >= 0; --i) { var entry = this.tryEntries[i]; if (entry.tryLoc <= this.prev && hasOwn.call(entry, "finallyLoc") && this.prev < entry.finallyLoc) { var finallyEntry = entry; break; } } finallyEntry && ("break" === type || "continue" === type) && finallyEntry.tryLoc <= arg && arg <= finallyEntry.finallyLoc && (finallyEntry = null); var record = finallyEntry ? finallyEntry.completion : {}; return record.type = type, record.arg = arg, finallyEntry ? (this.method = "next", this.next = finallyEntry.finallyLoc, ContinueSentinel) : this.complete(record); }, complete: function complete(record, afterLoc) { if ("throw" === record.type) throw record.arg; return "break" === record.type || "continue" === record.type ? this.next = record.arg : "return" === record.type ? (this.rval = this.arg = record.arg, this.method = "return", this.next = "end") : "normal" === record.type && afterLoc && (this.next = afterLoc), ContinueSentinel; }, finish: function finish(finallyLoc) { for (var i = this.tryEntries.length - 1; i >= 0; --i) { var entry = this.tryEntries[i]; if (entry.finallyLoc === finallyLoc) return this.complete(entry.completion, entry.afterLoc), resetTryEntry(entry), ContinueSentinel; } }, "catch": function _catch(tryLoc) { for (var i = this.tryEntries.length - 1; i >= 0; --i) { var entry = this.tryEntries[i]; if (entry.tryLoc === tryLoc) { var record = entry.completion; if ("throw" === record.type) { var thrown = record.arg; resetTryEntry(entry); } return thrown; } } throw new Error("illegal catch attempt"); }, delegateYield: function delegateYield(iterable, resultName, nextLoc) { return this.delegate = { iterator: values(iterable), resultName: resultName, nextLoc: nextLoc }, "next" === this.method && (this.arg = undefined), ContinueSentinel; } }, exports; }
+function asyncGeneratorStep(gen, resolve, reject, _next, _throw, key, arg) { try { var info = gen[key](arg); var value = info.value; } catch (error) { reject(error); return; } if (info.done) { resolve(value); } else { Promise.resolve(value).then(_next, _throw); } }
+function _asyncToGenerator(fn) { return function () { var self = this, args = arguments; return new Promise(function (resolve, reject) { var gen = fn.apply(self, args); function _next(value) { asyncGeneratorStep(gen, resolve, reject, _next, _throw, "next", value); } function _throw(err) { asyncGeneratorStep(gen, resolve, reject, _next, _throw, "throw", err); } _next(undefined); }); }; }
+
+
+/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ({
+  data: function data() {
+    return {
+      maxDate: this.getCurrentDate(),
+      bioquimica: {
+        urea: null,
+        creatinina: null,
+        glucosa: null,
+        proteinas: null,
+        albumina: null,
+        bilirrubina: null,
+        alp: null,
+        gpt: null,
+        fosforo: null,
+        calcio: null,
+        colesterol: null,
+        trigliceridos: null,
+        lipidos: null,
+        cpk: null,
+        amilasa: null,
+        lipasa: null,
+        sodio: null,
+        potasio: null,
+        cloro: null,
+        t4: null,
+        fecha: "",
+        animal: "perro",
+        mascotas_id: "",
+        visita_id: this.$route.params.id
+      },
+      change: "gato",
+      mascota: [],
+      cliente: [],
+      visita: [],
+      formularioRelleno: false
+    };
+  },
+  created: function created() {
+    this.obtenerInformacionID();
+    var token = document.querySelector('meta[name="csrf-token"]');
+    if (token) {
+      this.csrfToken = token.content;
+    }
+  },
+  methods: {
+    validarCamposLlenos: function validarCamposLlenos() {
+      var validacion = {
+        urea: this.bioquimica.urea,
+        creatinina: this.bioquimica.creatinina,
+        glucosa: this.bioquimica.glucosa,
+        proteinas: this.bioquimica.proteinas,
+        albumina: this.bioquimica.albumina,
+        bilirrubina: this.bioquimica.bilirrubina,
+        alp: this.bioquimica.alp,
+        gpt: this.bioquimica.gpt,
+        fosforo: this.bioquimica.fosforo,
+        calcio: this.bioquimica.calcio,
+        colesterol: this.bioquimica.colesterol,
+        trigliceridos: this.bioquimica.trigliceridos,
+        lipidos: this.bioquimica.lipidos,
+        cpk: this.bioquimica.cpk,
+        amilasa: this.bioquimica.amilasa,
+        lipasa: this.bioquimica.lipasa,
+        sodio: this.bioquimica.sodio,
+        potasio: this.bioquimica.potasio,
+        cloro: this.bioquimica.cloro,
+        t4: this.bioquimica.t4
+      };
+      // const camposValidacion = Object.values(validacion);
+
+      for (var i = 0; i < validacion.length; i++) {
+        if (camposValidacion[i] !== null) {
+          this.formularioRelleno = true; // Al menos un campo tiene un valor distinto de null
+          return true;
+        }
+      }
+      return false; // Ningún campo tiene un valor distinto de null
+    },
+    obtenerInformacionID: function obtenerInformacionID() {
+      var _this = this;
+      return _asyncToGenerator( /*#__PURE__*/_regeneratorRuntime().mark(function _callee() {
+        var response;
+        return _regeneratorRuntime().wrap(function _callee$(_context) {
+          while (1) switch (_context.prev = _context.next) {
+            case 0:
+              _context.prev = 0;
+              _context.next = 3;
+              return axios__WEBPACK_IMPORTED_MODULE_0___default().get('visitas/bioquimica/' + _this.bioquimica.visita_id);
+            case 3:
+              response = _context.sent;
+              console.log(response.data); // Agregar esta línea para depurar
+              _this.mascota = response.data.mascota;
+              _this.cliente = response.data.cliente;
+              _this.visita = response.data.visita;
+              _context.next = 13;
+              break;
+            case 10:
+              _context.prev = 10;
+              _context.t0 = _context["catch"](0);
+              console.error(_context.t0);
+            case 13:
+            case "end":
+              return _context.stop();
+          }
+        }, _callee, null, [[0, 10]]);
+      }))();
+    },
+    // Inserta en la base de datos
+    agregarBioquimica: function agregarBioquimica() {
+      var _this2 = this;
+      return _asyncToGenerator( /*#__PURE__*/_regeneratorRuntime().mark(function _callee2() {
+        var res;
+        return _regeneratorRuntime().wrap(function _callee2$(_context2) {
+          while (1) switch (_context2.prev = _context2.next) {
+            case 0:
+              _this2.validarCamposLlenos();
+              if (!_this2.formularioRelleno) {
+                _context2.next = 18;
+                break;
+              }
+              _this2.bioquimica.mascotas_id = _this2.mascota.id;
+              _this2.bioquimica.fecha = _this2.visita.fecha_visita;
+              _context2.prev = 4;
+              console.log(_this2.bioquimica);
+              _context2.next = 8;
+              return axios__WEBPACK_IMPORTED_MODULE_0___default().post('bioquimicas', _this2.bioquimica);
+            case 8:
+              res = _context2.sent;
+              sweetalert2__WEBPACK_IMPORTED_MODULE_1___default().fire({
+                position: 'center',
+                icon: 'success',
+                title: 'Bioquímica registrada correctamente',
+                showConfirmButton: false,
+                timer: 1500
+              });
+              _this2.$router.push({
+                name: 'FichaVisita',
+                params: {
+                  id: _this2.bioquimica.visita_id
+                }
+              });
+              _context2.next = 16;
+              break;
+            case 13:
+              _context2.prev = 13;
+              _context2.t0 = _context2["catch"](4);
+              if (_context2.t0.response.data) {
+                sweetalert2__WEBPACK_IMPORTED_MODULE_1___default().fire({
+                  icon: 'error',
+                  title: 'Error registro bioquimica',
+                  text: 'Ingresa los campos correctamente'
+                });
+                _this2.errores = _context2.t0.response.data.errors;
+                console.log(_this2.errores);
+              }
+            case 16:
+              _context2.next = 19;
+              break;
+            case 18:
+              sweetalert2__WEBPACK_IMPORTED_MODULE_1___default().fire({
+                icon: 'error',
+                title: 'Error registro bioquimica',
+                text: 'Ingrese al menos un parámetro'
+              });
+            case 19:
+            case "end":
+              return _context2.stop();
+          }
+        }, _callee2, null, [[4, 13]]);
+      }))();
+    },
+    cambiarAnimal: function cambiarAnimal() {
+      if (this.bioquimica.animal === "perro") {
+        this.bioquimica.animal = "gato";
+        this.change = "perro";
+      } else {
+        this.bioquimica.animal = "perro";
+        this.change = "gato";
+      }
+    },
+    getCurrentDate: function getCurrentDate() {
+      var today = new Date();
+      var year = today.getFullYear();
+      var month = today.getMonth() + 1;
+      var day = today.getDate();
+
+      // Agrega un cero inicial para el mes y el día si es necesario
+      month = month < 10 ? '0' + month : month;
+      day = day < 10 ? '0' + day : day;
+      return year + '-' + month + '-' + day;
+    }
+  }
+});
+
+/***/ }),
+
 /***/ "./node_modules/babel-loader/lib/index.js??clonedRuleSet-5.use[0]!./node_modules/vue-loader/lib/index.js??vue-loader-options!./resources/js/components/NuevaVisita.vue?vue&type=script&lang=js&":
 /*!******************************************************************************************************************************************************************************************************!*\
   !*** ./node_modules/babel-loader/lib/index.js??clonedRuleSet-5.use[0]!./node_modules/vue-loader/lib/index.js??vue-loader-options!./resources/js/components/NuevaVisita.vue?vue&type=script&lang=js& ***!
@@ -7334,26 +7595,69 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
         plaquetas: null,
         fecha: "",
         animal: "perro",
-        mascotas_id: this.$route.params.id
+        mascotas_id: "",
+        visita_id: this.$route.params.id
       },
-      errores: {}
+      errores: {},
+      change: "gato",
+      mascota: [],
+      cliente: [],
+      visita: []
     };
   },
+  created: function created() {
+    this.obtenerInformacionID();
+    var token = document.querySelector('meta[name="csrf-token"]');
+    if (token) {
+      this.csrfToken = token.content;
+    }
+  },
   methods: {
-    // Inserta en la base de datos
-    agregarHemograma: function agregarHemograma() {
+    obtenerInformacionID: function obtenerInformacionID() {
       var _this = this;
       return _asyncToGenerator( /*#__PURE__*/_regeneratorRuntime().mark(function _callee() {
-        var res;
+        var response;
         return _regeneratorRuntime().wrap(function _callee$(_context) {
           while (1) switch (_context.prev = _context.next) {
             case 0:
               _context.prev = 0;
-              console.log(_this.hemograma);
-              _context.next = 4;
-              return axios__WEBPACK_IMPORTED_MODULE_0___default().post('hemogramas', _this.hemograma);
-            case 4:
-              res = _context.sent;
+              _context.next = 3;
+              return axios__WEBPACK_IMPORTED_MODULE_0___default().get('visitas/hemograma/' + _this.hemograma.visita_id);
+            case 3:
+              response = _context.sent;
+              console.log(response.data); // Agregar esta línea para depurar
+              _this.mascota = response.data.mascota;
+              _this.hemograma.mascotas_id = _this.mascota.id;
+              _this.cliente = response.data.cliente;
+              _this.visita = response.data.visita;
+              _context.next = 14;
+              break;
+            case 11:
+              _context.prev = 11;
+              _context.t0 = _context["catch"](0);
+              console.error(_context.t0);
+            case 14:
+            case "end":
+              return _context.stop();
+          }
+        }, _callee, null, [[0, 11]]);
+      }))();
+    },
+    // Inserta en la base de datos
+    agregarHemograma: function agregarHemograma() {
+      var _this2 = this;
+      return _asyncToGenerator( /*#__PURE__*/_regeneratorRuntime().mark(function _callee2() {
+        var res;
+        return _regeneratorRuntime().wrap(function _callee2$(_context2) {
+          while (1) switch (_context2.prev = _context2.next) {
+            case 0:
+              _this2.hemograma.fecha = _this2.visita.fecha_visita;
+              _context2.prev = 1;
+              console.log(_this2.hemograma);
+              _context2.next = 5;
+              return axios__WEBPACK_IMPORTED_MODULE_0___default().post('hemogramas', _this2.hemograma);
+            case 5:
+              res = _context2.sent;
               sweetalert2__WEBPACK_IMPORTED_MODULE_1___default().fire({
                 position: 'center',
                 icon: 'success',
@@ -7361,35 +7665,40 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
                 showConfirmButton: false,
                 timer: 1500
               });
-              _this.$router.push({
-                name: 'ListarMascotas'
+              _this2.$router.push({
+                name: 'FichaVisita',
+                params: {
+                  id: _this2.hemograma.visita_id
+                }
               });
-              _context.next = 12;
+              _context2.next = 13;
               break;
-            case 9:
-              _context.prev = 9;
-              _context.t0 = _context["catch"](0);
-              if (_context.t0.response.data) {
+            case 10:
+              _context2.prev = 10;
+              _context2.t0 = _context2["catch"](1);
+              if (_context2.t0.response.data) {
                 sweetalert2__WEBPACK_IMPORTED_MODULE_1___default().fire({
                   icon: 'error',
                   title: 'Error registro hemograma',
                   text: 'Ingresa los campos correctamente'
                 });
-                _this.errores = _context.t0.response.data.errors;
-                console.log(_this.errores);
+                _this2.errores = _context2.t0.response.data.errors;
+                console.log(_this2.errores);
               }
-            case 12:
+            case 13:
             case "end":
-              return _context.stop();
+              return _context2.stop();
           }
-        }, _callee, null, [[0, 9]]);
+        }, _callee2, null, [[1, 10]]);
       }))();
     },
     cambiarAnimal: function cambiarAnimal() {
       if (this.hemograma.animal === "perro") {
         this.hemograma.animal = "gato";
+        this.change = "perro";
       } else {
         this.hemograma.animal = "perro";
+        this.change = "gato";
       }
     },
     getCurrentDate: function getCurrentDate() {
@@ -9153,50 +9462,6 @@ render._withStripped = true;
 
 /***/ }),
 
-/***/ "./node_modules/babel-loader/lib/index.js??clonedRuleSet-5.use[0]!./node_modules/vue-loader/lib/loaders/templateLoader.js??ruleSet[1].rules[2]!./node_modules/vue-loader/lib/index.js??vue-loader-options!./resources/js/components/ExampleComponent.vue?vue&type=template&id=299e239e&":
-/*!**********************************************************************************************************************************************************************************************************************************************************************************************!*\
-  !*** ./node_modules/babel-loader/lib/index.js??clonedRuleSet-5.use[0]!./node_modules/vue-loader/lib/loaders/templateLoader.js??ruleSet[1].rules[2]!./node_modules/vue-loader/lib/index.js??vue-loader-options!./resources/js/components/ExampleComponent.vue?vue&type=template&id=299e239e& ***!
-  \**********************************************************************************************************************************************************************************************************************************************************************************************/
-/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
-
-"use strict";
-__webpack_require__.r(__webpack_exports__);
-/* harmony export */ __webpack_require__.d(__webpack_exports__, {
-/* harmony export */   "render": () => (/* binding */ render),
-/* harmony export */   "staticRenderFns": () => (/* binding */ staticRenderFns)
-/* harmony export */ });
-var render = function render() {
-  var _vm = this,
-    _c = _vm._self._c;
-  return _vm._m(0);
-};
-var staticRenderFns = [function () {
-  var _vm = this,
-    _c = _vm._self._c;
-  return _c("div", {
-    staticClass: "container"
-  }, [_c("div", {
-    staticClass: "row justify-content-center"
-  }, [_c("div", {
-    staticClass: "col-md-8"
-  }, [_c("div", {
-    staticClass: "card"
-  }, [_c("div", {
-    staticClass: "card-header"
-  }, [_vm._v("Example Component")]), _vm._v(" "), _c("div", {
-    staticClass: "card-body"
-  }, [_vm._v("\n                    I'm an example component.\n                ")])]), _vm._v(" "), _c("img", {
-    attrs: {
-      src: "",
-      alt: ""
-    }
-  })])])]);
-}];
-render._withStripped = true;
-
-
-/***/ }),
-
 /***/ "./node_modules/babel-loader/lib/index.js??clonedRuleSet-5.use[0]!./node_modules/vue-loader/lib/loaders/templateLoader.js??ruleSet[1].rules[2]!./node_modules/vue-loader/lib/index.js??vue-loader-options!./resources/js/components/FichaCliente.vue?vue&type=template&id=b0e553a8&":
 /*!******************************************************************************************************************************************************************************************************************************************************************************************!*\
   !*** ./node_modules/babel-loader/lib/index.js??clonedRuleSet-5.use[0]!./node_modules/vue-loader/lib/loaders/templateLoader.js??ruleSet[1].rules[2]!./node_modules/vue-loader/lib/index.js??vue-loader-options!./resources/js/components/FichaCliente.vue?vue&type=template&id=b0e553a8& ***!
@@ -10252,6 +10517,29 @@ render._withStripped = true;
 
 /***/ }),
 
+/***/ "./node_modules/babel-loader/lib/index.js??clonedRuleSet-5.use[0]!./node_modules/vue-loader/lib/loaders/templateLoader.js??ruleSet[1].rules[2]!./node_modules/vue-loader/lib/index.js??vue-loader-options!./resources/js/components/FichaHemograma.vue?vue&type=template&id=03b4661d&":
+/*!********************************************************************************************************************************************************************************************************************************************************************************************!*\
+  !*** ./node_modules/babel-loader/lib/index.js??clonedRuleSet-5.use[0]!./node_modules/vue-loader/lib/loaders/templateLoader.js??ruleSet[1].rules[2]!./node_modules/vue-loader/lib/index.js??vue-loader-options!./resources/js/components/FichaHemograma.vue?vue&type=template&id=03b4661d& ***!
+  \********************************************************************************************************************************************************************************************************************************************************************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "render": () => (/* binding */ render),
+/* harmony export */   "staticRenderFns": () => (/* binding */ staticRenderFns)
+/* harmony export */ });
+var render = function render() {
+  var _vm = this,
+    _c = _vm._self._c;
+  return _c("div", [_vm._v("\n    ficha hemograma\n")]);
+};
+var staticRenderFns = [];
+render._withStripped = true;
+
+
+/***/ }),
+
 /***/ "./node_modules/babel-loader/lib/index.js??clonedRuleSet-5.use[0]!./node_modules/vue-loader/lib/loaders/templateLoader.js??ruleSet[1].rules[2]!./node_modules/vue-loader/lib/index.js??vue-loader-options!./resources/js/components/FichaMascota.vue?vue&type=template&id=28ec4eea&":
 /*!******************************************************************************************************************************************************************************************************************************************************************************************!*\
   !*** ./node_modules/babel-loader/lib/index.js??clonedRuleSet-5.use[0]!./node_modules/vue-loader/lib/loaders/templateLoader.js??ruleSet[1].rules[2]!./node_modules/vue-loader/lib/index.js??vue-loader-options!./resources/js/components/FichaMascota.vue?vue&type=template&id=28ec4eea& ***!
@@ -11138,52 +11426,67 @@ var render = function render() {
     staticClass: "card-body"
   }, [_c("div", {
     staticClass: "row"
-  }, [_c("div", {
-    staticClass: "col-md-4"
+  }, [!_vm.hemograma || _vm.hemograma.length === 0 ? _c("div", {
+    staticClass: "col-md-6"
   }, [_c("router-link", {
     staticClass: "btn btn-success w-100",
     attrs: {
       to: {
         name: "NuevoHemograma",
         params: {
-          id: _vm.visita.mascotas_id
+          id: _vm.visita.id
         }
       },
       title: "Añadir hemograma"
     }
   }, [_c("i", {
     staticClass: "fas fa-syringe"
-  }), _vm._v(" Añadir hemograma")])], 1), _vm._v(" "), _c("div", {
-    staticClass: "col-md-4"
+  }), _vm._v(" Añadir hemograma")])], 1) : _vm._e(), _vm._v(" "), !_vm.hemograma || _vm.hemograma.length === 1 ? _c("div", {
+    staticClass: "col-md-6"
   }, [_c("router-link", {
     staticClass: "btn btn-info w-100",
     attrs: {
       to: {
-        name: "ListarPruebas",
+        name: "FichaHemograma",
         params: {
-          id: _vm.visita.mascotas_id
+          id: _vm.hemograma.id
         }
       },
-      title: "Listar pruebas"
+      title: "Ficha hemograma"
     }
   }, [_c("i", {
     staticClass: "fas fa-eye"
-  }), _vm._v(" Listar pruebas")])], 1), _vm._v(" "), _c("div", {
-    staticClass: "col-md-4"
+  }), _vm._v(" Hemograma")])], 1) : _vm._e(), _vm._v(" "), !_vm.bioquimica || _vm.bioquimica.length === 0 ? _c("div", {
+    staticClass: "col-md-6"
   }, [_c("router-link", {
     staticClass: "btn btn-success w-100",
     attrs: {
       to: {
         name: "NuevaBioquimica",
         params: {
-          id: _vm.visita.mascotas_id
+          id: _vm.visita.id
         }
       },
       title: "Añadir bioquímica"
     }
   }, [_c("i", {
     staticClass: "fas fa-vial"
-  }), _vm._v(" Añadir bioquímica")])], 1)])])]), _vm._v(" "), _c("br"), _vm._v(" "), _c("div", {
+  }), _vm._v(" Añadir bioquímica")])], 1) : _vm._e(), _vm._v(" "), !_vm.bioquimica || _vm.bioquimica.length === 1 ? _c("div", {
+    staticClass: "col-md-6"
+  }, [_c("router-link", {
+    staticClass: "btn btn-info w-100",
+    attrs: {
+      to: {
+        name: "FichaBioquimica",
+        params: {
+          id: _vm.bioquimica.id
+        }
+      },
+      title: "Ficha bioquimica"
+    }
+  }, [_c("i", {
+    staticClass: "fas fa-eye"
+  }), _vm._v(" Bioquimica")])], 1) : _vm._e()])])]), _vm._v(" "), _c("br"), _vm._v(" "), _c("div", {
     staticClass: "btn-group w-100",
     attrs: {
       role: "group",
@@ -11850,7 +12153,7 @@ var render = function render() {
     }, [_c("i", {
       staticClass: "fa-solid fa-file-pdf"
     })]), _vm._v(" "), _c("button", {
-      staticClass: "btn btn-success",
+      staticClass: "btn btn-secondary",
       attrs: {
         title: "Enviar correo"
       },
@@ -11927,9 +12230,507 @@ __webpack_require__.r(__webpack_exports__);
 var render = function render() {
   var _vm = this,
     _c = _vm._self._c;
-  return _c("div", [_vm._v("bioquímica")]);
+  return _c("div", {
+    staticClass: "container"
+  }, [_c("div", {
+    staticClass: "card"
+  }, [_c("div", {
+    staticClass: "card-header bg-dark text-light"
+  }, [_c("h2", {
+    staticClass: "card-title"
+  }, [_vm._v("Bioquímica " + _vm._s(_vm.bioquimica.animal === "perro" ? "perro" : "gato"))])]), _vm._v(" "), _c("div", {
+    staticClass: "input-group"
+  }, [_c("button", {
+    staticClass: "btn btn-warning w-100",
+    attrs: {
+      title: "Cambiar animal"
+    },
+    on: {
+      click: function click($event) {
+        return _vm.cambiarAnimal();
+      }
+    }
+  }, [_vm._v("\n                Cambiar a bioquimica " + _vm._s(_vm.change) + "\n            ")])]), _vm._v(" "), _c("form", {
+    on: {
+      submit: function submit($event) {
+        $event.preventDefault();
+        return _vm.agregarBioquimica.apply(null, arguments);
+      }
+    }
+  }, [_c("table", {
+    staticClass: "table"
+  }, [_c("thead", [_vm._m(0), _vm._v(" "), _c("tr", [_c("td", [_c("span", {
+    staticClass: "form-control gris"
+  }, [_vm._v(_vm._s(_vm.mascota.nombre))])]), _vm._v(" "), _c("td", [_c("span", {
+    staticClass: "form-control gris"
+  }, [_vm._v(_vm._s(_vm.cliente.nombre_apellidos))])]), _vm._v(" "), _c("td", [_c("span", {
+    staticClass: "form-control gris"
+  }, [_vm._v(_vm._s(new Date(_vm.visita.fecha_visita).toLocaleDateString("es-ES", {
+    day: "2-digit",
+    month: "2-digit",
+    year: "numeric"
+  })))])])]), _vm._v(" "), _vm._m(1)]), _vm._v(" "), _c("tbody", [_c("tr", [_c("td", [_vm._v("Urea (mg/dl):")]), _vm._v(" "), _c("td", [_c("input", {
+    directives: [{
+      name: "model",
+      rawName: "v-model",
+      value: _vm.bioquimica.urea,
+      expression: "bioquimica.urea"
+    }],
+    staticClass: "form-control",
+    attrs: {
+      type: "number",
+      step: "0.01"
+    },
+    domProps: {
+      value: _vm.bioquimica.urea
+    },
+    on: {
+      input: function input($event) {
+        if ($event.target.composing) return;
+        _vm.$set(_vm.bioquimica, "urea", $event.target.value);
+      }
+    }
+  })]), _vm._v(" "), _c("td", [_vm._v("\n                            " + _vm._s(_vm.bioquimica.animal === "perro" ? "20-50" : "30-60") + "\n                        ")])]), _vm._v(" "), _c("tr", [_c("td", [_vm._v("Creatinina (mg/dl):")]), _vm._v(" "), _c("td", [_c("input", {
+    directives: [{
+      name: "model",
+      rawName: "v-model",
+      value: _vm.bioquimica.creatinina,
+      expression: "bioquimica.creatinina"
+    }],
+    staticClass: "form-control",
+    attrs: {
+      type: "number",
+      step: "0.01"
+    },
+    domProps: {
+      value: _vm.bioquimica.creatinina
+    },
+    on: {
+      input: function input($event) {
+        if ($event.target.composing) return;
+        _vm.$set(_vm.bioquimica, "creatinina", $event.target.value);
+      }
+    }
+  })]), _vm._v(" "), _c("td", [_vm._v("\n                            " + _vm._s(_vm.bioquimica.animal === "perro" ? "0,6-1,4" : "0,5-1,8") + "\n                        ")])]), _vm._v(" "), _c("tr", [_c("td", [_vm._v("Glucosa (mg/dl):")]), _vm._v(" "), _c("td", [_c("input", {
+    directives: [{
+      name: "model",
+      rawName: "v-model",
+      value: _vm.bioquimica.glucosa,
+      expression: "bioquimica.glucosa"
+    }],
+    staticClass: "form-control",
+    attrs: {
+      type: "number",
+      step: "0.01"
+    },
+    domProps: {
+      value: _vm.bioquimica.glucosa
+    },
+    on: {
+      input: function input($event) {
+        if ($event.target.composing) return;
+        _vm.$set(_vm.bioquimica, "glucosa", $event.target.value);
+      }
+    }
+  })]), _vm._v(" "), _c("td", [_vm._v("\n                            " + _vm._s(_vm.bioquimica.animal === "perro" ? "70-105" : "60-140") + "\n                        ")])]), _vm._v(" "), _c("tr", [_c("td", [_vm._v("Proteínas totales (g/dl):")]), _vm._v(" "), _c("td", [_c("input", {
+    directives: [{
+      name: "model",
+      rawName: "v-model",
+      value: _vm.bioquimica.proteinas,
+      expression: "bioquimica.proteinas"
+    }],
+    staticClass: "form-control",
+    attrs: {
+      type: "number",
+      step: "0.01"
+    },
+    domProps: {
+      value: _vm.bioquimica.proteinas
+    },
+    on: {
+      input: function input($event) {
+        if ($event.target.composing) return;
+        _vm.$set(_vm.bioquimica, "proteinas", $event.target.value);
+      }
+    }
+  })]), _vm._v(" "), _c("td", [_vm._v("\n                            " + _vm._s(_vm.bioquimica.animal === "perro" ? "5,3-7,9" : "5,7-8") + "\n                        ")])]), _vm._v(" "), _c("tr", [_c("td", [_vm._v("Albumina (g/dl):")]), _vm._v(" "), _c("td", [_c("input", {
+    directives: [{
+      name: "model",
+      rawName: "v-model",
+      value: _vm.bioquimica.albumina,
+      expression: "bioquimica.albumina"
+    }],
+    staticClass: "form-control",
+    attrs: {
+      type: "number",
+      step: "0.01"
+    },
+    domProps: {
+      value: _vm.bioquimica.albumina
+    },
+    on: {
+      input: function input($event) {
+        if ($event.target.composing) return;
+        _vm.$set(_vm.bioquimica, "albumina", $event.target.value);
+      }
+    }
+  })]), _vm._v(" "), _c("td", [_vm._v("\n                            " + _vm._s(_vm.bioquimica.animal === "perro" ? "2,3-3,8" : "2,3-3,4") + "\n                        ")])]), _vm._v(" "), _c("tr", [_c("td", [_vm._v("Bilirrubina (mg/dl):")]), _vm._v(" "), _c("td", [_c("input", {
+    directives: [{
+      name: "model",
+      rawName: "v-model",
+      value: _vm.bioquimica.bilirrubina,
+      expression: "bioquimica.bilirrubina"
+    }],
+    staticClass: "form-control",
+    attrs: {
+      type: "number",
+      step: "0.01"
+    },
+    domProps: {
+      value: _vm.bioquimica.bilirrubina
+    },
+    on: {
+      input: function input($event) {
+        if ($event.target.composing) return;
+        _vm.$set(_vm.bioquimica, "bilirrubina", $event.target.value);
+      }
+    }
+  })]), _vm._v(" "), _c("td", [_vm._v("\n                            " + _vm._s(_vm.bioquimica.animal === "perro" ? "Hasta 0,8" : "Hasta 0,8") + "\n                        ")])]), _vm._v(" "), _c("tr", [_c("td", [_vm._v("ALP (U/L):")]), _vm._v(" "), _c("td", [_c("input", {
+    directives: [{
+      name: "model",
+      rawName: "v-model",
+      value: _vm.bioquimica.alp,
+      expression: "bioquimica.alp"
+    }],
+    staticClass: "form-control",
+    attrs: {
+      type: "number",
+      step: "0.01"
+    },
+    domProps: {
+      value: _vm.bioquimica.alp
+    },
+    on: {
+      input: function input($event) {
+        if ($event.target.composing) return;
+        _vm.$set(_vm.bioquimica, "alp", $event.target.value);
+      }
+    }
+  })]), _vm._v(" "), _c("td", [_vm._v("\n                            " + _vm._s(_vm.bioquimica.animal === "perro" ? "32-185" : "25-110") + "\n                        ")])]), _vm._v(" "), _c("tr", [_c("td", [_vm._v("GPT (U/L):")]), _vm._v(" "), _c("td", [_c("input", {
+    directives: [{
+      name: "model",
+      rawName: "v-model",
+      value: _vm.bioquimica.gpt,
+      expression: "bioquimica.gpt"
+    }],
+    staticClass: "form-control",
+    attrs: {
+      type: "number",
+      step: "0.01"
+    },
+    domProps: {
+      value: _vm.bioquimica.gpt
+    },
+    on: {
+      input: function input($event) {
+        if ($event.target.composing) return;
+        _vm.$set(_vm.bioquimica, "gpt", $event.target.value);
+      }
+    }
+  })]), _vm._v(" "), _c("td", [_vm._v("\n                            " + _vm._s(_vm.bioquimica.animal === "perro" ? "28-78" : "10-80") + "\n                        ")])]), _vm._v(" "), _c("tr", [_c("td", [_vm._v("Fósforo (mg/dl):")]), _vm._v(" "), _c("td", [_c("input", {
+    directives: [{
+      name: "model",
+      rawName: "v-model",
+      value: _vm.bioquimica.fosforo,
+      expression: "bioquimica.fosforo"
+    }],
+    staticClass: "form-control",
+    attrs: {
+      type: "number",
+      step: "0.01"
+    },
+    domProps: {
+      value: _vm.bioquimica.fosforo
+    },
+    on: {
+      input: function input($event) {
+        if ($event.target.composing) return;
+        _vm.$set(_vm.bioquimica, "fosforo", $event.target.value);
+      }
+    }
+  })]), _vm._v(" "), _c("td", [_vm._v("\n                            " + _vm._s(_vm.bioquimica.animal === "perro" ? "2-6,2" : "2,8-7,2") + "\n                        ")])]), _vm._v(" "), _c("tr", [_c("td", [_vm._v("Calcio (mg/dl):")]), _vm._v(" "), _c("td", [_c("input", {
+    directives: [{
+      name: "model",
+      rawName: "v-model",
+      value: _vm.bioquimica.calcio,
+      expression: "bioquimica.calcio"
+    }],
+    staticClass: "form-control",
+    attrs: {
+      type: "number",
+      step: "0.01"
+    },
+    domProps: {
+      value: _vm.bioquimica.calcio
+    },
+    on: {
+      input: function input($event) {
+        if ($event.target.composing) return;
+        _vm.$set(_vm.bioquimica, "calcio", $event.target.value);
+      }
+    }
+  })]), _vm._v(" "), _c("td", [_vm._v("\n                            " + _vm._s(_vm.bioquimica.animal === "perro" ? "7-11,5" : "7-11,0") + "\n                        ")])]), _vm._v(" "), _c("tr", [_c("td", [_vm._v("Colesterol (mg/dl):")]), _vm._v(" "), _c("td", [_c("input", {
+    directives: [{
+      name: "model",
+      rawName: "v-model",
+      value: _vm.bioquimica.colesterol,
+      expression: "bioquimica.colesterol"
+    }],
+    staticClass: "form-control",
+    attrs: {
+      type: "number",
+      step: "0.01"
+    },
+    domProps: {
+      value: _vm.bioquimica.colesterol
+    },
+    on: {
+      input: function input($event) {
+        if ($event.target.composing) return;
+        _vm.$set(_vm.bioquimica, "colesterol", $event.target.value);
+      }
+    }
+  })]), _vm._v(" "), _c("td", [_vm._v("\n                            " + _vm._s(_vm.bioquimica.animal === "perro" ? "135-260" : "80-180") + "\n                        ")])]), _vm._v(" "), _c("tr", [_c("td", [_vm._v("Trigliceridos (mg/dl):")]), _vm._v(" "), _c("td", [_c("input", {
+    directives: [{
+      name: "model",
+      rawName: "v-model",
+      value: _vm.bioquimica.trigliceridos,
+      expression: "bioquimica.trigliceridos"
+    }],
+    staticClass: "form-control",
+    attrs: {
+      type: "number",
+      step: "0.01"
+    },
+    domProps: {
+      value: _vm.bioquimica.trigliceridos
+    },
+    on: {
+      input: function input($event) {
+        if ($event.target.composing) return;
+        _vm.$set(_vm.bioquimica, "trigliceridos", $event.target.value);
+      }
+    }
+  })]), _vm._v(" "), _c("td", [_vm._v("\n                            " + _vm._s(_vm.bioquimica.animal === "perro" ? "25-120" : "25-120") + "\n                        ")])]), _vm._v(" "), _c("tr", [_c("td", [_vm._v("Lípidos (mg/dl):")]), _vm._v(" "), _c("td", [_c("input", {
+    directives: [{
+      name: "model",
+      rawName: "v-model",
+      value: _vm.bioquimica.lipidos,
+      expression: "bioquimica.lipidos"
+    }],
+    staticClass: "form-control",
+    attrs: {
+      type: "number",
+      step: "0.01"
+    },
+    domProps: {
+      value: _vm.bioquimica.lipidos
+    },
+    on: {
+      input: function input($event) {
+        if ($event.target.composing) return;
+        _vm.$set(_vm.bioquimica, "lipidos", $event.target.value);
+      }
+    }
+  })]), _vm._v(" "), _c("td", [_vm._v("\n                            " + _vm._s(_vm.bioquimica.animal === "perro" ? "100-700" : "140-600") + "\n                        ")])]), _vm._v(" "), _c("tr", [_c("td", [_vm._v("CPK (U/L):")]), _vm._v(" "), _c("td", [_c("input", {
+    directives: [{
+      name: "model",
+      rawName: "v-model",
+      value: _vm.bioquimica.cpk,
+      expression: "bioquimica.cpk"
+    }],
+    staticClass: "form-control",
+    attrs: {
+      type: "number",
+      step: "0.01"
+    },
+    domProps: {
+      value: _vm.bioquimica.cpk
+    },
+    on: {
+      input: function input($event) {
+        if ($event.target.composing) return;
+        _vm.$set(_vm.bioquimica, "cpk", $event.target.value);
+      }
+    }
+  })]), _vm._v(" "), _c("td", [_vm._v("\n                            " + _vm._s(_vm.bioquimica.animal === "perro" ? "Hasta 300" : "50-450") + "\n                        ")])]), _vm._v(" "), _c("tr", [_c("td", [_vm._v("Amilasa (U/L):")]), _vm._v(" "), _c("td", [_c("input", {
+    directives: [{
+      name: "model",
+      rawName: "v-model",
+      value: _vm.bioquimica.amilasa,
+      expression: "bioquimica.amilasa"
+    }],
+    staticClass: "form-control",
+    attrs: {
+      type: "number",
+      step: "0.01"
+    },
+    domProps: {
+      value: _vm.bioquimica.amilasa
+    },
+    on: {
+      input: function input($event) {
+        if ($event.target.composing) return;
+        _vm.$set(_vm.bioquimica, "amilasa", $event.target.value);
+      }
+    }
+  })]), _vm._v(" "), _c("td", [_vm._v("\n                            " + _vm._s(_vm.bioquimica.animal === "perro" ? "Hasta 1500" : "500-1500") + "\n                        ")])]), _vm._v(" "), _c("tr", [_c("td", [_vm._v("Lipasa (U/L):")]), _vm._v(" "), _c("td", [_c("input", {
+    directives: [{
+      name: "model",
+      rawName: "v-model",
+      value: _vm.bioquimica.lipasa,
+      expression: "bioquimica.lipasa"
+    }],
+    staticClass: "form-control",
+    attrs: {
+      type: "number",
+      step: "0.01"
+    },
+    domProps: {
+      value: _vm.bioquimica.lipasa
+    },
+    on: {
+      input: function input($event) {
+        if ($event.target.composing) return;
+        _vm.$set(_vm.bioquimica, "lipasa", $event.target.value);
+      }
+    }
+  })]), _vm._v(" "), _c("td", [_vm._v("\n                            " + _vm._s(_vm.bioquimica.animal === "perro" ? "Hasta 240" : "Hasta 75") + "\n                        ")])]), _vm._v(" "), _c("tr", [_c("td", [_vm._v("Sodio (meq/L):")]), _vm._v(" "), _c("td", [_c("input", {
+    directives: [{
+      name: "model",
+      rawName: "v-model",
+      value: _vm.bioquimica.sodio,
+      expression: "bioquimica.sodio"
+    }],
+    staticClass: "form-control",
+    attrs: {
+      type: "number",
+      step: "0.01"
+    },
+    domProps: {
+      value: _vm.bioquimica.sodio
+    },
+    on: {
+      input: function input($event) {
+        if ($event.target.composing) return;
+        _vm.$set(_vm.bioquimica, "sodio", $event.target.value);
+      }
+    }
+  })]), _vm._v(" "), _c("td", [_vm._v("\n                            " + _vm._s(_vm.bioquimica.animal === "perro" ? "135-150" : "140-150") + "\n                        ")])]), _vm._v(" "), _c("tr", [_c("td", [_vm._v("Potasio (meq/L):")]), _vm._v(" "), _c("td", [_c("input", {
+    directives: [{
+      name: "model",
+      rawName: "v-model",
+      value: _vm.bioquimica.potasio,
+      expression: "bioquimica.potasio"
+    }],
+    staticClass: "form-control",
+    attrs: {
+      type: "number",
+      step: "0.01"
+    },
+    domProps: {
+      value: _vm.bioquimica.potasio
+    },
+    on: {
+      input: function input($event) {
+        if ($event.target.composing) return;
+        _vm.$set(_vm.bioquimica, "potasio", $event.target.value);
+      }
+    }
+  })]), _vm._v(" "), _c("td", [_vm._v("\n                            " + _vm._s(_vm.bioquimica.animal === "perro" ? "3,6-5,8" : "3,6-5,5") + "\n                        ")])]), _vm._v(" "), _c("tr", [_c("td", [_vm._v("Cloro (meq/L):")]), _vm._v(" "), _c("td", [_c("input", {
+    directives: [{
+      name: "model",
+      rawName: "v-model",
+      value: _vm.bioquimica.cloro,
+      expression: "bioquimica.cloro"
+    }],
+    staticClass: "form-control",
+    attrs: {
+      type: "number",
+      step: "0.01"
+    },
+    domProps: {
+      value: _vm.bioquimica.cloro
+    },
+    on: {
+      input: function input($event) {
+        if ($event.target.composing) return;
+        _vm.$set(_vm.bioquimica, "cloro", $event.target.value);
+      }
+    }
+  })]), _vm._v(" "), _c("td", [_vm._v("\n                            " + _vm._s(_vm.bioquimica.animal === "perro" ? "105-120" : "108-128") + "\n                        ")])]), _vm._v(" "), _c("tr", [_c("td", [_vm._v("T4 ():")]), _vm._v(" "), _c("td", [_c("input", {
+    directives: [{
+      name: "model",
+      rawName: "v-model",
+      value: _vm.bioquimica.t4,
+      expression: "bioquimica.t4"
+    }],
+    staticClass: "form-control",
+    attrs: {
+      type: "number",
+      step: "0.01"
+    },
+    domProps: {
+      value: _vm.bioquimica.t4
+    },
+    on: {
+      input: function input($event) {
+        if ($event.target.composing) return;
+        _vm.$set(_vm.bioquimica, "t4", $event.target.value);
+      }
+    }
+  })]), _vm._v(" "), _c("td", [_vm._v("\n                            " + _vm._s(_vm.bioquimica.animal === "perro" ? "0,6-2,8" : "0,6-2,6") + "\n                        ")])])])]), _vm._v(" "), _c("div", {
+    staticClass: "btn-group w-100",
+    attrs: {
+      role: "group",
+      "aria-label": ""
+    }
+  }, [_vm._m(2), _vm._v(" "), _c("router-link", {
+    staticClass: "btn btn-warning",
+    attrs: {
+      to: {
+        name: "FichaVisita",
+        params: {
+          id: _vm.bioquimica.visita_id
+        }
+      },
+      title: "Volver"
+    }
+  }, [_c("i", {
+    staticClass: "bi bi-arrow-return-left fw-bold"
+  })])], 1)])])]);
 };
-var staticRenderFns = [];
+var staticRenderFns = [function () {
+  var _vm = this,
+    _c = _vm._self._c;
+  return _c("tr", [_c("th", [_vm._v("Mascota")]), _vm._v(" "), _c("th", [_vm._v("Propietario")]), _vm._v(" "), _c("th", [_vm._v("Fecha nioquímica")])]);
+}, function () {
+  var _vm = this,
+    _c = _vm._self._c;
+  return _c("tr", [_c("th", [_vm._v("Parámetro")]), _vm._v(" "), _c("th", [_vm._v("Resultado")]), _vm._v(" "), _c("th", [_vm._v("Referencia")])]);
+}, function () {
+  var _vm = this,
+    _c = _vm._self._c;
+  return _c("button", {
+    staticClass: "btn btn-success",
+    attrs: {
+      type: "submit",
+      title: "Guardar bioquimica"
+    }
+  }, [_c("i", {
+    staticClass: "fas fa-vial"
+  }), _vm._v("\n                    Guardar bioquimica")]);
+}];
 render._withStripped = true;
 
 
@@ -12326,13 +13127,13 @@ var render = function render() {
   }, [_c("div", {
     staticClass: "card"
   }, [_c("div", {
-    staticClass: "row"
-  }, [_c("div", {
-    staticClass: "col-md-12 col-sm-12"
-  }, [_c("div", {
+    staticClass: "card-header bg-dark text-light"
+  }, [_c("h2", {
+    staticClass: "card-title"
+  }, [_vm._v("Hemograma " + _vm._s(_vm.hemograma.animal === "perro" ? "perro" : "gato"))])]), _vm._v(" "), _c("div", {
     staticClass: "input-group"
   }, [_c("button", {
-    staticClass: "btn btn-warning w-50",
+    staticClass: "btn btn-warning w-100",
     attrs: {
       title: "Cambiar animal"
     },
@@ -12341,35 +13142,7 @@ var render = function render() {
         return _vm.cambiarAnimal();
       }
     }
-  }, [_vm._v("\n                        Cambiar animal\n                    ")]), _vm._v(" "), _c("input", {
-    directives: [{
-      name: "model",
-      rawName: "v-model",
-      value: _vm.hemograma.fecha,
-      expression: "hemograma.fecha"
-    }],
-    staticClass: "form-control w-50",
-    attrs: {
-      type: "date",
-      name: "fecha",
-      max: _vm.maxDate,
-      id: "fecha",
-      "aria-describedby": "helpId"
-    },
-    domProps: {
-      value: _vm.hemograma.fecha
-    },
-    on: {
-      input: function input($event) {
-        if ($event.target.composing) return;
-        _vm.$set(_vm.hemograma, "fecha", $event.target.value);
-      }
-    }
-  })])])]), _vm._v(" "), _c("div", {
-    staticClass: "card-header bg-dark text-light"
-  }, [_c("h2", {
-    staticClass: "card-title"
-  }, [_vm._v("Hemograma " + _vm._s(_vm.hemograma.animal === "perro" ? "perro" : "gato"))])]), _vm._v(" "), _c("form", {
+  }, [_vm._v("\n                Cambiar a hemograma " + _vm._s(_vm.change) + "\n            ")])]), _vm._v(" "), _c("form", {
     on: {
       submit: function submit($event) {
         $event.preventDefault();
@@ -12378,7 +13151,17 @@ var render = function render() {
     }
   }, [_c("table", {
     staticClass: "table"
-  }, [_vm._m(0), _vm._v(" "), _c("tbody", [_c("tr", [_c("td", [_vm._v("Hematocrito (%):")]), _vm._v(" "), _c("td", [_c("input", {
+  }, [_c("thead", [_vm._m(0), _vm._v(" "), _c("tr", [_c("td", [_c("span", {
+    staticClass: "form-control gris"
+  }, [_vm._v(_vm._s(_vm.mascota.nombre))])]), _vm._v(" "), _c("td", [_c("span", {
+    staticClass: "form-control gris"
+  }, [_vm._v(_vm._s(_vm.cliente.nombre_apellidos))])]), _vm._v(" "), _c("td", [_c("span", {
+    staticClass: "form-control gris"
+  }, [_vm._v(_vm._s(new Date(_vm.visita.fecha_visita).toLocaleDateString("es-ES", {
+    day: "2-digit",
+    month: "2-digit",
+    year: "numeric"
+  })))])])]), _vm._v(" "), _vm._m(1)]), _vm._v(" "), _c("tbody", [_c("tr", [_c("td", [_vm._v("Hematocrito (%):")]), _vm._v(" "), _c("td", [_c("input", {
     directives: [{
       name: "model",
       rawName: "v-model",
@@ -12399,9 +13182,9 @@ var render = function render() {
         _vm.$set(_vm.hemograma, "hematocrito", $event.target.value);
       }
     }
-  })]), _vm._v(" "), _c("td", [_vm._v("\n                            " + _vm._s(_vm.hemograma.animal === "perro" ? "37-55" : "30-45") + "\n                            "), _vm.errores.hemograma ? _c("span", {
+  }), _vm._v(" "), _vm.errores.hematocrito ? _c("span", {
     staticClass: "text-danger"
-  }, [_vm._v(_vm._s(_vm.errores.hemograma))]) : _vm._e()])]), _vm._v(" "), _c("tr", [_c("td", [_vm._v("Hemoglobina (g/dl):")]), _vm._v(" "), _c("td", [_c("input", {
+  }, [_vm._v(_vm._s(_vm.errores.hematocrito[0]))]) : _vm._e()]), _vm._v(" "), _c("td", [_vm._v("\n                            " + _vm._s(_vm.hemograma.animal === "perro" ? "37-55" : "30-45") + "\n                        ")])]), _vm._v(" "), _c("tr", [_c("td", [_vm._v("Hemoglobina (g/dl):")]), _vm._v(" "), _c("td", [_c("input", {
     directives: [{
       name: "model",
       rawName: "v-model",
@@ -12422,7 +13205,9 @@ var render = function render() {
         _vm.$set(_vm.hemograma, "hemoglobina", $event.target.value);
       }
     }
-  })]), _vm._v(" "), _c("td", [_vm._v("\n                            " + _vm._s(_vm.hemograma.animal === "perro" ? "12-18" : "8-15") + "\n                        ")])]), _vm._v(" "), _c("tr", [_c("td", [_vm._v("Recuento G. rojos (millones/µl):")]), _vm._v(" "), _c("td", [_c("input", {
+  }), _vm._v(" "), _vm.errores.hemoglobina ? _c("span", {
+    staticClass: "text-danger"
+  }, [_vm._v(_vm._s(_vm.errores.hemoglobina[0]))]) : _vm._e()]), _vm._v(" "), _c("td", [_vm._v("\n                            " + _vm._s(_vm.hemograma.animal === "perro" ? "12-18" : "8-15") + "\n                        ")])]), _vm._v(" "), _c("tr", [_c("td", [_vm._v("Recuento G. rojos (millones/µl):")]), _vm._v(" "), _c("td", [_c("input", {
     directives: [{
       name: "model",
       rawName: "v-model",
@@ -12443,7 +13228,9 @@ var render = function render() {
         _vm.$set(_vm.hemograma, "g_rojo", $event.target.value);
       }
     }
-  })]), _vm._v(" "), _c("td", [_vm._v("\n                            " + _vm._s(_vm.hemograma.animal === "perro" ? "5,5-8,5" : "5-10") + "\n                        ")])]), _vm._v(" "), _c("tr", [_c("td", [_vm._v("VCM (fL):")]), _vm._v(" "), _c("td", [_c("input", {
+  }), _vm._v(" "), _vm.errores.g_rojo ? _c("span", {
+    staticClass: "text-danger"
+  }, [_vm._v(_vm._s(_vm.errores.g_rojo[0]))]) : _vm._e()]), _vm._v(" "), _c("td", [_vm._v("\n                            " + _vm._s(_vm.hemograma.animal === "perro" ? "5,5-8,5" : "5-10") + "\n                        ")])]), _vm._v(" "), _c("tr", [_c("td", [_vm._v("VCM (fL):")]), _vm._v(" "), _c("td", [_c("input", {
     directives: [{
       name: "model",
       rawName: "v-model",
@@ -12464,7 +13251,9 @@ var render = function render() {
         _vm.$set(_vm.hemograma, "vcm", $event.target.value);
       }
     }
-  })]), _vm._v(" "), _c("td", [_vm._v("\n                            " + _vm._s(_vm.hemograma.animal === "perro" ? "60-77" : "39-55") + "\n                        ")])]), _vm._v(" "), _c("tr", [_c("td", [_vm._v("HCM (pg):")]), _vm._v(" "), _c("td", [_c("input", {
+  }), _vm._v(" "), _vm.errores.vcm ? _c("span", {
+    staticClass: "text-danger"
+  }, [_vm._v(_vm._s(_vm.errores.vcm[0]))]) : _vm._e()]), _vm._v(" "), _c("td", [_vm._v("\n                            " + _vm._s(_vm.hemograma.animal === "perro" ? "60-77" : "39-55") + "\n                        ")])]), _vm._v(" "), _c("tr", [_c("td", [_vm._v("HCM (pg):")]), _vm._v(" "), _c("td", [_c("input", {
     directives: [{
       name: "model",
       rawName: "v-model",
@@ -12485,7 +13274,9 @@ var render = function render() {
         _vm.$set(_vm.hemograma, "hcm", $event.target.value);
       }
     }
-  })]), _vm._v(" "), _c("td", [_vm._v("\n                            " + _vm._s(_vm.hemograma.animal === "perro" ? "19,5-24,5" : "12,5-17,5") + "\n                        ")])]), _vm._v(" "), _c("tr", [_c("td", [_vm._v("CHCM (g/dl):")]), _vm._v(" "), _c("td", [_c("input", {
+  }), _vm._v(" "), _vm.errores.hcm ? _c("span", {
+    staticClass: "text-danger"
+  }, [_vm._v(_vm._s(_vm.errores.hcm[0]))]) : _vm._e()]), _vm._v(" "), _c("td", [_vm._v("\n                            " + _vm._s(_vm.hemograma.animal === "perro" ? "19,5-24,5" : "12,5-17,5") + "\n                        ")])]), _vm._v(" "), _c("tr", [_c("td", [_vm._v("CHCM (g/dl):")]), _vm._v(" "), _c("td", [_c("input", {
     directives: [{
       name: "model",
       rawName: "v-model",
@@ -12506,7 +13297,9 @@ var render = function render() {
         _vm.$set(_vm.hemograma, "chcm", $event.target.value);
       }
     }
-  })]), _vm._v(" "), _c("td", [_vm._v("\n                            " + _vm._s(_vm.hemograma.animal === "perro" ? "32-36" : "30-36") + "\n                        ")])]), _vm._v(" "), _c("tr", [_c("td", [_vm._v("Reticulocitos (%):")]), _vm._v(" "), _c("td", [_c("input", {
+  }), _vm._v(" "), _vm.errores.chcm ? _c("span", {
+    staticClass: "text-danger"
+  }, [_vm._v(_vm._s(_vm.errores.chcm[0]))]) : _vm._e()]), _vm._v(" "), _c("td", [_vm._v("\n                            " + _vm._s(_vm.hemograma.animal === "perro" ? "32-36" : "30-36") + "\n                        ")])]), _vm._v(" "), _c("tr", [_c("td", [_vm._v("Reticulocitos (%):")]), _vm._v(" "), _c("td", [_c("input", {
     directives: [{
       name: "model",
       rawName: "v-model",
@@ -12527,7 +13320,9 @@ var render = function render() {
         _vm.$set(_vm.hemograma, "reticulocitos", $event.target.value);
       }
     }
-  })]), _vm._v(" "), _c("td", [_vm._v("\n                            " + _vm._s(_vm.hemograma.animal === "perro" ? "hasta 1" : "hasta 1,5") + "\n                        ")])]), _vm._v(" "), _c("tr", [_c("td", [_vm._v("Leucocitos (/μl):")]), _vm._v(" "), _c("td", [_c("input", {
+  }), _vm._v(" "), _vm.errores.reticulocitos ? _c("span", {
+    staticClass: "text-danger"
+  }, [_vm._v(_vm._s(_vm.errores.reticulocitos[0]))]) : _vm._e()]), _vm._v(" "), _c("td", [_vm._v("\n                            " + _vm._s(_vm.hemograma.animal === "perro" ? "hasta 1" : "hasta 1,5") + "\n                        ")])]), _vm._v(" "), _c("tr", [_c("td", [_vm._v("Leucocitos (/μl):")]), _vm._v(" "), _c("td", [_c("input", {
     directives: [{
       name: "model",
       rawName: "v-model",
@@ -12548,7 +13343,9 @@ var render = function render() {
         _vm.$set(_vm.hemograma, "leucocitos", $event.target.value);
       }
     }
-  })]), _vm._v(" "), _c("td", [_vm._v("\n                            " + _vm._s(_vm.hemograma.animal === "perro" ? "6000-18000" : "5500-19500") + "\n                        ")])]), _vm._v(" "), _c("tr", [_c("td", [_vm._v("Eosinófilos (/μl):")]), _vm._v(" "), _c("td", [_c("input", {
+  }), _vm._v(" "), _vm.errores.leucocitos ? _c("span", {
+    staticClass: "text-danger"
+  }, [_vm._v(_vm._s(_vm.errores.leucocitos[0]))]) : _vm._e()]), _vm._v(" "), _c("td", [_vm._v("\n                            " + _vm._s(_vm.hemograma.animal === "perro" ? "6000-18000" : "5500-19500") + "\n                        ")])]), _vm._v(" "), _c("tr", [_c("td", [_vm._v("Eosinófilos (/μl):")]), _vm._v(" "), _c("td", [_c("input", {
     directives: [{
       name: "model",
       rawName: "v-model",
@@ -12569,7 +13366,9 @@ var render = function render() {
         _vm.$set(_vm.hemograma, "eosinofilos", $event.target.value);
       }
     }
-  })]), _vm._v(" "), _c("td", [_vm._v("\n                            " + _vm._s(_vm.hemograma.animal === "perro" ? "100-1250" : "0-1500") + "\n                        ")])]), _vm._v(" "), _c("tr", [_c("td", [_vm._v("Linfocitos (/μl):")]), _vm._v(" "), _c("td", [_c("input", {
+  }), _vm._v(" "), _vm.errores.eosinofilos ? _c("span", {
+    staticClass: "text-danger"
+  }, [_vm._v(_vm._s(_vm.errores.eosinofilos[0]))]) : _vm._e()]), _vm._v(" "), _c("td", [_vm._v("\n                            " + _vm._s(_vm.hemograma.animal === "perro" ? "100-1250" : "0-1500") + "\n                        ")])]), _vm._v(" "), _c("tr", [_c("td", [_vm._v("Linfocitos (/μl):")]), _vm._v(" "), _c("td", [_c("input", {
     directives: [{
       name: "model",
       rawName: "v-model",
@@ -12590,7 +13389,9 @@ var render = function render() {
         _vm.$set(_vm.hemograma, "linfocitos", $event.target.value);
       }
     }
-  })]), _vm._v(" "), _c("td", [_vm._v("\n                            " + _vm._s(_vm.hemograma.animal === "perro" ? "1000-4800" : "1500-7000") + "\n                        ")])]), _vm._v(" "), _c("tr", [_c("td", [_vm._v("Monocitos (/μl):")]), _vm._v(" "), _c("td", [_c("input", {
+  }), _vm._v(" "), _vm.errores.linfocitos ? _c("span", {
+    staticClass: "text-danger"
+  }, [_vm._v(_vm._s(_vm.errores.linfocitos[0]))]) : _vm._e()]), _vm._v(" "), _c("td", [_vm._v("\n                            " + _vm._s(_vm.hemograma.animal === "perro" ? "1000-4800" : "1500-7000") + "\n                        ")])]), _vm._v(" "), _c("tr", [_c("td", [_vm._v("Monocitos (/μl):")]), _vm._v(" "), _c("td", [_c("input", {
     directives: [{
       name: "model",
       rawName: "v-model",
@@ -12611,7 +13412,9 @@ var render = function render() {
         _vm.$set(_vm.hemograma, "monocitos", $event.target.value);
       }
     }
-  })]), _vm._v(" "), _c("td", [_vm._v("\n                            " + _vm._s(_vm.hemograma.animal === "perro" ? "150-1350" : "1500-7000") + "\n                        ")])]), _vm._v(" "), _c("tr", [_c("td", [_vm._v("Plaquetas (miles/μl):")]), _vm._v(" "), _c("td", [_c("input", {
+  }), _vm._v(" "), _vm.errores.monocitos ? _c("span", {
+    staticClass: "text-danger"
+  }, [_vm._v(_vm._s(_vm.errores.monocitos[0]))]) : _vm._e()]), _vm._v(" "), _c("td", [_vm._v("\n                            " + _vm._s(_vm.hemograma.animal === "perro" ? "150-1350" : "0-850") + "\n                        ")])]), _vm._v(" "), _c("tr", [_c("td", [_vm._v("Plaquetas (miles/μl):")]), _vm._v(" "), _c("td", [_c("input", {
     directives: [{
       name: "model",
       rawName: "v-model",
@@ -12632,19 +13435,21 @@ var render = function render() {
         _vm.$set(_vm.hemograma, "plaquetas", $event.target.value);
       }
     }
-  })]), _vm._v(" "), _c("td", [_vm._v("\n                            " + _vm._s(_vm.hemograma.animal === "perro" ? "150-500" : "300-700") + "\n                        ")])])])]), _vm._v(" "), _c("div", {
+  }), _vm._v(" "), _vm.errores.plaquetas ? _c("span", {
+    staticClass: "text-danger"
+  }, [_vm._v(_vm._s(_vm.errores.plaquetas[0]))]) : _vm._e()]), _vm._v(" "), _c("td", [_vm._v("\n                            " + _vm._s(_vm.hemograma.animal === "perro" ? "150-500" : "300-700") + "\n                        ")])])])]), _vm._v(" "), _c("div", {
     staticClass: "btn-group w-100",
     attrs: {
       role: "group",
       "aria-label": ""
     }
-  }, [_vm._m(1), _vm._v(" "), _c("router-link", {
+  }, [_vm._m(2), _vm._v(" "), _c("router-link", {
     staticClass: "btn btn-warning",
     attrs: {
       to: {
         name: "FichaVisita",
         params: {
-          id: _vm.hemograma.mascotas_id
+          id: _vm.hemograma.visita_id
         }
       },
       title: "Volver"
@@ -12656,7 +13461,11 @@ var render = function render() {
 var staticRenderFns = [function () {
   var _vm = this,
     _c = _vm._self._c;
-  return _c("thead", [_c("tr", [_c("th", [_vm._v("Parámetro")]), _vm._v(" "), _c("th", [_vm._v("Resultado")]), _vm._v(" "), _c("th", [_vm._v("Referencia")])])]);
+  return _c("tr", [_c("th", [_vm._v("Mascota")]), _vm._v(" "), _c("th", [_vm._v("Propietario")]), _vm._v(" "), _c("th", [_vm._v("Fecha hemograma")])]);
+}, function () {
+  var _vm = this,
+    _c = _vm._self._c;
+  return _c("tr", [_c("th", [_vm._v("Parámetro")]), _vm._v(" "), _c("th", [_vm._v("Resultado")]), _vm._v(" "), _c("th", [_vm._v("Referencia")])]);
 }, function () {
   var _vm = this,
     _c = _vm._self._c;
@@ -12739,22 +13548,22 @@ render._withStripped = true;
 "use strict";
 __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var vue_router__WEBPACK_IMPORTED_MODULE_16__ = __webpack_require__(/*! vue-router */ "./node_modules/vue-router/dist/vue-router.esm.js");
-/* harmony import */ var _components_ExampleComponent_vue__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./components/ExampleComponent.vue */ "./resources/js/components/ExampleComponent.vue");
-/* harmony import */ var _components_AltaCliente_vue__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./components/AltaCliente.vue */ "./resources/js/components/AltaCliente.vue");
-/* harmony import */ var _components_ListarClientes_vue__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./components/ListarClientes.vue */ "./resources/js/components/ListarClientes.vue");
-/* harmony import */ var _components_FichaCliente_vue__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./components/FichaCliente.vue */ "./resources/js/components/FichaCliente.vue");
-/* harmony import */ var _components_AltaEmpleado_vue__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ./components/AltaEmpleado.vue */ "./resources/js/components/AltaEmpleado.vue");
-/* harmony import */ var _components_ListarEmpleados_vue__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ./components/ListarEmpleados.vue */ "./resources/js/components/ListarEmpleados.vue");
-/* harmony import */ var _components_FichaEmpleado_vue__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! ./components/FichaEmpleado.vue */ "./resources/js/components/FichaEmpleado.vue");
-/* harmony import */ var _components_AltaMascota_vue__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! ./components/AltaMascota.vue */ "./resources/js/components/AltaMascota.vue");
-/* harmony import */ var _components_ListarMascotas_vue__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(/*! ./components/ListarMascotas.vue */ "./resources/js/components/ListarMascotas.vue");
-/* harmony import */ var _components_FichaMascota_vue__WEBPACK_IMPORTED_MODULE_9__ = __webpack_require__(/*! ./components/FichaMascota.vue */ "./resources/js/components/FichaMascota.vue");
-/* harmony import */ var _components_NuevaVisita_vue__WEBPACK_IMPORTED_MODULE_10__ = __webpack_require__(/*! ./components/NuevaVisita.vue */ "./resources/js/components/NuevaVisita.vue");
-/* harmony import */ var _components_ListarVisitas_vue__WEBPACK_IMPORTED_MODULE_11__ = __webpack_require__(/*! ./components/ListarVisitas.vue */ "./resources/js/components/ListarVisitas.vue");
-/* harmony import */ var _components_FichaVisita_vue__WEBPACK_IMPORTED_MODULE_12__ = __webpack_require__(/*! ./components/FichaVisita.vue */ "./resources/js/components/FichaVisita.vue");
-/* harmony import */ var _components_NuevoHemograma_vue__WEBPACK_IMPORTED_MODULE_13__ = __webpack_require__(/*! ./components/NuevoHemograma.vue */ "./resources/js/components/NuevoHemograma.vue");
-/* harmony import */ var _components_NuevaBioquimica_vue__WEBPACK_IMPORTED_MODULE_14__ = __webpack_require__(/*! ./components/NuevaBioquimica.vue */ "./resources/js/components/NuevaBioquimica.vue");
-/* harmony import */ var _components_ListarPruebas_vue__WEBPACK_IMPORTED_MODULE_15__ = __webpack_require__(/*! ./components/ListarPruebas.vue */ "./resources/js/components/ListarPruebas.vue");
+/* harmony import */ var _components_AltaCliente_vue__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./components/AltaCliente.vue */ "./resources/js/components/AltaCliente.vue");
+/* harmony import */ var _components_ListarClientes_vue__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./components/ListarClientes.vue */ "./resources/js/components/ListarClientes.vue");
+/* harmony import */ var _components_FichaCliente_vue__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./components/FichaCliente.vue */ "./resources/js/components/FichaCliente.vue");
+/* harmony import */ var _components_AltaEmpleado_vue__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./components/AltaEmpleado.vue */ "./resources/js/components/AltaEmpleado.vue");
+/* harmony import */ var _components_ListarEmpleados_vue__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ./components/ListarEmpleados.vue */ "./resources/js/components/ListarEmpleados.vue");
+/* harmony import */ var _components_FichaEmpleado_vue__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ./components/FichaEmpleado.vue */ "./resources/js/components/FichaEmpleado.vue");
+/* harmony import */ var _components_AltaMascota_vue__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! ./components/AltaMascota.vue */ "./resources/js/components/AltaMascota.vue");
+/* harmony import */ var _components_ListarMascotas_vue__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! ./components/ListarMascotas.vue */ "./resources/js/components/ListarMascotas.vue");
+/* harmony import */ var _components_FichaMascota_vue__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(/*! ./components/FichaMascota.vue */ "./resources/js/components/FichaMascota.vue");
+/* harmony import */ var _components_NuevaVisita_vue__WEBPACK_IMPORTED_MODULE_9__ = __webpack_require__(/*! ./components/NuevaVisita.vue */ "./resources/js/components/NuevaVisita.vue");
+/* harmony import */ var _components_ListarVisitas_vue__WEBPACK_IMPORTED_MODULE_10__ = __webpack_require__(/*! ./components/ListarVisitas.vue */ "./resources/js/components/ListarVisitas.vue");
+/* harmony import */ var _components_FichaVisita_vue__WEBPACK_IMPORTED_MODULE_11__ = __webpack_require__(/*! ./components/FichaVisita.vue */ "./resources/js/components/FichaVisita.vue");
+/* harmony import */ var _components_NuevoHemograma_vue__WEBPACK_IMPORTED_MODULE_12__ = __webpack_require__(/*! ./components/NuevoHemograma.vue */ "./resources/js/components/NuevoHemograma.vue");
+/* harmony import */ var _components_NuevaBioquimica_vue__WEBPACK_IMPORTED_MODULE_13__ = __webpack_require__(/*! ./components/NuevaBioquimica.vue */ "./resources/js/components/NuevaBioquimica.vue");
+/* harmony import */ var _components_ListarPruebas_vue__WEBPACK_IMPORTED_MODULE_14__ = __webpack_require__(/*! ./components/ListarPruebas.vue */ "./resources/js/components/ListarPruebas.vue");
+/* harmony import */ var _components_FichaHemograma_vue__WEBPACK_IMPORTED_MODULE_15__ = __webpack_require__(/*! ./components/FichaHemograma.vue */ "./resources/js/components/FichaHemograma.vue");
 __webpack_require__(/*! ./bootstrap */ "./resources/js/bootstrap.js");
 window.Vue = (__webpack_require__(/*! vue */ "./node_modules/vue/dist/vue.esm.js")["default"]);
 
@@ -12778,35 +13587,35 @@ Vue.use(vue_router__WEBPACK_IMPORTED_MODULE_16__["default"]);
 var routes = [{
   path: '/',
   name: 'ListarMascotas',
-  component: _components_ListarMascotas_vue__WEBPACK_IMPORTED_MODULE_8__["default"],
+  component: _components_ListarMascotas_vue__WEBPACK_IMPORTED_MODULE_7__["default"],
   meta: {
     requiresAuth: true
   }
 }, {
   path: '/registrarcliente',
   name: 'AltaCliente',
-  component: _components_AltaCliente_vue__WEBPACK_IMPORTED_MODULE_1__["default"],
+  component: _components_AltaCliente_vue__WEBPACK_IMPORTED_MODULE_0__["default"],
   meta: {
     requiresAuth: true
   }
 }, {
   path: '/listarclientes',
   name: 'ListarClientes',
-  component: _components_ListarClientes_vue__WEBPACK_IMPORTED_MODULE_2__["default"],
+  component: _components_ListarClientes_vue__WEBPACK_IMPORTED_MODULE_1__["default"],
   meta: {
     requiresAuth: true
   }
 }, {
   path: '/fichacliente/:id',
   name: 'FichaCliente',
-  component: _components_FichaCliente_vue__WEBPACK_IMPORTED_MODULE_3__["default"],
+  component: _components_FichaCliente_vue__WEBPACK_IMPORTED_MODULE_2__["default"],
   meta: {
     requiresAuth: true
   }
 }, {
   path: '/registrarempleado',
   name: 'AltaEmpleado',
-  component: _components_AltaEmpleado_vue__WEBPACK_IMPORTED_MODULE_4__["default"],
+  component: _components_AltaEmpleado_vue__WEBPACK_IMPORTED_MODULE_3__["default"],
   meta: {
     requiresAuth: true,
     requiresAdmin: true
@@ -12814,7 +13623,7 @@ var routes = [{
 }, {
   path: '/listarempleados',
   name: 'ListarEmpleados',
-  component: _components_ListarEmpleados_vue__WEBPACK_IMPORTED_MODULE_5__["default"],
+  component: _components_ListarEmpleados_vue__WEBPACK_IMPORTED_MODULE_4__["default"],
   meta: {
     requiresAuth: true,
     requiresAdmin: true
@@ -12822,7 +13631,7 @@ var routes = [{
 }, {
   path: '/fichaempleado/:id',
   name: 'FichaEmpleado',
-  component: _components_FichaEmpleado_vue__WEBPACK_IMPORTED_MODULE_6__["default"],
+  component: _components_FichaEmpleado_vue__WEBPACK_IMPORTED_MODULE_5__["default"],
   meta: {
     requiresAuth: true,
     requiresAdmin: true
@@ -12830,65 +13639,63 @@ var routes = [{
 }, {
   path: '/registrarmascota',
   name: 'AltaMascota',
-  component: _components_AltaMascota_vue__WEBPACK_IMPORTED_MODULE_7__["default"],
+  component: _components_AltaMascota_vue__WEBPACK_IMPORTED_MODULE_6__["default"],
   meta: {
     requiresAuth: true
   }
-},
-// {
-//     path: '/listarmascotas',
-//     name: 'ListarMascotas',
-//     component: ListarMascotas,
-//     meta: {
-//         requiresAuth: true
-//     }
-// },
-{
+}, {
   path: '/fichamascota/:id',
   name: 'FichaMascota',
-  component: _components_FichaMascota_vue__WEBPACK_IMPORTED_MODULE_9__["default"],
+  component: _components_FichaMascota_vue__WEBPACK_IMPORTED_MODULE_8__["default"],
   meta: {
     requiresAuth: true
   }
 }, {
   path: '/nuevavisita/:id',
   name: 'NuevaVisita',
-  component: _components_NuevaVisita_vue__WEBPACK_IMPORTED_MODULE_10__["default"],
+  component: _components_NuevaVisita_vue__WEBPACK_IMPORTED_MODULE_9__["default"],
   meta: {
     requiresAuth: true
   }
 }, {
   path: '/listarvisitas/:id',
   name: 'ListarVisitas',
-  component: _components_ListarVisitas_vue__WEBPACK_IMPORTED_MODULE_11__["default"],
+  component: _components_ListarVisitas_vue__WEBPACK_IMPORTED_MODULE_10__["default"],
   meta: {
     requiresAuth: true
   }
 }, {
   path: '/fichavisita/:id',
   name: 'FichaVisita',
-  component: _components_FichaVisita_vue__WEBPACK_IMPORTED_MODULE_12__["default"],
+  component: _components_FichaVisita_vue__WEBPACK_IMPORTED_MODULE_11__["default"],
   meta: {
     requiresAuth: true
   }
 }, {
   path: '/nuevohemograma/:id',
   name: 'NuevoHemograma',
-  component: _components_NuevoHemograma_vue__WEBPACK_IMPORTED_MODULE_13__["default"],
+  component: _components_NuevoHemograma_vue__WEBPACK_IMPORTED_MODULE_12__["default"],
   meta: {
     requiresAuth: true
   }
 }, {
   path: '/nuevabioquimica/:id',
   name: 'NuevaBioquimica',
-  component: _components_NuevaBioquimica_vue__WEBPACK_IMPORTED_MODULE_14__["default"],
+  component: _components_NuevaBioquimica_vue__WEBPACK_IMPORTED_MODULE_13__["default"],
   meta: {
     requiresAuth: true
   }
 }, {
   path: '/listarpruebas/:id',
   name: 'ListarPruebas',
-  component: _components_ListarPruebas_vue__WEBPACK_IMPORTED_MODULE_15__["default"],
+  component: _components_ListarPruebas_vue__WEBPACK_IMPORTED_MODULE_14__["default"],
+  meta: {
+    requiresAuth: true
+  }
+}, {
+  path: '/fichahemograma/:id',
+  name: 'FichaHemograma',
+  component: _components_FichaHemograma_vue__WEBPACK_IMPORTED_MODULE_15__["default"],
   meta: {
     requiresAuth: true
   }
@@ -40242,45 +41049,6 @@ component.options.__file = "resources/js/components/AltaMascota.vue"
 
 /***/ }),
 
-/***/ "./resources/js/components/ExampleComponent.vue":
-/*!******************************************************!*\
-  !*** ./resources/js/components/ExampleComponent.vue ***!
-  \******************************************************/
-/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
-
-"use strict";
-__webpack_require__.r(__webpack_exports__);
-/* harmony export */ __webpack_require__.d(__webpack_exports__, {
-/* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
-/* harmony export */ });
-/* harmony import */ var _ExampleComponent_vue_vue_type_template_id_299e239e___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./ExampleComponent.vue?vue&type=template&id=299e239e& */ "./resources/js/components/ExampleComponent.vue?vue&type=template&id=299e239e&");
-/* harmony import */ var _ExampleComponent_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./ExampleComponent.vue?vue&type=script&lang=js& */ "./resources/js/components/ExampleComponent.vue?vue&type=script&lang=js&");
-/* harmony import */ var _node_modules_vue_loader_lib_runtime_componentNormalizer_js__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! !../../../node_modules/vue-loader/lib/runtime/componentNormalizer.js */ "./node_modules/vue-loader/lib/runtime/componentNormalizer.js");
-
-
-
-
-
-/* normalize component */
-;
-var component = (0,_node_modules_vue_loader_lib_runtime_componentNormalizer_js__WEBPACK_IMPORTED_MODULE_2__["default"])(
-  _ExampleComponent_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_1__["default"],
-  _ExampleComponent_vue_vue_type_template_id_299e239e___WEBPACK_IMPORTED_MODULE_0__.render,
-  _ExampleComponent_vue_vue_type_template_id_299e239e___WEBPACK_IMPORTED_MODULE_0__.staticRenderFns,
-  false,
-  null,
-  null,
-  null
-  
-)
-
-/* hot reload */
-if (false) { var api; }
-component.options.__file = "resources/js/components/ExampleComponent.vue"
-/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (component.exports);
-
-/***/ }),
-
 /***/ "./resources/js/components/FichaCliente.vue":
 /*!**************************************************!*\
   !*** ./resources/js/components/FichaCliente.vue ***!
@@ -40355,6 +41123,45 @@ var component = (0,_node_modules_vue_loader_lib_runtime_componentNormalizer_js__
 /* hot reload */
 if (false) { var api; }
 component.options.__file = "resources/js/components/FichaEmpleado.vue"
+/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (component.exports);
+
+/***/ }),
+
+/***/ "./resources/js/components/FichaHemograma.vue":
+/*!****************************************************!*\
+  !*** ./resources/js/components/FichaHemograma.vue ***!
+  \****************************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
+/* harmony export */ });
+/* harmony import */ var _FichaHemograma_vue_vue_type_template_id_03b4661d___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./FichaHemograma.vue?vue&type=template&id=03b4661d& */ "./resources/js/components/FichaHemograma.vue?vue&type=template&id=03b4661d&");
+/* harmony import */ var _FichaHemograma_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./FichaHemograma.vue?vue&type=script&lang=js& */ "./resources/js/components/FichaHemograma.vue?vue&type=script&lang=js&");
+/* harmony import */ var _node_modules_vue_loader_lib_runtime_componentNormalizer_js__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! !../../../node_modules/vue-loader/lib/runtime/componentNormalizer.js */ "./node_modules/vue-loader/lib/runtime/componentNormalizer.js");
+
+
+
+
+
+/* normalize component */
+;
+var component = (0,_node_modules_vue_loader_lib_runtime_componentNormalizer_js__WEBPACK_IMPORTED_MODULE_2__["default"])(
+  _FichaHemograma_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_1__["default"],
+  _FichaHemograma_vue_vue_type_template_id_03b4661d___WEBPACK_IMPORTED_MODULE_0__.render,
+  _FichaHemograma_vue_vue_type_template_id_03b4661d___WEBPACK_IMPORTED_MODULE_0__.staticRenderFns,
+  false,
+  null,
+  null,
+  null
+  
+)
+
+/* hot reload */
+if (false) { var api; }
+component.options.__file = "resources/js/components/FichaHemograma.vue"
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (component.exports);
 
 /***/ }),
@@ -40642,15 +41449,17 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
 /* harmony export */ });
 /* harmony import */ var _NuevaBioquimica_vue_vue_type_template_id_2601d5b6___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./NuevaBioquimica.vue?vue&type=template&id=2601d5b6& */ "./resources/js/components/NuevaBioquimica.vue?vue&type=template&id=2601d5b6&");
-/* harmony import */ var _node_modules_vue_loader_lib_runtime_componentNormalizer_js__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! !../../../node_modules/vue-loader/lib/runtime/componentNormalizer.js */ "./node_modules/vue-loader/lib/runtime/componentNormalizer.js");
+/* harmony import */ var _NuevaBioquimica_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./NuevaBioquimica.vue?vue&type=script&lang=js& */ "./resources/js/components/NuevaBioquimica.vue?vue&type=script&lang=js&");
+/* harmony import */ var _node_modules_vue_loader_lib_runtime_componentNormalizer_js__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! !../../../node_modules/vue-loader/lib/runtime/componentNormalizer.js */ "./node_modules/vue-loader/lib/runtime/componentNormalizer.js");
 
-var script = {}
+
+
 
 
 /* normalize component */
 ;
-var component = (0,_node_modules_vue_loader_lib_runtime_componentNormalizer_js__WEBPACK_IMPORTED_MODULE_1__["default"])(
-  script,
+var component = (0,_node_modules_vue_loader_lib_runtime_componentNormalizer_js__WEBPACK_IMPORTED_MODULE_2__["default"])(
+  _NuevaBioquimica_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_1__["default"],
   _NuevaBioquimica_vue_vue_type_template_id_2601d5b6___WEBPACK_IMPORTED_MODULE_0__.render,
   _NuevaBioquimica_vue_vue_type_template_id_2601d5b6___WEBPACK_IMPORTED_MODULE_0__.staticRenderFns,
   false,
@@ -40834,22 +41643,6 @@ __webpack_require__.r(__webpack_exports__);
 
 /***/ }),
 
-/***/ "./resources/js/components/ExampleComponent.vue?vue&type=script&lang=js&":
-/*!*******************************************************************************!*\
-  !*** ./resources/js/components/ExampleComponent.vue?vue&type=script&lang=js& ***!
-  \*******************************************************************************/
-/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
-
-"use strict";
-__webpack_require__.r(__webpack_exports__);
-/* harmony export */ __webpack_require__.d(__webpack_exports__, {
-/* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
-/* harmony export */ });
-/* harmony import */ var _node_modules_babel_loader_lib_index_js_clonedRuleSet_5_use_0_node_modules_vue_loader_lib_index_js_vue_loader_options_ExampleComponent_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! -!../../../node_modules/babel-loader/lib/index.js??clonedRuleSet-5.use[0]!../../../node_modules/vue-loader/lib/index.js??vue-loader-options!./ExampleComponent.vue?vue&type=script&lang=js& */ "./node_modules/babel-loader/lib/index.js??clonedRuleSet-5.use[0]!./node_modules/vue-loader/lib/index.js??vue-loader-options!./resources/js/components/ExampleComponent.vue?vue&type=script&lang=js&");
- /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (_node_modules_babel_loader_lib_index_js_clonedRuleSet_5_use_0_node_modules_vue_loader_lib_index_js_vue_loader_options_ExampleComponent_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_0__["default"]); 
-
-/***/ }),
-
 /***/ "./resources/js/components/FichaCliente.vue?vue&type=script&lang=js&":
 /*!***************************************************************************!*\
   !*** ./resources/js/components/FichaCliente.vue?vue&type=script&lang=js& ***!
@@ -40879,6 +41672,22 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */ });
 /* harmony import */ var _node_modules_babel_loader_lib_index_js_clonedRuleSet_5_use_0_node_modules_vue_loader_lib_index_js_vue_loader_options_FichaEmpleado_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! -!../../../node_modules/babel-loader/lib/index.js??clonedRuleSet-5.use[0]!../../../node_modules/vue-loader/lib/index.js??vue-loader-options!./FichaEmpleado.vue?vue&type=script&lang=js& */ "./node_modules/babel-loader/lib/index.js??clonedRuleSet-5.use[0]!./node_modules/vue-loader/lib/index.js??vue-loader-options!./resources/js/components/FichaEmpleado.vue?vue&type=script&lang=js&");
  /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (_node_modules_babel_loader_lib_index_js_clonedRuleSet_5_use_0_node_modules_vue_loader_lib_index_js_vue_loader_options_FichaEmpleado_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_0__["default"]); 
+
+/***/ }),
+
+/***/ "./resources/js/components/FichaHemograma.vue?vue&type=script&lang=js&":
+/*!*****************************************************************************!*\
+  !*** ./resources/js/components/FichaHemograma.vue?vue&type=script&lang=js& ***!
+  \*****************************************************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
+/* harmony export */ });
+/* harmony import */ var _node_modules_babel_loader_lib_index_js_clonedRuleSet_5_use_0_node_modules_vue_loader_lib_index_js_vue_loader_options_FichaHemograma_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! -!../../../node_modules/babel-loader/lib/index.js??clonedRuleSet-5.use[0]!../../../node_modules/vue-loader/lib/index.js??vue-loader-options!./FichaHemograma.vue?vue&type=script&lang=js& */ "./node_modules/babel-loader/lib/index.js??clonedRuleSet-5.use[0]!./node_modules/vue-loader/lib/index.js??vue-loader-options!./resources/js/components/FichaHemograma.vue?vue&type=script&lang=js&");
+ /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (_node_modules_babel_loader_lib_index_js_clonedRuleSet_5_use_0_node_modules_vue_loader_lib_index_js_vue_loader_options_FichaHemograma_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_0__["default"]); 
 
 /***/ }),
 
@@ -40975,6 +41784,22 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */ });
 /* harmony import */ var _node_modules_babel_loader_lib_index_js_clonedRuleSet_5_use_0_node_modules_vue_loader_lib_index_js_vue_loader_options_ListarVisitas_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! -!../../../node_modules/babel-loader/lib/index.js??clonedRuleSet-5.use[0]!../../../node_modules/vue-loader/lib/index.js??vue-loader-options!./ListarVisitas.vue?vue&type=script&lang=js& */ "./node_modules/babel-loader/lib/index.js??clonedRuleSet-5.use[0]!./node_modules/vue-loader/lib/index.js??vue-loader-options!./resources/js/components/ListarVisitas.vue?vue&type=script&lang=js&");
  /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (_node_modules_babel_loader_lib_index_js_clonedRuleSet_5_use_0_node_modules_vue_loader_lib_index_js_vue_loader_options_ListarVisitas_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_0__["default"]); 
+
+/***/ }),
+
+/***/ "./resources/js/components/NuevaBioquimica.vue?vue&type=script&lang=js&":
+/*!******************************************************************************!*\
+  !*** ./resources/js/components/NuevaBioquimica.vue?vue&type=script&lang=js& ***!
+  \******************************************************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
+/* harmony export */ });
+/* harmony import */ var _node_modules_babel_loader_lib_index_js_clonedRuleSet_5_use_0_node_modules_vue_loader_lib_index_js_vue_loader_options_NuevaBioquimica_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! -!../../../node_modules/babel-loader/lib/index.js??clonedRuleSet-5.use[0]!../../../node_modules/vue-loader/lib/index.js??vue-loader-options!./NuevaBioquimica.vue?vue&type=script&lang=js& */ "./node_modules/babel-loader/lib/index.js??clonedRuleSet-5.use[0]!./node_modules/vue-loader/lib/index.js??vue-loader-options!./resources/js/components/NuevaBioquimica.vue?vue&type=script&lang=js&");
+ /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (_node_modules_babel_loader_lib_index_js_clonedRuleSet_5_use_0_node_modules_vue_loader_lib_index_js_vue_loader_options_NuevaBioquimica_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_0__["default"]); 
 
 /***/ }),
 
@@ -41077,23 +41902,6 @@ __webpack_require__.r(__webpack_exports__);
 
 /***/ }),
 
-/***/ "./resources/js/components/ExampleComponent.vue?vue&type=template&id=299e239e&":
-/*!*************************************************************************************!*\
-  !*** ./resources/js/components/ExampleComponent.vue?vue&type=template&id=299e239e& ***!
-  \*************************************************************************************/
-/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
-
-"use strict";
-__webpack_require__.r(__webpack_exports__);
-/* harmony export */ __webpack_require__.d(__webpack_exports__, {
-/* harmony export */   "render": () => (/* reexport safe */ _node_modules_babel_loader_lib_index_js_clonedRuleSet_5_use_0_node_modules_vue_loader_lib_loaders_templateLoader_js_ruleSet_1_rules_2_node_modules_vue_loader_lib_index_js_vue_loader_options_ExampleComponent_vue_vue_type_template_id_299e239e___WEBPACK_IMPORTED_MODULE_0__.render),
-/* harmony export */   "staticRenderFns": () => (/* reexport safe */ _node_modules_babel_loader_lib_index_js_clonedRuleSet_5_use_0_node_modules_vue_loader_lib_loaders_templateLoader_js_ruleSet_1_rules_2_node_modules_vue_loader_lib_index_js_vue_loader_options_ExampleComponent_vue_vue_type_template_id_299e239e___WEBPACK_IMPORTED_MODULE_0__.staticRenderFns)
-/* harmony export */ });
-/* harmony import */ var _node_modules_babel_loader_lib_index_js_clonedRuleSet_5_use_0_node_modules_vue_loader_lib_loaders_templateLoader_js_ruleSet_1_rules_2_node_modules_vue_loader_lib_index_js_vue_loader_options_ExampleComponent_vue_vue_type_template_id_299e239e___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! -!../../../node_modules/babel-loader/lib/index.js??clonedRuleSet-5.use[0]!../../../node_modules/vue-loader/lib/loaders/templateLoader.js??ruleSet[1].rules[2]!../../../node_modules/vue-loader/lib/index.js??vue-loader-options!./ExampleComponent.vue?vue&type=template&id=299e239e& */ "./node_modules/babel-loader/lib/index.js??clonedRuleSet-5.use[0]!./node_modules/vue-loader/lib/loaders/templateLoader.js??ruleSet[1].rules[2]!./node_modules/vue-loader/lib/index.js??vue-loader-options!./resources/js/components/ExampleComponent.vue?vue&type=template&id=299e239e&");
-
-
-/***/ }),
-
 /***/ "./resources/js/components/FichaCliente.vue?vue&type=template&id=b0e553a8&":
 /*!*********************************************************************************!*\
   !*** ./resources/js/components/FichaCliente.vue?vue&type=template&id=b0e553a8& ***!
@@ -41124,6 +41932,23 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */   "staticRenderFns": () => (/* reexport safe */ _node_modules_babel_loader_lib_index_js_clonedRuleSet_5_use_0_node_modules_vue_loader_lib_loaders_templateLoader_js_ruleSet_1_rules_2_node_modules_vue_loader_lib_index_js_vue_loader_options_FichaEmpleado_vue_vue_type_template_id_1803fe89___WEBPACK_IMPORTED_MODULE_0__.staticRenderFns)
 /* harmony export */ });
 /* harmony import */ var _node_modules_babel_loader_lib_index_js_clonedRuleSet_5_use_0_node_modules_vue_loader_lib_loaders_templateLoader_js_ruleSet_1_rules_2_node_modules_vue_loader_lib_index_js_vue_loader_options_FichaEmpleado_vue_vue_type_template_id_1803fe89___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! -!../../../node_modules/babel-loader/lib/index.js??clonedRuleSet-5.use[0]!../../../node_modules/vue-loader/lib/loaders/templateLoader.js??ruleSet[1].rules[2]!../../../node_modules/vue-loader/lib/index.js??vue-loader-options!./FichaEmpleado.vue?vue&type=template&id=1803fe89& */ "./node_modules/babel-loader/lib/index.js??clonedRuleSet-5.use[0]!./node_modules/vue-loader/lib/loaders/templateLoader.js??ruleSet[1].rules[2]!./node_modules/vue-loader/lib/index.js??vue-loader-options!./resources/js/components/FichaEmpleado.vue?vue&type=template&id=1803fe89&");
+
+
+/***/ }),
+
+/***/ "./resources/js/components/FichaHemograma.vue?vue&type=template&id=03b4661d&":
+/*!***********************************************************************************!*\
+  !*** ./resources/js/components/FichaHemograma.vue?vue&type=template&id=03b4661d& ***!
+  \***********************************************************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "render": () => (/* reexport safe */ _node_modules_babel_loader_lib_index_js_clonedRuleSet_5_use_0_node_modules_vue_loader_lib_loaders_templateLoader_js_ruleSet_1_rules_2_node_modules_vue_loader_lib_index_js_vue_loader_options_FichaHemograma_vue_vue_type_template_id_03b4661d___WEBPACK_IMPORTED_MODULE_0__.render),
+/* harmony export */   "staticRenderFns": () => (/* reexport safe */ _node_modules_babel_loader_lib_index_js_clonedRuleSet_5_use_0_node_modules_vue_loader_lib_loaders_templateLoader_js_ruleSet_1_rules_2_node_modules_vue_loader_lib_index_js_vue_loader_options_FichaHemograma_vue_vue_type_template_id_03b4661d___WEBPACK_IMPORTED_MODULE_0__.staticRenderFns)
+/* harmony export */ });
+/* harmony import */ var _node_modules_babel_loader_lib_index_js_clonedRuleSet_5_use_0_node_modules_vue_loader_lib_loaders_templateLoader_js_ruleSet_1_rules_2_node_modules_vue_loader_lib_index_js_vue_loader_options_FichaHemograma_vue_vue_type_template_id_03b4661d___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! -!../../../node_modules/babel-loader/lib/index.js??clonedRuleSet-5.use[0]!../../../node_modules/vue-loader/lib/loaders/templateLoader.js??ruleSet[1].rules[2]!../../../node_modules/vue-loader/lib/index.js??vue-loader-options!./FichaHemograma.vue?vue&type=template&id=03b4661d& */ "./node_modules/babel-loader/lib/index.js??clonedRuleSet-5.use[0]!./node_modules/vue-loader/lib/loaders/templateLoader.js??ruleSet[1].rules[2]!./node_modules/vue-loader/lib/index.js??vue-loader-options!./resources/js/components/FichaHemograma.vue?vue&type=template&id=03b4661d&");
 
 
 /***/ }),

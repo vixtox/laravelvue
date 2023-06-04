@@ -10,7 +10,7 @@ class Recordatorio extends Model
 {
     use HasFactory, SoftDeletes;
 
-    protected $fillable = [
+  protected $fillable = [
         'mascotas_id', 
         'vacuna', 
         'fecha',
@@ -20,6 +20,7 @@ class Recordatorio extends Model
 
     public function mascota()
     {
-        return $this->belongsTo(Mascota::class, 'id_mascota', 'id');
+        return $this->belongsTo(Mascota::class, 'mascotas_id');
     }
+
 }

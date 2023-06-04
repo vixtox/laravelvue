@@ -136,4 +136,5 @@ class MascotaController extends Controller
         $mascotas = Mascota::where('nombre', 'LIKE', '%' . $term . '%')->get();
         return response()->json($mascotas);
     }
+
 }

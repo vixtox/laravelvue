@@ -89,20 +89,25 @@
                     </div>
                     <div class="card-body">
                         <div class="row">
-                            <div class="col-md-4">
-                                <router-link :to="{ name: 'NuevoHemograma', params: { id: visita.mascotas_id } }"
+                            <div v-if="!hemograma || hemograma.length === 0" class="col-md-6">
+                                <router-link :to="{ name: 'NuevoHemograma', params: { id: visita.id } }"
                                     class="btn btn-success w-100" title="Añadir hemograma">
                                     <i class="fas fa-syringe"></i> Añadir hemograma</router-link>
                             </div>
-                            <div class="col-md-4">
-                                <router-link :to="{ name: 'ListarPruebas', params: { id: visita.mascotas_id } }"
-                                    class="btn btn-info w-100" title="Listar pruebas">
-                                    <i class="fas fa-eye"></i> Listar pruebas</router-link>
+                            <div v-if="!hemograma || hemograma.length === 1" class="col-md-6">
+                                <router-link :to="{ name: 'FichaHemograma', params: { id: hemograma.id } }"
+                                    class="btn btn-info w-100" title="Ficha hemograma">
+                                    <i class="fas fa-eye"></i> Hemograma</router-link>
                             </div>
-                            <div class="col-md-4">
-                                <router-link :to="{ name: 'NuevaBioquimica', params: { id: visita.mascotas_id } }"
+                            <div v-if="!bioquimica || bioquimica.length === 0" class="col-md-6">
+                                <router-link :to="{ name: 'NuevaBioquimica', params: { id: visita.id } }"
                                     class="btn btn-success w-100" title="Añadir bioquímica">
                                     <i class="fas fa-vial"></i> Añadir bioquímica</router-link>
+                            </div>
+                            <div v-if="!bioquimica || bioquimica.length === 1" class="col-md-6">
+                                <router-link :to="{ name: 'FichaBioquimica', params: { id: bioquimica.id } }"
+                                    class="btn btn-info w-100" title="Ficha bioquimica">
+                                    <i class="fas fa-eye"></i> Bioquimica</router-link>
                             </div>
                         </div>
                     </div>
@@ -144,9 +149,10 @@ export default {
                 tratamiento: "",
                 coste: "",
             },
-            errores: {},
-            veterinarios: [],
-            mascota: {},
+            errores: [],
+            mascota: [],
+            hemograma: [],
+            bioquimica: [],
             id: this.$route.params.id,
         };
     },
@@ -164,18 +170,10 @@ export default {
             try {
                 const response = await axios.get('visitas/' + id);
                 console.log(response.data); // Agregar esta línea para depurar
-                this.visita = response.data;
-                await this.obtenerMascota();
-            } catch (error) {
-                console.error(error);
-            }
-        },
-
-        async obtenerMascota() {
-            try {
-                const response = await axios.get('mascotas/' + this.visita.mascotas_id);
-                console.log(response.data); // Agregar esta línea para depurar
-                this.mascota = response.data;
+                this.visita = response.data.visita;
+                this.mascota = response.data.mascota;
+                this.hemograma = response.data.hemograma;
+                this.bioquimica = response.data.bioquimica;
             } catch (error) {
                 console.error(error);
             }

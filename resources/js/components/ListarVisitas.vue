@@ -39,7 +39,8 @@
                                     <button class="btn btn-warning" @click="generarPDF(visita.id)" title="Generar PDF">
                                         <i class="fa-solid fa-file-pdf"></i>
                                     </button>
-                                    <button class="btn btn-success" @click="enviarCorreo(visita.id)" title="Enviar correo">
+                                    <button class="btn btn-secondary" @click="enviarCorreo(visita.id)"
+                                        title="Enviar correo">
                                         <i class="fa-solid fa-envelope"></i>
                                     </button>
                                 </td>

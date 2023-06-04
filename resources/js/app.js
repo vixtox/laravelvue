@@ -5,7 +5,6 @@ window.Vue = require('vue').default;
 
 import VueRouter from 'vue-router';
 
-import ExampleComponent from './components/ExampleComponent.vue';
 import AltaCliente from './components/AltaCliente.vue';
 import ListarClientes from './components/ListarClientes.vue';
 import FichaCliente from './components/FichaCliente.vue';
@@ -21,6 +20,7 @@ import FichaVisita from './components/FichaVisita.vue';
 import NuevoHemograma from './components/NuevoHemograma.vue';
 import NuevaBioquimica from './components/NuevaBioquimica.vue';
 import ListarPruebas from './components/ListarPruebas.vue';
+import FichaHemograma from './components/FichaHemograma.vue';
 
 Vue.use(VueRouter);
 
@@ -33,6 +33,7 @@ const routes = [
             requiresAuth: true
         }
     },
+    
     {
         path: '/registrarcliente',
         name: 'AltaCliente',
@@ -92,14 +93,7 @@ const routes = [
             requiresAuth: true
         }
     },
-    // {
-    //     path: '/listarmascotas',
-    //     name: 'ListarMascotas',
-    //     component: ListarMascotas,
-    //     meta: {
-    //         requiresAuth: true
-    //     }
-    // },
+    
     {
         path: '/fichamascota/:id',
         name: 'FichaMascota',
@@ -152,6 +146,14 @@ const routes = [
         path: '/listarpruebas/:id',
         name: 'ListarPruebas',
         component: ListarPruebas,
+        meta: {
+            requiresAuth: true
+        }
+    },
+    {
+        path: '/fichahemograma/:id',
+        name: 'FichaHemograma',
+        component: FichaHemograma,
         meta: {
             requiresAuth: true
         }

@@ -12,6 +12,7 @@ class Visita extends Model
 
     protected $fillable = [
         'mascotas_id',
+        'visita_id',
         'fecha_visita',
         'hora_visita',
         'veterinario',
@@ -24,7 +25,12 @@ class Visita extends Model
 
     public function mascota()
     {
-        return $this->belongsTo(Mascota::class, 'id_mascota', 'id');
+        return $this->belongsTo(Mascota::class, 'mascotas_id', 'id');
+    }
+
+    public function hemogramas()
+    {
+        return $this->hasMany(Hemograma::class, 'visita_id');
     }
 
 }

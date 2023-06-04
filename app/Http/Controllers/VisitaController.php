@@ -5,6 +5,8 @@ namespace App\Http\Controllers;
 use App\Models\Visita;
 use App\Models\Mascota;
 use App\Models\Cliente;
+use App\Models\Hemograma;
+use App\Models\Bioquimica;
 use App\Http\Requests\VisitaRequest;
 use Illuminate\Support\Facades\Mail;
 use Illuminate\Mail\Message;
@@ -52,12 +54,30 @@ class VisitaController extends Controller
     public function show($id)
     {
         $visita = Visita::find($id);
+        $mascota = Mascota::find($visita->mascotas_id);
+        $hemograma = self::getHemograma($visita->id);
+        $bioquimica = self::getBioquimica($visita->id);
 
-        if ($visita) {
-            return response()->json($visita);
-        } else {
-            return response()->json(['error' => 'Visita no encontrada'], 404);
-        }
+        return response()->json([
+            'visita' => $visita,
+            'mascota' => $mascota,
+            'hemograma' => $hemograma,
+            'bioquimica' => $bioquimica
+        ]);
+    }
+
+    public static function getHemograma($visita_id)
+    {
+        $hemograma = Hemograma::where('visita_id', $visita_id)->get();
+
+        return $hemograma;
+    }
+
+    public static function getBioquimica($visita_id)
+    {
+        $bioquimica = Bioquimica::where('visita_id', $visita_id)->get();
+
+        return $bioquimica;
     }
 
     /**
@@ -167,4 +187,43 @@ class VisitaController extends Controller
                 ->attachData($pdf_content, 'visita.pdf');
         });
     }
+
+    public function inicioHemograma($id)
+    {
+        // Obtener la visita según el ID proporcionado
+        $visita = Visita::findOrFail($id);
+
+        // Obtener la mascota asociada a la visita
+        $mascota = Mascota::findOrFail($visita->mascotas_id);
+
+        // Obtener el cliente asociado a la mascota
+        $cliente = Cliente::findOrFail($mascota->cliente_id);
+
+        // Devolver los objetos como respuesta JSON
+        return response()->json([
+            'visita' => $visita,
+            'cliente' => $cliente,
+            'mascota' => $mascota
+        ]);
+    }
+
+    public function inicioBioquimica($id)
+    {
+        // Obtener la visita según el ID proporcionado
+        $visita = Visita::findOrFail($id);
+
+        // Obtener la mascota asociada a la visita
+        $mascota = Mascota::findOrFail($visita->mascotas_id);
+
+        // Obtener el cliente asociado a la mascota
+        $cliente = Cliente::findOrFail($mascota->cliente_id);
+
+        // Devolver los objetos como respuesta JSON
+        return response()->json([
+            'visita' => $visita,
+            'cliente' => $cliente,
+            'mascota' => $mascota
+        ]);
+    }
+
 }

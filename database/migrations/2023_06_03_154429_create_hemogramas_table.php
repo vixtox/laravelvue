@@ -27,12 +27,15 @@ class CreateHemogramasTable extends Migration
             $table->decimal('monocitos')->nullable();
             $table->decimal('leucocitos')->nullable();
             $table->decimal('plaquetas')->nullable();
-            $table->dateTime('fecha');
+            $table->date('fecha');
             $table->string('animal');
             $table->timestamps();
 
             $table->unsignedBigInteger('mascotas_id');
             $table->foreign('mascotas_id')->references('id')->on('mascotas');
+
+            $table->unsignedBigInteger('visita_id');
+            $table->foreign('visita_id')->references('id')->on('visitas');
         });
     }
 

@@ -1,24 +1,37 @@
 <template>
     <div class="container">
         <div class="card">
-            <div class="row">
-                <div class="col-md-12 col-sm-12">
-                    <div class="input-group">
-                        <button class="btn btn-warning w-50" @click="cambiarAnimal()" title="Cambiar animal">
-                            Cambiar animal
-                        </button>
-                        <input type="date" class="form-control w-50" name="fecha" :max="maxDate" v-model="hemograma.fecha"
-                            id="fecha" aria-describedby="helpId">
-                    </div>
-                </div>
-            </div>
-
             <div class="card-header bg-dark text-light">
                 <h2 class="card-title">Hemograma {{ hemograma.animal === "perro" ? 'perro' : 'gato' }}</h2>
+            </div>
+            <div class="input-group">
+                <button class="btn btn-warning w-100" @click="cambiarAnimal()" title="Cambiar animal">
+                    Cambiar a hemograma {{ change }}
+                </button>
             </div>
             <form @submit.prevent="agregarHemograma">
                 <table class="table">
                     <thead>
+                        <tr>
+                            <th>Mascota</th>
+                            <th>Propietario</th>
+                            <th>Fecha hemograma</th>
+                        </tr>
+                        <tr>
+                            <td>
+                                <span class="form-control gris">{{ mascota.nombre }}</span>
+                            </td>
+                            <td>
+                                <span class="form-control gris">{{ cliente.nombre_apellidos }}</span>
+                            </td>
+                            <td>
+                                <span class="form-control gris">{{ new Date(visita.fecha_visita).toLocaleDateString('es-ES',
+                                    {
+                                        day: '2-digit', month:
+                                            '2-digit', year: 'numeric'
+                                    }) }}</span>
+                            </td>
+                        </tr>
                         <tr>
                             <th>Parámetro</th>
                             <th>Resultado</th>
@@ -30,10 +43,10 @@
                             <td>Hematocrito (%):</td>
                             <td>
                                 <input type="number" step="0.01" class="form-control" v-model="hemograma.hematocrito" />
+                                <span v-if="errores.hematocrito" class="text-danger">{{ errores.hematocrito[0] }}</span>
                             </td>
                             <td>
                                 {{ hemograma.animal === "perro" ? '37-55' : '30-45' }}
-                                <span v-if="errores.hemograma" class="text-danger">{{ errores.hemograma }}</span>
                             </td>
 
                         </tr>
@@ -41,6 +54,7 @@
                             <td>Hemoglobina (g/dl):</td>
                             <td>
                                 <input type="number" step="0.01" class="form-control" v-model="hemograma.hemoglobina" />
+                                <span v-if="errores.hemoglobina" class="text-danger">{{ errores.hemoglobina[0] }}</span>
                             </td>
                             <td>
                                 {{ hemograma.animal === "perro" ? '12-18' : '8-15' }}
@@ -50,6 +64,7 @@
                             <td>Recuento G. rojos (millones/µl):</td>
                             <td>
                                 <input type="number" step="0.01" class="form-control" v-model="hemograma.g_rojo" />
+                                <span v-if="errores.g_rojo" class="text-danger">{{ errores.g_rojo[0] }}</span>
                             </td>
                             <td>
                                 {{ hemograma.animal === "perro" ? '5,5-8,5' : '5-10' }}
@@ -59,6 +74,7 @@
                             <td>VCM (fL):</td>
                             <td>
                                 <input type="number" step="0.01" class="form-control" v-model="hemograma.vcm" />
+                                <span v-if="errores.vcm" class="text-danger">{{ errores.vcm[0] }}</span>
                             </td>
                             <td>
                                 {{ hemograma.animal === "perro" ? '60-77' : '39-55' }}
@@ -68,6 +84,7 @@
                             <td>HCM (pg):</td>
                             <td>
                                 <input type="number" step="0.01" class="form-control" v-model="hemograma.hcm" />
+                                <span v-if="errores.hcm" class="text-danger">{{ errores.hcm[0] }}</span>
                             </td>
                             <td>
                                 {{ hemograma.animal === "perro" ? '19,5-24,5' : '12,5-17,5' }}
@@ -77,6 +94,7 @@
                             <td>CHCM (g/dl):</td>
                             <td>
                                 <input type="number" step="0.01" class="form-control" v-model="hemograma.chcm" />
+                                <span v-if="errores.chcm" class="text-danger">{{ errores.chcm[0] }}</span>
                             </td>
                             <td>
                                 {{ hemograma.animal === "perro" ? '32-36' : '30-36' }}
@@ -86,6 +104,7 @@
                             <td>Reticulocitos (%):</td>
                             <td>
                                 <input type="number" step="0.01" class="form-control" v-model="hemograma.reticulocitos" />
+                                <span v-if="errores.reticulocitos" class="text-danger">{{ errores.reticulocitos[0] }}</span>
                             </td>
                             <td>
                                 {{ hemograma.animal === "perro" ? 'hasta 1' : 'hasta 1,5' }}
@@ -95,6 +114,7 @@
                             <td>Leucocitos (/μl):</td>
                             <td>
                                 <input type="number" step="0.01" class="form-control" v-model="hemograma.leucocitos" />
+                                <span v-if="errores.leucocitos" class="text-danger">{{ errores.leucocitos[0] }}</span>
                             </td>
                             <td>
                                 {{ hemograma.animal === "perro" ? '6000-18000' : '5500-19500' }}
@@ -104,6 +124,7 @@
                             <td>Eosinófilos (/μl):</td>
                             <td>
                                 <input type="number" step="0.01" class="form-control" v-model="hemograma.eosinofilos" />
+                                <span v-if="errores.eosinofilos" class="text-danger">{{ errores.eosinofilos[0] }}</span>
                             </td>
                             <td>
                                 {{ hemograma.animal === "perro" ? '100-1250' : '0-1500' }}
@@ -113,6 +134,7 @@
                             <td>Linfocitos (/μl):</td>
                             <td>
                                 <input type="number" step="0.01" class="form-control" v-model="hemograma.linfocitos" />
+                                <span v-if="errores.linfocitos" class="text-danger">{{ errores.linfocitos[0] }}</span>
                             </td>
                             <td>
                                 {{ hemograma.animal === "perro" ? '1000-4800' : '1500-7000' }}
@@ -122,15 +144,17 @@
                             <td>Monocitos (/μl):</td>
                             <td>
                                 <input type="number" step="0.01" class="form-control" v-model="hemograma.monocitos" />
+                                <span v-if="errores.monocitos" class="text-danger">{{ errores.monocitos[0] }}</span>
                             </td>
                             <td>
-                                {{ hemograma.animal === "perro" ? '150-1350' : '1500-7000' }}
+                                {{ hemograma.animal === "perro" ? '150-1350' : '0-850' }}
                             </td>
                         </tr>
                         <tr>
                             <td>Plaquetas (miles/μl):</td>
                             <td>
                                 <input type="number" step="0.01" class="form-control" v-model="hemograma.plaquetas" />
+                                <span v-if="errores.plaquetas" class="text-danger">{{ errores.plaquetas[0] }}</span>
                             </td>
                             <td>
                                 {{ hemograma.animal === "perro" ? '150-500' : '300-700' }}
@@ -141,7 +165,7 @@
                 <div class="btn-group w-100" role="group" aria-label="">
                     <button type="submit" class="btn btn-success" title="Guardar hemograma"><i class="fas fa-vial"></i>
                         Guardar hemograma</button>
-                    <router-link :to="{ name: 'FichaVisita', params: { id: hemograma.mascotas_id } }"
+                    <router-link :to="{ name: 'FichaVisita', params: { id: hemograma.visita_id } }"
                         class="btn btn-warning" title="Volver">
                         <i class="bi bi-arrow-return-left fw-bold"></i>
                     </router-link>
@@ -175,16 +199,43 @@ export default {
                 plaquetas: null,
                 fecha: "",
                 animal: "perro",
-                mascotas_id: this.$route.params.id,
+                mascotas_id: "",
+                visita_id: this.$route.params.id,
             },
             errores: {},
-
+            change: "gato",
+            mascota: [],
+            cliente: [],
+            visita: [],
         };
     },
 
+    created() {
+        this.obtenerInformacionID();
+        const token = document.querySelector('meta[name="csrf-token"]');
+        if (token) {
+            this.csrfToken = token.content;
+        }
+    },
+
     methods: {
+
+        async obtenerInformacionID() {
+            try {
+                const response = await axios.get('visitas/hemograma/' + this.hemograma.visita_id);
+                console.log(response.data); // Agregar esta línea para depurar
+                this.mascota = response.data.mascota;
+                this.hemograma.mascotas_id = this.mascota.id;
+                this.cliente = response.data.cliente;
+                this.visita = response.data.visita;
+            } catch (error) {
+                console.error(error);
+            }
+        },
+
         // Inserta en la base de datos
         async agregarHemograma() {
+            this.hemograma.fecha = this.visita.fecha_visita;
             try {
                 console.log(this.hemograma)
                 const res = await axios.post('hemogramas', this.hemograma);
@@ -195,7 +246,7 @@ export default {
                     showConfirmButton: false,
                     timer: 1500
                 })
-                this.$router.push({ name: 'ListarMascotas' });
+                this.$router.push({ name: 'FichaVisita', params: { id: this.hemograma.visita_id } });
 
             } catch (error) {
                 if (error.response.data) {
@@ -213,9 +264,11 @@ export default {
 
         cambiarAnimal() {
             if (this.hemograma.animal === "perro") {
-                this.hemograma.animal = "gato"
+                this.hemograma.animal = "gato";
+                this.change = "perro";
             } else {
-                this.hemograma.animal = "perro"
+                this.hemograma.animal = "perro";
+                this.change = "gato";
             }
         },
 
@@ -235,4 +288,3 @@ export default {
     }
 };
 </script>
-  

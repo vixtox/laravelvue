@@ -2,11 +2,11 @@
 
 namespace App\Http\Controllers;
 
-use App\Models\Hemograma;
-use App\Models\Mascota;
-use App\Http\Requests\HemogramaRequest;
+use Illuminate\Http\Request;
+use App\Models\Bioquimica;
+use App\Http\Requests\BioquimicaRequest;
 
-class HemogramaController extends Controller
+class BioquimicaController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -34,9 +34,9 @@ class HemogramaController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(HemogramaRequest $request)
+    public function store(BioquimicaRequest $request)
     {
-        Hemograma::create($request->all());
+        Bioquimica::create($request->all());
     }
 
     /**
@@ -47,14 +47,7 @@ class HemogramaController extends Controller
      */
     public function show($id)
     {
-        //    $hemograma = Hemograma::find($id);
-           $hemograma = Mascota::find($id);
-
-        if ($hemograma) {
-            return response()->json($hemograma);
-        } else {
-            return response()->json(['error' => 'Hemograma no encontrada'], 404);
-        }
+        //
     }
 
     /**
@@ -75,7 +68,7 @@ class HemogramaController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(HemogramaRequest $request, $id)
+    public function update(Request $request, $id)
     {
         //
     }
