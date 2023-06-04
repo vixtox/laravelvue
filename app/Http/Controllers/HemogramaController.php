@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Models\Hemograma;
 use App\Models\Mascota;
+use App\Models\Visita;
 use App\Http\Requests\HemogramaRequest;
 
 class HemogramaController extends Controller
@@ -48,7 +49,7 @@ class HemogramaController extends Controller
     public function show($id)
     {
         //    $hemograma = Hemograma::find($id);
-           $hemograma = Mascota::find($id);
+        $hemograma = Mascota::find($id);
 
         if ($hemograma) {
             return response()->json($hemograma);

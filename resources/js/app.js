@@ -21,6 +21,8 @@ import NuevoHemograma from './components/NuevoHemograma.vue';
 import NuevaBioquimica from './components/NuevaBioquimica.vue';
 import ListarPruebas from './components/ListarPruebas.vue';
 import FichaHemograma from './components/FichaHemograma.vue';
+import FichaBioquimica from './components/FichaBioquimica.vue';
+
 
 Vue.use(VueRouter);
 
@@ -33,7 +35,6 @@ const routes = [
             requiresAuth: true
         }
     },
-    
     {
         path: '/registrarcliente',
         name: 'AltaCliente',
@@ -154,6 +155,14 @@ const routes = [
         path: '/fichahemograma/:id',
         name: 'FichaHemograma',
         component: FichaHemograma,
+        meta: {
+            requiresAuth: true
+        }
+    },
+    {
+        path: '/fichabioquimica/:id',
+        name: 'FichaBioquimica',
+        component: FichaBioquimica,
         meta: {
             requiresAuth: true
         }

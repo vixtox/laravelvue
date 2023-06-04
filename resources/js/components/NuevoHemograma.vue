@@ -165,8 +165,8 @@
                 <div class="btn-group w-100" role="group" aria-label="">
                     <button type="submit" class="btn btn-success" title="Guardar hemograma"><i class="fas fa-vial"></i>
                         Guardar hemograma</button>
-                    <router-link :to="{ name: 'FichaVisita', params: { id: hemograma.visita_id } }"
-                        class="btn btn-warning" title="Volver">
+                    <router-link :to="{ name: 'FichaVisita', params: { id: hemograma.visita_id } }" class="btn btn-warning"
+                        title="Volver">
                         <i class="bi bi-arrow-return-left fw-bold"></i>
                     </router-link>
                 </div>
@@ -235,30 +235,41 @@ export default {
 
         // Inserta en la base de datos
         async agregarHemograma() {
-            this.hemograma.fecha = this.visita.fecha_visita;
-            try {
-                console.log(this.hemograma)
-                const res = await axios.post('hemogramas', this.hemograma);
-                Swal.fire({
-                    position: 'center',
-                    icon: 'success',
-                    title: 'Hemograma registrado correctamente',
-                    showConfirmButton: false,
-                    timer: 1500
-                })
-                this.$router.push({ name: 'FichaVisita', params: { id: this.hemograma.visita_id } });
+            if (this.visita.hemograma_id === 0) {
 
-            } catch (error) {
-                if (error.response.data) {
+                this.hemograma.fecha = this.visita.fecha_visita;
+                try {
+                    console.log(this.hemograma)
+                    const res = await axios.post('hemogramas', this.hemograma);
                     Swal.fire({
-                        icon: 'error',
-                        title: 'Error registro hemograma',
-                        text: 'Ingresa los campos correctamente',
+                        position: 'center',
+                        icon: 'success',
+                        title: 'Hemograma registrado correctamente',
+                        showConfirmButton: false,
+                        timer: 1500
                     })
-                    this.errores = error.response.data.errors;
-                    console.log(this.errores)
+                    this.$router.push({ name: 'FichaVisita', params: { id: this.hemograma.visita_id } });
+
+                } catch (error) {
+                    if (error.response.data) {
+                        Swal.fire({
+                            icon: 'error',
+                            title: 'Error registro hemograma',
+                            text: 'Ingresa los campos correctamente',
+                        })
+                        this.errores = error.response.data.errors;
+                        console.log(this.errores)
+                    }
                 }
+
+            }else{
+                Swal.fire({
+                            icon: 'error',
+                            title: 'Error registro hemograma',
+                            text: 'Ya has registrado el hemograma de esta visita',
+                        })
             }
+
 
         },
 

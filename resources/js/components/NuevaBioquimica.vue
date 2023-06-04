@@ -311,9 +311,10 @@ export default {
                 cloro: this.bioquimica.cloro,
                 t4: this.bioquimica.t4,
             };
-            // const camposValidacion = Object.values(validacion);
 
-            for (let i = 0; i < validacion.length; i++) {
+            const camposValidacion = Object.values(validacion);
+
+            for (let i = 0; i < camposValidacion.length; i++) {
                 if (camposValidacion[i] !== null) {
                     this.formularioRelleno = true; // Al menos un campo tiene un valor distinto de null
                     return true;
