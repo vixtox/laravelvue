@@ -179,7 +179,7 @@ export default {
             }
         },
 
-        // Edita mascota en la base de datos
+        // Edita visita en la base de datos
         async editarVisita() {
             console.log(this.visita)
             const res = await axios.put('visitas/' + this.id, this.visita)
@@ -198,7 +198,7 @@ export default {
                     console.log(error.response);
                     Swal.fire({
                         icon: 'error',
-                        title: 'Error actualizar mascota',
+                        title: 'Error actualizar visita',
                         text: 'Ingresa los campos correctamente',
                     })
                     this.errores = error.response.data.errors;

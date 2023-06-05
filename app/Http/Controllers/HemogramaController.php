@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Models\Hemograma;
 use App\Models\Mascota;
 use App\Models\Visita;
+use App\Models\Cliente;
 use App\Http\Requests\HemogramaRequest;
 
 class HemogramaController extends Controller
@@ -48,14 +49,21 @@ class HemogramaController extends Controller
      */
     public function show($id)
     {
-        //    $hemograma = Hemograma::find($id);
-        $hemograma = Mascota::find($id);
+        $hemograma = Hemograma::find($id);
 
-        if ($hemograma) {
-            return response()->json($hemograma);
-        } else {
-            return response()->json(['error' => 'Hemograma no encontrada'], 404);
-        }
+        $visita = Visita::findOrFail($hemograma->visita_id);
+
+        $mascota = Mascota::findOrFail($visita->mascotas_id);
+
+        $cliente = Cliente::findOrFail($mascota->cliente_id);
+
+        // Devolver los objetos como respuesta JSON
+        return response()->json([
+            'hemograma' => $hemograma,
+            'visita' => $visita,
+            'cliente' => $cliente,
+            'mascota' => $mascota
+        ]);
     }
 
     /**
@@ -78,7 +86,8 @@ class HemogramaController extends Controller
      */
     public function update(HemogramaRequest $request, $id)
     {
-        //
+        $hemograma = Hemograma::find($id);
+        $hemograma->update($request->all());
     }
 
     /**
