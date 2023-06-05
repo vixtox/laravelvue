@@ -167,25 +167,41 @@ class VisitaController extends Controller
     {
         // Obtener la visita según el ID proporcionado
         $visita = Visita::findOrFail($id);
-
         // Obtener la mascota asociada a la visita
         $mascota = Mascota::findOrFail($visita->mascotas_id);
-
         // Obtener el cliente asociado a la mascota
         $cliente = Cliente::findOrFail($mascota->cliente_id);
+        // Obtener la hemograma asociada a la visita
+        $hemograma = Hemograma::findOrFail($visita->hemograma_id);
+        // Obtener la bioquímica asociada a la visita
+        $bioquimica = Bioquimica::findOrFail($visita->bioquimica_id);
 
         $pdf = PDF::loadView('auth.visitaspdf', compact('visita', 'mascota', 'cliente'));
         $pdf_content = $pdf->output();
+
         $subject = "Visita $mascota->nombre $visita->fecha_visita";
         $subject = 'Don Can: visita de ' . $mascota->nombre;;
         $to = $cliente->email;
         $body = 'Gracias por visitar nuestra clínica, le adjuntamos documento de la visita';
 
-        Mail::raw($body, function (Message $message) use ($to, $subject, $pdf_content) {
+        Mail::raw($body, function (Message $message) use ($to, $subject, $pdf_content, $visita, $hemograma, $bioquimica) {
             $message->to($to)
                 ->subject($subject)
                 ->attachData($pdf_content, 'visita.pdf');
+        
+            // Adjuntar PDF de bioquímica si está disponible
+            if ($visita->hemograma_id !== null) {
+                $pdf_bioquimica = PDF::loadView('auth.hemogramapdf', compact('hemograma'))->output();
+                $message->attachData($pdf_bioquimica, 'bioquimica.pdf');
+            }
+        
+            // Adjuntar PDF de hemograma si está disponible
+            if ($visita->bioquimica_id !== null) {
+                $pdf_hemograma = PDF::loadView('auth.bioquimicapdf', compact('bioquimica'))->output();
+                $message->attachData($pdf_hemograma, 'hemograma.pdf');
+            }
         });
+        
     }
 
     public function inicioHemograma($id)
@@ -225,5 +241,4 @@ class VisitaController extends Controller
             'mascota' => $mascota
         ]);
     }
-
 }

@@ -235,7 +235,7 @@ export default {
 
         // Inserta en la base de datos
         async agregarHemograma() {
-            if (this.visita.hemograma_id === 0) {
+            if (this.visita.hemograma_id === null) {
 
                 this.hemograma.fecha = this.visita.fecha_visita;
                 try {

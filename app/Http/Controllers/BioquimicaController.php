@@ -2,8 +2,10 @@
 
 namespace App\Http\Controllers;
 
-use Illuminate\Http\Request;
 use App\Models\Bioquimica;
+use App\Models\Mascota;
+use App\Models\Visita;
+use App\Models\Cliente;
 use App\Http\Requests\BioquimicaRequest;
 
 class BioquimicaController extends Controller
@@ -47,7 +49,21 @@ class BioquimicaController extends Controller
      */
     public function show($id)
     {
-        //
+        $bioquimica = Bioquimica::find($id);
+
+        $visita = Visita::findOrFail($bioquimica->visita_id);
+
+        $mascota = Mascota::findOrFail($visita->mascotas_id);
+
+        $cliente = Cliente::findOrFail($mascota->cliente_id);
+
+        // Devolver los objetos como respuesta JSON
+        return response()->json([
+            'bioquimica' => $bioquimica,
+            'visita' => $visita,
+            'cliente' => $cliente,
+            'mascota' => $mascota
+        ]);
     }
 
     /**
@@ -68,9 +84,10 @@ class BioquimicaController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, $id)
+    public function update(BioquimicaRequest $request, $id)
     {
-        //
+        $bioquimica = Bioquimica::find($id);
+        $bioquimica->update($request->all());
     }
 
     /**

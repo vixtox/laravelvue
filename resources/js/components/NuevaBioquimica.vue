@@ -40,184 +40,184 @@
                     </thead>
                     <tbody>
                         <tr>
-                            <td>Urea (mg/dl):</td>
+                            <td>Urea:</td>
                             <td>
                                 <input type="number" step="0.01" class="form-control" v-model="bioquimica.urea" />
                             </td>
                             <td>
-                                {{ bioquimica.animal === "perro" ? '20-50' : '30-60' }}
+                                {{ bioquimica.animal === "perro" ? '20-50' : '30-60'  }} (mg/dl)
                             </td>
 
                         </tr>
                         <tr>
-                            <td>Creatinina (mg/dl):</td>
+                            <td>Creatinina:</td>
                             <td>
                                 <input type="number" step="0.01" class="form-control" v-model="bioquimica.creatinina" />
                             </td>
                             <td>
-                                {{ bioquimica.animal === "perro" ? '0,6-1,4' : '0,5-1,8' }}
+                                {{ bioquimica.animal === "perro" ? '0,6-1,4' : '0,5-1,8' }} (mg/dl)
                             </td>
                         </tr>
                         <tr>
-                            <td>Glucosa (mg/dl):</td>
+                            <td>Glucosa:</td>
                             <td>
                                 <input type="number" step="0.01" class="form-control" v-model="bioquimica.glucosa" />
                             </td>
                             <td>
-                                {{ bioquimica.animal === "perro" ? '70-105' : '60-140' }}
+                                {{ bioquimica.animal === "perro" ? '70-105' : '60-140' }} (mg/dl)
                             </td>
                         </tr>
                         <tr>
-                            <td>Proteínas totales (g/dl):</td>
+                            <td>Proteínas totales:</td>
                             <td>
                                 <input type="number" step="0.01" class="form-control" v-model="bioquimica.proteinas" />
                             </td>
                             <td>
-                                {{ bioquimica.animal === "perro" ? '5,3-7,9' : '5,7-8' }}
+                                {{ bioquimica.animal === "perro" ? '5,3-7,9' : '5,7-8' }} (g/dl)
                             </td>
                         </tr>
                         <tr>
-                            <td>Albumina (g/dl):</td>
+                            <td>Albumina:</td>
                             <td>
                                 <input type="number" step="0.01" class="form-control" v-model="bioquimica.albumina" />
                             </td>
                             <td>
-                                {{ bioquimica.animal === "perro" ? '2,3-3,8' : '2,3-3,4' }}
+                                {{ bioquimica.animal === "perro" ? '2,3-3,8' : '2,3-3,4' }} (g/dl)
                             </td>
                         </tr>
                         <tr>
-                            <td>Bilirrubina (mg/dl):</td>
+                            <td>Bilirrubina:</td>
                             <td>
                                 <input type="number" step="0.01" class="form-control" v-model="bioquimica.bilirrubina" />
                             </td>
                             <td>
-                                {{ bioquimica.animal === "perro" ? 'Hasta 0,8' : 'Hasta 0,8' }}
+                                {{ bioquimica.animal === "perro" ? 'Hasta 0,8' : 'Hasta 0,8' }} (mg/dl)
                             </td>
                         </tr>
                         <tr>
-                            <td>ALP (U/L):</td>
+                            <td>ALP:</td>
                             <td>
                                 <input type="number" step="0.01" class="form-control" v-model="bioquimica.alp" />
                             </td>
                             <td>
-                                {{ bioquimica.animal === "perro" ? '32-185' : '25-110' }}
+                                {{ bioquimica.animal === "perro" ? '32-185' : '25-110' }} (U/L)
                             </td>
                         </tr>
                         <tr>
-                            <td>GPT (U/L):</td>
+                            <td>GPT:</td>
                             <td>
                                 <input type="number" step="0.01" class="form-control" v-model="bioquimica.gpt" />
                             </td>
                             <td>
-                                {{ bioquimica.animal === "perro" ? '28-78' : '10-80' }}
+                                {{ bioquimica.animal === "perro" ? '28-78' : '10-80' }} (U/L)
                             </td>
                         </tr>
                         <tr>
-                            <td>Fósforo (mg/dl):</td>
+                            <td>Fósforo:</td>
                             <td>
                                 <input type="number" step="0.01" class="form-control" v-model="bioquimica.fosforo" />
                             </td>
                             <td>
-                                {{ bioquimica.animal === "perro" ? '2-6,2' : '2,8-7,2' }}
+                                {{ bioquimica.animal === "perro" ? '2-6,2' : '2,8-7,2' }} (mg/dl)
                             </td>
                         </tr>
                         <tr>
-                            <td>Calcio (mg/dl):</td>
+                            <td>Calcio:</td>
                             <td>
                                 <input type="number" step="0.01" class="form-control" v-model="bioquimica.calcio" />
                             </td>
                             <td>
-                                {{ bioquimica.animal === "perro" ? '7-11,5' : '7-11,0' }}
+                                {{ bioquimica.animal === "perro" ? '7-11,5' : '7-11,0' }} (mg/dl)
                             </td>
                         </tr>
                         <tr>
-                            <td>Colesterol (mg/dl):</td>
+                            <td>Colesterol:</td>
                             <td>
                                 <input type="number" step="0.01" class="form-control" v-model="bioquimica.colesterol" />
                             </td>
                             <td>
-                                {{ bioquimica.animal === "perro" ? '135-260' : '80-180' }}
+                                {{ bioquimica.animal === "perro" ? '135-260' : '80-180' }} (mg/dl)
                             </td>
                         </tr>
                         <tr>
-                            <td>Trigliceridos (mg/dl):</td>
+                            <td>Trigliceridos:</td>
                             <td>
                                 <input type="number" step="0.01" class="form-control" v-model="bioquimica.trigliceridos" />
                             </td>
                             <td>
-                                {{ bioquimica.animal === "perro" ? '25-120' : '25-120' }}
+                                {{ bioquimica.animal === "perro" ? '25-120' : '25-120' }} (mg/dl)
                             </td>
                         </tr>
                         <tr>
-                            <td>Lípidos (mg/dl):</td>
+                            <td>Lípidos:</td>
                             <td>
                                 <input type="number" step="0.01" class="form-control" v-model="bioquimica.lipidos" />
                             </td>
                             <td>
-                                {{ bioquimica.animal === "perro" ? '100-700' : '140-600' }}
+                                {{ bioquimica.animal === "perro" ? '100-700' : '140-600' }} (mg/dl)
                             </td>
                         </tr>
                         <tr>
-                            <td>CPK (U/L):</td>
+                            <td>CPK:</td>
                             <td>
                                 <input type="number" step="0.01" class="form-control" v-model="bioquimica.cpk" />
                             </td>
                             <td>
-                                {{ bioquimica.animal === "perro" ? 'Hasta 300' : '50-450' }}
+                                {{ bioquimica.animal === "perro" ? 'Hasta 300' : '50-450' }} (U/L)
                             </td>
                         </tr>
                         <tr>
-                            <td>Amilasa (U/L):</td>
+                            <td>Amilasa:</td>
                             <td>
                                 <input type="number" step="0.01" class="form-control" v-model="bioquimica.amilasa" />
                             </td>
                             <td>
-                                {{ bioquimica.animal === "perro" ? 'Hasta 1500' : '500-1500' }}
+                                {{ bioquimica.animal === "perro" ? 'Hasta 1500' : '500-1500' }} (U/L)
                             </td>
                         </tr>
                         <tr>
-                            <td>Lipasa (U/L):</td>
+                            <td>Lipasa:</td>
                             <td>
                                 <input type="number" step="0.01" class="form-control" v-model="bioquimica.lipasa" />
                             </td>
                             <td>
-                                {{ bioquimica.animal === "perro" ? 'Hasta 240' : 'Hasta 75' }}
+                                {{ bioquimica.animal === "perro" ? 'Hasta 240' : 'Hasta 75' }} (U/L)
                             </td>
                         </tr>
                         <tr>
-                            <td>Sodio (meq/L):</td>
+                            <td>Sodio:</td>
                             <td>
                                 <input type="number" step="0.01" class="form-control" v-model="bioquimica.sodio" />
                             </td>
                             <td>
-                                {{ bioquimica.animal === "perro" ? '135-150' : '140-150' }}
+                                {{ bioquimica.animal === "perro" ? '135-150' : '140-150' }} (meq/L)
                             </td>
                         </tr>
                         <tr>
-                            <td>Potasio (meq/L):</td>
+                            <td>Potasio:</td>
                             <td>
                                 <input type="number" step="0.01" class="form-control" v-model="bioquimica.potasio" />
                             </td>
                             <td>
-                                {{ bioquimica.animal === "perro" ? '3,6-5,8' : '3,6-5,5' }}
+                                {{ bioquimica.animal === "perro" ? '3,6-5,8' : '3,6-5,5' }} (meq/L)
                             </td>
                         </tr>
                         <tr>
-                            <td>Cloro (meq/L):</td>
+                            <td>Cloro:</td>
                             <td>
                                 <input type="number" step="0.01" class="form-control" v-model="bioquimica.cloro" />
                             </td>
                             <td>
-                                {{ bioquimica.animal === "perro" ? '105-120' : '108-128' }}
+                                {{ bioquimica.animal === "perro" ? '105-120' : '108-128' }} (meq/L)
                             </td>
                         </tr>
                         <tr>
-                            <td>T4 ():</td>
+                            <td>T4:</td>
                             <td>
                                 <input type="number" step="0.01" class="form-control" v-model="bioquimica.t4" />
                             </td>
                             <td>
-                                {{ bioquimica.animal === "perro" ? '0,6-2,8' : '0,6-2,6' }}
+                                {{ bioquimica.animal === "perro" ? '0,6-2,8' : '0,6-2,6' }} μg/dL
                             </td>
                         </tr>
                     </tbody>

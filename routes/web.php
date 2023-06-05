@@ -65,8 +65,8 @@ Route::middleware(['user'])->group(function () {
     Route::post('/enviarcorreo/{id}', [VisitaController::class, 'enviarCorreo'])->name('enviarCorreo');
     //RUTAS HEMOGRAMA
     Route::resource('/hemogramas', HemogramaController::class)->except(['create', 'edit']);
-       //RUTAS BIOQUÍMICA
-       Route::resource('/bioquimicas', BioquimicaController::class)->except(['create', 'edit']);
+    //RUTAS BIOQUÍMICA
+    Route::resource('/bioquimicas', BioquimicaController::class)->except(['create', 'edit']);
 
     // RUTAS VETERINARIO
     Route::get('/empleados/listar_veterinarios', [EmpleadoController::class, 'listar_veterinarios']);
@@ -88,6 +88,6 @@ Route::middleware(['admin'])->group(function () {
     ]);
 });
 
-    // RUTAS REGISTRO USER
-    Route::get('/register', [RegisterController::class, 'create'])->name('register.index');
-    Route::post('/register', [RegisterController::class, 'store'])->name('register.store');
+// RUTAS REGISTRO USER
+Route::get('/register', [RegisterController::class, 'create'])->name('register.index');
+Route::post('/register', [RegisterController::class, 'store'])->name('register.store');

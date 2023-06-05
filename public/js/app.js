@@ -5809,6 +5809,156 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
 
 /***/ }),
 
+/***/ "./node_modules/babel-loader/lib/index.js??clonedRuleSet-5.use[0]!./node_modules/vue-loader/lib/index.js??vue-loader-options!./resources/js/components/FichaBioquimica.vue?vue&type=script&lang=js&":
+/*!**********************************************************************************************************************************************************************************************************!*\
+  !*** ./node_modules/babel-loader/lib/index.js??clonedRuleSet-5.use[0]!./node_modules/vue-loader/lib/index.js??vue-loader-options!./resources/js/components/FichaBioquimica.vue?vue&type=script&lang=js& ***!
+  \**********************************************************************************************************************************************************************************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
+/* harmony export */ });
+/* harmony import */ var axios__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! axios */ "./node_modules/axios/index.js");
+/* harmony import */ var axios__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(axios__WEBPACK_IMPORTED_MODULE_0__);
+/* harmony import */ var sweetalert2__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! sweetalert2 */ "./node_modules/sweetalert2/dist/sweetalert2.all.js");
+/* harmony import */ var sweetalert2__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(sweetalert2__WEBPACK_IMPORTED_MODULE_1__);
+function _typeof(obj) { "@babel/helpers - typeof"; return _typeof = "function" == typeof Symbol && "symbol" == typeof Symbol.iterator ? function (obj) { return typeof obj; } : function (obj) { return obj && "function" == typeof Symbol && obj.constructor === Symbol && obj !== Symbol.prototype ? "symbol" : typeof obj; }, _typeof(obj); }
+function _regeneratorRuntime() { "use strict"; /*! regenerator-runtime -- Copyright (c) 2014-present, Facebook, Inc. -- license (MIT): https://github.com/facebook/regenerator/blob/main/LICENSE */ _regeneratorRuntime = function _regeneratorRuntime() { return exports; }; var exports = {}, Op = Object.prototype, hasOwn = Op.hasOwnProperty, defineProperty = Object.defineProperty || function (obj, key, desc) { obj[key] = desc.value; }, $Symbol = "function" == typeof Symbol ? Symbol : {}, iteratorSymbol = $Symbol.iterator || "@@iterator", asyncIteratorSymbol = $Symbol.asyncIterator || "@@asyncIterator", toStringTagSymbol = $Symbol.toStringTag || "@@toStringTag"; function define(obj, key, value) { return Object.defineProperty(obj, key, { value: value, enumerable: !0, configurable: !0, writable: !0 }), obj[key]; } try { define({}, ""); } catch (err) { define = function define(obj, key, value) { return obj[key] = value; }; } function wrap(innerFn, outerFn, self, tryLocsList) { var protoGenerator = outerFn && outerFn.prototype instanceof Generator ? outerFn : Generator, generator = Object.create(protoGenerator.prototype), context = new Context(tryLocsList || []); return defineProperty(generator, "_invoke", { value: makeInvokeMethod(innerFn, self, context) }), generator; } function tryCatch(fn, obj, arg) { try { return { type: "normal", arg: fn.call(obj, arg) }; } catch (err) { return { type: "throw", arg: err }; } } exports.wrap = wrap; var ContinueSentinel = {}; function Generator() {} function GeneratorFunction() {} function GeneratorFunctionPrototype() {} var IteratorPrototype = {}; define(IteratorPrototype, iteratorSymbol, function () { return this; }); var getProto = Object.getPrototypeOf, NativeIteratorPrototype = getProto && getProto(getProto(values([]))); NativeIteratorPrototype && NativeIteratorPrototype !== Op && hasOwn.call(NativeIteratorPrototype, iteratorSymbol) && (IteratorPrototype = NativeIteratorPrototype); var Gp = GeneratorFunctionPrototype.prototype = Generator.prototype = Object.create(IteratorPrototype); function defineIteratorMethods(prototype) { ["next", "throw", "return"].forEach(function (method) { define(prototype, method, function (arg) { return this._invoke(method, arg); }); }); } function AsyncIterator(generator, PromiseImpl) { function invoke(method, arg, resolve, reject) { var record = tryCatch(generator[method], generator, arg); if ("throw" !== record.type) { var result = record.arg, value = result.value; return value && "object" == _typeof(value) && hasOwn.call(value, "__await") ? PromiseImpl.resolve(value.__await).then(function (value) { invoke("next", value, resolve, reject); }, function (err) { invoke("throw", err, resolve, reject); }) : PromiseImpl.resolve(value).then(function (unwrapped) { result.value = unwrapped, resolve(result); }, function (error) { return invoke("throw", error, resolve, reject); }); } reject(record.arg); } var previousPromise; defineProperty(this, "_invoke", { value: function value(method, arg) { function callInvokeWithMethodAndArg() { return new PromiseImpl(function (resolve, reject) { invoke(method, arg, resolve, reject); }); } return previousPromise = previousPromise ? previousPromise.then(callInvokeWithMethodAndArg, callInvokeWithMethodAndArg) : callInvokeWithMethodAndArg(); } }); } function makeInvokeMethod(innerFn, self, context) { var state = "suspendedStart"; return function (method, arg) { if ("executing" === state) throw new Error("Generator is already running"); if ("completed" === state) { if ("throw" === method) throw arg; return doneResult(); } for (context.method = method, context.arg = arg;;) { var delegate = context.delegate; if (delegate) { var delegateResult = maybeInvokeDelegate(delegate, context); if (delegateResult) { if (delegateResult === ContinueSentinel) continue; return delegateResult; } } if ("next" === context.method) context.sent = context._sent = context.arg;else if ("throw" === context.method) { if ("suspendedStart" === state) throw state = "completed", context.arg; context.dispatchException(context.arg); } else "return" === context.method && context.abrupt("return", context.arg); state = "executing"; var record = tryCatch(innerFn, self, context); if ("normal" === record.type) { if (state = context.done ? "completed" : "suspendedYield", record.arg === ContinueSentinel) continue; return { value: record.arg, done: context.done }; } "throw" === record.type && (state = "completed", context.method = "throw", context.arg = record.arg); } }; } function maybeInvokeDelegate(delegate, context) { var methodName = context.method, method = delegate.iterator[methodName]; if (undefined === method) return context.delegate = null, "throw" === methodName && delegate.iterator["return"] && (context.method = "return", context.arg = undefined, maybeInvokeDelegate(delegate, context), "throw" === context.method) || "return" !== methodName && (context.method = "throw", context.arg = new TypeError("The iterator does not provide a '" + methodName + "' method")), ContinueSentinel; var record = tryCatch(method, delegate.iterator, context.arg); if ("throw" === record.type) return context.method = "throw", context.arg = record.arg, context.delegate = null, ContinueSentinel; var info = record.arg; return info ? info.done ? (context[delegate.resultName] = info.value, context.next = delegate.nextLoc, "return" !== context.method && (context.method = "next", context.arg = undefined), context.delegate = null, ContinueSentinel) : info : (context.method = "throw", context.arg = new TypeError("iterator result is not an object"), context.delegate = null, ContinueSentinel); } function pushTryEntry(locs) { var entry = { tryLoc: locs[0] }; 1 in locs && (entry.catchLoc = locs[1]), 2 in locs && (entry.finallyLoc = locs[2], entry.afterLoc = locs[3]), this.tryEntries.push(entry); } function resetTryEntry(entry) { var record = entry.completion || {}; record.type = "normal", delete record.arg, entry.completion = record; } function Context(tryLocsList) { this.tryEntries = [{ tryLoc: "root" }], tryLocsList.forEach(pushTryEntry, this), this.reset(!0); } function values(iterable) { if (iterable) { var iteratorMethod = iterable[iteratorSymbol]; if (iteratorMethod) return iteratorMethod.call(iterable); if ("function" == typeof iterable.next) return iterable; if (!isNaN(iterable.length)) { var i = -1, next = function next() { for (; ++i < iterable.length;) if (hasOwn.call(iterable, i)) return next.value = iterable[i], next.done = !1, next; return next.value = undefined, next.done = !0, next; }; return next.next = next; } } return { next: doneResult }; } function doneResult() { return { value: undefined, done: !0 }; } return GeneratorFunction.prototype = GeneratorFunctionPrototype, defineProperty(Gp, "constructor", { value: GeneratorFunctionPrototype, configurable: !0 }), defineProperty(GeneratorFunctionPrototype, "constructor", { value: GeneratorFunction, configurable: !0 }), GeneratorFunction.displayName = define(GeneratorFunctionPrototype, toStringTagSymbol, "GeneratorFunction"), exports.isGeneratorFunction = function (genFun) { var ctor = "function" == typeof genFun && genFun.constructor; return !!ctor && (ctor === GeneratorFunction || "GeneratorFunction" === (ctor.displayName || ctor.name)); }, exports.mark = function (genFun) { return Object.setPrototypeOf ? Object.setPrototypeOf(genFun, GeneratorFunctionPrototype) : (genFun.__proto__ = GeneratorFunctionPrototype, define(genFun, toStringTagSymbol, "GeneratorFunction")), genFun.prototype = Object.create(Gp), genFun; }, exports.awrap = function (arg) { return { __await: arg }; }, defineIteratorMethods(AsyncIterator.prototype), define(AsyncIterator.prototype, asyncIteratorSymbol, function () { return this; }), exports.AsyncIterator = AsyncIterator, exports.async = function (innerFn, outerFn, self, tryLocsList, PromiseImpl) { void 0 === PromiseImpl && (PromiseImpl = Promise); var iter = new AsyncIterator(wrap(innerFn, outerFn, self, tryLocsList), PromiseImpl); return exports.isGeneratorFunction(outerFn) ? iter : iter.next().then(function (result) { return result.done ? result.value : iter.next(); }); }, defineIteratorMethods(Gp), define(Gp, toStringTagSymbol, "Generator"), define(Gp, iteratorSymbol, function () { return this; }), define(Gp, "toString", function () { return "[object Generator]"; }), exports.keys = function (val) { var object = Object(val), keys = []; for (var key in object) keys.push(key); return keys.reverse(), function next() { for (; keys.length;) { var key = keys.pop(); if (key in object) return next.value = key, next.done = !1, next; } return next.done = !0, next; }; }, exports.values = values, Context.prototype = { constructor: Context, reset: function reset(skipTempReset) { if (this.prev = 0, this.next = 0, this.sent = this._sent = undefined, this.done = !1, this.delegate = null, this.method = "next", this.arg = undefined, this.tryEntries.forEach(resetTryEntry), !skipTempReset) for (var name in this) "t" === name.charAt(0) && hasOwn.call(this, name) && !isNaN(+name.slice(1)) && (this[name] = undefined); }, stop: function stop() { this.done = !0; var rootRecord = this.tryEntries[0].completion; if ("throw" === rootRecord.type) throw rootRecord.arg; return this.rval; }, dispatchException: function dispatchException(exception) { if (this.done) throw exception; var context = this; function handle(loc, caught) { return record.type = "throw", record.arg = exception, context.next = loc, caught && (context.method = "next", context.arg = undefined), !!caught; } for (var i = this.tryEntries.length - 1; i >= 0; --i) { var entry = this.tryEntries[i], record = entry.completion; if ("root" === entry.tryLoc) return handle("end"); if (entry.tryLoc <= this.prev) { var hasCatch = hasOwn.call(entry, "catchLoc"), hasFinally = hasOwn.call(entry, "finallyLoc"); if (hasCatch && hasFinally) { if (this.prev < entry.catchLoc) return handle(entry.catchLoc, !0); if (this.prev < entry.finallyLoc) return handle(entry.finallyLoc); } else if (hasCatch) { if (this.prev < entry.catchLoc) return handle(entry.catchLoc, !0); } else { if (!hasFinally) throw new Error("try statement without catch or finally"); if (this.prev < entry.finallyLoc) return handle(entry.finallyLoc); } } } }, abrupt: function abrupt(type, arg) { for (var i = this.tryEntries.length - 1; i >= 0; --i) { var entry = this.tryEntries[i]; if (entry.tryLoc <= this.prev && hasOwn.call(entry, "finallyLoc") && this.prev < entry.finallyLoc) { var finallyEntry = entry; break; } } finallyEntry && ("break" === type || "continue" === type) && finallyEntry.tryLoc <= arg && arg <= finallyEntry.finallyLoc && (finallyEntry = null); var record = finallyEntry ? finallyEntry.completion : {}; return record.type = type, record.arg = arg, finallyEntry ? (this.method = "next", this.next = finallyEntry.finallyLoc, ContinueSentinel) : this.complete(record); }, complete: function complete(record, afterLoc) { if ("throw" === record.type) throw record.arg; return "break" === record.type || "continue" === record.type ? this.next = record.arg : "return" === record.type ? (this.rval = this.arg = record.arg, this.method = "return", this.next = "end") : "normal" === record.type && afterLoc && (this.next = afterLoc), ContinueSentinel; }, finish: function finish(finallyLoc) { for (var i = this.tryEntries.length - 1; i >= 0; --i) { var entry = this.tryEntries[i]; if (entry.finallyLoc === finallyLoc) return this.complete(entry.completion, entry.afterLoc), resetTryEntry(entry), ContinueSentinel; } }, "catch": function _catch(tryLoc) { for (var i = this.tryEntries.length - 1; i >= 0; --i) { var entry = this.tryEntries[i]; if (entry.tryLoc === tryLoc) { var record = entry.completion; if ("throw" === record.type) { var thrown = record.arg; resetTryEntry(entry); } return thrown; } } throw new Error("illegal catch attempt"); }, delegateYield: function delegateYield(iterable, resultName, nextLoc) { return this.delegate = { iterator: values(iterable), resultName: resultName, nextLoc: nextLoc }, "next" === this.method && (this.arg = undefined), ContinueSentinel; } }, exports; }
+function asyncGeneratorStep(gen, resolve, reject, _next, _throw, key, arg) { try { var info = gen[key](arg); var value = info.value; } catch (error) { reject(error); return; } if (info.done) { resolve(value); } else { Promise.resolve(value).then(_next, _throw); } }
+function _asyncToGenerator(fn) { return function () { var self = this, args = arguments; return new Promise(function (resolve, reject) { var gen = fn.apply(self, args); function _next(value) { asyncGeneratorStep(gen, resolve, reject, _next, _throw, "next", value); } function _throw(err) { asyncGeneratorStep(gen, resolve, reject, _next, _throw, "throw", err); } _next(undefined); }); }; }
+
+
+/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ({
+  data: function data() {
+    return {
+      maxDate: this.getCurrentDate(),
+      bioquimica: {
+        hematocrito: null,
+        hemoglobina: null,
+        g_rojo: null,
+        vcm: null,
+        hcm: null,
+        chcm: null,
+        reticulocitos: null,
+        eosinofilos: null,
+        linfocitos: null,
+        monocitos: null,
+        leucocitos: null,
+        plaquetas: null,
+        fecha: "",
+        animal: "perro",
+        mascotas_id: "",
+        visita_id: null
+      },
+      change: "gato",
+      mascota: [],
+      cliente: [],
+      visita: [],
+      id: this.$route.params.id
+    };
+  },
+  created: function created() {
+    this.obtenerInformacionID();
+    var token = document.querySelector('meta[name="csrf-token"]');
+    if (token) {
+      this.csrfToken = token.content;
+    }
+  },
+  methods: {
+    obtenerInformacionID: function obtenerInformacionID() {
+      var _this = this;
+      return _asyncToGenerator( /*#__PURE__*/_regeneratorRuntime().mark(function _callee() {
+        var response;
+        return _regeneratorRuntime().wrap(function _callee$(_context) {
+          while (1) switch (_context.prev = _context.next) {
+            case 0:
+              _context.prev = 0;
+              _context.next = 3;
+              return axios__WEBPACK_IMPORTED_MODULE_0___default().get('bioquimicas/' + _this.id);
+            case 3:
+              response = _context.sent;
+              console.log(response.data); // Agregar esta línea para depurar
+              _this.mascota = response.data.mascota;
+              _this.cliente = response.data.cliente;
+              _this.visita = response.data.visita;
+              _this.bioquimica = response.data.bioquimica;
+              _context.next = 14;
+              break;
+            case 11:
+              _context.prev = 11;
+              _context.t0 = _context["catch"](0);
+              console.error(_context.t0);
+            case 14:
+            case "end":
+              return _context.stop();
+          }
+        }, _callee, null, [[0, 11]]);
+      }))();
+    },
+    // Edita visita en la base de datos
+    editarBioquimica: function editarBioquimica() {
+      var _this2 = this;
+      return _asyncToGenerator( /*#__PURE__*/_regeneratorRuntime().mark(function _callee2() {
+        var res;
+        return _regeneratorRuntime().wrap(function _callee2$(_context2) {
+          while (1) switch (_context2.prev = _context2.next) {
+            case 0:
+              console.log(_this2.visita);
+              _context2.next = 3;
+              return axios__WEBPACK_IMPORTED_MODULE_0___default().put('bioquimicas/' + _this2.id, _this2.bioquimica).then(function (response) {
+                sweetalert2__WEBPACK_IMPORTED_MODULE_1___default().fire({
+                  position: 'center',
+                  icon: 'success',
+                  title: 'Cambios guardados',
+                  showConfirmButton: false,
+                  timer: 1500
+                });
+                console.log(response);
+              })["catch"](function (error) {
+                console.log(error.response);
+                sweetalert2__WEBPACK_IMPORTED_MODULE_1___default().fire({
+                  icon: 'error',
+                  title: 'Error actualizar bioquímica',
+                  text: 'Ingresa los campos correctamente'
+                });
+                _this2.errores = error.response.data.errors;
+              });
+            case 3:
+              res = _context2.sent;
+            case 4:
+            case "end":
+              return _context2.stop();
+          }
+        }, _callee2);
+      }))();
+    },
+    cambiarAnimal: function cambiarAnimal() {
+      if (this.bioquimica.animal === "perro") {
+        this.bioquimica.animal = "gato";
+        this.change = "perro";
+      } else {
+        this.bioquimica.animal = "perro";
+        this.change = "gato";
+      }
+    },
+    getCurrentDate: function getCurrentDate() {
+      var today = new Date();
+      var year = today.getFullYear();
+      var month = today.getMonth() + 1;
+      var day = today.getDate();
+
+      // Agrega un cero inicial para el mes y el día si es necesario
+      month = month < 10 ? '0' + month : month;
+      day = day < 10 ? '0' + day : day;
+      return year + '-' + month + '-' + day;
+    }
+  }
+});
+
+/***/ }),
+
 /***/ "./node_modules/babel-loader/lib/index.js??clonedRuleSet-5.use[0]!./node_modules/vue-loader/lib/index.js??vue-loader-options!./resources/js/components/FichaCliente.vue?vue&type=script&lang=js&":
 /*!*******************************************************************************************************************************************************************************************************!*\
   !*** ./node_modules/babel-loader/lib/index.js??clonedRuleSet-5.use[0]!./node_modules/vue-loader/lib/index.js??vue-loader-options!./resources/js/components/FichaCliente.vue?vue&type=script&lang=js& ***!
@@ -7714,7 +7864,7 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
         return _regeneratorRuntime().wrap(function _callee2$(_context2) {
           while (1) switch (_context2.prev = _context2.next) {
             case 0:
-              if (!(_this2.visita.hemograma_id === 0)) {
+              if (!(_this2.visita.hemograma_id === null)) {
                 _context2.next = 16;
                 break;
               }
@@ -9553,9 +9703,507 @@ __webpack_require__.r(__webpack_exports__);
 var render = function render() {
   var _vm = this,
     _c = _vm._self._c;
-  return _c("div", [_vm._v("bioquímica")]);
+  return _c("div", {
+    staticClass: "container"
+  }, [_c("div", {
+    staticClass: "card"
+  }, [_c("div", {
+    staticClass: "card-header bg-dark text-light"
+  }, [_c("h2", {
+    staticClass: "card-title"
+  }, [_vm._v("Bioquímica " + _vm._s(_vm.bioquimica.animal === "perro" ? "perro" : "gato"))])]), _vm._v(" "), _c("div", {
+    staticClass: "input-group"
+  }, [_c("button", {
+    staticClass: "btn btn-warning w-100",
+    attrs: {
+      title: "Cambiar animal"
+    },
+    on: {
+      click: function click($event) {
+        return _vm.cambiarAnimal();
+      }
+    }
+  }, [_vm._v("\n                Cambiar a bioquímica " + _vm._s(_vm.change) + "\n            ")])]), _vm._v(" "), _c("form", {
+    on: {
+      submit: function submit($event) {
+        $event.preventDefault();
+        return _vm.editarBioquimica.apply(null, arguments);
+      }
+    }
+  }, [_c("table", {
+    staticClass: "table"
+  }, [_c("thead", [_vm._m(0), _vm._v(" "), _c("tr", [_c("td", [_c("span", {
+    staticClass: "form-control gris"
+  }, [_vm._v(_vm._s(_vm.mascota.nombre))])]), _vm._v(" "), _c("td", [_c("span", {
+    staticClass: "form-control gris"
+  }, [_vm._v(_vm._s(_vm.cliente.nombre_apellidos))])]), _vm._v(" "), _c("td", [_c("span", {
+    staticClass: "form-control gris"
+  }, [_vm._v(_vm._s(new Date(_vm.visita.fecha_visita).toLocaleDateString("es-ES", {
+    day: "2-digit",
+    month: "2-digit",
+    year: "numeric"
+  })))])])]), _vm._v(" "), _vm._m(1)]), _vm._v(" "), _c("tbody", [_c("tr", [_c("td", [_vm._v("Urea:")]), _vm._v(" "), _c("td", [_c("input", {
+    directives: [{
+      name: "model",
+      rawName: "v-model",
+      value: _vm.bioquimica.urea,
+      expression: "bioquimica.urea"
+    }],
+    staticClass: "form-control",
+    attrs: {
+      type: "number",
+      step: "0.01"
+    },
+    domProps: {
+      value: _vm.bioquimica.urea
+    },
+    on: {
+      input: function input($event) {
+        if ($event.target.composing) return;
+        _vm.$set(_vm.bioquimica, "urea", $event.target.value);
+      }
+    }
+  })]), _vm._v(" "), _c("td", [_vm._v("\n                            " + _vm._s(_vm.bioquimica.animal === "perro" ? "20-50" : "30-60") + " (mg/dl)\n                        ")])]), _vm._v(" "), _c("tr", [_c("td", [_vm._v("Creatinina:")]), _vm._v(" "), _c("td", [_c("input", {
+    directives: [{
+      name: "model",
+      rawName: "v-model",
+      value: _vm.bioquimica.creatinina,
+      expression: "bioquimica.creatinina"
+    }],
+    staticClass: "form-control",
+    attrs: {
+      type: "number",
+      step: "0.01"
+    },
+    domProps: {
+      value: _vm.bioquimica.creatinina
+    },
+    on: {
+      input: function input($event) {
+        if ($event.target.composing) return;
+        _vm.$set(_vm.bioquimica, "creatinina", $event.target.value);
+      }
+    }
+  })]), _vm._v(" "), _c("td", [_vm._v("\n                            " + _vm._s(_vm.bioquimica.animal === "perro" ? "0,6-1,4" : "0,5-1,8") + " (mg/dl)\n                        ")])]), _vm._v(" "), _c("tr", [_c("td", [_vm._v("Glucosa:")]), _vm._v(" "), _c("td", [_c("input", {
+    directives: [{
+      name: "model",
+      rawName: "v-model",
+      value: _vm.bioquimica.glucosa,
+      expression: "bioquimica.glucosa"
+    }],
+    staticClass: "form-control",
+    attrs: {
+      type: "number",
+      step: "0.01"
+    },
+    domProps: {
+      value: _vm.bioquimica.glucosa
+    },
+    on: {
+      input: function input($event) {
+        if ($event.target.composing) return;
+        _vm.$set(_vm.bioquimica, "glucosa", $event.target.value);
+      }
+    }
+  })]), _vm._v(" "), _c("td", [_vm._v("\n                            " + _vm._s(_vm.bioquimica.animal === "perro" ? "70-105" : "60-140") + " (mg/dl)\n                        ")])]), _vm._v(" "), _c("tr", [_c("td", [_vm._v("Proteínas totales:")]), _vm._v(" "), _c("td", [_c("input", {
+    directives: [{
+      name: "model",
+      rawName: "v-model",
+      value: _vm.bioquimica.proteinas,
+      expression: "bioquimica.proteinas"
+    }],
+    staticClass: "form-control",
+    attrs: {
+      type: "number",
+      step: "0.01"
+    },
+    domProps: {
+      value: _vm.bioquimica.proteinas
+    },
+    on: {
+      input: function input($event) {
+        if ($event.target.composing) return;
+        _vm.$set(_vm.bioquimica, "proteinas", $event.target.value);
+      }
+    }
+  })]), _vm._v(" "), _c("td", [_vm._v("\n                            " + _vm._s(_vm.bioquimica.animal === "perro" ? "5,3-7,9" : "5,7-8") + " (g/dl)\n                        ")])]), _vm._v(" "), _c("tr", [_c("td", [_vm._v("Albumina:")]), _vm._v(" "), _c("td", [_c("input", {
+    directives: [{
+      name: "model",
+      rawName: "v-model",
+      value: _vm.bioquimica.albumina,
+      expression: "bioquimica.albumina"
+    }],
+    staticClass: "form-control",
+    attrs: {
+      type: "number",
+      step: "0.01"
+    },
+    domProps: {
+      value: _vm.bioquimica.albumina
+    },
+    on: {
+      input: function input($event) {
+        if ($event.target.composing) return;
+        _vm.$set(_vm.bioquimica, "albumina", $event.target.value);
+      }
+    }
+  })]), _vm._v(" "), _c("td", [_vm._v("\n                            " + _vm._s(_vm.bioquimica.animal === "perro" ? "2,3-3,8" : "2,3-3,4") + " (g/dl)\n                        ")])]), _vm._v(" "), _c("tr", [_c("td", [_vm._v("Bilirrubina:")]), _vm._v(" "), _c("td", [_c("input", {
+    directives: [{
+      name: "model",
+      rawName: "v-model",
+      value: _vm.bioquimica.bilirrubina,
+      expression: "bioquimica.bilirrubina"
+    }],
+    staticClass: "form-control",
+    attrs: {
+      type: "number",
+      step: "0.01"
+    },
+    domProps: {
+      value: _vm.bioquimica.bilirrubina
+    },
+    on: {
+      input: function input($event) {
+        if ($event.target.composing) return;
+        _vm.$set(_vm.bioquimica, "bilirrubina", $event.target.value);
+      }
+    }
+  })]), _vm._v(" "), _c("td", [_vm._v("\n                            " + _vm._s(_vm.bioquimica.animal === "perro" ? "Hasta 0,8" : "Hasta 0,8") + " (mg/dl)\n                        ")])]), _vm._v(" "), _c("tr", [_c("td", [_vm._v("ALP:")]), _vm._v(" "), _c("td", [_c("input", {
+    directives: [{
+      name: "model",
+      rawName: "v-model",
+      value: _vm.bioquimica.alp,
+      expression: "bioquimica.alp"
+    }],
+    staticClass: "form-control",
+    attrs: {
+      type: "number",
+      step: "0.01"
+    },
+    domProps: {
+      value: _vm.bioquimica.alp
+    },
+    on: {
+      input: function input($event) {
+        if ($event.target.composing) return;
+        _vm.$set(_vm.bioquimica, "alp", $event.target.value);
+      }
+    }
+  })]), _vm._v(" "), _c("td", [_vm._v("\n                            " + _vm._s(_vm.bioquimica.animal === "perro" ? "32-185" : "25-110") + " (U/L)\n                        ")])]), _vm._v(" "), _c("tr", [_c("td", [_vm._v("GPT:")]), _vm._v(" "), _c("td", [_c("input", {
+    directives: [{
+      name: "model",
+      rawName: "v-model",
+      value: _vm.bioquimica.gpt,
+      expression: "bioquimica.gpt"
+    }],
+    staticClass: "form-control",
+    attrs: {
+      type: "number",
+      step: "0.01"
+    },
+    domProps: {
+      value: _vm.bioquimica.gpt
+    },
+    on: {
+      input: function input($event) {
+        if ($event.target.composing) return;
+        _vm.$set(_vm.bioquimica, "gpt", $event.target.value);
+      }
+    }
+  })]), _vm._v(" "), _c("td", [_vm._v("\n                            " + _vm._s(_vm.bioquimica.animal === "perro" ? "28-78" : "10-80") + " (U/L)\n                        ")])]), _vm._v(" "), _c("tr", [_c("td", [_vm._v("Fósforo:")]), _vm._v(" "), _c("td", [_c("input", {
+    directives: [{
+      name: "model",
+      rawName: "v-model",
+      value: _vm.bioquimica.fosforo,
+      expression: "bioquimica.fosforo"
+    }],
+    staticClass: "form-control",
+    attrs: {
+      type: "number",
+      step: "0.01"
+    },
+    domProps: {
+      value: _vm.bioquimica.fosforo
+    },
+    on: {
+      input: function input($event) {
+        if ($event.target.composing) return;
+        _vm.$set(_vm.bioquimica, "fosforo", $event.target.value);
+      }
+    }
+  })]), _vm._v(" "), _c("td", [_vm._v("\n                            " + _vm._s(_vm.bioquimica.animal === "perro" ? "2-6,2" : "2,8-7,2") + " (mg/dl)\n                        ")])]), _vm._v(" "), _c("tr", [_c("td", [_vm._v("Calcio:")]), _vm._v(" "), _c("td", [_c("input", {
+    directives: [{
+      name: "model",
+      rawName: "v-model",
+      value: _vm.bioquimica.calcio,
+      expression: "bioquimica.calcio"
+    }],
+    staticClass: "form-control",
+    attrs: {
+      type: "number",
+      step: "0.01"
+    },
+    domProps: {
+      value: _vm.bioquimica.calcio
+    },
+    on: {
+      input: function input($event) {
+        if ($event.target.composing) return;
+        _vm.$set(_vm.bioquimica, "calcio", $event.target.value);
+      }
+    }
+  })]), _vm._v(" "), _c("td", [_vm._v("\n                            " + _vm._s(_vm.bioquimica.animal === "perro" ? "7-11,5" : "7-11,0") + " (mg/dl)\n                        ")])]), _vm._v(" "), _c("tr", [_c("td", [_vm._v("Colesterol:")]), _vm._v(" "), _c("td", [_c("input", {
+    directives: [{
+      name: "model",
+      rawName: "v-model",
+      value: _vm.bioquimica.colesterol,
+      expression: "bioquimica.colesterol"
+    }],
+    staticClass: "form-control",
+    attrs: {
+      type: "number",
+      step: "0.01"
+    },
+    domProps: {
+      value: _vm.bioquimica.colesterol
+    },
+    on: {
+      input: function input($event) {
+        if ($event.target.composing) return;
+        _vm.$set(_vm.bioquimica, "colesterol", $event.target.value);
+      }
+    }
+  })]), _vm._v(" "), _c("td", [_vm._v("\n                            " + _vm._s(_vm.bioquimica.animal === "perro" ? "135-260" : "80-180") + " (mg/dl)\n                        ")])]), _vm._v(" "), _c("tr", [_c("td", [_vm._v("Trigliceridos:")]), _vm._v(" "), _c("td", [_c("input", {
+    directives: [{
+      name: "model",
+      rawName: "v-model",
+      value: _vm.bioquimica.trigliceridos,
+      expression: "bioquimica.trigliceridos"
+    }],
+    staticClass: "form-control",
+    attrs: {
+      type: "number",
+      step: "0.01"
+    },
+    domProps: {
+      value: _vm.bioquimica.trigliceridos
+    },
+    on: {
+      input: function input($event) {
+        if ($event.target.composing) return;
+        _vm.$set(_vm.bioquimica, "trigliceridos", $event.target.value);
+      }
+    }
+  })]), _vm._v(" "), _c("td", [_vm._v("\n                            " + _vm._s(_vm.bioquimica.animal === "perro" ? "25-120" : "25-120") + " (mg/dl)\n                        ")])]), _vm._v(" "), _c("tr", [_c("td", [_vm._v("Lípidos:")]), _vm._v(" "), _c("td", [_c("input", {
+    directives: [{
+      name: "model",
+      rawName: "v-model",
+      value: _vm.bioquimica.lipidos,
+      expression: "bioquimica.lipidos"
+    }],
+    staticClass: "form-control",
+    attrs: {
+      type: "number",
+      step: "0.01"
+    },
+    domProps: {
+      value: _vm.bioquimica.lipidos
+    },
+    on: {
+      input: function input($event) {
+        if ($event.target.composing) return;
+        _vm.$set(_vm.bioquimica, "lipidos", $event.target.value);
+      }
+    }
+  })]), _vm._v(" "), _c("td", [_vm._v("\n                            " + _vm._s(_vm.bioquimica.animal === "perro" ? "100-700" : "140-600") + " (mg/dl)\n                        ")])]), _vm._v(" "), _c("tr", [_c("td", [_vm._v("CPK:")]), _vm._v(" "), _c("td", [_c("input", {
+    directives: [{
+      name: "model",
+      rawName: "v-model",
+      value: _vm.bioquimica.cpk,
+      expression: "bioquimica.cpk"
+    }],
+    staticClass: "form-control",
+    attrs: {
+      type: "number",
+      step: "0.01"
+    },
+    domProps: {
+      value: _vm.bioquimica.cpk
+    },
+    on: {
+      input: function input($event) {
+        if ($event.target.composing) return;
+        _vm.$set(_vm.bioquimica, "cpk", $event.target.value);
+      }
+    }
+  })]), _vm._v(" "), _c("td", [_vm._v("\n                            " + _vm._s(_vm.bioquimica.animal === "perro" ? "Hasta 300" : "50-450") + " (U/L)\n                        ")])]), _vm._v(" "), _c("tr", [_c("td", [_vm._v("Amilasa:")]), _vm._v(" "), _c("td", [_c("input", {
+    directives: [{
+      name: "model",
+      rawName: "v-model",
+      value: _vm.bioquimica.amilasa,
+      expression: "bioquimica.amilasa"
+    }],
+    staticClass: "form-control",
+    attrs: {
+      type: "number",
+      step: "0.01"
+    },
+    domProps: {
+      value: _vm.bioquimica.amilasa
+    },
+    on: {
+      input: function input($event) {
+        if ($event.target.composing) return;
+        _vm.$set(_vm.bioquimica, "amilasa", $event.target.value);
+      }
+    }
+  })]), _vm._v(" "), _c("td", [_vm._v("\n                            " + _vm._s(_vm.bioquimica.animal === "perro" ? "Hasta 1500" : "500-1500") + " (U/L)\n                        ")])]), _vm._v(" "), _c("tr", [_c("td", [_vm._v("Lipasa:")]), _vm._v(" "), _c("td", [_c("input", {
+    directives: [{
+      name: "model",
+      rawName: "v-model",
+      value: _vm.bioquimica.lipasa,
+      expression: "bioquimica.lipasa"
+    }],
+    staticClass: "form-control",
+    attrs: {
+      type: "number",
+      step: "0.01"
+    },
+    domProps: {
+      value: _vm.bioquimica.lipasa
+    },
+    on: {
+      input: function input($event) {
+        if ($event.target.composing) return;
+        _vm.$set(_vm.bioquimica, "lipasa", $event.target.value);
+      }
+    }
+  })]), _vm._v(" "), _c("td", [_vm._v("\n                            " + _vm._s(_vm.bioquimica.animal === "perro" ? "Hasta 240" : "Hasta 75") + " (U/L)\n                        ")])]), _vm._v(" "), _c("tr", [_c("td", [_vm._v("Sodio:")]), _vm._v(" "), _c("td", [_c("input", {
+    directives: [{
+      name: "model",
+      rawName: "v-model",
+      value: _vm.bioquimica.sodio,
+      expression: "bioquimica.sodio"
+    }],
+    staticClass: "form-control",
+    attrs: {
+      type: "number",
+      step: "0.01"
+    },
+    domProps: {
+      value: _vm.bioquimica.sodio
+    },
+    on: {
+      input: function input($event) {
+        if ($event.target.composing) return;
+        _vm.$set(_vm.bioquimica, "sodio", $event.target.value);
+      }
+    }
+  })]), _vm._v(" "), _c("td", [_vm._v("\n                            " + _vm._s(_vm.bioquimica.animal === "perro" ? "135-150" : "140-150") + " (meq/L)\n                        ")])]), _vm._v(" "), _c("tr", [_c("td", [_vm._v("Potasio:")]), _vm._v(" "), _c("td", [_c("input", {
+    directives: [{
+      name: "model",
+      rawName: "v-model",
+      value: _vm.bioquimica.potasio,
+      expression: "bioquimica.potasio"
+    }],
+    staticClass: "form-control",
+    attrs: {
+      type: "number",
+      step: "0.01"
+    },
+    domProps: {
+      value: _vm.bioquimica.potasio
+    },
+    on: {
+      input: function input($event) {
+        if ($event.target.composing) return;
+        _vm.$set(_vm.bioquimica, "potasio", $event.target.value);
+      }
+    }
+  })]), _vm._v(" "), _c("td", [_vm._v("\n                            " + _vm._s(_vm.bioquimica.animal === "perro" ? "3,6-5,8" : "3,6-5,5") + " (meq/L)\n                        ")])]), _vm._v(" "), _c("tr", [_c("td", [_vm._v("Cloro:")]), _vm._v(" "), _c("td", [_c("input", {
+    directives: [{
+      name: "model",
+      rawName: "v-model",
+      value: _vm.bioquimica.cloro,
+      expression: "bioquimica.cloro"
+    }],
+    staticClass: "form-control",
+    attrs: {
+      type: "number",
+      step: "0.01"
+    },
+    domProps: {
+      value: _vm.bioquimica.cloro
+    },
+    on: {
+      input: function input($event) {
+        if ($event.target.composing) return;
+        _vm.$set(_vm.bioquimica, "cloro", $event.target.value);
+      }
+    }
+  })]), _vm._v(" "), _c("td", [_vm._v("\n                            " + _vm._s(_vm.bioquimica.animal === "perro" ? "105-120" : "108-128") + " (meq/L)\n                        ")])]), _vm._v(" "), _c("tr", [_c("td", [_vm._v("T4:")]), _vm._v(" "), _c("td", [_c("input", {
+    directives: [{
+      name: "model",
+      rawName: "v-model",
+      value: _vm.bioquimica.t4,
+      expression: "bioquimica.t4"
+    }],
+    staticClass: "form-control",
+    attrs: {
+      type: "number",
+      step: "0.01"
+    },
+    domProps: {
+      value: _vm.bioquimica.t4
+    },
+    on: {
+      input: function input($event) {
+        if ($event.target.composing) return;
+        _vm.$set(_vm.bioquimica, "t4", $event.target.value);
+      }
+    }
+  })]), _vm._v(" "), _c("td", [_vm._v("\n                            " + _vm._s(_vm.bioquimica.animal === "perro" ? "0,6-2,8" : "0,6-2,6") + " μg/dL\n                        ")])])])]), _vm._v(" "), _c("div", {
+    staticClass: "btn-group w-100",
+    attrs: {
+      role: "group",
+      "aria-label": ""
+    }
+  }, [_vm._m(2), _vm._v(" "), _c("router-link", {
+    staticClass: "btn btn-warning",
+    attrs: {
+      to: {
+        name: "FichaVisita",
+        params: {
+          id: _vm.bioquimica.visita_id
+        }
+      },
+      title: "Volver"
+    }
+  }, [_c("i", {
+    staticClass: "bi bi-arrow-return-left fw-bold"
+  })])], 1)])])]);
 };
-var staticRenderFns = [];
+var staticRenderFns = [function () {
+  var _vm = this,
+    _c = _vm._self._c;
+  return _c("tr", [_c("th", [_vm._v("Mascota")]), _vm._v(" "), _c("th", [_vm._v("Propietario")]), _vm._v(" "), _c("th", [_vm._v("Fecha bioquimica")])]);
+}, function () {
+  var _vm = this,
+    _c = _vm._self._c;
+  return _c("tr", [_c("th", [_vm._v("Parámetro")]), _vm._v(" "), _c("th", [_vm._v("Resultado")]), _vm._v(" "), _c("th", [_vm._v("Referencia")])]);
+}, function () {
+  var _vm = this,
+    _c = _vm._self._c;
+  return _c("button", {
+    staticClass: "btn btn-success",
+    attrs: {
+      type: "submit",
+      title: "Guardar bioquímica"
+    }
+  }, [_c("i", {
+    staticClass: "fas fa-vial"
+  }), _vm._v("\n                    Guardar bioquimica")]);
+}];
 render._withStripped = true;
 
 
@@ -11879,7 +12527,7 @@ var render = function render() {
     staticClass: "card-body"
   }, [_c("div", {
     staticClass: "row"
-  }, [_vm.visita.hemograma_id === 0 ? _c("div", {
+  }, [_vm.visita.hemograma_id === null ? _c("div", {
     staticClass: "col-md-6"
   }, [_c("router-link", {
     staticClass: "btn btn-success w-100",
@@ -11894,7 +12542,7 @@ var render = function render() {
     }
   }, [_c("i", {
     staticClass: "fas fa-syringe"
-  }), _vm._v(" Añadir hemograma")])], 1) : _vm._e(), _vm._v(" "), _vm.visita.hemograma_id !== 0 ? _c("div", {
+  }), _vm._v(" Añadir hemograma")])], 1) : _vm._e(), _vm._v(" "), _vm.visita.hemograma_id !== null ? _c("div", {
     staticClass: "col-md-6"
   }, [_c("router-link", {
     staticClass: "btn btn-info w-100",
@@ -11909,7 +12557,7 @@ var render = function render() {
     }
   }, [_c("i", {
     staticClass: "fas fa-eye"
-  }), _vm._v(" Hemograma")])], 1) : _vm._e(), _vm._v(" "), _vm.visita.bioquimica_id === 0 ? _c("div", {
+  }), _vm._v(" Hemograma")])], 1) : _vm._e(), _vm._v(" "), _vm.visita.bioquimica_id === null ? _c("div", {
     staticClass: "col-md-6"
   }, [_c("router-link", {
     staticClass: "btn btn-success w-100",
@@ -11924,7 +12572,7 @@ var render = function render() {
     }
   }, [_c("i", {
     staticClass: "fas fa-vial"
-  }), _vm._v(" Añadir bioquímica")])], 1) : _vm._e(), _vm._v(" "), _vm.visita.bioquimica_id !== 0 ? _c("div", {
+  }), _vm._v(" Añadir bioquímica")])], 1) : _vm._e(), _vm._v(" "), _vm.visita.bioquimica_id !== null ? _c("div", {
     staticClass: "col-md-6"
   }, [_c("router-link", {
     staticClass: "btn btn-info w-100",
@@ -12722,7 +13370,7 @@ var render = function render() {
     day: "2-digit",
     month: "2-digit",
     year: "numeric"
-  })))])])]), _vm._v(" "), _vm._m(1)]), _vm._v(" "), _c("tbody", [_c("tr", [_c("td", [_vm._v("Urea (mg/dl):")]), _vm._v(" "), _c("td", [_c("input", {
+  })))])])]), _vm._v(" "), _vm._m(1)]), _vm._v(" "), _c("tbody", [_c("tr", [_c("td", [_vm._v("Urea:")]), _vm._v(" "), _c("td", [_c("input", {
     directives: [{
       name: "model",
       rawName: "v-model",
@@ -12743,7 +13391,7 @@ var render = function render() {
         _vm.$set(_vm.bioquimica, "urea", $event.target.value);
       }
     }
-  })]), _vm._v(" "), _c("td", [_vm._v("\n                            " + _vm._s(_vm.bioquimica.animal === "perro" ? "20-50" : "30-60") + "\n                        ")])]), _vm._v(" "), _c("tr", [_c("td", [_vm._v("Creatinina (mg/dl):")]), _vm._v(" "), _c("td", [_c("input", {
+  })]), _vm._v(" "), _c("td", [_vm._v("\n                            " + _vm._s(_vm.bioquimica.animal === "perro" ? "20-50" : "30-60") + " (mg/dl)\n                        ")])]), _vm._v(" "), _c("tr", [_c("td", [_vm._v("Creatinina:")]), _vm._v(" "), _c("td", [_c("input", {
     directives: [{
       name: "model",
       rawName: "v-model",
@@ -12764,7 +13412,7 @@ var render = function render() {
         _vm.$set(_vm.bioquimica, "creatinina", $event.target.value);
       }
     }
-  })]), _vm._v(" "), _c("td", [_vm._v("\n                            " + _vm._s(_vm.bioquimica.animal === "perro" ? "0,6-1,4" : "0,5-1,8") + "\n                        ")])]), _vm._v(" "), _c("tr", [_c("td", [_vm._v("Glucosa (mg/dl):")]), _vm._v(" "), _c("td", [_c("input", {
+  })]), _vm._v(" "), _c("td", [_vm._v("\n                            " + _vm._s(_vm.bioquimica.animal === "perro" ? "0,6-1,4" : "0,5-1,8") + " (mg/dl)\n                        ")])]), _vm._v(" "), _c("tr", [_c("td", [_vm._v("Glucosa:")]), _vm._v(" "), _c("td", [_c("input", {
     directives: [{
       name: "model",
       rawName: "v-model",
@@ -12785,7 +13433,7 @@ var render = function render() {
         _vm.$set(_vm.bioquimica, "glucosa", $event.target.value);
       }
     }
-  })]), _vm._v(" "), _c("td", [_vm._v("\n                            " + _vm._s(_vm.bioquimica.animal === "perro" ? "70-105" : "60-140") + "\n                        ")])]), _vm._v(" "), _c("tr", [_c("td", [_vm._v("Proteínas totales (g/dl):")]), _vm._v(" "), _c("td", [_c("input", {
+  })]), _vm._v(" "), _c("td", [_vm._v("\n                            " + _vm._s(_vm.bioquimica.animal === "perro" ? "70-105" : "60-140") + " (mg/dl)\n                        ")])]), _vm._v(" "), _c("tr", [_c("td", [_vm._v("Proteínas totales:")]), _vm._v(" "), _c("td", [_c("input", {
     directives: [{
       name: "model",
       rawName: "v-model",
@@ -12806,7 +13454,7 @@ var render = function render() {
         _vm.$set(_vm.bioquimica, "proteinas", $event.target.value);
       }
     }
-  })]), _vm._v(" "), _c("td", [_vm._v("\n                            " + _vm._s(_vm.bioquimica.animal === "perro" ? "5,3-7,9" : "5,7-8") + "\n                        ")])]), _vm._v(" "), _c("tr", [_c("td", [_vm._v("Albumina (g/dl):")]), _vm._v(" "), _c("td", [_c("input", {
+  })]), _vm._v(" "), _c("td", [_vm._v("\n                            " + _vm._s(_vm.bioquimica.animal === "perro" ? "5,3-7,9" : "5,7-8") + " (g/dl)\n                        ")])]), _vm._v(" "), _c("tr", [_c("td", [_vm._v("Albumina:")]), _vm._v(" "), _c("td", [_c("input", {
     directives: [{
       name: "model",
       rawName: "v-model",
@@ -12827,7 +13475,7 @@ var render = function render() {
         _vm.$set(_vm.bioquimica, "albumina", $event.target.value);
       }
     }
-  })]), _vm._v(" "), _c("td", [_vm._v("\n                            " + _vm._s(_vm.bioquimica.animal === "perro" ? "2,3-3,8" : "2,3-3,4") + "\n                        ")])]), _vm._v(" "), _c("tr", [_c("td", [_vm._v("Bilirrubina (mg/dl):")]), _vm._v(" "), _c("td", [_c("input", {
+  })]), _vm._v(" "), _c("td", [_vm._v("\n                            " + _vm._s(_vm.bioquimica.animal === "perro" ? "2,3-3,8" : "2,3-3,4") + " (g/dl)\n                        ")])]), _vm._v(" "), _c("tr", [_c("td", [_vm._v("Bilirrubina:")]), _vm._v(" "), _c("td", [_c("input", {
     directives: [{
       name: "model",
       rawName: "v-model",
@@ -12848,7 +13496,7 @@ var render = function render() {
         _vm.$set(_vm.bioquimica, "bilirrubina", $event.target.value);
       }
     }
-  })]), _vm._v(" "), _c("td", [_vm._v("\n                            " + _vm._s(_vm.bioquimica.animal === "perro" ? "Hasta 0,8" : "Hasta 0,8") + "\n                        ")])]), _vm._v(" "), _c("tr", [_c("td", [_vm._v("ALP (U/L):")]), _vm._v(" "), _c("td", [_c("input", {
+  })]), _vm._v(" "), _c("td", [_vm._v("\n                            " + _vm._s(_vm.bioquimica.animal === "perro" ? "Hasta 0,8" : "Hasta 0,8") + " (mg/dl)\n                        ")])]), _vm._v(" "), _c("tr", [_c("td", [_vm._v("ALP:")]), _vm._v(" "), _c("td", [_c("input", {
     directives: [{
       name: "model",
       rawName: "v-model",
@@ -12869,7 +13517,7 @@ var render = function render() {
         _vm.$set(_vm.bioquimica, "alp", $event.target.value);
       }
     }
-  })]), _vm._v(" "), _c("td", [_vm._v("\n                            " + _vm._s(_vm.bioquimica.animal === "perro" ? "32-185" : "25-110") + "\n                        ")])]), _vm._v(" "), _c("tr", [_c("td", [_vm._v("GPT (U/L):")]), _vm._v(" "), _c("td", [_c("input", {
+  })]), _vm._v(" "), _c("td", [_vm._v("\n                            " + _vm._s(_vm.bioquimica.animal === "perro" ? "32-185" : "25-110") + " (U/L)\n                        ")])]), _vm._v(" "), _c("tr", [_c("td", [_vm._v("GPT:")]), _vm._v(" "), _c("td", [_c("input", {
     directives: [{
       name: "model",
       rawName: "v-model",
@@ -12890,7 +13538,7 @@ var render = function render() {
         _vm.$set(_vm.bioquimica, "gpt", $event.target.value);
       }
     }
-  })]), _vm._v(" "), _c("td", [_vm._v("\n                            " + _vm._s(_vm.bioquimica.animal === "perro" ? "28-78" : "10-80") + "\n                        ")])]), _vm._v(" "), _c("tr", [_c("td", [_vm._v("Fósforo (mg/dl):")]), _vm._v(" "), _c("td", [_c("input", {
+  })]), _vm._v(" "), _c("td", [_vm._v("\n                            " + _vm._s(_vm.bioquimica.animal === "perro" ? "28-78" : "10-80") + " (U/L)\n                        ")])]), _vm._v(" "), _c("tr", [_c("td", [_vm._v("Fósforo:")]), _vm._v(" "), _c("td", [_c("input", {
     directives: [{
       name: "model",
       rawName: "v-model",
@@ -12911,7 +13559,7 @@ var render = function render() {
         _vm.$set(_vm.bioquimica, "fosforo", $event.target.value);
       }
     }
-  })]), _vm._v(" "), _c("td", [_vm._v("\n                            " + _vm._s(_vm.bioquimica.animal === "perro" ? "2-6,2" : "2,8-7,2") + "\n                        ")])]), _vm._v(" "), _c("tr", [_c("td", [_vm._v("Calcio (mg/dl):")]), _vm._v(" "), _c("td", [_c("input", {
+  })]), _vm._v(" "), _c("td", [_vm._v("\n                            " + _vm._s(_vm.bioquimica.animal === "perro" ? "2-6,2" : "2,8-7,2") + " (mg/dl)\n                        ")])]), _vm._v(" "), _c("tr", [_c("td", [_vm._v("Calcio:")]), _vm._v(" "), _c("td", [_c("input", {
     directives: [{
       name: "model",
       rawName: "v-model",
@@ -12932,7 +13580,7 @@ var render = function render() {
         _vm.$set(_vm.bioquimica, "calcio", $event.target.value);
       }
     }
-  })]), _vm._v(" "), _c("td", [_vm._v("\n                            " + _vm._s(_vm.bioquimica.animal === "perro" ? "7-11,5" : "7-11,0") + "\n                        ")])]), _vm._v(" "), _c("tr", [_c("td", [_vm._v("Colesterol (mg/dl):")]), _vm._v(" "), _c("td", [_c("input", {
+  })]), _vm._v(" "), _c("td", [_vm._v("\n                            " + _vm._s(_vm.bioquimica.animal === "perro" ? "7-11,5" : "7-11,0") + " (mg/dl)\n                        ")])]), _vm._v(" "), _c("tr", [_c("td", [_vm._v("Colesterol:")]), _vm._v(" "), _c("td", [_c("input", {
     directives: [{
       name: "model",
       rawName: "v-model",
@@ -12953,7 +13601,7 @@ var render = function render() {
         _vm.$set(_vm.bioquimica, "colesterol", $event.target.value);
       }
     }
-  })]), _vm._v(" "), _c("td", [_vm._v("\n                            " + _vm._s(_vm.bioquimica.animal === "perro" ? "135-260" : "80-180") + "\n                        ")])]), _vm._v(" "), _c("tr", [_c("td", [_vm._v("Trigliceridos (mg/dl):")]), _vm._v(" "), _c("td", [_c("input", {
+  })]), _vm._v(" "), _c("td", [_vm._v("\n                            " + _vm._s(_vm.bioquimica.animal === "perro" ? "135-260" : "80-180") + " (mg/dl)\n                        ")])]), _vm._v(" "), _c("tr", [_c("td", [_vm._v("Trigliceridos:")]), _vm._v(" "), _c("td", [_c("input", {
     directives: [{
       name: "model",
       rawName: "v-model",
@@ -12974,7 +13622,7 @@ var render = function render() {
         _vm.$set(_vm.bioquimica, "trigliceridos", $event.target.value);
       }
     }
-  })]), _vm._v(" "), _c("td", [_vm._v("\n                            " + _vm._s(_vm.bioquimica.animal === "perro" ? "25-120" : "25-120") + "\n                        ")])]), _vm._v(" "), _c("tr", [_c("td", [_vm._v("Lípidos (mg/dl):")]), _vm._v(" "), _c("td", [_c("input", {
+  })]), _vm._v(" "), _c("td", [_vm._v("\n                            " + _vm._s(_vm.bioquimica.animal === "perro" ? "25-120" : "25-120") + " (mg/dl)\n                        ")])]), _vm._v(" "), _c("tr", [_c("td", [_vm._v("Lípidos:")]), _vm._v(" "), _c("td", [_c("input", {
     directives: [{
       name: "model",
       rawName: "v-model",
@@ -12995,7 +13643,7 @@ var render = function render() {
         _vm.$set(_vm.bioquimica, "lipidos", $event.target.value);
       }
     }
-  })]), _vm._v(" "), _c("td", [_vm._v("\n                            " + _vm._s(_vm.bioquimica.animal === "perro" ? "100-700" : "140-600") + "\n                        ")])]), _vm._v(" "), _c("tr", [_c("td", [_vm._v("CPK (U/L):")]), _vm._v(" "), _c("td", [_c("input", {
+  })]), _vm._v(" "), _c("td", [_vm._v("\n                            " + _vm._s(_vm.bioquimica.animal === "perro" ? "100-700" : "140-600") + " (mg/dl)\n                        ")])]), _vm._v(" "), _c("tr", [_c("td", [_vm._v("CPK:")]), _vm._v(" "), _c("td", [_c("input", {
     directives: [{
       name: "model",
       rawName: "v-model",
@@ -13016,7 +13664,7 @@ var render = function render() {
         _vm.$set(_vm.bioquimica, "cpk", $event.target.value);
       }
     }
-  })]), _vm._v(" "), _c("td", [_vm._v("\n                            " + _vm._s(_vm.bioquimica.animal === "perro" ? "Hasta 300" : "50-450") + "\n                        ")])]), _vm._v(" "), _c("tr", [_c("td", [_vm._v("Amilasa (U/L):")]), _vm._v(" "), _c("td", [_c("input", {
+  })]), _vm._v(" "), _c("td", [_vm._v("\n                            " + _vm._s(_vm.bioquimica.animal === "perro" ? "Hasta 300" : "50-450") + " (U/L)\n                        ")])]), _vm._v(" "), _c("tr", [_c("td", [_vm._v("Amilasa:")]), _vm._v(" "), _c("td", [_c("input", {
     directives: [{
       name: "model",
       rawName: "v-model",
@@ -13037,7 +13685,7 @@ var render = function render() {
         _vm.$set(_vm.bioquimica, "amilasa", $event.target.value);
       }
     }
-  })]), _vm._v(" "), _c("td", [_vm._v("\n                            " + _vm._s(_vm.bioquimica.animal === "perro" ? "Hasta 1500" : "500-1500") + "\n                        ")])]), _vm._v(" "), _c("tr", [_c("td", [_vm._v("Lipasa (U/L):")]), _vm._v(" "), _c("td", [_c("input", {
+  })]), _vm._v(" "), _c("td", [_vm._v("\n                            " + _vm._s(_vm.bioquimica.animal === "perro" ? "Hasta 1500" : "500-1500") + " (U/L)\n                        ")])]), _vm._v(" "), _c("tr", [_c("td", [_vm._v("Lipasa:")]), _vm._v(" "), _c("td", [_c("input", {
     directives: [{
       name: "model",
       rawName: "v-model",
@@ -13058,7 +13706,7 @@ var render = function render() {
         _vm.$set(_vm.bioquimica, "lipasa", $event.target.value);
       }
     }
-  })]), _vm._v(" "), _c("td", [_vm._v("\n                            " + _vm._s(_vm.bioquimica.animal === "perro" ? "Hasta 240" : "Hasta 75") + "\n                        ")])]), _vm._v(" "), _c("tr", [_c("td", [_vm._v("Sodio (meq/L):")]), _vm._v(" "), _c("td", [_c("input", {
+  })]), _vm._v(" "), _c("td", [_vm._v("\n                            " + _vm._s(_vm.bioquimica.animal === "perro" ? "Hasta 240" : "Hasta 75") + " (U/L)\n                        ")])]), _vm._v(" "), _c("tr", [_c("td", [_vm._v("Sodio:")]), _vm._v(" "), _c("td", [_c("input", {
     directives: [{
       name: "model",
       rawName: "v-model",
@@ -13079,7 +13727,7 @@ var render = function render() {
         _vm.$set(_vm.bioquimica, "sodio", $event.target.value);
       }
     }
-  })]), _vm._v(" "), _c("td", [_vm._v("\n                            " + _vm._s(_vm.bioquimica.animal === "perro" ? "135-150" : "140-150") + "\n                        ")])]), _vm._v(" "), _c("tr", [_c("td", [_vm._v("Potasio (meq/L):")]), _vm._v(" "), _c("td", [_c("input", {
+  })]), _vm._v(" "), _c("td", [_vm._v("\n                            " + _vm._s(_vm.bioquimica.animal === "perro" ? "135-150" : "140-150") + " (meq/L)\n                        ")])]), _vm._v(" "), _c("tr", [_c("td", [_vm._v("Potasio:")]), _vm._v(" "), _c("td", [_c("input", {
     directives: [{
       name: "model",
       rawName: "v-model",
@@ -13100,7 +13748,7 @@ var render = function render() {
         _vm.$set(_vm.bioquimica, "potasio", $event.target.value);
       }
     }
-  })]), _vm._v(" "), _c("td", [_vm._v("\n                            " + _vm._s(_vm.bioquimica.animal === "perro" ? "3,6-5,8" : "3,6-5,5") + "\n                        ")])]), _vm._v(" "), _c("tr", [_c("td", [_vm._v("Cloro (meq/L):")]), _vm._v(" "), _c("td", [_c("input", {
+  })]), _vm._v(" "), _c("td", [_vm._v("\n                            " + _vm._s(_vm.bioquimica.animal === "perro" ? "3,6-5,8" : "3,6-5,5") + " (meq/L)\n                        ")])]), _vm._v(" "), _c("tr", [_c("td", [_vm._v("Cloro:")]), _vm._v(" "), _c("td", [_c("input", {
     directives: [{
       name: "model",
       rawName: "v-model",
@@ -13121,7 +13769,7 @@ var render = function render() {
         _vm.$set(_vm.bioquimica, "cloro", $event.target.value);
       }
     }
-  })]), _vm._v(" "), _c("td", [_vm._v("\n                            " + _vm._s(_vm.bioquimica.animal === "perro" ? "105-120" : "108-128") + "\n                        ")])]), _vm._v(" "), _c("tr", [_c("td", [_vm._v("T4 ():")]), _vm._v(" "), _c("td", [_c("input", {
+  })]), _vm._v(" "), _c("td", [_vm._v("\n                            " + _vm._s(_vm.bioquimica.animal === "perro" ? "105-120" : "108-128") + " (meq/L)\n                        ")])]), _vm._v(" "), _c("tr", [_c("td", [_vm._v("T4:")]), _vm._v(" "), _c("td", [_c("input", {
     directives: [{
       name: "model",
       rawName: "v-model",
@@ -13142,7 +13790,7 @@ var render = function render() {
         _vm.$set(_vm.bioquimica, "t4", $event.target.value);
       }
     }
-  })]), _vm._v(" "), _c("td", [_vm._v("\n                            " + _vm._s(_vm.bioquimica.animal === "perro" ? "0,6-2,8" : "0,6-2,6") + "\n                        ")])])])]), _vm._v(" "), _c("div", {
+  })]), _vm._v(" "), _c("td", [_vm._v("\n                            " + _vm._s(_vm.bioquimica.animal === "perro" ? "0,6-2,8" : "0,6-2,6") + " μg/dL\n                        ")])])])]), _vm._v(" "), _c("div", {
     staticClass: "btn-group w-100",
     attrs: {
       role: "group",
@@ -41523,15 +42171,17 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
 /* harmony export */ });
 /* harmony import */ var _FichaBioquimica_vue_vue_type_template_id_51878f75___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./FichaBioquimica.vue?vue&type=template&id=51878f75& */ "./resources/js/components/FichaBioquimica.vue?vue&type=template&id=51878f75&");
-/* harmony import */ var _node_modules_vue_loader_lib_runtime_componentNormalizer_js__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! !../../../node_modules/vue-loader/lib/runtime/componentNormalizer.js */ "./node_modules/vue-loader/lib/runtime/componentNormalizer.js");
+/* harmony import */ var _FichaBioquimica_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./FichaBioquimica.vue?vue&type=script&lang=js& */ "./resources/js/components/FichaBioquimica.vue?vue&type=script&lang=js&");
+/* harmony import */ var _node_modules_vue_loader_lib_runtime_componentNormalizer_js__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! !../../../node_modules/vue-loader/lib/runtime/componentNormalizer.js */ "./node_modules/vue-loader/lib/runtime/componentNormalizer.js");
 
-var script = {}
+
+
 
 
 /* normalize component */
 ;
-var component = (0,_node_modules_vue_loader_lib_runtime_componentNormalizer_js__WEBPACK_IMPORTED_MODULE_1__["default"])(
-  script,
+var component = (0,_node_modules_vue_loader_lib_runtime_componentNormalizer_js__WEBPACK_IMPORTED_MODULE_2__["default"])(
+  _FichaBioquimica_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_1__["default"],
   _FichaBioquimica_vue_vue_type_template_id_51878f75___WEBPACK_IMPORTED_MODULE_0__.render,
   _FichaBioquimica_vue_vue_type_template_id_51878f75___WEBPACK_IMPORTED_MODULE_0__.staticRenderFns,
   false,
@@ -42139,6 +42789,22 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */ });
 /* harmony import */ var _node_modules_babel_loader_lib_index_js_clonedRuleSet_5_use_0_node_modules_vue_loader_lib_index_js_vue_loader_options_AltaMascota_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! -!../../../node_modules/babel-loader/lib/index.js??clonedRuleSet-5.use[0]!../../../node_modules/vue-loader/lib/index.js??vue-loader-options!./AltaMascota.vue?vue&type=script&lang=js& */ "./node_modules/babel-loader/lib/index.js??clonedRuleSet-5.use[0]!./node_modules/vue-loader/lib/index.js??vue-loader-options!./resources/js/components/AltaMascota.vue?vue&type=script&lang=js&");
  /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (_node_modules_babel_loader_lib_index_js_clonedRuleSet_5_use_0_node_modules_vue_loader_lib_index_js_vue_loader_options_AltaMascota_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_0__["default"]); 
+
+/***/ }),
+
+/***/ "./resources/js/components/FichaBioquimica.vue?vue&type=script&lang=js&":
+/*!******************************************************************************!*\
+  !*** ./resources/js/components/FichaBioquimica.vue?vue&type=script&lang=js& ***!
+  \******************************************************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
+/* harmony export */ });
+/* harmony import */ var _node_modules_babel_loader_lib_index_js_clonedRuleSet_5_use_0_node_modules_vue_loader_lib_index_js_vue_loader_options_FichaBioquimica_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! -!../../../node_modules/babel-loader/lib/index.js??clonedRuleSet-5.use[0]!../../../node_modules/vue-loader/lib/index.js??vue-loader-options!./FichaBioquimica.vue?vue&type=script&lang=js& */ "./node_modules/babel-loader/lib/index.js??clonedRuleSet-5.use[0]!./node_modules/vue-loader/lib/index.js??vue-loader-options!./resources/js/components/FichaBioquimica.vue?vue&type=script&lang=js&");
+ /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (_node_modules_babel_loader_lib_index_js_clonedRuleSet_5_use_0_node_modules_vue_loader_lib_index_js_vue_loader_options_FichaBioquimica_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_0__["default"]); 
 
 /***/ }),
 
