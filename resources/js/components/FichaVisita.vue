@@ -83,38 +83,6 @@
                     </div>
                 </div>
 
-                <div class="card">
-                    <div class="card-header">
-                        <h5 class="card-title">Consultar/adjuntar pruebas</h5>
-                    </div>
-                    <div class="card-body">
-                        <div class="row">
-                            <div v-if="visita.hemograma_id === null" class="col-md-3">
-                                <router-link :to="{ name: 'NuevoHemograma', params: { id: visita.id } }"
-                                    class="btn btn-success w-100" title="Añadir hemograma">
-                                    <i class="fas fa-syringe"></i> Añadir hemograma</router-link>
-                            </div>
-                            <div v-if="visita.hemograma_id !== null" class="col-md-3">
-                                <router-link :to="{ name: 'FichaHemograma', params: { id: visita.hemograma_id} }"
-                                    class="btn btn-info w-100" title="Ficha hemograma">
-                                    <i class="fas fa-eye"></i> Hemograma</router-link>
-                            </div>
-                            <div v-if="visita.bioquimica_id === null" class="col-md-3">
-                                <router-link :to="{ name: 'NuevaBioquimica', params: { id: visita.id } }"
-                                    class="btn btn-success w-100" title="Añadir bioquímica">
-                                    <i class="fas fa-vial"></i> Añadir bioquímica</router-link>
-                            </div>
-                            <div v-if="visita.bioquimica_id !== null" class="col-md-3">
-                                <router-link :to="{ name: 'FichaBioquimica', params: { id: visita.bioquimica_id } }"
-                                    class="btn btn-info w-100" title="Ficha bioquímica">
-                                    <i class="fas fa-eye"></i> Bioquímica</router-link>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <br>
-
-
                 <div class="btn-group w-100" role="group" aria-label="">
                     <button type="submit" class="btn btn-success" title="Guardar">
                         <i class="fa fa-save"></i> Guardar
@@ -126,8 +94,49 @@
                 </div>
 
             </form>
-        </div>
 
+       
+        </div>
+        <div class="card">
+                    <div class="card-header">
+                        <h5 class="card-title">Consultar/adjuntar pruebas</h5>
+                    </div>
+                    <div class="card-body">
+                        <div class="row">
+                            <div v-if="visita.hemograma_id === null" class="col-md-3">
+                                <router-link :to="{ name: 'NuevoHemograma', params: { id: visita.id } }"
+                                    class="btn btn-success w-100" title="Añadir hemograma">
+                                    <i class="fas fa-syringe"></i> Añadir hemograma</router-link>
+                            </div>
+                            <div v-if="visita.hemograma_id !== null" class="col-md-3">
+                                <router-link :to="{ name: 'FichaHemograma', params: { id: visita.hemograma_id } }"
+                                    class="btn btn-info w-100" title="Ficha hemograma">
+                                    <i class="fas fa-eye"></i> Hemograma</router-link>
+                            </div>
+                            <div v-if="visita.hemograma_id !== null" class="col-md-3">
+                                <button class="btn btn-warning w-100" @click="hemogramaPDF(visita.id)" title="Generar PDF">
+                                    <i class="fa-solid fa-file-pdf"></i> Hemograma
+                                </button>
+                            </div>
+                            <div v-if="visita.bioquimica_id === null" class="col-md-3">
+                                <router-link :to="{ name: 'NuevaBioquimica', params: { id: visita.id } }"
+                                    class="btn btn-success w-100" title="Añadir bioquímica">
+                                    <i class="fas fa-vial"></i> Añadir bioquímica</router-link>
+                            </div>
+                            <div v-if="visita.bioquimica_id !== null" class="col-md-3">
+                                <router-link :to="{ name: 'FichaBioquimica', params: { id: visita.bioquimica_id } }"
+                                    class="btn btn-info w-100" title="Ficha bioquímica">
+                                    <i class="fas fa-eye"></i> Bioquímica</router-link>
+                            </div>
+                            <div v-if="visita.bioquimica_id !== null" class="col-md-3">
+                                <button class="btn btn-warning w-100" @click="bioquimicaPDF(visita.id)" title="Generar PDF">
+                                    <i class="fa-solid fa-file-pdf"></i> Bioquímica
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <br>
     </div>
 </template>
 
@@ -202,6 +211,28 @@ export default {
                         text: 'Ingresa los campos correctamente',
                     })
                     this.errores = error.response.data.errors;
+                });
+        },
+
+        hemogramaPDF(id) {
+            axios.get('hemogramas/generate-pdf/' + id, { responseType: 'blob' })
+                .then(response => {
+                    const url = window.URL.createObjectURL(new Blob([response.data], { type: 'application/pdf' }));
+                    window.open(url);
+                })
+                .catch(error => {
+                    console.error(error);
+                });
+        },
+        
+        bioquimicaPDF(id) {
+            axios.get('bioquimicas/generate-pdf/' + id, { responseType: 'blob' })
+                .then(response => {
+                    const url = window.URL.createObjectURL(new Blob([response.data], { type: 'application/pdf' }));
+                    window.open(url);
+                })
+                .catch(error => {
+                    console.error(error);
                 });
         },
 

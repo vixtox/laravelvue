@@ -53,7 +53,6 @@
             background-color: lightblue;
             font-weight: bold;
             text-align: left;
-            color: white;
         }
         td {
             color: #666;

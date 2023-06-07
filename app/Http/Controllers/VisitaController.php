@@ -149,19 +149,13 @@ class VisitaController extends Controller
     {
         // Obtener la visita según el ID proporcionado
         $visita = Visita::findOrFail($id);
-
         // Obtener la mascota asociada a la visita
         $mascota = Mascota::findOrFail($visita->mascotas_id);
-
         // Obtener el cliente asociado a la mascota
         $cliente = Cliente::findOrFail($mascota->cliente_id);
 
-        // $hemograma = Hemograma::where('visita_id', $visita->id)->first();
-        $bioquimica = Bioquimica::where('visita_id', $visita->id)->first();
         // Generar el contenido del PDF utilizando el paquete DomPDF
-        // $pdf = PDF::loadView('auth.visitaspdf', compact('visita', 'mascota', 'cliente'));
-        // $pdf = PDF::loadView('auth.hemogramapdf', compact('visita', 'mascota', 'cliente', 'hemograma'));
-        $pdf = PDF::loadView('auth.bioquimicapdf', compact('visita', 'mascota', 'cliente', 'bioquimica'));
+        $pdf = PDF::loadView('auth.visitaspdf', compact('visita', 'mascota', 'cliente'));
 
         // Devolver el PDF como una respuesta descargable
         return $pdf->stream('visita.pdf');

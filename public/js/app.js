@@ -6827,6 +6827,30 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
         }, _callee2);
       }))();
     },
+    hemogramaPDF: function hemogramaPDF(id) {
+      axios__WEBPACK_IMPORTED_MODULE_0___default().get('hemogramas/generate-pdf/' + id, {
+        responseType: 'blob'
+      }).then(function (response) {
+        var url = window.URL.createObjectURL(new Blob([response.data], {
+          type: 'application/pdf'
+        }));
+        window.open(url);
+      })["catch"](function (error) {
+        console.error(error);
+      });
+    },
+    bioquimicaPDF: function bioquimicaPDF(id) {
+      axios__WEBPACK_IMPORTED_MODULE_0___default().get('bioquimicas/generate-pdf/' + id, {
+        responseType: 'blob'
+      }).then(function (response) {
+        var url = window.URL.createObjectURL(new Blob([response.data], {
+          type: 'application/pdf'
+        }));
+        window.open(url);
+      })["catch"](function (error) {
+        console.error(error);
+      });
+    },
     getCurrentDate: function getCurrentDate() {
       var today = new Date();
       var year = today.getFullYear();
@@ -12522,13 +12546,32 @@ var render = function render() {
   }), _vm._v(" "), _vm.errores.coste ? _c("div", {
     staticClass: "alert alert-danger"
   }, [_vm._v(_vm._s(_vm.errores.coste[0]))]) : _vm._e()])])])]), _vm._v(" "), _c("div", {
+    staticClass: "btn-group w-100",
+    attrs: {
+      role: "group",
+      "aria-label": ""
+    }
+  }, [_vm._m(11), _vm._v(" "), _c("router-link", {
+    staticClass: "btn btn-warning",
+    attrs: {
+      to: {
+        name: "ListarVisitas",
+        params: {
+          id: _vm.visita.mascotas_id
+        }
+      },
+      title: "Volver"
+    }
+  }, [_c("i", {
+    staticClass: "bi bi-arrow-return-left fw-bold"
+  })])], 1)])]), _vm._v(" "), _c("div", {
     staticClass: "card"
-  }, [_vm._m(11), _vm._v(" "), _c("div", {
+  }, [_vm._m(12), _vm._v(" "), _c("div", {
     staticClass: "card-body"
   }, [_c("div", {
     staticClass: "row"
   }, [_vm.visita.hemograma_id === null ? _c("div", {
-    staticClass: "col-md-6"
+    staticClass: "col-md-3"
   }, [_c("router-link", {
     staticClass: "btn btn-success w-100",
     attrs: {
@@ -12543,7 +12586,7 @@ var render = function render() {
   }, [_c("i", {
     staticClass: "fas fa-syringe"
   }), _vm._v(" Añadir hemograma")])], 1) : _vm._e(), _vm._v(" "), _vm.visita.hemograma_id !== null ? _c("div", {
-    staticClass: "col-md-6"
+    staticClass: "col-md-3"
   }, [_c("router-link", {
     staticClass: "btn btn-info w-100",
     attrs: {
@@ -12557,8 +12600,22 @@ var render = function render() {
     }
   }, [_c("i", {
     staticClass: "fas fa-eye"
-  }), _vm._v(" Hemograma")])], 1) : _vm._e(), _vm._v(" "), _vm.visita.bioquimica_id === null ? _c("div", {
-    staticClass: "col-md-6"
+  }), _vm._v(" Hemograma")])], 1) : _vm._e(), _vm._v(" "), _vm.visita.hemograma_id !== null ? _c("div", {
+    staticClass: "col-md-3"
+  }, [_c("button", {
+    staticClass: "btn btn-warning w-100",
+    attrs: {
+      title: "Generar PDF"
+    },
+    on: {
+      click: function click($event) {
+        return _vm.hemogramaPDF(_vm.visita.id);
+      }
+    }
+  }, [_c("i", {
+    staticClass: "fa-solid fa-file-pdf"
+  }), _vm._v(" Hemograma\n                            ")])]) : _vm._e(), _vm._v(" "), _vm.visita.bioquimica_id === null ? _c("div", {
+    staticClass: "col-md-3"
   }, [_c("router-link", {
     staticClass: "btn btn-success w-100",
     attrs: {
@@ -12573,7 +12630,7 @@ var render = function render() {
   }, [_c("i", {
     staticClass: "fas fa-vial"
   }), _vm._v(" Añadir bioquímica")])], 1) : _vm._e(), _vm._v(" "), _vm.visita.bioquimica_id !== null ? _c("div", {
-    staticClass: "col-md-6"
+    staticClass: "col-md-3"
   }, [_c("router-link", {
     staticClass: "btn btn-info w-100",
     attrs: {
@@ -12587,26 +12644,21 @@ var render = function render() {
     }
   }, [_c("i", {
     staticClass: "fas fa-eye"
-  }), _vm._v(" Bioquímica")])], 1) : _vm._e()])])]), _vm._v(" "), _c("br"), _vm._v(" "), _c("div", {
-    staticClass: "btn-group w-100",
+  }), _vm._v(" Bioquímica")])], 1) : _vm._e(), _vm._v(" "), _vm.visita.bioquimica_id !== null ? _c("div", {
+    staticClass: "col-md-3"
+  }, [_c("button", {
+    staticClass: "btn btn-warning w-100",
     attrs: {
-      role: "group",
-      "aria-label": ""
-    }
-  }, [_vm._m(12), _vm._v(" "), _c("router-link", {
-    staticClass: "btn btn-warning",
-    attrs: {
-      to: {
-        name: "ListarVisitas",
-        params: {
-          id: _vm.visita.mascotas_id
-        }
-      },
-      title: "Volver"
+      title: "Generar PDF"
+    },
+    on: {
+      click: function click($event) {
+        return _vm.bioquimicaPDF(_vm.visita.id);
+      }
     }
   }, [_c("i", {
-    staticClass: "bi bi-arrow-return-left fw-bold"
-  })])], 1)])])]);
+    staticClass: "fa-solid fa-file-pdf"
+  }), _vm._v(" Bioquímica\n                            ")])]) : _vm._e()])])]), _vm._v(" "), _c("br")]);
 };
 var staticRenderFns = [function () {
   var _vm = this,
@@ -12691,14 +12743,6 @@ var staticRenderFns = [function () {
 }, function () {
   var _vm = this,
     _c = _vm._self._c;
-  return _c("div", {
-    staticClass: "card-header"
-  }, [_c("h5", {
-    staticClass: "card-title"
-  }, [_vm._v("Consultar/adjuntar pruebas")])]);
-}, function () {
-  var _vm = this,
-    _c = _vm._self._c;
   return _c("button", {
     staticClass: "btn btn-success",
     attrs: {
@@ -12708,6 +12752,14 @@ var staticRenderFns = [function () {
   }, [_c("i", {
     staticClass: "fa fa-save"
   }), _vm._v(" Guardar\n                ")]);
+}, function () {
+  var _vm = this,
+    _c = _vm._self._c;
+  return _c("div", {
+    staticClass: "card-header"
+  }, [_c("h5", {
+    staticClass: "card-title"
+  }, [_vm._v("Consultar/adjuntar pruebas")])]);
 }];
 render._withStripped = true;
 

@@ -64,8 +64,10 @@ Route::middleware(['user'])->group(function () {
     Route::resource('/visitas', VisitaController::class)->except(['create', 'edit']);
     Route::post('/enviarcorreo/{id}', [VisitaController::class, 'enviarCorreo'])->name('enviarCorreo');
     //RUTAS HEMOGRAMA
+    Route::get('/hemogramas/generate-pdf/{id}', [HemogramaController::class, 'generatePDF']);
     Route::resource('/hemogramas', HemogramaController::class)->except(['create', 'edit']);
     //RUTAS BIOQUÍMICA
+    Route::get('/bioquimicas/generate-pdf/{id}', [BioquimicaController::class, 'generatePDF']);
     Route::resource('/bioquimicas', BioquimicaController::class)->except(['create', 'edit']);
 
     // RUTAS VETERINARIO

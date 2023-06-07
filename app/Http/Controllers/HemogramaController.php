@@ -7,6 +7,7 @@ use App\Models\Mascota;
 use App\Models\Visita;
 use App\Models\Cliente;
 use App\Http\Requests\HemogramaRequest;
+use PDF;
 
 class HemogramaController extends Controller
 {
@@ -100,4 +101,22 @@ class HemogramaController extends Controller
     {
         //
     }
+
+    public function generatePDF($id)
+    {
+        // Obtener la visita según el ID proporcionado
+        $visita = Visita::findOrFail($id);
+        // Obtener la mascota asociada a la visita
+        $mascota = Mascota::findOrFail($visita->mascotas_id);
+        // Obtener el cliente asociado a la mascota
+        $cliente = Cliente::findOrFail($mascota->cliente_id);
+        $hemograma = Hemograma::where('visita_id', $visita->id)->first();
+    
+        // Generar el contenido del PDF utilizando el paquete DomPDF
+        $pdf = PDF::loadView('auth.hemogramapdf', compact('visita', 'mascota', 'cliente', 'hemograma'));
+
+        // Devolver el PDF como una respuesta descargable
+        return $pdf->stream('visita.pdf');
+    }
+
 }

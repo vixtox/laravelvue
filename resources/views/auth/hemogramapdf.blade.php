@@ -43,11 +43,16 @@
             padding: 10px;
             border: 1px solid #ddd;
         }
-        th {
+        .resultados {
             background-color: #f2f2f2;
             font-weight: bold;
             text-align: left;
             color: #333;
+        }
+        .cabecera{
+            background-color: lightblue;
+            font-weight: bold;
+            text-align: left;
         }
         td {
             color: #666;
@@ -65,9 +70,9 @@
     <table class="table">
         <thead>
             <tr>
-                <th>Mascota</th>
-                <th>Propietario</th>
-                <th>Fecha hemograma</th>
+                <th class="cabecera">Mascota</th>
+                <th class="cabecera">Propietario</th>
+                <th class="cabecera">Fecha hemograma</th>
             </tr>
              <tr>
                 <td>
@@ -81,9 +86,9 @@
                 </td>
             </tr>
             <tr>
-                <th>Parámetro</th>
-                <th>Resultado</th>
-                <th>Referencia</th>
+                <th class="resultados">Parámetro</th>
+                <th class="resultados">Resultado</th>
+                <th class="resultados">Referencia</th>
             </tr>
         </thead>
         <tbody>

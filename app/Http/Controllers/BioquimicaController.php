@@ -7,6 +7,7 @@ use App\Models\Mascota;
 use App\Models\Visita;
 use App\Models\Cliente;
 use App\Http\Requests\BioquimicaRequest;
+use PDF;
 
 class BioquimicaController extends Controller
 {
@@ -100,4 +101,22 @@ class BioquimicaController extends Controller
     {
         //
     }
+
+    public function generatePDF($id)
+    {
+        // Obtener la visita según el ID proporcionado
+        $visita = Visita::findOrFail($id);
+        // Obtener la mascota asociada a la visita
+        $mascota = Mascota::findOrFail($visita->mascotas_id);
+        // Obtener el cliente asociado a la mascota
+        $cliente = Cliente::findOrFail($mascota->cliente_id);
+        $bioquimica = Bioquimica::where('visita_id', $visita->id)->first();
+    
+        // Generar el contenido del PDF utilizando el paquete DomPDF
+        $pdf = PDF::loadView('auth.bioquimicapdf', compact('visita', 'mascota', 'cliente', 'bioquimica'));
+
+        // Devolver el PDF como una respuesta descargable
+        return $pdf->stream('visita.pdf');
+    }
+
 }
