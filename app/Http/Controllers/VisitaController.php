@@ -156,11 +156,15 @@ class VisitaController extends Controller
         // Obtener el cliente asociado a la mascota
         $cliente = Cliente::findOrFail($mascota->cliente_id);
 
+        // $hemograma = Hemograma::where('visita_id', $visita->id)->first();
+        $bioquimica = Bioquimica::where('visita_id', $visita->id)->first();
         // Generar el contenido del PDF utilizando el paquete DomPDF
-        $pdf = PDF::loadView('auth.visitaspdf', compact('visita', 'mascota', 'cliente'));
+        // $pdf = PDF::loadView('auth.visitaspdf', compact('visita', 'mascota', 'cliente'));
+        // $pdf = PDF::loadView('auth.hemogramapdf', compact('visita', 'mascota', 'cliente', 'hemograma'));
+        $pdf = PDF::loadView('auth.bioquimicapdf', compact('visita', 'mascota', 'cliente', 'bioquimica'));
 
         // Devolver el PDF como una respuesta descargable
-        return $pdf->stream('nombre_del_archivo.pdf');
+        return $pdf->stream('visita.pdf');
     }
 
     public function enviarCorreo($id)
@@ -171,37 +175,54 @@ class VisitaController extends Controller
         $mascota = Mascota::findOrFail($visita->mascotas_id);
         // Obtener el cliente asociado a la mascota
         $cliente = Cliente::findOrFail($mascota->cliente_id);
-        // Obtener la hemograma asociada a la visita
-        $hemograma = Hemograma::findOrFail($visita->hemograma_id);
-        // Obtener la bioquímica asociada a la visita
-        $bioquimica = Bioquimica::findOrFail($visita->bioquimica_id);
+        // Obtener el hemograma si existe
+        $hemograma = null;
+        if ($visita->hemograma_id !== null) {
+            $hemograma = Hemograma::where('visita_id', $visita->id)->first();
+        }
+        // Obtener la bioquímica si existe
+        $bioquimica = null;
+        if ($visita->bioquimica_id !== null) {
+            $bioquimica = Bioquimica::where('visita_id', $visita->id)->first();
+        }
 
+        // Generar el PDF de la visita
         $pdf = PDF::loadView('auth.visitaspdf', compact('visita', 'mascota', 'cliente'));
         $pdf_content = $pdf->output();
+        // Generar el PDF del hemograma si existe
+        $pdf_content2 = null;
+        if ($hemograma !== null) {
+            $pdf2 = PDF::loadView('auth.hemogramapdf', compact('hemograma', 'visita', 'mascota', 'cliente'));
+            $pdf_content2 = $pdf2->output();
+        }
+        // Generar el PDF del bioquimica si existe
+        $pdf_content3 = null;
+        if ($bioquimica !== null) {
+            $pdf3 = PDF::loadView('auth.bioquimicapdf', compact('bioquimica', 'visita', 'mascota', 'cliente'));
+            $pdf_content3 = $pdf3->output();
+        }
 
         $subject = "Visita $mascota->nombre $visita->fecha_visita";
         $subject = 'Don Can: visita de ' . $mascota->nombre;;
         $to = $cliente->email;
         $body = 'Gracias por visitar nuestra clínica, le adjuntamos documento de la visita';
 
-        Mail::raw($body, function (Message $message) use ($to, $subject, $pdf_content, $visita, $hemograma, $bioquimica) {
+        // Adjuntar el PDF de la visita al correo
+        Mail::raw($body, function (Message $message) use ($to, $subject, $pdf_content, $pdf_content2, $pdf_content3) {
             $message->to($to)
                 ->subject($subject)
                 ->attachData($pdf_content, 'visita.pdf');
-        
-            // Adjuntar PDF de bioquímica si está disponible
-            if ($visita->hemograma_id !== null) {
-                $pdf_bioquimica = PDF::loadView('auth.hemogramapdf', compact('hemograma'))->output();
-                $message->attachData($pdf_bioquimica, 'bioquimica.pdf');
+            if ($pdf_content2 !== null) {
+                $message->to($to)
+                    ->subject($subject)
+                    ->attachData($pdf_content2, 'hemograma.pdf');
             }
-        
-            // Adjuntar PDF de hemograma si está disponible
-            if ($visita->bioquimica_id !== null) {
-                $pdf_hemograma = PDF::loadView('auth.bioquimicapdf', compact('bioquimica'))->output();
-                $message->attachData($pdf_hemograma, 'hemograma.pdf');
+            if ($pdf_content3 !== null) {
+                $message->to($to)
+                    ->subject($subject)
+                    ->attachData($pdf_content2, 'bioquimica.pdf');
             }
         });
-        
     }
 
     public function inicioHemograma($id)

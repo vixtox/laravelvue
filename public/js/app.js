@@ -11318,7 +11318,7 @@ var render = function render() {
     day: "2-digit",
     month: "2-digit",
     year: "numeric"
-  })))])])]), _vm._v(" "), _vm._m(1)]), _vm._v(" "), _c("tbody", [_c("tr", [_c("td", [_vm._v("Hematocrito (%):")]), _vm._v(" "), _c("td", [_c("input", {
+  })))])])]), _vm._v(" "), _vm._m(1)]), _vm._v(" "), _c("tbody", [_c("tr", [_c("td", [_vm._v("Hematocrito:")]), _vm._v(" "), _c("td", [_c("input", {
     directives: [{
       name: "model",
       rawName: "v-model",
@@ -11341,7 +11341,7 @@ var render = function render() {
     }
   }), _vm._v(" "), _vm.errores.hematocrito ? _c("span", {
     staticClass: "text-danger"
-  }, [_vm._v(_vm._s(_vm.errores.hematocrito[0]))]) : _vm._e()]), _vm._v(" "), _c("td", [_vm._v("\n                            " + _vm._s(_vm.hemograma.animal === "perro" ? "37-55" : "30-45") + "\n                        ")])]), _vm._v(" "), _c("tr", [_c("td", [_vm._v("Hemoglobina (g/dl):")]), _vm._v(" "), _c("td", [_c("input", {
+  }, [_vm._v(_vm._s(_vm.errores.hematocrito[0]))]) : _vm._e()]), _vm._v(" "), _c("td", [_vm._v("\n                            " + _vm._s(_vm.hemograma.animal === "perro" ? "37-55" : "30-45") + " (%)\n                        ")])]), _vm._v(" "), _c("tr", [_c("td", [_vm._v("Hemoglobina:")]), _vm._v(" "), _c("td", [_c("input", {
     directives: [{
       name: "model",
       rawName: "v-model",
@@ -11364,7 +11364,7 @@ var render = function render() {
     }
   }), _vm._v(" "), _vm.errores.hemoglobina ? _c("span", {
     staticClass: "text-danger"
-  }, [_vm._v(_vm._s(_vm.errores.hemoglobina[0]))]) : _vm._e()]), _vm._v(" "), _c("td", [_vm._v("\n                            " + _vm._s(_vm.hemograma.animal === "perro" ? "12-18" : "8-15") + "\n                        ")])]), _vm._v(" "), _c("tr", [_c("td", [_vm._v("Recuento G. rojos (millones/µl):")]), _vm._v(" "), _c("td", [_c("input", {
+  }, [_vm._v(_vm._s(_vm.errores.hemoglobina[0]))]) : _vm._e()]), _vm._v(" "), _c("td", [_vm._v("\n                            " + _vm._s(_vm.hemograma.animal === "perro" ? "12-18" : "8-15") + " (g/dl)\n                        ")])]), _vm._v(" "), _c("tr", [_c("td", [_vm._v("Recuento G. rojos:")]), _vm._v(" "), _c("td", [_c("input", {
     directives: [{
       name: "model",
       rawName: "v-model",
@@ -11387,7 +11387,7 @@ var render = function render() {
     }
   }), _vm._v(" "), _vm.errores.g_rojo ? _c("span", {
     staticClass: "text-danger"
-  }, [_vm._v(_vm._s(_vm.errores.g_rojo[0]))]) : _vm._e()]), _vm._v(" "), _c("td", [_vm._v("\n                            " + _vm._s(_vm.hemograma.animal === "perro" ? "5,5-8,5" : "5-10") + "\n                        ")])]), _vm._v(" "), _c("tr", [_c("td", [_vm._v("VCM (fL):")]), _vm._v(" "), _c("td", [_c("input", {
+  }, [_vm._v(_vm._s(_vm.errores.g_rojo[0]))]) : _vm._e()]), _vm._v(" "), _c("td", [_vm._v("\n                            " + _vm._s(_vm.hemograma.animal === "perro" ? "5,5-8,5" : "5-10") + " (millones/µl)\n                        ")])]), _vm._v(" "), _c("tr", [_c("td", [_vm._v("VCM:")]), _vm._v(" "), _c("td", [_c("input", {
     directives: [{
       name: "model",
       rawName: "v-model",
@@ -11410,7 +11410,7 @@ var render = function render() {
     }
   }), _vm._v(" "), _vm.errores.vcm ? _c("span", {
     staticClass: "text-danger"
-  }, [_vm._v(_vm._s(_vm.errores.vcm[0]))]) : _vm._e()]), _vm._v(" "), _c("td", [_vm._v("\n                            " + _vm._s(_vm.hemograma.animal === "perro" ? "60-77" : "39-55") + "\n                        ")])]), _vm._v(" "), _c("tr", [_c("td", [_vm._v("HCM (pg):")]), _vm._v(" "), _c("td", [_c("input", {
+  }, [_vm._v(_vm._s(_vm.errores.vcm[0]))]) : _vm._e()]), _vm._v(" "), _c("td", [_vm._v("\n                            " + _vm._s(_vm.hemograma.animal === "perro" ? "60-77" : "39-55") + " (fL)\n                        ")])]), _vm._v(" "), _c("tr", [_c("td", [_vm._v("HCM:")]), _vm._v(" "), _c("td", [_c("input", {
     directives: [{
       name: "model",
       rawName: "v-model",
@@ -11433,7 +11433,7 @@ var render = function render() {
     }
   }), _vm._v(" "), _vm.errores.hcm ? _c("span", {
     staticClass: "text-danger"
-  }, [_vm._v(_vm._s(_vm.errores.hcm[0]))]) : _vm._e()]), _vm._v(" "), _c("td", [_vm._v("\n                            " + _vm._s(_vm.hemograma.animal === "perro" ? "19,5-24,5" : "12,5-17,5") + "\n                        ")])]), _vm._v(" "), _c("tr", [_c("td", [_vm._v("CHCM (g/dl):")]), _vm._v(" "), _c("td", [_c("input", {
+  }, [_vm._v(_vm._s(_vm.errores.hcm[0]))]) : _vm._e()]), _vm._v(" "), _c("td", [_vm._v("\n                            " + _vm._s(_vm.hemograma.animal === "perro" ? "19,5-24,5" : "12,5-17,5") + " (pg)\n                        ")])]), _vm._v(" "), _c("tr", [_c("td", [_vm._v("CHCM:")]), _vm._v(" "), _c("td", [_c("input", {
     directives: [{
       name: "model",
       rawName: "v-model",
@@ -11456,7 +11456,7 @@ var render = function render() {
     }
   }), _vm._v(" "), _vm.errores.chcm ? _c("span", {
     staticClass: "text-danger"
-  }, [_vm._v(_vm._s(_vm.errores.chcm[0]))]) : _vm._e()]), _vm._v(" "), _c("td", [_vm._v("\n                            " + _vm._s(_vm.hemograma.animal === "perro" ? "32-36" : "30-36") + "\n                        ")])]), _vm._v(" "), _c("tr", [_c("td", [_vm._v("Reticulocitos (%):")]), _vm._v(" "), _c("td", [_c("input", {
+  }, [_vm._v(_vm._s(_vm.errores.chcm[0]))]) : _vm._e()]), _vm._v(" "), _c("td", [_vm._v("\n                            " + _vm._s(_vm.hemograma.animal === "perro" ? "32-36" : "30-36") + " (g/dl)\n                        ")])]), _vm._v(" "), _c("tr", [_c("td", [_vm._v("Reticulocitos:")]), _vm._v(" "), _c("td", [_c("input", {
     directives: [{
       name: "model",
       rawName: "v-model",
@@ -11479,7 +11479,7 @@ var render = function render() {
     }
   }), _vm._v(" "), _vm.errores.reticulocitos ? _c("span", {
     staticClass: "text-danger"
-  }, [_vm._v(_vm._s(_vm.errores.reticulocitos[0]))]) : _vm._e()]), _vm._v(" "), _c("td", [_vm._v("\n                            " + _vm._s(_vm.hemograma.animal === "perro" ? "hasta 1" : "hasta 1,5") + "\n                        ")])]), _vm._v(" "), _c("tr", [_c("td", [_vm._v("Leucocitos (/μl):")]), _vm._v(" "), _c("td", [_c("input", {
+  }, [_vm._v(_vm._s(_vm.errores.reticulocitos[0]))]) : _vm._e()]), _vm._v(" "), _c("td", [_vm._v("\n                            " + _vm._s(_vm.hemograma.animal === "perro" ? "hasta 1" : "hasta 1,5") + " (%)\n                        ")])]), _vm._v(" "), _c("tr", [_c("td", [_vm._v("Leucocitos:")]), _vm._v(" "), _c("td", [_c("input", {
     directives: [{
       name: "model",
       rawName: "v-model",
@@ -11502,7 +11502,7 @@ var render = function render() {
     }
   }), _vm._v(" "), _vm.errores.leucocitos ? _c("span", {
     staticClass: "text-danger"
-  }, [_vm._v(_vm._s(_vm.errores.leucocitos[0]))]) : _vm._e()]), _vm._v(" "), _c("td", [_vm._v("\n                            " + _vm._s(_vm.hemograma.animal === "perro" ? "6000-18000" : "5500-19500") + "\n                        ")])]), _vm._v(" "), _c("tr", [_c("td", [_vm._v("Eosinófilos (/μl):")]), _vm._v(" "), _c("td", [_c("input", {
+  }, [_vm._v(_vm._s(_vm.errores.leucocitos[0]))]) : _vm._e()]), _vm._v(" "), _c("td", [_vm._v("\n                            " + _vm._s(_vm.hemograma.animal === "perro" ? "6000-18000" : "5500-19500") + " (/μl)\n                        ")])]), _vm._v(" "), _c("tr", [_c("td", [_vm._v("Eosinófilos:")]), _vm._v(" "), _c("td", [_c("input", {
     directives: [{
       name: "model",
       rawName: "v-model",
@@ -11525,7 +11525,7 @@ var render = function render() {
     }
   }), _vm._v(" "), _vm.errores.eosinofilos ? _c("span", {
     staticClass: "text-danger"
-  }, [_vm._v(_vm._s(_vm.errores.eosinofilos[0]))]) : _vm._e()]), _vm._v(" "), _c("td", [_vm._v("\n                            " + _vm._s(_vm.hemograma.animal === "perro" ? "100-1250" : "0-1500") + "\n                        ")])]), _vm._v(" "), _c("tr", [_c("td", [_vm._v("Linfocitos (/μl):")]), _vm._v(" "), _c("td", [_c("input", {
+  }, [_vm._v(_vm._s(_vm.errores.eosinofilos[0]))]) : _vm._e()]), _vm._v(" "), _c("td", [_vm._v("\n                            " + _vm._s(_vm.hemograma.animal === "perro" ? "100-1250" : "0-1500") + " (/μl)\n                        ")])]), _vm._v(" "), _c("tr", [_c("td", [_vm._v("Linfocitos:")]), _vm._v(" "), _c("td", [_c("input", {
     directives: [{
       name: "model",
       rawName: "v-model",
@@ -11548,7 +11548,7 @@ var render = function render() {
     }
   }), _vm._v(" "), _vm.errores.linfocitos ? _c("span", {
     staticClass: "text-danger"
-  }, [_vm._v(_vm._s(_vm.errores.linfocitos[0]))]) : _vm._e()]), _vm._v(" "), _c("td", [_vm._v("\n                            " + _vm._s(_vm.hemograma.animal === "perro" ? "1000-4800" : "1500-7000") + "\n                        ")])]), _vm._v(" "), _c("tr", [_c("td", [_vm._v("Monocitos (/μl):")]), _vm._v(" "), _c("td", [_c("input", {
+  }, [_vm._v(_vm._s(_vm.errores.linfocitos[0]))]) : _vm._e()]), _vm._v(" "), _c("td", [_vm._v("\n                            " + _vm._s(_vm.hemograma.animal === "perro" ? "1000-4800" : "1500-7000") + " (/μl)\n                        ")])]), _vm._v(" "), _c("tr", [_c("td", [_vm._v("Monocitos:")]), _vm._v(" "), _c("td", [_c("input", {
     directives: [{
       name: "model",
       rawName: "v-model",
@@ -11571,7 +11571,7 @@ var render = function render() {
     }
   }), _vm._v(" "), _vm.errores.monocitos ? _c("span", {
     staticClass: "text-danger"
-  }, [_vm._v(_vm._s(_vm.errores.monocitos[0]))]) : _vm._e()]), _vm._v(" "), _c("td", [_vm._v("\n                            " + _vm._s(_vm.hemograma.animal === "perro" ? "150-1350" : "0-850") + "\n                        ")])]), _vm._v(" "), _c("tr", [_c("td", [_vm._v("Plaquetas (miles/μl):")]), _vm._v(" "), _c("td", [_c("input", {
+  }, [_vm._v(_vm._s(_vm.errores.monocitos[0]))]) : _vm._e()]), _vm._v(" "), _c("td", [_vm._v("\n                            " + _vm._s(_vm.hemograma.animal === "perro" ? "150-1350" : "0-850") + " (/μl)\n                        ")])]), _vm._v(" "), _c("tr", [_c("td", [_vm._v("Plaquetas:")]), _vm._v(" "), _c("td", [_c("input", {
     directives: [{
       name: "model",
       rawName: "v-model",
@@ -11594,7 +11594,7 @@ var render = function render() {
     }
   }), _vm._v(" "), _vm.errores.plaquetas ? _c("span", {
     staticClass: "text-danger"
-  }, [_vm._v(_vm._s(_vm.errores.plaquetas[0]))]) : _vm._e()]), _vm._v(" "), _c("td", [_vm._v("\n                            " + _vm._s(_vm.hemograma.animal === "perro" ? "150-500" : "300-700") + "\n                        ")])])])]), _vm._v(" "), _c("div", {
+  }, [_vm._v(_vm._s(_vm.errores.plaquetas[0]))]) : _vm._e()]), _vm._v(" "), _c("td", [_vm._v("\n                            " + _vm._s(_vm.hemograma.animal === "perro" ? "150-500" : "300-700") + " (miles/μl)\n                        ")])])])]), _vm._v(" "), _c("div", {
     staticClass: "btn-group w-100",
     attrs: {
       role: "group",
@@ -14262,7 +14262,7 @@ var render = function render() {
     day: "2-digit",
     month: "2-digit",
     year: "numeric"
-  })))])])]), _vm._v(" "), _vm._m(1)]), _vm._v(" "), _c("tbody", [_c("tr", [_c("td", [_vm._v("Hematocrito (%):")]), _vm._v(" "), _c("td", [_c("input", {
+  })))])])]), _vm._v(" "), _vm._m(1)]), _vm._v(" "), _c("tbody", [_c("tr", [_c("td", [_vm._v("Hematocrito:")]), _vm._v(" "), _c("td", [_c("input", {
     directives: [{
       name: "model",
       rawName: "v-model",
@@ -14285,7 +14285,7 @@ var render = function render() {
     }
   }), _vm._v(" "), _vm.errores.hematocrito ? _c("span", {
     staticClass: "text-danger"
-  }, [_vm._v(_vm._s(_vm.errores.hematocrito[0]))]) : _vm._e()]), _vm._v(" "), _c("td", [_vm._v("\n                            " + _vm._s(_vm.hemograma.animal === "perro" ? "37-55" : "30-45") + "\n                        ")])]), _vm._v(" "), _c("tr", [_c("td", [_vm._v("Hemoglobina (g/dl):")]), _vm._v(" "), _c("td", [_c("input", {
+  }, [_vm._v(_vm._s(_vm.errores.hematocrito[0]))]) : _vm._e()]), _vm._v(" "), _c("td", [_vm._v("\n                            " + _vm._s(_vm.hemograma.animal === "perro" ? "37-55" : "30-45") + " (%)\n                        ")])]), _vm._v(" "), _c("tr", [_c("td", [_vm._v("Hemoglobina:")]), _vm._v(" "), _c("td", [_c("input", {
     directives: [{
       name: "model",
       rawName: "v-model",
@@ -14308,7 +14308,7 @@ var render = function render() {
     }
   }), _vm._v(" "), _vm.errores.hemoglobina ? _c("span", {
     staticClass: "text-danger"
-  }, [_vm._v(_vm._s(_vm.errores.hemoglobina[0]))]) : _vm._e()]), _vm._v(" "), _c("td", [_vm._v("\n                            " + _vm._s(_vm.hemograma.animal === "perro" ? "12-18" : "8-15") + "\n                        ")])]), _vm._v(" "), _c("tr", [_c("td", [_vm._v("Recuento G. rojos (millones/µl):")]), _vm._v(" "), _c("td", [_c("input", {
+  }, [_vm._v(_vm._s(_vm.errores.hemoglobina[0]))]) : _vm._e()]), _vm._v(" "), _c("td", [_vm._v("\n                            " + _vm._s(_vm.hemograma.animal === "perro" ? "12-18" : "8-15") + " (g/dl)\n                        ")])]), _vm._v(" "), _c("tr", [_c("td", [_vm._v("Recuento G. rojos:")]), _vm._v(" "), _c("td", [_c("input", {
     directives: [{
       name: "model",
       rawName: "v-model",
@@ -14331,7 +14331,7 @@ var render = function render() {
     }
   }), _vm._v(" "), _vm.errores.g_rojo ? _c("span", {
     staticClass: "text-danger"
-  }, [_vm._v(_vm._s(_vm.errores.g_rojo[0]))]) : _vm._e()]), _vm._v(" "), _c("td", [_vm._v("\n                            " + _vm._s(_vm.hemograma.animal === "perro" ? "5,5-8,5" : "5-10") + "\n                        ")])]), _vm._v(" "), _c("tr", [_c("td", [_vm._v("VCM (fL):")]), _vm._v(" "), _c("td", [_c("input", {
+  }, [_vm._v(_vm._s(_vm.errores.g_rojo[0]))]) : _vm._e()]), _vm._v(" "), _c("td", [_vm._v("\n                            " + _vm._s(_vm.hemograma.animal === "perro" ? "5,5-8,5" : "5-10") + " (millones/µl)\n                        ")])]), _vm._v(" "), _c("tr", [_c("td", [_vm._v("VCM:")]), _vm._v(" "), _c("td", [_c("input", {
     directives: [{
       name: "model",
       rawName: "v-model",
@@ -14354,7 +14354,7 @@ var render = function render() {
     }
   }), _vm._v(" "), _vm.errores.vcm ? _c("span", {
     staticClass: "text-danger"
-  }, [_vm._v(_vm._s(_vm.errores.vcm[0]))]) : _vm._e()]), _vm._v(" "), _c("td", [_vm._v("\n                            " + _vm._s(_vm.hemograma.animal === "perro" ? "60-77" : "39-55") + "\n                        ")])]), _vm._v(" "), _c("tr", [_c("td", [_vm._v("HCM (pg):")]), _vm._v(" "), _c("td", [_c("input", {
+  }, [_vm._v(_vm._s(_vm.errores.vcm[0]))]) : _vm._e()]), _vm._v(" "), _c("td", [_vm._v("\n                            " + _vm._s(_vm.hemograma.animal === "perro" ? "60-77" : "39-55") + " (fL)\n                        ")])]), _vm._v(" "), _c("tr", [_c("td", [_vm._v("HCM:")]), _vm._v(" "), _c("td", [_c("input", {
     directives: [{
       name: "model",
       rawName: "v-model",
@@ -14377,7 +14377,7 @@ var render = function render() {
     }
   }), _vm._v(" "), _vm.errores.hcm ? _c("span", {
     staticClass: "text-danger"
-  }, [_vm._v(_vm._s(_vm.errores.hcm[0]))]) : _vm._e()]), _vm._v(" "), _c("td", [_vm._v("\n                            " + _vm._s(_vm.hemograma.animal === "perro" ? "19,5-24,5" : "12,5-17,5") + "\n                        ")])]), _vm._v(" "), _c("tr", [_c("td", [_vm._v("CHCM (g/dl):")]), _vm._v(" "), _c("td", [_c("input", {
+  }, [_vm._v(_vm._s(_vm.errores.hcm[0]))]) : _vm._e()]), _vm._v(" "), _c("td", [_vm._v("\n                            " + _vm._s(_vm.hemograma.animal === "perro" ? "19,5-24,5" : "12,5-17,5") + " (pg)\n                        ")])]), _vm._v(" "), _c("tr", [_c("td", [_vm._v("CHCM:")]), _vm._v(" "), _c("td", [_c("input", {
     directives: [{
       name: "model",
       rawName: "v-model",
@@ -14400,7 +14400,7 @@ var render = function render() {
     }
   }), _vm._v(" "), _vm.errores.chcm ? _c("span", {
     staticClass: "text-danger"
-  }, [_vm._v(_vm._s(_vm.errores.chcm[0]))]) : _vm._e()]), _vm._v(" "), _c("td", [_vm._v("\n                            " + _vm._s(_vm.hemograma.animal === "perro" ? "32-36" : "30-36") + "\n                        ")])]), _vm._v(" "), _c("tr", [_c("td", [_vm._v("Reticulocitos (%):")]), _vm._v(" "), _c("td", [_c("input", {
+  }, [_vm._v(_vm._s(_vm.errores.chcm[0]))]) : _vm._e()]), _vm._v(" "), _c("td", [_vm._v("\n                            " + _vm._s(_vm.hemograma.animal === "perro" ? "32-36" : "30-36") + " (g/dl)\n                        ")])]), _vm._v(" "), _c("tr", [_c("td", [_vm._v("Reticulocitos:")]), _vm._v(" "), _c("td", [_c("input", {
     directives: [{
       name: "model",
       rawName: "v-model",
@@ -14423,7 +14423,7 @@ var render = function render() {
     }
   }), _vm._v(" "), _vm.errores.reticulocitos ? _c("span", {
     staticClass: "text-danger"
-  }, [_vm._v(_vm._s(_vm.errores.reticulocitos[0]))]) : _vm._e()]), _vm._v(" "), _c("td", [_vm._v("\n                            " + _vm._s(_vm.hemograma.animal === "perro" ? "hasta 1" : "hasta 1,5") + "\n                        ")])]), _vm._v(" "), _c("tr", [_c("td", [_vm._v("Leucocitos (/μl):")]), _vm._v(" "), _c("td", [_c("input", {
+  }, [_vm._v(_vm._s(_vm.errores.reticulocitos[0]))]) : _vm._e()]), _vm._v(" "), _c("td", [_vm._v("\n                            " + _vm._s(_vm.hemograma.animal === "perro" ? "hasta 1" : "hasta 1,5") + " (%)\n                        ")])]), _vm._v(" "), _c("tr", [_c("td", [_vm._v("Leucocitos:")]), _vm._v(" "), _c("td", [_c("input", {
     directives: [{
       name: "model",
       rawName: "v-model",
@@ -14446,7 +14446,7 @@ var render = function render() {
     }
   }), _vm._v(" "), _vm.errores.leucocitos ? _c("span", {
     staticClass: "text-danger"
-  }, [_vm._v(_vm._s(_vm.errores.leucocitos[0]))]) : _vm._e()]), _vm._v(" "), _c("td", [_vm._v("\n                            " + _vm._s(_vm.hemograma.animal === "perro" ? "6000-18000" : "5500-19500") + "\n                        ")])]), _vm._v(" "), _c("tr", [_c("td", [_vm._v("Eosinófilos (/μl):")]), _vm._v(" "), _c("td", [_c("input", {
+  }, [_vm._v(_vm._s(_vm.errores.leucocitos[0]))]) : _vm._e()]), _vm._v(" "), _c("td", [_vm._v("\n                            " + _vm._s(_vm.hemograma.animal === "perro" ? "6000-18000" : "5500-19500") + " (/μl)\n                        ")])]), _vm._v(" "), _c("tr", [_c("td", [_vm._v("Eosinófilos:")]), _vm._v(" "), _c("td", [_c("input", {
     directives: [{
       name: "model",
       rawName: "v-model",
@@ -14469,7 +14469,7 @@ var render = function render() {
     }
   }), _vm._v(" "), _vm.errores.eosinofilos ? _c("span", {
     staticClass: "text-danger"
-  }, [_vm._v(_vm._s(_vm.errores.eosinofilos[0]))]) : _vm._e()]), _vm._v(" "), _c("td", [_vm._v("\n                            " + _vm._s(_vm.hemograma.animal === "perro" ? "100-1250" : "0-1500") + "\n                        ")])]), _vm._v(" "), _c("tr", [_c("td", [_vm._v("Linfocitos (/μl):")]), _vm._v(" "), _c("td", [_c("input", {
+  }, [_vm._v(_vm._s(_vm.errores.eosinofilos[0]))]) : _vm._e()]), _vm._v(" "), _c("td", [_vm._v("\n                            " + _vm._s(_vm.hemograma.animal === "perro" ? "100-1250" : "0-1500") + " (/μl)\n                        ")])]), _vm._v(" "), _c("tr", [_c("td", [_vm._v("Linfocitos:")]), _vm._v(" "), _c("td", [_c("input", {
     directives: [{
       name: "model",
       rawName: "v-model",
@@ -14492,7 +14492,7 @@ var render = function render() {
     }
   }), _vm._v(" "), _vm.errores.linfocitos ? _c("span", {
     staticClass: "text-danger"
-  }, [_vm._v(_vm._s(_vm.errores.linfocitos[0]))]) : _vm._e()]), _vm._v(" "), _c("td", [_vm._v("\n                            " + _vm._s(_vm.hemograma.animal === "perro" ? "1000-4800" : "1500-7000") + "\n                        ")])]), _vm._v(" "), _c("tr", [_c("td", [_vm._v("Monocitos (/μl):")]), _vm._v(" "), _c("td", [_c("input", {
+  }, [_vm._v(_vm._s(_vm.errores.linfocitos[0]))]) : _vm._e()]), _vm._v(" "), _c("td", [_vm._v("\n                            " + _vm._s(_vm.hemograma.animal === "perro" ? "1000-4800" : "1500-7000") + " (/μl)\n                        ")])]), _vm._v(" "), _c("tr", [_c("td", [_vm._v("Monocitos:")]), _vm._v(" "), _c("td", [_c("input", {
     directives: [{
       name: "model",
       rawName: "v-model",
@@ -14515,7 +14515,7 @@ var render = function render() {
     }
   }), _vm._v(" "), _vm.errores.monocitos ? _c("span", {
     staticClass: "text-danger"
-  }, [_vm._v(_vm._s(_vm.errores.monocitos[0]))]) : _vm._e()]), _vm._v(" "), _c("td", [_vm._v("\n                            " + _vm._s(_vm.hemograma.animal === "perro" ? "150-1350" : "0-850") + "\n                        ")])]), _vm._v(" "), _c("tr", [_c("td", [_vm._v("Plaquetas (miles/μl):")]), _vm._v(" "), _c("td", [_c("input", {
+  }, [_vm._v(_vm._s(_vm.errores.monocitos[0]))]) : _vm._e()]), _vm._v(" "), _c("td", [_vm._v("\n                            " + _vm._s(_vm.hemograma.animal === "perro" ? "150-1350" : "0-850") + " (/μl)\n                        ")])]), _vm._v(" "), _c("tr", [_c("td", [_vm._v("Plaquetas:")]), _vm._v(" "), _c("td", [_c("input", {
     directives: [{
       name: "model",
       rawName: "v-model",
@@ -14538,7 +14538,7 @@ var render = function render() {
     }
   }), _vm._v(" "), _vm.errores.plaquetas ? _c("span", {
     staticClass: "text-danger"
-  }, [_vm._v(_vm._s(_vm.errores.plaquetas[0]))]) : _vm._e()]), _vm._v(" "), _c("td", [_vm._v("\n                            " + _vm._s(_vm.hemograma.animal === "perro" ? "150-500" : "300-700") + "\n                        ")])])])]), _vm._v(" "), _c("div", {
+  }, [_vm._v(_vm._s(_vm.errores.plaquetas[0]))]) : _vm._e()]), _vm._v(" "), _c("td", [_vm._v("\n                            " + _vm._s(_vm.hemograma.animal === "perro" ? "150-500" : "300-700") + " (miles/μl)\n                        ")])])])]), _vm._v(" "), _c("div", {
     staticClass: "btn-group w-100",
     attrs: {
       role: "group",

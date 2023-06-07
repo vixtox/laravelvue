@@ -40,124 +40,124 @@
                     </thead>
                     <tbody>
                         <tr>
-                            <td>Hematocrito (%):</td>
+                            <td>Hematocrito:</td>
                             <td>
                                 <input type="number" step="0.01" class="form-control" v-model="hemograma.hematocrito" />
                                 <span v-if="errores.hematocrito" class="text-danger">{{ errores.hematocrito[0] }}</span>
                             </td>
                             <td>
-                                {{ hemograma.animal === "perro" ? '37-55' : '30-45' }}
+                                {{ hemograma.animal === "perro" ? '37-55' : '30-45' }} (%)
                             </td>
 
                         </tr>
                         <tr>
-                            <td>Hemoglobina (g/dl):</td>
+                            <td>Hemoglobina:</td>
                             <td>
                                 <input type="number" step="0.01" class="form-control" v-model="hemograma.hemoglobina" />
                                 <span v-if="errores.hemoglobina" class="text-danger">{{ errores.hemoglobina[0] }}</span>
                             </td>
                             <td>
-                                {{ hemograma.animal === "perro" ? '12-18' : '8-15' }}
+                                {{ hemograma.animal === "perro" ? '12-18' : '8-15' }} (g/dl)
                             </td>
                         </tr>
                         <tr>
-                            <td>Recuento G. rojos (millones/µl):</td>
+                            <td>Recuento G. rojos:</td>
                             <td>
                                 <input type="number" step="0.01" class="form-control" v-model="hemograma.g_rojo" />
                                 <span v-if="errores.g_rojo" class="text-danger">{{ errores.g_rojo[0] }}</span>
                             </td>
                             <td>
-                                {{ hemograma.animal === "perro" ? '5,5-8,5' : '5-10' }}
+                                {{ hemograma.animal === "perro" ? '5,5-8,5' : '5-10' }} (millones/µl)
                             </td>
                         </tr>
                         <tr>
-                            <td>VCM (fL):</td>
+                            <td>VCM:</td>
                             <td>
                                 <input type="number" step="0.01" class="form-control" v-model="hemograma.vcm" />
                                 <span v-if="errores.vcm" class="text-danger">{{ errores.vcm[0] }}</span>
                             </td>
                             <td>
-                                {{ hemograma.animal === "perro" ? '60-77' : '39-55' }}
+                                {{ hemograma.animal === "perro" ? '60-77' : '39-55' }} (fL)
                             </td>
                         </tr>
                         <tr>
-                            <td>HCM (pg):</td>
+                            <td>HCM:</td>
                             <td>
                                 <input type="number" step="0.01" class="form-control" v-model="hemograma.hcm" />
                                 <span v-if="errores.hcm" class="text-danger">{{ errores.hcm[0] }}</span>
                             </td>
                             <td>
-                                {{ hemograma.animal === "perro" ? '19,5-24,5' : '12,5-17,5' }}
+                                {{ hemograma.animal === "perro" ? '19,5-24,5' : '12,5-17,5' }} (pg)
                             </td>
                         </tr>
                         <tr>
-                            <td>CHCM (g/dl):</td>
+                            <td>CHCM:</td>
                             <td>
                                 <input type="number" step="0.01" class="form-control" v-model="hemograma.chcm" />
                                 <span v-if="errores.chcm" class="text-danger">{{ errores.chcm[0] }}</span>
                             </td>
                             <td>
-                                {{ hemograma.animal === "perro" ? '32-36' : '30-36' }}
+                                {{ hemograma.animal === "perro" ? '32-36' : '30-36' }} (g/dl)
                             </td>
                         </tr>
                         <tr>
-                            <td>Reticulocitos (%):</td>
+                            <td>Reticulocitos:</td>
                             <td>
                                 <input type="number" step="0.01" class="form-control" v-model="hemograma.reticulocitos" />
                                 <span v-if="errores.reticulocitos" class="text-danger">{{ errores.reticulocitos[0] }}</span>
                             </td>
                             <td>
-                                {{ hemograma.animal === "perro" ? 'hasta 1' : 'hasta 1,5' }}
+                                {{ hemograma.animal === "perro" ? 'hasta 1' : 'hasta 1,5' }} (%)
                             </td>
                         </tr>
                         <tr>
-                            <td>Leucocitos (/μl):</td>
+                            <td>Leucocitos:</td>
                             <td>
                                 <input type="number" step="0.01" class="form-control" v-model="hemograma.leucocitos" />
                                 <span v-if="errores.leucocitos" class="text-danger">{{ errores.leucocitos[0] }}</span>
                             </td>
                             <td>
-                                {{ hemograma.animal === "perro" ? '6000-18000' : '5500-19500' }}
+                                {{ hemograma.animal === "perro" ? '6000-18000' : '5500-19500' }} (/μl)
                             </td>
                         </tr>
                         <tr>
-                            <td>Eosinófilos (/μl):</td>
+                            <td>Eosinófilos:</td>
                             <td>
                                 <input type="number" step="0.01" class="form-control" v-model="hemograma.eosinofilos" />
                                 <span v-if="errores.eosinofilos" class="text-danger">{{ errores.eosinofilos[0] }}</span>
                             </td>
                             <td>
-                                {{ hemograma.animal === "perro" ? '100-1250' : '0-1500' }}
+                                {{ hemograma.animal === "perro" ? '100-1250' : '0-1500' }} (/μl)
                             </td>
                         </tr>
                         <tr>
-                            <td>Linfocitos (/μl):</td>
+                            <td>Linfocitos:</td>
                             <td>
                                 <input type="number" step="0.01" class="form-control" v-model="hemograma.linfocitos" />
                                 <span v-if="errores.linfocitos" class="text-danger">{{ errores.linfocitos[0] }}</span>
                             </td>
                             <td>
-                                {{ hemograma.animal === "perro" ? '1000-4800' : '1500-7000' }}
+                                {{ hemograma.animal === "perro" ? '1000-4800' : '1500-7000' }} (/μl)
                             </td>
                         </tr>
                         <tr>
-                            <td>Monocitos (/μl):</td>
+                            <td>Monocitos:</td>
                             <td>
                                 <input type="number" step="0.01" class="form-control" v-model="hemograma.monocitos" />
                                 <span v-if="errores.monocitos" class="text-danger">{{ errores.monocitos[0] }}</span>
                             </td>
                             <td>
-                                {{ hemograma.animal === "perro" ? '150-1350' : '0-850' }}
+                                {{ hemograma.animal === "perro" ? '150-1350' : '0-850' }} (/μl)
                             </td>
                         </tr>
                         <tr>
-                            <td>Plaquetas (miles/μl):</td>
+                            <td>Plaquetas:</td>
                             <td>
                                 <input type="number" step="0.01" class="form-control" v-model="hemograma.plaquetas" />
                                 <span v-if="errores.plaquetas" class="text-danger">{{ errores.plaquetas[0] }}</span>
                             </td>
                             <td>
-                                {{ hemograma.animal === "perro" ? '150-500' : '300-700' }}
+                                {{ hemograma.animal === "perro" ? '150-500' : '300-700' }} (miles/μl)
                             </td>
                         </tr>
                     </tbody>
