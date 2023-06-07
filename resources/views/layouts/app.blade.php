@@ -76,11 +76,13 @@
             text-align: center;
         }
 
-        @media (max-width: 700px) {
-        .iconos {
-            display: none;
+        .m_izq {
+            margin-left: 35%;
         }
-    }
+
+        .m_der {
+            margin-right: 35%;
+        }
     </style>
 
     <title>@yield('title')</title>

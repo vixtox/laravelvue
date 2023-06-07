@@ -14,7 +14,8 @@
                         <div class="row">
                             <!-- Campos de datos personales aquí -->
                             <div class="col-md-6 col-sm-6">
-                                <label for="nombre_apellidos"><b><span class="text-danger">* </span>Nombre completo:</b></label>
+                                <label for="nombre_apellidos"><b><span class="text-danger">* </span>Nombre
+                                        completo:</b></label>
                                 <input type="text" class="form-control" name="nombre_apellidos"
                                     v-model="empleado.nombre_apellidos" id="nombre_apellidos" aria-describedby="helpId"
                                     placeholder="Nombre completo">
@@ -119,7 +120,8 @@
                         <div class="row">
                             <!-- Campos de datos laborales aquí -->
                             <div class="col-md-3 col-sm-6">
-                                <label for="fecha_contratacion"><b><span class="text-danger">* </span>Fecha contratación:</b></label>
+                                <label for="fecha_contratacion"><b><span class="text-danger">* </span>Fecha
+                                        contratación:</b></label>
                                 <input type="date" class="form-control" name="fecha_contratacion" :max="maxDate"
                                     v-model="empleado.fecha_contratacion" id="fecha_contratacion" aria-describedby="helpId">
                                 <div class="alert alert-danger" v-if="errores.fecha_contratacion">{{
@@ -147,17 +149,17 @@
                         </div>
                     </div>
                 </div>
+                <div class="card-body">
+                    <div class="btn-group w-100" role="group" aria-label="">
+                        <button type="submit" class="btn btn-success  m_izq" title="Alta empleado">
+                            <i class="fa-solid fa-user-plus"></i>
+                        </button>
 
-                <div class="btn-group w-100" role="group" aria-label="">
-                    <button type="submit" class="btn btn-success" title="Alta empleado">
-                        <i class="fa-solid fa-user-plus"></i> Alta empleado
-                    </button>
-
-                    <router-link :to="{ name: 'ListarEmpleados' }" class="btn btn-warning" title="Volver">
-                        <i class="bi bi-arrow-return-left fw-bold"></i>
-                    </router-link>
+                        <router-link :to="{ name: 'ListarEmpleados' }" class="btn btn-warning  m_der" title="Volver">
+                            <i class="bi bi-arrow-return-left fw-bold"></i>
+                        </router-link>
+                    </div>
                 </div>
-
             </form>
         </div>
 

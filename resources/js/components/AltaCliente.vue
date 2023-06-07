@@ -14,7 +14,8 @@
                         <div class="row">
                             <!-- Campos de datos personales aquí -->
                             <div class="col-md-6 col-sm-6">
-                                <label for="nombre_apellidos"><b><span class="text-danger">* </span>Nombre completo:</b></label>
+                                <label for="nombre_apellidos"><b><span class="text-danger">* </span>Nombre
+                                        completo:</b></label>
                                 <input type="text" class="form-control" name="nombre_apellidos"
                                     v-model="cliente.nombre_apellidos" id="nombre_apellidos" aria-describedby="helpId"
                                     placeholder="Nombre completo">
@@ -109,17 +110,17 @@
                         </div>
                     </div>
                 </div>
-
+                <br>
                 <div class="btn-group w-100" role="group" aria-label="">
-                    <button type="submit" class="btn btn-success" title="Alta cliente">
-                        <i class="fa-solid fa-user-plus" style="color: #ffffff;"></i> Alta cliente
+                    <button type="submit" class="btn btn-success m_izq" title="Alta cliente">
+                        <i class="fa-solid fa-user-plus" style="color: #ffffff;"></i>
                     </button>
 
-                    <router-link :to="{ name: 'ListarClientes' }" class="btn btn-warning" title="Volver">
+                    <router-link :to="{ name: 'ListarClientes' }" class="btn btn-warning m_der" title="Volver">
                         <i class="bi bi-arrow-return-left fw-bold"></i>
                     </router-link>
                 </div>
-
+                <br><br>
             </form>
         </div>
 

@@ -7,9 +7,12 @@
             </div>
             <form v-on:submit.prevent="editarVisita">
                 <div class="card">
-                    <div class="btn-group w-100" role="group" aria-label="">
-                        <router-link :to="{ name: 'NuevaVisita' }" class="btn btn-success w-100" title="Nueva visita">
-                            <i class="fas fa-calendar-plus"></i> Nueva visita</router-link>
+                    <div class="card-body">
+                        <div class="btn-group w-100" role="group" aria-label="">
+                            <router-link :to="{ name: 'NuevaVisita' }" class="btn btn-success m_izq m_der"
+                                title="Nueva visita">
+                                <i class="fas fa-calendar-plus"></i></router-link>
+                        </div>
                     </div>
                     <div class="card-header">
                         <h5 class="card-title">Datos generales</h5>
@@ -82,61 +85,60 @@
                         </div>
                     </div>
                 </div>
-
-                <div class="btn-group w-100" role="group" aria-label="">
-                    <button type="submit" class="btn btn-success" title="Guardar">
-                        <i class="fa fa-save"></i> Guardar
-                    </button>
-                    <router-link :to="{ name: 'ListarVisitas', params: { id: visita.mascotas_id } }" class="btn btn-warning"
-                        title="Volver">
-                        <i class="bi bi-arrow-return-left fw-bold"></i>
-                    </router-link>
+                <div class="card-body">
+                    <div class="btn-group w-100" role="group" aria-label="">
+                        <button type="submit" class="btn btn-success m_izq" title="Guardar">
+                            <i class="fa fa-save"></i>
+                        </button>
+                        <router-link :to="{ name: 'ListarVisitas', params: { id: visita.mascotas_id } }"
+                            class="btn btn-warning m_der" title="Volver">
+                            <i class="bi bi-arrow-return-left fw-bold"></i>
+                        </router-link>
+                    </div>
                 </div>
-
             </form>
 
-       
         </div>
         <div class="card">
-                    <div class="card-header">
-                        <h5 class="card-title">Consultar/adjuntar pruebas</h5>
+            <div class="card-header">
+                <h5 class="card-title">Consultar/adjuntar pruebas</h5>
+            </div>
+            <div class="card-body">
+                <div class="row">
+                    <div v-if="visita.hemograma_id === null" class="col-md-2">
+                        <router-link :to="{ name: 'NuevoHemograma', params: { id: visita.id } }"
+                            class="btn btn-success w-100" title="Añadir hemograma">
+                            <i class="fas fa-syringe"></i> <i class="fas fa-plus"></i></router-link>
                     </div>
-                    <div class="card-body">
-                        <div class="row">
-                            <div v-if="visita.hemograma_id === null" class="col-md-3">
-                                <router-link :to="{ name: 'NuevoHemograma', params: { id: visita.id } }"
-                                    class="btn btn-success w-100" title="Añadir hemograma">
-                                    <i class="fas fa-syringe"></i> Añadir hemograma</router-link>
-                            </div>
-                            <div v-if="visita.hemograma_id !== null" class="col-md-3">
-                                <router-link :to="{ name: 'FichaHemograma', params: { id: visita.hemograma_id } }"
-                                    class="btn btn-info w-100" title="Ficha hemograma">
-                                    <i class="fas fa-eye"></i> Hemograma</router-link>
-                            </div>
-                            <div v-if="visita.hemograma_id !== null" class="col-md-3">
-                                <button class="btn btn-warning w-100" @click="hemogramaPDF(visita.id)" title="Generar PDF">
-                                    <i class="fa-solid fa-file-pdf"></i> Hemograma
-                                </button>
-                            </div>
-                            <div v-if="visita.bioquimica_id === null" class="col-md-3">
-                                <router-link :to="{ name: 'NuevaBioquimica', params: { id: visita.id } }"
-                                    class="btn btn-success w-100" title="Añadir bioquímica">
-                                    <i class="fas fa-vial"></i> Añadir bioquímica</router-link>
-                            </div>
-                            <div v-if="visita.bioquimica_id !== null" class="col-md-3">
-                                <router-link :to="{ name: 'FichaBioquimica', params: { id: visita.bioquimica_id } }"
-                                    class="btn btn-info w-100" title="Ficha bioquímica">
-                                    <i class="fas fa-eye"></i> Bioquímica</router-link>
-                            </div>
-                            <div v-if="visita.bioquimica_id !== null" class="col-md-3">
-                                <button class="btn btn-warning w-100" @click="bioquimicaPDF(visita.id)" title="Generar PDF">
-                                    <i class="fa-solid fa-file-pdf"></i> Bioquímica
-                                </button>
-                            </div>
-                        </div>
+                    <div v-if="visita.hemograma_id !== null" class="col-md-2">
+                        <router-link :to="{ name: 'FichaHemograma', params: { id: visita.hemograma_id } }"
+                            class="btn btn-info w-100" title="Ver hemograma">
+                            <i class="fas fa-syringe"></i> <i class="fas fa-eye"></i></router-link>
+                    </div>
+                    <div v-if="visita.hemograma_id !== null" class="col-md-2">
+                        <button class="btn btn-warning w-100" @click="hemogramaPDF(visita.id)" title="PDF hemograma">
+                            <i class="fas fa-syringe"></i> <i class="fa-solid fa-file-pdf"></i>
+                        </button>
+                    </div>
+                    <div v-if="visita.bioquimica_id === null" class="col-md-2">
+                        <router-link :to="{ name: 'NuevaBioquimica', params: { id: visita.id } }"
+                            class="btn btn-success w-100" title="Añadir bioquímica">
+                            <i class="fas fa-vial"></i> <i class="fas fa-plus"></i></router-link>
+                    </div>
+                    <div v-if="visita.bioquimica_id !== null" class="col-md-2">
+                        <router-link :to="{ name: 'FichaBioquimica', params: { id: visita.bioquimica_id } }"
+                            class="btn btn-info w-100" title="Ver bioquímica">
+                            <i class="fas fa-vial"></i> <i class="fas fa-eye"></i></router-link>
+                    </div>
+                    <div v-if="visita.bioquimica_id !== null" class="col-md-2">
+                        <button class="btn btn-warning w-100" @click="bioquimicaPDF(visita.id)" title="PDF bioquímica">
+                            <i class="fas fa-vial"></i> <i class="fa-solid fa-file-pdf"></i>
+                        </button>
                     </div>
                 </div>
-                <br>
+            </div>
+        </div>
+        <br>
     </div>
 </template>
 
@@ -224,7 +226,7 @@ export default {
                     console.error(error);
                 });
         },
-        
+
         bioquimicaPDF(id) {
             axios.get('bioquimicas/generate-pdf/' + id, { responseType: 'blob' })
                 .then(response => {

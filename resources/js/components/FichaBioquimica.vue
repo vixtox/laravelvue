@@ -4,9 +4,9 @@
             <div class="card-header bg-dark text-light">
                 <h2 class="card-title">Bioquímica {{ bioquimica.animal === "perro" ? 'perro' : 'gato' }}</h2>
             </div>
-            <div class="input-group">
-                <button class="btn btn-warning w-100" @click="cambiarAnimal()" title="Cambiar animal">
-                    Cambiar a bioquímica {{ change }}
+            <div class="card-body">
+                <button class="btn btn-warning m_izq m_der" @click="cambiarAnimal()" title="Cambiar animal">
+                    <i class="fas fa-sync-alt"></i> Bioquímica {{ change }}
                 </button>
             </div>
             <form @submit.prevent="editarBioquimica">
@@ -222,13 +222,16 @@
                         </tr>
                     </tbody>
                 </table>
-                <div class="btn-group w-100" role="group" aria-label="">
-                    <button type="submit" class="btn btn-success" title="Guardar bioquímica"><i class="fas fa-vial"></i>
-                        Guardar bioquimica</button>
-                    <router-link :to="{ name: 'FichaVisita', params: { id: bioquimica.visita_id } }" class="btn btn-warning"
-                        title="Volver">
-                        <i class="bi bi-arrow-return-left fw-bold"></i>
-                    </router-link>
+                <div class="card-body">
+                    <div class="btn-group w-100" role="group" aria-label="">
+                        <button type="submit" class="btn btn-success m_izq" title="Guardar bioquímica"><i
+                                class="fa fa-save"></i>
+                        </button>
+                        <router-link :to="{ name: 'FichaVisita', params: { id: bioquimica.visita_id } }"
+                            class="btn btn-warning m_der" title="Volver">
+                            <i class="bi bi-arrow-return-left fw-bold"></i>
+                        </router-link>
+                    </div>
                 </div>
             </form>
         </div>

@@ -32,7 +32,7 @@
                                 <input type="text" id="searchInput" :value="searchTerm"
                                     @input="searchTerm = $event.target.value" placeholder="Buscar cliente"
                                     class="form-control">
-                                    <div class="alert alert-danger" v-if="errores.cliente_id">{{
+                                <div class="alert alert-danger" v-if="errores.cliente_id">{{
                                     errores.cliente_id[0]
                                 }}</div>
                             </div>
@@ -143,17 +143,17 @@
                         </div>
                     </div>
                 </div>
-
+                <div class="card-body">
                 <div class="btn-group w-100" role="group" aria-label="">
-                    <button type="submit" class="btn btn-success" title="Alta mascota">
-                        <i class="fas fa-paw"></i> Alta mascota
+                    <button type="submit" class="btn btn-success m_izq" title="Alta mascota">
+                        <i class="fas fa-paw"></i>
                     </button>
 
-                    <router-link :to="{ name: 'ListarMascotas' }" class="btn btn-warning" title="Volver">
+                    <router-link :to="{ name: 'ListarMascotas' }" class="btn btn-warning m_der" title="Volver">
                         <i class="bi bi-arrow-return-left fw-bold"></i>
                     </router-link>
                 </div>
-
+            </div>
             </form>
         </div>
 

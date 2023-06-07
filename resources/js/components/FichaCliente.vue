@@ -7,10 +7,13 @@
             </div>
             <form v-on:submit.prevent="editarCliente">
                 <div class="card">
-                    <div>
-                        <router-link :to="{ name: 'AltaMascota' }" class="btn btn-success w-100" title="Alta mascota"> <i
-                                class="fas fa-paw"></i> Alta mascota</router-link>
+                    <div class="card-body">
+                    <div class="btn-group w-100" role="group" aria-label="">
+                        <router-link :to="{ name: 'AltaMascota' }" class="btn btn-success m_izq m_der"
+                            title="Alta mascota"> <i class="fas fa-paw"></i></router-link>
                     </div>
+                </div>
+    
                     <div class="card-header">
                         <h5 class="card-title">Datos personales</h5>
                     </div>
@@ -112,17 +115,16 @@
                         </div>
                     </div>
                 </div>
-
+                <div class="card-body">
                 <div class="btn-group w-100" role="group" aria-label="">
-                    <button type="submit" class="btn btn-success" title="Guardar">
-                        <i class="fa fa-save"></i> Guardar
+                    <button type="submit" class="btn btn-success m_izq" title="Guardar">
+                        <i class="fa fa-save"></i>
                     </button>
-
-                    <router-link :to="{ name: 'ListarClientes' }" class="btn btn-warning" title="Volver">
+                    <router-link :to="{ name: 'ListarClientes' }" class="btn btn-warning m_der" title="Volver">
                         <i class="bi bi-arrow-return-left"></i>
                     </router-link>
                 </div>
-
+            </div>
             </form>
         </div>
 

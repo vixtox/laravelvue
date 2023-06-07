@@ -7,12 +7,14 @@
             </div>
             <form v-on:submit.prevent="editarMascota">
                 <div class="card">
-                    <div class="btn-group w-100" role="group" aria-label="">
-                        <router-link :to="{ name: 'NuevaVisita' }" class="btn btn-success w-50" title="Nueva Visita">
-                            <i class="fas fa-calendar-plus"></i> Nueva visita</router-link>
-                        <router-link :to="{ name: 'ListarVisitas' }" class="btn btn-info w-50 text-capitalize text-light"
-                            title="Ver visitas">
-                            <i class="fas fa-calendar"></i> Ver visitas</router-link>
+                    <div class="card-body">
+                        <div class="btn-group w-100" role="group" aria-label="">
+                            <router-link :to="{ name: 'NuevaVisita' }" class="btn btn-success m_izq" title="Nueva Visita">
+                                <i class="fas fa-calendar-plus"></i> </router-link>
+                            <router-link :to="{ name: 'ListarVisitas' }" class="btn btn-info text-light m_der"
+                                title="Ver visitas">
+                                <i class="fas fa-calendar"></i></router-link>
+                        </div>
                     </div>
                     <div class="card-header">
                         <h5 class="card-title">Datos identificación</h5>
@@ -155,17 +157,16 @@
                         </div>
                     </div>
                 </div>
-
-                <div class="btn-group w-100" role="group" aria-label="">
-                    <button type="submit" class="btn btn-success" title="Guardar">
-                        <i class="fa fa-save"></i> Guardar
-                    </button>
-
-                    <router-link :to="{ name: 'ListarMascotas' }" class="btn btn-warning" title="Volver">
-                        <i class="bi bi-arrow-return-left fw-bold"></i>
-                    </router-link>
+                <div class="card-body">
+                    <div class="btn-group w-100" role="group" aria-label="">
+                        <button type="submit" class="btn btn-success m_izq" title="Guardar">
+                            <i class="fa fa-save"></i>
+                        </button>
+                        <router-link :to="{ name: 'ListarMascotas' }" class="btn btn-warning m_der" title="Volver">
+                            <i class="bi bi-arrow-return-left fw-bold"></i>
+                        </router-link>
+                    </div>
                 </div>
-
             </form>
         </div>
 

@@ -7,6 +7,12 @@
             </div>
             <form v-on:submit.prevent="editarEmpleado">
                 <div class="card">
+                    <div class="card-body">
+                        <div class="btn-group w-100" role="group" aria-label="">
+                            <router-link :to="{ name: 'AltaMEmpleado' }" class="btn btn-success  m_izq m_der"
+                                title="Alta empleado"> <i class="fa-solid fa-user-plus"></i></router-link>
+                        </div>
+                    </div>
                     <div class="card-header">
                         <h5 class="card-title">Datos personales</h5>
                     </div>
@@ -145,17 +151,17 @@
                         </div>
                     </div>
                 </div>
+                <div class="card-body">
+                    <div class="btn-group w-100" role="group" aria-label="">
+                        <button type="submit" class="btn btn-success m_izq" title="Guardar">
+                            <i class="fa fa-save"></i>
+                        </button>
 
-                <div class="btn-group w-100" role="group" aria-label="">
-                    <button type="submit" class="btn btn-success" title="Guardar">
-                        <i class="fa fa-save"></i> Guardar
-                    </button>
-
-                    <router-link :to="{ name: 'ListarEmpleados' }" class="btn btn-warning" title="Volver">
-                        <i class="bi bi-arrow-return-left"></i>
-                    </router-link>
+                        <router-link :to="{ name: 'ListarEmpleados' }" class="btn btn-warning m_der" title="Volver">
+                            <i class="bi bi-arrow-return-left"></i>
+                        </router-link>
+                    </div>
                 </div>
-
             </form>
         </div>
 

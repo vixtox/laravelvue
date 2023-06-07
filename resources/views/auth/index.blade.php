@@ -34,26 +34,21 @@
                             <router-link to="/" class="nav-link">Listar mascotas</router-link>
                         </div>
                     </li>
-                    <li class="nav-item">
+                    {{-- <li class="nav-item">
                         <a href="#" class="nav-link text-white">
                             <i class="fas fa-hospital"></i>
                         </a>
                     </li>
-                    {{-- <li class="nav-item">
-                        <a href="#" class="nav-link text-white">
-                            <i class="fas fa-vial"></i>
-                        </a>
-                    </li> --}}
                     <li class="nav-item">
                         <a href="#" class="nav-link text-white">
                             <i class="fas fa-procedures"></i>
                         </a>
-                    </li>
-                    <li class="nav-item">
+                    </li> --}}
+                    {{-- <li class="nav-item">
                         <a href="#" class="nav-link text-white">
                             <i class="fas fa-shopping-cart"></i>
                         </a>
-                    </li>
+                    </li> --}}
                     @if (Auth::check() && Auth::user()->tipo === 'Admin')
                         <li class="nav-item dropdown">
                             <a href="#" class="nav-link dropdown-toggle text-white" data-toggle="dropdown">
@@ -84,7 +79,7 @@
                 @if (Auth::check())
                     <a class="btn btn-danger logout" title="Cerrar sesión" href="{{ route('logout') }}"
                         onclick="event.preventDefault(); document.getElementById('logout-form').submit();">
-                        Cerrar sesión <i class="bi bi-box-arrow-left"></i>
+                        Exit <i class="bi bi-box-arrow-left"></i>
                     </a>
                     <form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">
                         @csrf
@@ -122,17 +117,6 @@
                             class="list-group-item list-group-item-action bg-secondary text-light">Listar mascotas
                         </router-link>
                     </div>
-                    {{-- <a href="#opcion3-submenu" class="list-group-item list-group-item-action bg-dark text-light"
-                        data-toggle="collapse"><i class="fas fa-vial"></i> Pruebas</a>
-                    <div id="opcion3-submenu" class="collapse">
-                        <router-link to="/nuevohemograma"
-                            class="list-group-item list-group-item-action bg-secondary text-light">Registrar prueba
-                        </router-link>
-                        <router-link to="/listarclientes"
-                            class="list-group-item list-group-item-action bg-secondary text-light">Listar pruebas
-                        </router-link>
-                    </div> --}}
-
                     <a href="#opcion5-submenu" class="list-group-item list-group-item-action bg-dark text-light"
                         data-toggle="collapse"><i class="fas fa-hospital"></i> Hospitalización</a>
                     <a href="#opcion6-submenu" class="list-group-item list-group-item-action bg-dark text-light"

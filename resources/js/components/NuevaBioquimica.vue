@@ -4,9 +4,9 @@
             <div class="card-header bg-dark text-light">
                 <h2 class="card-title">Bioquímica {{ bioquimica.animal === "perro" ? 'perro' : 'gato' }}</h2>
             </div>
-            <div class="input-group">
-                <button class="btn btn-warning w-100" @click="cambiarAnimal()" title="Cambiar animal">
-                    Cambiar a bioquimica {{ change }}
+            <div class="card-body">
+                <button class="btn btn-warning m_izq m_der" @click="cambiarAnimal()" title="Cambiar animal">
+                    <i class="fas fa-sync-alt"></i> Bioquímica {{ change }}
                 </button>
             </div>
             <form @submit.prevent="agregarBioquimica">
@@ -45,7 +45,7 @@
                                 <input type="number" step="0.01" class="form-control" v-model="bioquimica.urea" />
                             </td>
                             <td>
-                                {{ bioquimica.animal === "perro" ? '20-50' : '30-60'  }} (mg/dl)
+                                {{ bioquimica.animal === "perro" ? '20-50' : '30-60' }} (mg/dl)
                             </td>
 
                         </tr>
@@ -222,13 +222,15 @@
                         </tr>
                     </tbody>
                 </table>
-                <div class="btn-group w-100" role="group" aria-label="">
-                    <button type="submit" class="btn btn-success" title="Guardar bioquimica"><i class="fas fa-vial"></i>
-                        Guardar bioquimica</button>
-                    <router-link :to="{ name: 'FichaVisita', params: { id: bioquimica.visita_id } }" class="btn btn-warning"
-                        title="Volver">
-                        <i class="bi bi-arrow-return-left fw-bold"></i>
-                    </router-link>
+                <div class="card-body">
+                    <div class="btn-group w-100" role="group" aria-label="">
+                        <button type="submit" class="btn btn-success m_izq" title="Guardar bioquimica"><i
+                                class="fa fa-save"></i></button>
+                        <router-link :to="{ name: 'FichaVisita', params: { id: bioquimica.visita_id } }"
+                            class="btn btn-warning m_der" title="Volver">
+                            <i class="bi bi-arrow-return-left fw-bold"></i>
+                        </router-link>
+                    </div>
                 </div>
             </form>
         </div>
@@ -371,13 +373,13 @@ export default {
                     }
                 }
 
-            }else{
+            } else {
 
                 Swal.fire({
-                            icon: 'error',
-                            title: 'Error registro bioquimica',
-                            text: 'Ingrese al menos un parámetro',
-                        })
+                    icon: 'error',
+                    title: 'Error registro bioquimica',
+                    text: 'Ingrese al menos un parámetro',
+                })
 
             }
 
