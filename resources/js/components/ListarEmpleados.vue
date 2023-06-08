@@ -7,13 +7,12 @@
         <div class="card-body">
             <div class="row">
                 <div class="table-responsive">
-                    <div class="card-body">
-                    <div class="btn-group w-100" role="group" aria-label="">
+                    <div class="w-100 d-flex">
                         <input type="text" id="searchInput" :value="searchTerm" @input="searchTerm = $event.target.value"
-                            placeholder="Buscar empleado" class="form-control m_izq">
-                        <router-link :to="{ name: 'AltaEmpleado' }" class="btn btn-success m_der" title="Alta empleado"> <i
-                                class="fa-solid fa-user-plus" style="color: #ffffff;"></i></router-link>
-                    </div>
+                            placeholder="Buscar empleado" class="form-control mr-4 inputListar">
+                        <router-link :to="{ name: 'AltaEmpleado' }" class="btn btn-success botonListar" title="Alta empleado">
+                            <i class="fa-solid fa-user-plus" style="color: #ffffff;"></i>
+                        </router-link>
                     </div>
                     <table class="table table-striped table-sm">
                         <thead class="bg-dark text-light">
@@ -78,8 +77,8 @@ export default {
             this.empleadoToDelete = id;
             const swalWithBootstrapButtons = Swal.mixin({
                 customClass: {
-                    confirmButton: 'btn btn-success',
-                    cancelButton: 'btn btn-danger mr-4'
+                    confirmButton: 'btn btn-success mr-4',
+                    cancelButton: 'btn btn-danger'
                 },
                 buttonsStyling: false
             })
@@ -91,7 +90,7 @@ export default {
                 showCancelButton: true,
                 confirmButtonText: 'OK',
                 cancelButtonText: 'Cancel',
-                reverseButtons: true
+                reverseButtons: false
             }).then((result) => {
                 if (result.isConfirmed) {
                     axios.delete('empleados/' + this.empleadoToDelete)

@@ -71,6 +71,11 @@
                                             <button class="btn btn-dark btn-lg btn-block" type="submit">Login</button>
                                         </div>
 
+                                        <div class="text-center">
+                                            <a href="" class="text-muted">Olvidé mi
+                                                contraseña</a>
+                                        </div>
+
                                     </form>
 
                                 </div>

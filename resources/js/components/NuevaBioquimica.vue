@@ -4,11 +4,6 @@
             <div class="card-header bg-dark text-light">
                 <h2 class="card-title">Bioquímica {{ bioquimica.animal === "perro" ? 'perro' : 'gato' }}</h2>
             </div>
-            <div class="card-body">
-                <button class="btn btn-warning m_izq m_der" @click="cambiarAnimal()" title="Cambiar animal">
-                    <i class="fas fa-sync-alt"></i> Bioquímica {{ change }}
-                </button>
-            </div>
             <form @submit.prevent="agregarBioquimica">
                 <table class="table">
                     <thead>
@@ -268,11 +263,11 @@ export default {
                 cloro: null,
                 t4: null,
                 fecha: "",
-                animal: "perro",
+                animal: "",
                 mascotas_id: "",
                 visita_id: this.$route.params.id,
             },
-            change: "gato",
+
             mascota: [],
             cliente: [],
             visita: [],
@@ -332,9 +327,15 @@ export default {
                 const response = await axios.get('visitas/bioquimica/' + this.bioquimica.visita_id);
                 console.log(response.data); // Agregar esta línea para depurar
                 this.mascota = response.data.mascota;
-
                 this.cliente = response.data.cliente;
                 this.visita = response.data.visita;
+
+                if (this.mascota.especie_id === 1) {
+                    this.bioquimica.animal = 'perro';
+                } else {
+                    this.bioquimica.animal = 'gato';
+                }
+
             } catch (error) {
                 console.error(error);
             }
@@ -383,16 +384,6 @@ export default {
 
             }
 
-        },
-
-        cambiarAnimal() {
-            if (this.bioquimica.animal === "perro") {
-                this.bioquimica.animal = "gato";
-                this.change = "perro";
-            } else {
-                this.bioquimica.animal = "perro";
-                this.change = "gato";
-            }
         },
 
         getCurrentDate() {

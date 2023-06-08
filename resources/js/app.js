@@ -19,7 +19,6 @@ import ListarVisitas from './components/ListarVisitas.vue';
 import FichaVisita from './components/FichaVisita.vue';
 import NuevoHemograma from './components/NuevoHemograma.vue';
 import NuevaBioquimica from './components/NuevaBioquimica.vue';
-import ListarPruebas from './components/ListarPruebas.vue';
 import FichaHemograma from './components/FichaHemograma.vue';
 import FichaBioquimica from './components/FichaBioquimica.vue';
 
@@ -139,14 +138,6 @@ const routes = [
         path: '/nuevabioquimica/:id',
         name: 'NuevaBioquimica',
         component: NuevaBioquimica,
-        meta: {
-            requiresAuth: true
-        }
-    },
-    {
-        path: '/listarpruebas/:id',
-        name: 'ListarPruebas',
-        component: ListarPruebas,
         meta: {
             requiresAuth: true
         }

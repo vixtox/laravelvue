@@ -83,6 +83,24 @@
         .m_der {
             margin-right: 35%;
         }
+
+        .listar{
+            margin-left: 45%;
+            margin-right: 45%;
+            margin-bottom: 1%;
+            margin-top: 1%;
+        }
+
+        .inputListar{
+            width: 30%; 
+            margin-bottom: 1%;
+        }
+
+        .botonListar{
+            width: 10%; 
+            margin-bottom: 1%;
+        }
+
     </style>
 
     <title>@yield('title')</title>

@@ -4,11 +4,6 @@
             <div class="card-header bg-dark text-light">
                 <h2 class="card-title">Hemograma {{ hemograma.animal === "perro" ? 'perro' : 'gato' }}</h2>
             </div>
-            <div class="card-body">
-                <button class="btn btn-warning m_izq m_der" @click="cambiarAnimal()" title="Cambiar animal">
-                    <i class="fas fa-sync-alt"></i> Hemograma {{ change }}
-                </button>
-            </div>
             <form @submit.prevent="editarHemograma">
                 <table class="table">
                     <thead>
@@ -201,12 +196,11 @@ export default {
                 leucocitos: null,
                 plaquetas: null,
                 fecha: "",
-                animal: "perro",
+                animal: "",
                 mascotas_id: "",
                 visita_id: null,
             },
             errores: {},
-            change: "gato",
             mascota: [],
             cliente: [],
             visita: [],
@@ -233,6 +227,13 @@ export default {
                 this.cliente = response.data.cliente;
                 this.visita = response.data.visita;
                 this.hemograma = response.data.hemograma;
+
+                if (this.mascota.especie_id === 1) {
+                    this.hemograma.animal = 'perro';
+                } else {
+                    this.hemograma.animal = 'gato';
+                }
+
             } catch (error) {
                 console.error(error);
             }
@@ -262,16 +263,6 @@ export default {
                     })
                     this.errores = error.response.data.errors;
                 });
-        },
-
-        cambiarAnimal() {
-            if (this.hemograma.animal === "perro") {
-                this.hemograma.animal = "gato";
-                this.change = "perro";
-            } else {
-                this.hemograma.animal = "perro";
-                this.change = "gato";
-            }
         },
 
         getCurrentDate() {

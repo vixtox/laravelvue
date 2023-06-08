@@ -9,7 +9,7 @@
                 <div class="card">
                     <div class="card-body">
                         <div class="btn-group w-100" role="group" aria-label="">
-                            <router-link :to="{ name: 'NuevaVisita' }" class="btn btn-success m_izq" title="Nueva Visita">
+                            <router-link :to="{ name: 'NuevaVisita', params: { id: mascota.id } }" class="btn btn-success m_izq" title="Nueva Visita">
                                 <i class="fas fa-calendar-plus"></i> </router-link>
                             <router-link :to="{ name: 'ListarVisitas' }" class="btn btn-info text-light m_der"
                                 title="Ver visitas">
@@ -41,7 +41,7 @@
                             </div>
                             <div v-if="mostrar_span" class="col-md-3 col-sm-6">
                                 <br>
-                                <button class="btn btn-danger w-100" title="Cambiar propietario" @click="visibilidad()"> <i
+                                <button class="btn btn-danger w-40" title="Cambiar propietario" @click="visibilidad()"> <i
                                         class="fa fa-user fa-fw"></i>
                                     <i class="fa fa-exchange-alt fa-fw"></i>
                                     <i class="fa fa-user fa-fw"></i></button>

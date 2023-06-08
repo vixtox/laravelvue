@@ -7,12 +7,10 @@
             </div>
             <form v-on:submit.prevent="editarVisita">
                 <div class="card">
-                    <div class="card-body">
                         <div class="btn-group w-100" role="group" aria-label="">
-                            <router-link :to="{ name: 'NuevaVisita' }" class="btn btn-success m_izq m_der"
+                            <router-link :to="{ name: 'NuevaVisita', params: { id: visita.mascotas_id } }" class="btn btn-success listar"
                                 title="Nueva visita">
                                 <i class="fas fa-calendar-plus"></i></router-link>
-                        </div>
                     </div>
                     <div class="card-header">
                         <h5 class="card-title">Datos generales</h5>
@@ -116,7 +114,7 @@
                             <i class="fas fa-syringe"></i> <i class="fas fa-eye"></i></router-link>
                     </div>
                     <div v-if="visita.hemograma_id !== null" class="col-md-2">
-                        <button class="btn btn-warning w-100" @click="hemogramaPDF(visita.id)" title="PDF hemograma">
+                        <button class="btn btn-secondary w-100" @click="hemogramaPDF(visita.id)" title="PDF hemograma">
                             <i class="fas fa-syringe"></i> <i class="fa-solid fa-file-pdf"></i>
                         </button>
                     </div>
@@ -131,7 +129,7 @@
                             <i class="fas fa-vial"></i> <i class="fas fa-eye"></i></router-link>
                     </div>
                     <div v-if="visita.bioquimica_id !== null" class="col-md-2">
-                        <button class="btn btn-warning w-100" @click="bioquimicaPDF(visita.id)" title="PDF bioquímica">
+                        <button class="btn btn-secondary w-100" @click="bioquimicaPDF(visita.id)" title="PDF bioquímica">
                             <i class="fas fa-vial"></i> <i class="fa-solid fa-file-pdf"></i>
                         </button>
                     </div>

@@ -6,11 +6,11 @@
         <div class="card-body">
             <div class="row">
                 <div class="table-responsive">
-                    <div class="btn-group w-100" role="group" aria-label="">
+                    <div class="w-100 d-flex">
                         <input type="text" id="searchInput" :value="searchTerm" @input="searchTerm = $event.target.value"
-                            placeholder="Buscar mascota" class="form-control w-50">
-                        <router-link :to="{ name: 'AltaMascota' }" class="btn btn-success w-50" title="Alta mascota"> <i
-                                class="fas fa-paw"></i> Alta mascota</router-link>
+                            placeholder="Buscar mascota" class="form-control mr-4 inputListar">
+                        <router-link :to="{ name: 'AltaMascota' }" class="btn btn-success botonListar" title="Alta mascota"> <i
+                                class="fas fa-paw"></i></router-link>
                     </div>
                     <table class="table table-striped table-sm">
                         <thead class="bg-dark text-light">
@@ -73,8 +73,8 @@ export default {
             this.mascotaToDelete = id;
             const swalWithBootstrapButtons = Swal.mixin({
                 customClass: {
-                    confirmButton: 'btn btn-success',
-                    cancelButton: 'btn btn-danger mr-4'
+                    confirmButton: 'btn btn-success mr-4',
+                    cancelButton: 'btn btn-danger'
                 },
                 buttonsStyling: false
             })
@@ -86,7 +86,7 @@ export default {
                 showCancelButton: true,
                 confirmButtonText: 'OK',
                 cancelButtonText: 'Cancel',
-                reverseButtons: true
+                reverseButtons: false
             }).then((result) => {
                 if (result.isConfirmed) {
                     axios.delete('mascotas/' + this.mascotaToDelete)

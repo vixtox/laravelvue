@@ -7,12 +7,10 @@
             </div>
             <form v-on:submit.prevent="editarEmpleado">
                 <div class="card">
-                    <div class="card-body">
                         <div class="btn-group w-100" role="group" aria-label="">
-                            <router-link :to="{ name: 'AltaMEmpleado' }" class="btn btn-success  m_izq m_der"
+                            <router-link :to="{ name: 'AltaMEmpleado' }" class="btn btn-success listar"
                                 title="Alta empleado"> <i class="fa-solid fa-user-plus"></i></router-link>
                         </div>
-                    </div>
                     <div class="card-header">
                         <h5 class="card-title">Datos personales</h5>
                     </div>

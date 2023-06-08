@@ -3,53 +3,51 @@
         <div class="card-header bg-dark text-light">
             <h2 class="card-title">Lista de visitas</h2>
         </div>
-        <div class="card-body">
-            <div class="row">
-                <div class="table-responsive">
-                    <div class="btn-group w-100" role="group" aria-label="">
-                        <router-link :to="{ name: 'NuevaVisita' }" class="btn btn-success w-100" title="Nueva Visita">
-                            <i class="fas fa-calendar-plus"></i> Nueva visita</router-link>
-                    </div>
-                    <table class="table table-striped table-sm">
-                        <thead class="bg-dark text-light">
-                            <tr>
-                                <th scope="col">Nombre</th>
-                                <th scope="col">Fecha visita</th>
-                                <th scope="col">Diagnóstico</th>
-                                <th scope="col">Veterinario</th>
-                                <th scope="col">Acciones</th>
-                            </tr>
-                        </thead>
-                        <tbody class="flex-column">
-                            <tr v-for="visita in visitas" :key="visita.id">
-                                <td>{{ mascota.nombre }}</td>
-                                <td>{{ new Date(visita.fecha_visita).toLocaleDateString('es-ES', {
-                                    day: '2-digit', month:
-                                        '2-digit', year: 'numeric'
-                                }) }}</td>
-                                <td>{{ visita.diagnostico }}</td>
-                                <td>{{ visita.veterinario }}</td>
-                                <td>
-                                    <button class="btn btn-danger" @click="borrarVisita(visita.id)" title="Eliminar visita">
-                                        <i class="fas fa-calendar-minus"></i>
-                                    </button>
-                                    <router-link :to="{ name: 'FichaVisita', params: { id: visita.id } }"
-                                        class="btn btn-info" title="Ver detalles"><i class="fa-solid fa-eye"
-                                            style="color: #ffffff;"></i></router-link>
-                                    <button class="btn btn-warning" @click="generarPDF(visita.id)" title="Generar PDF">
-                                        <i class="fa-solid fa-file-pdf"></i>
-                                    </button>
-                                    <button class="btn btn-secondary" @click="enviarCorreo(visita.id)"
-                                        title="Enviar correo">
-                                        <i class="fa-solid fa-envelope"></i>
-                                    </button>
-                                </td>
-                            </tr>
-                        </tbody>
-                    </table>
-                </div>
+        <div class="btn-group w-100" role="group" aria-label="">
+            <router-link :to="{ name: 'NuevaVisita', params: { id: visita.mascotas_id } }" class="btn btn-success listar" title="Nueva Visita">
+                <i class="fas fa-calendar-plus"></i></router-link>
+        </div>
+        <div class="row">
+            <div class="table-responsive">
+                <table class="table table-striped table-sm">
+                    <thead class="bg-dark text-light">
+                        <tr>
+                            <th scope="col">Nombre</th>
+                            <th scope="col">Fecha visita</th>
+                            <th scope="col">Diagnóstico</th>
+                            <th scope="col">Veterinario</th>
+                            <th scope="col">Acciones</th>
+                        </tr>
+                    </thead>
+                    <tbody class="flex-column">
+                        <tr v-for="visita in visitas" :key="visita.id">
+                            <td>{{ mascota.nombre }}</td>
+                            <td>{{ new Date(visita.fecha_visita).toLocaleDateString('es-ES', {
+                                day: '2-digit', month:
+                                    '2-digit', year: 'numeric'
+                            }) }}</td>
+                            <td>{{ visita.diagnostico }}</td>
+                            <td>{{ visita.veterinario }}</td>
+                            <td>
+                                <button class="btn btn-danger" @click="borrarVisita(visita.id)" title="Eliminar visita">
+                                    <i class="fas fa-calendar-minus"></i>
+                                </button>
+                                <router-link :to="{ name: 'FichaVisita', params: { id: visita.id } }" class="btn btn-info"
+                                    title="Ver detalles"><i class="fa-solid fa-eye"
+                                        style="color: #ffffff;"></i></router-link>
+                                <button class="btn btn-secondary" @click="generarPDF(visita.id)" title="Generar PDF">
+                                    <i class="fa-solid fa-file-pdf"></i>
+                                </button>
+                                <button class="btn btn-warning" @click="enviarCorreo(visita.id)" title="Enviar correo">
+                                    <i class="fa-solid fa-envelope"></i>
+                                </button>
+                            </td>
+                        </tr>
+                    </tbody>
+                </table>
             </div>
         </div>
+
         <div>
             <paginacion :current-page="currentPage" :total-pages="totalPages" @pageChanged="pageChanged"></paginacion>
         </div>
@@ -92,8 +90,8 @@ export default {
             this.visitaToDelete = id;
             const swalWithBootstrapButtons = Swal.mixin({
                 customClass: {
-                    confirmButton: 'btn btn-success',
-                    cancelButton: 'btn btn-danger mr-4'
+                    confirmButton: 'btn btn-success mr-4',
+                    cancelButton: 'btn btn-danger'
                 },
                 buttonsStyling: false
             })
@@ -105,7 +103,7 @@ export default {
                 showCancelButton: true,
                 confirmButtonText: 'OK',
                 cancelButtonText: 'Cancel',
-                reverseButtons: true
+                reverseButtons: false
             }).then((result) => {
                 if (result.isConfirmed) {
                     console.log(this.visitaToDelete)

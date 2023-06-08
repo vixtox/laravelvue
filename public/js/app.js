@@ -5848,11 +5848,10 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
         leucocitos: null,
         plaquetas: null,
         fecha: "",
-        animal: "perro",
+        animal: "",
         mascotas_id: "",
         visita_id: null
       },
-      change: "gato",
       mascota: [],
       cliente: [],
       visita: [],
@@ -5884,17 +5883,22 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
               _this.cliente = response.data.cliente;
               _this.visita = response.data.visita;
               _this.bioquimica = response.data.bioquimica;
-              _context.next = 14;
+              if (_this.mascota.especie_id === 1) {
+                _this.bioquimica.animal = 'perro';
+              } else {
+                _this.bioquimica.animal = 'gato';
+              }
+              _context.next = 15;
               break;
-            case 11:
-              _context.prev = 11;
+            case 12:
+              _context.prev = 12;
               _context.t0 = _context["catch"](0);
               console.error(_context.t0);
-            case 14:
+            case 15:
             case "end":
               return _context.stop();
           }
-        }, _callee, null, [[0, 11]]);
+        }, _callee, null, [[0, 12]]);
       }))();
     },
     // Edita visita en la base de datos
@@ -5933,15 +5937,6 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
           }
         }, _callee2);
       }))();
-    },
-    cambiarAnimal: function cambiarAnimal() {
-      if (this.bioquimica.animal === "perro") {
-        this.bioquimica.animal = "gato";
-        this.change = "perro";
-      } else {
-        this.bioquimica.animal = "perro";
-        this.change = "gato";
-      }
     },
     getCurrentDate: function getCurrentDate() {
       var today = new Date();
@@ -6383,12 +6378,11 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
         leucocitos: null,
         plaquetas: null,
         fecha: "",
-        animal: "perro",
+        animal: "",
         mascotas_id: "",
         visita_id: null
       },
       errores: {},
-      change: "gato",
       mascota: [],
       cliente: [],
       visita: [],
@@ -6421,17 +6415,22 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
               _this.cliente = response.data.cliente;
               _this.visita = response.data.visita;
               _this.hemograma = response.data.hemograma;
-              _context.next = 14;
+              if (_this.mascota.especie_id === 1) {
+                _this.hemograma.animal = 'perro';
+              } else {
+                _this.hemograma.animal = 'gato';
+              }
+              _context.next = 15;
               break;
-            case 11:
-              _context.prev = 11;
+            case 12:
+              _context.prev = 12;
               _context.t0 = _context["catch"](0);
               console.error(_context.t0);
-            case 14:
+            case 15:
             case "end":
               return _context.stop();
           }
-        }, _callee, null, [[0, 11]]);
+        }, _callee, null, [[0, 12]]);
       }))();
     },
     // Edita visita en la base de datos
@@ -6471,15 +6470,6 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
           }
         }, _callee2);
       }))();
-    },
-    cambiarAnimal: function cambiarAnimal() {
-      if (this.hemograma.animal === "perro") {
-        this.hemograma.animal = "gato";
-        this.change = "perro";
-      } else {
-        this.hemograma.animal = "perro";
-        this.change = "gato";
-      }
     },
     getCurrentDate: function getCurrentDate() {
       var today = new Date();
@@ -6907,8 +6897,8 @@ __webpack_require__.r(__webpack_exports__);
       this.clienteToDelete = id;
       var swalWithBootstrapButtons = sweetalert2__WEBPACK_IMPORTED_MODULE_2___default().mixin({
         customClass: {
-          confirmButton: 'btn btn-success',
-          cancelButton: 'btn btn-danger mr-4'
+          confirmButton: 'btn btn-success mr-4',
+          cancelButton: 'btn btn-danger'
         },
         buttonsStyling: false
       });
@@ -6919,7 +6909,7 @@ __webpack_require__.r(__webpack_exports__);
         showCancelButton: true,
         confirmButtonText: 'OK',
         cancelButtonText: 'Cancel',
-        reverseButtons: true
+        reverseButtons: false
       }).then(function (result) {
         if (result.isConfirmed) {
           axios__WEBPACK_IMPORTED_MODULE_0___default()["delete"]('clientes/' + _this.clienteToDelete).then(function (response) {
@@ -7035,8 +7025,8 @@ __webpack_require__.r(__webpack_exports__);
       this.empleadoToDelete = id;
       var swalWithBootstrapButtons = sweetalert2__WEBPACK_IMPORTED_MODULE_2___default().mixin({
         customClass: {
-          confirmButton: 'btn btn-success',
-          cancelButton: 'btn btn-danger mr-4'
+          confirmButton: 'btn btn-success mr-4',
+          cancelButton: 'btn btn-danger'
         },
         buttonsStyling: false
       });
@@ -7047,7 +7037,7 @@ __webpack_require__.r(__webpack_exports__);
         showCancelButton: true,
         confirmButtonText: 'OK',
         cancelButtonText: 'Cancel',
-        reverseButtons: true
+        reverseButtons: false
       }).then(function (result) {
         if (result.isConfirmed) {
           axios__WEBPACK_IMPORTED_MODULE_0___default()["delete"]('empleados/' + _this.empleadoToDelete).then(function (response) {
@@ -7163,8 +7153,8 @@ __webpack_require__.r(__webpack_exports__);
       this.mascotaToDelete = id;
       var swalWithBootstrapButtons = sweetalert2__WEBPACK_IMPORTED_MODULE_2___default().mixin({
         customClass: {
-          confirmButton: 'btn btn-success',
-          cancelButton: 'btn btn-danger mr-4'
+          confirmButton: 'btn btn-success mr-4',
+          cancelButton: 'btn btn-danger'
         },
         buttonsStyling: false
       });
@@ -7175,7 +7165,7 @@ __webpack_require__.r(__webpack_exports__);
         showCancelButton: true,
         confirmButtonText: 'OK',
         cancelButtonText: 'Cancel',
-        reverseButtons: true
+        reverseButtons: false
       }).then(function (result) {
         if (result.isConfirmed) {
           axios__WEBPACK_IMPORTED_MODULE_0___default()["delete"]('mascotas/' + _this.mascotaToDelete).then(function (response) {
@@ -7322,8 +7312,8 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
       this.visitaToDelete = id;
       var swalWithBootstrapButtons = sweetalert2__WEBPACK_IMPORTED_MODULE_2___default().mixin({
         customClass: {
-          confirmButton: 'btn btn-success',
-          cancelButton: 'btn btn-danger mr-4'
+          confirmButton: 'btn btn-success mr-4',
+          cancelButton: 'btn btn-danger'
         },
         buttonsStyling: false
       });
@@ -7334,7 +7324,7 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
         showCancelButton: true,
         confirmButtonText: 'OK',
         cancelButtonText: 'Cancel',
-        reverseButtons: true
+        reverseButtons: false
       }).then(function (result) {
         if (result.isConfirmed) {
           console.log(_this2.visitaToDelete);
@@ -7456,11 +7446,10 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
         cloro: null,
         t4: null,
         fecha: "",
-        animal: "perro",
+        animal: "",
         mascotas_id: "",
         visita_id: this.$route.params.id
       },
-      change: "gato",
       mascota: [],
       cliente: [],
       visita: [],
@@ -7523,17 +7512,22 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
               _this.mascota = response.data.mascota;
               _this.cliente = response.data.cliente;
               _this.visita = response.data.visita;
-              _context.next = 13;
+              if (_this.mascota.especie_id === 1) {
+                _this.bioquimica.animal = 'perro';
+              } else {
+                _this.bioquimica.animal = 'gato';
+              }
+              _context.next = 14;
               break;
-            case 10:
-              _context.prev = 10;
+            case 11:
+              _context.prev = 11;
               _context.t0 = _context["catch"](0);
               console.error(_context.t0);
-            case 13:
+            case 14:
             case "end":
               return _context.stop();
           }
-        }, _callee, null, [[0, 10]]);
+        }, _callee, null, [[0, 11]]);
       }))();
     },
     // Inserta en la base de datos
@@ -7599,15 +7593,6 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
           }
         }, _callee2, null, [[4, 13]]);
       }))();
-    },
-    cambiarAnimal: function cambiarAnimal() {
-      if (this.bioquimica.animal === "perro") {
-        this.bioquimica.animal = "gato";
-        this.change = "perro";
-      } else {
-        this.bioquimica.animal = "perro";
-        this.change = "gato";
-      }
     },
     getCurrentDate: function getCurrentDate() {
       var today = new Date();
@@ -7831,12 +7816,12 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
         leucocitos: null,
         plaquetas: null,
         fecha: "",
-        animal: "perro",
+        animal: "",
         mascotas_id: "",
         visita_id: this.$route.params.id
       },
       errores: {},
-      change: "gato",
+      // change: "gato",
       mascota: [],
       cliente: [],
       visita: []
@@ -7867,17 +7852,22 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
               _this.hemograma.mascotas_id = _this.mascota.id;
               _this.cliente = response.data.cliente;
               _this.visita = response.data.visita;
-              _context.next = 14;
+              if (_this.mascota.especie_id === 1) {
+                _this.hemograma.animal = 'perro';
+              } else {
+                _this.hemograma.animal = 'gato';
+              }
+              _context.next = 15;
               break;
-            case 11:
-              _context.prev = 11;
+            case 12:
+              _context.prev = 12;
               _context.t0 = _context["catch"](0);
               console.error(_context.t0);
-            case 14:
+            case 15:
             case "end":
               return _context.stop();
           }
-        }, _callee, null, [[0, 11]]);
+        }, _callee, null, [[0, 12]]);
       }))();
     },
     // Inserta en la base de datos
@@ -7942,15 +7932,15 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
         }, _callee2, null, [[2, 11]]);
       }))();
     },
-    cambiarAnimal: function cambiarAnimal() {
-      if (this.hemograma.animal === "perro") {
-        this.hemograma.animal = "gato";
-        this.change = "perro";
-      } else {
-        this.hemograma.animal = "perro";
-        this.change = "gato";
-      }
-    },
+    // cambiarAnimal() {
+    //     if (this.hemograma.animal === "perro") {
+    //         this.hemograma.animal = "gato";
+    //         this.change = "perro";
+    //     } else {
+    //         this.hemograma.animal = "perro";
+    //         this.change = "gato";
+    //     }
+    // },
     getCurrentDate: function getCurrentDate() {
       var today = new Date();
       var year = today.getFullYear();
@@ -9739,21 +9729,7 @@ var render = function render() {
     staticClass: "card-header bg-dark text-light"
   }, [_c("h2", {
     staticClass: "card-title"
-  }, [_vm._v("Bioquímica " + _vm._s(_vm.bioquimica.animal === "perro" ? "perro" : "gato"))])]), _vm._v(" "), _c("div", {
-    staticClass: "card-body"
-  }, [_c("button", {
-    staticClass: "btn btn-warning m_izq m_der",
-    attrs: {
-      title: "Cambiar animal"
-    },
-    on: {
-      click: function click($event) {
-        return _vm.cambiarAnimal();
-      }
-    }
-  }, [_c("i", {
-    staticClass: "fas fa-sync-alt"
-  }), _vm._v(" Bioquímica " + _vm._s(_vm.change) + "\n            ")])]), _vm._v(" "), _c("form", {
+  }, [_vm._v("Bioquímica " + _vm._s(_vm.bioquimica.animal === "perro" ? "perro" : "gato"))])]), _vm._v(" "), _c("form", {
     on: {
       submit: function submit($event) {
         $event.preventDefault();
@@ -10270,15 +10246,13 @@ var render = function render() {
   }, [_c("div", {
     staticClass: "card"
   }, [_c("div", {
-    staticClass: "card-body"
-  }, [_c("div", {
     staticClass: "btn-group w-100",
     attrs: {
       role: "group",
       "aria-label": ""
     }
   }, [_c("router-link", {
-    staticClass: "btn btn-success m_izq m_der",
+    staticClass: "btn btn-success listar",
     attrs: {
       to: {
         name: "AltaMascota"
@@ -10287,7 +10261,7 @@ var render = function render() {
     }
   }, [_c("i", {
     staticClass: "fas fa-paw"
-  })])], 1)]), _vm._v(" "), _vm._m(1), _vm._v(" "), _c("div", {
+  })])], 1), _vm._v(" "), _vm._m(1), _vm._v(" "), _c("div", {
     staticClass: "card-body"
   }, [_c("div", {
     staticClass: "row"
@@ -10742,15 +10716,13 @@ var render = function render() {
   }, [_c("div", {
     staticClass: "card"
   }, [_c("div", {
-    staticClass: "card-body"
-  }, [_c("div", {
     staticClass: "btn-group w-100",
     attrs: {
       role: "group",
       "aria-label": ""
     }
   }, [_c("router-link", {
-    staticClass: "btn btn-success m_izq m_der",
+    staticClass: "btn btn-success listar",
     attrs: {
       to: {
         name: "AltaMEmpleado"
@@ -10759,7 +10731,7 @@ var render = function render() {
     }
   }, [_c("i", {
     staticClass: "fa-solid fa-user-plus"
-  })])], 1)]), _vm._v(" "), _vm._m(1), _vm._v(" "), _c("div", {
+  })])], 1), _vm._v(" "), _vm._m(1), _vm._v(" "), _c("div", {
     staticClass: "card-body"
   }, [_c("div", {
     staticClass: "row"
@@ -11349,21 +11321,7 @@ var render = function render() {
     staticClass: "card-header bg-dark text-light"
   }, [_c("h2", {
     staticClass: "card-title"
-  }, [_vm._v("Hemograma " + _vm._s(_vm.hemograma.animal === "perro" ? "perro" : "gato"))])]), _vm._v(" "), _c("div", {
-    staticClass: "card-body"
-  }, [_c("button", {
-    staticClass: "btn btn-warning m_izq m_der",
-    attrs: {
-      title: "Cambiar animal"
-    },
-    on: {
-      click: function click($event) {
-        return _vm.cambiarAnimal();
-      }
-    }
-  }, [_c("i", {
-    staticClass: "fas fa-sync-alt"
-  }), _vm._v(" Hemograma " + _vm._s(_vm.change) + "\n            ")])]), _vm._v(" "), _c("form", {
+  }, [_vm._v("Hemograma " + _vm._s(_vm.hemograma.animal === "perro" ? "perro" : "gato"))])]), _vm._v(" "), _c("form", {
     on: {
       submit: function submit($event) {
         $event.preventDefault();
@@ -11747,7 +11705,10 @@ var render = function render() {
     staticClass: "btn btn-success m_izq",
     attrs: {
       to: {
-        name: "NuevaVisita"
+        name: "NuevaVisita",
+        params: {
+          id: _vm.mascota.id
+        }
       },
       title: "Nueva Visita"
     }
@@ -11828,7 +11789,7 @@ var render = function render() {
   }, [_vm._v(_vm._s(_vm.mascota.nombre_cliente))])]) : _vm._e(), _vm._v(" "), _vm.mostrar_span ? _c("div", {
     staticClass: "col-md-3 col-sm-6"
   }, [_c("br"), _vm._v(" "), _c("button", {
-    staticClass: "btn btn-danger w-100",
+    staticClass: "btn btn-danger w-40",
     attrs: {
       title: "Cambiar propietario"
     },
@@ -12399,24 +12360,25 @@ var render = function render() {
   }, [_c("div", {
     staticClass: "card"
   }, [_c("div", {
-    staticClass: "card-body"
-  }, [_c("div", {
     staticClass: "btn-group w-100",
     attrs: {
       role: "group",
       "aria-label": ""
     }
   }, [_c("router-link", {
-    staticClass: "btn btn-success m_izq m_der",
+    staticClass: "btn btn-success listar",
     attrs: {
       to: {
-        name: "NuevaVisita"
+        name: "NuevaVisita",
+        params: {
+          id: _vm.visita.mascotas_id
+        }
       },
       title: "Nueva visita"
     }
   }, [_c("i", {
     staticClass: "fas fa-calendar-plus"
-  })])], 1)]), _vm._v(" "), _vm._m(1), _vm._v(" "), _c("div", {
+  })])], 1), _vm._v(" "), _vm._m(1), _vm._v(" "), _c("div", {
     staticClass: "card-body"
   }, [_c("div", {
     staticClass: "row"
@@ -12657,7 +12619,7 @@ var render = function render() {
   })])], 1) : _vm._e(), _vm._v(" "), _vm.visita.hemograma_id !== null ? _c("div", {
     staticClass: "col-md-2"
   }, [_c("button", {
-    staticClass: "btn btn-warning w-100",
+    staticClass: "btn btn-secondary w-100",
     attrs: {
       title: "PDF hemograma"
     },
@@ -12707,7 +12669,7 @@ var render = function render() {
   })])], 1) : _vm._e(), _vm._v(" "), _vm.visita.bioquimica_id !== null ? _c("div", {
     staticClass: "col-md-2"
   }, [_c("button", {
-    staticClass: "btn btn-warning w-100",
+    staticClass: "btn btn-secondary w-100",
     attrs: {
       title: "PDF bioquímica"
     },
@@ -12852,13 +12814,9 @@ var render = function render() {
   }, [_c("div", {
     staticClass: "table-responsive"
   }, [_c("div", {
-    staticClass: "btn-group w-100",
-    attrs: {
-      role: "group",
-      "aria-label": ""
-    }
+    staticClass: "w-100 d-flex"
   }, [_c("input", {
-    staticClass: "form-control w-50",
+    staticClass: "form-control mr-4 inputListar",
     attrs: {
       type: "text",
       id: "searchInput",
@@ -12873,7 +12831,7 @@ var render = function render() {
       }
     }
   }), _vm._v(" "), _c("router-link", {
-    staticClass: "btn btn-success w-50",
+    staticClass: "btn btn-success botonListar",
     attrs: {
       to: {
         name: "AltaCliente"
@@ -12885,7 +12843,7 @@ var render = function render() {
     staticStyle: {
       color: "#ffffff"
     }
-  }), _vm._v(" Alta cliente")])], 1), _vm._v(" "), _c("table", {
+  })])], 1), _vm._v(" "), _c("table", {
     staticClass: "table table-striped table-sm"
   }, [_vm._m(1), _vm._v(" "), _c("tbody", {
     staticClass: "flex-column"
@@ -12995,15 +12953,9 @@ var render = function render() {
   }, [_c("div", {
     staticClass: "table-responsive"
   }, [_c("div", {
-    staticClass: "card-body"
-  }, [_c("div", {
-    staticClass: "btn-group w-100",
-    attrs: {
-      role: "group",
-      "aria-label": ""
-    }
+    staticClass: "w-100 d-flex"
   }, [_c("input", {
-    staticClass: "form-control m_izq",
+    staticClass: "form-control mr-4 inputListar",
     attrs: {
       type: "text",
       id: "searchInput",
@@ -13018,7 +12970,7 @@ var render = function render() {
       }
     }
   }), _vm._v(" "), _c("router-link", {
-    staticClass: "btn btn-success m_der",
+    staticClass: "btn btn-success botonListar",
     attrs: {
       to: {
         name: "AltaEmpleado"
@@ -13030,7 +12982,7 @@ var render = function render() {
     staticStyle: {
       color: "#ffffff"
     }
-  })])], 1)]), _vm._v(" "), _c("table", {
+  })])], 1), _vm._v(" "), _c("table", {
     staticClass: "table table-striped table-sm"
   }, [_vm._m(1), _vm._v(" "), _c("tbody", {
     staticClass: "flex-column"
@@ -13140,13 +13092,9 @@ var render = function render() {
   }, [_c("div", {
     staticClass: "table-responsive"
   }, [_c("div", {
-    staticClass: "btn-group w-100",
-    attrs: {
-      role: "group",
-      "aria-label": ""
-    }
+    staticClass: "w-100 d-flex"
   }, [_c("input", {
-    staticClass: "form-control w-50",
+    staticClass: "form-control mr-4 inputListar",
     attrs: {
       type: "text",
       id: "searchInput",
@@ -13161,7 +13109,7 @@ var render = function render() {
       }
     }
   }), _vm._v(" "), _c("router-link", {
-    staticClass: "btn btn-success w-50",
+    staticClass: "btn btn-success botonListar",
     attrs: {
       to: {
         name: "AltaMascota"
@@ -13170,7 +13118,7 @@ var render = function render() {
     }
   }, [_c("i", {
     staticClass: "fas fa-paw"
-  }), _vm._v(" Alta mascota")])], 1), _vm._v(" "), _c("table", {
+  })])], 1), _vm._v(" "), _c("table", {
     staticClass: "table table-striped table-sm"
   }, [_vm._m(1), _vm._v(" "), _c("tbody", {
     staticClass: "flex-column"
@@ -13256,29 +13204,6 @@ render._withStripped = true;
 
 /***/ }),
 
-/***/ "./node_modules/babel-loader/lib/index.js??clonedRuleSet-5.use[0]!./node_modules/vue-loader/lib/loaders/templateLoader.js??ruleSet[1].rules[2]!./node_modules/vue-loader/lib/index.js??vue-loader-options!./resources/js/components/ListarPruebas.vue?vue&type=template&id=093016d0&":
-/*!*******************************************************************************************************************************************************************************************************************************************************************************************!*\
-  !*** ./node_modules/babel-loader/lib/index.js??clonedRuleSet-5.use[0]!./node_modules/vue-loader/lib/loaders/templateLoader.js??ruleSet[1].rules[2]!./node_modules/vue-loader/lib/index.js??vue-loader-options!./resources/js/components/ListarPruebas.vue?vue&type=template&id=093016d0& ***!
-  \*******************************************************************************************************************************************************************************************************************************************************************************************/
-/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
-
-"use strict";
-__webpack_require__.r(__webpack_exports__);
-/* harmony export */ __webpack_require__.d(__webpack_exports__, {
-/* harmony export */   "render": () => (/* binding */ render),
-/* harmony export */   "staticRenderFns": () => (/* binding */ staticRenderFns)
-/* harmony export */ });
-var render = function render() {
-  var _vm = this,
-    _c = _vm._self._c;
-  return _c("div", [_vm._v("Listar pruebas")]);
-};
-var staticRenderFns = [];
-render._withStripped = true;
-
-
-/***/ }),
-
 /***/ "./node_modules/babel-loader/lib/index.js??clonedRuleSet-5.use[0]!./node_modules/vue-loader/lib/loaders/templateLoader.js??ruleSet[1].rules[2]!./node_modules/vue-loader/lib/index.js??vue-loader-options!./resources/js/components/ListarVisitas.vue?vue&type=template&id=115b2b13&":
 /*!*******************************************************************************************************************************************************************************************************************************************************************************************!*\
   !*** ./node_modules/babel-loader/lib/index.js??clonedRuleSet-5.use[0]!./node_modules/vue-loader/lib/loaders/templateLoader.js??ruleSet[1].rules[2]!./node_modules/vue-loader/lib/index.js??vue-loader-options!./resources/js/components/ListarVisitas.vue?vue&type=template&id=115b2b13& ***!
@@ -13297,28 +13222,29 @@ var render = function render() {
   return _c("div", {
     staticClass: "card"
   }, [_vm._m(0), _vm._v(" "), _c("div", {
-    staticClass: "card-body"
-  }, [_c("div", {
-    staticClass: "row"
-  }, [_c("div", {
-    staticClass: "table-responsive"
-  }, [_c("div", {
     staticClass: "btn-group w-100",
     attrs: {
       role: "group",
       "aria-label": ""
     }
   }, [_c("router-link", {
-    staticClass: "btn btn-success w-100",
+    staticClass: "btn btn-success listar",
     attrs: {
       to: {
-        name: "NuevaVisita"
+        name: "NuevaVisita",
+        params: {
+          id: _vm.visita.mascotas_id
+        }
       },
       title: "Nueva Visita"
     }
   }, [_c("i", {
     staticClass: "fas fa-calendar-plus"
-  }), _vm._v(" Nueva visita")])], 1), _vm._v(" "), _c("table", {
+  })])], 1), _vm._v(" "), _c("div", {
+    staticClass: "row"
+  }, [_c("div", {
+    staticClass: "table-responsive"
+  }, [_c("table", {
     staticClass: "table table-striped table-sm"
   }, [_vm._m(1), _vm._v(" "), _c("tbody", {
     staticClass: "flex-column"
@@ -13358,7 +13284,7 @@ var render = function render() {
         color: "#ffffff"
       }
     })]), _vm._v(" "), _c("button", {
-      staticClass: "btn btn-warning",
+      staticClass: "btn btn-secondary",
       attrs: {
         title: "Generar PDF"
       },
@@ -13370,7 +13296,7 @@ var render = function render() {
     }, [_c("i", {
       staticClass: "fa-solid fa-file-pdf"
     })]), _vm._v(" "), _c("button", {
-      staticClass: "btn btn-secondary",
+      staticClass: "btn btn-warning",
       attrs: {
         title: "Enviar correo"
       },
@@ -13382,7 +13308,7 @@ var render = function render() {
     }, [_c("i", {
       staticClass: "fa-solid fa-envelope"
     })])], 1)]);
-  }), 0)])])])]), _vm._v(" "), _c("div", [_c("paginacion", {
+  }), 0)])])]), _vm._v(" "), _c("div", [_c("paginacion", {
     attrs: {
       "current-page": _vm.currentPage,
       "total-pages": _vm.totalPages
@@ -13455,21 +13381,7 @@ var render = function render() {
     staticClass: "card-header bg-dark text-light"
   }, [_c("h2", {
     staticClass: "card-title"
-  }, [_vm._v("Bioquímica " + _vm._s(_vm.bioquimica.animal === "perro" ? "perro" : "gato"))])]), _vm._v(" "), _c("div", {
-    staticClass: "card-body"
-  }, [_c("button", {
-    staticClass: "btn btn-warning m_izq m_der",
-    attrs: {
-      title: "Cambiar animal"
-    },
-    on: {
-      click: function click($event) {
-        return _vm.cambiarAnimal();
-      }
-    }
-  }, [_c("i", {
-    staticClass: "fas fa-sync-alt"
-  }), _vm._v(" Bioquímica " + _vm._s(_vm.change) + "\n            ")])]), _vm._v(" "), _c("form", {
+  }, [_vm._v("Bioquímica " + _vm._s(_vm.bioquimica.animal === "perro" ? "perro" : "gato"))])]), _vm._v(" "), _c("form", {
     on: {
       submit: function submit($event) {
         $event.preventDefault();
@@ -14197,13 +14109,15 @@ var render = function render() {
   }), _vm._v(" "), _vm.errores.coste ? _c("div", {
     staticClass: "alert alert-danger"
   }, [_vm._v(_vm._s(_vm.errores.coste[0]))]) : _vm._e()])])])]), _vm._v(" "), _c("div", {
+    staticClass: "card-body"
+  }, [_c("div", {
     staticClass: "btn-group w-100",
     attrs: {
       role: "group",
       "aria-label": ""
     }
   }, [_vm._m(11), _vm._v(" "), _c("router-link", {
-    staticClass: "btn btn-warning",
+    staticClass: "btn btn-warning m_der",
     attrs: {
       to: {
         name: "ListarVisitas"
@@ -14212,7 +14126,7 @@ var render = function render() {
     }
   }, [_c("i", {
     staticClass: "bi bi-arrow-return-left fw-bold"
-  })])], 1)])])]);
+  })])], 1)])])])]);
 };
 var staticRenderFns = [function () {
   var _vm = this,
@@ -14314,14 +14228,14 @@ var staticRenderFns = [function () {
   var _vm = this,
     _c = _vm._self._c;
   return _c("button", {
-    staticClass: "btn btn-success",
+    staticClass: "btn btn-success m_izq",
     attrs: {
       type: "submit",
       title: "Nueva visita"
     }
   }, [_c("i", {
     staticClass: "fas fa-calendar-plus"
-  }), _vm._v(" Nueva visita\n                ")]);
+  })]);
 }];
 render._withStripped = true;
 
@@ -14351,21 +14265,7 @@ var render = function render() {
     staticClass: "card-header bg-dark text-light"
   }, [_c("h2", {
     staticClass: "card-title"
-  }, [_vm._v("Hemograma " + _vm._s(_vm.hemograma.animal === "perro" ? "perro" : "gato"))])]), _vm._v(" "), _c("div", {
-    staticClass: "card-body"
-  }, [_c("button", {
-    staticClass: "btn btn-warning m_izq m_der",
-    attrs: {
-      title: "Cambiar animal"
-    },
-    on: {
-      click: function click($event) {
-        return _vm.cambiarAnimal();
-      }
-    }
-  }, [_c("i", {
-    staticClass: "fas fa-sync-alt"
-  }), _vm._v(" Hemograma " + _vm._s(_vm.change) + "\n            ")])]), _vm._v(" "), _c("form", {
+  }, [_vm._v("Hemograma " + _vm._s(_vm.hemograma.animal === "perro" ? "perro" : "gato"))])]), _vm._v(" "), _c("form", {
     on: {
       submit: function submit($event) {
         $event.preventDefault();
@@ -14772,7 +14672,7 @@ render._withStripped = true;
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
-/* harmony import */ var vue_router__WEBPACK_IMPORTED_MODULE_17__ = __webpack_require__(/*! vue-router */ "./node_modules/vue-router/dist/vue-router.esm.js");
+/* harmony import */ var vue_router__WEBPACK_IMPORTED_MODULE_16__ = __webpack_require__(/*! vue-router */ "./node_modules/vue-router/dist/vue-router.esm.js");
 /* harmony import */ var _components_AltaCliente_vue__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./components/AltaCliente.vue */ "./resources/js/components/AltaCliente.vue");
 /* harmony import */ var _components_ListarClientes_vue__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./components/ListarClientes.vue */ "./resources/js/components/ListarClientes.vue");
 /* harmony import */ var _components_FichaCliente_vue__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./components/FichaCliente.vue */ "./resources/js/components/FichaCliente.vue");
@@ -14787,9 +14687,8 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _components_FichaVisita_vue__WEBPACK_IMPORTED_MODULE_11__ = __webpack_require__(/*! ./components/FichaVisita.vue */ "./resources/js/components/FichaVisita.vue");
 /* harmony import */ var _components_NuevoHemograma_vue__WEBPACK_IMPORTED_MODULE_12__ = __webpack_require__(/*! ./components/NuevoHemograma.vue */ "./resources/js/components/NuevoHemograma.vue");
 /* harmony import */ var _components_NuevaBioquimica_vue__WEBPACK_IMPORTED_MODULE_13__ = __webpack_require__(/*! ./components/NuevaBioquimica.vue */ "./resources/js/components/NuevaBioquimica.vue");
-/* harmony import */ var _components_ListarPruebas_vue__WEBPACK_IMPORTED_MODULE_14__ = __webpack_require__(/*! ./components/ListarPruebas.vue */ "./resources/js/components/ListarPruebas.vue");
-/* harmony import */ var _components_FichaHemograma_vue__WEBPACK_IMPORTED_MODULE_15__ = __webpack_require__(/*! ./components/FichaHemograma.vue */ "./resources/js/components/FichaHemograma.vue");
-/* harmony import */ var _components_FichaBioquimica_vue__WEBPACK_IMPORTED_MODULE_16__ = __webpack_require__(/*! ./components/FichaBioquimica.vue */ "./resources/js/components/FichaBioquimica.vue");
+/* harmony import */ var _components_FichaHemograma_vue__WEBPACK_IMPORTED_MODULE_14__ = __webpack_require__(/*! ./components/FichaHemograma.vue */ "./resources/js/components/FichaHemograma.vue");
+/* harmony import */ var _components_FichaBioquimica_vue__WEBPACK_IMPORTED_MODULE_15__ = __webpack_require__(/*! ./components/FichaBioquimica.vue */ "./resources/js/components/FichaBioquimica.vue");
 __webpack_require__(/*! ./bootstrap */ "./resources/js/bootstrap.js");
 window.Vue = (__webpack_require__(/*! vue */ "./node_modules/vue/dist/vue.esm.js")["default"]);
 
@@ -14809,8 +14708,7 @@ window.Vue = (__webpack_require__(/*! vue */ "./node_modules/vue/dist/vue.esm.js
 
 
 
-
-Vue.use(vue_router__WEBPACK_IMPORTED_MODULE_17__["default"]);
+Vue.use(vue_router__WEBPACK_IMPORTED_MODULE_16__["default"]);
 var routes = [{
   path: '/',
   name: 'ListarMascotas',
@@ -14913,28 +14811,21 @@ var routes = [{
     requiresAuth: true
   }
 }, {
-  path: '/listarpruebas/:id',
-  name: 'ListarPruebas',
-  component: _components_ListarPruebas_vue__WEBPACK_IMPORTED_MODULE_14__["default"],
-  meta: {
-    requiresAuth: true
-  }
-}, {
   path: '/fichahemograma/:id',
   name: 'FichaHemograma',
-  component: _components_FichaHemograma_vue__WEBPACK_IMPORTED_MODULE_15__["default"],
+  component: _components_FichaHemograma_vue__WEBPACK_IMPORTED_MODULE_14__["default"],
   meta: {
     requiresAuth: true
   }
 }, {
   path: '/fichabioquimica/:id',
   name: 'FichaBioquimica',
-  component: _components_FichaBioquimica_vue__WEBPACK_IMPORTED_MODULE_16__["default"],
+  component: _components_FichaBioquimica_vue__WEBPACK_IMPORTED_MODULE_15__["default"],
   meta: {
     requiresAuth: true
   }
 }];
-var router = new vue_router__WEBPACK_IMPORTED_MODULE_17__["default"]({
+var router = new vue_router__WEBPACK_IMPORTED_MODULE_16__["default"]({
   routes: routes
 });
 var app = new Vue({
@@ -42634,43 +42525,6 @@ component.options.__file = "resources/js/components/ListarMascotas.vue"
 
 /***/ }),
 
-/***/ "./resources/js/components/ListarPruebas.vue":
-/*!***************************************************!*\
-  !*** ./resources/js/components/ListarPruebas.vue ***!
-  \***************************************************/
-/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
-
-"use strict";
-__webpack_require__.r(__webpack_exports__);
-/* harmony export */ __webpack_require__.d(__webpack_exports__, {
-/* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
-/* harmony export */ });
-/* harmony import */ var _ListarPruebas_vue_vue_type_template_id_093016d0___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./ListarPruebas.vue?vue&type=template&id=093016d0& */ "./resources/js/components/ListarPruebas.vue?vue&type=template&id=093016d0&");
-/* harmony import */ var _node_modules_vue_loader_lib_runtime_componentNormalizer_js__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! !../../../node_modules/vue-loader/lib/runtime/componentNormalizer.js */ "./node_modules/vue-loader/lib/runtime/componentNormalizer.js");
-
-var script = {}
-
-
-/* normalize component */
-;
-var component = (0,_node_modules_vue_loader_lib_runtime_componentNormalizer_js__WEBPACK_IMPORTED_MODULE_1__["default"])(
-  script,
-  _ListarPruebas_vue_vue_type_template_id_093016d0___WEBPACK_IMPORTED_MODULE_0__.render,
-  _ListarPruebas_vue_vue_type_template_id_093016d0___WEBPACK_IMPORTED_MODULE_0__.staticRenderFns,
-  false,
-  null,
-  null,
-  null
-  
-)
-
-/* hot reload */
-if (false) { var api; }
-component.options.__file = "resources/js/components/ListarPruebas.vue"
-/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (component.exports);
-
-/***/ }),
-
 /***/ "./resources/js/components/ListarVisitas.vue":
 /*!***************************************************!*\
   !*** ./resources/js/components/ListarVisitas.vue ***!
@@ -43340,23 +43194,6 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */   "staticRenderFns": () => (/* reexport safe */ _node_modules_babel_loader_lib_index_js_clonedRuleSet_5_use_0_node_modules_vue_loader_lib_loaders_templateLoader_js_ruleSet_1_rules_2_node_modules_vue_loader_lib_index_js_vue_loader_options_ListarMascotas_vue_vue_type_template_id_7eb02255___WEBPACK_IMPORTED_MODULE_0__.staticRenderFns)
 /* harmony export */ });
 /* harmony import */ var _node_modules_babel_loader_lib_index_js_clonedRuleSet_5_use_0_node_modules_vue_loader_lib_loaders_templateLoader_js_ruleSet_1_rules_2_node_modules_vue_loader_lib_index_js_vue_loader_options_ListarMascotas_vue_vue_type_template_id_7eb02255___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! -!../../../node_modules/babel-loader/lib/index.js??clonedRuleSet-5.use[0]!../../../node_modules/vue-loader/lib/loaders/templateLoader.js??ruleSet[1].rules[2]!../../../node_modules/vue-loader/lib/index.js??vue-loader-options!./ListarMascotas.vue?vue&type=template&id=7eb02255& */ "./node_modules/babel-loader/lib/index.js??clonedRuleSet-5.use[0]!./node_modules/vue-loader/lib/loaders/templateLoader.js??ruleSet[1].rules[2]!./node_modules/vue-loader/lib/index.js??vue-loader-options!./resources/js/components/ListarMascotas.vue?vue&type=template&id=7eb02255&");
-
-
-/***/ }),
-
-/***/ "./resources/js/components/ListarPruebas.vue?vue&type=template&id=093016d0&":
-/*!**********************************************************************************!*\
-  !*** ./resources/js/components/ListarPruebas.vue?vue&type=template&id=093016d0& ***!
-  \**********************************************************************************/
-/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
-
-"use strict";
-__webpack_require__.r(__webpack_exports__);
-/* harmony export */ __webpack_require__.d(__webpack_exports__, {
-/* harmony export */   "render": () => (/* reexport safe */ _node_modules_babel_loader_lib_index_js_clonedRuleSet_5_use_0_node_modules_vue_loader_lib_loaders_templateLoader_js_ruleSet_1_rules_2_node_modules_vue_loader_lib_index_js_vue_loader_options_ListarPruebas_vue_vue_type_template_id_093016d0___WEBPACK_IMPORTED_MODULE_0__.render),
-/* harmony export */   "staticRenderFns": () => (/* reexport safe */ _node_modules_babel_loader_lib_index_js_clonedRuleSet_5_use_0_node_modules_vue_loader_lib_loaders_templateLoader_js_ruleSet_1_rules_2_node_modules_vue_loader_lib_index_js_vue_loader_options_ListarPruebas_vue_vue_type_template_id_093016d0___WEBPACK_IMPORTED_MODULE_0__.staticRenderFns)
-/* harmony export */ });
-/* harmony import */ var _node_modules_babel_loader_lib_index_js_clonedRuleSet_5_use_0_node_modules_vue_loader_lib_loaders_templateLoader_js_ruleSet_1_rules_2_node_modules_vue_loader_lib_index_js_vue_loader_options_ListarPruebas_vue_vue_type_template_id_093016d0___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! -!../../../node_modules/babel-loader/lib/index.js??clonedRuleSet-5.use[0]!../../../node_modules/vue-loader/lib/loaders/templateLoader.js??ruleSet[1].rules[2]!../../../node_modules/vue-loader/lib/index.js??vue-loader-options!./ListarPruebas.vue?vue&type=template&id=093016d0& */ "./node_modules/babel-loader/lib/index.js??clonedRuleSet-5.use[0]!./node_modules/vue-loader/lib/loaders/templateLoader.js??ruleSet[1].rules[2]!./node_modules/vue-loader/lib/index.js??vue-loader-options!./resources/js/components/ListarPruebas.vue?vue&type=template&id=093016d0&");
 
 
 /***/ }),

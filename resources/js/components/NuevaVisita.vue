@@ -86,17 +86,16 @@
                         </div>
                     </div>
                 </div>
-
-                <div class="btn-group w-100" role="group" aria-label="">
-                    <button type="submit" class="btn btn-success" title="Nueva visita">
-                        <i class="fas fa-calendar-plus"></i> Nueva visita
-                    </button>
-
-                    <router-link :to="{ name: 'ListarVisitas' }" class="btn btn-warning" title="Volver">
-                        <i class="bi bi-arrow-return-left fw-bold"></i>
-                    </router-link>
+                <div class="card-body">
+                    <div class="btn-group w-100" role="group" aria-label="">
+                        <button type="submit" class="btn btn-success m_izq" title="Nueva visita">
+                            <i class="fas fa-calendar-plus"></i>
+                        </button>
+                        <router-link :to="{ name: 'ListarVisitas' }" class="btn btn-warning m_der" title="Volver">
+                            <i class="bi bi-arrow-return-left fw-bold"></i>
+                        </router-link>
+                    </div>
                 </div>
-
             </form>
         </div>
 

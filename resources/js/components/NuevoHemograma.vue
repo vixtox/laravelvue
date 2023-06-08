@@ -4,11 +4,11 @@
             <div class="card-header bg-dark text-light">
                 <h2 class="card-title">Hemograma {{ hemograma.animal === "perro" ? 'perro' : 'gato' }}</h2>
             </div>
-            <div class="card-body">
+            <!-- <div class="card-body">
                 <button class="btn btn-warning m_izq m_der" @click="cambiarAnimal()" title="Cambiar animal">
                     <i class="fas fa-sync-alt"></i> Hemograma {{ change }}
                 </button>
-            </div>
+            </div> -->
             <form @submit.prevent="agregarHemograma">
                 <table class="table">
                     <thead>
@@ -200,12 +200,12 @@ export default {
                 leucocitos: null,
                 plaquetas: null,
                 fecha: "",
-                animal: "perro",
+                animal: "",
                 mascotas_id: "",
                 visita_id: this.$route.params.id,
             },
             errores: {},
-            change: "gato",
+            // change: "gato",
             mascota: [],
             cliente: [],
             visita: [],
@@ -230,10 +230,18 @@ export default {
                 this.hemograma.mascotas_id = this.mascota.id;
                 this.cliente = response.data.cliente;
                 this.visita = response.data.visita;
+
+                if (this.mascota.especie_id === 1) {
+                    this.hemograma.animal = 'perro';
+                } else {
+                    this.hemograma.animal = 'gato';
+                }
+
             } catch (error) {
                 console.error(error);
             }
         },
+
 
         // Inserta en la base de datos
         async agregarHemograma() {
@@ -275,15 +283,15 @@ export default {
 
         },
 
-        cambiarAnimal() {
-            if (this.hemograma.animal === "perro") {
-                this.hemograma.animal = "gato";
-                this.change = "perro";
-            } else {
-                this.hemograma.animal = "perro";
-                this.change = "gato";
-            }
-        },
+        // cambiarAnimal() {
+        //     if (this.hemograma.animal === "perro") {
+        //         this.hemograma.animal = "gato";
+        //         this.change = "perro";
+        //     } else {
+        //         this.hemograma.animal = "perro";
+        //         this.change = "gato";
+        //     }
+        // },
 
         getCurrentDate() {
             const today = new Date();
