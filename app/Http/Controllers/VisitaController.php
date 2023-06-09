@@ -196,8 +196,7 @@ class VisitaController extends Controller
             $pdf_content3 = $pdf3->output();
         }
 
-        $subject = "Visita $mascota->nombre $visita->fecha_visita";
-        $subject = 'Don Can: visita de ' . $mascota->nombre;;
+        $subject = 'Don Can: visita de ' . $mascota->nombre;
         $to = $cliente->email;
         $body = 'Gracias por visitar nuestra clínica, le adjuntamos documento de la visita';
 

@@ -40,6 +40,12 @@ Route::post('/login', [SessionsController::class, 'store'])
     ->name('login.store');
 Route::post('/logout', [SessionsController::class, 'destroy'])->name('logout');
 
+// RECUPERAR CLAVE
+Route::get('/recuperarClave', [SessionsController::class, 'formRecuperarClave'])->name('recuperarClave');
+Route::post('recuperarClave', [SessionsController::class, 'checkEmail']);
+Route::get('/generatePass', [SessionsController::class, 'generatePass'])->name('generatePass');
+
+
 // RUTAS USUARIOS LOGUEADOS
 Route::middleware(['user'])->group(function () {
     // RUTA PANTALLA INICIO
@@ -81,7 +87,7 @@ Route::middleware(['user'])->group(function () {
 });
 
 // RUTAS RESERVADAS ROL ADMIN
-Route::middleware(['admin'])->group(function () {
+Route::middleware(['admin', 'master'])->group(function () {
 
     // RUTAS EMPLEADO
     Route::get('/empleados/buscar', [EmpleadoController::class, 'buscarEmpleados']);
@@ -90,6 +96,10 @@ Route::middleware(['admin'])->group(function () {
     ]);
 });
 
+
+// RUTAS RESERVADAS ROL MASTER
+Route::middleware(['master'])->group(function () {
 // RUTAS REGISTRO USER
 Route::get('/register', [RegisterController::class, 'create'])->name('register.index');
 Route::post('/register', [RegisterController::class, 'store'])->name('register.store');
+});

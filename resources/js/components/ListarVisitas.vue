@@ -4,7 +4,7 @@
             <h2 class="card-title">Lista de visitas</h2>
         </div>
         <div class="btn-group w-100" role="group" aria-label="">
-            <router-link :to="{ name: 'NuevaVisita', params: { id: visita.mascotas_id } }" class="btn btn-success listar" title="Nueva Visita">
+            <router-link :to="{ name: 'NuevaVisita', params: { id: this.$route.params.id } }" class="btn btn-success listar" title="Nueva Visita">
                 <i class="fas fa-calendar-plus"></i></router-link>
         </div>
         <div class="row">
