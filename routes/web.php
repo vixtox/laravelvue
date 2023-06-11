@@ -75,6 +75,10 @@ Route::middleware(['user'])->group(function () {
     //RUTAS BIOQUÍMICA
     Route::get('/bioquimicas/generate-pdf/{id}', [BioquimicaController::class, 'generatePDF']);
     Route::resource('/bioquimicas', BioquimicaController::class)->except(['create', 'edit']);
+    //RUTAS USUARIO
+    Route::get('/users', [RegisterController::class, 'getUser']);
+    Route::put('/users/{new_pass}', [RegisterController::class, 'updateUser']);
+    
 
     // RUTAS VETERINARIO
     Route::get('/empleados/listar_veterinarios', [EmpleadoController::class, 'listar_veterinarios']);
@@ -99,7 +103,7 @@ Route::middleware(['admin', 'master'])->group(function () {
 
 // RUTAS RESERVADAS ROL MASTER
 Route::middleware(['master'])->group(function () {
-// RUTAS REGISTRO USER
-Route::get('/register', [RegisterController::class, 'create'])->name('register.index');
-Route::post('/register', [RegisterController::class, 'store'])->name('register.store');
+    // RUTAS REGISTRO USER
+    Route::get('/register', [RegisterController::class, 'create'])->name('register.index');
+    Route::post('/register', [RegisterController::class, 'store'])->name('register.store');
 });

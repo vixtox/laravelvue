@@ -69,7 +69,7 @@
                         <a class="btn btn-danger logout" title="Cerrar sesión" href="{{ route('logout') }}"
                             onclick="event.preventDefault(); document.getElementById('logout-form').submit();"
                             style="position: absolute; top: 0; right: 0;">
-                            Exit Master <i class="bi bi-box-arrow-left"></i>
+                            Exit <i class="bi bi-box-arrow-left"></i>
                         </a>
                         <form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">
                             @csrf

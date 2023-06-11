@@ -21,6 +21,8 @@ import NuevoHemograma from './components/NuevoHemograma.vue';
 import NuevaBioquimica from './components/NuevaBioquimica.vue';
 import FichaHemograma from './components/FichaHemograma.vue';
 import FichaBioquimica from './components/FichaBioquimica.vue';
+import MiCuenta from './components/MiCuenta.vue';
+
 
 
 Vue.use(VueRouter);
@@ -154,6 +156,14 @@ const routes = [
         path: '/fichabioquimica/:id',
         name: 'FichaBioquimica',
         component: FichaBioquimica,
+        meta: {
+            requiresAuth: true
+        }
+    },
+    {
+        path: '/micuenta',
+        name: 'MiCuenta',
+        component: MiCuenta,
         meta: {
             requiresAuth: true
         }

@@ -42,30 +42,11 @@
     <style>
         .azul {
             background-color: #77a9ca;
-
-            padding-top: 1%;
-            padding-bottom: 1%;
-        }
-
-        .logo {
-            padding-left: 1%;
-        }
-
-        .iconos {
-            padding-left: 1%;
-        }
-
-        .menu {
-            padding-left: 10%;
         }
 
         .complemento {
-            margin-top: 2%;
-            margin-bottom: 2%;
-        }
-
-        .logout {
-            margin-right: 10%;
+            margin-top: 1%;
+            margin-bottom: 1%;
         }
 
         .gris {
@@ -77,49 +58,59 @@
         }
 
         .m_izq {
-            margin-left: 35%;
+            margin-left: 40%;
         }
 
         .m_der {
-            margin-right: 35%;
+            margin-right: 40%;
         }
 
-        .listar{
+        .listar {
             margin-left: 45%;
             margin-right: 45%;
             margin-bottom: 1%;
             margin-top: 1%;
         }
 
-        .inputListar{
-            width: 30%; 
+        .inputListar {
+            width: 50%;
             margin-bottom: 1%;
         }
 
-        .botonListar{
-            width: 10%; 
+        .botonListar {
+            width: 10%;
             margin-bottom: 1%;
+        }
+
+        .cuenta {
+            border: 1px solid white;
+            border-radius: 5px;
+            color: white;
+            display: inline-block;
+        }
+
+        .cuenta:hover {
+            background-color: black;
+        }
+
+        .subrayado {
+            text-decoration: none;
         }
 
     </style>
 
     <title>@yield('title')</title>
+
 </head>
 
 <body>
 
-    <div id="app">
-        @yield('contenido')
-    </div>
+    <div id="app">@yield('contenido')</div>
 
-    <div>
-        @yield('footer')
-    </div>
+    <div>@yield('footer')</div>
 
+    <script>window.userRole = "{{ Auth::check() ? Auth::user()->tipo : '' }}";</script>
 
-    <script>
-        window.userRole = "{{ Auth::check() ? Auth::user()->tipo : '' }}";
-    </script>
     <script src="{{ asset('js/app.js') }}"></script>
 
     {{-- Script que cierra un group-item al abrir otro distinto --}}
@@ -129,6 +120,37 @@
                 $('.collapse.show').each(function() {
                     $(this).collapse('hide');
                 });
+            });
+        });
+    </script>
+
+    <script>
+        $(document).ready(function() {
+            // Ocultar o mostrar el menú lateral según el tamaño de la pantalla
+            function toggleMenu() {
+                if ($(window).width() < 992) {
+                    $("#navbarMenuHamburguesa").hide();
+                } else {
+                    $("#navbarMenuHamburguesa").show();
+                }
+            }
+
+            // Mostrar/ocultar el menú lateral al hacer clic en el botón de hamburguesa
+            $(".navbar-toggler").click(function() {
+                $("#navbarMenuHamburguesa").toggle();
+            });
+
+            // Ocultar o mostrar el menú lateral al cargar y redimensionar la ventana
+            $(window).on("load resize", function() {
+                toggleMenu();
+                $("#navbarMenu").show(); // Mostrar siempre el elemento con id "navbarMenu"
+            });
+
+            // Cerrar el menú lateral al hacer clic en un submenú
+            $(".list-group-item-action").click(function() {
+                if ($(window).width() < 992) {
+                    $("#navbarMenuHamburguesa").hide();
+                }
             });
         });
     </script>

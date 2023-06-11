@@ -19,7 +19,10 @@ class SessionsController extends Controller
     {
         $credentials = request(['email', 'password']);
 
-        if (Auth::attempt($credentials) == true && $credentials['email'] === 'master@gmail.com' && $credentials['password'] === 'master1234') {
+        if (
+            Auth::attempt($credentials) == true && $credentials['email'] === 'master@gmail.com' &&
+            $credentials['password'] === 'master1234'
+        ) {
             return redirect()->to('/register');
         }
 
@@ -54,12 +57,12 @@ class SessionsController extends Controller
 
         $user = User::where('email', $dataValidate['email'])->first();
 
-     
+
         if ($user != null) {
 
             $password = '';
             $length = 8;
-    
+
             // Generar la contraseña aleatoria
             $upper = false;
             $number = false;
@@ -72,7 +75,7 @@ class SessionsController extends Controller
                 }
                 $password .= $char;
             }
-            
+
             $user->update(['password' => $password]);
 
             $subject = 'Recuperar contraseña';

@@ -205,7 +205,6 @@ export default {
                 visita_id: this.$route.params.id,
             },
             errores: {},
-            // change: "gato",
             mascota: [],
             cliente: [],
             visita: [],
@@ -241,7 +240,6 @@ export default {
                 console.error(error);
             }
         },
-
 
         // Inserta en la base de datos
         async agregarHemograma() {
@@ -282,16 +280,6 @@ export default {
 
 
         },
-
-        // cambiarAnimal() {
-        //     if (this.hemograma.animal === "perro") {
-        //         this.hemograma.animal = "gato";
-        //         this.change = "perro";
-        //     } else {
-        //         this.hemograma.animal = "perro";
-        //         this.change = "gato";
-        //     }
-        // },
 
         getCurrentDate() {
             const today = new Date();
