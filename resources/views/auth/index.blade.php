@@ -1,6 +1,10 @@
 @extends('layouts.app')
 
-@section('title', 'Menú')
+@section('title')
+  @if(isset($pageTitle))
+    {{ $pageTitle }}
+  @endif
+@endsection
 
 @section('contenido')
 

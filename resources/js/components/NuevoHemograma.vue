@@ -257,6 +257,7 @@ export default {
                         timer: 1500
                     })
                     this.$router.push({ name: 'FichaVisita', params: { id: this.hemograma.visita_id } });
+                    
 
                 } catch (error) {
                     if (error.response.data) {

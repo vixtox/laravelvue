@@ -27,13 +27,17 @@ import MiCuenta from './components/MiCuenta.vue';
 
 Vue.use(VueRouter);
 
+// Variable global para almacenar el título actual
+window.pageTitle = 'Menú';
+
 const routes = [
     {
         path: '/',
         name: 'ListarMascotas',
         component: ListarMascotas,
         meta: {
-            requiresAuth: true
+            requiresAuth: true,
+            title: 'Lista mascotas',
         }
     },
     {
@@ -41,7 +45,8 @@ const routes = [
         name: 'AltaCliente',
         component: AltaCliente,
         meta: {
-            requiresAuth: true
+            requiresAuth: true,
+            title: 'Alta ciente',
         }
     },
     {
@@ -49,7 +54,8 @@ const routes = [
         name: 'ListarClientes',
         component: ListarClientes,
         meta: {
-            requiresAuth: true
+            requiresAuth: true,
+            title: 'Lista clientes',
         }
     },
     {
@@ -57,7 +63,8 @@ const routes = [
         name: 'FichaCliente',
         component: FichaCliente,
         meta: {
-            requiresAuth: true
+            requiresAuth: true,
+            title: 'Ficha cliente',
         }
     },
     {
@@ -66,7 +73,8 @@ const routes = [
         component: AltaEmpleado,
         meta: {
             requiresAuth: true,
-            requiresAdmin: true
+            requiresAdmin: true,
+            title: 'Alta empleado',
         }
     },
     {
@@ -75,7 +83,8 @@ const routes = [
         component: ListarEmpleados,
         meta: {
             requiresAuth: true,
-            requiresAdmin: true
+            requiresAdmin: true,
+            title: 'Lista empleados',
         }
     },
     {
@@ -84,7 +93,8 @@ const routes = [
         component: FichaEmpleado,
         meta: {
             requiresAuth: true,
-            requiresAdmin: true
+            requiresAdmin: true,
+            title: 'Ficha empleado',
         }
     },
     {
@@ -92,7 +102,8 @@ const routes = [
         name: 'AltaMascota',
         component: AltaMascota,
         meta: {
-            requiresAuth: true
+            requiresAuth: true,
+            title: 'Alta mascota',
         }
     },
     
@@ -101,7 +112,8 @@ const routes = [
         name: 'FichaMascota',
         component: FichaMascota,
         meta: {
-            requiresAuth: true
+            requiresAuth: true,
+            title: 'Ficha mascota',
         }
     },
     {
@@ -109,7 +121,8 @@ const routes = [
         name: 'NuevaVisita',
         component: NuevaVisita,
         meta: {
-            requiresAuth: true
+            requiresAuth: true,
+            title: 'Nueva visita',
         }
     },
     {
@@ -117,7 +130,8 @@ const routes = [
         name: 'ListarVisitas',
         component: ListarVisitas,
         meta: {
-            requiresAuth: true
+            requiresAuth: true,
+            title: 'Lista visitas',
         }
     },
     {
@@ -125,7 +139,8 @@ const routes = [
         name: 'FichaVisita',
         component: FichaVisita,
         meta: {
-            requiresAuth: true
+            requiresAuth: true,
+            title: 'Ficha visita',
         }
     },
     {
@@ -133,7 +148,8 @@ const routes = [
         name: 'NuevoHemograma',
         component: NuevoHemograma,
         meta: {
-            requiresAuth: true
+            requiresAuth: true,
+            title: 'Nuevo hemograma',
         }
     },
     {
@@ -141,7 +157,8 @@ const routes = [
         name: 'NuevaBioquimica',
         component: NuevaBioquimica,
         meta: {
-            requiresAuth: true
+            requiresAuth: true,
+            title: 'Nueva bioquímica',
         }
     },
     {
@@ -149,7 +166,8 @@ const routes = [
         name: 'FichaHemograma',
         component: FichaHemograma,
         meta: {
-            requiresAuth: true
+            requiresAuth: true,
+            title: 'Ficha hemograma',
         }
     },
     {
@@ -157,7 +175,8 @@ const routes = [
         name: 'FichaBioquimica',
         component: FichaBioquimica,
         meta: {
-            requiresAuth: true
+            requiresAuth: true,
+            title: 'Ficha bioquímica',
         }
     },
     {
@@ -165,7 +184,8 @@ const routes = [
         name: 'MiCuenta',
         component: MiCuenta,
         meta: {
-            requiresAuth: true
+            requiresAuth: true,
+            title: 'Mi cuenta',
         }
     },
 
@@ -179,6 +199,7 @@ const app = new Vue({
 });
 
 router.beforeEach((to, from, next) => {
+
     const requiresAuth = to.matched.some(record => record.meta.requiresAuth);
     const requiresAdmin = to.matched.some(record => record.meta.requiresAdmin);
     const userRole = window.userRole;
@@ -190,6 +211,10 @@ router.beforeEach((to, from, next) => {
         // El usuario no tiene el rol de administrador, redirige a una página de acceso denegado
         next('/');
     } else {
+        if (to.meta.title) {
+            document.title = to.meta.title;
+        }
         next();
     }
+
 });

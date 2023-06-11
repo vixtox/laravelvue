@@ -52,6 +52,8 @@
             <paginacion :current-page="currentPage" :total-pages="totalPages" @pageChanged="pageChanged"></paginacion>
         </div>
 
+        <router-link :to="{ name: 'FichaMascota', params: { id: mascota_id } }" class="btn btn-warning listar" title="Volver"><i class="bi bi-arrow-return-left fw-bold"></i></router-link>
+
     </div>
 </template>
  
@@ -69,9 +71,11 @@ export default {
         return {
             visitas: [],
             currentPage: 1,
-            totalPages: 2, // aquí debes usar el número total de páginas que correspondan a tu caso específico
+            totalPages: 2,
             visitaToDelete: null,
-            mascota: {},
+            mascota: [],
+            pageTitle: 'Lista visitas',
+            mascota_id: null,
         }
     },
     methods: {
@@ -144,6 +148,7 @@ export default {
                     this.currentPage = response.data.currentPage;
                     this.totalPages = response.data.lastPage;
                     console.log(this.visitas)
+                    this.mascota_id = this.visitas[0].mascotas_id;
                 })
                 .catch(error => {
                     console.error(error);

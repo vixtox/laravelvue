@@ -45,8 +45,8 @@
         }
 
         .complemento {
-            margin-top: 1%;
-            margin-bottom: 1%;
+            margin-top: 4%;
+            margin-bottom: 4%;
         }
 
         .gris {
@@ -78,7 +78,7 @@
         }
 
         .botonListar {
-            width: 10%;
+            width: 12%;
             margin-bottom: 1%;
         }
 
@@ -99,7 +99,8 @@
 
     </style>
 
-    <title>@yield('title')</title>
+    <title>{{ isset($pageTitle) ? $pageTitle : 'Lista mascotas' }}@yield('title')</title>
+    {{-- <title>@yield('title')</title> --}}
 
 </head>
 
@@ -109,7 +110,9 @@
 
     <div>@yield('footer')</div>
 
-    <script>window.userRole = "{{ Auth::check() ? Auth::user()->tipo : '' }}";</script>
+    <script>
+        window.userRole = "{{ Auth::check() ? Auth::user()->tipo : '' }}";
+    </script>
 
     <script src="{{ asset('js/app.js') }}"></script>
 

@@ -62,10 +62,11 @@ export default {
         return {
             clientes: [],
             currentPage: 1,
-            totalPages: 2, // aquí debes usar el número total de páginas que correspondan a tu caso específico
+            totalPages: 2,
             clienteToDelete: null,
             searchTerm: '',
-            selectedClient: null
+            selectedClient: null,
+            pageTitle: 'Lista clientes',
         }
     },
     methods: {

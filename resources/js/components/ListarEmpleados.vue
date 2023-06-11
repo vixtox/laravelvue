@@ -66,10 +66,11 @@ export default {
         return {
             empleados: [],
             currentPage: 1,
-            totalPages: 2, // aquí debes usar el número total de páginas que correspondan a tu caso específico
+            totalPages: 2, 
             empleadoToDelete: null,
             searchTerm: '',
-            selectedClient: null
+            selectedClient: null,
+            pageTitle: 'Lista empleados',
         }
     },
     methods: {

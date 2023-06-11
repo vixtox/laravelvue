@@ -62,11 +62,12 @@ export default {
         return {
             mascotas: [],
             currentPage: 1,
-            totalPages: 2, // aquí debes usar el número total de páginas que correspondan a tu caso específico
+            totalPages: 2, 
             mascotaToDelete: null,
             searchTerm: '',
             selectedClient: null,
             clientes: [],
+            pageTitle: 'Lista mascotas',
         }
     },
     methods: {
