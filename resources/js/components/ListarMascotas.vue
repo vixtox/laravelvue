@@ -9,8 +9,8 @@
                     <div class="w-100 d-flex">
                         <input type="text" id="searchInput" :value="searchTerm" @input="searchTerm = $event.target.value"
                             placeholder="Buscar mascota" class="form-control mr-4 inputListar">
-                        <router-link :to="{ name: 'AltaMascota' }" class="btn btn-success botonListar" title="Alta mascota"> <i
-                                class="fas fa-paw"></i></router-link>
+                        <router-link :to="{ name: 'AltaMascota' }" class="btn btn-success botonListar" title="Alta mascota">
+                            <i class="fas fa-paw"></i></router-link>
                     </div>
                     <table class="table table-striped table-sm">
                         <thead class="bg-dark text-light">
@@ -65,7 +65,8 @@ export default {
             totalPages: 2, // aquí debes usar el número total de páginas que correspondan a tu caso específico
             mascotaToDelete: null,
             searchTerm: '',
-            selectedClient: null
+            selectedClient: null,
+            clientes: [],
         }
     },
     methods: {
@@ -141,28 +142,41 @@ export default {
         }
     },
 
-    mounted() {
+    async mounted() {
         const vm = this;
 
-        axios.get("mascotas/buscar", { params: { search: '' } })
-            .then((res) => {
-                // Inicializar Autocomplete dentro de la promesa
+        axios
+            .get("mascotas/buscar", { params: { search: '' } })
+            .then(async (res) => {
+                const autocompleteData = [];
+
+                // Obtener los datos de las mascotas
+                const mascotas = res.data;
+
+                // Iterar sobre las mascotas y obtener los nombres de las mascotas junto con los nombres de los clientes
+                for (const mascota of mascotas) {
+                    const responseCliente = await axios.get('clientes/' + mascota.cliente_id);
+                    const cliente = responseCliente.data;
+
+                    const nombreCompleto = `${mascota.nombre}, ${cliente.nombre_apellidos}`;
+                    autocompleteData.push(nombreCompleto);
+                }
+
+                // Inicializar Autocomplete con los datos obtenidos
                 $("#searchInput").autocomplete({
-                    source: res.data.map((mascota) => mascota.nombre),
+                    source: autocompleteData,
                     select: (event, ui) => {
-                        vm.searchTerm = ui.item.value;
+                        const [nombreMascota, nombreCliente] = ui.item.value.split(", ");
 
-                        // Obtener el objeto completo del cliente seleccionado
-                        vm.selectedClient = res.data.find((mascota) => mascota.nombre === ui.item.value);
+                        // Obtener el ID de la mascota
+                        const mascotaSeleccionada = mascotas.find(mascota => mascota.nombre === nombreMascota);
+                        const idMascota = mascotaSeleccionada.id;
 
-                        if (vm.selectedClient) {
-                            // Redirigir al usuario a la ruta FichaMascota con el parámetro id
-                            vm.$router.push({ name: 'FichaMascota', params: { id: vm.selectedClient.id } });
-                        }
+                        // Redirigir al usuario a la ruta FichaMascota con el parámetro id
+                        vm.$router.push({ name: 'FichaMascota', params: { id: idMascota } });
 
                         return false;
                     },
-
                 });
             })
             .catch((error) => {
