@@ -53,6 +53,11 @@
             margin-left: auto;
             margin-right: auto;
         }
+
+        .error{
+            color: red;
+        }
+
     </style>
 
     <title>Registrar usuario</title>
@@ -88,14 +93,14 @@
                     <input class="form-control" type="text" placeholder="name" id="name" name="name">
 
                     @error('name')
-                        <p>{{ $message }}</p>
+                        <p class="error">{{ $message }}</p>
                     @enderror
 
                     <label for="email">Email</label>
                     <input class="form-control" type="email" placeholder="email" id="email" name="email">
 
                     @error('email')
-                        <p>{{ $message }}</p>
+                        <p class="error">{{ $message }}</p>
                     @enderror
 
                     <div class="form-check">
@@ -107,7 +112,7 @@
                     <input class="form-control" type="password" placeholder="password" id="password" name="password">
 
                     @error('password')
-                        <p>{{ $message }}</p>
+                        <p class="error">{{ $message }}</p>
                     @enderror
 
                     <label for="password_confirmation">Confirma contraseña</label>

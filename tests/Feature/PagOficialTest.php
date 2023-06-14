@@ -26,8 +26,8 @@ class PagOficialTest extends TestCase
     public function testSobreNosotrosRoute()
     {
         $response = $this->get(route('/sobrenosotros'));
-        // $response->assertViewIs('sobrenosotros');
-        // $response->assertStatus(200);
+        $response->assertViewIs('sobrenosotros');
+        $response->assertStatus(200);
     }
 
     // /**

@@ -91,8 +91,7 @@ Route::middleware(['user'])->group(function () {
 });
 
 // RUTAS RESERVADAS ROL ADMIN
-Route::middleware(['admin', 'master'])->group(function () {
-
+Route::middleware(['admin'])->group(function () {
     // RUTAS EMPLEADO
     Route::get('/empleados/buscar', [EmpleadoController::class, 'buscarEmpleados']);
     Route::resource('/empleados', EmpleadoController::class)->except([

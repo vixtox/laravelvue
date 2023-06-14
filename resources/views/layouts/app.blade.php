@@ -97,6 +97,9 @@
             text-decoration: none;
         }
 
+        #iconoEmpleado {
+            font-size: 22px;
+        }
     </style>
 
     <title>{{ isset($pageTitle) ? $pageTitle : 'Lista mascotas' }}@yield('title')</title>

@@ -1,13 +1,12 @@
 @extends('layouts.app')
 
 @section('title')
-  @if(isset($pageTitle))
-    {{ $pageTitle }}
-  @endif
+    @if (isset($pageTitle))
+        {{ $pageTitle }}
+    @endif
 @endsection
 
 @section('contenido')
-
     {{-- HEADER --}}
     <nav class="navbar navbar-expand-lg navbar-light azul">
         <div class="navbar">
@@ -55,7 +54,8 @@
             <div class="d-flex h-100" id="wrapper">
                 <div class="bg-dark text-light border-right flex-grow-1" id="sidebar-wrapper">
                     <div class="list-group list-group-flush">
-                        <router-link to="/listarclientes" class="list-group-item list-group-item-action bg-dark text-light mt-4">
+                        <router-link to="/listarclientes"
+                            class="list-group-item list-group-item-action bg-dark text-light mt-4">
                             <i class="fa-solid fa-user"></i> Clientes
                         </router-link>
                         <router-link to="/" class="list-group-item list-group-item-action bg-dark text-light">
@@ -70,7 +70,7 @@
 
                         @if (Auth::check() && Auth::user()->tipo === 'Admin')
                             <router-link to="/listarempleados"
-                                class="list-group-item list-group-item-action bg-dark text-light">Empleados
+                                class="list-group-item list-group-item-action bg-dark text-light"><i id="iconoEmpleado" class="bi bi-person-fill-gear"></i> Empleados
                             </router-link>
                         @endif
                     </div>
@@ -87,12 +87,10 @@
             </div>
         </div>
     </div>
-
 @endsection
 
 {{-- FOOTER --}}
 @section('footer')
-
     <footer class="azul text-center text-white">
 
         <!-- Grid container -->
@@ -119,5 +117,4 @@
             </div>
         </div>
     </footer>
-
 @endsection
